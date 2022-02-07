@@ -4,7 +4,6 @@ using Dalamud.Plugin;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
-using System;
 using System.Linq;
 using ChatTwo.Code;
 
@@ -23,8 +22,7 @@ namespace TidyChat
         private Configuration Configuration { get; init; }
         private PluginUI PluginUi { get; init; }
 
-        // Lifted below lines (27-39) from Anna's chat2
-
+        // Lifted below lines (27-39) from Anna's Chat2
         private const ushort Clear7 = ~(~0 << 7);
         internal ushort Raw { get; }
         internal ChatType Type => (ChatType)(this.Raw & Clear7);
@@ -64,41 +62,40 @@ namespace TidyChat
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
         }
 
-        public static int numberOfCommendations = 0;
-        public static int runOnlyOnce = 0;
-        public static string lastDuty = "";
+        public int numberOfCommendations = 0;
+        public int runOnlyOnce = 0;
+        public string lastDuty = "";
 
-        public void incrementTimesCommended()
+        public void IncrementTimesCommended()
         {
             numberOfCommendations += 1;
+
+            // Why the fuck is it so hard to debounce a function without Threading or Async? Instead I have to do this hacky solution.
             runOnlyOnce += 1;
             if (runOnlyOnce == 1)
             {
-                DelayMessages();
+                DelayTimer_Commendations();
             }
         }
 
         private System.Timers.Timer _delayTimer;
 
-        private void DelayMessages()
+        private void DelayTimer_Commendations()
         {
             _delayTimer = new System.Timers.Timer
             {
                 Interval = 5000,
                 AutoReset = false
             };
-            _delayTimer.Elapsed += DelayTimer_Elapsed;
+            _delayTimer.Elapsed += TimerElapsed_Commendations;
             _delayTimer.Start();
         }
 
-        private void DelayTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void TimerElapsed_Commendations(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (numberOfCommendations > 0 && !Configuration.IncludeDutyNameInComms)
+            if (numberOfCommendations > 0)
             {
-                ChatGui.Print($"You received {numberOfCommendations} commendation{(numberOfCommendations != 1 ? "s" : "")}.");
-            } else if (numberOfCommendations > 0 && Configuration.IncludeDutyNameInComms)
-            {
-                ChatGui.Print($"You received {numberOfCommendations} commendation{(numberOfCommendations != 1 ? "s" : "")} from completing {lastDuty}.");
+                ChatGui.Print($"You received {numberOfCommendations} commendation{(numberOfCommendations != 1 ? "s" : "")}{(Configuration.IncludeDutyNameInComms ? " from completing {lastDuty}" : "")}.");
             }
             numberOfCommendations = 0;
             runOnlyOnce = 0;
@@ -116,6 +113,9 @@ namespace TidyChat
             // Lifted below line from Anna's chat2
             var chatType = FromDalamud(type);
 
+            // Make everything lowercase so I don't have to think about which words are capitalized in the message
+            string normalizedText = message.TextValue.ToLower();
+
             if (!Configuration.Enabled)
             {
                 return;
@@ -123,96 +123,43 @@ namespace TidyChat
 
             if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam)
             {
-                isHandled |= filterEmoteMessages(message.TextValue);
+                isHandled |= FilterEmoteMessages.IsFiltered(message.TextValue);
             }
 
             if (chatType is ChatType.System)
             {
-                isHandled = filterSystemMessages(message.TextValue);
+                isHandled = FilterSystemMessages.IsFiltered(message.TextValue, Configuration);
             }
-
-            // You are now in the instanced area Location Instance. Blah blah blah.
-            string normalizedText = message.TextValue.ToLower();
-            string[] instancedArea = { "you", "are", "now", "in", "the", "instanced", "area" };
-            if (Configuration.BetterInstanceMessage && instancedArea.All(normalizedText.Contains))
+            
+            if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains))
             {
-                // Some reformatting magic
+                // The last character in the first sentence is the instanceNumber so
+                // we capture it by finding the period that ends the first sentence and going back one character
                 int index = message.TextValue.IndexOf('.');
                 string instanceNumber = message.TextValue.Substring(index - 1, 1);
                 message = "You are now in instance: " + instanceNumber;
             }
 
-            // You received a player commendation!
-            string[] playerCommendation = { "you", "received", "a", "player", "commendation" };
-            if (Configuration.BetterCommendationMessage && playerCommendation.All(normalizedText.Contains))
+            if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
             {
-                // Prevent system messages from appearing
+                
                 isHandled = true;
 
-                // Tally all our commendations
-                incrementTimesCommended();
-
-                DelayMessages();
+                IncrementTimesCommended();
+                // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
+                // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
+                DelayTimer_Commendations();
             }
 
-            // <duty> has ended
-            string[] dutyEnded = { "has", "ended" };
-            if (Configuration.BetterCommendationMessage && dutyEnded.All(normalizedText.Contains))
+            if (Configuration.BetterCommendationMessage && ChatStrings.DutyEnded.All(normalizedText.Contains))
             {
+                //      match here then go back 4 characters to capture everything before " has"
+                //           |
+                //           v
+                // <duty> has ended.
                 lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
             }
 
-        } 
-
-        private bool filterSystemMessages(string input)
-        {
-            try
-            {
-                // Blacklist all messages by default
-                string normalizedText = input.ToLower();
-
-                // Whitelist specific phrases
-
-                // You sense the presence of a powerful mark...
-                string[] powerfulMark = { "you", "sense", "the", "presense", "of", "a", "powerful" };
-                // Retainer completed a venture.
-                string[] completedVenture = { "completed", "a", "venture" };
-                // You received a player commendation!
-                string[] playerCommendation = { "you", "received", "a", "player", "commendation" };
-                // You are now in the instanced area Location Instance. Blah blah blah.
-                string[] instancedArea = { "you", "are", "now", "in", "the", "instanced", "area" };
-
-                if (
-                    (powerfulMark.All(normalizedText.Contains) && !Configuration.HideSRankHunt) || 
-                    (completedVenture.All(normalizedText.Contains) && !Configuration.HideCompletedVenture) || 
-                    (playerCommendation.All(normalizedText.Contains) && !Configuration.HideCommendations && !Configuration.BetterCommendationMessage) || 
-                    (instancedArea.All(normalizedText.Contains) && !Configuration.HideInstanceMessage)
-                   )
-                {
-                    return false;
-                }
-
-                // We hit the end of our whitelist - block the message
-                return true;
-            }
-            // If we somehow encounter an error - block the message
-            catch (Exception)
-            {
-                return true;
-            }
-        }
-
-        private bool filterEmoteMessages(string input)
-        {
-            try
-            {
-                bool targetedEmote = input.ToLower().Contains("you") == true || input.ToLower().Contains("your") == true;
-                return !targetedEmote;
-            }
-            catch (Exception)
-            {
-                return true;
-            }
         }
 
         private void OnCommand(string command, string args)

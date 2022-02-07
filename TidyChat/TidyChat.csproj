@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Authors>Nana</Authors>
     <Company></Company>
-    <Version>0.0.2.0</Version>
+    <Version>0.0.2.1</Version>
     <Description>Various chat filters for a less cluttered chat. Use /tidychat to open settings.</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>
@@ -24,6 +24,10 @@
     <Content Include="..\Data\TidyChat.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+	<Content Include="..\images\icon.png">
+	 <Link>images/icon.png</Link>
+     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
   </ItemGroup>
 
   <PropertyGroup>
