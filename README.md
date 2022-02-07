@@ -5,6 +5,10 @@
 - Improve /instance messaging
 - Improve received commendations messaging
 
+## Installation
+
+Add `https://raw.githubusercontent.com/NadyaNayme/DalamudPlugins/api5/repo.json` to your Custom Plugin Repositories under `Dalamud Settings -> Experimental` and press `Save` or `Save and Close`. Then the Plugin Installer will refresh allowing you to install Tidy Chat.
+
 ## Settings
 
 Use `/tidychat` to access settings
