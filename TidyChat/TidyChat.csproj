@@ -24,9 +24,9 @@
     <Content Include="..\Data\TidyChat.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-	<Content Include="..\images\icon.png">
-	 <Link>images/icon.png</Link>
-     <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <Content Include="..\images\icon.png">
+		<Link>images/icon.png</Link>
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
   </ItemGroup>
 
@@ -35,13 +35,6 @@
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryUrl>https://github.com/NadyaNayme/TidyChat/</RepositoryUrl>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="..\images\icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DalamudPackager" Version="2.1.5" />

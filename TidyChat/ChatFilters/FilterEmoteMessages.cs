@@ -9,7 +9,7 @@ namespace TidyChat
         {
             try
             {
-                bool targetedEmote = input.ToLower().Contains("you") == true || input.ToLower().Contains("your") == true;
+                bool targetedEmote = input.Contains("you") == true || input.Contains("your") == true;
                 return !targetedEmote;
             }
             catch (Exception)

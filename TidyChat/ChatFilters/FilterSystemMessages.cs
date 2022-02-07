@@ -10,9 +10,6 @@ namespace TidyChat
         {
             try
             {
-                // Blacklist all messages by default
-                string normalizedText = input.ToLower();
-
                 // Whitelist specific phrases
 
                 // You sense the presence of a powerful mark...
@@ -25,10 +22,10 @@ namespace TidyChat
                 string[] instancedArea = { "you", "are", "now", "in", "the", "instanced", "area" };
 
                 if (
-                    (powerfulMark.All(normalizedText.Contains) && !configuration.HideSRankHunt) ||
-                    (completedVenture.All(normalizedText.Contains) && !configuration.HideCompletedVenture) ||
-                    (playerCommendation.All(normalizedText.Contains) && !configuration.HideCommendations && !configuration.BetterCommendationMessage) ||
-                    (instancedArea.All(normalizedText.Contains) && !configuration.HideInstanceMessage)
+                    (powerfulMark.All(input.Contains) && !configuration.HideSRankHunt) ||
+                    (completedVenture.All(input.Contains) && !configuration.HideCompletedVenture) ||
+                    (playerCommendation.All(input.Contains) && !configuration.HideCommendations && !configuration.BetterCommendationMessage) ||
+                    (instancedArea.All(input.Contains) && !configuration.HideInstanceMessage)
                    )
                 {
                     return false;

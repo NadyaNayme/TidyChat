@@ -123,12 +123,12 @@ namespace TidyChat
 
             if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam)
             {
-                isHandled |= FilterEmoteMessages.IsFiltered(message.TextValue);
+                isHandled |= FilterEmoteMessages.IsFiltered(normalizedText);
             }
 
             if (chatType is ChatType.System)
             {
-                isHandled = FilterSystemMessages.IsFiltered(message.TextValue, Configuration);
+                isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
             }
             
             if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains))

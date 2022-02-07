@@ -2,7 +2,7 @@ namespace TidyChat
 {
     public class ChatStrings
     {
-        // You are now in the instanced area <zone> <instance>. To see this message again use /instance blah blah blah
+        // You are now in the instanced area <zone> <instance>. Current instance can be confirmed at any time using the /instance text command.
         public static string[] InstancedArea { get; } = { "you", "are", "now", "in", "the", "instanced", "area" };
 
         // You received a player commendation!
