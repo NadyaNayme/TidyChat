@@ -78,7 +78,7 @@ namespace TidyChat
             }
         }
 
-        private System.Timers.Timer _delayTimer;
+        private System.Timers.Timer? _delayTimer;
 
         private void DelayTimer_Commendations()
         {
@@ -123,9 +123,14 @@ namespace TidyChat
                 return;
             }
 
-            if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam)
+            if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes)
             {
-                isHandled |= FilterEmoteMessages.IsFiltered(normalizedText);
+                isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
+            }
+
+            if (chatType is ChatType.CustomEmote)
+            {
+                isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
 
             if (chatType is ChatType.System && Configuration.FilterSystemMessages)

@@ -23,5 +23,9 @@ namespace TidyChat
 
         public static Regex ObtainedShards { get; } = new Regex(@"You obtain \d{1,3} (fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex PlayerTargetedEmote { get; } = new Regex(@"you|your",
+            RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex PlayerUsedEmote { get; } = new Regex(@"^(You|Your)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }
