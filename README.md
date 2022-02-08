@@ -2,6 +2,7 @@
 
 - Remove all of the redundant system messaging, leaving only important system messages
 - Block emote spam
+- Block spammy "You obtain" messages
 - Improve /instance messaging
 - Improve received commendations messaging
 
