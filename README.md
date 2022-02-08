@@ -7,7 +7,9 @@
 
 ## Installation
 
-Add `https://raw.githubusercontent.com/NadyaNayme/DalamudPlugins/api5/repo.json` to your Custom Plugin Repositories under `Dalamud Settings -> Experimental` and press `Save` or `Save and Close`. Then the Plugin Installer will refresh allowing you to install Tidy Chat.
+We're in Official Testing now! You can now enable `Get plugin testing builds` in your Dalamud settings and install from the plugin installer. \o/
+
+~~Add `https://raw.githubusercontent.com/NadyaNayme/DalamudPlugins/api5/repo.json` to your Custom Plugin Repositories under `Dalamud Settings -> Experimental` and press `Save` or `Save and Close`. Then the Plugin Installer will refresh allowing you to install Tidy Chat.~~
 
 ## Settings
 
