@@ -21,7 +21,7 @@ namespace TidyChat
         public static Regex ObtainedMaterials { get; } = new Regex(@"You obtain (.*) materials\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
-        public static Regex ObtainedShards { get; } = new Regex(@"You obtain \d{1,3} (fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
+        public static Regex ObtainedShards { get; } = new Regex(@"You obtain \d{1,3} (fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }
