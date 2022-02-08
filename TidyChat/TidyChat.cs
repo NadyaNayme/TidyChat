@@ -93,9 +93,11 @@ namespace TidyChat
 
         private void TimerElapsed_Commendations(object sender, System.Timers.ElapsedEventArgs e)
         {
+            string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
+            string dutyName = $"{(Configuration.IncludeDutyNameInComms ? " from completing " + lastDuty + "." : ".")}";
             if (numberOfCommendations > 0)
             {
-                ChatGui.Print($"You received {numberOfCommendations} commendation{(numberOfCommendations != 1 ? "s" : "")}{(Configuration.IncludeDutyNameInComms ? " from completing {lastDuty}" : "")}.");
+                ChatGui.Print($"You received {numberOfCommendations} {commendations}{dutyName}");
             }
             numberOfCommendations = 0;
             runOnlyOnce = 0;
@@ -126,11 +128,15 @@ namespace TidyChat
                 isHandled |= FilterEmoteMessages.IsFiltered(normalizedText);
             }
 
-            if (chatType is ChatType.System)
+            if (chatType is ChatType.System && Configuration.FilterSystemMessages)
             {
                 isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
             }
-            
+            if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam)
+            {
+                isHandled = FilterObtainMessages.IsFiltered(normalizedText, Configuration);
+            }
+
             if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains))
             {
                 // The last character in the first sentence is the instanceNumber so

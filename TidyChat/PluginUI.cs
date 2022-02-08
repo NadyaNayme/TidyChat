@@ -68,7 +68,7 @@ namespace TidyChat
                 return;
             }
 
-            ImGui.SetNextWindowSize(new Vector2(360, 315), ImGuiCond.FirstUseEver);
+            ImGui.SetNextWindowSize(new Vector2(560, 415), ImGuiCond.FirstUseEver);
             if (ImGui.Begin("TidyChat Settings", ref this.settingsVisible))
             {
                 var enabled = this.configuration.Enabled;
@@ -92,6 +92,13 @@ namespace TidyChat
                     this.configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("Hides all emotes that are not targeting you or used by you from chat.");
+                var filterObtainedSpam = this.configuration.FilterObtainedSpam;
+                if (ImGui.Checkbox("Filters spammy Obtain messages. See tooltip for examples.", ref filterObtainedSpam))
+                {
+                    this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("You obtain ### gil.\nYou obtain ### GC Seals.\nYou obtain ### sacks of Nuts. (Hunt Rewards)\nYou obtain a ___cluster.\nYou obtain a set of ___ materials. (Beast Tribe crafting materials)\nYou obtain ## [ele] shards/crystals/clusters.");
                 var betterInstanceMessage = this.configuration.BetterInstanceMessage;
                 if (ImGui.Checkbox("Improved /instance messaging", ref betterInstanceMessage))
                 {
