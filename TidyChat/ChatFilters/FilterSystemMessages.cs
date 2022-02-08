@@ -14,6 +14,7 @@ namespace TidyChat
                     (ChatStrings.PowerfulMark.All(input.Contains) && !configuration.HideSRankHunt) ||
                     (ChatStrings.CompletedVenture.All(input.Contains) && !configuration.HideCompletedVenture) ||
                     (ChatStrings.PlayerCommendation.All(input.Contains) && !configuration.HideCommendations && !configuration.BetterCommendationMessage) ||
+                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideSayQuestReminder) ||
                     (ChatStrings.InstancedArea.All(input.Contains) && !configuration.HideInstanceMessage)
                    )
                 {

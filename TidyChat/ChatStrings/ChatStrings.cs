@@ -11,6 +11,8 @@ namespace TidyChat
         // <duty> has ended
         public static string[] DutyEnded { get; } = { "has", "ended" };
 
+        public static string[] SayQuestReminder { get; } = { "with", "the", "chat", "mode", "in", "say" };
+
         // You sense the presence of a powerful mark...
         public static string[] PowerfulMark { get; } = { "you", "sense", "the", "presense", "of", "a", "powerful" };
         // Retainer completed a venture.

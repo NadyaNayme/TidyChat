@@ -25,6 +25,7 @@ namespace TidyChat
         public bool HideCommendations { get; set; } = false;
         public bool HideCompletedVenture { get; set; } = false;
         public bool HideInstanceMessage { get; set; } = false;
+        public bool HideSayQuestReminder { get; set; } = false;
         #endregion
 
         #region Obtained Items
@@ -33,6 +34,7 @@ namespace TidyChat
         public bool HideObtainedSeals { get; set; } = true;
         public bool HideObtainedNuts { get; set; } = true;
         public bool HideObtainedVenture { get; set; } = true;
+        public bool HideObtainedMaterials { get; set; } = true;
         public bool HideObtainedShards { get; set; } = true;
         #endregion
 
