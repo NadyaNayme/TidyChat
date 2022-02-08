@@ -19,7 +19,7 @@ Use `/tidychat` to access settings
 
 ## What's Considered Important?
 
-The following four kinds of messages are the only whitelisted System messages:
+The following five kinds of messages are the only whitelisted System messages:
 
 - Venture Complete
 - S Rank Hunt spawned in zone
