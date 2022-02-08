@@ -154,7 +154,7 @@ namespace TidyChat
                     this.configuration.HideSayQuestReminder = sayQuestTalk;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("Removes the completed venture notification from the whitelist.");
+                ImGuiComponents.HelpMarker("Removes quest reminders of what to /say in chat.");
                 ImGui.Spacing();
                 if (ImGui.Button("Save and Close Config"))
                 {
