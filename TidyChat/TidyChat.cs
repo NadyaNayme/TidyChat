@@ -71,7 +71,7 @@ namespace TidyChat
             numberOfCommendations += 1;
 
             // Why the fuck is it so hard to debounce a function without Threading or Async? Instead I have to do this hacky solution.
-            runOnlyOnce += 1;
+            runOnlyOnce = 1;
             if (runOnlyOnce == 1)
             {
                 DelayTimer_Commendations();
@@ -87,6 +87,7 @@ namespace TidyChat
                 Interval = 5000,
                 AutoReset = false
             };
+            _delayTimer.Stop();
             _delayTimer.Elapsed += TimerElapsed_Commendations;
             _delayTimer.Start();
         }
@@ -94,13 +95,14 @@ namespace TidyChat
         private void TimerElapsed_Commendations(object sender, System.Timers.ElapsedEventArgs e)
         {
             string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
-            string dutyName = $"{(Configuration.IncludeDutyNameInComms ? " from completing " + lastDuty + "." : ".")}";
-            if (numberOfCommendations > 0)
+            string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
+            if (numberOfCommendations > 0 && runOnlyOnce == 1)
             {
                 ChatGui.Print($"You received {numberOfCommendations} {commendations}{dutyName}");
             }
             numberOfCommendations = 0;
             runOnlyOnce = 0;
+            _delayTimer?.Dispose();
         }
 
         public void Dispose()
@@ -123,6 +125,46 @@ namespace TidyChat
                 return;
             }
 
+            if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains))
+            {
+                // The last character in the first sentence is the instanceNumber so
+                // we capture it by finding the period that ends the first sentence and going back one character
+                int index = message.TextValue.IndexOf('.');
+                string instanceNumber = message.TextValue.Substring(index - 1, 1);
+                message = $"You are now in instance: {instanceNumber}";
+            }
+
+            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains))
+            {
+                // With the chat mode in Say, enter a phrase containing "Capture this"
+
+                int containingPhraseStart = message.TextValue.IndexOf('\"');
+                int containingPhraseEnd = message.TextValue.LastIndexOf('\"');
+                int lengthOfPhrase = containingPhraseEnd - containingPhraseStart; 
+                string containingPhrase = message.TextValue.Substring(containingPhraseStart+1, lengthOfPhrase-1);
+                message = $"/say {containingPhrase}";
+            }
+
+            if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
+            {
+
+                isHandled = true;
+
+                IncrementTimesCommended();
+                // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
+                // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
+                DelayTimer_Commendations();
+            }
+
+            if (Configuration.BetterCommendationMessage && ChatStrings.DutyEnded.All(normalizedText.Contains))
+            {
+                //      match here then go back 4 characters to capture everything before " has"
+                //           |
+                //           v
+                // <duty> has ended.
+                lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
+            }
+
             if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
@@ -140,35 +182,6 @@ namespace TidyChat
             if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam)
             {
                 isHandled = FilterObtainMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains))
-            {
-                // The last character in the first sentence is the instanceNumber so
-                // we capture it by finding the period that ends the first sentence and going back one character
-                int index = message.TextValue.IndexOf('.');
-                string instanceNumber = message.TextValue.Substring(index - 1, 1);
-                message = "You are now in instance: " + instanceNumber;
-            }
-
-            if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
-            {
-                
-                isHandled = true;
-
-                IncrementTimesCommended();
-                // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
-                // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
-                DelayTimer_Commendations();
-            }
-
-            if (Configuration.BetterCommendationMessage && ChatStrings.DutyEnded.All(normalizedText.Contains))
-            {
-                //      match here then go back 4 characters to capture everything before " has"
-                //           |
-                //           v
-                // <duty> has ended.
-                lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
             }
 
         }

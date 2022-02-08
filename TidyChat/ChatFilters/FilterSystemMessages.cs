@@ -15,7 +15,9 @@ namespace TidyChat
                     (ChatStrings.CompletedVenture.All(input.Contains) && !configuration.HideCompletedVenture) ||
                     (ChatStrings.PlayerCommendation.All(input.Contains) && !configuration.HideCommendations && !configuration.BetterCommendationMessage) ||
                     (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideSayQuestReminder) ||
-                    (ChatStrings.InstancedArea.All(input.Contains) && !configuration.HideInstanceMessage)
+                    (ChatStrings.InstancedArea.All(input.Contains) && !configuration.HideInstanceMessage) ||
+                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideSayQuestReminder && configuration.BetterSayReminder) ||
+                    (ChatRegexStrings.BetterPlayerCommendation.IsMatch(input) && configuration.BetterCommendationMessage)
                    )
                 {
                     return false;

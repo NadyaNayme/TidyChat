@@ -4,6 +4,10 @@ namespace TidyChat
 {
     public class ChatRegexStrings
     {
+
+        public static Regex BetterPlayerCommendation { get; } = new Regex(@"You received \d{1} (commendation|commendations)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
         public static Regex ObtainedGil { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} gil\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
       

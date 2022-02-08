@@ -16,6 +16,7 @@ namespace TidyChat
         #endregion
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
+        public bool BetterSayReminder { get; set; } = false;
         public bool BetterCommendationMessage { get; set; } = true;
         public bool IncludeDutyNameInComms { get; set; } = true;
         #endregion
@@ -30,13 +31,13 @@ namespace TidyChat
         #endregion
 
         #region Obtained Items
-        public bool HideObtainedGil { get; set; } = true;
-        public bool HideObtainedClusters { get; set; } = true;
-        public bool HideObtainedSeals { get; set; } = true;
-        public bool HideObtainedNuts { get; set; } = true;
-        public bool HideObtainedVenture { get; set; } = true;
-        public bool HideObtainedMaterials { get; set; } = true;
-        public bool HideObtainedShards { get; set; } = true;
+        public bool ShowObtainedGil { get; set; } = false;
+        public bool ShowObtainedClusters { get; set; } = false;
+        public bool ShowObtainedSeals { get; set; } = false;
+        public bool ShowObtainedNuts { get; set; } = false;
+        public bool ShowObtainedVenture { get; set; } = false;
+        public bool ShowObtainedMaterials { get; set; } = false;
+        public bool ShowObtainedShards { get; set; } = false;
         #endregion
 
         // the below exist just to make saving less cumbersome

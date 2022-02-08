@@ -10,13 +10,13 @@ namespace TidyChat
             try
             {
                 if (
-                    (ChatRegexStrings.ObtainedGil.IsMatch(input) && configuration.HideObtainedGil) ||
-                    (ChatRegexStrings.ObtainedClusters.IsMatch(input) && configuration.HideObtainedClusters) ||
-                    (ChatRegexStrings.ObtainedSeals.IsMatch(input) && configuration.HideObtainedSeals) ||
-                    (ChatRegexStrings.ObtainedNuts.IsMatch(input) && configuration.HideObtainedNuts) ||
-                    (ChatRegexStrings.ObtainedVenture.IsMatch(input) && configuration.HideObtainedVenture) ||
-                    (ChatRegexStrings.ObtainedMaterials.IsMatch(input) && configuration.HideObtainedMaterials) ||
-                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && configuration.HideObtainedShards)
+                    (ChatRegexStrings.ObtainedGil.IsMatch(input) && !configuration.ShowObtainedGil) ||
+                    (ChatRegexStrings.ObtainedClusters.IsMatch(input) && !configuration.ShowObtainedClusters) ||
+                    (ChatRegexStrings.ObtainedSeals.IsMatch(input) && !configuration.ShowObtainedSeals) ||
+                    (ChatRegexStrings.ObtainedNuts.IsMatch(input) && !configuration.ShowObtainedNuts) ||
+                    (ChatRegexStrings.ObtainedVenture.IsMatch(input) && !configuration.ShowObtainedVenture) ||
+                    (ChatRegexStrings.ObtainedMaterials.IsMatch(input) && !configuration.ShowObtainedMaterials) ||
+                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && !configuration.ShowObtainedShards)
                     )
                 {
                     return true;

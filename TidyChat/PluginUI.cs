@@ -117,7 +117,7 @@ namespace TidyChat
                 this.configuration.BetterCommendationMessage = betterCommendationMessage;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("Disables System message for received commendations. Instead logs the total received commendations to Debug. Make sure you have the Debug channel visible in your chat settings.");
+            ImGuiComponents.HelpMarker("Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default.)");
 
             var includeDutyNameInComms = this.configuration.IncludeDutyNameInComms;
             if (ImGui.Checkbox("Include completed duty in condensed commendations", ref includeDutyNameInComms))
@@ -129,7 +129,15 @@ namespace TidyChat
                 }
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("Requires Better Commendations to be enabled.");
+            ImGuiComponents.HelpMarker("Requires Condensed Commendations to be enabled.");
+
+            var betterSayReminder = this.configuration.BetterSayReminder;
+            if (ImGui.Checkbox("Condensed /Say message for quests", ref betterSayReminder))
+            {
+                this.configuration.BetterSayReminder = betterSayReminder;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily.");
         }
         public void DrawSystemTab()
         {
@@ -143,7 +151,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will override the whitelist allowing you to hide unwanted messages.");
+            ImGui.TextUnformatted("The options below will allow you to hide messages that Tiny Chat does not consider to be spam.");
 
             var instanceMessage = this.configuration.HideInstanceMessage;
             if (ImGui.Checkbox("Hide /instance message", ref instanceMessage))
@@ -215,6 +223,62 @@ namespace TidyChat
                 this.configuration.FilterObtainedSpam = filterObtainedSpam;
                 this.configuration.Save();
             }
+
+            ImGui.Separator();
+
+            ImGui.TextUnformatted("The options below will allow you to show messages Tiny Chat considers to be spam.");
+            var showObtainedgil = this.configuration.ShowObtainedGil;
+            if (ImGui.Checkbox("Show gil obtained", ref showObtainedgil))
+            {
+                this.configuration.ShowObtainedGil = showObtainedgil;
+                this.configuration.Save();
+            }
+
+            var showObtainedClusters = this.configuration.ShowObtainedClusters;
+            if (ImGui.Checkbox("Show clusters that are traded for materia.", ref showObtainedClusters))
+            {
+                this.configuration.ShowObtainedClusters = showObtainedClusters;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show materia clusters such as Dendroclusters and Anthoclusters.\nFor hiding elemental clusters see the hide elemental clusters option down below.");
+
+            var showObtainedSeals = this.configuration.ShowObtainedSeals;
+            if (ImGui.Checkbox("Show Grand Company Seals", ref showObtainedSeals))
+            {
+                this.configuration.ShowObtainedSeals = showObtainedSeals;
+                this.configuration.Save();
+            }
+
+            var showObtainedNuts = this.configuration.ShowObtainedNuts;
+            if (ImGui.Checkbox("Show sacks of Nuts", ref showObtainedNuts))
+            {
+                this.configuration.ShowObtainedNuts = showObtainedNuts;
+                this.configuration.Save();
+            }
+
+            var showObtainedVenture = this.configuration.ShowObtainedVenture;
+            if (ImGui.Checkbox("Show ventures", ref showObtainedVenture))
+            {
+                this.configuration.ShowObtainedVenture = showObtainedVenture;
+                this.configuration.Save();
+            }
+
+            var showObtainedMaterials = this.configuration.ShowObtainedMaterials;
+            if (ImGui.Checkbox("Show Beast Tribe materials", ref showObtainedMaterials))
+            {
+                this.configuration.ShowObtainedMaterials = showObtainedMaterials;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests");
+
+            var showObtainedShards = this.configuration.ShowObtainedShards;
+            if (ImGui.Checkbox("Show elemental shards, crystals, and clusters", ref showObtainedShards))
+            {
+                this.configuration.ShowObtainedShards = showObtainedShards;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters");
+
         }
     }
 }

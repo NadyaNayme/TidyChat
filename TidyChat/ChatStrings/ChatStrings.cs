@@ -10,7 +10,7 @@ namespace TidyChat
 
         // <duty> has ended
         public static string[] DutyEnded { get; } = { "has", "ended" };
-
+        // With the chat mode in Say, enter a phrase containing "Some Words"
         public static string[] SayQuestReminder { get; } = { "with", "the", "chat", "mode", "in", "say" };
 
         // You sense the presence of a powerful mark...
