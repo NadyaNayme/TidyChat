@@ -5,7 +5,6 @@ namespace TidyChat
 {
     public class FilterSystemMessages
     {
-
         public static bool IsFiltered(string input, Configuration configuration)
         {
             try
@@ -14,10 +13,10 @@ namespace TidyChat
                     (ChatStrings.PowerfulMark.All(input.Contains) && !configuration.HideSRankHunt) ||
                     (ChatStrings.CompletedVenture.All(input.Contains) && !configuration.HideCompletedVenture) ||
                     (ChatStrings.PlayerCommendation.All(input.Contains) && !configuration.HideCommendations && !configuration.BetterCommendationMessage) ||
-                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideSayQuestReminder) ||
+                    (ChatRegexStrings.BetterPlayerCommendation.IsMatch(input) && configuration.BetterCommendationMessage) ||
                     (ChatStrings.InstancedArea.All(input.Contains) && !configuration.HideInstanceMessage) ||
-                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideSayQuestReminder && configuration.BetterSayReminder) ||
-                    (ChatRegexStrings.BetterPlayerCommendation.IsMatch(input) && configuration.BetterCommendationMessage)
+                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder) ||
+                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder)
                    )
                 {
                     return false;

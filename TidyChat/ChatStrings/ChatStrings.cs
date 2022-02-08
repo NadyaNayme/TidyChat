@@ -11,10 +11,10 @@ namespace TidyChat
         // <duty> has ended
         public static string[] DutyEnded { get; } = { "has", "ended" };
         // With the chat mode in Say, enter a phrase containing "Some Words"
-        public static string[] SayQuestReminder { get; } = { "with", "the", "chat", "mode", "in", "say" };
+        public static string[] SayQuestReminder { get; } = { "with", "the", "chat", "mode", "in" };
 
         // You sense the presence of a powerful mark...
-        public static string[] PowerfulMark { get; } = { "you", "sense", "the", "presense", "of", "a", "powerful" };
+        public static string[] PowerfulMark { get; } = { "you", "sense", "the", "presence", "of", "a", "powerful", "mark" };
         // Retainer completed a venture.
         public static string[] CompletedVenture { get; } = { "completed", "a", "venture" };
 

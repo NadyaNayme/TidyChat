@@ -73,6 +73,12 @@ namespace TidyChat
                         ImGui.EndTabItem();
                     }
 
+                    if (ImGui.BeginTabItem("Loot"))
+                    {
+                        DrawLootTab();
+                        ImGui.EndTabItem();
+                    }
+
                     ImGui.EndTabBar();
 
                     ImGui.Separator();
@@ -151,7 +157,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to hide messages that Tiny Chat does not consider to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to hide System messages that Tiny Chat does not consider to be spam.");
 
             var instanceMessage = this.configuration.HideInstanceMessage;
             if (ImGui.Checkbox("Hide /instance message", ref instanceMessage))
@@ -186,10 +192,10 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This is the message that appears when a retainer completes a venture.");
 
-            var sayQuestTalk = this.configuration.HideSayQuestReminder;
-            if (ImGui.Checkbox("Hide reminders of what to /say in chat during quests.", ref sayQuestTalk))
+            var hideQuestReminder = this.configuration.HideQuestReminder;
+            if (ImGui.Checkbox("Hide reminders of what to /say in chat during quests.", ref hideQuestReminder))
             {
-                this.configuration.HideSayQuestReminder = sayQuestTalk;
+                this.configuration.HideQuestReminder = hideQuestReminder;
                 this.configuration.Save();
             }
             ImGuiComponents.HelpMarker("This is the message that appears when interacting with a quest objective that requires you to /say a specific word or phrase.");
@@ -226,7 +232,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to show messages Tiny Chat considers to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to show Obtain messages Tiny Chat considers to be spam.");
             var showObtainedgil = this.configuration.ShowObtainedGil;
             if (ImGui.Checkbox("Show gil obtained", ref showObtainedgil))
             {
@@ -280,5 +286,35 @@ namespace TidyChat
             ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters");
 
         }
+
+        public void DrawLootTab()
+        {
+            var filterObtainedSpam = this.configuration.FilterObtainedSpam;
+            if (ImGui.Checkbox("Filters spammy Loot messages.", ref filterObtainedSpam))
+            {
+                this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                this.configuration.Save();
+            }
+
+            ImGui.Separator();
+
+            ImGui.TextUnformatted("The options below will allow you to show Loot messages Tiny Chat considers to be spam.");
+            var showCastLot = this.configuration.ShowCastLot;
+            if (ImGui.Checkbox("Show \"You cast your lot\" messages", ref showCastLot))
+            {
+                this.configuration.ShowCastLot = showCastLot;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when you roll on loot.\nYou cast your lot for the <item>");
+
+            var showLootRoll = this.configuration.ShowLootRoll;
+            if (ImGui.Checkbox("Show \"You rolled ##\" messages", ref showLootRoll))
+            {
+                this.configuration.ShowLootRoll = showLootRoll;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\nYou roll Need/Greed on the <item>. 63!");
+        }
+
     }
 }

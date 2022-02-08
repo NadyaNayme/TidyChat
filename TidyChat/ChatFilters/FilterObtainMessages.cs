@@ -4,7 +4,6 @@ namespace TidyChat
 {
     public class FilterObtainMessages
     {
-
         public static bool IsFiltered(string input, Configuration configuration)
         {
             try

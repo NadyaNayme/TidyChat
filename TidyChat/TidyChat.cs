@@ -1,6 +1,6 @@
-﻿using Dalamud.Game.Command;
-using Dalamud.IoC;
+﻿using Dalamud.IoC;
 using Dalamud.Plugin;
+using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
@@ -14,7 +14,8 @@ namespace TidyChat
     {
         public string Name => "Tidy Chat";
 
-        private const string commandName = "/tidychat";
+        private const string SettingsCommand = "/tidychat";
+        private const string ShorthandCommand = "/tidy";
 
         private DalamudPluginInterface PluginInterface { get; init; }
         private ChatGui ChatGui { get; init; }
@@ -53,9 +54,14 @@ namespace TidyChat
 
             this.PluginUi = new PluginUI(this.Configuration);
 
-            this.CommandManager.AddHandler(commandName, new CommandInfo(OnCommand)
+            this.CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
             {
                 HelpMessage = "Open settings"
+            });
+
+            this.CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
+            {
+                HelpMessage = "Shorthand command to open settings"
             });
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
@@ -68,10 +74,10 @@ namespace TidyChat
 
         public void IncrementTimesCommended()
         {
-            numberOfCommendations += 1;
+            numberOfCommendations++;
 
             // Why the fuck is it so hard to debounce a function without Threading or Async? Instead I have to do this hacky solution.
-            runOnlyOnce = 1;
+            runOnlyOnce++;
             if (runOnlyOnce == 1)
             {
                 DelayTimer_Commendations();
@@ -82,14 +88,17 @@ namespace TidyChat
 
         private void DelayTimer_Commendations()
         {
-            _delayTimer = new System.Timers.Timer
-            {
-                Interval = 5000,
-                AutoReset = false
-            };
-            _delayTimer.Stop();
-            _delayTimer.Elapsed += TimerElapsed_Commendations;
-            _delayTimer.Start();
+            if (runOnlyOnce == 1) {
+                _delayTimer = new System.Timers.Timer
+                {
+                    Interval = 5000,
+                    AutoReset = false
+                };
+                _delayTimer.Stop();
+                _delayTimer.Elapsed += TimerElapsed_Commendations;
+                _delayTimer.Start();
+            }
+            runOnlyOnce++;
         }
 
         private void TimerElapsed_Commendations(object sender, System.Timers.ElapsedEventArgs e)
@@ -108,7 +117,8 @@ namespace TidyChat
         public void Dispose()
         {
             this.PluginUi.Dispose();
-            this.CommandManager.RemoveHandler(commandName);
+            this.CommandManager.RemoveHandler(SettingsCommand);
+            this.CommandManager.RemoveHandler(ShorthandCommand);
             this.ChatGui.ChatMessage -= this.OnChat;
         }
 
@@ -125,7 +135,7 @@ namespace TidyChat
                 return;
             }
 
-            if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains))
+            if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains) && chatType is ChatType.System)
             {
                 // The last character in the first sentence is the instanceNumber so
                 // we capture it by finding the period that ends the first sentence and going back one character
@@ -134,12 +144,12 @@ namespace TidyChat
                 message = $"You are now in instance: {instanceNumber}";
             }
 
-            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains))
+            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.System)
             {
                 // With the chat mode in Say, enter a phrase containing "Capture this"
 
-                int containingPhraseStart = message.TextValue.IndexOf('\"');
-                int containingPhraseEnd = message.TextValue.LastIndexOf('\"');
+                int containingPhraseStart = message.TextValue.IndexOf('“');
+                int containingPhraseEnd = message.TextValue.LastIndexOf('”');
                 int lengthOfPhrase = containingPhraseEnd - containingPhraseStart; 
                 string containingPhrase = message.TextValue.Substring(containingPhraseStart+1, lengthOfPhrase-1);
                 message = $"/say {containingPhrase}";
@@ -179,16 +189,22 @@ namespace TidyChat
             {
                 isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
             }
+
             if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam)
             {
                 isHandled = FilterObtainMessages.IsFiltered(normalizedText, Configuration);
+            }
+
+            if (chatType is ChatType.LootRoll && Configuration.FilterLootSpam)
+            {
+                isHandled = FilterLootMessages.IsFiltered(normalizedText, Configuration);
             }
 
         }
 
         private void OnCommand(string command, string args)
         {
-            this.PluginUi.Visible = true;
+            this.PluginUi.SettingsVisible = true;
         }
 
         private void DrawUI()

@@ -9,10 +9,12 @@ namespace TidyChat
     {
         public int Version { get; set; } = 0;
         public bool Enabled { get; set; } = true;
+        public string PlayerName { get; set; } = "";
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
         public bool FilterEmoteSpam { get; set; } = true;
         public bool FilterObtainedSpam { get; set; } = true;
+        public bool FilterLootSpam { get; set; } = true;
         #endregion
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
@@ -26,7 +28,7 @@ namespace TidyChat
         public bool HideCommendations { get; set; } = false;
         public bool HideCompletedVenture { get; set; } = false;
         public bool HideInstanceMessage { get; set; } = false;
-        public bool HideSayQuestReminder { get; set; } = false;
+        public bool HideQuestReminder { get; set; } = false;
         public bool HideUsedEmotes { get; set; } = false;
         #endregion
 
@@ -38,6 +40,11 @@ namespace TidyChat
         public bool ShowObtainedVenture { get; set; } = false;
         public bool ShowObtainedMaterials { get; set; } = false;
         public bool ShowObtainedShards { get; set; } = false;
+        #endregion
+
+        #region Loot Rolls
+        public bool ShowLootRoll { get; set; } = false;
+        public bool ShowCastLot { get; set; } = false;
         #endregion
 
         // the below exist just to make saving less cumbersome
