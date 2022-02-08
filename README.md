@@ -17,7 +17,7 @@ We're in Official Testing now! You can now enable `Get plugin testing builds` in
 Use `/tidychat` to access settings
 
 
-## What's Important?
+## What's Considered Important?
 
 The following four kinds of messages are the only whitelisted System messages:
 
@@ -25,3 +25,4 @@ The following four kinds of messages are the only whitelisted System messages:
 - S Rank Hunt spawned in zone
 - Received Player Commendation
 - /instance
+- With the chat mode in Say, use your keyboard or the software keyboard to enter "Quest Required /say message".
