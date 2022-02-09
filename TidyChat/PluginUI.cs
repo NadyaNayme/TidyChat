@@ -44,7 +44,7 @@ namespace TidyChat
             }
             try
             {
-                ImGui.SetNextWindowSize(new Vector2(560, 415), ImGuiCond.FirstUseEver);
+                ImGui.SetNextWindowSize(new Vector2(560, 500), ImGuiCond.FirstUseEver);
                 if (!ImGui.Begin("Tidy Chat Settings", ref this.settingsVisible)) return;
 
                 if(ImGui.BeginTabBar("##tidychatConfigTabs"))
@@ -138,7 +138,7 @@ namespace TidyChat
             ImGuiComponents.HelpMarker("Requires Condensed Commendations to be enabled.");
 
             var betterSayReminder = this.configuration.BetterSayReminder;
-            if (ImGui.Checkbox("Condensed /Say message for quests", ref betterSayReminder))
+            if (ImGui.Checkbox("Improved /Say message for quests", ref betterSayReminder))
             {
                 this.configuration.BetterSayReminder = betterSayReminder;
                 this.configuration.Save();

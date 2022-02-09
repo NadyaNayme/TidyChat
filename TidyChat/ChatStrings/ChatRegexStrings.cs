@@ -28,5 +28,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex RollsNeedOrGreed { get; } = new Regex(@"You roll (Need|Greed) on the (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex ItemSearchCommand { get; } = new Regex(@"( 　>>|(No|\d{1,4}) (match|matches) found containing)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }

@@ -10,6 +10,9 @@ namespace TidyChat
 
         // <duty> has ended
         public static string[] DutyEnded { get; } = { "has", "ended" };
+
+        // The guildhest will end soon
+        public static string[] GuildhestEnded { get; } = { "the", "guildhest", "will", "end", "soon" };
         // With the chat mode in Say, enter a phrase containing "Some Words"
         public static string[] SayQuestReminder { get; } = { "with", "the", "chat", "mode", "in" };
 

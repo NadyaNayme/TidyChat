@@ -6,6 +6,8 @@ using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using System.Linq;
 using ChatTwo.Code;
+using System;
+using System.Timers;
 
 namespace TidyChat
 
@@ -69,50 +71,7 @@ namespace TidyChat
         }
 
         public int numberOfCommendations = 0;
-        public int runOnlyOnce = 0;
         public string lastDuty = "";
-
-        public void IncrementTimesCommended()
-        {
-            numberOfCommendations++;
-
-            // Why the fuck is it so hard to debounce a function without Threading or Async? Instead I have to do this hacky solution.
-            runOnlyOnce++;
-            if (runOnlyOnce == 1)
-            {
-                DelayTimer_Commendations();
-            }
-        }
-
-        private System.Timers.Timer? _delayTimer;
-
-        private void DelayTimer_Commendations()
-        {
-            if (runOnlyOnce == 1) {
-                _delayTimer = new System.Timers.Timer
-                {
-                    Interval = 5000,
-                    AutoReset = false
-                };
-                _delayTimer.Stop();
-                _delayTimer.Elapsed += TimerElapsed_Commendations;
-                _delayTimer.Start();
-            }
-            runOnlyOnce++;
-        }
-
-        private void TimerElapsed_Commendations(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
-            string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
-            if (numberOfCommendations > 0 && runOnlyOnce == 1)
-            {
-                ChatGui.Print($"You received {numberOfCommendations} {commendations}{dutyName}");
-            }
-            numberOfCommendations = 0;
-            runOnlyOnce = 0;
-            _delayTimer?.Dispose();
-        }
 
         public void Dispose()
         {
@@ -159,11 +118,26 @@ namespace TidyChat
             {
 
                 isHandled = true;
+                numberOfCommendations++;
 
-                IncrementTimesCommended();
                 // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
                 // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
-                DelayTimer_Commendations();
+                if (numberOfCommendations == 1)
+                {
+                    var t = new System.Timers.Timer();
+                    t.Interval = 5000;
+                    t.AutoReset = false;
+                    t.Elapsed += delegate
+                    {
+                            string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
+                            string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
+                            ChatGui.Print($"You received {numberOfCommendations} {commendations}{dutyName}");
+                            t.Enabled = false;
+                            t.Dispose();
+                        numberOfCommendations = 0;
+                    };
+                    t.Enabled = true;
+                }
             }
 
             if (Configuration.BetterCommendationMessage && ChatStrings.DutyEnded.All(normalizedText.Contains))
@@ -173,6 +147,11 @@ namespace TidyChat
                 //           v
                 // <duty> has ended.
                 lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
+            }
+
+            if (Configuration.BetterCommendationMessage && ChatStrings.GuildhestEnded.All(normalizedText.Contains))
+            {
+                lastDuty = "a Guildhest";
             }
 
             if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes)
