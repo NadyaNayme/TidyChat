@@ -15,6 +15,8 @@ namespace TidyChat
         public bool FilterEmoteSpam { get; set; } = true;
         public bool FilterObtainedSpam { get; set; } = true;
         public bool FilterLootSpam { get; set; } = true;
+        public bool FilterProgressSpam { get; set; } = true;
+        public bool FilterCraftingSpam { get; set; } = true;
         #endregion
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
@@ -40,6 +42,11 @@ namespace TidyChat
         public bool ShowObtainedVenture { get; set; } = false;
         public bool ShowObtainedMaterials { get; set; } = false;
         public bool ShowObtainedShards { get; set; } = false;
+        public bool ShowGainExperience { get; set; } = false;
+        public bool ShowEarnAchievement { get; set; } = false;
+        public bool ShowObtainedPoeticsTomestones { get; set; } = false;
+        public bool ShowObtainedAphorismTomestones { get; set; } = false;
+        public bool ShowObtainedAstronomyTomestones { get; set; } = false;
         #endregion
 
         #region Loot Rolls

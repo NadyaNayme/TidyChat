@@ -79,6 +79,18 @@ namespace TidyChat
                         ImGui.EndTabItem();
                     }
 
+                    if (ImGui.BeginTabItem("Progress"))
+                    {
+                        DrawProgressTab();
+                        ImGui.EndTabItem();
+                    }
+
+                    if (ImGui.BeginTabItem("Crafting"))
+                    {
+                        DrawCraftingTab();
+                        ImGui.EndTabItem();
+                    }
+
                     ImGui.EndTabBar();
 
                     ImGui.Separator();
@@ -224,7 +236,7 @@ namespace TidyChat
         public void DrawObtainTab()
         {
             var filterObtainedSpam = this.configuration.FilterObtainedSpam;
-            if (ImGui.Checkbox("Filters spammy Obtain messages.", ref filterObtainedSpam))
+            if (ImGui.Checkbox("Filters spammy Obtain messages", ref filterObtainedSpam))
             {
                 this.configuration.FilterObtainedSpam = filterObtainedSpam;
                 this.configuration.Save();
@@ -241,7 +253,7 @@ namespace TidyChat
             }
 
             var showObtainedClusters = this.configuration.ShowObtainedClusters;
-            if (ImGui.Checkbox("Show clusters that are traded for materia.", ref showObtainedClusters))
+            if (ImGui.Checkbox("Show clusters that are traded for materia", ref showObtainedClusters))
             {
                 this.configuration.ShowObtainedClusters = showObtainedClusters;
                 this.configuration.Save();
@@ -285,12 +297,33 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters");
 
+            var showObtainedPoeticsTomestones = this.configuration.ShowObtainedPoeticsTomestones;
+            if (ImGui.Checkbox("Show Allagan tomestones of Poetics", ref showObtainedPoeticsTomestones))
+            {
+                this.configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
+                this.configuration.Save();
+            }
+
+            var showObtainedAphorismTomestones = this.configuration.ShowObtainedAphorismTomestones;
+            if (ImGui.Checkbox("Show Allagan tomestones of Aphorism", ref showObtainedAphorismTomestones))
+            {
+                this.configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
+                this.configuration.Save();
+            }
+
+            var showObtainedAstronomyTomestones = this.configuration.ShowObtainedAstronomyTomestones;
+            if (ImGui.Checkbox("Show Allagan tomestones of Astronomy", ref showObtainedAstronomyTomestones))
+            {
+                this.configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
+                this.configuration.Save();
+            }
+
         }
 
         public void DrawLootTab()
         {
             var filterObtainedSpam = this.configuration.FilterObtainedSpam;
-            if (ImGui.Checkbox("Filters spammy Loot messages.", ref filterObtainedSpam))
+            if (ImGui.Checkbox("Filters spammy Loot messages", ref filterObtainedSpam))
             {
                 this.configuration.FilterObtainedSpam = filterObtainedSpam;
                 this.configuration.Save();
@@ -298,7 +331,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to show Loot messages Tiny Chat considers to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to show Loot messages Tiny Chat considers to be spam");
             var showCastLot = this.configuration.ShowCastLot;
             if (ImGui.Checkbox("Show \"You cast your lot\" messages", ref showCastLot))
             {
@@ -314,6 +347,44 @@ namespace TidyChat
                 this.configuration.Save();
             }
             ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\nYou roll Need/Greed on the <item>. 63!");
+        }
+
+        public void DrawProgressTab()
+        {
+            var filterObtainedSpam = this.configuration.FilterObtainedSpam;
+            if (ImGui.Checkbox("Filters spammy Progress messages", ref filterObtainedSpam))
+            {
+                this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                this.configuration.Save();
+            }
+
+            ImGui.Separator();
+
+            ImGui.TextUnformatted("The options below will allow you to show Progress messages Tiny Chat considers to be spam.");
+            var showGainExperience = this.configuration.ShowGainExperience;
+            if (ImGui.Checkbox("Show experience gain messages", ref showGainExperience))
+            {
+                this.configuration.ShowGainExperience = showGainExperience;
+                this.configuration.Save();
+            }
+
+            var showEarnAchievement = this.configuration.ShowEarnAchievement;
+            if (ImGui.Checkbox("Show earned achievement messages", ref showEarnAchievement))
+            {
+                this.configuration.ShowEarnAchievement = showEarnAchievement;
+                this.configuration.Save();
+            }
+        }
+
+        public void DrawCraftingTab()
+        {
+            var filterObtainedSpam = this.configuration.FilterObtainedSpam;
+            if (ImGui.Checkbox("Filter all Crafting messages except \"You synthesize a/an <item>\"", ref filterObtainedSpam))
+            {
+                this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                this.configuration.Save();
+            };
+            ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts.");
         }
 
     }

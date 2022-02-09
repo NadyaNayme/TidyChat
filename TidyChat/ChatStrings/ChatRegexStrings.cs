@@ -12,9 +12,9 @@ namespace TidyChat
          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedNuts { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} sacks of Nuts\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ObtainedSeals { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} (Flame|Maelstrom|Adder) Seals\.",
+        public static Regex ObtainedSeals { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} (Flame|Storm|Serpent) Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ObtainedClusters { get; } = new Regex(@"You obtain a cracked (.*)cluster\.",
+        public static Regex ObtainedClusters { get; } = new Regex(@"You obtain a (.*)cluster\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedMaterials { get; } = new Regex(@"You obtain (.*) materials\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
@@ -28,7 +28,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex RollsNeedOrGreed { get; } = new Regex(@"You roll (Need|Greed) on the (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ItemSearchCommand { get; } = new Regex(@"( 　>>|(No|\d{1,4}) (match|matches) found containing)",
+        public static Regex ItemSearchCommand { get; } = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex ObtainedTomestones { get; } = new Regex(@"You obtain \d{1,3} Allagan tomestones of",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }

@@ -179,6 +179,16 @@ namespace TidyChat
                 isHandled = FilterLootMessages.IsFiltered(normalizedText, Configuration);
             }
 
+            if (chatType is ChatType.Progress && Configuration.FilterProgressSpam)
+            {
+                isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
+            }
+
+            if (chatType is ChatType.Crafting && Configuration.FilterCraftingSpam)
+            {
+                isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
+            }
+
         }
 
         private void OnCommand(string command, string args)

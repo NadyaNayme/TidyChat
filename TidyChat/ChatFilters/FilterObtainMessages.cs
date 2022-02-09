@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace TidyChat
 {
@@ -15,7 +16,10 @@ namespace TidyChat
                     (ChatRegexStrings.ObtainedNuts.IsMatch(input) && !configuration.ShowObtainedNuts) ||
                     (ChatRegexStrings.ObtainedVenture.IsMatch(input) && !configuration.ShowObtainedVenture) ||
                     (ChatRegexStrings.ObtainedMaterials.IsMatch(input) && !configuration.ShowObtainedMaterials) ||
-                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && !configuration.ShowObtainedShards)
+                    (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("poetics") && !configuration.ShowObtainedPoeticsTomestones) ||
+                    (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("aphorism") && !configuration.ShowObtainedAphorismTomestones) ||
+                    (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("astronomy") && !configuration.ShowObtainedAstronomyTomestones) ||
+                    (ChatRegexStrings.ObtainedMaterials.IsMatch(input) && !configuration.ShowObtainedMaterials)
                     )
                 {
                     return true;

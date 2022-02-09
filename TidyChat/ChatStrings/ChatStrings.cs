@@ -21,5 +21,19 @@ namespace TidyChat
         // Retainer completed a venture.
         public static string[] CompletedVenture { get; } = { "completed", "a", "venture" };
 
+        //You gain \d <class> experience points
+        public static string[] GainExperiencePoints { get; } = { "you", "gain", "experience", "points" };
+
+        //You earn the achievement <achievement>
+        public static string[] EarnAchievement { get; } = { "you", "earn", "the", "achievement" };
+
+        // You synthesize a/an <item>
+        public static string[] YouSynthesize { get; } = { "you", "synthesize" };
+
+        // <Player> has logged out.
+        public static string[] HasLoggedOut { get; } = { "has", "logged", "out" };
+
+        // Tomestones
+        public static string[] ObtainedTomesetones { get; } = { "You", "obtain", "Allagan", "tomestones", "of" };
     }
 }
