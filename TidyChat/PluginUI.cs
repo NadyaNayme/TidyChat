@@ -211,6 +211,14 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This is the message that appears when an S rank hunt has spawned in your current zone.");
 
+            var ssRankHunt = this.configuration.HideSSRankHunt;
+            if (ImGui.Checkbox("Hide SS Rank Minion spawn and withdraw announcement", ref ssRankHunt))
+            {
+                this.configuration.HideSSRankHunt = ssRankHunt;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("These are the messages that appears when an SS rank's minions have spawned in or withdrawn from your current zone.");
+
             var commendations = this.configuration.HideCommendations;
             if (ImGui.Checkbox("Hide Received Commendations", ref commendations))
             {

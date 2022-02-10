@@ -8,7 +8,6 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedGil { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} gil\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
         public static Regex ObtainedMGP { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} MGP\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedVenture { get; } = new Regex(@"You obtain (a venture|2 ventures)\.",
@@ -25,9 +24,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedMaterials { get; } = new Regex(@"You obtain (.*) materials\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ObtainedShards { get; } = new Regex(@"You obtain \d{1,3} (fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
+        public static Regex ObtainedShards { get; } = new Regex(@"You obtain \d{1,3} .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ObtainedTribalCurrency { get; } = new Regex(@"You obtain a (Steel Amalj'ok|Sylphic Goldleaf|Titan Cobaltpiece|Rainbowtide Psashp|Ixali Oaknot|Vanu Whitebone|Black Copper Gil|Carved Kupo Nut|Kojin Sango|Ananta Dreamstaff|namazu Koban|Fae Fancy|Qitari Compliment|Hammered Frogment)\.",
+        public static Regex ObtainedTribalCurrency { get; } = new Regex(@"You obtain (a|an) (Steel Amalj'ok|Sylphic Goldleaf|Titan Cobaltpiece|Rainbowtide Psashp|Ixali Oaknot|Vanu Whitebone|Black Copper Gil|Carved Kupo Nut|Kojin Sango|Ananta Dreamstaff|namazu Koban|Fae Fancy|Qitari Compliment|Hammered Frogment)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex PlayerTargetedEmote { get; } = new Regex(@"you|your",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);

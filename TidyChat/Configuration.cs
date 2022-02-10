@@ -27,6 +27,7 @@ namespace TidyChat
 
         #region Whitelisted Sytstem Messages
         public bool HideSRankHunt { get; set; } = false;
+        public bool HideSSRankHunt { get; set; } = false;
         public bool HideCommendations { get; set; } = false;
         public bool HideCompletedVenture { get; set; } = false;
         public bool HideInstanceMessage { get; set; } = false;
