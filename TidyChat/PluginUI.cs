@@ -188,92 +188,121 @@ namespace TidyChat
                 this.configuration.FilterSystemMessages = filterSystemMessages;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("Hide all System messages except: Instance, Commendations, S Rank Hunt, Completed Ventures.");
 
             ImGui.Separator();
+            ImGui.Spacing();
 
-            ImGui.TextUnformatted("The options below will allow you to hide System messages that Tiny Chat does not consider to be spam.");
-
-            var instanceMessage = this.configuration.HideInstanceMessage;
-            if (ImGui.Checkbox("Hide /instance message", ref instanceMessage))
+            if (ImGui.CollapsingHeader("\"Not Spam\" Filters"))
             {
-                this.configuration.HideInstanceMessage = instanceMessage;
-                this.configuration.Save();
+                ImGui.TextUnformatted("Hide messages Tidy Chat does not consider to be spam.");
+
+                var instanceMessage = this.configuration.HideInstanceMessage;
+                if (ImGui.Checkbox("Hide /instance message", ref instanceMessage))
+                {
+                    this.configuration.HideInstanceMessage = instanceMessage;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You are now in the instanced area Old Sharlayan .\nCurrent instance can be confirmed at any time using the / instance text command.");
+
+
+                var sRankHunt = this.configuration.HideSRankHunt;
+                if (ImGui.Checkbox("Hide S Rank Hunt spawn announcement", ref sRankHunt))
+                {
+                    this.configuration.HideSRankHunt = sRankHunt;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You sense the presence of a powerful mark...");
+
+                var ssRankHunt = this.configuration.HideSSRankHunt;
+                if (ImGui.Checkbox("Hide SS Rank Minion announcements", ref ssRankHunt))
+                {
+                    this.configuration.HideSSRankHunt = ssRankHunt;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. The minions of an extraordinarily powerful mark are on the hunt for prey...\nThe minions of an extraordinarily powerful mark have withdrawn...");
+
+                var commendations = this.configuration.HideCommendations;
+                if (ImGui.Checkbox("Hide Received Commendations", ref commendations))
+                {
+                    this.configuration.HideCommendations = commendations;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You received a player commendation!");
+
+                var completedVenture = this.configuration.HideCompletedVenture;
+                if (ImGui.Checkbox("Hide Completed Venture", ref completedVenture))
+                {
+                    this.configuration.HideCompletedVenture = completedVenture;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. RetainerName has completed a venture!");
+
+                var hideQuestReminder = this.configuration.HideQuestReminder;
+                if (ImGui.Checkbox("Hide reminders of what to /say in chat during quests.", ref hideQuestReminder))
+                {
+                    this.configuration.HideQuestReminder = hideQuestReminder;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.");
+
+                var hideSpideySenses = this.configuration.HideSpideySenses;
+                if (ImGui.Checkbox("Hide \"You sense something...\" messages", ref hideSpideySenses))
+                {
+                    this.configuration.HideSpideySenses = hideSpideySenses;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You sense something to the far, far southwest...");
+
+                var hideAetherCompass = this.configuration.HideAetherCompass;
+                if (ImGui.Checkbox("Hide Aether Compass message", ref hideAetherCompass))
+                {
+                    this.configuration.HideAetherCompass = hideAetherCompass;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. The compass detects a current approximately 143 yalms to the West...");
+
+                var hideCountdownTime = this.configuration.HideCountdownTime;
+                if (ImGui.Checkbox("Hide /countdown message", ref hideCountdownTime))
+                {
+                    this.configuration.HideCountdownTime = hideCountdownTime;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. Battle commencing in 18 seconds!");
+
+                var hideReadyChecks = this.configuration.HideReadyChecks;
+                if (ImGui.Checkbox("Hide /readycheck message", ref hideReadyChecks))
+                {
+                    this.configuration.HideReadyChecks = hideReadyChecks;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. Ready check complete.");
+
             }
-            ImGuiComponents.HelpMarker("This is the message that appears when you join an instanced zone or use the /instance command.");
 
+            ImGui.Spacing();
+            
 
-            var sRankHunt = this.configuration.HideSRankHunt;
-            if (ImGui.Checkbox("Hide S Rank Hunt spawn announcement", ref sRankHunt))
+            if (ImGui.CollapsingHeader("\"Spam\" Filters"))
             {
-                this.configuration.HideSRankHunt = sRankHunt;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when an S rank hunt has spawned in your current zone.");
+                ImGui.TextUnformatted("Show messages Tidy Chat considers to be spam");
 
-            var ssRankHunt = this.configuration.HideSSRankHunt;
-            if (ImGui.Checkbox("Hide SS Rank Minion spawn and withdraw announcement", ref ssRankHunt))
-            {
-                this.configuration.HideSSRankHunt = ssRankHunt;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("These are the messages that appears when an SS rank's minions have spawned in or withdrawn from your current zone.");
+                var showGlamoursProjected = this.configuration.ShowGlamoursProjected;
+                if (ImGui.Checkbox("Show message when changing glamour plates", ref showGlamoursProjected))
+                {
+                    this.configuration.ShowGlamoursProjected = showGlamoursProjected;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("\neg. Glamours projected from plate 10.");
 
-            var commendations = this.configuration.HideCommendations;
-            if (ImGui.Checkbox("Hide Received Commendations", ref commendations))
-            {
-                this.configuration.HideCommendations = commendations;
-                this.configuration.Save();
+                var showGearsetEquipped = this.configuration.ShowGearsetEquipped;
+                if (ImGui.Checkbox("Show message when changing gearsets", ref showGearsetEquipped))
+                {
+                    this.configuration.ShowGearsetEquipped = showGearsetEquipped;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("\neg. “RDM (530)” equipped.");
             }
-            ImGuiComponents.HelpMarker("This is the message that appears when you have received a player commendation.");
 
-            var completedVenture = this.configuration.HideCompletedVenture;
-            if (ImGui.Checkbox("Hide Completed Venture", ref completedVenture))
-            {
-                this.configuration.HideCompletedVenture = completedVenture;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when a retainer completes a venture.");
-
-            var hideQuestReminder = this.configuration.HideQuestReminder;
-            if (ImGui.Checkbox("Hide reminders of what to /say in chat during quests.", ref hideQuestReminder))
-            {
-                this.configuration.HideQuestReminder = hideQuestReminder;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when interacting with a quest objective that requires you to /say a specific word or phrase.");
-
-            var hideSpideySenses = this.configuration.HideSpideySenses;
-            if (ImGui.Checkbox("Hide the \"You sense something...\" message", ref hideSpideySenses))
-            {
-                this.configuration.HideSpideySenses = hideSpideySenses;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when interacting with an item that is guiding you in a direction.\neg. You sense something to the far, far southwest.");
-
-            var hideAetherCompass = this.configuration.HideAetherCompass;
-            if (ImGui.Checkbox("Hide the \"The compass detects a current approximately ___ yalms to the <direction>...\" message", ref hideAetherCompass))
-            {
-                this.configuration.HideAetherCompass = hideAetherCompass;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when using the Aether Compass to find Aether Currents. This does not hide the toast notification.");
-
-            var hideCountdownTime = this.configuration.HideCountdownTime;
-            if (ImGui.Checkbox("Hide the \"Battle commencing in __ seconds!\" message", ref hideCountdownTime))
-            {
-                this.configuration.HideCountdownTime = hideCountdownTime;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when a countdown begins with the length of the countdown. It does not remove the toast notifications or on-screen time countdowns.");
-
-            var hideReadyChecks = this.configuration.HideReadyChecks;
-            if (ImGui.Checkbox("Hide the \"Ready check complete.\" message", ref hideReadyChecks))
-            {
-                this.configuration.HideReadyChecks = hideReadyChecks;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This is the message that appears when a ready check completes. Not sure why you would want to hide this but you can if you want.");
         }
         public void DrawEmotesTab()
         {
@@ -316,6 +345,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedGil = showObtainedgil;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 69 gil.");
 
                 var showObtainedSeals = this.configuration.ShowObtainedSeals;
                 if (ImGui.Checkbox("Show Grand Company Seals", ref showObtainedSeals))
@@ -323,6 +353,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedSeals = showObtainedSeals;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 420 Flame Seals.");
 
                 var showObtainedVenture = this.configuration.ShowObtainedVenture;
                 if (ImGui.Checkbox("Show Ventures", ref showObtainedVenture))
@@ -330,6 +361,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedVenture = showObtainedVenture;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain a Venture.");
 
                 var showObtainedMGP = this.configuration.ShowObtainedMGP;
                 if (ImGui.Checkbox("Show MGP", ref showObtainedMGP))
@@ -337,6 +369,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedMGP = showObtainedMGP;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 117 MGP.");
             }
 
             ImGui.Spacing();
@@ -349,6 +382,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 100 Allagan tomestones of Poetics.");
 
                 var showObtainedAphorismTomestones = this.configuration.ShowObtainedAphorismTomestones;
                 if (ImGui.Checkbox("Show Allagan tomestones of Aphorism", ref showObtainedAphorismTomestones))
@@ -356,6 +390,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 60 Allagan tomestones of Aphorism.");
 
                 var showObtainedAstronomyTomestones = this.configuration.ShowObtainedAstronomyTomestones;
                 if (ImGui.Checkbox("Show Allagan tomestones of Astronomy", ref showObtainedAstronomyTomestones))
@@ -363,6 +398,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 20 Allagan tomestones of Astronomy.");
 
                 var showObtainedAlliedSeals = this.configuration.ShowObtainedAlliedSeals;
                 if (ImGui.Checkbox("Show Allied Seals", ref showObtainedAlliedSeals))
@@ -370,6 +406,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedAlliedSeals = showObtainedAlliedSeals;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 100 Allied Seals.");
 
                 var showObtainedCenturioSeals = this.configuration.ShowObtainedCenturioSeals;
                 if (ImGui.Checkbox("Show Centurio Seals", ref showObtainedCenturioSeals))
@@ -377,6 +414,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedCenturioSeals = showObtainedCenturioSeals;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 40 Centurio Seals.");
 
                 var showObtainedNuts = this.configuration.ShowObtainedNuts;
                 if (ImGui.Checkbox("Show sacks of Nuts", ref showObtainedNuts))
@@ -384,6 +422,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedNuts = showObtainedNuts;
                     this.configuration.Save();
                 }
+                ImGuiComponents.HelpMarker("eg. You obtain 100 sacks of Nuts.");
             }
 
             ImGui.Spacing();
@@ -395,7 +434,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedMaterials = showObtainedMaterials;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests");
+                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.\neg. You obtain Starboard Hull Component Materials");
 
                 var showObtainedTribalCurrency = this.configuration.ShowObtainedTribalCurrency;
                 if (ImGui.Checkbox("Show Beast Tribe Currencies", ref showObtainedTribalCurrency))
@@ -403,7 +442,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedTribalCurrency = showObtainedTribalCurrency;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests");
+                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.");
             }
 
             ImGui.Spacing();
@@ -415,7 +454,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedClusters = showObtainedClusters;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("This will show cracked clusters such as Dendroclusters and Anthoclusters.\nFor hiding elemental clusters see the hide elemental clusters option down below.");
+                ImGuiComponents.HelpMarker("This will show cracked clusters such as Dendroclusters and Anthoclusters.\nFor hiding elemental clusters see the hide elemental clusters option down below.\neg. You obtain a cracked dendrocluster");
 
                 var showObtainedShards = this.configuration.ShowObtainedShards;
                 if (ImGui.Checkbox("Show elemental shards, crystals, and clusters", ref showObtainedShards))
@@ -423,7 +462,7 @@ namespace TidyChat
                     this.configuration.ShowObtainedShards = showObtainedShards;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters");
+                ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters\neg. You obtain 30 ice shards");
             }
         }
 
@@ -445,7 +484,7 @@ namespace TidyChat
                 this.configuration.ShowCastLot = showCastLot;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when you roll on loot.\nYou cast your lot for the <item>");
+            ImGuiComponents.HelpMarker("This will show the message that occurs when you roll on loot.\neg. You cast your lot for the <item>");
 
             var showLootRoll = this.configuration.ShowLootRoll;
             if (ImGui.Checkbox("Show \"You rolled ##\" messages", ref showLootRoll))
@@ -453,7 +492,7 @@ namespace TidyChat
                 this.configuration.ShowLootRoll = showLootRoll;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\nYou roll Need/Greed on the <item>. 63!");
+            ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
         }
 
         public void DrawProgressTab()
@@ -474,6 +513,15 @@ namespace TidyChat
                 this.configuration.ShowGainExperience = showGainExperience;
                 this.configuration.Save();
             }
+            ImGuiComponents.HelpMarker("eg. You gain 2,388 Experience Points.");
+
+            var showRouletteBonusExperiencePoints = this.configuration.ShowRouletteBonusExperiencePoints;
+            if (ImGui.Checkbox("Show bonus award for using duty roulette", ref showRouletteBonusExperiencePoints))
+            {
+                this.configuration.ShowRouletteBonusExperiencePoints = showRouletteBonusExperiencePoints;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.");
 
             var showGainPvpExp = this.configuration.ShowGainPvpExp;
             if (ImGui.Checkbox("Show PVP EXP gain messages", ref showGainPvpExp))
@@ -481,6 +529,7 @@ namespace TidyChat
                 this.configuration.ShowGainPvpExp = showGainPvpExp;
                 this.configuration.Save();
             }
+            ImGuiComponents.HelpMarker("eg. You acquire 500 PvP EXP.");
 
             var showEarnAchievement = this.configuration.ShowEarnAchievement;
             if (ImGui.Checkbox("Show earned achievement messages", ref showEarnAchievement))
@@ -514,7 +563,37 @@ namespace TidyChat
                 this.configuration.FilterObtainedSpam = filterObtainedSpam;
                 this.configuration.Save();
             };
-            ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts.");
+            ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
+
+            ImGui.Separator();
+
+            var showAttachedMateria = this.configuration.ShowAttachedMateria;
+            if (ImGui.Checkbox("Show message when materia is succesfully attached to gear", ref showAttachedMateria))
+            {
+                this.configuration.ShowAttachedMateria = showAttachedMateria;
+                this.configuration.Save();
+            }
+
+            var showOvermeldFailure = this.configuration.ShowOvermeldFailure;
+            if (ImGui.Checkbox("Show message when materia fails to be overmelded onto gear", ref showOvermeldFailure))
+            {
+                this.configuration.ShowOvermeldFailure = showOvermeldFailure;
+                this.configuration.Save();
+            }
+
+            var showMateriaRetrieved = this.configuration.ShowMateriaRetrieved;
+            if (ImGui.Checkbox("Show message when you succesfully retrieve materia from gear", ref showMateriaRetrieved))
+            {
+                this.configuration.ShowMateriaRetrieved = showMateriaRetrieved;
+                this.configuration.Save();
+            }
+
+            var showMateriaShatters = this.configuration.ShowMateriaShatters;
+            if (ImGui.Checkbox("Show message when materia shatters during retrieval", ref showMateriaShatters))
+            {
+                this.configuration.ShowMateriaShatters = showMateriaShatters;
+                this.configuration.Save();
+            }
         }
 
     }

@@ -10,7 +10,9 @@ namespace TidyChat
             try
             {
                 if (
-                    (ChatStrings.YouSynthesize.All(input.Contains) && configuration.FilterCraftingSpam)
+                    (ChatStrings.YouSynthesize.All(input.Contains) && configuration.FilterCraftingSpam) ||
+                    (ChatRegexStrings.AttachedMateria.IsMatch(input) && configuration.ShowAttachedMateria) ||
+                    (ChatStrings.OvermeldFailure.All(input.Contains) && configuration.ShowOvermeldFailure)
                    )
                 {
                     return false;

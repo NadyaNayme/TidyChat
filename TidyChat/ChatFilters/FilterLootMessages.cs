@@ -1,5 +1,5 @@
 ﻿using System;
-using ChatTwo.Code;
+using System.Linq;
 
 namespace TidyChat
 {
@@ -9,14 +9,14 @@ namespace TidyChat
         {
             try
             {
-                if (!configuration.ShowLootRoll && ChatRegexStrings.RollsNeedOrGreed.IsMatch(input))
+                if (
+                    (ChatRegexStrings.RollsNeedOrGreed.IsMatch(input) && !configuration.ShowLootRoll) ||
+                    (ChatRegexStrings.CastLot.IsMatch(input) && !configuration.ShowCastLot) ||
+                    (ChatStrings.RouletteBonusExperiencePoints.All(input.Contains) && !configuration.ShowRouletteBonusExperiencePoints)
+                )
                 {
                     return true;
-                }
-                if (!configuration.ShowCastLot && ChatRegexStrings.CastLot.IsMatch(input))
-                {
-                    return true;
-                }
+                } 
                 return false;
             }
             catch (Exception)

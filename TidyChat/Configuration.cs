@@ -39,6 +39,9 @@ namespace TidyChat
         public bool HideDebugTeleport { get; set; } = false;
         public bool HideSpideySenses { get; set; } = false;
         public bool HideAetherCompass { get; set; } = false;
+        public bool ShowGlamoursProjected { get; set; } = false;
+        public bool ShowGearsetEquipped { get; set; } = false;
+        public bool ShowMateriaRetrieved { get; set; } = true; 
         #endregion
 
         #region Obtained Items
@@ -54,6 +57,7 @@ namespace TidyChat
         public bool ShowObtainedTribalCurrency { get; set; } = false;
         public bool ShowObtainedShards { get; set; } = false;
         public bool ShowGainExperience { get; set; } = false;
+        public bool ShowRouletteBonusExperiencePoints { get; set; } = false;
         public bool ShowGainPvpExp { get; set; } = false;
         public bool ShowEarnAchievement { get; set; } = false;
         public bool ShowObtainedPoeticsTomestones { get; set; } = false;
@@ -69,6 +73,12 @@ namespace TidyChat
         #region Progression
         public bool ShowLevelUps { get; set; } = true;
         public bool ShowAbilityUnlocks { get; set; } = true;
+        #endregion
+
+        #region Crafting
+        public bool ShowAttachedMateria { get; set; } = true;
+        public bool ShowOvermeldFailure { get; set; } = true;
+        public bool ShowMateriaShatters { get; set; } = true;    
         #endregion
         // the below exist just to make saving less cumbersome
 

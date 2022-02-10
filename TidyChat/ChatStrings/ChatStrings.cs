@@ -28,6 +28,9 @@ namespace TidyChat
         //You gain \d <class> experience points
         public static string[] GainExperiencePoints { get; } = { "you", "gain", "experience", "points" };
 
+        // A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.
+        public static string[] RouletteBonusExperiencePoints { get; } = { "a", "bonus", "of", "experience", "points", "and", "gil", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" };
+
         //You acquire \d Pvp EXP.
         public static string[] GainPvpExp { get; } = { "you", "acquire", "pvp", "exp" };
 
@@ -63,5 +66,11 @@ namespace TidyChat
 
         // The compass detects a current approximately <##> yalms to the <direction>...
         public static string[] AetherCompass { get; } = { "the", "compass", "detects", "a", "current", "approximately" };
+
+        // Glamours projected from plate <##>
+        public static string[] GlamoursProjected { get; } = { "glamours", "projected", "from", "plate" };
+        // Overmelding fail
+        // You are unable to attach the materia to the <item>. The <materia> was lost.
+        public static string[] OvermeldFailure { get; } = { "you", "are", "unable", "to", "attach", "the", "materia", "to" };
     }
 }

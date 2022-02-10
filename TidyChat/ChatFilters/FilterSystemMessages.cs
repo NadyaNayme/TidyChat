@@ -20,6 +20,10 @@ namespace TidyChat
                     (ChatStrings.SpideySenses.All(input.Contains) && !configuration.HideSpideySenses) ||
                     (ChatStrings.AetherCompass.All(input.Contains) && !configuration.HideAetherCompass) ||
                     (ChatStrings.CountdownTime.All(input.Contains) && !configuration.HideCountdownTime) ||
+                    (ChatStrings.GlamoursProjected.All(input.Contains) && configuration.ShowGlamoursProjected) ||
+                    (ChatRegexStrings.GearsetEquipped.IsMatch(input) && configuration.ShowGearsetEquipped) ||
+                    (ChatRegexStrings.MateriaRetrieved.IsMatch(input) && configuration.ShowMateriaRetrieved) ||
+                    (ChatRegexStrings.MateriaShatters.IsMatch(input) && configuration.ShowMateriaShatters) ||
                     (ChatRegexStrings.ItemSearchCommand.IsMatch(input)) ||
                     (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder)
                    )

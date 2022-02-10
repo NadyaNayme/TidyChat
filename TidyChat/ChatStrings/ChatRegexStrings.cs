@@ -20,7 +20,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedSeals { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} (Flame|Storm|Serpent) Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ObtainedClusters { get; } = new Regex(@"You obtain a (.*)cluster\.",
+        public static Regex ObtainedClusters { get; } = new Regex(@"You obtain (a|2) (.*)cluster\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedMaterials { get; } = new Regex(@"You obtain (.*) materials\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
@@ -40,5 +40,15 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedTomestones { get; } = new Regex(@"You obtain \d{1,3} Allagan tomestones of",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex GearsetEquipped { get; } = new Regex(@"“(.*)” equipped\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        // Future proofing the materias a bit
+        public static Regex MateriaRetrieved { get; } = new Regex(@"You receive a .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX)",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
+        public static Regex MateriaShatters { get; } = new Regex(@"The .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX) shatters",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex AttachedMateria { get; } = new Regex(@"You successfully attach a .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX) to the",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }
