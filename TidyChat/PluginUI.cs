@@ -467,6 +467,13 @@ namespace TidyChat
                 this.configuration.Save();
             }
 
+            var showGainPvpExp = this.configuration.ShowGainPvpExp;
+            if (ImGui.Checkbox("Show PVP EXP gain messages", ref showGainPvpExp))
+            {
+                this.configuration.ShowGainPvpExp = showGainPvpExp;
+                this.configuration.Save();
+            }
+
             var showEarnAchievement = this.configuration.ShowEarnAchievement;
             if (ImGui.Checkbox("Show earned achievement messages", ref showEarnAchievement))
             {

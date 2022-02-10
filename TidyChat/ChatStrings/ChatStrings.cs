@@ -24,6 +24,9 @@ namespace TidyChat
         //You gain \d <class> experience points
         public static string[] GainExperiencePoints { get; } = { "you", "gain", "experience", "points" };
 
+        //You acquire \d Pvp EXP.
+        public static string[] GainPvpExp { get; } = { "you", "acquire", "pvp", "exp" };
+
         //You earn the achievement <achievement>
         public static string[] EarnAchievement { get; } = { "you", "earn", "the", "achievement" };
 
