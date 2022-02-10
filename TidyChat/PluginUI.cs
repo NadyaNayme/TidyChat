@@ -119,48 +119,71 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("Message Improvements");
-
-            var betterInstanceMessage = this.configuration.BetterInstanceMessage;
-            if (ImGui.Checkbox("Improved /instance messaging", ref betterInstanceMessage))
+            if (ImGui.CollapsingHeader("Messaging Improvements"))
             {
-                this.configuration.BetterInstanceMessage = betterInstanceMessage;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("Changes the instance text to: You are now in instance: #");
 
-            var betterCommendationMessage = this.configuration.BetterCommendationMessage;
-            if (ImGui.Checkbox("Condensed Commendations", ref betterCommendationMessage))
-            {
-                this.configuration.BetterCommendationMessage = betterCommendationMessage;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default.)");
-
-            var includeDutyNameInComms = this.configuration.IncludeDutyNameInComms;
-            if (ImGui.Checkbox("Include completed duty in condensed commendations", ref includeDutyNameInComms))
-            {
-                this.configuration.IncludeDutyNameInComms = includeDutyNameInComms;
-                if (!this.configuration.BetterCommendationMessage && this.configuration.IncludeDutyNameInComms)
+                var betterInstanceMessage = this.configuration.BetterInstanceMessage;
+                if (ImGui.Checkbox("Improved /instance messaging", ref betterInstanceMessage))
                 {
-                    this.configuration.BetterCommendationMessage = true;
+                    this.configuration.BetterInstanceMessage = betterInstanceMessage;
+                    this.configuration.Save();
                 }
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("Requires Condensed Commendations to be enabled.");
+                ImGuiComponents.HelpMarker("Changes the instance text to: You are now in instance: #");
 
-            var betterSayReminder = this.configuration.BetterSayReminder;
-            if (ImGui.Checkbox("Improved /Say message for quests", ref betterSayReminder))
-            {
-                this.configuration.BetterSayReminder = betterSayReminder;
-                this.configuration.Save();
+                var betterCommendationMessage = this.configuration.BetterCommendationMessage;
+                if (ImGui.Checkbox("Condensed Commendations", ref betterCommendationMessage))
+                {
+                    this.configuration.BetterCommendationMessage = betterCommendationMessage;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)");
+
+                var includeDutyNameInComms = this.configuration.IncludeDutyNameInComms;
+                if (ImGui.Checkbox("Include completed duty in condensed commendations", ref includeDutyNameInComms))
+                {
+                    this.configuration.IncludeDutyNameInComms = includeDutyNameInComms;
+                    if (!this.configuration.BetterCommendationMessage && this.configuration.IncludeDutyNameInComms)
+                    {
+                        this.configuration.BetterCommendationMessage = true;
+                    }
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Requires Condensed Commendations to be enabled");
+
+                var betterSayReminder = this.configuration.BetterSayReminder;
+                if (ImGui.Checkbox("Improved /Say message for quests", ref betterSayReminder))
+                {
+                    this.configuration.BetterSayReminder = betterSayReminder;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily");
+
             }
-            ImGuiComponents.HelpMarker("When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily.");
+
+            ImGui.Spacing();
+            if (ImGui.CollapsingHeader("Uncategorized Filters"))
+            {
+
+                var hideDebugTeleport = this.configuration.HideDebugTeleport;
+                if (ImGui.Checkbox("Hide \"Teleporting to <Location>...\" Dalamud Debug messages ", ref hideDebugTeleport))
+                {
+                    this.configuration.HideDebugTeleport = hideDebugTeleport;
+                    this.configuration.Save();
+                }
+
+                var hideUserLogOuts = this.configuration.HideUserLogOuts;
+                if (ImGui.Checkbox("Hide \"User has logged out\" Free Company messages ", ref hideUserLogOuts))
+                {
+                    this.configuration.HideUserLogOuts = hideUserLogOuts;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Hides the message that appears when a Free Company member logs out");
+            }
         }
         public void DrawSystemTab()
         {
             var filterSystemMessages = this.configuration.FilterSystemMessages;
-            if (ImGui.Checkbox("Filter system messages", ref filterSystemMessages))
+            if (ImGui.Checkbox("Filter spammy system messages", ref filterSystemMessages))
             {
                 this.configuration.FilterSystemMessages = filterSystemMessages;
                 this.configuration.Save();
@@ -211,6 +234,38 @@ namespace TidyChat
                 this.configuration.Save();
             }
             ImGuiComponents.HelpMarker("This is the message that appears when interacting with a quest objective that requires you to /say a specific word or phrase.");
+
+            var hideSpideySenses = this.configuration.HideSpideySenses;
+            if (ImGui.Checkbox("Hide the \"You sense something...\" message", ref hideSpideySenses))
+            {
+                this.configuration.HideSpideySenses = hideSpideySenses;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This is the message that appears when interacting with an item that is guiding you in a direction.\neg. You sense something to the far, far southwest.");
+
+            var hideAetherCompass = this.configuration.HideAetherCompass;
+            if (ImGui.Checkbox("Hide the \"The compass detects a current approximately ___ yalms to the <direction>...\" message", ref hideAetherCompass))
+            {
+                this.configuration.HideAetherCompass = hideAetherCompass;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This is the message that appears when using the Aether Compass to find Aether Currents. This does not hide the toast notification.");
+
+            var hideCountdownTime = this.configuration.HideCountdownTime;
+            if (ImGui.Checkbox("Hide the \"Battle commencing in __ seconds!\" message", ref hideCountdownTime))
+            {
+                this.configuration.HideCountdownTime = hideCountdownTime;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This is the message that appears when a countdown begins with the length of the countdown. It does not remove the toast notifications or on-screen time countdowns.");
+
+            var hideReadyChecks = this.configuration.HideReadyChecks;
+            if (ImGui.Checkbox("Hide the \"Ready check complete.\" message", ref hideReadyChecks))
+            {
+                this.configuration.HideReadyChecks = hideReadyChecks;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This is the message that appears when a ready check completes. Not sure why you would want to hide this but you can if you want.");
         }
         public void DrawEmotesTab()
         {
@@ -243,81 +298,125 @@ namespace TidyChat
             }
 
             ImGui.Separator();
-
             ImGui.TextUnformatted("The options below will allow you to show Obtain messages Tiny Chat considers to be spam.");
-            var showObtainedgil = this.configuration.ShowObtainedGil;
-            if (ImGui.Checkbox("Show gil obtained", ref showObtainedgil))
+
+            if (ImGui.CollapsingHeader("Common Currencies"))
             {
-                this.configuration.ShowObtainedGil = showObtainedgil;
-                this.configuration.Save();
+                var showObtainedgil = this.configuration.ShowObtainedGil;
+                if (ImGui.Checkbox("Show Gil", ref showObtainedgil))
+                {
+                    this.configuration.ShowObtainedGil = showObtainedgil;
+                    this.configuration.Save();
+                }
+
+                var showObtainedSeals = this.configuration.ShowObtainedSeals;
+                if (ImGui.Checkbox("Show Grand Company Seals", ref showObtainedSeals))
+                {
+                    this.configuration.ShowObtainedSeals = showObtainedSeals;
+                    this.configuration.Save();
+                }
+
+                var showObtainedVenture = this.configuration.ShowObtainedVenture;
+                if (ImGui.Checkbox("Show Ventures", ref showObtainedVenture))
+                {
+                    this.configuration.ShowObtainedVenture = showObtainedVenture;
+                    this.configuration.Save();
+                }
+
+                var showObtainedMGP = this.configuration.ShowObtainedMGP;
+                if (ImGui.Checkbox("Show MGP", ref showObtainedMGP))
+                {
+                    this.configuration.ShowObtainedMGP = showObtainedMGP;
+                    this.configuration.Save();
+                }
             }
 
-            var showObtainedClusters = this.configuration.ShowObtainedClusters;
-            if (ImGui.Checkbox("Show clusters that are traded for materia", ref showObtainedClusters))
+            ImGui.Spacing();
+            if (ImGui.CollapsingHeader("Battle Currencies"))
             {
-                this.configuration.ShowObtainedClusters = showObtainedClusters;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will show materia clusters such as Dendroclusters and Anthoclusters.\nFor hiding elemental clusters see the hide elemental clusters option down below.");
 
-            var showObtainedSeals = this.configuration.ShowObtainedSeals;
-            if (ImGui.Checkbox("Show Grand Company Seals", ref showObtainedSeals))
-            {
-                this.configuration.ShowObtainedSeals = showObtainedSeals;
-                this.configuration.Save();
-            }
+                var showObtainedPoeticsTomestones = this.configuration.ShowObtainedPoeticsTomestones;
+                if (ImGui.Checkbox("Show Allagan tomestones of Poetics", ref showObtainedPoeticsTomestones))
+                {
+                    this.configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
+                    this.configuration.Save();
+                }
 
-            var showObtainedNuts = this.configuration.ShowObtainedNuts;
-            if (ImGui.Checkbox("Show sacks of Nuts", ref showObtainedNuts))
-            {
-                this.configuration.ShowObtainedNuts = showObtainedNuts;
-                this.configuration.Save();
-            }
+                var showObtainedAphorismTomestones = this.configuration.ShowObtainedAphorismTomestones;
+                if (ImGui.Checkbox("Show Allagan tomestones of Aphorism", ref showObtainedAphorismTomestones))
+                {
+                    this.configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
+                    this.configuration.Save();
+                }
 
-            var showObtainedVenture = this.configuration.ShowObtainedVenture;
-            if (ImGui.Checkbox("Show ventures", ref showObtainedVenture))
-            {
-                this.configuration.ShowObtainedVenture = showObtainedVenture;
-                this.configuration.Save();
-            }
+                var showObtainedAstronomyTomestones = this.configuration.ShowObtainedAstronomyTomestones;
+                if (ImGui.Checkbox("Show Allagan tomestones of Astronomy", ref showObtainedAstronomyTomestones))
+                {
+                    this.configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
+                    this.configuration.Save();
+                }
 
-            var showObtainedMaterials = this.configuration.ShowObtainedMaterials;
-            if (ImGui.Checkbox("Show Beast Tribe materials", ref showObtainedMaterials))
-            {
-                this.configuration.ShowObtainedMaterials = showObtainedMaterials;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests");
+                var showObtainedAlliedSeals = this.configuration.ShowObtainedAlliedSeals;
+                if (ImGui.Checkbox("Show Allied Seals", ref showObtainedAlliedSeals))
+                {
+                    this.configuration.ShowObtainedAlliedSeals = showObtainedAlliedSeals;
+                    this.configuration.Save();
+                }
 
-            var showObtainedShards = this.configuration.ShowObtainedShards;
-            if (ImGui.Checkbox("Show elemental shards, crystals, and clusters", ref showObtainedShards))
-            {
-                this.configuration.ShowObtainedShards = showObtainedShards;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters");
+                var showObtainedCenturioSeals = this.configuration.ShowObtainedCenturioSeals;
+                if (ImGui.Checkbox("Show Centurio Seals", ref showObtainedCenturioSeals))
+                {
+                    this.configuration.ShowObtainedCenturioSeals = showObtainedCenturioSeals;
+                    this.configuration.Save();
+                }
 
-            var showObtainedPoeticsTomestones = this.configuration.ShowObtainedPoeticsTomestones;
-            if (ImGui.Checkbox("Show Allagan tomestones of Poetics", ref showObtainedPoeticsTomestones))
-            {
-                this.configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
-                this.configuration.Save();
+                var showObtainedNuts = this.configuration.ShowObtainedNuts;
+                if (ImGui.Checkbox("Show sacks of Nuts", ref showObtainedNuts))
+                {
+                    this.configuration.ShowObtainedNuts = showObtainedNuts;
+                    this.configuration.Save();
+                }
             }
 
-            var showObtainedAphorismTomestones = this.configuration.ShowObtainedAphorismTomestones;
-            if (ImGui.Checkbox("Show Allagan tomestones of Aphorism", ref showObtainedAphorismTomestones))
+            ImGui.Spacing();
+            if (ImGui.CollapsingHeader("Beast Tribe Quests"))
             {
-                this.configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
-                this.configuration.Save();
+                var showObtainedMaterials = this.configuration.ShowObtainedMaterials;
+                if (ImGui.Checkbox("Show Beast Tribe crafting materials", ref showObtainedMaterials))
+                {
+                    this.configuration.ShowObtainedMaterials = showObtainedMaterials;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests");
+
+                var showObtainedTribalCurrency = this.configuration.ShowObtainedTribalCurrency;
+                if (ImGui.Checkbox("Show Beast Tribe Currencies", ref showObtainedTribalCurrency))
+                {
+                    this.configuration.ShowObtainedTribalCurrency = showObtainedTribalCurrency;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests");
             }
 
-            var showObtainedAstronomyTomestones = this.configuration.ShowObtainedAstronomyTomestones;
-            if (ImGui.Checkbox("Show Allagan tomestones of Astronomy", ref showObtainedAstronomyTomestones))
+            ImGui.Spacing();
+            if (ImGui.CollapsingHeader("Other"))
             {
-                this.configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
-                this.configuration.Save();
-            }
+                var showObtainedClusters = this.configuration.ShowObtainedClusters;
+                if (ImGui.Checkbox("Show cracked clusters", ref showObtainedClusters))
+                {
+                    this.configuration.ShowObtainedClusters = showObtainedClusters;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("This will show cracked clusters such as Dendroclusters and Anthoclusters.\nFor hiding elemental clusters see the hide elemental clusters option down below.");
 
+                var showObtainedShards = this.configuration.ShowObtainedShards;
+                if (ImGui.Checkbox("Show elemental shards, crystals, and clusters", ref showObtainedShards))
+                {
+                    this.configuration.ShowObtainedShards = showObtainedShards;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters");
+            }
         }
 
         public void DrawLootTab()
@@ -374,6 +473,22 @@ namespace TidyChat
                 this.configuration.ShowEarnAchievement = showEarnAchievement;
                 this.configuration.Save();
             }
+
+            var showLevelUps = this.configuration.ShowLevelUps;
+            if (ImGui.Checkbox("Show level up messages", ref showLevelUps))
+            {
+                this.configuration.ShowLevelUps = showLevelUps;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when you level up.\nIt can be considered spammy in Palace of the Dead and Heaven On High.");
+
+            var showAbilityUnlocks = this.configuration.ShowAbilityUnlocks;
+            if (ImGui.Checkbox("Show learned ability messages", ref showAbilityUnlocks))
+            {
+                this.configuration.ShowAbilityUnlocks = showAbilityUnlocks;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when you learn a new ability.\nIt can be considered spammy in Palace of the Dead and Heaven On High.");
         }
 
         public void DrawCraftingTab()

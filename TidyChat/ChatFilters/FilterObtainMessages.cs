@@ -11,10 +11,14 @@ namespace TidyChat
             {
                 if (
                     (ChatRegexStrings.ObtainedGil.IsMatch(input) && !configuration.ShowObtainedGil) ||
-                    (ChatRegexStrings.ObtainedClusters.IsMatch(input) && !configuration.ShowObtainedClusters) ||
+                    (ChatRegexStrings.ObtainedMGP.IsMatch(input) && !configuration.ShowObtainedMGP) ||
                     (ChatRegexStrings.ObtainedSeals.IsMatch(input) && !configuration.ShowObtainedSeals) ||
-                    (ChatRegexStrings.ObtainedNuts.IsMatch(input) && !configuration.ShowObtainedNuts) ||
                     (ChatRegexStrings.ObtainedVenture.IsMatch(input) && !configuration.ShowObtainedVenture) ||
+                    (ChatRegexStrings.ObtainedTribalCurrency.IsMatch(input) && !configuration.ShowObtainedTribalCurrency) ||
+                    (ChatRegexStrings.ObtainedClusters.IsMatch(input) && !configuration.ShowObtainedClusters) ||
+                    (ChatRegexStrings.ObtainedAlliedSeals.IsMatch(input) && !configuration.ShowObtainedAlliedSeals) ||
+                    (ChatRegexStrings.ObtainedCenturioSeals.IsMatch(input) && !configuration.ShowObtainedCenturioSeals) ||
+                    (ChatRegexStrings.ObtainedNuts.IsMatch(input) && !configuration.ShowObtainedNuts) ||
                     (ChatRegexStrings.ObtainedMaterials.IsMatch(input) && !configuration.ShowObtainedMaterials) ||
                     (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("poetics") && !configuration.ShowObtainedPoeticsTomestones) ||
                     (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("aphorism") && !configuration.ShowObtainedAphorismTomestones) ||

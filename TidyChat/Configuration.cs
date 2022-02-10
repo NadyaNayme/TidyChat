@@ -32,15 +32,25 @@ namespace TidyChat
         public bool HideInstanceMessage { get; set; } = false;
         public bool HideQuestReminder { get; set; } = false;
         public bool HideUsedEmotes { get; set; } = false;
+        public bool HideReadyChecks { get; set; } = false;
+        public bool HideCountdownTime {  get; set; } = false;   
+        public bool HideUserLogOuts { get; set; } = false;
+        public bool HideDebugTeleport { get; set; } = false;
+        public bool HideSpideySenses { get; set; } = false;
+        public bool HideAetherCompass { get; set; } = false;
         #endregion
 
         #region Obtained Items
         public bool ShowObtainedGil { get; set; } = false;
+        public bool ShowObtainedMGP { get; set; } = false;
         public bool ShowObtainedClusters { get; set; } = false;
         public bool ShowObtainedSeals { get; set; } = false;
+        public bool ShowObtainedAlliedSeals { get; set; } = false;
+        public bool ShowObtainedCenturioSeals { get; set; } = false;
         public bool ShowObtainedNuts { get; set; } = false;
         public bool ShowObtainedVenture { get; set; } = false;
         public bool ShowObtainedMaterials { get; set; } = false;
+        public bool ShowObtainedTribalCurrency { get; set; } = false;
         public bool ShowObtainedShards { get; set; } = false;
         public bool ShowGainExperience { get; set; } = false;
         public bool ShowEarnAchievement { get; set; } = false;
@@ -54,6 +64,10 @@ namespace TidyChat
         public bool ShowCastLot { get; set; } = false;
         #endregion
 
+        #region Progression
+        public bool ShowLevelUps { get; set; } = true;
+        public bool ShowAbilityUnlocks { get; set; } = true;
+        #endregion
         // the below exist just to make saving less cumbersome
 
         [NonSerialized]

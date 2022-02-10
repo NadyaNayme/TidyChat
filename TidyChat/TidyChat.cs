@@ -6,8 +6,6 @@ using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using System.Linq;
 using ChatTwo.Code;
-using System;
-using System.Timers;
 
 namespace TidyChat
 
@@ -152,6 +150,16 @@ namespace TidyChat
             if (Configuration.BetterCommendationMessage && ChatStrings.GuildhestEnded.All(normalizedText.Contains))
             {
                 lastDuty = "a Guildhest";
+            }
+
+            if (Configuration.HideUserLogOuts && ChatStrings.HasLoggedOut.All(normalizedText.Contains))
+            {
+                isHandled = true;
+            }
+
+            if (chatType is ChatType.Debug && Configuration.HideDebugTeleport && ChatStrings.DebugTeleport.All(normalizedText.Contains))
+            {
+                isHandled = true;
             }
 
             if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes)

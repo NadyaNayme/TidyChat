@@ -35,5 +35,26 @@ namespace TidyChat
 
         // Tomestones
         public static string[] ObtainedTomesetones { get; } = { "You", "obtain", "Allagan", "tomestones", "of" };
+
+        // Ready Check
+        public static string[] ReadyCheckComplete { get; } = { "ready", "check", "complete" };
+
+        // Level Ups
+        public static string[] YouAttainLevel { get; } = { "you", "attain", "level" };
+
+        // Ability Unlocks
+        public static string[] YouLearnAbility { get; } = { "you", "learn" };
+
+        // Countdown
+        public static string[] CountdownTime { get; } = { "battle", "commencing", "in", "seconds" };
+
+        // Teleporting to <Location>...
+        public static string[] DebugTeleport { get; } = { "teleporting", "to" };
+
+        // You sense something...
+        public static string[] SpideySenses { get; } = { "you", "sense", "something" };
+
+        // The compass detects a current approximately <##> yalms to the <direction>...
+        public static string[] AetherCompass { get; } = { "the", "compass", "detects", "a", "current", "approximately" };
     }
 }
