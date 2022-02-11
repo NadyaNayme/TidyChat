@@ -107,7 +107,7 @@ namespace TidyChat
 
                 int containingPhraseStart = message.TextValue.IndexOf('“');
                 int containingPhraseEnd = message.TextValue.LastIndexOf('”');
-                int lengthOfPhrase = containingPhraseEnd - containingPhraseStart; 
+                int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
                 string containingPhrase = message.TextValue.Substring(containingPhraseStart+1, lengthOfPhrase-1);
                 message = $"/say {containingPhrase}";
             }

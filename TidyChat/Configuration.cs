@@ -79,7 +79,7 @@ namespace TidyChat
         #region Crafting
         public bool ShowAttachedMateria { get; set; } = true;
         public bool ShowOvermeldFailure { get; set; } = true;
-        public bool ShowMateriaShatters { get; set; } = true;    
+        public bool ShowMateriaShatters { get; set; } = true;
         #endregion
         // the below exist just to make saving less cumbersome
 

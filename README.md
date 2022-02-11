@@ -12,20 +12,11 @@
 
 We're in Official Testing now! You can now enable `Get plugin testing builds` in your Dalamud settings and install from the plugin installer. \o/
 
-~~Add `https://raw.githubusercontent.com/NadyaNayme/DalamudPlugins/api5/repo.json` to your Custom Plugin Repositories under `Dalamud Settings -> Experimental` and press `Save` or `Save and Close`. Then the Plugin Installer will refresh allowing you to install Tidy Chat.~~
-
-## Settings
+## Open Settings
 
 Use `/tidychat` or the shorthand `/tidy` to quickly access settings
 
 
-## What's Considered Important?
+## How do Filters Work?
 
-The following six kinds of messages are the only whitelisted System messages:
-
-- Venture Complete
-- S Rank Hunt spawned in zone
-- Received Player Commendation
-- /instance
-- With the chat mode in Say, use your keyboard or the software keyboard to enter "Quest Required /say message".
-- `/isearch` search results
+Check out the Tidy Chat wiki for more in-depth explanations about what each setting does in-game. (WIP)

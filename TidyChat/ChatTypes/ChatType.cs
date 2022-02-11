@@ -1,7 +1,7 @@
 /*
  * The following code was taken from Chat2 source code.
- * It is more comprehensive than XivChatType 
- * 
+ * It is more comprehensive than XivChatType
+ *
  */
 
 namespace ChatTwo.Code;

@@ -15,7 +15,7 @@ namespace TidyChat
                 )
                 {
                     return true;
-                } 
+                }
                 return false;
             }
             catch (Exception)

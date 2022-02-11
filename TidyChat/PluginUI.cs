@@ -33,7 +33,7 @@ namespace TidyChat
 
         public void Dispose()
         {
-            
+
         }
 
         public void Draw()
@@ -279,7 +279,7 @@ namespace TidyChat
             }
 
             ImGui.Spacing();
-            
+
 
             if (ImGui.CollapsingHeader("\"Spam\" Filters"))
             {
