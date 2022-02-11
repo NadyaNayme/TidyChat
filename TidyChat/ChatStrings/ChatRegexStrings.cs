@@ -11,7 +11,7 @@ namespace TidyChat
         public static Regex ObtainedMGP { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} MGP\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedVenture { get; } = new Regex(@"You obtain (a venture|2 ventures)\.",
-         RegexOptions.Compiled | RegexOptions.IgnoreCase);
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedAlliedSeals { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} Allied Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedCenturioSeals { get; } = new Regex(@"You obtain (\d{1,3},)?\d{1,3} Centurio Seals\.",
@@ -29,7 +29,7 @@ namespace TidyChat
         public static Regex ObtainedTribalCurrency { get; } = new Regex(@"You obtain (a|an) (Steel Amalj'ok|Sylphic Goldleaf|Titan Cobaltpiece|Rainbowtide Psashp|Ixali Oaknot|Vanu Whitebone|Black Copper Gil|Carved Kupo Nut|Kojin Sango|Ananta Dreamstaff|namazu Koban|Fae Fancy|Qitari Compliment|Hammered Frogment)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex PlayerTargetedEmote { get; } = new Regex(@"you|your",
-            RegexOptions.Compiled | RegexOptions.IgnoreCase);
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex PlayerUsedEmote { get; } = new Regex(@"^(You|Your)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex CastLot { get; } = new Regex(@"You cast your lot for the (.*)\.",
@@ -44,13 +44,12 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         // Future proofing the materias a bit
         public static Regex MateriaRetrieved { get; } = new Regex(@"You receive a .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX)",
-                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
-
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex MateriaShatters { get; } = new Regex(@"The .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX) shatters",
-                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex AttachedMateria { get; } = new Regex(@"You successfully attach a .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX) to the",
-                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex VolumeControls { get; } = new Regex(@"volume (muted|unmuted|set to /d{1,3})",
-                  RegexOptions.Compiled | RegexOptions.IgnoreCase);
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex VolumeControls { get; } = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }
