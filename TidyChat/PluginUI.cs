@@ -494,7 +494,7 @@ namespace TidyChat
             ImGuiComponents.HelpMarker("This will show the message that occurs when you roll on loot.\neg. You cast your lot for the <item>");
 
             var showLootRoll = this.configuration.ShowLootRoll;
-            if (ImGui.Checkbox("Show \"You rolled ##\" messages", ref showLootRoll))
+            if (ImGui.Checkbox("Show \"You rolled...\" messages", ref showLootRoll))
             {
                 this.configuration.ShowLootRoll = showLootRoll;
                 this.configuration.Save();
