@@ -34,14 +34,15 @@ namespace TidyChat
         public bool HideQuestReminder { get; set; } = false;
         public bool HideUsedEmotes { get; set; } = false;
         public bool HideReadyChecks { get; set; } = false;
-        public bool HideCountdownTime {  get; set; } = false;   
+        public bool HideCountdownTime {  get; set; } = false;
         public bool HideUserLogOuts { get; set; } = false;
         public bool HideDebugTeleport { get; set; } = false;
         public bool HideSpideySenses { get; set; } = false;
         public bool HideAetherCompass { get; set; } = false;
         public bool ShowGlamoursProjected { get; set; } = false;
         public bool ShowGearsetEquipped { get; set; } = false;
-        public bool ShowMateriaRetrieved { get; set; } = true; 
+        public bool ShowMateriaRetrieved { get; set; } = true;
+        public bool ShowVolumeControlMessage { get; set; } = false;
         #endregion
 
         #region Obtained Items

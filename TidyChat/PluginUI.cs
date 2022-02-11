@@ -276,7 +276,6 @@ namespace TidyChat
                     this.configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("eg. Ready check complete.");
-
             }
 
             ImGui.Spacing();
@@ -285,6 +284,14 @@ namespace TidyChat
             if (ImGui.CollapsingHeader("\"Spam\" Filters"))
             {
                 ImGui.TextUnformatted("Show messages Tidy Chat considers to be spam");
+
+                var showVolumeControlMessage = this.configuration.ShowVolumeControlMessage;
+                if (ImGui.Checkbox("Show volume control messages", ref showVolumeControlMessage))
+                {
+                    this.configuration.ShowVolumeControlMessage = showVolumeControlMessage;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. Master Volume muted, BGM volume set to 50.");
 
                 var showGlamoursProjected = this.configuration.ShowGlamoursProjected;
                 if (ImGui.Checkbox("Show message when changing glamour plates", ref showGlamoursProjected))
