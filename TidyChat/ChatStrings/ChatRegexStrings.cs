@@ -51,5 +51,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex VolumeControls { get; } = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex GatheringStartEnd { get; } = new Regex(@"You (begin|finish) (mining|logging)\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }

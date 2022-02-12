@@ -16,6 +16,7 @@ namespace TidyChat
                     (ChatRegexStrings.ObtainedSeals.IsMatch(input) && !configuration.ShowObtainedSeals) ||
                     (ChatRegexStrings.ObtainedVenture.IsMatch(input) && !configuration.ShowObtainedVenture) ||
                     (ChatRegexStrings.ObtainedTribalCurrency.IsMatch(input) && !configuration.ShowObtainedTribalCurrency) ||
+                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && !configuration.ShowObtainedShards) ||
                     (ChatRegexStrings.ObtainedClusters.IsMatch(input) && !configuration.ShowObtainedClusters) ||
                     (ChatRegexStrings.ObtainedAlliedSeals.IsMatch(input) && !configuration.ShowObtainedAlliedSeals) ||
                     (ChatRegexStrings.ObtainedCenturioSeals.IsMatch(input) && !configuration.ShowObtainedCenturioSeals) ||

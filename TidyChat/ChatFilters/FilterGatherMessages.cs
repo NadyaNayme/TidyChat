@@ -15,7 +15,8 @@ namespace TidyChat
 					(ChatStrings.LocationAffects.All(input.Contains) &&
 						ChatStrings.GatherersBoon.All(input.Contains) && configuration.HideGatherersBoon) ||
 					(ChatStrings.LocationAffects.All(input.Contains) &&
-						ChatStrings.GatheringAttempts.All(input.Contains) && configuration.HideGatheringAttempts)
+						ChatStrings.GatheringAttempts.All(input.Contains) && configuration.HideGatheringAttempts) ||
+					(ChatRegexStrings.GatheringStartEnd.IsMatch(input))
 				) {
 					return true;
 				}

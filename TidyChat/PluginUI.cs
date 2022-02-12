@@ -573,12 +573,12 @@ namespace TidyChat
             ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
 
             var filterGatheringSpam = this.configuration.FilterGatheringSpam;
-            if (ImGui.Checkbox("Placeholder setting - currently does nothing.", ref filterGatheringSpam))
+            if (ImGui.Checkbox("Filter spammy Gathering messages.", ref filterGatheringSpam))
             {
                 this.configuration.FilterGatheringSpam = filterGatheringSpam;
                 this.configuration.Save();
             };
-            ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
+            ImGuiComponents.HelpMarker("Hide \"begin/finish\" gathering messages, as well as location affects");
 
             ImGui.Separator();
 
