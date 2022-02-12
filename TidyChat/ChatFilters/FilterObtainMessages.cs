@@ -25,6 +25,7 @@ namespace TidyChat
                     (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("poetics") && !configuration.ShowObtainedPoeticsTomestones) ||
                     (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("aphorism") && !configuration.ShowObtainedAphorismTomestones) ||
                     (ChatRegexStrings.ObtainedTomestones.IsMatch(input) && input.Contains("astronomy") && !configuration.ShowObtainedAstronomyTomestones) ||
+                    (ChatRegexStrings.OthersObtain.IsMatch(input) && !configuration.ShowOthersObtain) ||
                     (ChatRegexStrings.ObtainedMaterials.IsMatch(input) && !configuration.ShowObtainedMaterials)
                     )
                 {
