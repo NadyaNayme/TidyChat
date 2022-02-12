@@ -53,5 +53,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex GatheringStartEnd { get; } = new Regex(@"You (begin|finish) (mining|logging)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex AetherialReductionSands { get; } = new Regex(@".+handfuls of .+ .+sand are obtained\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }

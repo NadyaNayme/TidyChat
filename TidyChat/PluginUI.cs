@@ -622,6 +622,13 @@ namespace TidyChat
 
             if (ImGui.CollapsingHeader("Gathering Locations"))
             {
+                var showAetherialReductionSands = this.configuration.ShowAetherialReductionSands;
+                if (ImGui.Checkbox("Show the number of obtained sands after using aetherial reduction", ref showAetherialReductionSands))
+                {
+                    this.configuration.ShowAetherialReductionSands = showAetherialReductionSands;
+                    this.configuration.Save();
+                }
+
                 var showLocationAffects = this.configuration.ShowLocationAffects;
                 if (ImGui.Checkbox("Show message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts", ref showLocationAffects))
                 {

@@ -85,6 +85,7 @@ namespace TidyChat
 
         #region Gathering
         public bool FilterGatheringSpam { get; set; } = false;
+        public bool ShowAetherialReductionSands { get; set; } = true;
         public bool ShowLocationAffects { get; set; } = true;
         public bool HideGatheringYield { get; set; } = true;
         public bool HideGatherersBoon { get; set; } = true;
