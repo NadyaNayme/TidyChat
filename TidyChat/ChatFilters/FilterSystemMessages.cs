@@ -21,6 +21,10 @@ namespace TidyChat
                     (ChatStrings.AetherCompass.All(input.Contains) && !configuration.HideAetherCompass) ||
                     (ChatStrings.CountdownTime.All(input.Contains) && !configuration.HideCountdownTime) ||
                     (ChatStrings.GlamoursProjected.All(input.Contains) && configuration.ShowGlamoursProjected) ||
+                    (ChatStrings.TradeSent.All(input.Contains) && configuration.ShowTradeSent) ||
+                    (ChatStrings.TradeCanceled.All(input.Contains) && configuration.ShowTradeCanceled) ||
+                    (ChatStrings.AwaitingTradeConfirmation.All(input.Contains) && configuration.ShowAwaitingTradeConfirmation) ||
+                    (ChatStrings.TradeComplete.All(input.Contains) && configuration.ShowTradeComplete) ||
                     (ChatRegexStrings.GearsetEquipped.IsMatch(input) && configuration.ShowGearsetEquipped) ||
                     (ChatRegexStrings.MateriaRetrieved.IsMatch(input) && configuration.ShowMateriaRetrieved) ||
                     (ChatRegexStrings.MateriaShatters.IsMatch(input) && configuration.ShowMateriaShatters) ||

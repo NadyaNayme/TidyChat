@@ -43,6 +43,10 @@ namespace TidyChat
         public bool ShowGearsetEquipped { get; set; } = false;
         public bool ShowMateriaRetrieved { get; set; } = true;
         public bool ShowVolumeControlMessage { get; set; } = false;
+        public bool ShowTradeSent { get ; set; } = false;
+        public bool ShowTradeCanceled { get; set; } = false;
+        public bool ShowAwaitingTradeConfirmation { get; set; } = false;
+        public bool ShowTradeComplete { get; set; } = false;
         #endregion
 
         #region Obtained Items
@@ -69,6 +73,7 @@ namespace TidyChat
         #region Loot Rolls
         public bool ShowLootRoll { get; set; } = false;
         public bool ShowCastLot { get; set; } = false;
+        public bool ShowOthersObtain { get; set; } = false;
         #endregion
 
         #region Progression

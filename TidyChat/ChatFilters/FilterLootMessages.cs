@@ -12,7 +12,8 @@ namespace TidyChat
                 if (
                     (ChatRegexStrings.RollsNeedOrGreed.IsMatch(input) && !configuration.ShowLootRoll) ||
                     (ChatRegexStrings.CastLot.IsMatch(input) && !configuration.ShowCastLot) ||
-                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && !configuration.ShowObtainedShards)
+                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && !configuration.ShowObtainedShards) ||
+                    (ChatRegexStrings.OthersObtain.IsMatch(input) && !configuration.ShowOthersObtain)
                 )
                 {
                     return true;

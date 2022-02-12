@@ -77,5 +77,9 @@ namespace TidyChat
         public static string[] GatheringYield { get; } = { "gathering", "yield" };
         public static string[] GatherersBoon { get; } = { "chance", "of", "receiving", "the", "gatherer's", "boon" };
         public static string[] GatheringAttempts { get; } = { "increased", "integrity", "number", "of", "gathering", "attempts" };
+        public static string[] TradeComplete { get; } = { "trade", "complete" };
+        public static string[] TradeCanceled { get; } = { "trade", "canceled" };
+        public static string[] TradeSent { get; } = { "trade", "request", "sent", "to" };
+        public static string[] AwaitingTradeConfirmation { get; } = { "awaiting", "trade", "confirmation", "from" };
     }
 }

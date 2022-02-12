@@ -310,6 +310,41 @@ namespace TidyChat
                 ImGuiComponents.HelpMarker("\neg. “RDM (530)” equipped.");
             }
 
+            if (ImGui.CollapsingHeader("Trading Messages"))
+            {
+                var showTradeSent = this.configuration.ShowTradeSent;
+                if (ImGui.Checkbox("Show \"Trade request sent to\" message", ref showTradeSent))
+                {
+                    this.configuration.ShowTradeSent = showTradeSent;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("");
+
+                var showTradeCanceled = this.configuration.ShowTradeCanceled;
+                if (ImGui.Checkbox("Show \"Trade canceled.\" message", ref showTradeCanceled))
+                {
+                    this.configuration.ShowTradeCanceled = showTradeCanceled;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("");
+
+                var showAwaitingTradeConfirmation = this.configuration.ShowAwaitingTradeConfirmation;
+                if (ImGui.Checkbox("Show \"Awaiting trade confirmation\" message", ref showAwaitingTradeConfirmation))
+                {
+                    this.configuration.ShowAwaitingTradeConfirmation = showAwaitingTradeConfirmation;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("");
+
+                var showTradeComplete = this.configuration.ShowTradeComplete;
+                if (ImGui.Checkbox("Show \"Trade complete.\" message", ref showTradeComplete))
+                {
+                    this.configuration.ShowTradeComplete = showTradeComplete;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("");
+            }
+
         }
         public void DrawEmotesTab()
         {
@@ -497,6 +532,14 @@ namespace TidyChat
             if (ImGui.Checkbox("Show \"You rolled...\" messages", ref showLootRoll))
             {
                 this.configuration.ShowLootRoll = showLootRoll;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
+
+            var showOthersObtain = this.configuration.ShowOthersObtain;
+            if (ImGui.Checkbox("Show \"Player obtains a <item>\" messages", ref showOthersObtain))
+            {
+                this.configuration.ShowOthersObtain = showOthersObtain;
                 this.configuration.Save();
             }
             ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
