@@ -72,5 +72,10 @@ namespace TidyChat
         // Overmelding fail
         // You are unable to attach the materia to the <item>. The <materia> was lost.
         public static string[] OvermeldFailure { get; } = { "you", "are", "unable", "to", "attach", "the", "materia", "to" };
+        public static string[] MateriaExtract { get; } = { "you", "successfully", "extract", "a", "from", "the" };
+        public static string[] LocationAffects { get; } = { "the", "location", "affects", "your" };
+        public static string[] GatheringYield { get; } = { "gathering", "yield" };
+        public static string[] GatherersBoon { get; } = { "chance", "of", "receiving", "the", "gatherer's", "boon" };
+        public static string[] GatheringAttempts { get; } = { "increased", "integrity", "number", "of", "gathering", "attempts" };
     }
 }

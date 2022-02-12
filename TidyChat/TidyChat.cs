@@ -197,6 +197,11 @@ namespace TidyChat
                 isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
             }
 
+            if (chatType is ChatType.GatheringSystem && Configuration.FilterGatheringSpam)
+            {
+                isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
+            }
+
         }
 
         private void OnCommand(string command, string args)

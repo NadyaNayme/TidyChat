@@ -80,6 +80,15 @@ namespace TidyChat
         public bool ShowAttachedMateria { get; set; } = true;
         public bool ShowOvermeldFailure { get; set; } = true;
         public bool ShowMateriaShatters { get; set; } = true;
+        public bool ShowMateriaExtract { get; set; } = true;
+        #endregion
+
+        #region Gathering
+        public bool FilterGatheringSpam { get; set; } = false;
+        public bool ShowLocationAffects { get; set; } = true;
+        public bool HideGatheringYield { get; set; } = true;
+        public bool HideGatherersBoon { get; set; } = true;
+        public bool HideGatheringAttempts { get; set; } = true;
         #endregion
         // the below exist just to make saving less cumbersome
 

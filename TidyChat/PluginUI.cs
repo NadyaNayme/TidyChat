@@ -85,7 +85,7 @@ namespace TidyChat
                         ImGui.EndTabItem();
                     }
 
-                    if (ImGui.BeginTabItem("Crafting"))
+                    if (ImGui.BeginTabItem("Crafting & Gathering"))
                     {
                         DrawCraftingTab();
                         ImGui.EndTabItem();
@@ -564,44 +564,92 @@ namespace TidyChat
 
         public void DrawCraftingTab()
         {
-            var filterObtainedSpam = this.configuration.FilterObtainedSpam;
-            if (ImGui.Checkbox("Filter all Crafting messages except \"You synthesize a/an <item>\"", ref filterObtainedSpam))
+            var filterCraftingSpam = this.configuration.FilterCraftingSpam;
+            if (ImGui.Checkbox("Filter all Crafting messages except \"You synthesize a/an <item>\"", ref filterCraftingSpam))
             {
-                this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                this.configuration.FilterCraftingSpam = filterCraftingSpam;
+                this.configuration.Save();
+            };
+            ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
+
+            var filterGatheringSpam = this.configuration.FilterGatheringSpam;
+            if (ImGui.Checkbox("Placeholder setting - currently does nothing.", ref filterGatheringSpam))
+            {
+                this.configuration.FilterGatheringSpam = filterGatheringSpam;
                 this.configuration.Save();
             };
             ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
 
             ImGui.Separator();
 
-            var showAttachedMateria = this.configuration.ShowAttachedMateria;
-            if (ImGui.Checkbox("Show message when materia is succesfully attached to gear", ref showAttachedMateria))
+            if (ImGui.CollapsingHeader("Materia"))
             {
-                this.configuration.ShowAttachedMateria = showAttachedMateria;
-                this.configuration.Save();
+                var showAttachedMateria = this.configuration.ShowAttachedMateria;
+                if (ImGui.Checkbox("Show message when materia is succesfully attached to gear", ref showAttachedMateria))
+                {
+                    this.configuration.ShowAttachedMateria = showAttachedMateria;
+                    this.configuration.Save();
+                }
+
+                var showOvermeldFailure = this.configuration.ShowOvermeldFailure;
+                if (ImGui.Checkbox("Show message when materia fails to be overmelded onto gear", ref showOvermeldFailure))
+                {
+                    this.configuration.ShowOvermeldFailure = showOvermeldFailure;
+                    this.configuration.Save();
+                }
+
+                var showMateriaRetrieved = this.configuration.ShowMateriaRetrieved;
+                if (ImGui.Checkbox("Show message when you succesfully retrieve materia from gear", ref showMateriaRetrieved))
+                {
+                    this.configuration.ShowMateriaRetrieved = showMateriaRetrieved;
+                    this.configuration.Save();
+                }
+
+                var showMateriaShatters = this.configuration.ShowMateriaShatters;
+                if (ImGui.Checkbox("Show message when materia shatters during retrieval", ref showMateriaShatters))
+                {
+                    this.configuration.ShowMateriaShatters = showMateriaShatters;
+                    this.configuration.Save();
+                }
+
+                var showMateriaExtract = this.configuration.ShowMateriaExtract;
+                if (ImGui.Checkbox("Show message when materia is extracted from spiritbonded gear", ref showMateriaExtract))
+                {
+                    this.configuration.ShowMateriaExtract = showMateriaExtract;
+                    this.configuration.Save();
+                }
             }
 
-            var showOvermeldFailure = this.configuration.ShowOvermeldFailure;
-            if (ImGui.Checkbox("Show message when materia fails to be overmelded onto gear", ref showOvermeldFailure))
+            if (ImGui.CollapsingHeader("Gathering Locations"))
             {
-                this.configuration.ShowOvermeldFailure = showOvermeldFailure;
-                this.configuration.Save();
-            }
+                var showLocationAffects = this.configuration.ShowLocationAffects;
+                if (ImGui.Checkbox("Show message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts", ref showLocationAffects))
+                {
+                    this.configuration.ShowLocationAffects = showLocationAffects;
+                    this.configuration.Save();
+                }
 
-            var showMateriaRetrieved = this.configuration.ShowMateriaRetrieved;
-            if (ImGui.Checkbox("Show message when you succesfully retrieve materia from gear", ref showMateriaRetrieved))
-            {
-                this.configuration.ShowMateriaRetrieved = showMateriaRetrieved;
-                this.configuration.Save();
-            }
+                var hideGatheringYield = this.configuration.HideGatheringYield;
+                if (ImGui.Checkbox("Hide only locations that affect gathering yield", ref hideGatheringYield))
+                {
+                    this.configuration.HideGatheringYield = hideGatheringYield;
+                    this.configuration.Save();
+                }
 
-            var showMateriaShatters = this.configuration.ShowMateriaShatters;
-            if (ImGui.Checkbox("Show message when materia shatters during retrieval", ref showMateriaShatters))
-            {
-                this.configuration.ShowMateriaShatters = showMateriaShatters;
-                this.configuration.Save();
+                var hideGatheringAttempts = this.configuration.HideGatheringAttempts;
+                if (ImGui.Checkbox("Hide only locations that affect gathering attempts", ref hideGatheringAttempts))
+                {
+                    this.configuration.HideGatheringAttempts = hideGatheringAttempts;
+                    this.configuration.Save();
+                }
+
+                var hideGatherersBoon = this.configuration.HideGatherersBoon;
+                if (ImGui.Checkbox("Hide only locations that affect Gatherer's Boon", ref hideGatherersBoon))
+                {
+                    this.configuration.HideGatherersBoon = hideGatherersBoon;
+                    this.configuration.Save();
+                }
             }
         }
-
     }
 }

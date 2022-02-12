@@ -12,7 +12,8 @@ namespace TidyChat
                 if (
                     (ChatStrings.YouSynthesize.All(input.Contains) && configuration.FilterCraftingSpam) ||
                     (ChatRegexStrings.AttachedMateria.IsMatch(input) && configuration.ShowAttachedMateria) ||
-                    (ChatStrings.OvermeldFailure.All(input.Contains) && configuration.ShowOvermeldFailure)
+                    (ChatStrings.OvermeldFailure.All(input.Contains) && configuration.ShowOvermeldFailure) ||
+                    (ChatStrings.MateriaExtract.All(input.Contains) && configuration.ShowMateriaExtract)
                    )
                 {
                     return false;
