@@ -427,7 +427,7 @@ namespace TidyChat
             }
 
             ImGui.Separator();
-            ImGui.TextUnformatted("The options below will allow you to show Obtain messages Tiny Chat considers to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to show Obtain messages Tidy Chat considers to be spam.");
 
             if (ImGui.CollapsingHeader("Common Currencies"))
             {
@@ -569,7 +569,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to show Loot messages Tiny Chat considers to be spam");
+            ImGui.TextUnformatted("The options below will allow you to show Loot messages Tidy Chat considers to be spam");
             var showCastLot = this.configuration.ShowCastLot;
             if (ImGui.Checkbox("Show \"You cast your lot\" messages", ref showCastLot))
             {
@@ -592,7 +592,7 @@ namespace TidyChat
                 this.configuration.ShowOthersObtain = showOthersObtain;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
+            ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party obtains a loot drop.\neg. Some player obtains a <item>!");
         }
 
         public void DrawProgressTab()
@@ -606,7 +606,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to show Progress messages Tiny Chat considers to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to show Progress messages Tidy Chat considers to be spam.");
             var showGainExperience = this.configuration.ShowGainExperience;
             if (ImGui.Checkbox("Show experience gain messages", ref showGainExperience))
             {
