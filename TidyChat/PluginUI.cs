@@ -587,12 +587,12 @@ namespace TidyChat
             ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
 
             var showOthersObtain = this.configuration.ShowOthersObtain;
-            if (ImGui.Checkbox("Show \"Player obtains a <item>\" messages", ref showOthersObtain))
+            if (ImGui.Checkbox("Show \"Player obtains an <item>\" messages", ref showOthersObtain))
             {
                 this.configuration.ShowOthersObtain = showOthersObtain;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party obtains a loot drop.\neg. Some player obtains a <item>!");
+            ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party obtains a loot drop.\neg. Some player obtains an <item>!");
         }
 
         public void DrawProgressTab()
