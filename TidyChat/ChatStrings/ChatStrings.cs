@@ -95,5 +95,6 @@ namespace TidyChat
         public static string[] JoinParty { get; } = { "you", "join", "party" };
         // Cross-world party joined
         public static string[] JoinCrossParty { get; } = { "cross-world", "party", "joined" };
+        public static string[] OfferedTeleport { get; } = { "you", "have", "been", "offered", "a", "teleport", "to", "from" };
     }
 }

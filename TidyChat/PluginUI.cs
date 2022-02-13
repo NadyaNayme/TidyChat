@@ -355,6 +355,13 @@ namespace TidyChat
                     this.configuration.ShowJoinParty = showJoinParty;
                     this.configuration.Save();
                 }
+
+                var showOfferedTeleport = this.configuration.ShowOfferedTeleport;
+                if (ImGui.Checkbox("Show teleport offers from party members", ref showOfferedTeleport))
+                {
+                    this.configuration.ShowOfferedTeleport = showOfferedTeleport;
+                    this.configuration.Save();
+                }
             }
 
             if (ImGui.CollapsingHeader("Trading Messages"))

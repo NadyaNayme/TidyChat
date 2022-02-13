@@ -25,6 +25,7 @@ namespace TidyChat
                     (ChatStrings.TradeCanceled.All(input.Contains) && configuration.ShowTradeCanceled) ||
                     (ChatStrings.AwaitingTradeConfirmation.All(input.Contains) && configuration.ShowAwaitingTradeConfirmation) ||
                     (ChatStrings.TradeComplete.All(input.Contains) && configuration.ShowTradeComplete) ||
+                    (ChatStrings.OfferedTeleport.All(input.Contains) && configuration.ShowOfferedTeleport) ||
                     (ChatRegexStrings.GearsetEquipped.IsMatch(input) && configuration.ShowGearsetEquipped) ||
                     (ChatRegexStrings.MateriaRetrieved.IsMatch(input) && configuration.ShowMateriaRetrieved) ||
                     (ChatRegexStrings.MateriaShatters.IsMatch(input) && configuration.ShowMateriaShatters) ||
