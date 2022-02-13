@@ -164,6 +164,14 @@ namespace TidyChat
             if (ImGui.CollapsingHeader("Uncategorized Filters"))
             {
 
+                var showSealedOff = this.configuration.ShowSealedOff;
+                if (ImGui.Checkbox("Show \"<arena> will be sealed off\" type messages", ref showSealedOff))
+                {
+                    this.configuration.ShowSealedOff = showSealedOff;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("In some instances Cactbot's Raidfinder depends on detecting these messages in chat. It is recommend to enable this setting if you depend on Raidboss callouts.");
+
                 var hideDebugTeleport = this.configuration.HideDebugTeleport;
                 if (ImGui.Checkbox("Hide \"Teleporting to <Location>...\" Dalamud Debug messages ", ref hideDebugTeleport))
                 {
@@ -310,6 +318,45 @@ namespace TidyChat
                 ImGuiComponents.HelpMarker("\neg. “RDM (530)” equipped.");
             }
 
+            if (ImGui.CollapsingHeader("Party & Invite Messages"))
+            {
+                var showInviteSent = this.configuration.ShowInviteSent;
+                if (ImGui.Checkbox("Show sent party invites", ref showInviteSent))
+                {
+                    this.configuration.ShowInviteSent = showInviteSent;
+                    this.configuration.Save();
+                }
+
+                var showInviteeJoins = this.configuration.ShowInviteeJoins;
+                if (ImGui.Checkbox("Show players joining party", ref showInviteeJoins))
+                {
+                    this.configuration.ShowInviteeJoins = showInviteeJoins;
+                    this.configuration.Save();
+                }
+
+                var showPartyDisband = this.configuration.ShowPartyDisband;
+                if (ImGui.Checkbox("Show party disbands and dissolves", ref showPartyDisband))
+                {
+                    this.configuration.ShowPartyDisband = showPartyDisband;
+                    this.configuration.ShowPartyDissolved = showPartyDisband;
+                    this.configuration.Save();
+                }
+
+                var showInvitedBy = this.configuration.ShowInvitedBy;
+                if (ImGui.Checkbox("Show received party invitations", ref showInvitedBy))
+                {
+                    this.configuration.ShowInvitedBy = showInvitedBy;
+                    this.configuration.Save();
+                }
+
+                var showJoinParty = this.configuration.ShowJoinParty;
+                if (ImGui.Checkbox("Show joined party/cross-party message", ref showJoinParty))
+                {
+                    this.configuration.ShowJoinParty = showJoinParty;
+                    this.configuration.Save();
+                }
+            }
+
             if (ImGui.CollapsingHeader("Trading Messages"))
             {
                 var showTradeSent = this.configuration.ShowTradeSent;
@@ -318,7 +365,6 @@ namespace TidyChat
                     this.configuration.ShowTradeSent = showTradeSent;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("");
 
                 var showTradeCanceled = this.configuration.ShowTradeCanceled;
                 if (ImGui.Checkbox("Show \"Trade canceled.\" message", ref showTradeCanceled))
@@ -326,7 +372,6 @@ namespace TidyChat
                     this.configuration.ShowTradeCanceled = showTradeCanceled;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("");
 
                 var showAwaitingTradeConfirmation = this.configuration.ShowAwaitingTradeConfirmation;
                 if (ImGui.Checkbox("Show \"Awaiting trade confirmation\" message", ref showAwaitingTradeConfirmation))
@@ -334,7 +379,6 @@ namespace TidyChat
                     this.configuration.ShowAwaitingTradeConfirmation = showAwaitingTradeConfirmation;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("");
 
                 var showTradeComplete = this.configuration.ShowTradeComplete;
                 if (ImGui.Checkbox("Show \"Trade complete.\" message", ref showTradeComplete))
@@ -342,7 +386,6 @@ namespace TidyChat
                     this.configuration.ShowTradeComplete = showTradeComplete;
                     this.configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("");
             }
 
         }

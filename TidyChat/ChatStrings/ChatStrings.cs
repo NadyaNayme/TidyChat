@@ -81,5 +81,19 @@ namespace TidyChat
         public static string[] TradeCanceled { get; } = { "trade", "canceled" };
         public static string[] TradeSent { get; } = { "trade", "request", "sent", "to" };
         public static string[] AwaitingTradeConfirmation { get; } = { "awaiting", "trade", "confirmation", "from" };
+        // You invite <player> to a party.
+        public static string[] InviteSent { get; } = { "you", "invite", "to", "a", "party" };
+        // <Player> joins the party.
+        public static string[] InviteeJoins { get; } = { "joins", "the", "party" };
+        // The party has been disbanded.
+        public static string[] PartyDisband { get; } = { "the", "party", "has", "been", "disbanded" };
+        // You dissolve the party.
+        public static string[] PartyDissolved { get; } = { "dissolve", "party"  };
+        // <Player> invites you to a party.
+        public static string[] InvitedBy { get; } = { "invites", "you", "to", "a", "party" };
+        // You join <Player>'s party.
+        public static string[] JoinParty { get; } = { "you", "join", "party" };
+        // Cross-world party joined
+        public static string[] JoinCrossParty { get; } = { "cross-world", "party", "joined" };
     }
 }

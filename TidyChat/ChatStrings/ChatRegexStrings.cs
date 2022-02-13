@@ -57,5 +57,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex AetherialReductionSands { get; } = new Regex(@".+handfuls of .+ .+sand are obtained\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex SealedOff { get; } = new Regex(@"(will be sealed off in 15 seconds|is sealed off|is no longer sealed)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }

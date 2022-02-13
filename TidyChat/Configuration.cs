@@ -47,6 +47,13 @@ namespace TidyChat
         public bool ShowTradeCanceled { get; set; } = false;
         public bool ShowAwaitingTradeConfirmation { get; set; } = false;
         public bool ShowTradeComplete { get; set; } = false;
+        public bool ShowInviteSent { get; set; } = false;
+        public bool ShowInviteeJoins { get; set; } = false;
+        public bool ShowPartyDisband { get; set; } = false;
+        public bool ShowPartyDissolved { get; set; } = false;
+        public bool ShowInvitedBy { get; set; } = false;
+        public bool ShowJoinParty { get; set; } = false;
+        public bool ShowSealedOff { get; set; } = false;
         #endregion
 
         #region Obtained Items

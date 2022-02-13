@@ -30,6 +30,7 @@ namespace TidyChat
                     (ChatRegexStrings.MateriaShatters.IsMatch(input) && configuration.ShowMateriaShatters) ||
                     (ChatRegexStrings.VolumeControls.IsMatch(input) && configuration.ShowVolumeControlMessage) ||
                     (ChatRegexStrings.AetherialReductionSands.IsMatch(input) && configuration.ShowAetherialReductionSands) ||
+                    (ChatRegexStrings.SealedOff.IsMatch(input) && configuration.ShowSealedOff) ||
                     (ChatRegexStrings.ItemSearchCommand.IsMatch(input)) ||
                     (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder)
                    )
