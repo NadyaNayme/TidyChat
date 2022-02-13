@@ -427,7 +427,7 @@ namespace TidyChat
             }
 
             ImGui.Separator();
-            ImGui.TextUnformatted("The options below will allow you to show Obtain messages Tidy Chat considers to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to override the spammy Obtain messages filter.");
 
             if (ImGui.CollapsingHeader("Common Currencies"))
             {
@@ -569,7 +569,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to show Loot messages Tidy Chat considers to be spam");
+            ImGui.TextUnformatted("The options below will allow you to override the spammy Loot messages filter.");
             var showCastLot = this.configuration.ShowCastLot;
             if (ImGui.Checkbox("Show \"You cast your lot\" messages", ref showCastLot))
             {
@@ -606,7 +606,7 @@ namespace TidyChat
 
             ImGui.Separator();
 
-            ImGui.TextUnformatted("The options below will allow you to show Progress messages Tidy Chat considers to be spam.");
+            ImGui.TextUnformatted("The options below will allow you to override the spammy Progress messages filter.");
             var showGainExperience = this.configuration.ShowGainExperience;
             if (ImGui.Checkbox("Show experience gain messages", ref showGainExperience))
             {
