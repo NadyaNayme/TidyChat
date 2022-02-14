@@ -43,19 +43,19 @@ namespace TidyChat
         // <Player> has logged out.
         public static string[] HasLoggedOut { get; } = { "has", "logged", "out" };
 
-        // Tomestones
+        // You obtain Allagan Tomestones of <type>
         public static string[] ObtainedTomesetones { get; } = { "You", "obtain", "Allagan", "tomestones", "of" };
 
         // Ready Check
         public static string[] ReadyCheckComplete { get; } = { "ready", "check", "complete" };
 
-        // Level Ups
+        // You attain level <level>.
         public static string[] YouAttainLevel { get; } = { "you", "attain", "level" };
 
-        // Ability Unlocks
+        // You learn <ability>.
         public static string[] YouLearnAbility { get; } = { "you", "learn" };
 
-        // Countdown
+        // Battle commencing in <time> seconds.
         public static string[] CountdownTime { get; } = { "battle", "commencing", "in", "seconds" };
 
         // Teleporting to <Location>...
@@ -72,13 +72,20 @@ namespace TidyChat
         // Overmelding fail
         // You are unable to attach the materia to the <item>. The <materia> was lost.
         public static string[] OvermeldFailure { get; } = { "you", "are", "unable", "to", "attach", "the", "materia", "to" };
+        // You succesfully extra a <materia> from the <item>
         public static string[] MateriaExtract { get; } = { "you", "successfully", "extract", "a", "from", "the" };
+        // The location affects your...
         public static string[] LocationAffects { get; } = { "the", "location", "affects", "your" };
+        // ...gathering yield.
         public static string[] GatheringYield { get; } = { "gathering", "yield" };
+        // ...chance of receiving the Gatherer's boon.
         public static string[] GatherersBoon { get; } = { "chance", "of", "receiving", "the", "gatherer's", "boon" };
         public static string[] GatheringAttempts { get; } = { "increased", "integrity", "number", "of", "gathering", "attempts" };
+        // Trade complete.
         public static string[] TradeComplete { get; } = { "trade", "complete" };
+        // Trade canceled.
         public static string[] TradeCanceled { get; } = { "trade", "canceled" };
+        // Trade request sent to <player>
         public static string[] TradeSent { get; } = { "trade", "request", "sent", "to" };
         public static string[] AwaitingTradeConfirmation { get; } = { "awaiting", "trade", "confirmation", "from" };
         // You invite <player> to a party.
@@ -95,7 +102,9 @@ namespace TidyChat
         public static string[] JoinParty { get; } = { "you", "join", "party" };
         // Cross-world party joined
         public static string[] JoinCrossParty { get; } = { "cross-world", "party", "joined" };
+        // <Player> has left the party.
         public static string[] LeftParty { get; } = { "has", "left", "the", "party" };
+        // You have been offered a teleport to <Aetheryte> from <Player>.
         public static string[] OfferedTeleport { get; } = { "you", "have", "been", "offered", "a", "teleport", "to", "from" };
     }
 }
