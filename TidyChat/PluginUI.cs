@@ -198,7 +198,6 @@ namespace TidyChat
             }
 
             ImGui.Separator();
-            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("\"Not Spam\" Filters"))
             {
@@ -284,10 +283,17 @@ namespace TidyChat
                     this.configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("eg. Ready check complete.");
+
+                var hideSearchForItemResults = this.configuration.HideSearchForItemResults;
+                if (ImGui.Checkbox("Hide \"Search for items\" results message", ref hideSearchForItemResults))
+                {
+                    this.configuration.HideSearchForItemResults = hideSearchForItemResults;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. 1 item found in the 4th tab of your inventory.");
             }
 
             ImGui.Spacing();
-
 
             if (ImGui.CollapsingHeader("\"Spam\" Filters"))
             {
@@ -317,6 +323,8 @@ namespace TidyChat
                 }
                 ImGuiComponents.HelpMarker("\neg. “RDM (530)” equipped.");
             }
+
+            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("Party & Invite Messages"))
             {
@@ -370,6 +378,8 @@ namespace TidyChat
                     this.configuration.Save();
                 }
             }
+
+            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("Trading Messages"))
             {
@@ -719,6 +729,8 @@ namespace TidyChat
                     this.configuration.Save();
                 }
             }
+
+            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("Gathering Locations"))
             {

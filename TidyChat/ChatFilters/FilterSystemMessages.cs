@@ -33,6 +33,7 @@ namespace TidyChat
                     (ChatRegexStrings.AetherialReductionSands.IsMatch(input) && configuration.ShowAetherialReductionSands) ||
                     (ChatRegexStrings.SealedOff.IsMatch(input) && configuration.ShowSealedOff) ||
                     (ChatRegexStrings.ItemSearchCommand.IsMatch(input)) ||
+                    (ChatRegexStrings.SearchForItemResults.IsMatch(input) && !configuration.HideSearchForItemResults) ||
                     (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder)
                    )
                 {

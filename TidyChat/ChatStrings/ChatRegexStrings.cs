@@ -40,6 +40,8 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ItemSearchCommand { get; } = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex SearchForItemResults { get; } = new Regex(@"(\d (item|items) found in glamour dresser\.)|(\d (item|items) found in the .* section of the armoire\.)|(Currently equipped to .* slot)|(Total: \d{1,9} (item|items) found)|(\d{1,9} (item|items) found in the (1st|2nd|3rd|4th) tab of (your|.+'s) inventory)|\d{1,9} (item|items) found in saddlebag",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedTomestones { get; } = new Regex(@"You obtain \d{1,3} Allagan tomestones of",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex GearsetEquipped { get; } = new Regex(@"“(.*)” equipped\.",

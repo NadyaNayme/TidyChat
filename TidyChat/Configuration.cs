@@ -39,6 +39,7 @@ namespace TidyChat
         public bool HideDebugTeleport { get; set; } = false;
         public bool HideSpideySenses { get; set; } = false;
         public bool HideAetherCompass { get; set; } = false;
+        public bool HideSearchForItemResults { get; set; } = false;
         public bool ShowGlamoursProjected { get; set; } = false;
         public bool ShowGearsetEquipped { get; set; } = false;
         public bool ShowMateriaRetrieved { get; set; } = true;
