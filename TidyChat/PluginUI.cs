@@ -334,6 +334,13 @@ namespace TidyChat
                     this.configuration.Save();
                 }
 
+                var showLeftParty = this.configuration.ShowLeftParty;
+                if (ImGui.Checkbox("Show players leaving party", ref showLeftParty))
+                {
+                    this.configuration.ShowLeftParty = showLeftParty;
+                    this.configuration.Save();
+                }
+
                 var showPartyDisband = this.configuration.ShowPartyDisband;
                 if (ImGui.Checkbox("Show party disbands and dissolves", ref showPartyDisband))
                 {

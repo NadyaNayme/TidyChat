@@ -205,6 +205,7 @@ namespace TidyChat
             if (
                 (ChatStrings.InviteSent.All(normalizedText.Contains) && Configuration.ShowInviteSent) ||
                 (ChatStrings.InviteeJoins.All(normalizedText.Contains) && Configuration.ShowInviteeJoins) ||
+                (ChatStrings.LeftParty.All(normalizedText.Contains) && Configuration.ShowLeftParty) ||
                 (ChatStrings.PartyDisband.All(normalizedText.Contains) && Configuration.ShowPartyDisband) ||
                 (ChatStrings.PartyDissolved.All(normalizedText.Contains) && Configuration.ShowPartyDissolved) ||
                 (ChatStrings.InvitedBy.All(normalizedText.Contains) && Configuration.ShowInvitedBy) ||
