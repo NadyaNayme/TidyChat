@@ -32,7 +32,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex PlayerUsedEmote { get; } = new Regex(@"^(You|Your)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex CastLot { get; } = new Regex(@"You cast your lot for the (.*)\.",
+        public static Regex CastLot { get; } = new Regex(@"You cast your lot for (.*)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex RollsNeedOrGreed { get; } = new Regex(@"You roll (Need|Greed) on the (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
