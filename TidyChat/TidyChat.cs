@@ -201,20 +201,6 @@ namespace TidyChat
             {
                 isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
             }
-
-            if (
-                (ChatStrings.InviteSent.All(normalizedText.Contains) && !Configuration.ShowInviteSent) ||
-                (ChatStrings.InviteeJoins.All(normalizedText.Contains) && !Configuration.ShowInviteeJoins) ||
-                (ChatStrings.LeftParty.All(normalizedText.Contains) && !Configuration.ShowLeftParty) ||
-                (ChatStrings.PartyDisband.All(normalizedText.Contains) && !Configuration.ShowPartyDisband) ||
-                (ChatStrings.PartyDissolved.All(normalizedText.Contains) && !Configuration.ShowPartyDissolved) ||
-                (ChatStrings.InvitedBy.All(normalizedText.Contains) && !Configuration.ShowInvitedBy) ||
-                (ChatStrings.JoinParty.All(normalizedText.Contains) && !Configuration.ShowJoinParty) ||
-                (ChatStrings.JoinCrossParty.All(normalizedText.Contains) && !Configuration.ShowJoinParty)
-                )
-            {
-                isHandled = true;
-            }
         }
 
         private void OnCommand(string command, string args)

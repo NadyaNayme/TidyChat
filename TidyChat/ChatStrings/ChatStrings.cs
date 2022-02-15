@@ -100,6 +100,8 @@ namespace TidyChat
         public static string[] InvitedBy { get; } = { "invites", "you", "to", "a", "party" };
         // You join <Player>'s party.
         public static string[] JoinParty { get; } = { "you", "join", "party" };
+        // You leave <Player>'s party.
+        public static string[] YouLeaveParty { get; } = { "you", "leave", "party" };
         // Cross-world party joined
         public static string[] JoinCrossParty { get; } = { "cross-world", "party", "joined" };
         // <Player> has left the party.

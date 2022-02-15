@@ -34,7 +34,15 @@ namespace TidyChat
                     (ChatRegexStrings.SealedOff.IsMatch(input) && configuration.ShowSealedOff) ||
                     (ChatRegexStrings.ItemSearchCommand.IsMatch(input)) ||
                     (ChatRegexStrings.SearchForItemResults.IsMatch(input) && !configuration.HideSearchForItemResults) ||
-                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder)
+                    (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder) ||
+                    (ChatStrings.InviteSent.All(input.Contains) && configuration.ShowInviteSent) ||
+                    (ChatStrings.InviteeJoins.All(input.Contains) && configuration.ShowInviteeJoins) ||
+                    (ChatStrings.LeftParty.All(input.Contains) || ChatStrings.YouLeaveParty.All(input.Contains) && configuration.ShowLeftParty) ||
+                    (ChatStrings.PartyDisband.All(input.Contains) && configuration.ShowPartyDisband) ||
+                    (ChatStrings.PartyDissolved.All(input.Contains) && configuration.ShowPartyDissolved) ||
+                    (ChatStrings.InvitedBy.All(input.Contains) && configuration.ShowInvitedBy) ||
+                    (ChatStrings.JoinParty.All(input.Contains) && configuration.ShowJoinParty) ||
+                    (ChatStrings.JoinCrossParty.All(input.Contains) && configuration.ShowJoinParty)
                    )
                 {
                     return false;
