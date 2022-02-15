@@ -20,7 +20,7 @@ namespace TidyChat
         public static string[] PowerfulMark { get; } = { "you", "sense", "the", "presence", "of", "a", "powerful", "mark" };
 
         // You minions of an extraordinarily powerful mark...
-        public static string[] ExtraordinarilyPowerfulMark { get; } = { "the", "minions", "of", "an", "extraordinarily", "powerful", "mark", };
+        public static string[] ExtraordinarilyPowerfulMark { get; } = { "the", "minions", "of", "an", "extraordinarily", "powerful", "mark" };
 
         // Retainer completed a venture.
         public static string[] CompletedVenture { get; } = { "completed", "a", "venture" };
