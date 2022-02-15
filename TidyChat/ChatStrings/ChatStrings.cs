@@ -108,5 +108,9 @@ namespace TidyChat
         public static string[] LeftParty { get; } = { "has", "left", "the", "party" };
         // You have been offered a teleport to <Aetheryte> from <Player>.
         public static string[] OfferedTeleport { get; } = { "you", "have", "been", "offered", "a", "teleport", "to", "from" };
+        // Record of <boss> kill (n/m) added for <Relic Weapon> - <Stats>.1
+        public static string[] RelicBookStep { get; } = { "record", "of", "added", "for" };
+        // All objectives under the category <Category> - <buff> complete!
+        public static string[] RelicBookComplete { get; } = { "all", "objectives", "under", "the", "category", "complete" };
     }
 }

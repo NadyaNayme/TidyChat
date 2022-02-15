@@ -343,6 +343,22 @@ namespace TidyChat
             {
                 ImGui.TextUnformatted("Show messages Tidy Chat considers to be spam");
 
+                var showRelicBookStep = this.configuration.ShowRelicBookStep;
+                if (ImGui.Checkbox("Show ARR Relic book step progress messages", ref showRelicBookStep))
+                {
+                    this.configuration.ShowRelicBookStep = showRelicBookStep;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. Record of Ouranos kill (1/1) added for <Relic Weapon> - Strength +2.");
+
+                var showRelicBookComplete = this.configuration.ShowRelicBookComplete;
+                if (ImGui.Checkbox("Show ARR Relic book step completed messages", ref showRelicBookComplete))
+                {
+                    this.configuration.ShowRelicBookComplete = showRelicBookComplete;
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. All objectives under the category Dungeons for <Relic Weapon> - Strength +2 complete!");
+
                 var showVolumeControlMessage = this.configuration.ShowVolumeControlMessage;
                 if (ImGui.Checkbox("Show volume control messages", ref showVolumeControlMessage))
                 {

@@ -57,6 +57,8 @@ namespace TidyChat
         public bool ShowJoinParty { get; set; } = false;
         public bool ShowOfferedTeleport { get; set; } = false;
         public bool ShowSealedOff { get; set; } = false;
+        public bool ShowRelicBookStep { get; set; } = false;
+        public bool ShowRelicBookComplete { get; set; } = false;
         #endregion
 
         #region Obtained Items

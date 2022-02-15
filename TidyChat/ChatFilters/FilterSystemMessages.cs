@@ -42,7 +42,9 @@ namespace TidyChat
                     (ChatStrings.PartyDissolved.All(input.Contains) && configuration.ShowPartyDissolved) ||
                     (ChatStrings.InvitedBy.All(input.Contains) && configuration.ShowInvitedBy) ||
                     (ChatStrings.JoinParty.All(input.Contains) && configuration.ShowJoinParty) ||
-                    (ChatStrings.JoinCrossParty.All(input.Contains) && configuration.ShowJoinParty)
+                    (ChatStrings.JoinCrossParty.All(input.Contains) && configuration.ShowJoinParty) ||
+                    (ChatStrings.RelicBookStep.All(input.Contains) && !configuration.ShowRelicBookStep) ||
+                    (ChatStrings.RelicBookComplete.All(input.Contains) && !configuration.ShowRelicBookComplete)
                    )
                 {
                     return false;
