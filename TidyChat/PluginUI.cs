@@ -45,61 +45,105 @@ namespace TidyChat
             try
             {
                 ImGui.SetNextWindowSize(new Vector2(560, 500), ImGuiCond.FirstUseEver);
-                if (!ImGui.Begin("Tidy Chat Settings", ref this.settingsVisible)) return;
+                if (!ImGui.Begin("Tidy Chat", ref this.settingsVisible)) return;
 
-                if(ImGui.BeginTabBar("##tidychatConfigTabs"))
+                if (ImGui.BeginTabBar("##tidychatConfigTabs"))
                 {
+                    ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
+                    Vector4 ColorGray = new Vector4(0.45f, 0.45f, 0.45f, 1);
+                    ImGui.TextColored(ColorGray, "v0.1.0.0");
                     if (ImGui.BeginTabItem("General"))
                     {
                         DrawGeneralTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     if (ImGui.BeginTabItem("System"))
                     {
                         DrawSystemTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Emotes"))
                     {
                         DrawEmotesTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Obtain"))
                     {
                         DrawObtainTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Loot"))
                     {
                         DrawLootTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Progress"))
                     {
                         DrawProgressTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Crafting & Gathering"))
                     {
                         DrawCraftingTab();
                         ImGui.EndTabItem();
+                        ImGui.Separator();
+                        ImGui.Spacing();
+                        if (ImGui.Button("Save and Close Config"))
+                        {
+                            this.configuration.Save();
+                            SettingsVisible = false;
+                        }
                     }
 
                     ImGui.EndTabBar();
-
-                    ImGui.Separator();
-                    ImGui.Spacing();
-                    if (ImGui.Button("Save and Close Config"))
-                    {
-                        this.configuration.Save();
-                        SettingsVisible = false;
-                    }
                 }
             } finally
             {
