@@ -38,7 +38,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex OthersCastLot { get; } = new Regex(@".* casts (his|her) lot for (.*)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex OthersRollNeedOrGreed { get; } = new Regex(@".* rolls (Need|Greed) on the (.*)\. \d{1,2}\!",
+        public static Regex OthersRollNeedOrGreed { get; } = new Regex(@".* rolls (Need|Greed) on (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex OthersObtain { get; } = new Regex(@"\w{1,20} \w{1,30} obtains .+",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
