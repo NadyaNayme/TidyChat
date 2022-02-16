@@ -21,6 +21,7 @@ namespace TidyChat
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
         public bool BetterSayReminder { get; set; } = false;
+        public bool CopyBetterSayReminder { get; set; } = false;
         public bool BetterCommendationMessage { get; set; } = true;
         public bool IncludeDutyNameInComms { get; set; } = true;
         #endregion

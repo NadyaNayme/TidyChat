@@ -4,6 +4,7 @@ using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using System.Linq;
 using ChatTwo.Code;
 
@@ -79,6 +80,7 @@ namespace TidyChat
             this.ChatGui.ChatMessage -= this.OnChat;
         }
 
+         
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
             // Lifted below line from Anna's chat2
@@ -101,7 +103,7 @@ namespace TidyChat
                 message = $"You are now in instance: {instanceNumber}";
             }
 
-            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.System)
+            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.Echo)
             {
                 // With the chat mode in Say, enter a phrase containing "Capture this"
 
@@ -110,6 +112,16 @@ namespace TidyChat
                 int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
                 string containingPhrase = message.TextValue.Substring(containingPhraseStart+1, lengthOfPhrase-1);
                 message = $"/say {containingPhrase}";
+                if (Configuration.CopyBetterSayReminder)
+                {
+                    var stringBuilder = new SeStringBuilder();
+                    stringBuilder.AddUiForeground(14);
+                    stringBuilder.AddText($"[TidyChat] ");
+                    stringBuilder.AddUiForegroundOff();
+                    stringBuilder.AddText($"\"/say {containingPhrase}\" has been copied to clipboard");
+                    TextCopy.ClipboardService.SetText($"/say {containingPhrase}");
+                    message = stringBuilder.BuiltString;
+                }
             }
 
             if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
@@ -127,9 +139,14 @@ namespace TidyChat
                     t.AutoReset = false;
                     t.Elapsed += delegate
                     {
+                            var stringBuilder = new SeStringBuilder();
+                            stringBuilder.AddUiForeground(14);
+                            stringBuilder.AddText($"[TidyChat] ");
+                            stringBuilder.AddUiForegroundOff();
                             string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
                             string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
-                            ChatGui.Print($"You received {numberOfCommendations} {commendations}{dutyName}");
+                            stringBuilder.AddText($"You received {numberOfCommendations} {commendations}{dutyName}");
+                            ChatGui.Print(stringBuilder.BuiltString);
                             t.Enabled = false;
                             t.Dispose();
                         numberOfCommendations = 0;

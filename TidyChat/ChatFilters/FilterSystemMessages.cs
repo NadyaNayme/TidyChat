@@ -37,7 +37,8 @@ namespace TidyChat
                     (ChatStrings.SayQuestReminder.All(input.Contains) && !configuration.HideQuestReminder && configuration.BetterSayReminder) ||
                     (ChatStrings.InviteSent.All(input.Contains) && configuration.ShowInviteSent) ||
                     (ChatStrings.InviteeJoins.All(input.Contains) && configuration.ShowInviteeJoins) ||
-                    (ChatStrings.LeftParty.All(input.Contains) || ChatStrings.YouLeaveParty.All(input.Contains) && configuration.ShowLeftParty) ||
+                    (ChatStrings.LeftParty.All(input.Contains) && configuration.ShowLeftParty) ||
+                    (ChatStrings.YouLeaveParty.All(input.Contains) && configuration.ShowLeftParty) ||
                     (ChatStrings.PartyDisband.All(input.Contains) && configuration.ShowPartyDisband) ||
                     (ChatStrings.PartyDissolved.All(input.Contains) && configuration.ShowPartyDissolved) ||
                     (ChatStrings.InvitedBy.All(input.Contains) && configuration.ShowInvitedBy) ||

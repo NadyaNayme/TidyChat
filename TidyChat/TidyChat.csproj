@@ -3,10 +3,11 @@
   <PropertyGroup>
     <Authors>Nana</Authors>
     <Company></Company>
-    <Version>0.1.0.1</Version>
+    <Version>0.1.0.3</Version>
     <Description>Various chat filters for a less cluttered chat. Use /tidychat to open settings.</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -28,6 +29,10 @@
 		<Link>images/icon.png</Link>
 		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
+	  <Content Include="..\images\icon.png">
+		  <Link>images/icon.png</Link>
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
   </ItemGroup>
 
   <PropertyGroup>
@@ -45,6 +50,7 @@
 
   <ItemGroup>
     <PackageReference Include="DalamudPackager" Version="2.1.5" />
+    <PackageReference Include="TextCopy" Version="6.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,7 +74,7 @@
       <HintPath>$(DalamudLibPath)ImGuiScene.dll</HintPath>
       <Private>false</Private>
     </Reference>
-    <Reference Include="Lumina">
+	<Reference Include="Lumina">
       <HintPath>$(DalamudLibPath)Lumina.dll</HintPath>
       <Private>false</Private>
     </Reference>
@@ -76,6 +82,6 @@
       <HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
       <Private>false</Private>
     </Reference>
-  </ItemGroup>
+</ItemGroup>
 
 </Project>

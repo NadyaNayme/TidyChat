@@ -51,7 +51,7 @@ namespace TidyChat
                 {
                     ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
                     Vector4 ColorGray = new Vector4(0.45f, 0.45f, 0.45f, 1);
-                    ImGui.TextColored(ColorGray, "v0.1.0.1");
+                    ImGui.TextColored(ColorGray, "v0.1.0.3");
                     if (ImGui.BeginTabItem("General"))
                     {
                         DrawGeneralTab();
@@ -201,6 +201,18 @@ namespace TidyChat
                     this.configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily");
+
+                var copyBetterSayReminder = this.configuration.CopyBetterSayReminder;
+                if (ImGui.Checkbox("Automatically copy improved /say message to clipboard", ref copyBetterSayReminder))
+                {
+                    this.configuration.CopyBetterSayReminder = copyBetterSayReminder;
+                    if (!this.configuration.BetterSayReminder && this.configuration.CopyBetterSayReminder)
+                    {
+                        this.configuration.BetterSayReminder = true;
+                    }
+                    this.configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Requires Improved /Say message for quests to be enabled");
 
             }
 
