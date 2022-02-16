@@ -637,10 +637,10 @@ namespace TidyChat
 
         public void DrawLootTab()
         {
-            var filterObtainedSpam = this.configuration.FilterObtainedSpam;
-            if (ImGui.Checkbox("Filters spammy Loot messages", ref filterObtainedSpam))
+            var filterLootSpam = this.configuration.FilterLootSpam;
+            if (ImGui.Checkbox("Filters spammy Loot messages", ref filterLootSpam))
             {
-                this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                this.configuration.FilterLootSpam = filterLootSpam;
                 this.configuration.Save();
             }
 
@@ -689,10 +689,10 @@ namespace TidyChat
 
         public void DrawProgressTab()
         {
-            var filterObtainedSpam = this.configuration.FilterObtainedSpam;
-            if (ImGui.Checkbox("Filters spammy Progress messages", ref filterObtainedSpam))
+            var filterProgressSpam = this.configuration.FilterProgressSpam;
+            if (ImGui.Checkbox("Filters spammy Progress messages", ref filterProgressSpam))
             {
-                this.configuration.FilterObtainedSpam = filterObtainedSpam;
+                this.configuration.FilterProgressSpam = filterProgressSpam;
                 this.configuration.Save();
             }
 
