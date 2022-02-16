@@ -103,7 +103,7 @@ namespace TidyChat
                 message = $"You are now in instance: {instanceNumber}";
             }
 
-            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.Echo)
+            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.System)
             {
                 // With the chat mode in Say, enter a phrase containing "Capture this"
 
@@ -115,9 +115,12 @@ namespace TidyChat
                 if (Configuration.CopyBetterSayReminder)
                 {
                     var stringBuilder = new SeStringBuilder();
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText($"[TidyChat] ");
-                    stringBuilder.AddUiForegroundOff();
+                    if (Configuration.IncludeChatTag)
+                    {
+                        stringBuilder.AddUiForeground(14);
+                        stringBuilder.AddText($"[TidyChat] ");
+                        stringBuilder.AddUiForegroundOff();
+                    }
                     stringBuilder.AddText($"\"/say {containingPhrase}\" has been copied to clipboard");
                     TextCopy.ClipboardService.SetText($"/say {containingPhrase}");
                     message = stringBuilder.BuiltString;
@@ -140,9 +143,12 @@ namespace TidyChat
                     t.Elapsed += delegate
                     {
                             var stringBuilder = new SeStringBuilder();
-                            stringBuilder.AddUiForeground(14);
-                            stringBuilder.AddText($"[TidyChat] ");
-                            stringBuilder.AddUiForegroundOff();
+                            if (Configuration.IncludeChatTag)
+                            {
+                                stringBuilder.AddUiForeground(14);
+                                stringBuilder.AddText($"[TidyChat] ");
+                                stringBuilder.AddUiForegroundOff();
+                            }
                             string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
                             string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
                             stringBuilder.AddText($"You received {numberOfCommendations} {commendations}{dutyName}");

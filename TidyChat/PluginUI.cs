@@ -161,6 +161,14 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This should be left on unless testing or debugging.");
 
+            var includeChatTag = this.configuration.IncludeChatTag;
+            if (ImGui.Checkbox("Add [TidyChat] tag to modified messages", ref includeChatTag))
+            {
+                this.configuration.IncludeChatTag = includeChatTag;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("Prepends messages sent or modified by Tidy Chat with [TidyChat]");
+
             ImGui.Separator();
 
             if (ImGui.CollapsingHeader("Messaging Improvements"))

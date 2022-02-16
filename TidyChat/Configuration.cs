@@ -9,6 +9,7 @@ namespace TidyChat
     {
         public int Version { get; set; } = 0;
         public bool Enabled { get; set; } = true;
+        public bool IncludeChatTag { get; set; } = true;
         public string PlayerName { get; set; } = "";
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
