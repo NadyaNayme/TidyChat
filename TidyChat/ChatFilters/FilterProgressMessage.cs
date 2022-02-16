@@ -10,7 +10,9 @@ namespace TidyChat
             try
             {
                 if (
-                     (ChatStrings.GainExperiencePoints.All(input.Contains) && !configuration.ShowGainExperience) ||
+                     (ChatStrings.GainExperiencePoints.All(input.Contains) ||
+                     (ChatRegexStrings.GainExperiencePoints.IsMatch(input)) &&
+                     !configuration.ShowGainExperience) ||
                      (ChatStrings.GainPvpExp.All(input.Contains) && !configuration.ShowGainPvpExp) ||
                      (ChatStrings.EarnAchievement.All(input.Contains) && !configuration.ShowEarnAchievement) ||
                      (ChatStrings.YouAttainLevel.All(input.Contains) && !configuration.ShowLevelUps) ||

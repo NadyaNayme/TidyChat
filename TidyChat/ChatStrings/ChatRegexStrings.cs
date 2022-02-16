@@ -36,6 +36,10 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex RollsNeedOrGreed { get; } = new Regex(@"You roll (Need|Greed) on the (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex OthersCastLot { get; } = new Regex(@".* casts (his|her) lot for (.*)\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static Regex OthersRollNeedOrGreed { get; } = new Regex(@".* rolls (Need|Greed) on the (.*)\. \d{1,2}\!",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex OthersObtain { get; } = new Regex(@"\w{1,20} \w{1,30} obtains .+",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ItemSearchCommand { get; } = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)",
@@ -60,6 +64,9 @@ namespace TidyChat
         public static Regex AetherialReductionSands { get; } = new Regex(@".+handfuls of .+ .+sand are obtained\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex SealedOff { get; } = new Regex(@"(will be sealed off in 15 seconds|is sealed off|is no longer sealed)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
+          // Name S. gains \d{1,4} (+\d{1,2}%) experience points.
+        public static Regex GainExperiencePoints { get; } = new Regex(@"(.* gains .* experience points\.)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }

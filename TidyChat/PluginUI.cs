@@ -663,8 +663,23 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
 
+            var showOthersCastLot = this.configuration.ShowOthersCastLot;
+            if (ImGui.Checkbox("Show \"Another Player casts his/her lot <item>\" messages", ref showOthersCastLot))
+            {
+                this.configuration.ShowOthersCastLot = showOthersCastLot;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party rolls for a loot drop.\neg. Some player casts her lot for <item>.");
+
+            var showOthersLootRoll = this.configuration.ShowOthersLootRoll;
+            if (ImGui.Checkbox("Show \"Another Player rolls Greed...\" messages", ref showOthersLootRoll))
+            {
+                this.configuration.ShowOthersLootRoll = showOthersLootRoll;
+                this.configuration.Save();
+            }
+
             var showOthersObtain = this.configuration.ShowOthersObtain;
-            if (ImGui.Checkbox("Show \"Player obtains an <item>\" messages", ref showOthersObtain))
+            if (ImGui.Checkbox("Show \"Another Player obtains <item>\" messages", ref showOthersObtain))
             {
                 this.configuration.ShowOthersObtain = showOthersObtain;
                 this.configuration.Save();

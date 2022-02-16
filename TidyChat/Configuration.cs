@@ -85,6 +85,8 @@ namespace TidyChat
         #region Loot Rolls
         public bool ShowLootRoll { get; set; } = false;
         public bool ShowCastLot { get; set; } = false;
+        public bool ShowOthersLootRoll { get; set; } = false;
+        public bool ShowOthersCastLot { get; set; } = false;
         public bool ShowOthersObtain { get; set; } = false;
         #endregion
 
