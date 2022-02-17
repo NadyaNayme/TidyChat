@@ -51,7 +51,7 @@ namespace TidyChat
                 {
                     ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
                     Vector4 ColorGray = new Vector4(0.45f, 0.45f, 0.45f, 1);
-                    ImGui.TextColored(ColorGray, "v0.1.0.3");
+                    ImGui.TextColored(ColorGray, "v0.1.0.4");
                     if (ImGui.BeginTabItem("General"))
                     {
                         DrawGeneralTab();

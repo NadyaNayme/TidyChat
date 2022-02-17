@@ -4,9 +4,9 @@
 - Block emote spam
 - Block spammy "You obtain" messages
 - Block spammy "You cast your lot" messages when rolling for loot
-- Improve /instance messaging
-- Improve received commendations messaging by condensing all earned commendations into a single message
-- Quality of Life improvement for quests that require you to `/say some phrase` by rewording it to be copy/pastable
+- Improve /instance messaging ![Better Instance messaging](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/instance.png)
+- Improve received commendations messaging by condensing all earned commendations into a single message ![Condensed Commendations](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/commendations.png)
+- Quality of Life improvement for quests that require you to `/say some phrase` by rewording it to be copy/pastable ![Autocopy /say text](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/autocopy.png)
 
 ## Installation
 
