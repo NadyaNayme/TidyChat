@@ -26,7 +26,7 @@ namespace TidyChat
         public static string[] CompletedVenture { get; } = { "completed", "a", "venture" };
 
         //You gain \d <class> experience points
-        public static string[] GainExperiencePoints { get; } = { "you", "gain", "experience", "points" };
+        public static string[] GainExperiencePoints { get; } = { "you", "experience", "points" };
 
         // A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.
         public static string[] RouletteBonus { get; } = { "a", "bonus", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" };
@@ -41,7 +41,7 @@ namespace TidyChat
         public static string[] CappedWolfMarks { get; } = { "you", "cannot", "receive", "any", "more", "wolf", "marks" };
 
         //You earn the achievement <achievement>
-        public static string[] EarnAchievement { get; } = { "you", "earn", "the", "achievement" };
+        public static string[] EarnAchievement { get; } = { "you", "the", "achievement" };
 
         // You synthesize a/an <item>
         public static string[] YouSynthesize { get; } = { "you", "synthesize" };
@@ -56,7 +56,7 @@ namespace TidyChat
         public static string[] ReadyCheckComplete { get; } = { "ready", "check", "complete" };
 
         // You attain level <level>.
-        public static string[] YouAttainLevel { get; } = { "you", "attain", "level" };
+        public static string[] YouAttainLevel { get; } = { "you", "level" };
         // <Player> attains level 33!
         public static string[] OtherAttainsLevel { get; } = { "attains", "level" };
 
@@ -79,9 +79,9 @@ namespace TidyChat
         public static string[] GlamoursProjected { get; } = { "glamours", "projected", "from", "plate" };
         // Overmelding fail
         // You are unable to attach the materia to the <item>. The <materia> was lost.
-        public static string[] OvermeldFailure { get; } = { "you", "are", "unable", "to", "attach", "the", "materia", "to" };
+        public static string[] OvermeldFailure { get; } = { "you", "unable", "to", "attach", "the", "materia", "to" };
         // You succesfully extra a <materia> from the <item>
-        public static string[] MateriaExtract { get; } = { "you", "successfully", "extract", "a", "from", "the" };
+        public static string[] MateriaExtract { get; } = { "you", "successfully", "a", "from", "the" };
         // The location affects your...
         public static string[] LocationAffects { get; } = { "the", "location", "affects", "your" };
         // ...gathering yield.
