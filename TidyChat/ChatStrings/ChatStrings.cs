@@ -53,6 +53,8 @@ namespace TidyChat
 
         // You attain level <level>.
         public static string[] YouAttainLevel { get; } = { "you", "attain", "level" };
+        // <Player> attains level 33!
+        public static string[] OtherAttainsLevel { get; } = { "attains", "level" };
 
         // You learn <ability>.
         public static string[] YouLearnAbility { get; } = { "you", "learn" };

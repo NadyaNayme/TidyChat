@@ -763,6 +763,14 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This will show the message that occurs when you level up.\nIt can be considered spammy in Palace of the Dead and Heaven On High.");
 
+            var showOtherLevelUps = this.configuration.ShowOtherLevelUps;
+            if (ImGui.Checkbox("Show other player's level up messages", ref showOtherLevelUps))
+            {
+                this.configuration.ShowOtherLevelUps = showOtherLevelUps;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will show the message that occurs when others level up.\n eg. Player attains level 33!");
+
             var showAbilityUnlocks = this.configuration.ShowAbilityUnlocks;
             if (ImGui.Checkbox("Show learned ability messages", ref showAbilityUnlocks))
             {

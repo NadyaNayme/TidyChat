@@ -15,6 +15,7 @@ namespace TidyChat
                      (ChatStrings.GainPvpExp.All(input.Contains) && !configuration.ShowGainPvpExp) ||
                      (ChatStrings.EarnAchievement.All(input.Contains) && !configuration.ShowEarnAchievement) ||
                      (ChatStrings.YouAttainLevel.All(input.Contains) && !configuration.ShowLevelUps) ||
+                     (ChatStrings.OtherAttainsLevel.All(input.Contains) && !configuration.ShowOtherLevelUps) ||
                      (ChatStrings.YouLearnAbility.All(input.Contains) && !configuration.ShowAbilityUnlocks)
                    )
                 {

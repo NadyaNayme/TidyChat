@@ -95,6 +95,7 @@ namespace TidyChat
 
         #region Progression
         public bool ShowLevelUps { get; set; } = true;
+        public bool ShowOtherLevelUps { get; set; } = false;
         public bool ShowAbilityUnlocks { get; set; } = true;
         #endregion
 
