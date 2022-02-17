@@ -1,11 +1,12 @@
 ﻿using Dalamud.IoC;
 using Dalamud.Plugin;
+using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
-using Dalamud.Game.Text.SeStringHandling.Payloads;
 using System.Linq;
+using System.Text.RegularExpressions;
 using ChatTwo.Code;
 
 namespace TidyChat
@@ -23,6 +24,7 @@ namespace TidyChat
         private CommandManager CommandManager { get; init; }
         private Configuration Configuration { get; init; }
         private PluginUI PluginUi { get; init; }
+        private ClientState ClientState { get; init; }
 
         // Lifted below lines (27-39) from Anna's Chat2
         private const ushort Clear7 = ~(~0 << 7);
@@ -42,11 +44,13 @@ namespace TidyChat
         public TidyChat(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
             [RequiredVersion("1.0")] ChatGui chatGui,
-            [RequiredVersion("1.0")] CommandManager commandManager)
+            [RequiredVersion("1.0")] CommandManager commandManager,
+            [RequiredVersion("1.0")] ClientState clientState)
         {
             this.PluginInterface = pluginInterface;
             this.CommandManager = commandManager;
             this.ChatGui = chatGui;
+            this.ClientState = clientState;
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
@@ -80,7 +84,7 @@ namespace TidyChat
             this.ChatGui.ChatMessage -= this.OnChat;
         }
 
-         
+
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
             // Lifted below line from Anna's chat2
@@ -92,6 +96,21 @@ namespace TidyChat
             if (!Configuration.Enabled)
             {
                 return;
+            }
+
+            if (Configuration.PlayerName != "" && Configuration.PlayerName != null)
+            {
+                // I do not claim to be a smart man, but I do like to dabble in the dark magics.
+                string FirstNameLastInitial = $"{Configuration.PlayerName.Split(' ')[0]} {Configuration.PlayerName.Split(' ')[1][0]}.";
+                string FirstInitialLastName = $"{Configuration.PlayerName.Split(' ')[0][0]}. {Configuration.PlayerName.Split(' ')[1]}";
+                string InitialsOnly = $"{Configuration.PlayerName.Split(' ')[0][0]}. {Configuration.PlayerName.Split(' ')[1][0]}.";
+                Regex FNLI = new(FirstNameLastInitial.ToLower());
+                Regex FILN = new(FirstInitialLastName.ToLower());
+                Regex IO = new(InitialsOnly.ToLower());
+                normalizedText = normalizedText.Replace($"{Configuration.PlayerName}", "you");
+                normalizedText = FNLI.Replace(normalizedText, "you", 1);
+                normalizedText = FILN.Replace(normalizedText, "you", 1);
+                normalizedText = IO.Replace(normalizedText, "you", 1);
             }
 
             if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains) && chatType is ChatType.System)
@@ -110,7 +129,7 @@ namespace TidyChat
                 int containingPhraseStart = message.TextValue.IndexOf('“');
                 int containingPhraseEnd = message.TextValue.LastIndexOf('”');
                 int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
-                string containingPhrase = message.TextValue.Substring(containingPhraseStart+1, lengthOfPhrase-1);
+                string containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
                 message = $"/say {containingPhrase}";
                 if (Configuration.CopyBetterSayReminder)
                 {
@@ -142,19 +161,19 @@ namespace TidyChat
                     t.AutoReset = false;
                     t.Elapsed += delegate
                     {
-                            var stringBuilder = new SeStringBuilder();
-                            if (Configuration.IncludeChatTag)
-                            {
-                                stringBuilder.AddUiForeground(14);
-                                stringBuilder.AddText($"[TidyChat] ");
-                                stringBuilder.AddUiForegroundOff();
-                            }
-                            string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
-                            string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
-                            stringBuilder.AddText($"You received {numberOfCommendations} {commendations}{dutyName}");
-                            ChatGui.Print(stringBuilder.BuiltString);
-                            t.Enabled = false;
-                            t.Dispose();
+                        var stringBuilder = new SeStringBuilder();
+                        if (Configuration.IncludeChatTag)
+                        {
+                            stringBuilder.AddUiForeground(14);
+                            stringBuilder.AddText($"[TidyChat] ");
+                            stringBuilder.AddUiForegroundOff();
+                        }
+                        string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
+                        string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
+                        stringBuilder.AddText($"You received {numberOfCommendations} {commendations}{dutyName}");
+                        ChatGui.Print(stringBuilder.BuiltString);
+                        t.Enabled = false;
+                        t.Dispose();
                         numberOfCommendations = 0;
                     };
                     t.Enabled = true;
@@ -232,6 +251,20 @@ namespace TidyChat
             }
         }
 
+        private void SetPlayerName() {
+            try {
+                if (ClientState.LocalPlayer == null)
+                {
+                    return;
+                }
+                this.Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
+                this.Configuration.Save();
+            } 
+            catch
+            {
+                // Just don't do anything if we can't set player name
+            }
+        }
         private void OnCommand(string command, string args)
         {
             this.PluginUi.SettingsVisible = true;
@@ -244,6 +277,7 @@ namespace TidyChat
 
         private void DrawConfigUI()
         {
+            SetPlayerName();
             this.PluginUi.SettingsVisible = true;
         }
     }

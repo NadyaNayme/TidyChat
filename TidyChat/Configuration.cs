@@ -76,7 +76,8 @@ namespace TidyChat
         public bool ShowObtainedTribalCurrency { get; set; } = false;
         public bool ShowObtainedShards { get; set; } = false;
         public bool ShowGainExperience { get; set; } = false;
-        public bool ShowRouletteBonusExperiencePoints { get; set; } = false;
+        public bool ShowRouletteBonus { get; set; } = false;
+        public bool ShowAdventurerInNeedBonus { get; set; } = false;
         public bool ShowGainPvpExp { get; set; } = false;
         public bool ShowEarnAchievement { get; set; } = false;
         public bool ShowObtainedPoeticsTomestones { get; set; } = false;

@@ -10,7 +10,8 @@ namespace TidyChat
             try
             {
                 if (
-                    (ChatStrings.RouletteBonusExperiencePoints.All(input.Contains) && !configuration.ShowRouletteBonusExperiencePoints) ||
+                    (ChatStrings.RouletteBonus.All(input.Contains) && !configuration.ShowRouletteBonus) ||
+                    (ChatStrings.AdventurerInNeedBonus.All(input.Contains) && !configuration.ShowAdventurerInNeedBonus) ||
                     (ChatRegexStrings.ObtainedGil.IsMatch(input) && !configuration.ShowObtainedGil) ||
                     (ChatRegexStrings.ObtainedMGP.IsMatch(input) && !configuration.ShowObtainedMGP) ||
                     (ChatRegexStrings.ObtainedSeals.IsMatch(input) && !configuration.ShowObtainedSeals) ||

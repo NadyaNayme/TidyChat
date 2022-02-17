@@ -727,10 +727,18 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("eg. You gain 2,388 Experience Points.");
 
-            var showRouletteBonusExperiencePoints = this.configuration.ShowRouletteBonusExperiencePoints;
+            var showRouletteBonusExperiencePoints = this.configuration.ShowRouletteBonus;
             if (ImGui.Checkbox("Show bonus award for using duty roulette", ref showRouletteBonusExperiencePoints))
             {
-                this.configuration.ShowRouletteBonusExperiencePoints = showRouletteBonusExperiencePoints;
+                this.configuration.ShowRouletteBonus = showRouletteBonusExperiencePoints;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.");
+
+            var showAdventurerInNeedBonus = this.configuration.ShowAdventurerInNeedBonus;
+            if (ImGui.Checkbox("Show bonus awarded for being an adventurer in need", ref showAdventurerInNeedBonus))
+            {
+                this.configuration.ShowAdventurerInNeedBonus = showAdventurerInNeedBonus;
                 this.configuration.Save();
             }
             ImGuiComponents.HelpMarker("eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.");

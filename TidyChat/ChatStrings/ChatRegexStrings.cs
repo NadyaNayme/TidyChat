@@ -40,7 +40,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex OthersRollNeedOrGreed { get; } = new Regex(@".* rolls (Need|Greed) on (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex OthersObtain { get; } = new Regex(@"\w{1,20} \w{1,30} obtains .+",
+        public static Regex OthersObtain { get; } = new Regex(@"\w{1,20}\.? \w{1,30}\.? obtains .+",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ItemSearchCommand { get; } = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);

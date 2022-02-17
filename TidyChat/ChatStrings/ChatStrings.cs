@@ -29,7 +29,9 @@ namespace TidyChat
         public static string[] GainExperiencePoints { get; } = { "you", "gain", "experience", "points" };
 
         // A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.
-        public static string[] RouletteBonusExperiencePoints { get; } = { "a", "bonus", "of", "experience", "points", "and", "gil", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" };
+        public static string[] RouletteBonus { get; } = { "a", "bonus", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" };
+        // A bonus of 12,000 gil has been awared for being an adventurer in need.
+        public static string[] AdventurerInNeedBonus { get; } = { "a", "bonus", "for", "being", "an", "adventurer", "in", "need" };
 
         //You acquire \d Pvp EXP.
         public static string[] GainPvpExp { get; } = { "you", "acquire", "pvp", "exp" };
