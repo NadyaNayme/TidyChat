@@ -1,13 +1,10 @@
 ﻿using ImGuiNET;
 using System;
 using System.Numerics;
-using Dalamud.Interface;
 using Dalamud.Interface.Components;
 
 namespace TidyChat
 {
-    // It is good to have this be disposable in general, in case you ever need it
-    // to do any cleanup
     class PluginUI : IDisposable
     {
         private Configuration configuration;
@@ -51,7 +48,7 @@ namespace TidyChat
                 {
                     ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
                     Vector4 ColorGray = new Vector4(0.45f, 0.45f, 0.45f, 1);
-                    ImGui.TextColored(ColorGray, "v0.1.0.4");
+                    ImGui.TextColored(ColorGray, "v0.1.0.5");
                     if (ImGui.BeginTabItem("General"))
                     {
                         DrawGeneralTab();

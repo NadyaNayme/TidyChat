@@ -119,7 +119,15 @@ namespace TidyChat
                 // we capture it by finding the period that ends the first sentence and going back one character
                 int index = message.TextValue.IndexOf('.');
                 string instanceNumber = message.TextValue.Substring(index - 1, 1);
-                message = $"You are now in instance: {instanceNumber}";
+                var stringBuilder = new SeStringBuilder();
+                if (Configuration.IncludeChatTag)
+                {
+                    stringBuilder.AddUiForeground(14);
+                    stringBuilder.AddText($"[TidyChat] ");
+                    stringBuilder.AddUiForegroundOff();
+                }
+                stringBuilder.AddText($"You are now in instance: {instanceNumber}");
+                message = stringBuilder.BuiltString;
             }
 
             if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.System)
