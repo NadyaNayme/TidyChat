@@ -26,7 +26,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ObtainedShards { get; } = new Regex(@"You obtain \d{1,3} .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex ObtainedTribalCurrency { get; } = new Regex(@"You obtain (a|an|2) (Steel Amalj'ok|Steel Amalj'oks|Sylphic Goldleaf|Sylphic Goldleaves|Titan Cobaltpiece|Titan Cobaltpieces|Rainbowtide Psashp|Rainbowtide Psashps|Ixali oaknot|Ixali oaknots|Vanu Whitebone|Vanu Whitebones|Black Copper Gil|Black Copper Gils|Carved Kupo Nut|Carved Kupo Nuts|Kojin Sango|Kojin Sangos|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu Koban|Namazu Kobans|Fae Fancies|Fae Fancys|Qitari Compliment|Qitari Compliment|Hammered Frogment|Hammered Frogments)\.",
+        public static Regex ObtainedTribalCurrency { get; } = new Regex(@"You obtain (a|an|2) (Steel Amalj'ok|Steel Amalj'oks|Sylphic Goldleaf|Sylphic Goldleaves|Titan Cobaltpiece|Titan Cobaltpieces|Rainbowtide Psashp|Rainbowtide Psashps|Ixali oaknot|Ixali oaknots|Vanu Whitebone|Vanu Whitebones|Black Copper Gil|Black Copper Gils|Carved Kupo Nut|Carved Kupo Nuts|Kojin Sango|Kojin Sangos|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu Koban|Namazu Kobans|Fae Fancies|Fae Fancy|Qitari Compliment|Qitari Compliments|Hammered Frogment|Hammered Frogments)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex PlayerTargetedEmote { get; } = new Regex(@"you|your",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
