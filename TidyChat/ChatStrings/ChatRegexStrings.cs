@@ -36,11 +36,11 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex RollsNeedOrGreed { get; } = new Regex(@"You roll (Need|Greed) on the (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex OthersCastLot { get; } = new Regex(@"[\w\.]{1,20} [\w\.]{1,30} casts (his|her) lot for (.*)\.",
+        public static Regex OthersCastLot { get; } = new Regex(@".* casts (his|her) lot for (.*)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex OthersRollNeedOrGreed { get; } = new Regex(@"[\w\.]{1,20} [\w\.]{1,30} rolls (Need|Greed) on (.*)\. \d{1,2}\!",
+        public static Regex OthersRollNeedOrGreed { get; } = new Regex(@".* rolls (Need|Greed) on (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        public static Regex OthersObtain { get; } = new Regex(@"[\w\.]{1,20} [\w\.]{1,30} obtains .+",
+        public static Regex OthersObtain { get; } = new Regex(@".* obtains .+",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public static Regex ItemSearchCommand { get; } = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
