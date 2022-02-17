@@ -35,6 +35,10 @@ namespace TidyChat
 
         //You acquire \d Pvp EXP.
         public static string[] GainPvpExp { get; } = { "you", "acquire", "pvp", "exp" };
+        // You cannot receive any more Wolf Marks. (Error Message)
+        public static string[] ObtainWolfMarks { get; } = { "you", "obtain", "wolf", "marks" };
+        // You cannot receive any more Wolf Marks. (Error Message)
+        public static string[] CappedWolfMarks { get; } = { "you", "cannot", "receive", "any", "more", "wolf", "marks" };
 
         //You earn the achievement <achievement>
         public static string[] EarnAchievement { get; } = { "you", "earn", "the", "achievement" };

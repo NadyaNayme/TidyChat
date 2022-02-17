@@ -202,8 +202,12 @@ namespace TidyChat
                 lastDuty = "a Guildhest";
             }
 
-            // TODO: Update this to use Wolf Marks & Error Message for capped Wolf Marks for more reliabilty.
-            if (Configuration.BetterCommendationMessage && ChatStrings.GainPvpExp.All(normalizedText.Contains))
+            if (
+            Configuration.BetterCommendationMessage &&
+                (ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
+                ChatStrings.CappedWolfMarks.All(normalizedText.Contains) ||
+                ChatStrings.ObtainWolfMarks.All(normalizedText.Contains))
+            )
             {
                 lastDuty = "a PvP duty";
             }
