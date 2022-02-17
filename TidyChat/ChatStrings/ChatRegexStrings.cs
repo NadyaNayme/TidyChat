@@ -68,5 +68,8 @@ namespace TidyChat
           // Name S. gains \d{1,4} (+\d{1,2}%) experience points.
         public static Regex GainExperiencePoints { get; } = new Regex(@"(.* gains .* experience points\.)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        // <Player Name> has logged out.
+        public static Regex HasLoggedOut { get; } = new Regex(@"(.* has logged out\.)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase);
     }
 }
