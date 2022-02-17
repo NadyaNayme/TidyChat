@@ -205,10 +205,10 @@ namespace TidyChat
             // TODO: Update this to use Wolf Marks & Error Message for capped Wolf Marks for more reliabilty.
             if (Configuration.BetterCommendationMessage && ChatStrings.GainPvpExp.All(normalizedText.Contains))
             {
-                lastDuty = "from PvP";
+                lastDuty = "a PvP duty";
             }
 
-            if (chatType is ChatType.FreeCompanyLoginLogout)
+            if ((chatType is ChatType.FreeCompanyLoginLogout || chatType is ChatType.FreeCompany) && Configuration.HideUserLogouts)
             {
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
@@ -267,7 +267,7 @@ namespace TidyChat
                 }
                 this.Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
                 this.Configuration.Save();
-            } 
+            }
             catch
             {
                 // Just don't do anything if we can't set player name
