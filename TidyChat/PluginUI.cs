@@ -240,10 +240,10 @@ namespace TidyChat
                     this.configuration.Save();
                 }
 
-                var hideUserLogOuts = this.configuration.HideUserLogOuts;
+                var hideUserLogOuts = this.configuration.HideUserLogouts;
                 if (ImGui.Checkbox("Hide \"User has logged out\" Free Company messages ", ref hideUserLogOuts))
                 {
-                    this.configuration.HideUserLogOuts = hideUserLogOuts;
+                    this.configuration.HideUserLogouts = hideUserLogOuts;
                     this.configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("Hides the message that appears when a Free Company member logs out");

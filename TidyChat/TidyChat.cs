@@ -208,9 +208,9 @@ namespace TidyChat
                 lastDuty = "from PvP";
             }
 
-            if (Configuration.HideUserLogOuts && ChatStrings.HasLoggedOut.All(normalizedText.Contains))
+            if (chatType is ChatType.FreeCompanyLoginLogout)
             {
-                isHandled = true;
+                isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
 
             if (chatType is ChatType.Debug && Configuration.HideDebugTeleport && ChatStrings.DebugTeleport.All(normalizedText.Contains))

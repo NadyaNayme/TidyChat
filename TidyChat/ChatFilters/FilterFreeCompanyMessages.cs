@@ -10,16 +10,16 @@ namespace TidyChat
             try
             {
                 if (
-                    (ChatStrings.YouSynthesize.All(input.Contains) && configuration.FilterCraftingSpam)
+                    (ChatStrings.HasLoggedOut.All(input.Contains) && configuration.HideUserLogouts)
                    )
                 {
-                    return false;
+                    return true;
                 }
-                return true;
+                return false;
             }
             catch (Exception)
             {
-                return true;
+                return false;
             }
         }
     }
