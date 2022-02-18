@@ -21,35 +21,35 @@ namespace TidyChat
         {
             En = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} Allied Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^同盟記章を(?:\d{1,3},)?\d{1,3}個手に入れた。$",
+            Ja = new Regex(@"^同盟記章を(\d{1,3},)?\d{1,3}個手に入れた。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex ObtainedCenturioSeals { get; } = new()
         {
             En = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} Centurio Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^セントリオ記章を(?:\d{1,3},)?\d{1,3}個手に入れた。$",
+            Ja = new Regex(@"^セントリオ記章を(\d{1,3},)?\d{1,3}個手に入れた。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex ObtainedNuts { get; } = new()
         {
             En = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} sacks of Nuts\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^モブハントの戦利品を(?:\d{1,3},)?\d{1,3}個手に入れた。$",
+            Ja = new Regex(@"^モブハントの戦利品を(\d{1,3},)?\d{1,3}個手に入れた。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex ObtainedSeals { get; } = new()
         {
             En = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} (Flame|Storm|Serpent) Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"の軍票(?:\d{1,3},)?\d{1,3}枚を手に入れた。$",
+            Ja = new Regex(@"の軍票(\d{1,3},)?\d{1,3}枚を手に入れた。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex ObtainedClusters { get; } = new()
         {
             En = new Regex(@"You (obtain|obtains) (a|2) (.*)cluster\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"クラスター(?:×2)?を(?:手に入れた|入手した)。$",
+            Ja = new Regex(@"クラスター(×2)?を(手に入れた|入手した)。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static Regex ObtainedMaterials { get; } = new Regex(@"You (obtain|obtains) (.*) materials\.",
@@ -73,7 +73,7 @@ namespace TidyChat
         {
             En = new Regex(@"You (roll|rolls) (Need|Greed) on (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^youは.+に(?:NEED|GREED)のダイスで\d{1,2}を出した。$",
+            Ja = new Regex(@"^youは.+に(NEED|GREED)のダイスで\d{1,2}を出した。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex OthersCastLot { get; } = new()
@@ -88,7 +88,7 @@ namespace TidyChat
         {
             En = new Regex(@".* rolls (Need|Greed) on (.*)\. \d{1,2}\!",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^\w+[ .].+は.+に(?:NEED|GREED)のダイスで\d{1,2}を出した。$",
+            Ja = new Regex(@"^\w+[ .].+は.+に(NEED|GREED)のダイスで\d{1,2}を出した。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex OthersObtain { get; } = new()
@@ -102,7 +102,7 @@ namespace TidyChat
         {
             En = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^\s{1,3}>>|を含む所持アイテムは(?:\d{1,4}種類見つかりました|ありませんでした)。$",
+            Ja = new Regex(@"^\s{1,3}>>|を含む所持アイテムは(\d{1,4}種類見つかりました|ありませんでした)。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex SearchForItemResults { get; } = new()
@@ -115,9 +115,9 @@ namespace TidyChat
         };
         public static LocalizedRegex ObtainedTomestones { get; } = new()
         {
-            En = new Regex(@"You (?:obtain|obtains) \d{1,3} Allagan tomestones of (\w+)",
+            En = new Regex(@"You (obtain|obtains) \d{1,3} Allagan tomestones of (\w+)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Ja = new Regex(@"^アラガントームストーン:([^を]+)を(?:\d{1,3}個手に入れた|入手した)。$",
+            Ja = new Regex(@"^アラガントームストーン:([^を]+)を(\d{1,3}個手に入れた|入手した)。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex GearsetEquipped { get; } = new()
