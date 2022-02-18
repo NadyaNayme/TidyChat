@@ -45,15 +45,15 @@ namespace TidyChat
         }
     }
 
-    internal struct LocalizedStrings
+    public record struct LocalizedStrings
     {
-        public string[] en = Array.Empty<string>();
-        public string[] ja = Array.Empty<string>();
+        public string[] en { get; init; }
+        public string[] ja { get; init; }
     }
 
-    internal struct LocalizedRegex
+    public record struct LocalizedRegex
     {
-        public Regex en = new("");
-        public Regex ja = new("");
+        public Regex en { get; init; }
+        public Regex ja { get; init; }
     }
 }
