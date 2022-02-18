@@ -161,5 +161,10 @@
         public static string[] RelicBookStep { get; } = { "record", "of", "added", "for" };
         // All objectives under the category <Category> - <buff> complete!
         public static string[] RelicBookComplete { get; } = { "all", "objectives", "under", "the", "category", "complete" };
+        // Palace of the Dead Floors (x-y) has begun
+        public static string[] PalaceOfTheDead { get; } = { "Palace", "Dead", "begun" };
+        // Heaven-on-High Floors (x-y) has begun
+        public static string[] HeavenOnHigh { get; } = { "Heaven-on-High", "begun" };
     }
 }
+

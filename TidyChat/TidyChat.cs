@@ -206,19 +206,28 @@ namespace TidyChat
                 lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
             }
 
-            if (Configuration.BetterCommendationMessage && ChatStrings.GuildhestEnded.All(normalizedText.Contains))
+            if (Configuration.BetterCommendationMessage)
             {
-                lastDuty = "a Guildhest";
-            }
+                if (ChatStrings.GuildhestEnded.All(normalizedText.Contains))
+                {
+                    lastDuty = "a Guildhest";
+                }
 
-            if (
-            Configuration.BetterCommendationMessage &&
-                (ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
-                ChatStrings.CappedWolfMarks.All(normalizedText.Contains) ||
-                ChatStrings.ObtainWolfMarks.All(normalizedText.Contains))
-            )
-            {
-                lastDuty = "a PvP duty";
+                if ((ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
+                     ChatStrings.CappedWolfMarks.All(normalizedText.Contains) ||
+                     ChatStrings.ObtainWolfMarks.All(normalizedText.Contains))
+                   )
+                {
+                    lastDuty = "a PvP duty";
+                }
+
+                if (ChatStrings.PalaceOfTheDead.All(normalizedText.Contains) {
+                    lastDuty = "Palace of the Dead";
+                }
+
+                if (ChatStrings.HeavenOnHigh.All(normalizedText.Contains) {
+                    lastDuty = "Heaven-on-High";
+                }
             }
 
             if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
