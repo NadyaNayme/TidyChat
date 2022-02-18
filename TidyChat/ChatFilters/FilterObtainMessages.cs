@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dalamud;
+using System;
 using System.Linq;
 
 namespace TidyChat
@@ -23,9 +24,20 @@ namespace TidyChat
                      !configuration.ShowObtainedCenturioSeals && Localization.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(input) ||
                      !configuration.ShowObtainedNuts && Localization.Get(ChatRegexStrings.ObtainedNuts).IsMatch(input) ||
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input) ||
-                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && input.Contains("poetics") ||
-                     !configuration.ShowObtainedAphorismTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && input.Contains("aphorism") ||
-                     !configuration.ShowObtainedAstronomyTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && input.Contains("astronomy") ||
+                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.language switch {
+                         ClientLanguage.Japanese => input.Contains("詩学"),
+                         _ => input.Contains("poetics")
+                     } ||
+                     !configuration.ShowObtainedAphorismTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.language switch
+                     {
+                         ClientLanguage.Japanese => input.Contains("経典"),
+                         _ => input.Contains("aphorism")
+                     } ||
+                     !configuration.ShowObtainedAstronomyTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.language switch
+                     {
+                         ClientLanguage.Japanese => input.Contains("天文"),
+                         _ => input.Contains("astronomy")
+                     } ||
                      !configuration.ShowOthersObtain && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input) ||
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input)
                     )
