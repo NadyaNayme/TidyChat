@@ -221,11 +221,11 @@ namespace TidyChat
                     lastDuty = "a PvP duty";
                 }
 
-                if (ChatStrings.PalaceOfTheDead.All(normalizedText.Contains) {
+                if (ChatStrings.PalaceOfTheDead.All(normalizedText.Contains)) {
                     lastDuty = "Palace of the Dead";
                 }
 
-                if (ChatStrings.HeavenOnHigh.All(normalizedText.Contains) {
+                if (ChatStrings.HeavenOnHigh.All(normalizedText.Contains)) {
                     lastDuty = "Heaven-on-High";
                 }
             }
