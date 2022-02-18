@@ -162,13 +162,8 @@ namespace TidyChat
                 }
             }
 
-            if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
+            if (Configuration.BetterCommendationMessage)
             {
-
-                isHandled = true;
-                numberOfCommendations++;
-                lastDuty = "";
-
                 if (ChatStrings.DutyEnded.All(normalizedText.Contains))
                 {
                     //      match here then go back 4 characters to capture everything before " has"
@@ -200,6 +195,13 @@ namespace TidyChat
                 {
                     lastDuty = "Heaven-on-High";
                 }
+            }
+
+            if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
+            {
+
+                isHandled = true;
+                numberOfCommendations++;
 
                 // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
                 // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
@@ -224,6 +226,7 @@ namespace TidyChat
                         t.Enabled = false;
                         t.Dispose();
                         numberOfCommendations = 0;
+                        lastDuty = "";
                     };
                     t.Enabled = true;
                 }
