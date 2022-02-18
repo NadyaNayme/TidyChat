@@ -167,6 +167,7 @@ namespace TidyChat
 
                 isHandled = true;
                 numberOfCommendations++;
+                lastDuty = "";
 
                 if (ChatStrings.DutyEnded.All(normalizedText.Contains))
                 {
@@ -223,7 +224,6 @@ namespace TidyChat
                         t.Enabled = false;
                         t.Dispose();
                         numberOfCommendations = 0;
-                        lastDuty = "";
                     };
                     t.Enabled = true;
                 }
