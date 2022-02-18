@@ -183,8 +183,8 @@ namespace TidyChat
                 }
 
                 if ((ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
-                     ChatStrings.CappedWolfMarks.All(normalizedText.Contains) ||
-                     ChatStrings.ObtainWolfMarks.All(normalizedText.Contains))
+                     ChatStrings.ObtainWolfMarks.All(normalizedText.Contains) ||
+                     ChatStrings.CappedWolfMarks.All(normalizedText.Contains))
                    )
                 {
                     lastDuty = "a PvP duty";
