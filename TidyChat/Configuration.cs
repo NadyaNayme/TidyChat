@@ -80,6 +80,7 @@ namespace TidyChat
         public bool ShowAdventurerInNeedBonus { get; set; } = false;
         public bool ShowGainPvpExp { get; set; } = false;
         public bool ShowEarnAchievement { get; set; } = false;
+        public bool ShowOtherEarnedAchievement { get; set; } = false;
         public bool ShowObtainedPoeticsTomestones { get; set; } = false;
         public bool ShowObtainedAphorismTomestones { get; set; } = false;
         public bool ShowObtainedAstronomyTomestones { get; set; } = false;
