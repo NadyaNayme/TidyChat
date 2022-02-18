@@ -10,12 +10,12 @@ namespace TidyChat
             try
             {
                 if (
-                    (ChatRegexStrings.RollsNeedOrGreed.IsMatch(input) && !configuration.ShowLootRoll) ||
-                    (ChatRegexStrings.CastLot.IsMatch(input) && !configuration.ShowCastLot) ||
-                    (ChatRegexStrings.ObtainedShards.IsMatch(input) && !configuration.ShowObtainedShards) ||
-                    (ChatRegexStrings.OthersRollNeedOrGreed.IsMatch(input) && !configuration.ShowOthersLootRoll) ||
-                    (ChatRegexStrings.OthersCastLot.IsMatch(input) && !configuration.ShowOthersCastLot) ||
-                    (ChatRegexStrings.OthersObtain.IsMatch(input) && !configuration.ShowOthersObtain)
+                    !configuration.ShowLootRoll && Localization.Get(ChatRegexStrings.RollsNeedOrGreed).IsMatch(input) ||
+                    !configuration.ShowCastLot && Localization.Get(ChatRegexStrings.CastLot).IsMatch(input) ||
+                    !configuration.ShowObtainedShards && Localization.Get(ChatRegexStrings.ObtainedShards).IsMatch(input) ||
+                    !configuration.ShowOthersLootRoll && Localization.Get(ChatRegexStrings.OthersRollNeedOrGreed).IsMatch(input) ||
+                    !configuration.ShowOthersCastLot && Localization.Get(ChatRegexStrings.OthersCastLot).IsMatch(input) ||
+                    !configuration.ShowOthersObtain && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input)
                 )
                 {
                     return true;

@@ -10,10 +10,10 @@ namespace TidyChat
             try
             {
                 if (
-                    (ChatStrings.YouSynthesize.All(input.Contains) && configuration.FilterCraftingSpam) ||
-                    (ChatRegexStrings.AttachedMateria.IsMatch(input) && configuration.ShowAttachedMateria) ||
-                    (ChatStrings.OvermeldFailure.All(input.Contains) && configuration.ShowOvermeldFailure) ||
-                    (ChatStrings.MateriaExtract.All(input.Contains) && configuration.ShowMateriaExtract)
+                    configuration.FilterCraftingSpam && Localization.Get(ChatStrings.YouSynthesize).All(input.Contains) ||
+                    configuration.ShowAttachedMateria && Localization.Get(ChatRegexStrings.AttachedMateria).IsMatch(input) ||
+                    configuration.ShowOvermeldFailure && Localization.Get(ChatStrings.OvermeldFailure).All(input.Contains) ||
+                    configuration.ShowMateriaExtract && Localization.Get(ChatStrings.MateriaExtract).All(input.Contains)
                    )
                 {
                     return false;

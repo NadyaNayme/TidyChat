@@ -52,6 +52,9 @@ namespace TidyChat
             this.ChatGui = chatGui;
             this.ClientState = clientState;
 
+            // player cannot change this without restarting the game so should be safe to grab here
+            Localization.language = clientState.ClientLanguage;
+
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
 

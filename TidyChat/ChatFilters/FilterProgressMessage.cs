@@ -10,13 +10,13 @@ namespace TidyChat
             try
             {
                 if (
-                     (ChatStrings.GainExperiencePoints.All(input.Contains) && !configuration.ShowGainExperience) ||
-                     (ChatRegexStrings.GainExperiencePoints.IsMatch(input) && !configuration.ShowGainExperience) ||
-                     (ChatStrings.GainPvpExp.All(input.Contains) && !configuration.ShowGainPvpExp) ||
-                     (ChatStrings.EarnAchievement.All(input.Contains) && !configuration.ShowEarnAchievement) ||
-                     (ChatStrings.YouAttainLevel.All(input.Contains) && !configuration.ShowLevelUps) ||
-                     (ChatStrings.OtherAttainsLevel.All(input.Contains) && !configuration.ShowOtherLevelUps) ||
-                     (ChatStrings.YouLearnAbility.All(input.Contains) && !configuration.ShowAbilityUnlocks)
+                     !configuration.ShowGainExperience && Localization.Get(ChatStrings.GainExperiencePoints).All(input.Contains) ||
+                     !configuration.ShowGainExperience && Localization.Get(ChatRegexStrings.GainExperiencePoints).IsMatch(input) ||
+                     !configuration.ShowGainPvpExp && Localization.Get(ChatStrings.GainPvpExp).All(input.Contains) ||
+                     !configuration.ShowEarnAchievement && Localization.Get(ChatStrings.EarnAchievement).All(input.Contains) ||
+                     !configuration.ShowLevelUps && Localization.Get(ChatStrings.YouAttainLevel).All(input.Contains) ||
+                     !configuration.ShowOtherLevelUps && Localization.Get(ChatStrings.OtherAttainsLevel).All(input.Contains) ||
+                     !configuration.ShowAbilityUnlocks && Localization.Get(ChatStrings.YouLearnAbility).All(input.Contains)
                    )
                 {
                     return true;
