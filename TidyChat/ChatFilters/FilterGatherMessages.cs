@@ -10,18 +10,21 @@ namespace TidyChat
             try
             {
 				if (
-					(ChatStrings.LocationAffects.All(input.Contains) &&
-						ChatStrings.GatheringYield.All(input.Contains) && configuration.HideGatheringYield) ||
-					(ChatStrings.LocationAffects.All(input.Contains) &&
-						ChatStrings.GatherersBoon.All(input.Contains) && configuration.HideGatherersBoon) ||
-					(ChatStrings.LocationAffects.All(input.Contains) &&
-						ChatStrings.GatheringAttempts.All(input.Contains) && configuration.HideGatheringAttempts) ||
-					(ChatRegexStrings.GatheringStartEnd.IsMatch(input))
+					configuration.HideGatheringYield &&
+                        Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
+                        Localization.Get(ChatStrings.GatheringYield).All(input.Contains) ||
+					configuration.HideGatherersBoon &&
+                        Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
+						Localization.Get(ChatStrings.GatherersBoon).All(input.Contains) ||
+					configuration.HideGatheringAttempts &&
+                        Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
+						Localization.Get(ChatStrings.GatheringAttempts).All(input.Contains) ||
+					Localization.Get(ChatRegexStrings.GatheringStartEnd).IsMatch(input)
 				) {
 					return true;
 				}
                 if (
-                    (ChatStrings.LocationAffects.All(input.Contains) && configuration.ShowLocationAffects)
+                    (configuration.ShowLocationAffects && Localization.Get(ChatStrings.LocationAffects).All(input.Contains))
                    )
                 {
                     return false;

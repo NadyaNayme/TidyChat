@@ -12,11 +12,11 @@ namespace TidyChat
             {
                 if (chatType is ChatType.StandardEmote)
                 {
-                    if (configuration.HideUsedEmotes && ChatRegexStrings.PlayerUsedEmote.IsMatch(input))
+                    if (configuration.HideUsedEmotes && Localization.Get(ChatRegexStrings.PlayerUsedEmote).IsMatch(input))
                     {
                         return true;
                     }
-                    if (configuration.FilterEmoteSpam && !ChatRegexStrings.PlayerTargetedEmote.IsMatch(input))
+                    if (configuration.FilterEmoteSpam && !Localization.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
                     {
                         return true;
                     }

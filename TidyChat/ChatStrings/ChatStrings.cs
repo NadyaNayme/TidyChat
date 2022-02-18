@@ -1,4 +1,4 @@
-namespace TidyChat
+﻿namespace TidyChat
 {
     public class ChatStrings
     {
@@ -23,15 +23,31 @@ namespace TidyChat
         public static string[] ExtraordinarilyPowerfulMark { get; } = { "the", "minions", "of", "an", "extraordinarily", "powerful", "mark" };
 
         // Retainer completed a venture.
-        public static string[] CompletedVenture { get; } = { "completed", "a", "venture" };
+        public static LocalizedStrings CompletedVenture { get; } = new()
+        {
+            En = new string[] { "completed", "a", "venture" },
+            Ja = new string[] { "冒険を終えました！" }
+        };
 
         //You gain \d <class> experience points
-        public static string[] GainExperiencePoints { get; } = { "you", "experience", "points" };
+        public static LocalizedStrings GainExperiencePoints { get; } = new()
+        {
+            En = new string[] { "you", "experience", "points" },
+            Ja = new string[] { "you", "ポイントの経験値" }
+        };
 
         // A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.
-        public static string[] RouletteBonus { get; } = { "a", "bonus", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" };
+        public static LocalizedStrings RouletteBonus { get; } = new()
+        {
+            En = new string[] { "a", "bonus", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" },
+            Ja = new string[] { "コンテンツルーレットのボーナスとして" }
+        };
         // A bonus of 12,000 gil has been awared for being an adventurer in need.
-        public static string[] AdventurerInNeedBonus { get; } = { "a", "bonus", "for", "being", "an", "adventurer", "in", "need" };
+        public static LocalizedStrings AdventurerInNeedBonus { get; } = new()
+        {
+            En = new string[] { "a", "bonus", "for", "being", "an", "adventurer", "in", "need" },
+            Ja = new string[] { "不足ロールボーナスとして" }
+        };
 
         //You acquire \d Pvp EXP.
         public static string[] GainPvpExp { get; } = { "you", "acquire", "pvp", "exp" };
@@ -44,27 +60,48 @@ namespace TidyChat
         public static string[] EarnAchievement { get; } = { "you", "the", "achievement" };
 
         // You synthesize a/an <item>
-        public static string[] YouSynthesize { get; } = { "you", "synthesize" };
+        public static LocalizedStrings YouSynthesize { get; } = new()
+        {
+            En = new string[] { "you", "synthesize" },
+            Ja = new string[] { "you", "を完成させた！" }
+        };
 
         // <Player> has logged out.
         public static string[] HasLoggedOut { get; } = { "has", "logged", "out" };
 
         // You obtain Allagan Tomestones of <type>
-        public static string[] ObtainedTomesetones { get; } = { "You", "obtain", "Allagan", "tomestones", "of" };
+        public static LocalizedStrings ObtainedTomestones { get; } = new() 
+        {
+            En = new string[] { "You", "obtain", "Allagan", "tomestones", "of" },
+            Ja = new string[] { "アラガントームストーン", "手", "入", "た。"} // (?:手に入れ|入手し)た
+        };
 
         // Ready Check
         public static string[] ReadyCheckComplete { get; } = { "ready", "check", "complete" };
 
         // You attain level <level>.
-        public static string[] YouAttainLevel { get; } = { "you", "level" };
+        public static LocalizedStrings YouAttainLevel { get; } = new()
+        {
+            En = new string[] { "you", "level" },
+            Ja = new string[] { "レベルアップ！", "you", "になった。" }
+        };
         // <Player> attains level 33!
-        public static string[] OtherAttainsLevel { get; } = { "attains", "level" };
+        public static LocalizedStrings OtherAttainsLevel { get; } = new()
+        {
+            En = new string[] { "attains", "level" },
+            // BUG: this won't match abbreviated player names; need to be able to mix string and regexp
+            Ja = new string[] { "レベルアップ！", " ", "になった。" }
+        };
 
         // You learn <ability>.
         public static string[] YouLearnAbility { get; } = { "you", "learn" };
 
         // Battle commencing in <time> seconds.
-        public static string[] CountdownTime { get; } = { "battle", "commencing", "in", "seconds" };
+        public static LocalizedStrings CountdownTime { get; } = new()
+        {
+            En = new string[] { "battle", "commencing", "in", "seconds" },
+            Ja = new string[] { "戦闘開始まで", "秒" }
+        };
 
         // Teleporting to <Location>...
         public static string[] DebugTeleport { get; } = { "teleporting", "to" };
@@ -76,7 +113,11 @@ namespace TidyChat
         public static string[] AetherCompass { get; } = { "the", "compass", "detects", "a", "current", "approximately" };
 
         // Glamours projected from plate <##>
-        public static string[] GlamoursProjected { get; } = { "glamours", "projected", "from", "plate" };
+        public static LocalizedStrings GlamoursProjected { get; } = new()
+        {
+            En = new string[] { "glamours", "projected", "from", "plate" },
+            Ja = new string[] { "ミラージュプレート", "により武具投影が行われました。" }
+        };
         // Overmelding fail
         // You are unable to attach the materia to the <item>. The <materia> was lost.
         public static string[] OvermeldFailure { get; } = { "you", "unable", "to", "attach", "the", "materia", "to" };

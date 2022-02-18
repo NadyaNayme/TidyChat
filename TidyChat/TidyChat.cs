@@ -8,6 +8,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ChatTwo.Code;
+using Dalamud.Logging;
 
 namespace TidyChat
 
@@ -51,6 +52,11 @@ namespace TidyChat
             this.CommandManager = commandManager;
             this.ChatGui = chatGui;
             this.ClientState = clientState;
+
+            // player cannot change this without restarting the game so should be safe to grab here
+            Localization.language = clientState.ClientLanguage;
+            // sets name on first install / plugin update
+            SetPlayerName();
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
@@ -107,13 +113,15 @@ namespace TidyChat
                 Regex FNLI = new(FirstNameLastInitial.ToLower());
                 Regex FILN = new(FirstInitialLastName.ToLower());
                 Regex IO = new(InitialsOnly.ToLower());
-                normalizedText = normalizedText.Replace($"{Configuration.PlayerName}", "you");
+                // important: Japanese matchers depend on the player's name being replaced by "you",
+                // as there is no other way to distinguish messages about the player.
+                normalizedText = normalizedText.Replace($"{Configuration.PlayerName.ToLower()}", "you");
                 normalizedText = FNLI.Replace(normalizedText, "you", 1);
                 normalizedText = FILN.Replace(normalizedText, "you", 1);
                 normalizedText = IO.Replace(normalizedText, "you", 1);
             }
 
-            if (Configuration.BetterInstanceMessage && ChatStrings.InstancedArea.All(normalizedText.Contains) && chatType is ChatType.System)
+            if (Configuration.BetterInstanceMessage && chatType is ChatType.System && ChatStrings.InstancedArea.All(normalizedText.Contains))
             {
                 // The last character in the first sentence is the instanceNumber so
                 // we capture it by finding the period that ends the first sentence and going back one character
@@ -130,7 +138,7 @@ namespace TidyChat
                 message = stringBuilder.BuiltString;
             }
 
-            if (Configuration.BetterSayReminder && ChatStrings.SayQuestReminder.All(normalizedText.Contains) && !Configuration.HideQuestReminder && chatType is ChatType.System)
+            if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && chatType is ChatType.System && ChatStrings.SayQuestReminder.All(normalizedText.Contains))
             {
                 // With the chat mode in Say, enter a phrase containing "Capture this"
 
@@ -212,17 +220,17 @@ namespace TidyChat
                 lastDuty = "a PvP duty";
             }
 
-            if ((chatType is ChatType.FreeCompanyLoginLogout || chatType is ChatType.FreeCompany) && Configuration.HideUserLogouts)
+            if (Configuration.HideUserLogouts && (chatType is ChatType.FreeCompanyLoginLogout || chatType is ChatType.FreeCompany))
             {
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            if (chatType is ChatType.Debug && Configuration.HideDebugTeleport && ChatStrings.DebugTeleport.All(normalizedText.Contains))
+            if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
             {
                 isHandled = true;
             }
 
-            if (chatType is ChatType.StandardEmote && Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes)
+            if ((Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes) && chatType is ChatType.StandardEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
@@ -232,32 +240,32 @@ namespace TidyChat
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
 
-            if (chatType is ChatType.System && Configuration.FilterSystemMessages)
+            if (Configuration.FilterSystemMessages && chatType is ChatType.System)
             {
                 isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam)
+            if (Configuration.FilterObtainedSpam && chatType is ChatType.LootNotice)
             {
                 isHandled = FilterObtainMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            if (chatType is ChatType.LootRoll && Configuration.FilterLootSpam)
+            if (Configuration.FilterLootSpam && chatType is ChatType.LootRoll)
             {
                 isHandled = FilterLootMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            if (chatType is ChatType.Progress && Configuration.FilterProgressSpam)
+            if (Configuration.FilterProgressSpam && chatType is ChatType.Progress)
             {
                 isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            if (chatType is ChatType.Crafting && Configuration.FilterCraftingSpam)
+            if (Configuration.FilterCraftingSpam && chatType is ChatType.Crafting)
             {
                 isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            if (chatType is ChatType.GatheringSystem or ChatType.Gathering && Configuration.FilterGatheringSpam)
+            if (Configuration.FilterGatheringSpam && chatType is ChatType.GatheringSystem or ChatType.Gathering)
             {
                 isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
             }
@@ -279,6 +287,7 @@ namespace TidyChat
         }
         private void OnCommand(string command, string args)
         {
+            SetPlayerName();
             this.PluginUi.SettingsVisible = true;
         }
 
