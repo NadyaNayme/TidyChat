@@ -168,6 +168,38 @@ namespace TidyChat
                 isHandled = true;
                 numberOfCommendations++;
 
+                if (ChatStrings.DutyEnded.All(normalizedText.Contains))
+                {
+                    //      match here then go back 4 characters to capture everything before " has"
+                    //           |
+                    //           v
+                    // <duty> has ended.
+                    lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
+                }
+
+                if (ChatStrings.GuildhestEnded.All(normalizedText.Contains))
+                {
+                    lastDuty = "a Guildhest";
+                }
+
+                if ((ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
+                     ChatStrings.CappedWolfMarks.All(normalizedText.Contains) ||
+                     ChatStrings.ObtainWolfMarks.All(normalizedText.Contains))
+                   )
+                {
+                    lastDuty = "a PvP duty";
+                }
+
+                if (ChatStrings.PalaceOfTheDead.All(normalizedText.Contains))
+                {
+                    lastDuty = "Palace of the Dead";
+                }
+
+                if (ChatStrings.HeavenOnHigh.All(normalizedText.Contains))
+                {
+                    lastDuty = "Heaven-on-High";
+                }
+
                 // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
                 // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
                 if (numberOfCommendations == 1)
@@ -194,39 +226,6 @@ namespace TidyChat
                         lastDuty = "";
                     };
                     t.Enabled = true;
-                }
-            }
-
-            if (Configuration.BetterCommendationMessage && ChatStrings.DutyEnded.All(normalizedText.Contains))
-            {
-                //      match here then go back 4 characters to capture everything before " has"
-                //           |
-                //           v
-                // <duty> has ended.
-                lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
-            }
-
-            if (Configuration.BetterCommendationMessage)
-            {
-                if (ChatStrings.GuildhestEnded.All(normalizedText.Contains))
-                {
-                    lastDuty = "a Guildhest";
-                }
-
-                if ((ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
-                     ChatStrings.CappedWolfMarks.All(normalizedText.Contains) ||
-                     ChatStrings.ObtainWolfMarks.All(normalizedText.Contains))
-                   )
-                {
-                    lastDuty = "a PvP duty";
-                }
-
-                if (ChatStrings.PalaceOfTheDead.All(normalizedText.Contains)) {
-                    lastDuty = "Palace of the Dead";
-                }
-
-                if (ChatStrings.HeavenOnHigh.All(normalizedText.Contains)) {
-                    lastDuty = "Heaven-on-High";
                 }
             }
 
