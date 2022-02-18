@@ -82,7 +82,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             // relies on the fact that all player names have a space between them (or a period if initialised)
             Ja = new Regex(@"^\w+[ .].+は.+にロットした。$",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture))
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
         public static LocalizedRegex OthersRollNeedOrGreed { get; } = new()
         {
