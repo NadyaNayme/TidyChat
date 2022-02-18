@@ -1,6 +1,6 @@
 ﻿namespace TidyChat
 {
-    public class ChatStrings
+    public static class ChatStrings
     {
         // You are now in the instanced area <zone> <instance>. Current instance can be confirmed at any time using the /instance text command.
         public static string[] InstancedArea { get; } = { "you", "are", "now", "in", "the", "instanced", "area" };
@@ -70,7 +70,7 @@
         public static string[] HasLoggedOut { get; } = { "has", "logged", "out" };
 
         // You obtain Allagan Tomestones of <type>
-        public static LocalizedStrings ObtainedTomestones { get; } = new() 
+        public static LocalizedStrings ObtainedTomestones { get; } = new()
         {
             En = new string[] { "You", "obtain", "Allagan", "tomestones", "of" },
             Ja = new string[] { "アラガントームストーン", "手", "入", "た。"} // (?:手に入れ|入手し)た

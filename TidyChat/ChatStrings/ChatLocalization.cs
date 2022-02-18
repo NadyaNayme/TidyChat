@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace TidyChat
 {
-    internal class Localization
+    internal static class Localization
     {
         public static ClientLanguage language { get; set; }
 

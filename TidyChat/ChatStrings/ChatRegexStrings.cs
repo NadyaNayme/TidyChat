@@ -2,7 +2,7 @@
 
 namespace TidyChat
 {
-    public class ChatRegexStrings
+    public static class ChatRegexStrings
     {
         public static Regex BetterPlayerCommendation { get; } = new Regex(@"You received \d{1} (commendation|commendations)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase);
