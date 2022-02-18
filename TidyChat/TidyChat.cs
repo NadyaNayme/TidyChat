@@ -162,7 +162,7 @@ namespace TidyChat
                 }
             }
 
-            if (Configuration.BetterCommendationMessage)
+            if (Configuration.IncludeDutyNameInComms)
             {
                 if (ChatStrings.DutyEnded.All(normalizedText.Contains))
                 {
