@@ -48,7 +48,7 @@ namespace TidyChat
                 {
                     ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
                     Vector4 ColorGray = new Vector4(0.45f, 0.45f, 0.45f, 1);
-                    ImGui.TextColored(ColorGray, "v0.1.0.5");
+                    ImGui.TextColored(ColorGray, "v0.1.0.6");
                     if (ImGui.BeginTabItem("General"))
                     {
                         DrawGeneralTab();
@@ -752,6 +752,13 @@ namespace TidyChat
             if (ImGui.Checkbox("Show earned achievement messages", ref showEarnAchievement))
             {
                 this.configuration.ShowEarnAchievement = showEarnAchievement;
+                this.configuration.Save();
+            }
+
+            var showOtherEarnedAchievement = this.configuration.ShowOtherEarnedAchievement;
+            if (ImGui.Checkbox("Show other player's earned achievement messages", ref showOtherEarnedAchievement))
+            {
+                this.configuration.ShowOtherEarnedAchievement = showOtherEarnedAchievement;
                 this.configuration.Save();
             }
 
