@@ -9,11 +9,7 @@ namespace TidyChat
         {
             try
             {
-                if (
-                    Localization.Get(ChatStrings.HasLoggedOut).All(input.Contains) ||
-                    // It never hurts to be safe.
-                    Localization.Get(ChatRegexStrings.HasLoggedOut).IsMatch(input)
-                   )
+                if (ChatRegexStrings.HasLoggedOut.IsMatch(input))
                 {
                     return true;
                 }

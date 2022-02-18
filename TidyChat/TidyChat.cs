@@ -220,11 +220,6 @@ namespace TidyChat
                 lastDuty = "a PvP duty";
             }
 
-            if (Configuration.HideUserLogouts && (chatType is ChatType.FreeCompanyLoginLogout || chatType is ChatType.FreeCompany))
-            {
-                isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
-            }
-
             if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
             {
                 isHandled = true;
@@ -268,6 +263,11 @@ namespace TidyChat
             if (Configuration.FilterGatheringSpam && chatType is ChatType.GatheringSystem or ChatType.Gathering)
             {
                 isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
+            }
+
+            if (Configuration.HideUserLogouts && chatType is ChatType.FreeCompanyLoginLogout)
+            {
+                isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
         }
 
