@@ -173,7 +173,7 @@ namespace TidyChat
                 if (numberOfCommendations == 1)
                 {
                     var t = new System.Timers.Timer();
-                    t.Interval = 5000;
+                    t.Interval = 2500;
                     t.AutoReset = false;
                     t.Elapsed += delegate
                     {
