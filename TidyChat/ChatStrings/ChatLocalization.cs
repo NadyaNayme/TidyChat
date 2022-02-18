@@ -22,9 +22,9 @@ namespace TidyChat
         {
             return language switch
             {
-                ClientLanguage.English => strings.en,
-                ClientLanguage.Japanese => strings.ja,
-                _ => strings.en // probably won't work but at least it's not a crash
+                ClientLanguage.English => strings.En,
+                ClientLanguage.Japanese => strings.Ja,
+                _ => strings.En // probably won't work but at least it's not a crash
             };
         }
 
@@ -38,22 +38,28 @@ namespace TidyChat
         {
             return language switch
             {
-                ClientLanguage.English => regex.en,
-                ClientLanguage.Japanese => regex.ja,
-                _ => regex.en
+                ClientLanguage.English => regex.En,
+                ClientLanguage.Japanese => regex.Ja,
+                _ => regex.En
             };
         }
     }
 
     public record struct LocalizedStrings
     {
-        public string[] en { get; init; }
-        public string[] ja { get; init; }
+        public string[] En { get; init; }
+        /// <remarks>
+        /// The string to be matched is preprocessed and always replaces the local player name with "you"
+        /// </remarks>
+        public string[] Ja { get; init; }
     }
 
     public record struct LocalizedRegex
     {
-        public Regex en { get; init; }
-        public Regex ja { get; init; }
+        public Regex En { get; init; }
+        /// <remarks>
+        /// The string to be matched is preprocessed and always replaces the local player name with "you"
+        /// </remarks>
+        public Regex Ja { get; init; }
     }
 }
