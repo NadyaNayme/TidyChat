@@ -1,3 +1,5 @@
+[![Download count](https://img.shields.io/endpoint?url=https://vz32sgcoal.execute-api.us-east-1.amazonaws.com/TidyChat)](https://github.com/NadyaNayme/TidyChat)
+
 # Tidy Chat
 
 - Remove all of the redundant system messaging, leaving only important system messages
