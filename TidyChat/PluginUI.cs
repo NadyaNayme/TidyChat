@@ -500,21 +500,21 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This will hide all emote text unless it is an emote targeting you or an emote you used.");
 
+            var hideOtherCustomEmotes = this.configuration.HideOtherCustomEmotes;
+            if (ImGui.Checkbox("Filter custom emote spam", ref hideOtherCustomEmotes))
+            {
+                this.configuration.HideOtherCustomEmotes = hideOtherCustomEmotes;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will hide all \"/em\" messages unless it mentions you or is a custom emote you used.\neg. Another Player leans over and gives you a big bear hug.");
+
             var hideUsedEmotes = this.configuration.HideUsedEmotes;
             if (ImGui.Checkbox("Filter emotes used by yourself", ref hideUsedEmotes))
             {
                 this.configuration.HideUsedEmotes = hideUsedEmotes;
                 this.configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will hide the message that occurs when you use an emote.\neg. You gently pat <user>");
-
-            var hideOtherCustomEmotes = this.configuration.HideOtherCustomEmotes;
-            if (ImGui.Checkbox("Filter custom emotes that do not mention you", ref hideOtherCustomEmotes))
-            {
-                this.configuration.HideOtherCustomEmotes = hideOtherCustomEmotes;
-                this.configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will hide \"/em\" messages by other players that do not target or mention you.\neg. Another Player leans over and gives you a big bear hug.");
+            ImGuiComponents.HelpMarker("This will hide the message that occurs when you use an emote or custom emote.\neg. You gently pat <user>");
         }
 
         public void DrawObtainTab()

@@ -237,14 +237,20 @@ namespace TidyChat
                 isHandled = true;
             }
 
-            if ((Configuration.FilterEmoteSpam || Configuration.HideUsedEmotes) && chatType is ChatType.StandardEmote)
+            if (Configuration.FilterEmoteSpam && chatType is ChatType.StandardEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
 
-            if (chatType is ChatType.CustomEmote)
+            if (Configuration.HideOtherCustomEmotes && !(sender.TextValue == $"{ClientState.LocalPlayer.Name}") && chatType is ChatType.CustomEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
+            }
+
+            if (Configuration.HideUsedEmotes && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote)) {
+                if (sender.TextValue == $"{ClientState.LocalPlayer.Name}") {
+                    isHandled = true;
+                }
             }
 
             if (Configuration.FilterSystemMessages && chatType is ChatType.System)
