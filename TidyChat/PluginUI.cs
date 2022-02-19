@@ -800,7 +800,7 @@ namespace TidyChat
             {
                 this.configuration.FilterCraftingSpam = filterCraftingSpam;
                 this.configuration.Save();
-            };
+            }
             ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
 
             var filterGatheringSpam = this.configuration.FilterGatheringSpam;
@@ -808,7 +808,7 @@ namespace TidyChat
             {
                 this.configuration.FilterGatheringSpam = filterGatheringSpam;
                 this.configuration.Save();
-            };
+            }
             ImGuiComponents.HelpMarker("Hide \"begin/finish\" gathering messages, as well as location affects");
 
             ImGui.Separator();
