@@ -21,10 +21,12 @@ namespace TidyChat
                         return true;
                     }
                 }
-                // ToDo: Find way to detect when the player is <t> in a Custom Emote so that CustomEmote can be blocked unless <t>
                 else if (chatType is ChatType.CustomEmote)
                 {
-                    return false;
+                    if (configuration.HideOtherCustomEmotes && !Localization.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input)) {
+                        return true;
+                    }
+
                 }
                 return false;
             }

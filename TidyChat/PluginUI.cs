@@ -508,9 +508,15 @@ namespace TidyChat
             }
             ImGuiComponents.HelpMarker("This will hide the message that occurs when you use an emote.\neg. You gently pat <user>");
 
-            ImGui.Separator();
-            ImGui.TextUnformatted("Custom emotes are currently not blocked.\nIn a future update, Custom Emotes can be blocked unless they mention your name.\nFor now you can filter the CustomEmotes channel if you do not wish to see them.");
+            var hideOtherCustomEmotes = this.configuration.HideOtherCustomEmotes;
+            if (ImGui.Checkbox("Filter custom emotes that do not mention you", ref hideOtherCustomEmotes))
+            {
+                this.configuration.HideOtherCustomEmotes = hideOtherCustomEmotes;
+                this.configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This will hide \"/em\" messages by other players that do not target or mention you.\neg. Another Player leans over and gives you a big bear hug.");
         }
+
         public void DrawObtainTab()
         {
             var filterObtainedSpam = this.configuration.FilterObtainedSpam;
