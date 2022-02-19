@@ -11,6 +11,7 @@ namespace TidyChat
             {
                 if (
                      !configuration.HideSRankHunt && Localization.Get(ChatStrings.PowerfulMark).All(input.Contains) ||
+                     !configuration.HideSSRankHunt && ChatStrings.ExtraordinarilyPowerfulMark.All(input.Contains) ||
                      !configuration.HideCompletedVenture && Localization.Get(ChatStrings.CompletedVenture).All(input.Contains) ||
                      !configuration.HideCommendations && !configuration.BetterCommendationMessage && Localization.Get(ChatStrings.PlayerCommendation).All(input.Contains) ||
                      configuration.BetterCommendationMessage && Localization.Get(ChatRegexStrings.BetterPlayerCommendation).IsMatch(input) ||
