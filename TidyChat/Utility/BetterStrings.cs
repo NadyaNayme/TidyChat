@@ -1,11 +1,49 @@
 ﻿using TidyStrings = TidyChat.Utility.InternalStrings;
+using Dalamud.Game.Gui;
 using Dalamud.Game.Text.SeStringHandling;
 
 namespace TidyChat.Utility
 {
     internal static class BetterStrings
     {
-        // TODO: Move Commendations stringbuilder here
+        public static void Commendations(Configuration configuration, ChatGui chatGui)
+        {
+            TidyStrings.NumberOfCommendations++;
+
+            // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
+            // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
+            if (TidyStrings.NumberOfCommendations == 1)
+            {
+
+                var t = new System.Timers.Timer
+                {
+                    Interval = 2500,
+                    AutoReset = false
+                };
+                t.Elapsed += delegate
+                {
+                    var stringBuilder = new SeStringBuilder();
+                    if (configuration.IncludeChatTag)
+                    {
+                        stringBuilder.AddUiForeground(14);
+                        stringBuilder.AddText(TidyStrings.Tag);
+                        stringBuilder.AddUiForegroundOff();
+                    }
+                    string commendations = $"commendation{(TidyStrings.NumberOfCommendations == 1 ? "" : "s")}";
+
+                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " from completing " + TidyStrings.LastDuty + "." : ".")}";
+
+                    stringBuilder.AddText($"You received {TidyStrings.NumberOfCommendations} {commendations}{dutyName}");
+
+                    chatGui.Print(stringBuilder.BuiltString);
+                    t.Enabled = false;
+                    t.Dispose();
+                    TidyStrings.NumberOfCommendations = 0;
+                    TidyStrings.LastDuty = "";
+                };
+                t.Enabled = true;
+            }
+        }
 
         public static SeString SayReminder(SeString message, Configuration configuration)
         {

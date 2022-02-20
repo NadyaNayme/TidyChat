@@ -126,41 +126,8 @@ namespace TidyChat
             if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
             {
                 isHandled = true;
-                TidyStrings.NumberOfCommendations++;
+                Better.Commendations(Configuration, ChatGui);
 
-                // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
-                // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
-                if (TidyStrings.NumberOfCommendations == 1)
-                {
-
-                var t = new System.Timers.Timer
-                {
-                    Interval = 2500,
-                    AutoReset = false
-                };
-                t.Elapsed += delegate
-                    {
-                        var stringBuilder = new SeStringBuilder();
-                        if (Configuration.IncludeChatTag)
-                        {
-                            stringBuilder.AddUiForeground(14);
-                            stringBuilder.AddText(TidyStrings.Tag);
-                            stringBuilder.AddUiForegroundOff();
-                        }
-                        string commendations = $"commendation{(TidyStrings.NumberOfCommendations == 1 ? "" : "s")}";
-
-                        string dutyName = $"{(Configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " from completing " + TidyStrings.LastDuty + "." : ".")}";
-
-                        stringBuilder.AddText($"You received {TidyStrings.NumberOfCommendations} {commendations}{dutyName}");
-
-                        ChatGui.Print(stringBuilder.BuiltString);
-                        t.Enabled = false;
-                        t.Dispose();
-                        TidyStrings.NumberOfCommendations = 0;
-                        TidyStrings.LastDuty = "";
-                    };
-                    t.Enabled = true;
-                }
             }
 
             if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
