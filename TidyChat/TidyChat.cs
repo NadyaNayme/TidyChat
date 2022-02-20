@@ -5,20 +5,24 @@ using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+
+using TidyChat.Utility;
+using GetDuty = TidyChat.Utility.GetDutyName;
+using TidyStrings = TidyChat.Utility.InternalStrings;
+using Better = TidyChat.Utility.BetterStrings;
+
 using System.Linq;
-using System.Text.RegularExpressions;
 using ChatTwo.Code;
-using Dalamud.Logging;
 
 namespace TidyChat
 
 {
     public sealed class TidyChat : IDalamudPlugin
     {
-        public string Name => "Tidy Chat";
+        public string Name => TidyStrings.PluginName;
 
-        private const string SettingsCommand = "/tidychat";
-        private const string ShorthandCommand = "/tidy";
+        private const string SettingsCommand = TidyStrings.SettingsCommand;
+        private const string ShorthandCommand = TidyStrings.ShorthandCommand;
 
         private DalamudPluginInterface PluginInterface { get; init; }
         private ChatGui ChatGui { get; init; }
@@ -67,20 +71,17 @@ namespace TidyChat
 
             this.CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
             {
-                HelpMessage = "Open settings"
+                HelpMessage = TidyStrings.SettingsHelper
             });
 
             this.CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
             {
-                HelpMessage = "Shorthand command to open settings"
+                HelpMessage = TidyStrings.ShorthandHelper
             });
 
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
         }
-
-        public int numberOfCommendations = 0;
-        public string lastDuty = "";
 
         public void Dispose()
         {
@@ -93,143 +94,40 @@ namespace TidyChat
 
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
-            // Lifted below line from Anna's chat2
-            var chatType = FromDalamud(type);
-
-            // Make everything lowercase so I don't have to think about which words are capitalized in the message
-            string normalizedText = message.TextValue.ToLower();
-
             if (!Configuration.Enabled)
             {
                 return;
             }
 
+            // Lifted below line from Anna's chat2
+            var chatType = FromDalamud(type);
+            string normalizedText = NormalizeInput.ToLowercase(message);
+
             if (Configuration.PlayerName != "" && Configuration.PlayerName != null)
             {
-                // I do not claim to be a smart man, but I do like to dabble in the dark magics.
-                string FirstNameLastInitial = $"{Configuration.PlayerName.Split(' ')[0]} {Configuration.PlayerName.Split(' ')[1][0]}.";
-                string FirstInitialLastName = $"{Configuration.PlayerName.Split(' ')[0][0]}. {Configuration.PlayerName.Split(' ')[1]}";
-                string InitialsOnly = $"{Configuration.PlayerName.Split(' ')[0][0]}. {Configuration.PlayerName.Split(' ')[1][0]}.";
-                Regex FNLI = new(FirstNameLastInitial.ToLower());
-                Regex FILN = new(FirstInitialLastName.ToLower());
-                Regex IO = new(InitialsOnly.ToLower());
-                // important: Japanese matchers depend on the player's name being replaced by "you",
-                // as there is no other way to distinguish messages about the player.
-                normalizedText = normalizedText.Replace($"{Configuration.PlayerName.ToLower()}", "you");
-                normalizedText = FNLI.Replace(normalizedText, "you", 1);
-                normalizedText = FILN.Replace(normalizedText, "you", 1);
-                normalizedText = IO.Replace(normalizedText, "you", 1);
+                normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
             }
 
             if (Configuration.BetterInstanceMessage && chatType is ChatType.System && ChatStrings.InstancedArea.All(normalizedText.Contains))
             {
-                // The last character in the first sentence is the instanceNumber so
-                // we capture it by finding the period that ends the first sentence and going back one character
-                int index = message.TextValue.IndexOf('.');
-                string instanceNumber = message.TextValue.Substring(index - 1, 1);
-                var stringBuilder = new SeStringBuilder();
-                if (Configuration.IncludeChatTag)
-                {
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText($"[TidyChat] ");
-                    stringBuilder.AddUiForegroundOff();
-                }
-                stringBuilder.AddText($"You are now in instance: {instanceNumber}");
-                message = stringBuilder.BuiltString;
+                message = Better.Instances(message, Configuration);
             }
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && chatType is ChatType.System && ChatStrings.SayQuestReminder.All(normalizedText.Contains))
             {
-                // With the chat mode in Say, enter a phrase containing "Capture this"
-
-                int containingPhraseStart = message.TextValue.IndexOf('“');
-                int containingPhraseEnd = message.TextValue.LastIndexOf('”');
-                int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
-                string containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
-                message = $"/say {containingPhrase}";
-                if (Configuration.CopyBetterSayReminder)
-                {
-                    var stringBuilder = new SeStringBuilder();
-                    if (Configuration.IncludeChatTag)
-                    {
-                        stringBuilder.AddUiForeground(14);
-                        stringBuilder.AddText($"[TidyChat] ");
-                        stringBuilder.AddUiForegroundOff();
-                    }
-                    stringBuilder.AddText($"\"/say {containingPhrase}\" has been copied to clipboard");
-                    TextCopy.ClipboardService.SetText($"/say {containingPhrase}");
-                    message = stringBuilder.BuiltString;
-                }
+                message = Better.SayReminder(message, Configuration);
             }
 
             if (Configuration.IncludeDutyNameInComms)
             {
-                if (ChatStrings.DutyEnded.All(normalizedText.Contains))
-                {
-                    //      match here then go back 4 characters to capture everything before " has"
-                    //           |
-                    //           v
-                    // <duty> has ended.
-                    lastDuty = message.TextValue.Substring(0, message.TextValue.LastIndexOf(" ") - 4);
-                }
-
-                if (ChatStrings.GuildhestEnded.All(normalizedText.Contains))
-                {
-                    lastDuty = "a Guildhest";
-                }
-
-                if ((ChatStrings.GainPvpExp.All(normalizedText.Contains) ||
-                     ChatStrings.ObtainWolfMarks.All(normalizedText.Contains) ||
-                     ChatStrings.CappedWolfMarks.All(normalizedText.Contains))
-                   )
-                {
-                    lastDuty = "a PvP duty";
-                }
-
-                if (ChatStrings.PalaceOfTheDead.All(normalizedText.Contains))
-                {
-                    lastDuty = "Palace of the Dead";
-                }
-
-                if (ChatStrings.HeavenOnHigh.All(normalizedText.Contains))
-                {
-                    lastDuty = "Heaven-on-High";
-                }
+                TidyStrings.LastDuty = GetDuty.FindIn(message, normalizedText);
             }
 
             if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
             {
-
                 isHandled = true;
-                numberOfCommendations++;
+                Better.Commendations(Configuration, ChatGui);
 
-                // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
-                // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
-                if (numberOfCommendations == 1)
-                {
-                    var t = new System.Timers.Timer();
-                    t.Interval = 2500;
-                    t.AutoReset = false;
-                    t.Elapsed += delegate
-                    {
-                        var stringBuilder = new SeStringBuilder();
-                        if (Configuration.IncludeChatTag)
-                        {
-                            stringBuilder.AddUiForeground(14);
-                            stringBuilder.AddText($"[TidyChat] ");
-                            stringBuilder.AddUiForegroundOff();
-                        }
-                        string commendations = $"commendation{(numberOfCommendations == 1 ? "" : "s")}";
-                        string dutyName = $"{(Configuration.IncludeDutyNameInComms && lastDuty.Length > 0 ? " from completing " + lastDuty + "." : ".")}";
-                        stringBuilder.AddText($"You received {numberOfCommendations} {commendations}{dutyName}");
-                        ChatGui.Print(stringBuilder.BuiltString);
-                        t.Enabled = false;
-                        t.Dispose();
-                        numberOfCommendations = 0;
-                        lastDuty = "";
-                    };
-                    t.Enabled = true;
-                }
             }
 
             if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
@@ -242,15 +140,13 @@ namespace TidyChat
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
 
-            if (Configuration.HideOtherCustomEmotes && !(sender.TextValue == $"{ClientState.LocalPlayer.Name}") && chatType is ChatType.CustomEmote)
+            if (Configuration.HideOtherCustomEmotes && sender.TextValue != Configuration.PlayerName && chatType is ChatType.CustomEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
 
-            if (Configuration.HideUsedEmotes && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote)) {
-                if (sender.TextValue == $"{ClientState.LocalPlayer.Name}") {
-                    isHandled = true;
-                }
+            if (Configuration.HideUsedEmotes && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) && sender.TextValue == Configuration.PlayerName) {
+               isHandled = true;
             }
 
             if (Configuration.FilterSystemMessages && chatType is ChatType.System)
