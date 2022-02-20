@@ -2,7 +2,7 @@ namespace TidyChat.Utility
 {
     internal static class InternalStrings
     {
-        public const string Version = "0.1.0.7";
+        public const string Version = "0.1.0.8";
 
 		public const string PluginName = "Tidy Chat";
 
