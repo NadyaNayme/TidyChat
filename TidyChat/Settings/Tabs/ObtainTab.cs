@@ -144,8 +144,8 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters\neg. You obtain 30 ice shards");
 
-				ImGui.EndTabItem();
             }
+            ImGui.EndTabItem();
         }
     }
 }
