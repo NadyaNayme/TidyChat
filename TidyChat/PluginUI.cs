@@ -10,20 +10,14 @@ namespace TidyChat
     {
         private Configuration configuration;
 
-        private bool visible = false;
-        public bool Visible
-        {
-            get { return this.visible; }
-            set { this.visible = value; }
-        }
-
+        #pragma warning disable
         private bool settingsVisible = false;
         public bool SettingsVisible
         {
             get { return this.settingsVisible; }
             set { this.settingsVisible = value; }
         }
-
+        #pragma warning restore
         public PluginUI(Configuration configuration)
         {
             this.configuration = configuration;
@@ -48,7 +42,7 @@ namespace TidyChat
                 if (ImGui.BeginTabBar("##tidychatConfigTabs"))
                 {
                     ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
-                    Vector4 ColorGray = new Vector4(0.45f, 0.45f, 0.45f, 1);
+                    Vector4 ColorGray = new(0.45f, 0.45f, 0.45f, 1);
                     ImGui.TextColored(ColorGray, TidyStrings.Version);
                     if (ImGui.BeginTabItem("General"))
                     {

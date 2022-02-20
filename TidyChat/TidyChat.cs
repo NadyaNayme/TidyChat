@@ -31,7 +31,8 @@ namespace TidyChat
         private PluginUI PluginUi { get; init; }
         private ClientState ClientState { get; init; }
 
-        // Lifted below lines (27-39) from Anna's Chat2
+        #region Chat2 ChatTypes
+        // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
         private const ushort Clear7 = ~(~0 << 7);
         internal ushort Raw { get; }
         internal ChatType Type => (ChatType)(this.Raw & Clear7);
@@ -45,7 +46,8 @@ namespace TidyChat
         {
             return FromCode((ushort)type);
         }
-
+        #endregion Chat2 ChatTypes
+        #region Setup
         public TidyChat(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
             [RequiredVersion("1.0")] ChatGui chatGui,
@@ -57,9 +59,9 @@ namespace TidyChat
             this.ChatGui = chatGui;
             this.ClientState = clientState;
 
-            // player cannot change this without restarting the game so should be safe to grab here
+            // Player cannot change this without restarting the game so should be safe to grab here
             Localization.language = clientState.ClientLanguage;
-            // sets name on first install / plugin update
+            // Sets name on install / plugin update
             SetPlayerName();
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
@@ -82,6 +84,7 @@ namespace TidyChat
             this.PluginInterface.UiBuilder.Draw += DrawUI;
             this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
         }
+        #endregion Setup
 
         public void Dispose()
         {
@@ -99,7 +102,6 @@ namespace TidyChat
                 return;
             }
 
-            // Lifted below line from Anna's chat2
             var chatType = FromDalamud(type);
             string normalizedText = NormalizeInput.ToLowercase(message);
 
@@ -108,6 +110,12 @@ namespace TidyChat
                 normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
             }
 
+            if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
+            {
+                isHandled = true;
+            }
+
+            #region Better Messages
             if (Configuration.BetterInstanceMessage && chatType is ChatType.System && ChatStrings.InstancedArea.All(normalizedText.Contains))
             {
                 message = Better.Instances(message, Configuration);
@@ -127,14 +135,11 @@ namespace TidyChat
             {
                 isHandled = true;
                 Better.Commendations(Configuration, ChatGui);
-
             }
+            #endregion
 
-            if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
-            {
-                isHandled = true;
-            }
-
+            #region Channel Filters
+            #region Emotes
             if (Configuration.FilterEmoteSpam && chatType is ChatType.StandardEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
@@ -145,10 +150,11 @@ namespace TidyChat
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
             }
 
-            if (Configuration.HideUsedEmotes && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) && sender.TextValue == Configuration.PlayerName) {
-               isHandled = true;
+            if (Configuration.HideUsedEmotes && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) && sender.TextValue == Configuration.PlayerName)
+            {
+                isHandled = true;
             }
-
+            #endregion Emotes
             if (Configuration.FilterSystemMessages && chatType is ChatType.System)
             {
                 isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
@@ -169,6 +175,7 @@ namespace TidyChat
                 isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
             }
 
+            #region DoH/DoL
             if (Configuration.FilterCraftingSpam && chatType is ChatType.Crafting)
             {
                 isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
@@ -178,11 +185,13 @@ namespace TidyChat
             {
                 isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
             }
+            #endregion DoH/DoL
 
             if (Configuration.HideUserLogouts && chatType is ChatType.FreeCompanyLoginLogout)
             {
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
+            #endregion Channel Filters
         }
 
         private void SetPlayerName() {
