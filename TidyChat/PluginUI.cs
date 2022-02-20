@@ -2,6 +2,7 @@
 using System;
 using System.Numerics;
 using Dalamud.Interface.Components;
+using System.Diagnostics;
 
 namespace TidyChat
 {
@@ -60,6 +61,24 @@ namespace TidyChat
                             this.configuration.Save();
                             SettingsVisible = false;
                         }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
+                        }
                     }
 
                     if (ImGui.BeginTabItem("System"))
@@ -72,6 +91,24 @@ namespace TidyChat
                         {
                             this.configuration.Save();
                             SettingsVisible = false;
+                        }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
                         }
                     }
 
@@ -86,6 +123,24 @@ namespace TidyChat
                             this.configuration.Save();
                             SettingsVisible = false;
                         }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Obtain"))
@@ -98,6 +153,24 @@ namespace TidyChat
                         {
                             this.configuration.Save();
                             SettingsVisible = false;
+                        }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
                         }
                     }
 
@@ -112,6 +185,24 @@ namespace TidyChat
                             this.configuration.Save();
                             SettingsVisible = false;
                         }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Progress"))
@@ -125,6 +216,24 @@ namespace TidyChat
                             this.configuration.Save();
                             SettingsVisible = false;
                         }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
+                        }
                     }
 
                     if (ImGui.BeginTabItem("Crafting & Gathering"))
@@ -137,6 +246,24 @@ namespace TidyChat
                         {
                             this.configuration.Save();
                             SettingsVisible = false;
+                        }
+                        if (!this.configuration.NoCoffee)
+                        {
+                            ImGui.SameLine();
+                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
+                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
+
+                            if (ImGui.Button("Support on Ko-Fi"))
+                            {
+                                Process.Start(new ProcessStartInfo
+                                {
+                                    FileName = "https://ko-fi.com/nadyanayme",
+                                    UseShellExecute = true
+                                });
+                            }
+
+                            ImGui.PopStyleColor(3);
                         }
                     }
 
@@ -157,6 +284,13 @@ namespace TidyChat
                 this.configuration.Save();
             }
             ImGuiComponents.HelpMarker("This should be left on unless testing or debugging.");
+
+            var noCoffee = this.configuration.NoCoffee;
+            if (ImGui.Checkbox("Hide ko-fi button", ref noCoffee))
+            {
+                this.configuration.NoCoffee = noCoffee;
+                this.configuration.Save();
+            }
 
             var includeChatTag = this.configuration.IncludeChatTag;
             if (ImGui.Checkbox("Add [TidyChat] tag to modified messages", ref includeChatTag))

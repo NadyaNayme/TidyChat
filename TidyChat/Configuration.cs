@@ -11,6 +11,7 @@ namespace TidyChat
         public bool Enabled { get; set; } = true;
         public bool IncludeChatTag { get; set; } = true;
         public string PlayerName { get; set; } = "";
+        public bool NoCoffee { get; set; } = false;
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
         public bool FilterEmoteSpam { get; set; } = true;
