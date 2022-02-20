@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TidyChat
 {
-    public sealed class FilterCraftMessages
+    public static class FilterCraftMessages
     {
         public static bool IsFiltered(string input, Configuration configuration)
         {

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace TidyChat
 {
-    public class FilterObtainMessages
+    public static class FilterObtainMessages
     {
         public static bool IsFiltered(string input, Configuration configuration)
         {
@@ -38,7 +38,7 @@ namespace TidyChat
                          ClientLanguage.Japanese => input.Contains("天文"),
                          _ => input.Contains("astronomy")
                      } ||
-                     !configuration.ShowOthersObtain && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input) ||
+                     !configuration.ShowOthersObtain && !(input.StartsWith("you ")) && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input) ||
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input)
                     )
                 {

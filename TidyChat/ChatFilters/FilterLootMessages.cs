@@ -2,7 +2,7 @@
 
 namespace TidyChat
 {
-    public sealed class FilterLootMessages
+    public static class FilterLootMessages
     {
         public static bool IsFiltered(string input, Configuration configuration)
         {

@@ -25,7 +25,7 @@ namespace TidyChat
 
         public void Dispose()
         {
-
+            // Have around in case we need it
         }
 
         public void Draw()
@@ -83,6 +83,12 @@ namespace TidyChat
                     if (ImGui.BeginTabItem("Crafting & Gathering"))
                     {
                         CraftingGatheringTab.Draw(this.configuration);
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                    }
+
+                    if (ImGui.BeginTabItem("Whitelist"))
+                    {
+                        WhitelistTab.Draw(this.configuration);
                         SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 

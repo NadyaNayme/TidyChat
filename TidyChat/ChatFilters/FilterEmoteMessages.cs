@@ -5,7 +5,7 @@ using ChatTwo.Code;
 
 namespace TidyChat
 {
-    public sealed class FilterEmoteMessages
+    public static class FilterEmoteMessages
     {
 
         public static bool IsFiltered(string input, ChatType chatType,Configuration configuration)
