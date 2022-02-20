@@ -54,217 +54,49 @@ namespace TidyChat
                     {
                         DrawGeneralTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("System"))
                     {
                         DrawSystemTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Emotes"))
                     {
                         DrawEmotesTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Obtain"))
                     {
                         DrawObtainTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Loot"))
                     {
                         DrawLootTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Progress"))
                     {
                         DrawProgressTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Crafting & Gathering"))
                     {
                         DrawCraftingTab();
                         ImGui.EndTabItem();
-                        ImGui.Separator();
-                        ImGui.Spacing();
-                        if (ImGui.Button("Save and Close Config"))
-                        {
-                            this.configuration.Save();
-                            SettingsVisible = false;
-                        }
-                        if (!this.configuration.NoCoffee)
-                        {
-                            ImGui.SameLine();
-                            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-                            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-                            if (ImGui.Button("Support on Ko-Fi"))
-                            {
-                                Process.Start(new ProcessStartInfo
-                                {
-                                    FileName = "https://ko-fi.com/nadyanayme",
-                                    UseShellExecute = true
-                                });
-                            }
-
-                            ImGui.PopStyleColor(3);
-                        }
+                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
                     ImGui.EndTabBar();
