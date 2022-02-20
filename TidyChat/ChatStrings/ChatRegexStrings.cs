@@ -136,9 +136,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
         public static LocalizedRegex VolumeControls { get; } = new()
         {
-            Ja = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.)",
+            En = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            En = new Regex(@"をミュートしました。$|のミュートを解除しました。$|の音量を\d{1,3}に変更しました。$",
+            Ja = new Regex(@"をミュートしました。$|のミュートを解除しました。$|の音量を\d{1,3}に変更しました。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
         public static Regex GatheringStartEnd { get; } = new Regex(@"You (begin|finish) (mining|quarrying|logging|harvesting)\.",
