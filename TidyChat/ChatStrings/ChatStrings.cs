@@ -13,7 +13,7 @@
 
         /// <see href="https://xivapi.com/LogMessage/926?pretty=true">Received Player Commendation</see>
         public static LocalizedStrings PlayerCommendation { get; } = new() {
-            Jpn = new string[] { "MIP", "推薦を獲得しました" },
+            Jpn = new string[] { "mip", "推薦を獲得しました" },
             Eng = new string[] { "you", "received", "a", "player", "commendation" },
             Deu = new string[] { "hast", "die", "auszeichnung" },
             Fra = new string[] { "équipiers", "vous", "honoré" },
@@ -56,7 +56,7 @@
             Jpn = new string[] { "特殊なリスキーモブの配下が", "偵察活動を開始したようだ"},
             Eng = new string[] { "minions", "extraordinarily", "powerful", "mark" },
             Deu = new string[] { "die", "helfer", "eines", "besonderen", "hochwilds" },
-            Fra = new string[] { "Les", "sous-fifres", "du", "monstre" }
+            Fra = new string[] { "les", "sous-fifres", "du", "monstre" }
         };
 
         /// <see href="https://xivapi.com/LogMessage/4341?pretty=true">Retainer completed a venture.</see>
@@ -64,7 +64,7 @@
         {
             Jpn = new string[] { "冒険を終えました！" },
             Eng = new string[] { "completed", "a", "venture" },
-            Deu = new string[] { "hat", "eine", "Unternehmung", "abgeschlossen" },
+            Deu = new string[] { "hat", "eine", "unternehmung", "abgeschlossen" },
             Fra = new string[] { "terminé", "sa", "tâche" }
         };
 
@@ -134,7 +134,7 @@
         public static LocalizedStrings ObtainedTomestones { get; } = new()
         {
             Jpn = new string[] { "アラガントームストーン", "手", "入", "た。"}, // (?:手に入れ|入手し)た
-            Eng = new string[] { "You", "obtain", "Allagan", "tomestones", "of" }, // You obtain Allagan Tomestones of <type>
+            Eng = new string[] { "you", "obtain", "allagan", "tomestones", "of" }, // You obtain Allagan Tomestones of <type>
             Deu = new string[] { "NeedsLocalization" },
             Fra = new string[] { "NeedsLocalization" },
         };
