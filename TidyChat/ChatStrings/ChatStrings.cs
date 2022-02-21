@@ -106,14 +106,14 @@
         public static LocalizedStrings ObtainWolfMarks { get; } = new() {
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "obtain", "wolf", "marks" }, // You obtain ### Wolf Marks.
-            Deu = new string[] { "NeedsLocalization" },
+            Deu = new string[] { "erhalten", "wolfsmarken" },
             Fra = new string[] { "NeedsLocalization" },
         };
 
         public static LocalizedStrings CappedWolfMarks { get; } = new() {
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "cannot", "receive", "any", "more", "wolf", "marks" }, // You cannot receive any more Wolf Marks. (Error Message)
-            Deu = new string[] { "NeedsLocalization" },
+            Deu = new string[] { "du", "kannst", "keine" , "wolfsmarken" },
             Fra = new string[] { "NeedsLocalization" },
         };
 
@@ -401,16 +401,16 @@
         public static LocalizedStrings PalaceOfTheDead { get; } = new()
         {
             Jpn = new string[] { "NeedsLocalization" },
-            Eng = new string[] { "Palace", "Dead", "begun" }, // Palace of the Dead Floors (x-y) has begun
-            Deu = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "palace", "dead", "begun" }, // Palace of the Dead Floors (x-y) has begun
+            Deu = new string[] { "palast", "der", "toten" },
             Fra = new string[] { "NeedsLocalization" },
         };
 
         public static LocalizedStrings HeavenOnHigh { get; } = new()
         {
             Jpn = new string[] { "NeedsLocalization" },
-            Eng = new string[] { "Heaven-on-High", "begun" }, // Heaven-on-High Floors (x-y) has begun
-            Deu = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "heaven-on-high", "begun" }, // Heaven-on-High Floors (x-y) has begun
+            Deu = new string[] { "himmelssäule" },
             Fra = new string[] { "NeedsLocalization" },
         };
 
