@@ -2,6 +2,7 @@
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud;
+using System.Linq;
 
 namespace TidyChat.Utility
 {
@@ -74,8 +75,7 @@ namespace TidyChat.Utility
         {
             // The last character in the first sentence is the instanceNumber so
             // we capture it by finding the period that ends the first sentence and going back one character
-            int index;
-            index = Localization.Language switch
+            int index = Localization.Language switch
             {
                 ClientLanguage.Japanese => message.TextValue.IndexOf("」"),
                 ClientLanguage.English => message.TextValue.IndexOf("."),
@@ -93,6 +93,54 @@ namespace TidyChat.Utility
             }
             stringBuilder.AddText($"{Localization.GetTidy(TidyStrings.InstanceText)} {instanceNumber}");
             return stringBuilder.BuiltString;
+        }
+
+        /// <see href="https://xivapi.com/LogMessage/7027?pretty=true">You've joined the Novice Network</see>
+        /// <see href="https://xivapi.com/LogMessage/7030?pretty=true">You have left the Novice Network</see>
+        public static SeString NoviceNetwork(SeString originalMessage, string normalizedInput, Configuration configuration)
+        {
+            if (Localization.Get(ChatStrings.NoviceNetworkJoin).All(normalizedInput.Contains))
+            {
+                SeString newMessage = Localization.Language switch
+                {
+                    ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
+                    ClientLanguage.English => "You've joined the Novice Network.",
+                    ClientLanguage.German => "Du bist dem Neulings-Chat beigetreten.",
+                    ClientLanguage.French => "Vous avez rejoint le réseau des novices.",
+                    _ => "You've joined the Novice Network.",
+                };
+                var stringBuilder = new SeStringBuilder();
+                if (configuration.IncludeChatTag)
+                {
+                    stringBuilder.AddUiForeground(14);
+                    stringBuilder.AddText(TidyStrings.Tag);
+                    stringBuilder.AddUiForegroundOff();
+                }
+                stringBuilder.AddText($"{newMessage}");
+                return stringBuilder.BuiltString;
+            } else if (Localization.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
+            {
+                SeString newMessage = Localization.Language switch
+                {
+                    ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
+                    ClientLanguage.English => "You've left the Novice Network.",
+                    ClientLanguage.German => "Du hast den Neulings-Chat verlassen.",
+                    ClientLanguage.French => "Vous avez quitté le réseau des novices.",
+                    _ => "You've left the Novice Network.",
+                };
+                var stringBuilder = new SeStringBuilder();
+                if (configuration.IncludeChatTag)
+                {
+                    stringBuilder.AddUiForeground(14);
+                    stringBuilder.AddText(TidyStrings.Tag);
+                    stringBuilder.AddUiForegroundOff();
+                }
+                stringBuilder.AddText($"{newMessage}");
+                return stringBuilder.BuiltString;
+            } else
+            {
+                return originalMessage;
+            }
         }
     }
 }

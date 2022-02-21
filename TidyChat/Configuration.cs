@@ -26,6 +26,7 @@ namespace TidyChat
         public bool CopyBetterSayReminder { get; set; } = false;
         public bool BetterCommendationMessage { get; set; } = true;
         public bool IncludeDutyNameInComms { get; set; } = true;
+        public bool BetterNoviceNetworkMessage { get; set; } = true;
         #endregion
 
         #region Whitelisted Sytstem Messages

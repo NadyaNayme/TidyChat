@@ -422,5 +422,23 @@
             Deu = new string[] { "gesamtspielzeit" },
             Fra = new string[] { "temps", "de", "jeu", "total" },
         };
+
+        /// <see href="https://xivapi.com/LogMessage/7027?pretty=true">You've joined the Novice Network</see>
+        public static LocalizedStrings NoviceNetworkJoin { get; } = new()
+        {
+            Jpn = new string[] { "ビギナーチャンネルに参加しました" },
+            Eng = new string[] { "joined", "the", "novice", "network" },
+            Deu = new string[] { "bist", "neulings-chat", "beigetreten" },
+            Fra = new string[] { "vous", "rejoint", "réseau", "novices" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/7030?pretty=true">You have left the Novice Network</see>
+        public static LocalizedStrings NoviceNetworkLeft { get; } = new()
+        {
+            Jpn = new string[] { "ビギナーチャンネルから退出しました" },
+            Eng = new string[] { "left", "the", "novice", "network" },
+            Deu = new string[] { "hast", "neulings-chat", "verlassen" },
+            Fra = new string[] { "vous", "quitté", "réseau", "novices" },
+        };
     }
 }

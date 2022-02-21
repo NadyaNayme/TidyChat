@@ -84,6 +84,14 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("Requires Improved /Say message for quests to be enabled");
 
+                var betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
+                if (ImGui.Checkbox("Improved Novice Network join and leave messages", ref betterNoviceNetworkMessage))
+                {
+                    configuration.BetterNoviceNetworkMessage = betterNoviceNetworkMessage;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.");
+
             }
 
             ImGui.Spacing();

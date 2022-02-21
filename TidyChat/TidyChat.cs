@@ -136,6 +136,11 @@ namespace TidyChat
                 isHandled = true;
                 Better.Commendations(Configuration, ChatGui);
             }
+
+            if (Configuration.BetterNoviceNetworkMessage)
+            {
+                message = Better.NoviceNetwork(message, normalizedText, Configuration);
+            }
             #endregion
 
             #region Channel Filters
