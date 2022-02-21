@@ -165,5 +165,7 @@
         public static string[] PalaceOfTheDead { get; } = { "Palace", "Dead", "begun" };
         // Heaven-on-High Floors (x-y) has begun
         public static string[] HeavenOnHigh { get; } = { "Heaven-on-High", "begun" };
+        // Total Play time: 249 days, 12 hours, 30 minutes
+        public static string[] Playtime { get; } = { "total", "play", "time" };
     }
 }

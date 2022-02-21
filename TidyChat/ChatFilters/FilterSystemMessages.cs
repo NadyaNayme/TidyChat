@@ -47,7 +47,8 @@ namespace TidyChat
                      configuration.ShowRelicBookStep && Localization.Get(ChatStrings.RelicBookStep).All(input.Contains) ||
                      configuration.ShowRelicBookComplete && Localization.Get(ChatStrings.RelicBookComplete).All(input.Contains) ||
                      // not optional so always run last
-                     Localization.Get(ChatRegexStrings.ItemSearchCommand).IsMatch(input)
+                     Localization.Get(ChatRegexStrings.ItemSearchCommand).IsMatch(input) ||
+                     ChatStrings.Playtime.All(input.Contains)
                    )
                 {
                     return false;
