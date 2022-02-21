@@ -46,6 +46,7 @@ namespace TidyChat
 
         public static string GetTidy(string strings)
         {
+            // PluginLog.LogDebug("Internal strings not localized: %s", strings.ToString());
             return strings;
         }
 

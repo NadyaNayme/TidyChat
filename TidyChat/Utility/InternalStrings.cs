@@ -33,13 +33,39 @@
 			Fra = new string("a été copié")
 		};
 
-		public const string Guildhest = "a Guildhest";
+		public static LocalizedTidyStrings Guildhest { get; } = new()
+		{
+			Jpn = new string("ギルドヘストから入手"),
+			Eng = new string("a Guildhest"),
+			Deu = new string("ein Gildengeheiß"),
+			Fra = new string("Guilde prendre"),
+		};
 
-		public const string PvPDuty = "a PvP duty";
+		public static LocalizedTidyStrings PvPDuty { get; } = new()
+		{
+			Jpn = new string("NeedsLocalization"),
+			Eng = new string("a PvP duty"),
+			Deu = new string("aus einer PVP"),
+			Fra = new string("de jcj"),
+		};
 
-		public const string POTD = "Palace of the Dead";
+		/// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
+		public static LocalizedTidyStrings POTD { get; } = new()
+		{
+			Jpn = new string("NeedsLocalization"),
+			Eng = new string("Palace of the Dead"),
+			Deu = new string("Palast der Toten"),
+			Fra = new string("Palais des morts"),
+		};
 
-		public const string HOH = "Heaven-on-High";
+		/// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
+		public static LocalizedTidyStrings HOH { get; } = new()
+		{
+			Jpn = new string("NeedsLocalization"),
+			Eng = new string("Heaven-on-High"),
+			Deu = new string("Himmelssäule"),
+			Fra = new string("Pillier des Cieux"),
+		};
 
 		public static string LastDuty { get; set; } = "";
 

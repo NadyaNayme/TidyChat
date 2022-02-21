@@ -63,7 +63,7 @@ namespace TidyChat.Utility
                     stringBuilder.AddText(TidyStrings.Tag);
                     stringBuilder.AddUiForegroundOff();
                 }
-                stringBuilder.AddText($"\"/say {containingPhrase}\" {TidyStrings.CopiedToClipboard}");
+                stringBuilder.AddText($"\"/say {containingPhrase}\" {Localization.GetTidy(TidyStrings.CopiedToClipboard)}");
                 TextCopy.ClipboardService.SetText($"/say {containingPhrase}");
                 return stringBuilder.BuiltString;
             }
