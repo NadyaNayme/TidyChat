@@ -11,7 +11,7 @@ namespace TidyChat
             {
                 if (
                      !configuration.HideSRankHunt && Localization.Get(ChatStrings.PowerfulMark).All(input.Contains) ||
-                     !configuration.HideSSRankHunt && ChatStrings.ExtraordinarilyPowerfulMark.All(input.Contains) ||
+                     !configuration.HideSSRankHunt && Localization.Get(ChatStrings.ExtraordinarilyPowerfulMark).All(input.Contains) ||
                      !configuration.HideCompletedVenture && Localization.Get(ChatStrings.CompletedVenture).All(input.Contains) ||
                      !configuration.HideCommendations && !configuration.BetterCommendationMessage && Localization.Get(ChatStrings.PlayerCommendation).All(input.Contains) ||
                      configuration.BetterCommendationMessage && Localization.Get(ChatRegexStrings.BetterPlayerCommendation).IsMatch(input) ||
@@ -48,7 +48,7 @@ namespace TidyChat
                      configuration.ShowRelicBookComplete && Localization.Get(ChatStrings.RelicBookComplete).All(input.Contains) ||
                      // not optional so always run last
                      Localization.Get(ChatRegexStrings.ItemSearchCommand).IsMatch(input) ||
-                     ChatStrings.Playtime.All(input.Contains)
+                     Localization.Get(ChatStrings.Playtime).All(input.Contains)
                    )
                 {
                     return false;

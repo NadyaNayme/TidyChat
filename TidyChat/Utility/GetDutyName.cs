@@ -8,7 +8,7 @@ namespace TidyChat.Utility
     {
         public static string FindIn(SeString message, string input)
         {
-            if (ChatStrings.DutyEnded.All(input.Contains))
+            if (Localization.Get(ChatStrings.DutyEnded).All(input.Contains))
             {
                 //      match here then go back 4 characters to capture everything before " has"
                 //           |
@@ -17,25 +17,25 @@ namespace TidyChat.Utility
                 return message.TextValue[..(message.TextValue.LastIndexOf(" ") - 4)];
             }
 
-            if (ChatStrings.GuildhestEnded.All(input.Contains))
+            if (Localization.Get(ChatStrings.GuildhestEnded).All(input.Contains))
             {
                 return TidyStrings.Guildhest;
             }
 
-            if ((ChatStrings.GainPvpExp.All(input.Contains) ||
-                 ChatStrings.ObtainWolfMarks.All(input.Contains) ||
-                 ChatStrings.CappedWolfMarks.All(input.Contains))
+            if ((Localization.Get(ChatStrings.GainPvpExp).All(input.Contains) ||
+                 Localization.Get(ChatStrings.ObtainWolfMarks).All(input.Contains) ||
+                 Localization.Get(ChatStrings.CappedWolfMarks).All(input.Contains))
                )
             {
                 return TidyStrings.PvPDuty;
             }
 
-            if (ChatStrings.PalaceOfTheDead.All(input.Contains))
+            if (Localization.Get(ChatStrings.PalaceOfTheDead).All(input.Contains))
             {
                 return TidyStrings.POTD;
             }
 
-            if (ChatStrings.HeavenOnHigh.All(input.Contains))
+            if (Localization.Get(ChatStrings.HeavenOnHigh).All(input.Contains))
             {
                 return TidyStrings.HOH;
             }

@@ -1,6 +1,7 @@
 ﻿using TidyStrings = TidyChat.Utility.InternalStrings;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud;
 
 namespace TidyChat.Utility
 {
@@ -73,7 +74,15 @@ namespace TidyChat.Utility
         {
             // The last character in the first sentence is the instanceNumber so
             // we capture it by finding the period that ends the first sentence and going back one character
-            int index = message.TextValue.IndexOf('.');
+            int index;
+            index = Localization.Language switch
+            {
+                ClientLanguage.Japanese => message.TextValue.IndexOf("」"),
+                ClientLanguage.English => message.TextValue.IndexOf("."),
+                ClientLanguage.German => message.TextValue.IndexOf("“"),
+                ClientLanguage.French => message.TextValue.IndexOf("”"),
+                _ => message.TextValue.IndexOf("."),
+            };
             string instanceNumber = message.TextValue.Substring(index - 1, 1);
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag)
@@ -82,7 +91,7 @@ namespace TidyChat.Utility
                 stringBuilder.AddText(TidyStrings.Tag);
                 stringBuilder.AddUiForegroundOff();
             }
-            stringBuilder.AddText($"{TidyStrings.InstanceText} {instanceNumber}");
+            stringBuilder.AddText($"{Localization.GetTidy(TidyStrings.InstanceText)} {instanceNumber}");
             return stringBuilder.BuiltString;
         }
     }

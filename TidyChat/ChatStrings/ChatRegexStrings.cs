@@ -155,8 +155,23 @@ namespace TidyChat
             Jpn = new Regex(@"ポイントの経験値を得た。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
         };
-        // <Player Name> has logged out.
-        public static Regex HasLoggedOut { get; } = new Regex(@"(.* has logged out\.)",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
+
+        public static LocalizedRegex HasLoggedOut { get; } = new()
+        {
+            // FreeCompany - <Player>がログアウトしました。(V)
+            Jpn = new Regex(@"がログアウトしました。$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            // <Player> has logged out. (V)
+            Eng = new Regex(@"(.* has logged out\.)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            // <Player> hat sich ausgeloggt. (UNV)
+            Deu = new Regex(@"hat sich ausgeloggt\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            // <Player> s'est déconnecté/déconnectée. (UNV)
+            Fra = new Regex(@"(déconnectée|déconnectée)\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+
+        };
+
     }
 }

@@ -24,16 +24,16 @@ namespace TidyChat
                      !configuration.ShowObtainedCenturioSeals && Localization.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(input) ||
                      !configuration.ShowObtainedNuts && Localization.Get(ChatRegexStrings.ObtainedNuts).IsMatch(input) ||
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input) ||
-                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.language switch {
+                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch {
                          ClientLanguage.Japanese => input.Contains("詩学"),
                          _ => input.Contains("poetics")
                      } ||
-                     !configuration.ShowObtainedAphorismTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.language switch
+                     !configuration.ShowObtainedAphorismTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("経典"),
                          _ => input.Contains("aphorism")
                      } ||
-                     !configuration.ShowObtainedAstronomyTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.language switch
+                     !configuration.ShowObtainedAstronomyTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("天文"),
                          _ => input.Contains("astronomy")

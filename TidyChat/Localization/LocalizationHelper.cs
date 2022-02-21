@@ -1,16 +1,12 @@
 ﻿using Dalamud;
 using Dalamud.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace TidyChat
 {
     internal static class Localization
     {
-        public static ClientLanguage language { get; set; }
+        public static ClientLanguage Language { get; set; }
 
         public static string[] Get(string[] strings)
         {
@@ -20,7 +16,7 @@ namespace TidyChat
 
         public static string[] Get(LocalizedStrings strings)
         {
-            return language switch
+            return Language switch
             {
                 ClientLanguage.Japanese => strings.Jpn,
                 ClientLanguage.English => strings.Eng,
@@ -38,13 +34,30 @@ namespace TidyChat
 
         public static Regex Get(LocalizedRegex regex)
         {
-            return language switch
+            return Language switch
             {
                 ClientLanguage.Japanese => regex.Jpn,
                 ClientLanguage.English => regex.Eng,
                 ClientLanguage.German => regex.Deu,
                 ClientLanguage.French => regex.Fra,
-                _ => regex.Eng
+                _ => regex.Eng // Won't work for J/F/D but at least it's not a crash
+            };
+        }
+
+        public static string GetTidy(string strings)
+        {
+            return strings;
+        }
+
+        public static string GetTidy(LocalizedTidyStrings strings)
+        {
+            return Language switch
+            {
+                ClientLanguage.Japanese => strings.Jpn,
+                ClientLanguage.English => strings.Eng,
+                ClientLanguage.German => strings.Deu,
+                ClientLanguage.French => strings.Fra,
+                _ => strings.Eng // Won't work for J/F/D but at least it's not a crash
             };
         }
     }
@@ -69,5 +82,16 @@ namespace TidyChat
         public Regex Eng { get; init; }
         public Regex Deu { get; init; }
         public Regex Fra { get; init; }
+    }
+
+    public record struct LocalizedTidyStrings
+    {
+        /// <remarks>
+        /// For use with Utility.InternalStrings and Utility.BetterStrings
+        /// </remarks>
+        public string Jpn { get; init; }
+        public string Eng { get; init; }
+        public string Deu { get; init; }
+        public string Fra { get; init; }
     }
 }

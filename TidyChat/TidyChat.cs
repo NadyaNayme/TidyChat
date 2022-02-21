@@ -60,7 +60,7 @@ namespace TidyChat
             this.ClientState = clientState;
 
             // Player cannot change this without restarting the game so should be safe to grab here
-            Localization.language = clientState.ClientLanguage;
+            Localization.Language = clientState.ClientLanguage;
             // Sets name on install / plugin update
             SetPlayerName();
 
@@ -110,18 +110,18 @@ namespace TidyChat
                 normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
             }
 
-            if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && ChatStrings.DebugTeleport.All(normalizedText.Contains))
+            if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && Localization.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
             {
                 isHandled = true;
             }
 
             #region Better Messages
-            if (Configuration.BetterInstanceMessage && chatType is ChatType.System && ChatStrings.InstancedArea.All(normalizedText.Contains))
+            if (Configuration.BetterInstanceMessage && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             {
                 message = Better.Instances(message, Configuration);
             }
 
-            if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && chatType is ChatType.System && ChatStrings.SayQuestReminder.All(normalizedText.Contains))
+            if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             {
                 message = Better.SayReminder(message, Configuration);
             }
@@ -131,7 +131,7 @@ namespace TidyChat
                 TidyStrings.LastDuty = GetDuty.FindIn(message, normalizedText);
             }
 
-            if (Configuration.BetterCommendationMessage && ChatStrings.PlayerCommendation.All(normalizedText.Contains))
+            if (Configuration.BetterCommendationMessage && Localization.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
             {
                 isHandled = true;
                 Better.Commendations(Configuration, ChatGui);

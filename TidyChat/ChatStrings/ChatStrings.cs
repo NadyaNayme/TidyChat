@@ -2,170 +2,425 @@
 {
     public static class ChatStrings
     {
-        // You are now in the instanced area <zone> <instance>. Current instance can be confirmed at any time using the /instance text command.
-        public static string[] InstancedArea { get; } = { "you", "are", "now", "in", "the", "instanced", "area" };
+        /// <see href="https://xivapi.com/LogMessage/1350?pretty=true">/instance text</see>
+        public static LocalizedStrings InstancedArea { get; } = new()
+        {
+            Jpn = new string[] { "で現在のインスタンスを再確認できます。" },
+            Eng = new string[] { "you", "are", "now", "in", "the", "instanced", "area" },
+            Deu = new string[] { "instanziierten", "areal" },
+            Fra = new string[] { "dans", "quelle", "instance", "vous", "trouvez" }
+        };
 
-        // You received a player commendation!
-        public static string[] PlayerCommendation { get; } = { "you", "received", "a", "player", "commendation" };
+        /// <see href="https://xivapi.com/LogMessage/926?pretty=true">Received Player Commendation</see>
+        public static LocalizedStrings PlayerCommendation { get; } = new() {
+            Jpn = new string[] { "MIP", "推薦を獲得しました" },
+            Eng = new string[] { "you", "received", "a", "player", "commendation" },
+            Deu = new string[] { "hast", "die", "auszeichnung" },
+            Fra = new string[] { "équipiers", "vous", "honoré" },
+        };
 
-        // <duty> has ended
-        public static string[] DutyEnded { get; } = { "has", "ended" };
+        /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Duty has ended</see>
+        public static LocalizedStrings DutyEnded { get; } = new() {
+            Jpn = new string[] { "の攻略を終了した" },
+            Eng = new string[] { "has", "ended" },
+            Deu = new string[] { "wurde", "beendet" },
+            Fra = new string[] { "prend", "fin" },
+        };
 
-        // The guildhest will end soon
-        public static string[] GuildhestEnded { get; } = { "the", "guildhest", "will", "end", "soon" };
+        /// <see href="https://xivapi.com/LogMessage/1530?pretty=true">Guildhest will end soon</see>
+        public static LocalizedStrings GuildhestEnded { get; } = new() {
+            Jpn = new string[] { "全員が特務隊長から報酬を受け取る" },
+            Eng = new string[] { "the", "guildhest", "will", "end", "soon" },
+            Deu = new string[] { "das", "gildengeheiß", "endet", "alle", "teilnehmer" },
+            Fra = new string[] { "guilde", "prendre", "fin" },
+        };
+
         // With the chat mode in Say, enter a phrase containing "Some Words"
-        public static string[] SayQuestReminder { get; } = { "with", "the", "chat", "mode", "in" };
+        public static LocalizedStrings SayQuestReminder { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "with", "the", "chat", "mode", "in" },
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
 
-        // You sense the presence of a powerful mark...
-        public static string[] PowerfulMark { get; } = { "you", "sense", "the", "presence", "of", "a", "powerful", "mark" };
+        /// <see href="https://xivapi.com/LogMessage/9331?pretty=true">You sense the presence of a powerful mark...</see>
+        public static LocalizedStrings PowerfulMark { get; } = new() {
+            Jpn = new string[] { "強大なリスキーモブの気配を感じる" },
+            Eng = new string[] { "you", "sense", "the", "presence", "of", "a", "powerful", "mark" },
+            Deu = new string[] { "du", "spücrst", "hochwild" },
+            Fra = new string[] { "vous", "ressentez", "présence", "monstre" },
+        };
 
-        // The minions of an extraordinarily powerful mark...
-        public static string[] ExtraordinarilyPowerfulMark { get; } = { "minions", "extraordinarily", "powerful", "mark" };
+        /// <see href="https://xivapi.com/LogMessage/9332?pretty=true">The minions of an extraordinarily powerful mark...</see>
+        public static LocalizedStrings ExtraordinarilyPowerfulMark { get; } = new() {
+            Jpn = new string[] { "特殊なリスキーモブの配下が", "偵察活動を開始したようだ"},
+            Eng = new string[] { "minions", "extraordinarily", "powerful", "mark" },
+            Deu = new string[] { "die", "helfer", "eines", "besonderen", "hochwilds" },
+            Fra = new string[] { "Les", "sous-fifres", "du", "monstre" }
+        };
 
-        // Retainer completed a venture.
+        /// <see href="https://xivapi.com/LogMessage/4341?pretty=true">Retainer completed a venture.</see>
         public static LocalizedStrings CompletedVenture { get; } = new()
         {
+            Jpn = new string[] { "冒険を終えました！" },
             Eng = new string[] { "completed", "a", "venture" },
-            Jpn = new string[] { "冒険を終えました！" }
+            Deu = new string[] { "hat", "eine", "Unternehmung", "abgeschlossen" },
+            Fra = new string[] { "terminé", "sa", "tâche" }
         };
 
-        //You gain \d <class> experience points
+
         public static LocalizedStrings GainExperiencePoints { get; } = new()
         {
-            Eng = new string[] { "you", "experience", "points" },
-            Jpn = new string[] { "you", "ポイントの経験値" }
+            Jpn = new string[] { "you", "ポイントの経験値" },
+            Eng = new string[] { "you", "experience", "points" }, //You gain \d <class> experience points
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
         };
 
-        // A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.
+        /// <see href="https://xivapi.com/LogMessage/2246?pretty=true">A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.</see>
         public static LocalizedStrings RouletteBonus { get; } = new()
         {
+            Jpn = new string[] { "コンテンツルーレットのボーナスとして" },
             Eng = new string[] { "a", "bonus", "has", "been", "awarded", "for", "using", "the", "duty", "roulette" },
-            Jpn = new string[] { "コンテンツルーレットのボーナスとして" }
+            Deu = new string[] { "deinen", "mut", "einer", "herausforderung", "stellen" },
+            Fra = new string[] { "un", "bonus", "pour", "avoir", "utilisé" },
         };
-        // A bonus of 12,000 gil has been awared for being an adventurer in need.
+
+        /// <see href="https://xivapi.com/LogMessage/2244?pretty=true">A bonus of 12,000 gil has been awared for being an adventurer in need.</see>
         public static LocalizedStrings AdventurerInNeedBonus { get; } = new()
         {
+            Jpn = new string[] { "不足ロールボーナスとして" },
             Eng = new string[] { "a", "bonus", "for", "being", "an", "adventurer", "in", "need" },
-            Jpn = new string[] { "不足ロールボーナスとして" }
+            Deu = new string[] { "die", "teilnahme", "einer", "gefragten", "rolle" },
+            Fra = new string[] { "bonus", "pour", "avoir", "rempli", "nombre", "insuffisant" },
         };
 
-        //You acquire \d Pvp EXP.
-        public static string[] GainPvpExp { get; } = { "you", "acquire", "pvp", "exp" };
-        // You cannot receive any more Wolf Marks. (Error Message)
-        public static string[] ObtainWolfMarks { get; } = { "you", "obtain", "wolf", "marks" };
-        // You cannot receive any more Wolf Marks. (Error Message)
-        public static string[] CappedWolfMarks { get; } = { "you", "cannot", "receive", "any", "more", "wolf", "marks" };
-
-        //You earn the achievement <achievement>
-        public static string[] EarnAchievement { get; } = { "you", "the", "achievement" };
-
-        // You synthesize a/an <item>
-        public static LocalizedStrings YouSynthesize { get; } = new()
-        {
-            Eng = new string[] { "you", "synthesize" },
-            Jpn = new string[] { "you", "を完成させた！" }
+        /// <see href="https://xivapi.com/LogMessage/659?pretty=true">You acquire \d PvP EXP.</see>
+        public static LocalizedStrings GainPvpExp { get; } = new() {
+            Jpn = new string[] { "pvp", "exp" },
+            Eng = new string[] { "you", "acquire", "pvp", "exp" },
+            Deu = new string[] { "pvp", "exp" },
+            Fra = new string[] { "vous", "jcj" },
         };
 
-        // <Player> has logged out.
-        public static string[] HasLoggedOut { get; } = { "has", "logged", "out" };
+        public static LocalizedStrings ObtainWolfMarks { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "obtain", "wolf", "marks" }, // You obtain ### Wolf Marks.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
 
-        // You obtain Allagan Tomestones of <type>
+        public static LocalizedStrings CappedWolfMarks { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "cannot", "receive", "any", "more", "wolf", "marks" }, // You cannot receive any more Wolf Marks. (Error Message)
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings EarnAchievement { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "the", "achievement" }, // You earn the achievement <achievement>
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings YouSynthesize { get; } = new() {
+            Jpn = new string[] { "you", "を完成させた！" },
+            Eng = new string[] { "you", "synthesize" }, // You synthesize a/an <item>
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
         public static LocalizedStrings ObtainedTomestones { get; } = new()
         {
-            Eng = new string[] { "You", "obtain", "Allagan", "tomestones", "of" },
-            Jpn = new string[] { "アラガントームストーン", "手", "入", "た。"} // (?:手に入れ|入手し)た
+            Jpn = new string[] { "アラガントームストーン", "手", "入", "た。"}, // (?:手に入れ|入手し)た
+            Eng = new string[] { "You", "obtain", "Allagan", "tomestones", "of" }, // You obtain Allagan Tomestones of <type>
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
         };
 
-        // Ready Check
-        public static string[] ReadyCheckComplete { get; } = { "ready", "check", "complete" };
-
-        // You attain level <level>.
-        public static LocalizedStrings YouAttainLevel { get; } = new()
-        {
-            Eng = new string[] { "you", "level" },
-            Jpn = new string[] { "レベルアップ！", "you", "になった。" }
+        /// <see href="https://xivapi.com/LogMessage/3794?pretty=true">Ready Check Complete.</see>
+        public static LocalizedStrings ReadyCheckComplete { get; } = new() {
+            Jpn = new string[] { "レディチェックが終了しました" },
+            Eng = new string[] { "ready", "check", "complete" },
+            Deu = new string[] { "bereitschaftsanfrage" },
+            Fra = new string[] { "l'appel", "préparation", "pris", "fin" },
         };
-        // <Player> attains level 33!
+
+        public static LocalizedStrings YouAttainLevel { get; } = new() {
+            Jpn = new string[] { "レベルアップ！", "you", "になった。" },
+            Eng = new string[] { "you", "level" }, // You attain level <level>.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
         public static LocalizedStrings OtherAttainsLevel { get; } = new()
         {
-            Eng = new string[] { "attains", "level" },
             // BUG: this won't match abbreviated player names; need to be able to mix string and regexp
-            Jpn = new string[] { "レベルアップ！", " ", "になった。" }
+            Jpn = new string[] { "レベルアップ！", " ", "になった。" },
+            Eng = new string[] { "attains", "level" }, // <Player> attains level 33!
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
         };
 
-        // You learn <ability>.
-        public static string[] YouLearnAbility { get; } = { "you", "learn" };
+        public static LocalizedStrings YouLearnAbility { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "learn" }, // You learn <ability>.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
 
-        // Battle commencing in <time> seconds.
-        public static LocalizedStrings CountdownTime { get; } = new()
-        {
+        /// <see href="https://xivapi.com/LogMessage/5260?pretty=true">Battle commencing in <time> seconds.</see>
+        public static LocalizedStrings CountdownTime { get; } = new() {
+            Jpn = new string[] { "戦闘開始まで", "秒" },
             Eng = new string[] { "battle", "commencing", "in", "seconds" },
-            Jpn = new string[] { "戦闘開始まで", "秒" }
+            Deu = new string[] { "noch", "sekunde" },
+            Fra = new string[] { "début", "combat", "dans" },
         };
 
-        // Teleporting to <Location>...
-        public static string[] DebugTeleport { get; } = { "teleporting", "to" };
+        public static LocalizedStrings DebugTeleport { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "teleporting", "to" }, // Teleporting to <Location>...
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
 
-        // You sense something...
-        public static string[] SpideySenses { get; } = { "you", "sense", "something" };
+        /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
+        /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">You sense something close.</see>
+        public static LocalizedStrings SpideySenses { get; } = new() {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "sense", "something" }, // You sense something...
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
 
-        // The compass detects a current approximately <##> yalms to the <direction>...
-        public static string[] AetherCompass { get; } = { "the", "compass", "detects", "a", "current", "approximately" };
+        /// <see href="https://xivapi.com/LogMessage/3712?pretty=true">The compass detects a current approximately <##> yalms to the <direction>...</see>
+        public static LocalizedStrings AetherCompass { get; } = new() {
+            Jpn = new string[] { "コンパスの針は" },
+            Eng = new string[] { "the", "compass", "detects", "a", "current", "approximately" },
+            Deu = new string[] { "spücrst", "eine", "quelle", "yalme" },
+            Fra = new string[] { "boussole", "indique" },
+        };
 
-        // Glamours projected from plate <##>
+        /// <see href="https://xivapi.com/LogMessage/4364?pretty=true">Glamours projected from plate <##></see>
         public static LocalizedStrings GlamoursProjected { get; } = new()
         {
+            Jpn = new string[] { "ミラージュプレート", "により武具投影が行われました。" },
             Eng = new string[] { "glamours", "projected", "from", "plate" },
-            Jpn = new string[] { "ミラージュプレート", "により武具投影が行われました。" }
+            Deu = new string[] { "die", "projektionsplatte", "angewendet" },
+            Fra = new string[] { "planche", "mirage", "projeté" },
         };
-        // Overmelding fail
-        // You are unable to attach the materia to the <item>. The <materia> was lost.
-        public static string[] OvermeldFailure { get; } = { "you", "unable", "to", "attach", "the", "materia", "to" };
-        // You succesfully extra a <materia> from the <item>
-        public static string[] MateriaExtract { get; } = { "you", "successfully", "a", "from", "the" };
-        // The location affects your...
-        public static string[] LocationAffects { get; } = { "the", "location", "affects", "your" };
-        // ...gathering yield.
-        public static string[] GatheringYield { get; } = { "gathering", "yield" };
-        // ...chance of receiving the Gatherer's boon.
-        public static string[] GatherersBoon { get; } = { "chance", "of", "receiving", "the", "gatherer's", "boon" };
-        public static string[] GatheringAttempts { get; } = { "increased", "integrity", "number", "of", "gathering", "attempts" };
-        // Trade complete.
-        public static string[] TradeComplete { get; } = { "trade", "complete" };
-        // Trade canceled.
-        public static string[] TradeCanceled { get; } = { "trade", "canceled" };
-        // Trade request sent to <player>
-        public static string[] TradeSent { get; } = { "trade", "request", "sent", "to" };
-        public static string[] AwaitingTradeConfirmation { get; } = { "awaiting", "trade", "confirmation", "from" };
-        // You invite <player> to a party.
-        public static string[] InviteSent { get; } = { "you", "invite", "to", "a", "party" };
-        // <Player> joins the party.
-        public static string[] InviteeJoins { get; } = { "joins", "the", "party" };
-        // The party has been disbanded.
-        public static string[] PartyDisband { get; } = { "the", "party", "has", "been", "disbanded" };
-        // You dissolve the party.
-        public static string[] PartyDissolved { get; } = { "dissolve", "party"  };
-        // <Player> invites you to a party.
-        public static string[] InvitedBy { get; } = { "invites", "you", "to", "a", "party" };
-        // You join <Player>'s party.
-        public static string[] JoinParty { get; } = { "you", "join", "party" };
-        // You leave <Player>'s party.
-        public static string[] YouLeaveParty { get; } = { "you", "leave", "party" };
-        // Cross-world party joined
-        public static string[] JoinCrossParty { get; } = { "cross-world", "party", "joined" };
-        // <Player> has left the party.
-        public static string[] LeftParty { get; } = { "has", "left", "the", "party" };
-        // You have been offered a teleport to <Aetheryte> from <Player>.
-        public static string[] OfferedTeleport { get; } = { "you", "have", "been", "offered", "a", "teleport", "to", "from" };
-        // Record of <boss> kill (n/m) added for <Relic Weapon> - <Stats>.1
-        public static string[] RelicBookStep { get; } = { "record", "of", "added", "for" };
-        // All objectives under the category <Category> - <buff> complete!
-        public static string[] RelicBookComplete { get; } = { "all", "objectives", "under", "the", "category", "complete" };
-        // Palace of the Dead Floors (x-y) has begun
-        public static string[] PalaceOfTheDead { get; } = { "Palace", "Dead", "begun" };
-        // Heaven-on-High Floors (x-y) has begun
-        public static string[] HeavenOnHigh { get; } = { "Heaven-on-High", "begun" };
-        // Total Play time: 249 days, 12 hours, 30 minutes
-        public static string[] Playtime { get; } = { "total", "play", "time" };
+
+        public static LocalizedStrings OvermeldFailure { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "unable", "to", "attach", "the", "materia", "to" }, // You are unable to attach the materia to the <item>. The <materia> was lost.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings MateriaExtract { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "successfully", "a", "from", "the" }, // You succesfully extra a <materia> from the <item>
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings LocationAffects { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "the", "location", "affects", "your" }, // The location affects your...
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings GatheringYield { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "gathering", "yield" }, // ...gathering yield.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings GatherersBoon { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "chance", "of", "receiving", "the", "gatherer's", "boon" }, // ...chance of receiving the Gatherer's boon.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings GatheringAttempts { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "increased", "integrity", "number", "of", "gathering", "attempts" },
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/38?pretty=true">Trade complete.</see>
+        public static LocalizedStrings TradeComplete { get; } = new()
+        {
+            Jpn = new string[] { "トレードが完了しました" },
+            Eng = new string[] { "trade", "complete" },
+            Deu = new string[] { "der", "handel", "wurde", "abgeschlossen" },
+            Fra = new string[] { "l'échange", "est", "terminé" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/36?pretty=true">Trade canceled.</see>
+        public static LocalizedStrings TradeCanceled { get; } = new()
+        {
+            Jpn = new string[] { "トレードがキャンセルされました" },
+            Eng = new string[] { "trade", "canceled" },
+            Deu = new string[] { "l'échange", "été", "annulé" },
+            Fra = new string[] { "der", "handel", "worde", "abgebrochen" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/33?pretty=true">Trade request sent to <player></see>
+        public static LocalizedStrings TradeSent { get; } = new()
+        {
+            Jpn = new string[] { "にトレードを申し込みました" },
+            Eng = new string[] { "trade", "request", "sent", "to" },
+            Deu = new string[] { "du", "hast", "einen", "handel", "angeboten" },
+            Fra = new string[] { "vous", "proposez", "un", "échange" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/32?pretty=true">Awaiting trade confirmation from <player></see>
+        public static LocalizedStrings AwaitingTradeConfirmation { get; } = new()
+        {
+            Jpn = new string[] { "の内容確認をまっています" },
+            Eng = new string[] { "awaiting", "trade", "confirmation", "from" },
+            Deu = new string[] { "warte", "auf", "bestätigung" },
+            Fra = new string[] { "la", "proposition" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/1?pretty=true">You invite <player> to a party.</see>
+        public static LocalizedStrings InviteSent { get; } = new()
+        {
+            Jpn = new string[] { "をパーティに誘いました" },
+            Eng = new string[] { "you", "invite", "to", "a", "party" },
+            Deu = new string[] { "du", "hast", "die", "gruppe", "eingeladen" },
+            Fra = new string[] { "vous", "invitez", "l'équipe" },
+        };
+
+        public static LocalizedStrings InviteeJoins { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "joins", "the", "party" }, // <Player> joins the party.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/73?pretty=true">The party has been disbanded.</see>
+        public static LocalizedStrings PartyDisband { get; } = new()
+        {
+            Jpn = new string[] { "パーティが解散されました" },
+            Eng = new string[] { "the", "party", "has", "been", "disbanded" },
+            Deu = new string[] { "die", "gruppe", "wurde", "aufgelöst" },
+            Fra = new string[] { "l'équipe", "été", "dissoute" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/72?pretty=true">You dissolve the party.</see>
+        public static LocalizedStrings PartyDissolved { get; } = new()
+        {
+            Jpn = new string[] { "パーティを解散しました" },
+            Eng = new string[] { "dissolve", "party" },
+            Deu = new string[] { "deine", "gruppe", "wurde", "aufgelöst" },
+            Fra = new string[] { "l'équipe", "est", "dissoute" },
+        };
+
+        public static LocalizedStrings InvitedBy { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "invites", "you", "to", "a", "party" }, // <Player> invites you to a party.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings JoinParty { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "you", "join", "party" }, // You join <Player>'s party.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/4?pretty=true">You leave the party.</see>
+        public static LocalizedStrings YouLeaveParty { get; } = new()
+        {
+            Jpn = new string[] { "パーティから離脱しました" },
+            Eng = new string[] { "you", "leave", "party" },
+            Deu = new string[] { "du", "hast", "gruppe", "verlassen" },
+            Fra = new string[] { "vous", "quittez", "l'équipe" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/7446?pretty=true">Cross-world party joined</see>
+        public static LocalizedStrings JoinCrossParty { get; } = new()
+        {
+            Jpn = new string[] { "クロスワールドパーティに参加しました" },
+            Eng = new string[] { "cross-world", "party", "joined" },
+            Deu = new string[] { "du", "bist", "einer", "gruppe", "beigetreten" },
+            Fra = new string[] { "vous", "avez", "rejoint", "inter-monde" },
+        };
+
+        public static LocalizedStrings LeftParty { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "has", "left", "the", "party" }, // <Player> has left the party.
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/440?pretty=true">You have been offered a teleport to <Aetheryte> from <Player>.</see>
+        public static LocalizedStrings OfferedTeleport { get; } = new()
+        {
+            Jpn = new string[] { "へのテレポ勧誘を受けました" },
+            Eng = new string[] { "you", "have", "been", "offered", "a", "teleport", "to", "from" },
+            Deu = new string[] { "beitet", "einen", "teleport", "zielort" },
+            Fra = new string[] { "offre", "de", "vous", "téléporter", "destination" },
+        };
+
+        public static LocalizedStrings RelicBookStep { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "record", "of", "added", "for" }, // Record of <boss> kill (n/m) added for <Relic Weapon> - <Stats>.1
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/4400?pretty=true">All objectives under the category <Category> - <buff> complete!</see>
+        public static LocalizedStrings RelicBookComplete { get; } = new()
+        {
+            Jpn = new string[] { "のカテゴリ", "をコンプリートした" },
+            Eng = new string[] { "all", "objectives", "under", "the", "category", "complete" },
+            Deu = new string[] { "alle", "ziele", "kategorie", "ephemeridentafel" },
+            Fra = new string[] { "vous", "avez", "accompli", "toutes", "catégorie" },
+        };
+
+        public static LocalizedStrings PalaceOfTheDead { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "Palace", "Dead", "begun" }, // Palace of the Dead Floors (x-y) has begun
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        public static LocalizedStrings HeavenOnHigh { get; } = new()
+        {
+            Jpn = new string[] { "NeedsLocalization" },
+            Eng = new string[] { "Heaven-on-High", "begun" }, // Heaven-on-High Floors (x-y) has begun
+            Deu = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "NeedsLocalization" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/859?pretty=true">Total Play time: 249 days, 12 hours, 30 minutes</see>
+        public static LocalizedStrings Playtime { get; } = new()
+        {
+            Jpn = new string[] { "累積プレイ時間" },
+            Eng = new string[] { "total", "play", "time" },
+            Deu = new string[] { "gesamtspielzeit" },
+            Fra = new string[] { "temps", "de", "jeu", "total" },
+        };
     }
 }
