@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dalamud.Logging;
+using System;
 using System.Linq;
 
 namespace TidyChat
@@ -23,8 +24,9 @@ namespace TidyChat
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                PluginLog.LogDebug("Encountered error: " + e);
                 return true;
             }
         }

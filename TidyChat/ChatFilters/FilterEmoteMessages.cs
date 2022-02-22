@@ -2,6 +2,7 @@
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using ChatTwo.Code;
+using Dalamud.Logging;
 
 namespace TidyChat
 {
@@ -28,8 +29,9 @@ namespace TidyChat
                 }
                 return false;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                PluginLog.LogDebug("Encountered error: " + e);
                 return true;
             }
         }

@@ -1,4 +1,5 @@
 ﻿using Dalamud;
+using Dalamud.Logging;
 using System;
 using System.Linq;
 
@@ -10,6 +11,7 @@ namespace TidyChat
         {
             try
             {
+                PluginLog.LogDebug("Debug Mode: " + input);
                 if (
                      !configuration.ShowRouletteBonus && Localization.Get(ChatStrings.RouletteBonus).All(input.Contains) ||
                      !configuration.ShowAdventurerInNeedBonus && Localization.Get(ChatStrings.AdventurerInNeedBonus).All(input.Contains) ||
@@ -26,16 +28,25 @@ namespace TidyChat
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input) ||
                      !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch {
                          ClientLanguage.Japanese => input.Contains("詩学"),
+                         ClientLanguage.English => input.Contains("poetics"),
+                         ClientLanguage.German => input.Contains("poesie"),
+                         ClientLanguage.French => input.Contains("poétique"),
                          _ => input.Contains("poetics")
                      } ||
                      !configuration.ShowObtainedAphorismTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("経典"),
+                         ClientLanguage.English => input.Contains("aphorism"),
+                         ClientLanguage.German => input.Contains("aphorismus"),
+                         ClientLanguage.French => input.Contains("aphoristique"),
                          _ => input.Contains("aphorism")
                      } ||
                      !configuration.ShowObtainedAstronomyTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("天文"),
+                         ClientLanguage.English => input.Contains("astronomy"),
+                         ClientLanguage.German => input.Contains("astronomie"),
+                         ClientLanguage.French => input.Contains("astronomique"),
                          _ => input.Contains("astronomy")
                      } ||
                      !configuration.ShowOthersObtain && !(input.StartsWith("you ")) && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input) ||
@@ -49,8 +60,9 @@ namespace TidyChat
                 return false;
             }
             // If we somehow encounter an error - allow the message
-            catch (Exception)
+            catch (Exception e)
             {
+                PluginLog.LogDebug("Encountered error: " + e);
                 return false;
             }
         }
