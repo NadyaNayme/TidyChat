@@ -22,7 +22,7 @@
 			Jpn = new string("インスタンスエリア"),
 			Eng = new string("You are now in instance:"),
 			Deu = new string("Du bist nun in dem instanziierten:"),
-			Fra = new string("La zone instancié:"),
+			Fra = new string("La zone instanciée:"),
 		};
 
 		public static LocalizedTidyStrings CopiedToClipboard { get; } = new()
@@ -38,7 +38,7 @@
 			Jpn = new string("ギルドヘストから入手"),
 			Eng = new string("a Guildhest"),
 			Deu = new string("ein Gildengeheiß"),
-			Fra = new string("Guilde prendre"),
+			Fra = new string("une opération de guilde"),
 		};
 
 		public static LocalizedTidyStrings PvPDuty { get; } = new()
@@ -46,7 +46,7 @@
 			Jpn = new string("NeedsLocalization"),
 			Eng = new string("a PvP duty"),
 			Deu = new string("aus einer PVP"),
-			Fra = new string("de jcj"),
+			Fra = new string("une mission JcJ"),
 		};
 
 		/// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>

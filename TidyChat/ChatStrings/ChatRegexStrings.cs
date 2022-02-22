@@ -86,7 +86,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Deu = new Regex(@"(flottentaler|ordenstaler|legionstaler) erhalten",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"(vous|you) obtenez \d{1,5} sceaux (de|des) (Immortels|Vipèrs|Maelstrom)\.$",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,5} sceaux (de|des) (Immortels|Deux Vipères|Maelstrom)\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 

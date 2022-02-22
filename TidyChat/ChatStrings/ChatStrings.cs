@@ -128,7 +128,7 @@
             Jpn = new string[] { "you", "を完成させた！" },
             Eng = new string[] { "you", "synthesize" }, // You synthesize a/an <item>
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "fabriquez" }, // Vous fabriquez un <item>
         };
 
         public static LocalizedStrings ObtainedTomestones { get; } = new()
@@ -151,7 +151,7 @@
             Jpn = new string[] { "レベルアップ！", "you", "になった。" },
             Eng = new string[] { "you", "level" }, // You attain level <level>.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "vous", "niveau" },
+            Fra = new string[] { "vous", "niveau" }, // Vous atteignez le niveau <level>!
         };
 
         public static LocalizedStrings OtherAttainsLevel { get; } = new()
@@ -167,7 +167,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "learn" }, // You learn <ability>.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "apprenez" }, // Vous apprenez <ability>.
         };
 
         /// <see href="https://xivapi.com/LogMessage/5260?pretty=true">Battle commencing in <time> seconds.</see>

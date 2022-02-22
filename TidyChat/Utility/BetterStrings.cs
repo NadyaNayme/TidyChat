@@ -35,6 +35,8 @@ namespace TidyChat.Utility
 
                     string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " from completing " + Localization.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
 
+                    // TODO: Localize this
+                    // FR: Vous avez reçu <#> honneurs en ayant participé à (...)
                     stringBuilder.AddText($"You received {TidyStrings.NumberOfCommendations} {commendations}{dutyName}");
 
                     chatGui.Print(stringBuilder.BuiltString);
