@@ -32,7 +32,7 @@
             Jpn = new string[] { "全員が特務隊長から報酬を受け取る" },
             Eng = new string[] { "the", "guildhest", "will", "end", "soon" },
             Deu = new string[] { "das", "gildengeheiß", "endet", "alle", "teilnehmer" },
-            Fra = new string[] { "guilde", "prendre", "fin" },
+            Fra = new string[] { "guilde", "allez", "quitter" },
         };
 
         // With the chat mode in Say, enter a phrase containing "Some Words"
@@ -74,7 +74,7 @@
             Jpn = new string[] { "you", "ポイントの経験値" },
             Eng = new string[] { "you", "experience", "points" }, //You gain \d <class> experience points
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "gagnez", "points", "d'expérience" },
         };
 
         /// <see href="https://xivapi.com/LogMessage/2246?pretty=true">A bonus of 1,200,000 experience points and 12,000 gil has been awards for using the duty roulette.</see>
@@ -116,12 +116,12 @@
             Deu = new string[] { "du", "kannst", "keine" , "wolfsmarken" },
             Fra = new string[] { "marques", "de", "loup" },
         };
-
+        
         public static LocalizedStrings EarnAchievement { get; } = new() {
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "the", "achievement" }, // You earn the achievement <achievement>
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "accompli", "haut", "fait" }, // a accompli le haut fait “ Élémentaliste légendaire”!
         };
 
         public static LocalizedStrings YouSynthesize { get; } = new() {
@@ -136,7 +136,7 @@
             Jpn = new string[] { "アラガントームストーン", "手", "入", "た。"}, // (?:手に入れ|入手し)た
             Eng = new string[] { "you", "obtain", "allagan", "tomestones", "of" }, // You obtain Allagan Tomestones of <type>
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "obtenez", "mémoquartz" },
         };
 
         /// <see href="https://xivapi.com/LogMessage/3794?pretty=true">Ready Check Complete.</see>
@@ -151,7 +151,7 @@
             Jpn = new string[] { "レベルアップ！", "you", "になった。" },
             Eng = new string[] { "you", "level" }, // You attain level <level>.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "niveau" },
         };
 
         public static LocalizedStrings OtherAttainsLevel { get; } = new()
@@ -160,7 +160,7 @@
             Jpn = new string[] { "レベルアップ！", " ", "になった。" },
             Eng = new string[] { "attains", "level" }, // <Player> attains level 33!
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "atteint", "niveau" },
         };
 
         public static LocalizedStrings YouLearnAbility { get; } = new() {
@@ -216,7 +216,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "unable", "to", "attach", "the", "materia", "to" }, // You are unable to attach the materia to the <item>. The <materia> was lost.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "sertissage", "vous", "avez", "perdu" }, // Le sertissage de la  lorica d'hoplomachus classique a échoué... Vous avez perdu 2  matérias de la parade stratégique IX. 
         };
 
         public static LocalizedStrings MateriaExtract { get; } = new()
@@ -224,7 +224,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "successfully", "a", "from", "the" }, // You succesfully extra a <materia> from the <item>
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "matérialisez", "obtenez" }, // Vous matérialisez un  couteau de cuisine en chondrite et obtenez une  matéria du contrôle IX.
         };
 
         public static LocalizedStrings LocationAffects { get; } = new()
@@ -232,7 +232,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "the", "location", "affects", "your" }, // The location affects your...
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "propriétés", "lieu", "vous","conférent" }, // Les propriétés du lieu vous confèrent (...)
         };
 
         public static LocalizedStrings GatheringYield { get; } = new()
@@ -240,7 +240,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "gathering", "yield" }, // ...gathering yield.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "plus", "importantes", "récoltes" }, //  Les propriétés du lieu vous confèrent de plus importantes récoltes!
         };
 
         public static LocalizedStrings GatherersBoon { get; } = new()
@@ -248,7 +248,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "chance", "of", "receiving", "the", "gatherer's", "boon" }, // ...chance of receiving the Gatherer's boon.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "plus", "grandes", "chances" }, // Les propriétés du lieu vous confèrent de plus grandes chances de récolte supplémentaire!
         };
 
         public static LocalizedStrings GatheringAttempts { get; } = new()
@@ -256,7 +256,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "increased", "integrity", "number", "of", "gathering", "attempts" },
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "tentatives", "récolte", "supplémentaires" }, // Les propriétés du lieu vous confèrent des tentatives de récolte supplémentaires!
         };
 
         /// <see href="https://xivapi.com/LogMessage/38?pretty=true">Trade complete.</see>
@@ -309,7 +309,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "joins", "the", "party" }, // <Player> joins the party.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "rejoint", "l'équipe" }, // <Player> rejoint l'équipe.
         };
 
         /// <see href="https://xivapi.com/LogMessage/73?pretty=true">The party has been disbanded.</see>
@@ -335,7 +335,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "invites", "you", "to", "a", "party" }, // <Player> invites you to a party.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "dans", "son", "équipe" }, // <Player> vous invite dans son équipe.
         };
 
         public static LocalizedStrings JoinParty { get; } = new()
@@ -343,7 +343,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "you", "join", "party" }, // You join <Player>'s party.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "vous", "rejoignez", "l'équipe" }, // Vous rejoignez l'équipe de <Player>.
         };
 
         /// <see href="https://xivapi.com/LogMessage/4?pretty=true">You leave the party.</see>
@@ -369,7 +369,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "has", "left", "the", "party" }, // <Player> has left the party.
             Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Fra = new string[] { "quitté", "l'équipe" }, // <Player> a quitté l'équipe.
         };
 
         /// <see href="https://xivapi.com/LogMessage/440?pretty=true">You have been offered a teleport to <Aetheryte> from <Player>.</see>
@@ -411,7 +411,7 @@
             Jpn = new string[] { "NeedsLocalization" },
             Eng = new string[] { "heaven-on-high", "begun" }, // Heaven-on-High Floors (x-y) has begun
             Deu = new string[] { "himmelssäule" },
-            Fra = new string[] { "pillier", "des", "cieux" },
+            Fra = new string[] { "pilier", "des", "cieux" },
         };
 
         /// <see href="https://xivapi.com/LogMessage/859?pretty=true">Total Play time: 249 days, 12 hours, 30 minutes</see>

@@ -64,7 +64,7 @@
 			Jpn = new string("NeedsLocalization"),
 			Eng = new string("Heaven-on-High"),
 			Deu = new string("Himmelssäule"),
-			Fra = new string("Pillier des Cieux"),
+			Fra = new string("Pilier des Cieux"),
 		};
 
 		public static string LastDuty { get; set; } = "";
