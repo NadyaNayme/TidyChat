@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Logging;
 
 namespace TidyChat.Utility
 {
@@ -8,8 +9,7 @@ namespace TidyChat.Utility
         // Make everything lowercase so I don't have to think about which words are capitalized in the message
         public static string ToLowercase(SeString message)
         {
-            string input = message.TextValue.ToLower();
-            return input;
+            return message.TextValue.ToLower();            
         }
 
        /* 
@@ -29,7 +29,7 @@ namespace TidyChat.Utility
             Regex FNLI = new(FirstNameLastInitial.ToLower());
             Regex FILN = new(FirstInitialLastName.ToLower());
             Regex IO = new(InitialsOnly.ToLower());
-            normalizedInput = normalizedInput.Replace($"{configuration.PlayerName.ToLower()}", "you");
+            normalizedInput = normalizedInput.Replace($"{configuration.PlayerName}", "you");
             normalizedInput = FNLI.Replace(normalizedInput, "you", 1);
             normalizedInput = FILN.Replace(normalizedInput, "you", 1);
             normalizedInput = IO.Replace(normalizedInput, "you", 1);
