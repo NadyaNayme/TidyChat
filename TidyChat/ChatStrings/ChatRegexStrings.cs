@@ -142,11 +142,17 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
+        /// <see href="https://xivapi.com/LogMessage/700?pretty=true">Gearset equipped.</see>
+        // TODO: German/French need to be tested and may not use quotes for the gearsets.
         public static LocalizedRegex GearsetEquipped { get; } = new()
         {
             Jpn = new Regex(@"」に装備変更しました。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"“(.*)” equipped\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"Du hast „(.*)“ angelegt\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"vous vous équipez (.*)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
