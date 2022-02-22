@@ -174,7 +174,7 @@ namespace TidyChat
         public static LocalizedRegex GatheringStartEnd { get; } = new()
         {
             Jpn = new Regex(@"",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"you (begin|finish) (mining|quarrying|logging|harvesting)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Deu = new Regex(@"",
@@ -192,7 +192,7 @@ namespace TidyChat
         public static LocalizedRegex SealedOff { get; } = new()
         {
             Jpn = new Regex(@"(の封鎖まであと|が封鎖された！|の封鎖が解かれた)",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"(will be sealed off in 15 seconds|is sealed off|is no longer sealed)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Deu = new Regex(@"((sekunde|sekunden)\, bis sich .+ schließt\.|hat sich geschlossen\.|öffnet sich wieder\.)",
