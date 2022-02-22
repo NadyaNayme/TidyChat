@@ -175,19 +175,31 @@ namespace TidyChat
         {
             Jpn = new Regex(@"",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
-            Eng = new Regex(@@"you (begin|finish) (mining|quarrying|logging|harvesting)\.",
+            Eng = new Regex(@"you (begin|finish) (mining|quarrying|logging|harvesting)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Deu = new Regex(@@"vous (commencez|arrêtez) (á extraire|d'extraire) (du minerai|des pierres|couper du bois|faucher de la végétation)\.",
+            Deu = new Regex(@"",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@@"",
+            Fra = new Regex(@"vous (commencez|arrêtez) (á extraire|d'extraire) (du minerai|des pierres|couper du bois|faucher de la végétation)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
         public static Regex AetherialReductionSands { get; } = new Regex(@".+handfuls of .+ .+sand are obtained\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
 
-        public static Regex SealedOff { get; } = new Regex(@"(will be sealed off in 15 seconds|is sealed off|is no longer sealed)",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
+        /// <see href="https://xivapi.com/LogMessage/2012?pretty=true">Area will be sealed off in 15 seconds</see>
+        /// <seealso href="https://xivapi.com/LogMessage/2013?pretty=true">Area is sealed off!</see>
+        /// <seealso href="https://xivapi.com/LogMessage/2014?pretty=true">Area is no longer sealed!</see>
+        public static LocalizedRegex SealedOff { get; } = new()
+        {
+            Jpn = new Regex(@"(の封鎖まであと|が封鎖された！|の封鎖が解かれた)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture)
+            Eng = new Regex(@"(will be sealed off in 15 seconds|is sealed off|is no longer sealed)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"((sekunde|sekunden)\, bis sich .+ schließt\.|hat sich geschlossen\.|öffnet sich wieder\.)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"(dans \d{1,2} secondes\.|Fermeture|Ouverture)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
 
         // Name S. gains \d{1,4} (+\d{1,2}%) experience points.
         public static LocalizedRegex GainExperiencePoints { get; } = new()
@@ -203,7 +215,7 @@ namespace TidyChat
         {
             Jpn = new Regex(@"がログアウトしました。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Eng = new Regex(@"(.* has logged out\.)",
+            Eng = new Regex(@"has logged out\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Deu = new Regex(@"hat sich ausgeloggt\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
