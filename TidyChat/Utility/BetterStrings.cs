@@ -33,7 +33,7 @@ namespace TidyChat.Utility
                     }
                     string commendations = $"commendation{(TidyStrings.NumberOfCommendations == 1 ? "" : "s")}";
 
-                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " from completing " + TidyStrings.LastDuty + "." : ".")}";
+                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " from completing " + Localization.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
 
                     stringBuilder.AddText($"You received {TidyStrings.NumberOfCommendations} {commendations}{dutyName}");
 
