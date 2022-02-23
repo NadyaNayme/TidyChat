@@ -3,16 +3,21 @@
 # Tidy Chat
 
 - Remove all of the redundant system messaging, leaving only important system messages
-- Block emote spam
-- Block spammy "You obtain" messages
-- Block spammy "You cast your lot" messages when rolling for loot
-- Improve /instance messaging ![Better Instance messaging](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/instance.png)
-- Improve received commendations messaging by condensing all earned commendations into a single message ![Condensed Commendations](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/commendations.png)
+- Better /instance messaging ![Better Instance messaging](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/instance.png)
+- Better received commendations messaging by condensing all earned commendations into a single message ![Condensed Commendations](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/commendations.png)
 - Quality of Life improvement for quests that require you to `/say some phrase` by rewording it to be copy/pastable ![Autocopy /say text](https://raw.githubusercontent.com/NadyaNayme/TidyChat/master/images/autocopy.png)
-
+- Blocks emote spam among other players
+- Blocks spammy "You obtain" messages
+- Blocks spammy "You cast your lot" messages when rolling for loot
+- Blocks spammy crafting/synthesis messages other than "You synthesize <item>" (for use with `Chat Alerts`)
+- Blocks spammy gathering messages
+- Blocks spammy progress messages like gaining experience or leveling up
+- Blocks Free Company Logout messages
+- Better Novice Network join/leave text
+  
 ## Installation
 
-We're in Official Testing now! You can now enable `Get plugin testing builds` in your Dalamud settings and install from the plugin installer. \o/
+Open Dalamud Plugins (`/xlplugins` or open it using the System Menu), browse to `Tidy Chat` and click install.
 
 ## Open Settings
 
