@@ -15,11 +15,11 @@ namespace TidyChat.Utility
                 switch (Localization.Language)
                 {
                     case ClientLanguage.Japanese:
-                        //    match here then grab everything up to "」"
+                        //    match here then grab everything up to "」" starting from "「"
                         //         |
                         //         v
                         // 「<duty>」 has ended.
-                        return message.TextValue[..(message.TextValue.LastIndexOf(" ") - 4)];
+                        return message.TextValue.Substring(message.TextValue.IndexOf("「"), message.TextValue.LastIndexOf("」"));
                     case ClientLanguage.English:
                         //      match here then go back 4 characters to capture everything before " has"
                         //           |
@@ -27,17 +27,17 @@ namespace TidyChat.Utility
                         // <duty> has ended.
                         return message.TextValue[..(message.TextValue.LastIndexOf(" ") - 4)];
                     case ClientLanguage.German:
-                        //   match here then grab everything up to "“"
+                        //   match here then grab everything up to "“" starting from "„"
                         //        |
                         //        v
                         // „<duty>“ wurde beendet.
-                        return message.TextValue[..(message.TextValue.LastIndexOf("“"))];
+                        return message.TextValue.Substring(message.TextValue.IndexOf("„"), message.TextValue.LastIndexOf("“"));
                     case ClientLanguage.French:
-                        //              match here then grab everything up to "“"
+                        //              match here then grab everything up to "“" starting from "“"
                         //                   |
                         //                   v
                         // La mission “<duty>” prend fin.
-                        return message.TextValue[..(message.TextValue.LastIndexOf("”"))];
+                        return message.TextValue.Substring(message.TextValue.IndexOf("“"), message.TextValue.LastIndexOf("”"));
                     default:
                         // This should be unreachable but if we somehow reach it let's keep the last stored duty
                         return Localization.GetTidy(TidyStrings.LastDuty);

@@ -108,7 +108,7 @@ namespace TidyChat
         public static Regex ObtainedMaterials { get; } = new Regex(@"You (obtain|obtains) (.*) materials\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
 
-        public static Regex ObtainedShards { get; } = new Regex(@"You (obtain|obtains) \d{1,3} .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
+        public static Regex ObtainedShards { get; } = new Regex(@"You (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
 
         public static LocalizedRegex ObtainedTribalCurrency { get; } = new()
