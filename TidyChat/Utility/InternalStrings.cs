@@ -2,7 +2,7 @@
 {
 	internal static class InternalStrings
 	{
-		public const string Version = "0.1.0.8";
+		public const string Version = "0.1.0.9";
 
 		public const string PluginName = "Tidy Chat";
 

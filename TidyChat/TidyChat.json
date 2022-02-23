@@ -2,9 +2,9 @@
   "Author": "Nana",
   "Name": "Tidy Chat",
   "InternalName": "TidyChat",
-  "AssemblyVersion": "0.1.0.8",
-  "Punchline": "Keeps your chat tidy. (EN Only)",
-  "Description": "Various chat filters for a less cluttered chat (EN Only)",
+  "AssemblyVersion": "0.1.0.9",
+  "Punchline": "Keeps your chat tidy.",
+  "Description": "In-depth filters for a less cluttered chat.",
   "ApplicableVersion": "any",
   "RepoUrl": "https://github.com/NadyaNayme/TidyChat",
   "Tags": [
