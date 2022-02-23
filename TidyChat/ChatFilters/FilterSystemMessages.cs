@@ -45,6 +45,7 @@ namespace TidyChat
                      configuration.ShowInvitedBy && Localization.Get(ChatStrings.InvitedBy).All(input.Contains) ||
                      configuration.ShowJoinParty && Localization.Get(ChatStrings.JoinParty).All(input.Contains) ||
                      configuration.ShowJoinParty && Localization.Get(ChatStrings.JoinCrossParty).All(input.Contains) ||
+                     configuration.ShowHuntSlain && Localization.Get(ChatStrings.HuntSlain).All(input.Contains) ||
                      configuration.ShowRelicBookStep && Localization.Get(ChatStrings.RelicBookStep).All(input.Contains) ||
                      configuration.ShowRelicBookComplete && Localization.Get(ChatStrings.RelicBookComplete).All(input.Contains) ||
                      // not optional so always run last

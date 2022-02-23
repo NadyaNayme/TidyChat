@@ -133,6 +133,22 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("eg. All objectives under the category Dungeons for <Relic Weapon> - Strength +2 complete!");
 
+                var showHuntSlain = configuration.ShowHuntSlain;
+                if (ImGui.Checkbox("Show hunt mark slain messages", ref showHuntSlain))
+                {
+                    configuration.ShowHuntSlain = showHuntSlain;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. Hunt mark <mark> slain! 1/3");
+
+                var showCompletionTime = configuration.ShowCompletionTime;
+                if (ImGui.Checkbox("Show completion time when unrestricted party is active", ref showCompletionTime))
+                {
+                    configuration.ShowCompletionTime = showCompletionTime;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. <Duty> completion time: 00:30");
+
                 var showVolumeControlMessage = configuration.ShowVolumeControlMessage;
                 if (ImGui.Checkbox("Show volume control messages", ref showVolumeControlMessage))
                 {

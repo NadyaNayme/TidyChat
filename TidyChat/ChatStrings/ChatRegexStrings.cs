@@ -14,9 +14,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Deu = new Regex(@"NeedsLocalization",
+            Deu = new Regex(@"(du|you) hast (\d{1,3},)?\d{1,3} gil erhalten\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"(vous|you) obtenez (\d{1,3}\s)?\d{1,6} gils\.$",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,6} gils\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
@@ -28,7 +28,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Deu = new Regex(@"(\d{1,3},)?\d{1,3} MGP erhalten\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"^(vous|you) (a|avez) reçu (\d{1,3}\s)?\d{1,3} PGS\.$",
+            Fra = new Regex(@"^(vous|you) (a|avez) reçu \d{1,6} PGS\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
@@ -44,9 +44,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} Allied Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Deu = new Regex(@"\d{1,4} jagdabzeichen erhalten\.",
+            Deu = new Regex(@"(\d{1,3},)?\d{1,3} jagdabzeichen erhalten\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"(vous|you) obtenez (\d{1,3}\s)?\d{1,3} insignes alliés\.$",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,6} insignes alliés\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
@@ -57,9 +57,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} Centurio Seals\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Deu = new Regex(@"\d{1,4} centurio-abzeichen erhalten\.",
+            Deu = new Regex(@"(\d{1,3},)?\d{1,3} centurio-abzeichen erhalten\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"(vous|you) obtenez (\d{1,3}\s)?\d{1,3} insignes centurio\.$",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,6} insignes centurio\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
@@ -69,9 +69,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} sacks of Nuts\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Deu = new Regex(@"NeedsLocalization",
+            Deu = new Regex(@"(\d{1,3},)?\d{1,3} kupo-trophaë\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"(vous|you) obtenez (\d{1,3}\s)?\d{1,3} insignes de chasse\.$",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,6} insignes de chasse\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
@@ -86,7 +86,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Deu = new Regex(@"(flottentaler|ordenstaler|legionstaler) erhalten",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"(vous|you) obtenez \d{1,5} sceaux (de|des) (Immortels|Deux Vipères|Maelstrom)\.$",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,6} sceaux (de|des) (Immortels|Deux Vipères|Maelstrom)\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
@@ -111,8 +111,17 @@ namespace TidyChat
         public static Regex ObtainedShards { get; } = new Regex(@"You (obtain|obtains) \d{1,3} .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
 
-        public static Regex ObtainedTribalCurrency { get; } = new Regex(@"You (obtain|obtains) (a|an|2) (Steel Amalj'ok|Steel Amalj'oks|Sylphic Goldleaf|Sylphic Goldleaves|Titan Cobaltpiece|Titan Cobaltpieces|Rainbowtide Psashp|Rainbowtide Psashps|Ixali oaknot|Ixali oaknots|Vanu Whitebone|Vanu Whitebones|Black Copper Gil|Black Copper Gils|Carved Kupo Nut|Carved Kupo Nuts|Kojin Sango|Kojin Sangos|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu Koban|Namazu Kobans|Fae Fancies|Fae Fancy|Qitari Compliment|Qitari Compliments|Hammered Frogment|Hammered Frogments)\.",
-          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
+        public static LocalizedRegex ObtainedTribalCurrency { get; } = new()
+        {
+            Jpn = new Regex(@"NeedsTranslation",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"You (obtain|obtains) (a|an|2) (Steel Amalj'ok|Steel Amalj'oks|Sylphic Goldleaf|Sylphic Goldleaves|Titan Cobaltpiece|Titan Cobaltpieces|Rainbowtide Psashp|Rainbowtide Psashps|Ixali oaknot|Ixali oaknots|Vanu Whitebone|Vanu Whitebones|Black Copper Gil|Black Copper Gils|Carved Kupo Nut|Carved Kupo Nuts|Kojin Sango|Kojin Sangos|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu Koban|Namazu Kobans|Fae Fancies|Fae Fancy|Qitari Compliment|Qitari Compliments|Hammered Frogment|Hammered Frogments)\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"(du|you) hast (einen|2) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze) erhalten\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"NeedsTranslation",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
 
         public static LocalizedRegex PlayerTargetedEmote { get; } = new()
         {
@@ -230,9 +239,9 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
             Eng = new Regex(@"You (obtain|obtains) \d{1,3} Allagan tomestones of (\w+)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Deu = new Regex(@"Du hast \d{1,3} (Allagischer|Allagisch|Allagischa) (Stein|Steine) (der|des) (\w+) erhalten\.",
+            Deu = new Regex(@"(du|you) hast \d{1,3} (Allagischer|Allagisch|Allagische|Allagischa) (Stein|Steine) (der|des) (\w+) erhalten\.$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
-            Fra = new Regex(@"Vous obtenez \d{1,3} Mémoquartz allagois (\w+)",
+            Fra = new Regex(@"(vous|you) obtenez \d{1,3} Mémoquartz allagois (\w+)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 

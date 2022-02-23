@@ -1,6 +1,7 @@
 ﻿using Dalamud.Configuration;
 using Dalamud.Plugin;
 using System;
+using System.Collections.Generic;
 
 namespace TidyChat
 {
@@ -11,6 +12,9 @@ namespace TidyChat
         public bool Enabled { get; set; } = true;
         public bool IncludeChatTag { get; set; } = true;
         public string PlayerName { get; set; } = "";
+        public List<PlayerName> Whitelist { get; set; } = new();
+        public bool SentByWhitelistPlayer { get; set; } = true;
+        public bool TargetingWhitelistPlayer { get; set; } = true;
         public bool NoCoffee { get; set; } = false;
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
@@ -62,6 +66,8 @@ namespace TidyChat
         public bool ShowJoinParty { get; set; } = false;
         public bool ShowOfferedTeleport { get; set; } = false;
         public bool ShowSealedOff { get; set; } = false;
+        public bool ShowHuntSlain { get; set; } = false;
+        public bool ShowCompletionTime { get; set; } = false;
         public bool ShowRelicBookStep { get; set; } = false;
         public bool ShowRelicBookComplete { get; set; } = false;
         #endregion

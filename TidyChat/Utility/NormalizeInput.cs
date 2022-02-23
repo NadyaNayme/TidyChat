@@ -26,9 +26,9 @@ namespace TidyChat.Utility
             string FirstNameLastInitial = $"{configuration.PlayerName.Split(' ')[0]} {configuration.PlayerName.Split(' ')[1][0]}.";
             string FirstInitialLastName = $"{configuration.PlayerName.Split(' ')[0][0]}. {configuration.PlayerName.Split(' ')[1]}";
             string InitialsOnly = $"{configuration.PlayerName.Split(' ')[0][0]}. {configuration.PlayerName.Split(' ')[1][0]}.";
-            Regex FNLI = new(FirstNameLastInitial.ToLower());
-            Regex FILN = new(FirstInitialLastName.ToLower());
-            Regex IO = new(InitialsOnly.ToLower());
+            Regex FNLI = new(@"(^|\s)" + FirstNameLastInitial.ToLower() + @"(\s|$)");
+            Regex FILN = new(@"(^|\s)" + FirstInitialLastName.ToLower() + @"(\s|$)");
+            Regex IO = new(@"(^|\s)" + InitialsOnly.ToLower() + @"(\s|$)");
             normalizedInput = normalizedInput.Replace($"{configuration.PlayerName}", "you");
             normalizedInput = FNLI.Replace(normalizedInput, "you", 1);
             normalizedInput = FILN.Replace(normalizedInput, "you", 1);

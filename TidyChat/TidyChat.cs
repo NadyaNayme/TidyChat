@@ -197,6 +197,28 @@ namespace TidyChat
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
             #endregion Channel Filters
+
+            #region Whitelist
+            if (Configuration.Whitelist.Count > 0)
+            {
+                foreach (var player in Configuration.Whitelist) {
+                    if (Configuration.SentByWhitelistPlayer && sender.TextValue == player.FirstName + " " + player.LastName)
+                    {
+                        // The message was sent by a whitelisted player
+                        isHandled = false;
+                    }
+                    else if (Configuration.TargetingWhitelistPlayer && player.ServerName.Length > 0 && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName) && message.TextValue.Contains(player.ServerName))
+                    {
+                        // The whitelisted player name is limited to a server
+                        isHandled = false;
+                    }
+                    else if (Configuration.TargetingWhitelistPlayer && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName)) {
+                        // The whitelisted player isn't limited to a server
+                        isHandled = false;
+                    }
+                }
+            }
+            #endregion Whitelist
         }
 
         private void SetPlayerName() {

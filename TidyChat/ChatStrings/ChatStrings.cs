@@ -381,12 +381,13 @@
             Fra = new string[] { "offre", "de", "vous", "téléporter", "destination" },
         };
 
+        // https://xivapi.com/LogMessage/4402?pretty=true
         public static LocalizedStrings RelicBookStep { get; } = new()
         {
-            Jpn = new string[] { "NeedsLocalization" },
+            Jpn = new string[] { "黄道十二文書" },
             Eng = new string[] { "record", "of", "added", "for" }, // Record of <boss> kill (n/m) added for <Relic Weapon> - <Stats>.1
-            Deu = new string[] { "NeedsLocalization" },
-            Fra = new string[] { "NeedsLocalization" },
+            Deu = new string[] { "ephemeridentafel", "wurde", "beseitigt" },
+            Fra = new string[] { "vous", "notez", "livre" },
         };
 
         /// <see href="https://xivapi.com/LogMessage/4400?pretty=true">All objectives under the category <Category> - <buff> complete!</see>
@@ -396,6 +397,24 @@
             Eng = new string[] { "all", "objectives", "under", "the", "category", "complete" },
             Deu = new string[] { "alle", "ziele", "kategorie", "ephemeridentafel" },
             Fra = new string[] { "vous", "avez", "accompli", "toutes", "catégorie" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/4411?pretty=true">Hunt mark <mark> slain! #/#</see>
+        public static LocalizedStrings HuntSlain { get; } = new()
+        {
+            Jpn = new string[] { "モブハント" },
+            Eng = new string[] { "hunt", "mark", "slain" },
+            Deu = new string[] { "ziel", "der", "hohen", "jagd", "erlgt" },
+            Fra = new string[] { "contrats", "collège", "glaneurs" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/4679?pretty=true">Completion time: ##:##</see>
+        public static LocalizedStrings CompletionTime { get; } = new()
+        {
+            Jpn = new string[] { "コンプリートタイム" },
+            Eng = new string[] { "completion", "time" },
+            Deu = new string[] { "wurde", "in", "abgeschlossen" },
+            Fra = new string[] { "temps", "d'incursion", "pour"},
         };
 
         public static LocalizedStrings PalaceOfTheDead { get; } = new()

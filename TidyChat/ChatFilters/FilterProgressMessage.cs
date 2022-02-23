@@ -11,6 +11,7 @@ namespace TidyChat
             try
             {
                 if (
+                     configuration.ShowCompletionTime && Localization.Get(ChatStrings.CompletionTime).All(input.Contains) ||
                      configuration.ShowGainExperience && Localization.Get(ChatStrings.GainExperiencePoints).All(input.Contains) ||
                      configuration.ShowGainExperience && Localization.Get(ChatRegexStrings.GainExperiencePoints).IsMatch(input) ||
                      configuration.ShowGainPvpExp && Localization.Get(ChatStrings.GainPvpExp).All(input.Contains) ||
