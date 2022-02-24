@@ -13,6 +13,9 @@ using Better = TidyChat.Utility.BetterStrings;
 
 using System.Linq;
 using ChatTwo.Code;
+using System.Collections.Generic;
+using Dalamud.Logging;
+using System;
 
 namespace TidyChat
 
@@ -30,6 +33,8 @@ namespace TidyChat
         private Configuration Configuration { get; init; }
         private PluginUI PluginUi { get; init; }
         private ClientState ClientState { get; init; }
+
+        private Stack<string> ChatHistory { get; init; } = new();
 
         #region Chat2 ChatTypes
         // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
@@ -201,7 +206,8 @@ namespace TidyChat
             #region Whitelist
             if (Configuration.Whitelist.Count > 0)
             {
-                foreach (var player in Configuration.Whitelist) {
+                foreach (var player in Configuration.Whitelist)
+                {
                     if (Configuration.SentByWhitelistPlayer && sender.TextValue == player.FirstName + " " + player.LastName)
                     {
                         // The message was sent by a whitelisted player
@@ -212,13 +218,44 @@ namespace TidyChat
                         // The whitelisted player name is limited to a server
                         isHandled = false;
                     }
-                    else if (Configuration.TargetingWhitelistPlayer && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName)) {
+                    else if (Configuration.TargetingWhitelistPlayer && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName))
+                    {
                         // The whitelisted player isn't limited to a server
                         isHandled = false;
                     }
                 }
             }
             #endregion Whitelist
+
+            #region Duplicate Message Spam Filter
+            if (Configuration.ChatHistoryFilter && !isHandled && chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote || chatType is ChatType.Echo)
+            {
+                try
+                {
+                    string currentMessage = $"{sender.TextValue}: {message.TextValue}";
+                    if (ChatHistory.Contains(currentMessage))
+                    {
+                        PluginLog.LogDebug($"Found message in chat history and blocked: {currentMessage}");
+                        isHandled = true;
+                    }
+                    else if (ChatHistory.Count > Configuration.ChatHistoryLength)
+                    {
+                        PluginLog.LogDebug("Chat history reached limit. Removed oldest message and added:" + currentMessage);
+                        ChatHistory.Pop();
+                        ChatHistory.Push(currentMessage);
+                    }
+                    else
+                    {
+                        PluginLog.LogDebug("Added:" + currentMessage);
+                        ChatHistory.Push(currentMessage);
+                    }
+                }
+                catch (Exception e)
+                {
+                    PluginLog.LogDebug("Encountered error: " + e);
+                }
+            }
+            #endregion Duplicate Message Spam Filter
         }
 
         private void SetPlayerName() {

@@ -22,19 +22,41 @@ namespace TidyChat.Settings.Tabs
                 configuration.Save();
             }
 
-            var includeChatTag = configuration.IncludeChatTag;
-            if (ImGui.Checkbox("Add [TidyChat] tag to modified messages", ref includeChatTag))
-            {
-                configuration.IncludeChatTag = includeChatTag;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("Prepends messages sent or modified by Tidy Chat with [TidyChat]");
-
             ImGui.Separator();
             ImGui.Spacing();
 
+            if (ImGui.CollapsingHeader("Chat History"))
+            {
+                var chatHistoryFilter = configuration.ChatHistoryFilter;
+                if (ImGui.Checkbox("Enable Chat History Filter", ref chatHistoryFilter))
+                {
+                    configuration.ChatHistoryFilter = chatHistoryFilter;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker($"If a message was sent within the last {configuration.ChatHistoryLength} messages it will be filtered");
+
+
+                ImGui.TextUnformatted("Number of messages to keep in chat history:");
+                var chatHistoryLength = configuration.ChatHistoryLength;
+                ImGui.SetNextItemWidth(120f);
+                if (ImGui.InputInt("", ref chatHistoryLength))
+                {
+                    configuration.ChatHistoryLength = chatHistoryLength;
+                    configuration.Save();
+                }
+                ImGui.TextUnformatted("WARNING: Having this number set too high may impact game performance.\nIt's recommended to keep it at 50 or lower.");
+            }
+
+            ImGui.Spacing();
             if (ImGui.CollapsingHeader("Messaging Improvements"))
             {
+                var includeChatTag = configuration.IncludeChatTag;
+                if (ImGui.Checkbox("Add [TidyChat] tag to modified messages", ref includeChatTag))
+                {
+                    configuration.IncludeChatTag = includeChatTag;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Prepends messages sent or modified by Tidy Chat with [TidyChat]");
 
                 var betterInstanceMessage = configuration.BetterInstanceMessage;
                 if (ImGui.Checkbox("Improved /instance messaging", ref betterInstanceMessage))

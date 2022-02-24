@@ -7,6 +7,7 @@ namespace TidyChat
     {
 		public static void Display(Configuration configuration, ref bool settingsVisible)
 		{
+			ImGui.Spacing();
 			ImGui.Separator();
 			ImGui.Spacing();
 			if (ImGui.Button("Save and Close Config"))

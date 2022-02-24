@@ -15,6 +15,8 @@ namespace TidyChat
         public List<PlayerName> Whitelist { get; set; } = new();
         public bool SentByWhitelistPlayer { get; set; } = true;
         public bool TargetingWhitelistPlayer { get; set; } = true;
+        public bool ChatHistoryFilter { get; set; } = true;
+        public int ChatHistoryLength { get; set; } = 50;
         public bool NoCoffee { get; set; } = false;
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
@@ -114,6 +116,8 @@ namespace TidyChat
         public bool ShowOvermeldFailure { get; set; } = true;
         public bool ShowMateriaShatters { get; set; } = true;
         public bool ShowMateriaExtract { get; set; } = true;
+        public bool ShowDesynthesisLevel { get; set; } = true;
+        public bool ShowDesynthesisObtains { get; set; } = true;
         #endregion
 
         #region Gathering

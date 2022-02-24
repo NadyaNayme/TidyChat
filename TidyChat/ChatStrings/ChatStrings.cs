@@ -459,5 +459,14 @@
             Deu = new string[] { "hast", "neulings-chat", "verlassen" },
             Fra = new string[] { "vous", "quitté", "réseau", "novices" },
         };
+
+        /// <see href="https://xivapi.com/LogMessage/4325?pretty=true"/>Desynthesis level increases by</see>
+        public static LocalizedStrings DesynthesisLevel { get; } = new()
+        {
+            Jpn = new string[] { "ポイント上昇した" },
+            Eng = new string[] { "desynthesis", "skill", "increases" },
+            Deu = new string[] { "ist", "um", "gestiegen" },
+            Fra = new string[] { "recyclage", "augmente" },
+        };
     }
 }

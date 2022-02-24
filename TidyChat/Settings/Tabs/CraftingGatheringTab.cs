@@ -25,6 +25,23 @@ namespace TidyChat.Settings.Tabs
 
             ImGui.Separator();
 
+            if (ImGui.CollapsingHeader("Desynthesis"))
+            {
+                var showDesynthesisLevel = configuration.ShowDesynthesisLevel;
+                if (ImGui.Checkbox("Show desynthesis level increases messages", ref showDesynthesisLevel))
+                {
+                    configuration.ShowDesynthesisLevel = showDesynthesisLevel;
+                    configuration.Save();
+                }
+
+                var showDesynthesisObtains = configuration.ShowDesynthesisObtains;
+                if (ImGui.Checkbox("Show obtained items from desynthesis", ref showDesynthesisObtains))
+                {
+                    configuration.ShowDesynthesisObtains = showDesynthesisObtains;
+                    configuration.Save();
+                }
+            }
+
             if (ImGui.CollapsingHeader("Materia"))
             {
                 var showAttachedMateria = configuration.ShowAttachedMateria;

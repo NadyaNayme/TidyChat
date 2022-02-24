@@ -49,7 +49,7 @@ namespace TidyChat
                          ClientLanguage.French => input.Contains("astronomique"),
                          _ => input.Contains("astronomy")
                      } ||
-                     !configuration.ShowOthersObtain && !(input.StartsWith("you ")) && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input) ||
+                     !configuration.ShowOthersObtain && !(input.StartsWith("you ")) && Localization.Get(ChatRegexStrings.OtherObtains).IsMatch(input) ||
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input)
                     )
                 {

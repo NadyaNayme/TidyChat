@@ -27,7 +27,7 @@ namespace TidyChat
                      */
                     !configuration.ShowOthersLootRoll && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OthersRollNeedOrGreed).IsMatch(input) ||
                     !configuration.ShowOthersCastLot && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OthersCastLot).IsMatch(input) ||
-                    !configuration.ShowOthersObtain && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OthersObtain).IsMatch(input)
+                    !configuration.ShowOthersObtain && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OtherObtains).IsMatch(input)
                 )
                 {
                     return true;

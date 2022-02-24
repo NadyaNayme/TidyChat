@@ -135,7 +135,7 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
-        public static LocalizedRegex PlayerUsedEmote { get; } = new()
+        public static LocalizedRegex StartsWithYou { get; } = new()
         {
             Jpn = new Regex(@"^(You|Your)",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
@@ -196,7 +196,19 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
-        public static LocalizedRegex OthersObtain { get; } = new()
+        public static LocalizedRegex YouObtainSystem { get; } = new()
+        {
+            Jpn = new Regex(@"^youは.+を手に入れた。$",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"^you obtain.+",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"NeedsLocalization",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"^vous obtient",
+                  RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
+        public static LocalizedRegex OtherObtains { get; } = new()
         {
             Jpn = new Regex(@"^\w+[ .].+は.+を手に入れた。$",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
