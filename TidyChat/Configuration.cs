@@ -47,6 +47,7 @@ namespace TidyChat
         public bool HideOtherCustomEmotes { get; set; } = false;
         public bool HideReadyChecks { get; set; } = false;
         public bool HideCountdownTime {  get; set; } = false;
+        public bool HideUserLogins { get; set; } = false;
         public bool HideUserLogouts { get; set; } = false;
         public bool HideDebugTeleport { get; set; } = false;
         public bool HideSpideySenses { get; set; } = false;

@@ -10,7 +10,10 @@ namespace TidyChat
         {
             try
             {
-                if (Localization.Get(ChatRegexStrings.HasLoggedOut).IsMatch(input))
+                if (
+                    (configuration.HideUserLogins && Localization.Get(ChatRegexStrings.HasLoggedIn).IsMatch(input)) || 
+                    (configuration.HideUserLogouts && Localization.Get(ChatRegexStrings.HasLoggedOut).IsMatch(input))
+                   )
                 {
                     return true;
                 }

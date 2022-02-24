@@ -197,7 +197,7 @@ namespace TidyChat
             }
             #endregion DoH/DoL
 
-            if (Configuration.HideUserLogouts && chatType is ChatType.FreeCompanyLoginLogout)
+            if ((Configuration.HideUserLogins || Configuration.HideUserLogouts) && chatType is ChatType.FreeCompanyLoginLogout)
             {
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
@@ -228,7 +228,7 @@ namespace TidyChat
             #endregion Whitelist
 
             #region Duplicate Message Spam Filter
-            if (Configuration.ChatHistoryFilter && !isHandled && (Configuration.ChatHistoryFilterOverride && chatType is not ChatType.BattleSystem || chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote))
+            if (Configuration.ChatHistoryFilter && !isHandled && ((Configuration.ChatHistoryFilterOverride && chatType is not ChatType.BattleSystem && chatType is not ChatType.GainBuff && chatType is not ChatType.GainDebuff && chatType is not ChatType.Action && chatType is not ChatType.Healing && chatType is not ChatType.LoseBuff && chatType is not ChatType.LoseDebuff && chatType is not ChatType.Miss && chatType is not ChatType.FreeCompanyLoginLogout && chatType is not ChatType.Debug) || chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote))
             {
                 try
                 {

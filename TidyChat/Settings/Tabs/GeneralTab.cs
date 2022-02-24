@@ -143,10 +143,18 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
 
-                var hideUserLogOuts = configuration.HideUserLogouts;
-                if (ImGui.Checkbox("Hide \"User has logged out\" Free Company messages ", ref hideUserLogOuts))
+                var hideUserLogins = configuration.HideUserLogins;
+                if (ImGui.Checkbox("Hide \"User has logged in\" Free Company messages ", ref hideUserLogins))
                 {
-                    configuration.HideUserLogouts = hideUserLogOuts;
+                    configuration.HideUserLogins = hideUserLogins;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("Hides the message that appears when a Free Company member logs in");
+
+                var hideUserLogouts = configuration.HideUserLogouts;
+                if (ImGui.Checkbox("Hide \"User has logged out\" Free Company messages ", ref hideUserLogouts))
+                {
+                    configuration.HideUserLogouts = hideUserLogouts;
                     configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("Hides the message that appears when a Free Company member logs out");

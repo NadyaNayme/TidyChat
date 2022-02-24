@@ -342,6 +342,19 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
+        /// <see href="https://xivapi.com/LogMessage/3085?pretty=true">Player has logged out</see>
+        public static LocalizedRegex HasLoggedIn { get; } = new()
+        {
+            Jpn = new Regex(@"ポイント上昇した！$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"(has|have) logged in\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"hat sich eingeloggt\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"s'est (connecté|connectée)\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
         /// <see href="https://xivapi.com/LogMessage/3086?pretty=true">Player has logged out</see>
         public static LocalizedRegex HasLoggedOut { get; } = new()
         {
