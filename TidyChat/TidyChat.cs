@@ -228,7 +228,7 @@ namespace TidyChat
             #endregion Whitelist
 
             #region Duplicate Message Spam Filter
-            if (Configuration.ChatHistoryFilter && !isHandled && chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote || chatType is ChatType.Echo)
+            if (Configuration.ChatHistoryFilter && !isHandled && (Configuration.ChatHistoryFilterOverride && chatType is not ChatType.BattleSystem || chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote))
             {
                 try
                 {

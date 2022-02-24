@@ -45,6 +45,14 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGui.TextUnformatted("WARNING: Having this number set too high may impact game performance.\nIt's recommended to keep it at 50 or lower.");
+
+                var chatHistoryFilterOverride = configuration.ChatHistoryFilterOverride;
+                if (ImGui.Checkbox("Enable for all channels", ref chatHistoryFilterOverride))
+                {
+                    configuration.ChatHistoryFilterOverride = chatHistoryFilterOverride;
+                    configuration.Save();
+                }
+                ImGui.TextUnformatted("WARNING: This will conflict with many existing show-filters.\nIt will prevent any repetitive messages from appearing in chat while the message still exists in chat history.\neg. Location bonuses while gathering");
             }
 
             ImGui.Spacing();
@@ -67,7 +75,7 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("Changes the instance text to: You are now in instance: #");
 
                 var betterCommendationMessage = configuration.BetterCommendationMessage;
-                if (ImGui.Checkbox("Condensed Commendations", ref betterCommendationMessage))
+                if (ImGui.Checkbox("Improved Player Commendations", ref betterCommendationMessage))
                 {
                     configuration.BetterCommendationMessage = betterCommendationMessage;
                     configuration.Save();
@@ -75,7 +83,7 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)");
 
                 var includeDutyNameInComms = configuration.IncludeDutyNameInComms;
-                if (ImGui.Checkbox("Include completed duty in condensed commendations", ref includeDutyNameInComms))
+                if (ImGui.Checkbox("Include completed duty with commendations message", ref includeDutyNameInComms))
                 {
                     configuration.IncludeDutyNameInComms = includeDutyNameInComms;
                     if (!configuration.BetterCommendationMessage && configuration.IncludeDutyNameInComms)
@@ -84,7 +92,7 @@ namespace TidyChat.Settings.Tabs
                     }
                     configuration.Save();
                 }
-                ImGuiComponents.HelpMarker("Requires Condensed Commendations to be enabled");
+                ImGuiComponents.HelpMarker("Requires Improved Player Commendations to be enabled");
 
                 var betterSayReminder = configuration.BetterSayReminder;
                 if (ImGui.Checkbox("Improved /Say message for quests", ref betterSayReminder))
