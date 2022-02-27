@@ -50,6 +50,7 @@ namespace TidyChat
                      configuration.ShowRelicBookComplete && Localization.Get(ChatStrings.RelicBookComplete).All(input.Contains) ||
                      configuration.ShowDesynthesisObtains && Localization.Get(ChatRegexStrings.YouObtainSystem).IsMatch(input) ||
                      configuration.ShowOnlineStatus && Localization.Get(ChatStrings.OnlineStatus).All(input.Contains) ||
+                     configuration.ShowAttachToMail && Localization.Get(ChatStrings.AttachToMail).All(input.Contains) ||
                      // not optional so always run last
                      Localization.Get(ChatRegexStrings.ItemSearchCommand).IsMatch(input) ||
                      Localization.Get(ChatStrings.Playtime).All(input.Contains)

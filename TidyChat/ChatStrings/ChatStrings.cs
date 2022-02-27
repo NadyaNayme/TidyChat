@@ -478,7 +478,7 @@
             Fra = new string[] { "vous", "quitté", "réseau", "novices" },
         };
 
-        /// <see href="https://xivapi.com/LogMessage/4325?pretty=true"/>Desynthesis level increases by</see>
+        /// <see href="https://xivapi.com/LogMessage/4325?pretty=true">Desynthesis level increases by</see>
         public static LocalizedStrings DesynthesisLevel { get; } = new()
         {
             Jpn = new string[] { "ポイント上昇した" },
@@ -487,7 +487,7 @@
             Fra = new string[] { "recyclage", "augmente" },
         };
 
-        /// <see href="https://xivapi.com/LogMessage/97?pretty=true"/>Desynthesis level increases by</see>
+        /// <see href="https://xivapi.com/LogMessage/97?pretty=true">Updating online status</see>
         public static LocalizedStrings OnlineStatus { get; } = new()
         {
             Jpn = new string[] { "状態", "になりました" },
@@ -495,5 +495,16 @@
             Deu = new string[] { "online-status", "wurde" },
             Fra = new string[] { "l'état", "automatiquiment" },
         };
+
+        /// <see href="https://xivapi.com/LogMessage/672?pretty=true">You attach ... items to the letter</see>
+        /// <see href="https://xivapi.com/LogMessage/673?pretty=true">You attach ... gil to the letter</see>
+        public static LocalizedStrings AttachToMail { get; } = new()
+        {
+            Jpn = new string[] { "レターに", "添付しました" },
+            Eng = new string[] { "you", "attach", "letter" },
+            Deu = new string[] { "du", "hast", "brief", "angehängt" },
+            Fra = new string[] { "vous", "joignez", "lettre" },
+        };
+
     }
 }

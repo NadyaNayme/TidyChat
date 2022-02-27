@@ -76,6 +76,7 @@ namespace TidyChat
         public bool ShowRelicBookStep { get; set; } = false;
         public bool ShowRelicBookComplete { get; set; } = false;
         public bool ShowOnlineStatus { get; set; } = false;
+        public bool ShowAttachToMail { get; set; } = false;
         #endregion
 
         #region Obtained Items

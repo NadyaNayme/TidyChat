@@ -125,6 +125,14 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("eg. Updating online status to Away from Keyboard.");
 
+                var showAttachToMail = configuration.ShowAttachToMail;
+                if (ImGui.Checkbox("Show items attached to sent mail", ref showAttachToMail))
+                {
+                    configuration.ShowAttachToMail = showAttachToMail;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You attach 2 pots of Dalamud Red Dye to the letter.");
+
                 var showRelicBookStep = configuration.ShowRelicBookStep;
                 if (ImGui.Checkbox("Show ARR Relic book step progress messages", ref showRelicBookStep))
                 {
