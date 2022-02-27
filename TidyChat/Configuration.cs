@@ -118,8 +118,8 @@ namespace TidyChat
         public bool ShowOvermeldFailure { get; set; } = true;
         public bool ShowMateriaShatters { get; set; } = true;
         public bool ShowMateriaExtract { get; set; } = true;
-        public bool ShowDesynthesisLevel { get; set; } = true;
-        public bool ShowDesynthesisObtains { get; set; } = true;
+        public bool ShowDesynthesisLevel { get; set; } = false;
+        public bool ShowDesynthesisObtains { get; set; } = false;
         #endregion
 
         #region Gathering
