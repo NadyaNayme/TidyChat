@@ -271,7 +271,7 @@ namespace TidyChat
                 stringBuilder.AddText(TidyStrings.Tag);
                 stringBuilder.AddUiForegroundOff();
                 stringBuilder.AddUiForeground(8);
-                stringBuilder.AddText("[Debug] ");
+                stringBuilder.AddText(TidyStrings.DebugTag);
                 stringBuilder.AddUiForegroundOff();
                 stringBuilder.AddText(message.TextValue);
                 message = stringBuilder.BuiltString;

@@ -16,6 +16,7 @@
 
 		// The space at the end is intentional
 		public const string Tag = "[TidyChat] ";
+		public const string DebugTag = "[Debug] ";
 
 		public static LocalizedTidyStrings InstanceText { get; } = new ()
 		{
