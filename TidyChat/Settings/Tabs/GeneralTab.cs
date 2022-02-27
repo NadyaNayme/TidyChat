@@ -7,13 +7,13 @@ namespace TidyChat.Settings.Tabs
     {
         public static void Draw(Configuration configuration)
         {
-            var enabled = configuration.Enabled;
-            if (ImGui.Checkbox("Enable filters", ref enabled))
+            var enableDebugMode = configuration.EnableDebugMode;
+            if (ImGui.Checkbox("Enable debug mode", ref enableDebugMode))
             {
-                configuration.Enabled = enabled;
+                configuration.EnableDebugMode = enableDebugMode;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This should be left on unless testing or debugging.");
+            ImGuiComponents.HelpMarker("Display all messages.\nMessages that would be filtered outside of debug mode are prepended with [TidyChat] and [Debug] tags");
 
             var noCoffee = configuration.NoCoffee;
             if (ImGui.Checkbox("Hide ko-fi button", ref noCoffee))

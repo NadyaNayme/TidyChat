@@ -117,34 +117,34 @@ namespace TidyChat
                 normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
             }
 
-            if (Configuration.HideDebugTeleport && chatType is ChatType.Debug && Localization.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
+            if (Configuration.HideDebugTeleport && !Configuration.EnableDebugMode && chatType is ChatType.Debug && Localization.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
             {
                 isHandled = true;
             }
 
             #region Better Messages
-            if (Configuration.BetterInstanceMessage && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
+            if (Configuration.BetterInstanceMessage && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             {
                 message = Better.Instances(message, Configuration);
             }
 
-            if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
+            if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             {
                 message = Better.SayReminder(message, Configuration);
             }
 
-            if (Configuration.IncludeDutyNameInComms)
+            if (Configuration.IncludeDutyNameInComms && !Configuration.EnableDebugMode)
             {
                 TidyStrings.LastDuty = GetDuty.FindIn(message, normalizedText);
             }
 
-            if (Configuration.BetterCommendationMessage && Localization.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
+            if (Configuration.BetterCommendationMessage && !Configuration.EnableDebugMode && Localization.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
             {
                 isHandled = true;
                 Better.Commendations(Configuration, ChatGui);
             }
 
-            if (Configuration.BetterNoviceNetworkMessage)
+            if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
             {
                 message = Better.NoviceNetwork(message, normalizedText, Configuration);
             }
@@ -206,7 +206,7 @@ namespace TidyChat
             #endregion Channel Filters
 
             #region Whitelist
-            if (Configuration.Whitelist.Count > 0)
+            if (Configuration.Whitelist.Count > 0 && !Configuration.EnableDebugMode)
             {
                 foreach (var player in Configuration.Whitelist)
                 {
@@ -262,6 +262,22 @@ namespace TidyChat
                 }
             }
             #endregion Duplicate Message Spam Filter
+
+            #region Debug Mode Enabled
+            if (Configuration.EnableDebugMode && isHandled && !message.TextValue.ToString().StartsWith("[TidyChat]"))
+            {
+                var stringBuilder = new SeStringBuilder();
+                stringBuilder.AddUiForeground(14);
+                stringBuilder.AddText(TidyStrings.Tag);
+                stringBuilder.AddUiForegroundOff();
+                stringBuilder.AddUiForeground(8);
+                stringBuilder.AddText("[Debug] ");
+                stringBuilder.AddUiForegroundOff();
+                stringBuilder.AddText(message.TextValue);
+                message = stringBuilder.BuiltString;
+                isHandled = false;                
+            }
+            #endregion Debug Mode Enabled
         }
 
         private void SetPlayerName() {

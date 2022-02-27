@@ -10,6 +10,7 @@ namespace TidyChat
     {
         public int Version { get; set; } = 0;
         public bool Enabled { get; set; } = true;
+        public bool EnableDebugMode { get; set; } = false;
         public bool IncludeChatTag { get; set; } = true;
         public string PlayerName { get; set; } = "";
         public List<PlayerName> Whitelist { get; set; } = new();
@@ -74,6 +75,7 @@ namespace TidyChat
         public bool ShowCompletionTime { get; set; } = false;
         public bool ShowRelicBookStep { get; set; } = false;
         public bool ShowRelicBookComplete { get; set; } = false;
+        public bool ShowOnlineStatus { get; set; } = false;
         #endregion
 
         #region Obtained Items

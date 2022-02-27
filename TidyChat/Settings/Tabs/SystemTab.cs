@@ -117,6 +117,14 @@ namespace TidyChat.Settings.Tabs
             {
                 ImGui.TextUnformatted("Show messages Tidy Chat considers to be spam");
 
+                var showOnlineStatus = configuration.ShowOnlineStatus;
+                if (ImGui.Checkbox("Show online status updates", ref showOnlineStatus))
+                {
+                    configuration.ShowOnlineStatus = showOnlineStatus;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. Updating online status to Away from Keyboard.");
+
                 var showRelicBookStep = configuration.ShowRelicBookStep;
                 if (ImGui.Checkbox("Show ARR Relic book step progress messages", ref showRelicBookStep))
                 {
