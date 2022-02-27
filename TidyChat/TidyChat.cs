@@ -10,12 +10,14 @@ using TidyChat.Utility;
 using GetDuty = TidyChat.Utility.GetDutyName;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 using Better = TidyChat.Utility.BetterStrings;
+using Flags = TidyChat.Utility.ChatFlags;
 
 using System.Linq;
 using ChatTwo.Code;
 using System.Collections.Generic;
 using Dalamud.Logging;
 using System;
+using static TidyChat.Utility.ChatFlags;
 
 namespace TidyChat
 
@@ -222,6 +224,10 @@ namespace TidyChat
                     {
                         // The whitelisted player isn't limited to a server
                         isHandled = false;
+                    }
+                    Channels e = (Channels)player.whitelistedChannels;
+                    if (!(e.Equals(Flags.Channels.None))){
+                        isHandled = Flags.CheckFlags(player, chatType);
                     }
                 }
             }

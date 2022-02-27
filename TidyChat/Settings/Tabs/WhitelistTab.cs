@@ -76,6 +76,16 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
 
+                if (ImGui.InputInt($"##whitelist{i}Channels", ref alias.whitelistedChannels))
+                {
+                    if (i == -1)
+                    {
+                        configuration.Whitelist.Insert(0, alias);
+                        m_placeholder = new PlayerName();
+                    }
+                    configuration.Save();
+                }
+
                 ImGui.SameLine();
                 if (i != -1 && ImGui.Button($" X ##player{i}delete"))
                 {

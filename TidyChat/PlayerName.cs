@@ -1,4 +1,6 @@
-﻿namespace TidyChat
+﻿using Flags = TidyChat.Utility.ChatFlags;
+
+namespace TidyChat
 {
     public class PlayerName
     {
@@ -13,5 +15,6 @@
         public bool overrideObtainFilters = true;
         public bool overrideProgressFilters = true;
         public bool overridesystemFilters = true;
+        public int whitelistedChannels = 2;
     }
 }
