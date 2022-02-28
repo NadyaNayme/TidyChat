@@ -5,6 +5,7 @@ using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Gui.Dtr;
 
 using TidyChat.Utility;
 using GetDuty = TidyChat.Utility.GetDutyName;
@@ -18,6 +19,7 @@ using System.Collections.Generic;
 using Dalamud.Logging;
 using System;
 using static TidyChat.Utility.ChatFlags;
+using Dalamud;
 
 namespace TidyChat
 
@@ -29,6 +31,7 @@ namespace TidyChat
         private const string SettingsCommand = TidyStrings.SettingsCommand;
         private const string ShorthandCommand = TidyStrings.ShorthandCommand;
 
+        [PluginService] private DtrBar DtrBar { get; init; }
         private DalamudPluginInterface PluginInterface { get; init; }
         private ChatGui ChatGui { get; init; }
         private CommandManager CommandManager { get; init; }
@@ -37,6 +40,7 @@ namespace TidyChat
         private ClientState ClientState { get; init; }
 
         private Stack<string> ChatHistory { get; init; } = new();
+        private DtrBarEntry dtrEntry;
 
         #region Chat2 ChatTypes
         // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
@@ -65,6 +69,7 @@ namespace TidyChat
             this.CommandManager = commandManager;
             this.ChatGui = chatGui;
             this.ClientState = clientState;
+            this.dtrEntry = DtrBar.Get(this.Name);
 
             // Player cannot change this without restarting the game so should be safe to grab here
             Localization.Language = clientState.ClientLanguage;
@@ -95,6 +100,7 @@ namespace TidyChat
 
         public void Dispose()
         {
+            this.dtrEntry.Dispose();
             this.PluginUi.Dispose();
             this.CommandManager.RemoveHandler(SettingsCommand);
             this.CommandManager.RemoveHandler(ShorthandCommand);
@@ -125,7 +131,28 @@ namespace TidyChat
             #region Better Messages
             if (Configuration.BetterInstanceMessage && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             {
-                message = Better.Instances(message, Configuration);
+               message = Better.Instances(message, Configuration);
+            }
+
+            if (Configuration.UseDTRBar)
+            {
+                isHandled = true;
+                var instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(normalizedText).First().Groups["instance"].Value;
+                if (instanceNumber == "")
+                {
+                    UpdateDtrBarEntry($"Instance ");
+                }
+                else if (instanceNumber == "")
+                {
+                    UpdateDtrBarEntry($"Instance ");
+                }
+                else
+                {
+                    UpdateDtrBarEntry($"Instance ");
+                }
+            } else if (!Configuration.UseDTRBar)
+            {
+                UpdateDtrBarEntry("");
             }
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
@@ -311,6 +338,10 @@ namespace TidyChat
             {
                 // Just don't do anything if we can't set player name
             }
+        }
+        private void UpdateDtrBarEntry(string text = "")
+        {
+            dtrEntry.Text = text;
         }
         private void OnCommand(string command, string args)
         {

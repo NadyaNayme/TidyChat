@@ -117,6 +117,13 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("Changes the instance text to: You are now in instance: #");
 
+                var useDTRBar = configuration.UseDTRBar;
+                if (ImGui.Checkbox("Display current instance in DTR Bar", ref useDTRBar))
+                {
+                    configuration.UseDTRBar = useDTRBar;
+                    configuration.Save();
+                }
+
                 var betterCommendationMessage = configuration.BetterCommendationMessage;
                 if (ImGui.Checkbox("Improved Player Commendations", ref betterCommendationMessage))
                 {
@@ -141,6 +148,10 @@ namespace TidyChat.Settings.Tabs
                 if (ImGui.Checkbox("Improved /Say message for quests", ref betterSayReminder))
                 {
                     configuration.BetterSayReminder = betterSayReminder;
+                    if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
+                    {
+                        configuration.CopyBetterSayReminder = false;
+                    }
                     configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily");

@@ -3,6 +3,7 @@ using Dalamud.Game.Gui;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud;
 using System.Linq;
+using Dalamud.Game.Gui.Dtr;
 
 namespace TidyChat.Utility
 {
@@ -75,17 +76,7 @@ namespace TidyChat.Utility
 
         public static SeString Instances(SeString message, Configuration configuration)
         {
-            // The last character in the first sentence is the instanceNumber so
-            // we capture it by finding the period that ends the first sentence and going back one character
-            int index = Localization.Language switch
-            {
-                ClientLanguage.Japanese => message.TextValue.IndexOf("」"),
-                ClientLanguage.English => message.TextValue.IndexOf("."),
-                ClientLanguage.German => message.TextValue.IndexOf("“"),
-                ClientLanguage.French => message.TextValue.IndexOf("”"),
-                _ => message.TextValue.IndexOf("."),
-            };
-            string instanceNumber = message.TextValue.Substring(index - 1, 1);
+            var instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(message.TextValue).First().Groups["instance"].Value;
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag)
             {

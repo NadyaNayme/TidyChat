@@ -368,5 +368,17 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
+        public static LocalizedRegex GetInstanceNumber { get; } = new()
+        {
+            Jpn = new Regex(@"(?<instance>||)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"(?<instance>||)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"(?<instance>||)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"(?<instance>||)",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
     }
 }

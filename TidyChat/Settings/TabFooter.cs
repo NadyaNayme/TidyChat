@@ -12,9 +12,7 @@ namespace TidyChat
 			ImGui.Spacing();
 			if (ImGui.Button("Save"))
 			{
-				settingsVisible = false;
 				configuration.Save();
-				settingsVisible = false6;
 			}
 			ImGui.SameLine();
 			if (ImGui.Button("Save and Close Config"))
