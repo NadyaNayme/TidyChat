@@ -50,7 +50,7 @@ namespace TidyChat.Settings.Tabs
                 ImGui.NewLine();
                 #region Channels
                 int chatHistoryChannels = configuration.ChatHistoryChannels;
-                ImGui.TextUnformatted($"Select whitelisted channels for Chat History.");
+                ImGui.TextUnformatted($"Select channels for Chat History to filter:");
                 if (ImGui.CheckboxFlags($"Emotes", ref chatHistoryChannels, 1 << 1))
                 {
                     configuration.ChatHistoryChannels = chatHistoryChannels;
@@ -79,7 +79,7 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGui.SameLine(90f);
-                if (ImGui.CheckboxFlags($"Free Company", ref chatHistoryChannels, 1 << 7))
+                if (ImGui.CheckboxFlags($"Login/Logout", ref chatHistoryChannels, 1 << 7))
                     configuration.ChatHistoryChannels = chatHistoryChannels;
                 {
                     configuration.Save();

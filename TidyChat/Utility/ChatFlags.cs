@@ -129,7 +129,8 @@ namespace TidyChat.Utility
                                 chatType is ChatType.CrossLinkshell7 ||
                                 chatType is ChatType.CrossLinkshell8 ||
                                 chatType is ChatType.Party ||
-                                chatType is ChatType.CrossParty
+                                chatType is ChatType.CrossParty ||
+                                chatType is ChatType.FreeCompany
                                 )
                )
             {
@@ -151,7 +152,7 @@ namespace TidyChat.Utility
             {
                 return true;
             }
-            if (whitelistedHistoryChannels.HasFlag(Channels.FreeCompany) && (chatType is ChatType.FreeCompany || chatType is ChatType.FreeCompanyLoginLogout))
+            if (whitelistedHistoryChannels.HasFlag(Channels.FreeCompany) && chatType is ChatType.FreeCompanyLoginLogout)
             {
                 return true;
             }

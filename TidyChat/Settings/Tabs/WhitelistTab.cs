@@ -35,8 +35,8 @@ namespace TidyChat.Settings.Tabs
             Vector2 outer_height = new Vector2(540f, 400f);
             if (!ImGui.BeginTable("##whitelistTable", 3, ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg, outer_height)) return;
             ImGui.TableSetupScrollFreeze(0, 1);
-            ImGui.TableSetupColumn("Channels", ImGuiTableColumnFlags.WidthFixed);
-            ImGui.TableSetupColumn("Player", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn("Select Channels", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn("Player Information", ImGuiTableColumnFlags.WidthFixed);
             ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthStretch);
             ImGui.TableHeadersRow();
 
@@ -44,10 +44,10 @@ namespace TidyChat.Settings.Tabs
             for (var i = -1; i < list.Count; i++)
             {
                 var alias = i < 0 ? m_placeholder : list[i];
-
+                
                 #region Channels Column
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted($"Select whitelisted channels for {(i < 0 ? "a new user" : alias.FirstName[..Math.Min(alias.FirstName.Length, 15)] + " " + alias.LastName[..Math.Min(alias.FirstName.Length, 1)])}.");
+                ImGui.Spacing();
                 if (ImGui.CheckboxFlags($"Emotes##whitelist{i}OverrideEmoteFilters", ref alias.whitelistedChannels, 1 << 1))
                 {
                     configuration.Save();
@@ -71,7 +71,7 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGui.SameLine(80f);
-                if (ImGui.CheckboxFlags($"Free Company##whitelist{i}OverrideFreeCompanyFilters", ref alias.whitelistedChannels, 1 << 7))
+                if (ImGui.CheckboxFlags($"Login/Logout##whitelist{i}OverrideFreeCompanyFilters", ref alias.whitelistedChannels, 1 << 7))
                 {
                     configuration.Save();
                 }
@@ -84,15 +84,16 @@ namespace TidyChat.Settings.Tabs
                 {
                     configuration.Save();
                 }
+                ImGui.Spacing();
                 #endregion Channels Column
 
-                #region Player Colmn
+                #region Player Column
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted($" ");
+                ImGui.Spacing();
                 ImGui.SetNextItemWidth(120);
                 ImGui.TextUnformatted($"First Name: ");
                 ImGui.SameLine(75f);
-                if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 512, ImGuiInputTextFlags.EnterReturnsTrue))
+                if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 20, ImGuiInputTextFlags.EnterReturnsTrue))
                 {
                     if (i == -1)
                     {
@@ -104,7 +105,7 @@ namespace TidyChat.Settings.Tabs
                 ImGui.SetNextItemWidth(120);
                 ImGui.TextUnformatted($"Last Name: ");
                 ImGui.SameLine(75f);
-                if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 512, ImGuiInputTextFlags.EnterReturnsTrue))
+                if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 20, ImGuiInputTextFlags.EnterReturnsTrue))
                 {
                     if (i == -1)
                     {
@@ -116,7 +117,7 @@ namespace TidyChat.Settings.Tabs
                 ImGui.SetNextItemWidth(120);
                 ImGui.TextUnformatted($"Server Name: ");
                 ImGui.SameLine(75f);
-                if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 512, ImGuiInputTextFlags.EnterReturnsTrue))
+                if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 32, ImGuiInputTextFlags.EnterReturnsTrue))
                 {
                     if (i == -1)
                     {
@@ -128,7 +129,7 @@ namespace TidyChat.Settings.Tabs
                 #endregion Player Column
                 #region Delete Column
                 ImGui.TableNextColumn();
-                ImGui.TextUnformatted($" ");
+                ImGui.Spacing();
                 if (i != -1 && ImGui.Button($"Remove##player{i}delete"))
                 {
                     configuration.Whitelist.Remove(alias);

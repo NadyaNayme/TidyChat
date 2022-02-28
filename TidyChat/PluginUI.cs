@@ -36,7 +36,7 @@ namespace TidyChat
             }
             try
             {
-                ImGui.SetNextWindowSize(new Vector2(560, 500), ImGuiCond.FirstUseEver);
+                ImGui.SetNextWindowSize(new Vector2(580, 735), ImGuiCond.FirstUseEver | ImGuiCond.Appearing); 
                 if (!ImGui.Begin("Tidy Chat", ref this.settingsVisible)) return;
 
                 if (ImGui.BeginTabBar("##tidychatConfigTabs"))
