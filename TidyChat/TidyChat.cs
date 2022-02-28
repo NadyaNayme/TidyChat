@@ -205,55 +205,36 @@ namespace TidyChat
             }
             #endregion Channel Filters
 
-            #region Whitelist
-            if (Configuration.Whitelist.Count > 0 && !Configuration.EnableDebugMode)
-            {
-                foreach (var player in Configuration.Whitelist)
-                {
-                    if (Configuration.SentByWhitelistPlayer && sender.TextValue == player.FirstName + " " + player.LastName)
-                    {
-                        // The message was sent by a whitelisted player
-                        isHandled = false;
-                    }
-                    else if (Configuration.TargetingWhitelistPlayer && player.ServerName.Length > 0 && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName) && message.TextValue.Contains(player.ServerName))
-                    {
-                        // The whitelisted player name is limited to a server
-                        isHandled = false;
-                    }
-                    else if (Configuration.TargetingWhitelistPlayer && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName))
-                    {
-                        // The whitelisted player isn't limited to a server
-                        isHandled = false;
-                    }
-                    Channels e = (Channels)player.whitelistedChannels;
-                    if (!(e.Equals(Flags.Channels.None))){
-                        isHandled = Flags.CheckFlags(player, chatType);
-                    }
-                }
-            }
-            #endregion Whitelist
-
             #region Duplicate Message Spam Filter
-            if (Configuration.ChatHistoryFilter && !isHandled && ((Configuration.ChatHistoryFilterOverride && chatType is not ChatType.BattleSystem && chatType is not ChatType.GainBuff && chatType is not ChatType.GainDebuff && chatType is not ChatType.Action && chatType is not ChatType.Healing && chatType is not ChatType.LoseBuff && chatType is not ChatType.LoseDebuff && chatType is not ChatType.Miss && chatType is not ChatType.FreeCompanyLoginLogout && chatType is not ChatType.Debug) || chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote))
+            if (Configuration.ChatHistoryFilter && !isHandled)
             {
                 try
                 {
-                    string currentMessage = $"{sender.TextValue}: {message.TextValue}";
-                    if (ChatHistory.Contains(currentMessage))
+
+                    Channels historyChannels = (Channels)Configuration.ChatHistoryChannels;
+                    if (!historyChannels.Equals(Flags.Channels.None))
                     {
-                        PluginLog.LogDebug($"Found message in chat history and blocked: {currentMessage}");
-                        isHandled = true;
-                    }
-                    else if (ChatHistory.Count > Configuration.ChatHistoryLength)
-                    {
-                        PluginLog.LogDebug("Chat history reached limit. Removed oldest message and added:" + currentMessage);
-                        ChatHistory.Pop();
-                        ChatHistory.Push(currentMessage);
-                    }
-                    else
-                    {
-                        PluginLog.LogDebug("Added:" + currentMessage);
-                        ChatHistory.Push(currentMessage);
+                        if(Flags.CheckFlags(Configuration, chatType))
+                        {
+                            string currentMessage = $"{sender.TextValue}: {message.TextValue}";
+                            if (ChatHistory.Contains(currentMessage))
+                            {
+                                PluginLog.LogDebug($"Found message in chat history and blocked: {currentMessage}");
+                                isHandled = true;
+                            }
+                            else if (ChatHistory.Count > Configuration.ChatHistoryLength)
+                            {
+                                PluginLog.LogDebug("Chat history reached limit. Removed oldest message and added:" + currentMessage);
+                                ChatHistory.Pop();
+                                ChatHistory.Push(currentMessage);
+                            }
+                            else
+                            {
+                                PluginLog.LogDebug("Added:" + currentMessage);
+                                ChatHistory.Push(currentMessage);
+                            }
+                        }
+                        return;
                     }
                 }
                 catch (Exception e)
@@ -262,6 +243,43 @@ namespace TidyChat
                 }
             }
             #endregion Duplicate Message Spam Filter
+
+            #region Whitelist
+            if (Configuration.Whitelist.Count > 0)
+            {
+                foreach (var player in Configuration.Whitelist)
+                {
+                    if (isHandled && sender.TextValue == player.FirstName + " " + player.LastName || message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName))
+                    {
+
+                        if (Configuration.SentByWhitelistPlayer)
+                        {
+                            // The message was sent by a whitelisted player
+                            isHandled = false;
+                        }
+                        else if (Configuration.TargetingWhitelistPlayer && player.ServerName.Length > 0 && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName) && message.TextValue.Contains(player.ServerName))
+                        {
+                            // The whitelisted player name is limited to a server
+                            isHandled = false;
+                        }
+                        else if (Configuration.TargetingWhitelistPlayer && message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName))
+                        {
+                            // The whitelisted player isn't limited to a server
+                            isHandled = false;
+                        }
+                        else
+                        {
+                            Channels e = (Channels)player.whitelistedChannels;
+                            if (!e.Equals(Flags.Channels.None) && isHandled)
+                            {
+                                isHandled = Flags.CheckFlags(player, chatType);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            #endregion Whitelist
 
             #region Debug Mode Enabled
             if (Configuration.EnableDebugMode && isHandled && !message.TextValue.ToString().StartsWith("[TidyChat]"))
@@ -275,7 +293,7 @@ namespace TidyChat
                 stringBuilder.AddUiForegroundOff();
                 stringBuilder.AddText(message.TextValue);
                 message = stringBuilder.BuiltString;
-                isHandled = false;                
+                isHandled = false;
             }
             #endregion Debug Mode Enabled
         }

@@ -17,7 +17,7 @@ namespace TidyChat
         public bool SentByWhitelistPlayer { get; set; } = true;
         public bool TargetingWhitelistPlayer { get; set; } = true;
         public bool ChatHistoryFilter { get; set; } = true;
-        public bool ChatHistoryFilterOverride { get; set; } = false;
+        public int ChatHistoryChannels { get; set; } = 4;
         public int ChatHistoryLength { get; set; } = 50;
         public bool NoCoffee { get; set; } = false;
         #region Chat Filters
@@ -37,7 +37,7 @@ namespace TidyChat
         public bool BetterNoviceNetworkMessage { get; set; } = true;
         #endregion
 
-        #region Whitelisted Sytstem Messages
+        #region Whitelisted System Messages
         public bool HideSRankHunt { get; set; } = false;
         public bool HideSSRankHunt { get; set; } = false;
         public bool HideCommendations { get; set; } = false;

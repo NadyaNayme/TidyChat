@@ -1,5 +1,6 @@
 ﻿using Dalamud.Interface.Components;
 using ImGuiNET;
+using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat.Settings.Tabs
 {
@@ -46,13 +47,55 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGui.TextUnformatted("WARNING: Having this number set too high may impact game performance.\nIt's recommended to keep it at 50 or lower.");
 
-                var chatHistoryFilterOverride = configuration.ChatHistoryFilterOverride;
-                if (ImGui.Checkbox("Enable for all channels", ref chatHistoryFilterOverride))
+                ImGui.NewLine();
+                #region Channels
+                int chatHistoryChannels = configuration.ChatHistoryChannels;
+                ImGui.TextUnformatted($"Select whitelisted channels for Chat History.");
+                if (ImGui.CheckboxFlags($"Emotes", ref chatHistoryChannels, 1 << 1))
                 {
-                    configuration.ChatHistoryFilterOverride = chatHistoryFilterOverride;
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
                     configuration.Save();
                 }
-                ImGui.TextUnformatted("WARNING: This will conflict with many existing show-filters.\nIt will prevent any repetitive messages from appearing in chat while the message still exists in chat history.\neg. Location bonuses while gathering");
+                ImGui.SameLine(90f);
+                if (ImGui.CheckboxFlags($"Loot", ref chatHistoryChannels, 1 << 5))
+                {
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                    configuration.Save();
+                }
+                if (ImGui.CheckboxFlags($"Crafting", ref chatHistoryChannels, 1 << 8))
+                {
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                    configuration.Save();
+                }
+                ImGui.SameLine(90f);
+                if (ImGui.CheckboxFlags($"Gathering", ref chatHistoryChannels, 1 << 9))
+                {
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                    configuration.Save();
+                }
+                if (ImGui.CheckboxFlags($"Talking", ref chatHistoryChannels, 1 << 2))
+                {
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                    configuration.Save();
+                }
+                ImGui.SameLine(90f);
+                if (ImGui.CheckboxFlags($"Free Company", ref chatHistoryChannels, 1 << 7))
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                {
+                    configuration.Save();
+                }
+                if (ImGui.CheckboxFlags($"Progress", ref chatHistoryChannels, 1 << 4))
+                {
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                    configuration.Save();
+                }
+                ImGui.SameLine(90f);
+                if (ImGui.CheckboxFlags($"System", ref chatHistoryChannels, 1 << 3))
+                {
+                    configuration.ChatHistoryChannels = chatHistoryChannels;
+                    configuration.Save();
+                }
+                #endregion Channels
             }
 
             ImGui.Spacing();
