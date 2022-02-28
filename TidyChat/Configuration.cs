@@ -30,7 +30,7 @@ namespace TidyChat
         #endregion
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
-        public bool UseDTRBar { get; set; } = true;
+        public bool UseDTRBar { get; set; } = false;
         public bool BetterSayReminder { get; set; } = false;
         public bool CopyBetterSayReminder { get; set; } = false;
         public bool BetterCommendationMessage { get; set; } = true;

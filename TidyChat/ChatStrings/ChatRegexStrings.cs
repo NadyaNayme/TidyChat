@@ -380,5 +380,44 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
+        /// <see href="https://xivapi.com/LogMessage/732?pretty=true">You have entered a sanctuary.</see>
+        public static LocalizedRegex EnteredSanctuary { get; } = new()
+        {
+            Jpn = new Regex(@"レストエリアに入った",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"you have entered a sanctuary",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"du hast einen ruhebereich betreten",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"vous êtes (entré|entrée) dans un lieu de repos",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/733?pretty=true">You have left the sanctuary.</see>
+        public static LocalizedRegex LeftSanctuary { get; } = new()
+        {
+            Jpn = new Regex(@"レストエリアから離れた",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"you have left the sanctuary",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"du hast den ruhebereich verlassen",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"vous aves quitté le lieu de repos",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/1351?pretty=true">You are currently not in an instanced area.</see>
+        public static LocalizedRegex NotInstancedArea { get; } = new()
+        {
+            Jpn = new Regex(@"インスタンスエリアは存在しません",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"you are currently not in an instanced area",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"momentan ist das areal nicht instanziiert",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"il n'y a actuellement aucune zone instanciée",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
     }
 }

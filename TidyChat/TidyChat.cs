@@ -107,6 +107,9 @@ namespace TidyChat
             this.ChatGui.ChatMessage -= this.OnChat;
         }
 
+        private bool leftSanctuary = false;
+        private bool enteredSanctuary = false;
+        private bool receivedInstanceText = false;
 
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
@@ -129,26 +132,86 @@ namespace TidyChat
             }
 
             #region Better Messages
-            if (Configuration.BetterInstanceMessage && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
+            if (Configuration.BetterInstanceMessage && !Configuration.HideInstanceMessage && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             {
                message = Better.Instances(message, Configuration);
             }
 
-            if (Configuration.UseDTRBar)
+            if (Configuration.UseDTRBar && Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
             {
-                isHandled = true;
-                var instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(normalizedText).First().Groups["instance"].Value;
-                if (instanceNumber == "")
+                string instanceNumber = "";
+                if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText))
                 {
-                    UpdateDtrBarEntry($"Instance ");
+                    isHandled = true;
+                    UpdateDtrBarEntry("");
+                } 
+                else if (Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
+                {
+                    if (Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText))
+                    {
+                        leftSanctuary = true;
+                        receivedInstanceText = false;
+                    }
+                    if (Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText))
+                    {
+                        enteredSanctuary = true;
+                    }
+                    if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
+                    {
+                        receivedInstanceText = true;
+                    }
+                    if (leftSanctuary && enteredSanctuary)
+                    {
+                        var t = new System.Timers.Timer
+                        {
+                            Interval = 250,
+                            AutoReset = false
+                        };
+                        t.Elapsed += delegate
+                        {
+                            t.Enabled = false;
+                            if (!receivedInstanceText)
+                            {
+                                UpdateDtrBarEntry("");
+                            }
+                            t.Dispose();
+                            leftSanctuary = false;
+                            enteredSanctuary = false;
+                        };
+                        t.Enabled = true;
+                    }
+                    if (leftSanctuary || enteredSanctuary)
+                    {
+                        var t = new System.Timers.Timer
+                        {
+                            Interval = 300,
+                            AutoReset = false
+                        };
+                        t.Elapsed += delegate
+                        {
+                            t.Enabled = false;
+                            t.Dispose();
+                            leftSanctuary = false;
+                            enteredSanctuary = false;
+                        };
+                        t.Enabled = true;
+                    }
                 }
-                else if (instanceNumber == "")
+                if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
                 {
-                    UpdateDtrBarEntry($"Instance ");
-                }
-                else
-                {
-                    UpdateDtrBarEntry($"Instance ");
+                    instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(normalizedText).First().Groups["instance"].Value;
+                    if (instanceNumber == "")
+                    {
+                        UpdateDtrBarEntry($"Instance ");
+                    }
+                    else if (instanceNumber == "")
+                    {
+                        UpdateDtrBarEntry($"Instance ");
+                    }
+                    else if (instanceNumber == "")
+                    {
+                        UpdateDtrBarEntry($"Instance ");
+                    }
                 }
             } else if (!Configuration.UseDTRBar)
             {
