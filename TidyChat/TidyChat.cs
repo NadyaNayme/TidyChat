@@ -164,7 +164,7 @@ namespace TidyChat
                     {
                         var t = new System.Timers.Timer
                         {
-                            Interval = 250,
+                            Interval = Configuration.InstanceMessageTimer,
                             AutoReset = false
                         };
                         t.Elapsed += delegate
@@ -184,7 +184,7 @@ namespace TidyChat
                     {
                         var t = new System.Timers.Timer
                         {
-                            Interval = 300,
+                            Interval = Configuration.InstanceMessageTimer + 50,
                             AutoReset = false
                         };
                         t.Elapsed += delegate
