@@ -137,10 +137,10 @@ namespace TidyChat
                message = Better.Instances(message, Configuration);
             }
 
-            if (Configuration.UseDTRBar && Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
+            if (Configuration.UseDTRBar && (chatType is ChatType.System || chatType is ChatType.Error) && Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
             {
                 string instanceNumber = "";
-                if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText))
+                if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains))
                 {
                     isHandled = true;
                     UpdateDtrBarEntry("");
@@ -155,6 +155,7 @@ namespace TidyChat
                     if (Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText))
                     {
                         enteredSanctuary = true;
+                        receivedInstanceText = false;
                     }
                     if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
                     {
@@ -197,7 +198,7 @@ namespace TidyChat
                         t.Enabled = true;
                     }
                 }
-                if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
+                if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
                 {
                     instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(normalizedText).First().Groups["instance"].Value;
                     if (instanceNumber == "")

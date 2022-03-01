@@ -435,6 +435,15 @@
             Fra = new string[] { "temps", "d'incursion", "pour" },
         };
 
+        /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">[Duty] has begun</see>
+        public static LocalizedStrings HasBegun { get; } = new()
+        {
+            Jpn = new string[] { "の攻略を開始した" },
+            Eng = new string[] { "has", "begun" },
+            Deu = new string[] { "hat", "negpmmem" },
+            Fra = new string[] { "la", "mission", "commence" },
+        };
+
         public static LocalizedStrings PalaceOfTheDead { get; } = new()
         {
             Jpn = new string[] { "NeedsLocalization" },
