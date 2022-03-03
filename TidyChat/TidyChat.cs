@@ -157,7 +157,7 @@ namespace TidyChat
                         enteredSanctuary = true;
                         receivedInstanceText = false;
                     }
-                    if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
+                    if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
                     {
                         receivedInstanceText = true;
                     }
