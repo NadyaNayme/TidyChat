@@ -14,6 +14,8 @@
 - Blocks spammy progress messages like gaining experience or leveling up
 - Blocks Free Company Logout messages
 - Better Novice Network join/leave text
+- Block repetitive/spamming messages with Chat History
+- Whitelist specific players to override filters
   
 ## Installation
 
