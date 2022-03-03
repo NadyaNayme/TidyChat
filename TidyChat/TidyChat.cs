@@ -142,12 +142,7 @@ namespace TidyChat
                 if (!Configuration.DTRIsEnabled)
                 {
                     Configuration.DTRIsEnabled = true;
-                    var stringBuilder = new SeStringBuilder();
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText(TidyStrings.Tag);
-                    stringBuilder.AddUiForegroundOff();
-                    stringBuilder.AddText($"You have re-enabled the DTR bar - but before it will work again you must reinstall Tidy Chat or restart your FFXIV Client.");
-                    ChatGui.Print(stringBuilder.BuiltString);
+                    this.dtrEntry = DtrBar.Get(this.Name);
                 }
                 string instanceNumber = "";
                 if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains))
@@ -224,23 +219,11 @@ namespace TidyChat
                         UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
                     }
                 }
-            } else if (!Configuration.UseDTRBar && dtrEntry.Shown && (chatType is ChatType.System || chatType is ChatType.Error))
+            } else if (!Configuration.UseDTRBar && Configuration.DTRIsEnabled)
             {
-                if (Configuration.DTRIsEnabled)
-                {
                     Configuration.DTRIsEnabled = false;
                     UpdateDtrBarEntry("");
                     dtrEntry.Dispose();
-                    var stringBuilder = new SeStringBuilder();
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText(TidyStrings.Tag);
-                    stringBuilder.AddUiForegroundOff();
-                    stringBuilder.AddText($"The /instance DTR bar has been disabled. To re-enable you must first enable the DTR Bar setting and then restart Tidy Chat.");
-                    ChatGui.Print(stringBuilder.BuiltString);
-                } else
-                {
-                    dtrEntry.Dispose();
-                }
             }
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
