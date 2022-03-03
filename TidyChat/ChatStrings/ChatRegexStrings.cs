@@ -32,6 +32,19 @@ namespace TidyChat
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
         };
 
+        /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
+        public static LocalizedRegex ObtainedWolfMarks { get; } = new()
+        {
+            Jpn = new Regex(@"(\d{1,3},)?\d{1,3} 対人戦績",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} wolf marks\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Deu = new Regex(@"(\d{1,3},)?\d{1,3} wolfsmarken erhalten\.",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+            Fra = new Regex(@"^(vous|you) (a|avez) reçu \d{1,6} marque de loup\.$",
+          RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture),
+        };
+
 
         /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
         public static Regex ObtainedVenture { get; } = new Regex(@"You (obtain|obtains) (a venture|2 ventures|3 ventures)\.",

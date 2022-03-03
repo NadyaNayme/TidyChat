@@ -17,6 +17,7 @@ namespace TidyChat
                      !configuration.ShowAdventurerInNeedBonus && Localization.Get(ChatStrings.AdventurerInNeedBonus).All(input.Contains) ||
                      !configuration.ShowObtainedGil && Localization.Get(ChatRegexStrings.ObtainedGil).IsMatch(input) ||
                      !configuration.ShowObtainedMGP && Localization.Get(ChatRegexStrings.ObtainedMGP).IsMatch(input) ||
+                     !configuration.ShowObtainedWolfMarks && Localization.Get(ChatRegexStrings.ObtainedWolfMarks).IsMatch(input) ||
                      !configuration.ShowObtainedSeals && Localization.Get(ChatRegexStrings.ObtainedSeals).IsMatch(input) ||
                      !configuration.ShowObtainedVenture && Localization.Get(ChatRegexStrings.ObtainedVenture).IsMatch(input) ||
                      !configuration.ShowObtainedTribalCurrency && Localization.Get(ChatRegexStrings.ObtainedTribalCurrency).IsMatch(input) ||

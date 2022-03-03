@@ -135,6 +135,14 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("eg. You obtain 20 Allagan tomestones of Astronomy.");
 
+                var showObtainedWolfMarks = configuration.ShowObtainedWolfMarks;
+                if (ImGui.Checkbox("Show Wolf Marks", ref showObtainedWolfMarks))
+                {
+                    configuration.ShowObtainedWolfMarks = showObtainedWolfMarks;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You obtain 1,000 Wolf Marks.");
+
                 var showObtainedAlliedSeals = configuration.ShowObtainedAlliedSeals;
                 if (ImGui.Checkbox("Show Allied Seals", ref showObtainedAlliedSeals))
                 {

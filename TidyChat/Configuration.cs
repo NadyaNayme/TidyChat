@@ -86,6 +86,7 @@ namespace TidyChat
         public bool ShowObtainedGil { get; set; } = false;
         public bool ShowObtainedMGP { get; set; } = false;
         public bool ShowObtainedClusters { get; set; } = false;
+        public bool ShowObtainedWolfMarks { get; set; } = false;
         public bool ShowObtainedSeals { get; set; } = false;
         public bool ShowObtainedAlliedSeals { get; set; } = false;
         public bool ShowObtainedCenturioSeals { get; set; } = false;
