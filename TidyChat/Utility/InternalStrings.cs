@@ -26,6 +26,14 @@
 			Fra = new string("La zone instanciée:"),
 		};
 
+		public static LocalizedTidyStrings InstanceWord { get; } = new()
+		{
+			Jpn = new string("インスタンスエリア"),
+			Eng = new string("Instance"),
+			Deu = new string("Instanziierten"),
+			Fra = new string("Instanciée"),
+		};
+
 		public static LocalizedTidyStrings CopiedToClipboard { get; } = new()
 		{
 			Jpn = new string("クリップボードにコピーされました"),
@@ -71,5 +79,8 @@
 		public static string LastDuty { get; set; } = "";
 
 		public static int NumberOfCommendations { get; set; } = 0;
+		public static string FirstInstance { get; set; } = "";
+		public static string SecondInstance { get; set; } = "";
+		public static string ThirdInstance { get; set; } = "";
 	}
 }

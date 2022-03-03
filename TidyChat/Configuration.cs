@@ -32,6 +32,7 @@ namespace TidyChat
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
         public bool UseDTRBar { get; set; } = false;
+        public bool DTRIsEnabled { get; set; } = false;
         public int InstanceMessageTimer { get; set; } = 300;
         public bool BetterSayReminder { get; set; } = false;
         public bool CopyBetterSayReminder { get; set; } = false;

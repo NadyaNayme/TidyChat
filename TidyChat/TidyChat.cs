@@ -100,7 +100,7 @@ namespace TidyChat
 
         public void Dispose()
         {
-            this.dtrEntry.Dispose();
+            this.dtrEntry?.Dispose();
             this.PluginUi.Dispose();
             this.CommandManager.RemoveHandler(SettingsCommand);
             this.CommandManager.RemoveHandler(ShorthandCommand);
@@ -137,8 +137,18 @@ namespace TidyChat
                message = Better.Instances(message, Configuration);
             }
 
-            if (Configuration.UseDTRBar && (chatType is ChatType.System || chatType is ChatType.Error) && Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
+            if (Configuration.UseDTRBar && (chatType is ChatType.System || chatType is ChatType.Error) && (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText)))
             {
+                if (!Configuration.DTRIsEnabled)
+                {
+                    Configuration.DTRIsEnabled = true;
+                    var stringBuilder = new SeStringBuilder();
+                    stringBuilder.AddUiForeground(14);
+                    stringBuilder.AddText(TidyStrings.Tag);
+                    stringBuilder.AddUiForegroundOff();
+                    stringBuilder.AddText($"You have re-enabled the DTR bar - but before it will work again you must reinstall Tidy Chat or restart your FFXIV Client.");
+                    ChatGui.Print(stringBuilder.BuiltString);
+                }
                 string instanceNumber = "";
                 if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains))
                 {
@@ -201,22 +211,36 @@ namespace TidyChat
                 if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
                 {
                     instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(normalizedText).First().Groups["instance"].Value;
-                    if (instanceNumber == "")
+                    if (instanceNumber == TidyStrings.FirstInstance)
                     {
-                        UpdateDtrBarEntry($"Instance ");
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
                     }
-                    else if (instanceNumber == "")
+                    else if (instanceNumber == TidyStrings.SecondInstance)
                     {
-                        UpdateDtrBarEntry($"Instance ");
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
                     }
-                    else if (instanceNumber == "")
+                    else if (instanceNumber == TidyStrings.ThirdInstance)
                     {
-                        UpdateDtrBarEntry($"Instance ");
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
                     }
                 }
-            } else if (!Configuration.UseDTRBar)
+            } else if (!Configuration.UseDTRBar && dtrEntry.Shown && (chatType is ChatType.System || chatType is ChatType.Error))
             {
-                UpdateDtrBarEntry("");
+                if (Configuration.DTRIsEnabled)
+                {
+                    Configuration.DTRIsEnabled = false;
+                    UpdateDtrBarEntry("");
+                    dtrEntry.Dispose();
+                    var stringBuilder = new SeStringBuilder();
+                    stringBuilder.AddUiForeground(14);
+                    stringBuilder.AddText(TidyStrings.Tag);
+                    stringBuilder.AddUiForegroundOff();
+                    stringBuilder.AddText($"The /instance DTR bar has been disabled. To re-enable you must first enable the DTR Bar setting and then restart Tidy Chat.");
+                    ChatGui.Print(stringBuilder.BuiltString);
+                } else
+                {
+                    dtrEntry.Dispose();
+                }
             }
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
