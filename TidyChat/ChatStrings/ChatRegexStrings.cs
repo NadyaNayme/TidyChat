@@ -34,7 +34,7 @@ namespace TidyChat
 
 
         /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
-        public static Regex ObtainedVenture { get; } = new Regex(@"You (obtain|obtains) (a venture|2 ventures)\.",
+        public static Regex ObtainedVenture { get; } = new Regex(@"You (obtain|obtains) (a venture|2 ventures|3 ventures)\.",
           RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture);
 
         /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
