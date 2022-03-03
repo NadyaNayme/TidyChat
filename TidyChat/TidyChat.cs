@@ -301,7 +301,11 @@ namespace TidyChat
             {
                 try
                 {
-
+                    /* Disable Chat History for self-sent messages by default */
+                    if (Configuration.DisableSelfChatHistory && sender.TextValue == Configuration.PlayerName)
+                    {
+                        return;
+                    }
                     Channels historyChannels = (Channels)Configuration.ChatHistoryChannels;
                     if (!historyChannels.Equals(Flags.Channels.None))
                     {

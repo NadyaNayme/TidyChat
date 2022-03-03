@@ -36,6 +36,14 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker($"If a message was sent within the last {configuration.ChatHistoryLength} messages it will be filtered");
 
+                var disableSelfChatHistory = configuration.DisableSelfChatHistory;
+                if (ImGui.Checkbox("Ignore messages sent by player", ref disableSelfChatHistory))
+                {
+                    configuration.DisableSelfChatHistory = disableSelfChatHistory;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker($"Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.");
+
 
                 ImGui.TextUnformatted("Number of messages to keep in chat history:");
                 var chatHistoryLength = configuration.ChatHistoryLength;
