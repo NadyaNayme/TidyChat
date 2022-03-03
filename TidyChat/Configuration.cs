@@ -16,9 +16,9 @@ namespace TidyChat
         public List<PlayerName> Whitelist { get; set; } = new();
         public bool SentByWhitelistPlayer { get; set; } = true;
         public bool TargetingWhitelistPlayer { get; set; } = true;
-        public bool ChatHistoryFilter { get; set; } = true;
-        public int ChatHistoryChannels { get; set; } = 4;
-        public int ChatHistoryLength { get; set; } = 50;
+        public bool ChatHistoryFilter { get; set; } = false;
+        public int ChatHistoryChannels { get; set; } = 2;
+        public int ChatHistoryLength { get; set; } = 10;
         public bool NoCoffee { get; set; } = false;
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
