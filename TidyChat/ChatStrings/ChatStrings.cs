@@ -20,6 +20,15 @@
             Fra = new string[] { "équipiers", "vous", "honoré" },
         };
 
+        /// <see href="https://xivapi.com/LogMessage/5253?pretty=true">You join the [Company] as a freelancer</see>
+        public static LocalizedStrings StartOfPvp { get; } = new()
+        {
+            Jpn = new string[] { "フロントラインに", "として参加しました" },
+            Eng = new string[] { "join", "freelancer" },
+            Deu = new string[] { "pvp-front", "beigetreten" },
+            Fra = new string[] { "combattez", "dans", "rangs" },
+        };
+
         /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Duty has ended</see>
         public static LocalizedStrings DutyEnded { get; } = new()
         {
