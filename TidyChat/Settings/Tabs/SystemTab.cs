@@ -17,7 +17,7 @@ namespace TidyChat.Settings.Tabs
             ImGui.Separator();
             ImGui.Spacing();
 
-            if (ImGui.CollapsingHeader("\"Not Spam\" Filters"))
+            if (ImGui.CollapsingHeader("\"Not Spam\" - Hide whitelisted messages"))
             {
                 ImGui.TextUnformatted("Hide messages Tidy Chat does not consider to be spam.");
 
@@ -113,7 +113,7 @@ namespace TidyChat.Settings.Tabs
 
             ImGui.Spacing();
 
-            if (ImGui.CollapsingHeader("\"Spam\" Filters"))
+            if (ImGui.CollapsingHeader("\"Spam\" - Show filtered messages"))
             {
                 ImGui.TextUnformatted("Show messages Tidy Chat considers to be spam");
 

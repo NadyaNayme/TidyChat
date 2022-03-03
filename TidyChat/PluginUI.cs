@@ -62,15 +62,9 @@ namespace TidyChat
                         SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
-                    if (ImGui.BeginTabItem("Obtain"))
+                    if (ImGui.BeginTabItem("Loot & Obtain"))
                     {
                         ObtainTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
-                    }
-
-                    if (ImGui.BeginTabItem("Loot"))
-                    {
-                        LootTab.Draw(this.configuration);
                         SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
                     }
 
