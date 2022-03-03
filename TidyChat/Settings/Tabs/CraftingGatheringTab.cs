@@ -24,6 +24,7 @@ namespace TidyChat.Settings.Tabs
             ImGuiComponents.HelpMarker("Hide \"begin/finish\" gathering messages, as well as location affects");
 
             ImGui.Separator();
+            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("Desynthesis"))
             {
@@ -41,6 +42,8 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
             }
+
+            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("Materia"))
             {
