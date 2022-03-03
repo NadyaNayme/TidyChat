@@ -69,7 +69,6 @@ namespace TidyChat
             this.CommandManager = commandManager;
             this.ChatGui = chatGui;
             this.ClientState = clientState;
-            this.dtrEntry = DtrBar.Get(this.Name);
 
             // Player cannot change this without restarting the game so should be safe to grab here
             Localization.Language = clientState.ClientLanguage;
@@ -78,6 +77,11 @@ namespace TidyChat
 
             this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
             this.Configuration.Initialize(this.PluginInterface);
+
+            if (Configuration.UseDTRBar)
+            {
+                this.dtrEntry = DtrBar.Get(this.Name);
+            }
 
             ChatGui.ChatMessage += OnChat;
 
