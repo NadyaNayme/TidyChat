@@ -28,9 +28,7 @@ namespace TidyChat.Utility
                     var stringBuilder = new SeStringBuilder();
                     if (configuration.IncludeChatTag)
                     {
-                        stringBuilder.AddUiForeground(14);
-                        stringBuilder.AddText(TidyStrings.Tag);
-                        stringBuilder.AddUiForegroundOff();
+                        AddTidyChatTag(stringBuilder);
                     }
                     string commendations = $"commendation{(TidyStrings.NumberOfCommendations == 1 ? "" : "s")}";
 
@@ -63,9 +61,7 @@ namespace TidyChat.Utility
                 var stringBuilder = new SeStringBuilder();
                 if (configuration.IncludeChatTag)
                 {
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText(TidyStrings.Tag);
-                    stringBuilder.AddUiForegroundOff();
+                    AddTidyChatTag(stringBuilder);
                 }
                 stringBuilder.AddText($"\"/say {containingPhrase}\" {Localization.GetTidy(TidyStrings.CopiedToClipboard)}");
                 TextCopy.ClipboardService.SetText($"/say {containingPhrase}");
@@ -80,9 +76,7 @@ namespace TidyChat.Utility
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag)
             {
-                stringBuilder.AddUiForeground(14);
-                stringBuilder.AddText(TidyStrings.Tag);
-                stringBuilder.AddUiForegroundOff();
+                AddTidyChatTag(stringBuilder);
             }
             stringBuilder.AddText($"{Localization.GetTidy(TidyStrings.InstanceText)} {instanceNumber}");
             return stringBuilder.BuiltString;
@@ -105,9 +99,7 @@ namespace TidyChat.Utility
                 var stringBuilder = new SeStringBuilder();
                 if (configuration.IncludeChatTag)
                 {
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText(TidyStrings.Tag);
-                    stringBuilder.AddUiForegroundOff();
+                    AddTidyChatTag(stringBuilder);
                 }
                 stringBuilder.AddText($"{newMessage}");
                 return stringBuilder.BuiltString;
@@ -124,9 +116,7 @@ namespace TidyChat.Utility
                 var stringBuilder = new SeStringBuilder();
                 if (configuration.IncludeChatTag)
                 {
-                    stringBuilder.AddUiForeground(14);
-                    stringBuilder.AddText(TidyStrings.Tag);
-                    stringBuilder.AddUiForegroundOff();
+                    AddTidyChatTag(stringBuilder);
                 }
                 stringBuilder.AddText($"{newMessage}");
                 return stringBuilder.BuiltString;
@@ -134,6 +124,19 @@ namespace TidyChat.Utility
             {
                 return originalMessage;
             }
+        }
+
+        /// <summary>
+        /// This method takes <paramref name="sestring"/> and adds the red "[TidyChat] " tag text to it
+        /// </summary>
+        /// <param name="sestring">An empty SeStringBuilder()</param>
+        /// <returns>SeStringBuilder with red "[TidyChat] " tag as the beginning text</returns>
+        public static SeStringBuilder AddTidyChatTag(SeStringBuilder sestring)
+        {
+            sestring.AddUiForeground(14);
+            sestring.AddText(TidyStrings.Tag);
+            sestring.AddUiForegroundOff();
+            return sestring;
         }
     }
 }

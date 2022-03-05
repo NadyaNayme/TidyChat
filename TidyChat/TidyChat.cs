@@ -122,6 +122,8 @@ namespace TidyChat
                 return;
             }
 
+            // PluginLog.LogDebug(message.Payloads[1].);
+
             var chatType = FromDalamud(type);
             string normalizedText = NormalizeInput.ToLowercase(message);
 
