@@ -6,13 +6,13 @@
 
 		public readonly static string PluginName = "Tidy Chat";
 
-		public readonly static string SettingsCommand = "/tidychat";
+		public const string SettingsCommand = "/tidychat";
 
 		public readonly static string SettingsHelper = "Open settings";
 
 		public readonly static string ShorthandHelper = "Shorthand command to open settings";
 
-		public readonly static string ShorthandCommand = "/tidy";
+		public const string ShorthandCommand = "/tidy";
 
 		// The space at the end is intentional
 		public readonly static string Tag = "[TidyChat] ";
