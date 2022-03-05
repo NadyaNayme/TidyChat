@@ -28,4 +28,4 @@ Use `/tidychat` or the shorthand `/tidy` to quickly access settings
 
 ## How do Filters Work?
 
-Check out the [Tidy Chat wiki](https://github.com/NadyaNayme/TidyChat/wiki/Settings-Overview) for more in-depth explanations about what each setting does in-game. (WIP)
+Check out the [Tidy Chat wiki](https://github.com/NadyaNayme/TidyChat/wiki) for more in-depth explanations about what each setting does in-game. (WIP)
