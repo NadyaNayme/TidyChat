@@ -1,7 +1,9 @@
-﻿using System.Linq;
-using TidyStrings = TidyChat.Utility.InternalStrings;
-using Dalamud;
+﻿using Dalamud;
 using Dalamud.Game.Text.SeStringHandling;
+
+using System.Linq;
+
+using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat.Utility
 {

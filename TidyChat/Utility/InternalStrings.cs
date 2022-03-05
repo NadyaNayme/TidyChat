@@ -2,23 +2,23 @@
 {
 	internal static class InternalStrings
 	{
-		public const string Version = "0.1.1.5";
+		public readonly static string Version = "0.1.1.5";
 
-		public const string PluginName = "Tidy Chat";
+		public readonly static string PluginName = "Tidy Chat";
 
-		public const string SettingsCommand = "/tidychat";
+		public readonly static string SettingsCommand = "/tidychat";
 
-		public const string SettingsHelper = "Open settings";
+		public readonly static string SettingsHelper = "Open settings";
 
-		public const string ShorthandHelper = "Shorthand command to open settings";
+		public readonly static string ShorthandHelper = "Shorthand command to open settings";
 
-		public const string ShorthandCommand = "/tidy";
+		public readonly static string ShorthandCommand = "/tidy";
 
 		// The space at the end is intentional
-		public const string Tag = "[TidyChat] ";
-		public const string DebugTag = "[Debug] ";
+		public readonly static string Tag = "[TidyChat] ";
+		public readonly static string DebugTag = "[Debug] ";
 
-		public static LocalizedTidyStrings InstanceText { get; } = new ()
+		public readonly static LocalizedTidyStrings InstanceText = new ()
 		{
 			Jpn = new string("インスタンスエリア"),
 			Eng = new string("You are now in instance:"),
@@ -26,7 +26,7 @@
 			Fra = new string("La zone instanciée:"),
 		};
 
-		public static LocalizedTidyStrings InstanceWord { get; } = new()
+		public readonly static LocalizedTidyStrings InstanceWord = new()
 		{
 			Jpn = new string("インスタンスエリア"),
 			Eng = new string("Instance"),
@@ -34,7 +34,7 @@
 			Fra = new string("Instanciée"),
 		};
 
-		public static LocalizedTidyStrings CopiedToClipboard { get; } = new()
+		public readonly static LocalizedTidyStrings CopiedToClipboard = new()
 		{
 			Jpn = new string("クリップボードにコピーされました"),
 			Eng = new string("has been copied to clipboard"),
@@ -42,7 +42,7 @@
 			Fra = new string("a été copié")
 		};
 
-		public static LocalizedTidyStrings Guildhest { get; } = new()
+		public readonly static LocalizedTidyStrings Guildhest = new()
 		{
 			Jpn = new string("ギルドヘストから入手"),
 			Eng = new string("a Guildhest"),
@@ -50,7 +50,7 @@
 			Fra = new string("une opération de guilde"),
 		};
 
-		public static LocalizedTidyStrings PvPDuty { get; } = new()
+		public readonly static LocalizedTidyStrings PvPDuty = new()
 		{
 			Jpn = new string("NeedsLocalization"),
 			Eng = new string("a PvP duty"),
@@ -59,7 +59,7 @@
 		};
 
 		/// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
-		public static LocalizedTidyStrings POTD { get; } = new()
+		public readonly static LocalizedTidyStrings POTD = new()
 		{
 			Jpn = new string("NeedsLocalization"),
 			Eng = new string("Palace of the Dead"),
@@ -68,7 +68,7 @@
 		};
 
 		/// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
-		public static LocalizedTidyStrings HOH { get; } = new()
+		public readonly static LocalizedTidyStrings HOH = new()
 		{
 			Jpn = new string("NeedsLocalization"),
 			Eng = new string("Heaven-on-High"),
@@ -79,8 +79,8 @@
 		public static string LastDuty { get; set; } = "";
 
 		public static int NumberOfCommendations { get; set; } = 0;
-		public static string FirstInstance { get; set; } = "";
-		public static string SecondInstance { get; set; } = "";
-		public static string ThirdInstance { get; set; } = "";
+		public readonly static string FirstInstance = "";
+		public readonly static string SecondInstance = "";
+		public readonly static string ThirdInstance = "";
 	}
 }

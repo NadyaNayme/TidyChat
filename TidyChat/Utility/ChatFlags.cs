@@ -1,7 +1,6 @@
-﻿using Dalamud.Game.Text;
-using System;
+﻿using ChatTwo.Code;
 
-using ChatTwo.Code;
+using System;
 
 namespace TidyChat.Utility
 {

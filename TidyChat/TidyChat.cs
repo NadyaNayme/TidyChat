@@ -121,7 +121,9 @@ namespace TidyChat
                 return;
             }
 
-            // PluginLog.LogDebug(message.Payloads[1].);
+            #if DEBUG
+            PluginLog.LogDebug(message.Payloads[1].);
+            #endif
 
             var chatType = FromDalamud(type);
             string normalizedText = NormalizeInput.ToLowercase(message);
@@ -136,13 +138,13 @@ namespace TidyChat
                 isHandled = true;
             }
 
-            #region Better Messages
+#region Better Messages
             if (Configuration.BetterInstanceMessage && !Configuration.HideInstanceMessage && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             {
                message = Better.Instances(message, Configuration);
             }
 
-            #region DTRBar
+#region DTRBar
             if (Configuration.UseDTRBar && (chatType is ChatType.System || chatType is ChatType.Error) && (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatStrings.StartOfPvp).All(normalizedText.Contains)))
             {
                 if (!Configuration.DTRIsEnabled)
@@ -230,7 +232,7 @@ namespace TidyChat
                     UpdateDtrBarEntry("");
                     dtrEntry.Dispose();
             }
-            #endregion DTRBar
+#endregion DTRBar
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             {
@@ -252,10 +254,10 @@ namespace TidyChat
             {
                 message = Better.NoviceNetwork(message, normalizedText, Configuration);
             }
-            #endregion
+#endregion
 
-            #region Channel Filters
-            #region Emotes
+#region Channel Filters
+#region Emotes
             if (Configuration.FilterEmoteSpam && chatType is ChatType.StandardEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
@@ -270,7 +272,7 @@ namespace TidyChat
             {
                 isHandled = true;
             }
-            #endregion Emotes
+#endregion Emotes
             if (Configuration.FilterSystemMessages && chatType is ChatType.System)
             {
                 isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
@@ -291,7 +293,7 @@ namespace TidyChat
                 isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
             }
 
-            #region DoH/DoL
+#region DoH/DoL
             if (Configuration.FilterCraftingSpam && chatType is ChatType.Crafting)
             {
                 isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
@@ -301,15 +303,15 @@ namespace TidyChat
             {
                 isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
             }
-            #endregion DoH/DoL
+#endregion DoH/DoL
 
             if ((Configuration.HideUserLogins || Configuration.HideUserLogouts) && chatType is ChatType.FreeCompanyLoginLogout)
             {
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
-            #endregion Channel Filters
+#endregion Channel Filters
 
-            #region Duplicate Message Spam Filter
+#region Duplicate Message Spam Filter
             if (Configuration.ChatHistoryFilter && !isHandled)
             {
                 try
@@ -350,9 +352,9 @@ namespace TidyChat
                     PluginLog.LogDebug("Encountered error: " + e);
                 }
             }
-            #endregion Duplicate Message Spam Filter
+#endregion Duplicate Message Spam Filter
 
-            #region Whitelist
+#region Whitelist
             if (Configuration.Whitelist.Count > 0)
             {
                 foreach (var player in Configuration.Whitelist)
@@ -387,9 +389,9 @@ namespace TidyChat
                     }
                 }
             }
-            #endregion Whitelist
+#endregion Whitelist
 
-            #region Debug Mode Enabled
+#region Debug Mode Enabled
             if (Configuration.EnableDebugMode && isHandled && !message.TextValue.ToString().StartsWith("[TidyChat]"))
             {
                 var stringBuilder = new SeStringBuilder();
@@ -398,7 +400,7 @@ namespace TidyChat
                 message = stringBuilder.BuiltString;
                 isHandled = false;
             }
-            #endregion Debug Mode Enabled
+#endregion Debug Mode Enabled
         }
 
         private void SetPlayerName() {

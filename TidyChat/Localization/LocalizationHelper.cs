@@ -10,7 +10,9 @@ namespace TidyChat
 
         public static string[] Get(string[] strings)
         {
-            // PluginLog.LogDebug("Strings not localized: %s", string.Join(",", strings));
+            #if DEBUG
+            PluginLog.LogDebug("Strings not localized: %s", string.Join(",", strings));
+            #endif
             return strings;
         }
 
@@ -28,7 +30,9 @@ namespace TidyChat
 
         public static Regex Get(Regex regex)
         {
-            // PluginLog.LogDebug("Regex not localized: %s", regex.ToString());
+            #if DEBUG
+            PluginLog.LogDebug("Regex not localized: %s", regex.ToString());
+            #endif
             return regex;
         }
 
@@ -46,7 +50,9 @@ namespace TidyChat
 
         public static string GetTidy(string strings)
         {
-            // PluginLog.LogDebug("Internal strings not localized: %s", strings.ToString());
+            #if DEBUG
+            PluginLog.LogDebug("Internal strings not localized: %s", strings.ToString());
+            #endif
             return strings;
         }
 
