@@ -127,14 +127,27 @@ namespace TidyChat.Utility
         }
 
         /// <summary>
-        /// This method takes <paramref name="sestring"/> and adds the red "[TidyChat] " tag text to it
+        /// This method takes <paramref name="sestring"/> and adds a red "[TidyChat] " tag text to it
         /// </summary>
         /// <param name="sestring">An empty SeStringBuilder()</param>
-        /// <returns>SeStringBuilder with red "[TidyChat] " tag as the beginning text</returns>
+        /// <returns>SeString with text: "[TidyChat] "</returns>
         public static SeStringBuilder AddTidyChatTag(SeStringBuilder sestring)
         {
             sestring.AddUiForeground(14);
             sestring.AddText(TidyStrings.Tag);
+            sestring.AddUiForegroundOff();
+            return sestring;
+        }
+
+        /// <summary>
+        /// This method takes <paramref name="sestring"/> and adds a yellow "[Debug] " tag text to it
+        /// </summary>
+        /// <param name="sestring">An empty SeStringBuilder()</param>
+        /// <returns>SeString with text: "[Debug] "</returns>
+        public static SeStringBuilder AddDebugTag(SeStringBuilder sestring)
+        {
+            sestring.AddUiForeground(8);
+            sestring.AddText(TidyStrings.DebugTag);
             sestring.AddUiForegroundOff();
             return sestring;
         }

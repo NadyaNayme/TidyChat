@@ -392,13 +392,8 @@ namespace TidyChat
             if (Configuration.EnableDebugMode && isHandled && !message.TextValue.ToString().StartsWith("[TidyChat]"))
             {
                 var stringBuilder = new SeStringBuilder();
-                stringBuilder.AddUiForeground(14);
-                stringBuilder.AddText(TidyStrings.Tag);
-                stringBuilder.AddUiForegroundOff();
-                stringBuilder.AddUiForeground(8);
-                stringBuilder.AddText(TidyStrings.DebugTag);
-                stringBuilder.AddUiForegroundOff();
-                stringBuilder.AddText(message.TextValue);
+                Better.AddTidyChatTag(stringBuilder);
+                Better.AddDebugTag(stringBuilder);
                 message = stringBuilder.BuiltString;
                 isHandled = false;
             }
