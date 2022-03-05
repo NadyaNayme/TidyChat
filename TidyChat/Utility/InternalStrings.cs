@@ -2,7 +2,7 @@
 {
 	internal static class InternalStrings
 	{
-		public readonly static string Version = "0.1.1.5";
+		public readonly static string Version = "0.1.1.6";
 
 		public readonly static string PluginName = "Tidy Chat";
 
