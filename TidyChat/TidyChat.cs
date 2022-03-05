@@ -1,25 +1,24 @@
-﻿using Dalamud.IoC;
-using Dalamud.Plugin;
+﻿using ChatTwo.Code;
+
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
+using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
-using Dalamud.Game.Gui.Dtr;
+using Dalamud.IoC;
+using Dalamud.Logging;
+using Dalamud.Plugin;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using TidyChat.Utility;
-using GetDuty = TidyChat.Utility.GetDutyName;
-using TidyStrings = TidyChat.Utility.InternalStrings;
 using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
-
-using System.Linq;
-using ChatTwo.Code;
-using System.Collections.Generic;
-using Dalamud.Logging;
-using System;
-using static TidyChat.Utility.ChatFlags;
-using Dalamud;
+using GetDuty = TidyChat.Utility.GetDutyName;
+using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat
 
@@ -143,6 +142,7 @@ namespace TidyChat
                message = Better.Instances(message, Configuration);
             }
 
+            #region DTRBar
             if (Configuration.UseDTRBar && (chatType is ChatType.System || chatType is ChatType.Error) && (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatStrings.StartOfPvp).All(normalizedText.Contains)))
             {
                 if (!Configuration.DTRIsEnabled)
@@ -230,6 +230,7 @@ namespace TidyChat
                     UpdateDtrBarEntry("");
                     dtrEntry.Dispose();
             }
+            #endregion DTRBar
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             {
@@ -318,7 +319,7 @@ namespace TidyChat
                     {
                         return;
                     }
-                    Channels historyChannels = (Channels)Configuration.ChatHistoryChannels;
+                    Flags.Channels historyChannels = (Flags.Channels)Configuration.ChatHistoryChannels;
                     if (!historyChannels.Equals(Flags.Channels.None))
                     {
                         if(Flags.CheckFlags(Configuration, chatType))
@@ -376,7 +377,7 @@ namespace TidyChat
                         }
                         else
                         {
-                            Channels e = (Channels)player.whitelistedChannels;
+                            Flags.Channels e = (Flags.Channels)player.whitelistedChannels;
                             if (!e.Equals(Flags.Channels.None) && isHandled)
                             {
                                 isHandled = Flags.CheckFlags(player, chatType);
