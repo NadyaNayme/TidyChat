@@ -215,7 +215,7 @@
         public readonly static LocalizedStrings SpideySenses = new()
         {
             Jpn = new string[] { "NeedsLocalization" },
-            Eng = new string[] { "you", "sense", "something" }, // You sense something...
+            Eng = new string[] { "you", "sense" }, // You sense something... , You sense your mark..., You sense a strange...
             Deu = new string[] { "NeedsLocalization" },
             Fra = new string[] { "NeedsLocalization" },
         };
@@ -509,7 +509,7 @@
         public readonly static LocalizedStrings OnlineStatus = new()
         {
             Jpn = new string[] { "状態", "になりました" },
-            Eng = new string[] { "updating", "online", "status"  },
+            Eng = new string[] { "updating", "online", "status" },
             Deu = new string[] { "online-status", "wurde" },
             Fra = new string[] { "l'état", "automatiquiment" },
         };
@@ -522,6 +522,24 @@
             Eng = new string[] { "you", "attach", "letter" },
             Deu = new string[] { "du", "hast", "brief", "angehängt" },
             Fra = new string[] { "vous", "joignez", "lettre" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/1114?pretty=true">Data on [fish] is added to your fish guide</see>
+        public readonly static LocalizedStrings AddedToFishGuide = new()
+        {
+            Jpn = new string[] { "の情報を記録した" },
+            Eng = new string[] { "data", "added", "fish", "guide" },
+            Deu = new string[] { "fischverzeichnis", "vermerkt" },
+            Fra = new string[] { "notez", "informations", "votre", "nomenclature" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/3512?pretty=true">[Player] lands a [fish] measuring ... ilms</see>
+        public readonly static LocalizedStrings MeasuringIlms = new()
+        {
+            Jpn = new string[] { "イルム", "を釣り上げた" },
+            Eng = new string[] { "measuring", "ilms" },
+            Deu = new string[] { "ilme", "gefangen" },
+            Fra = new string[] { "pêché", "de" },
         };
 
     }

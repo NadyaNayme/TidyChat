@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Numerics;
 using ImGuiNET;
-using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat.Settings.Tabs
 {
@@ -11,15 +9,12 @@ namespace TidyChat.Settings.Tabs
         private static PlayerName m_placeholder = new();
         public static void Draw(Configuration configuration)
         {
-
-
             var sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
             if (ImGui.Checkbox("Show all messages sent by whitelisted player", ref sentByWhitelistPlayer))
             {
                 configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
                 configuration.Save();
             }
-
 
             var targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
             if (ImGui.Checkbox("Show all messages targeting a whitelisted player", ref targetingWhitelistPlayer))

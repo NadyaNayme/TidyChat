@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Authors>Nana</Authors>
     <Company></Company>
-    <Version>0.1.1.6</Version>
+    <Version>0.1.1.7</Version>
     <Description>Various chat filters for a less cluttered chat. Use /tidychat to open settings.</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>

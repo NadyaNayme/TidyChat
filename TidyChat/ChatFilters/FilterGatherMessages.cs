@@ -25,7 +25,9 @@ namespace TidyChat
 					return true;
 				}
                 if (
-                    (configuration.ShowLocationAffects && Localization.Get(ChatStrings.LocationAffects).All(input.Contains))
+                    (configuration.ShowLocationAffects && Localization.Get(ChatStrings.LocationAffects).All(input.Contains)) ||
+                    (configuration.ShowCaughtFish && Localization.Get(ChatStrings.AddedToFishGuide).All(input.Contains)) ||
+                    (configuration.ShowMeasuringIlms && Localization.Get(ChatStrings.MeasuringIlms).All(input.Contains))
                    )
                 {
                     return false;

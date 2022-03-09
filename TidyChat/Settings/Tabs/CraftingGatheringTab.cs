@@ -123,6 +123,25 @@ namespace TidyChat.Settings.Tabs
                 }
             }
 
+            ImGui.Spacing();
+
+            if (ImGui.CollapsingHeader("Fishing"))
+            {
+                var showCaughtFish = configuration.ShowCaughtFish;
+                if (ImGui.Checkbox("Show message when a fish is added to the fish guide", ref showCaughtFish))
+                {
+                    configuration.ShowCaughtFish = showCaughtFish;
+                    configuration.Save();
+                }
+
+                var showMeasuringIlms = configuration.ShowMeasuringIlms;
+                if (ImGui.Checkbox("Show caught fish measuring [size] ilms", ref showMeasuringIlms))
+                {
+                    configuration.ShowMeasuringIlms = showMeasuringIlms;
+                    configuration.Save();
+                }
+            }
+
             ImGui.EndTabItem();
         }
     }

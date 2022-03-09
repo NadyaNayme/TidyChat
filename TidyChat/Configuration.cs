@@ -137,6 +137,8 @@ namespace TidyChat
         public bool HideGatheringYield { get; set; } = true;
         public bool HideGatherersBoon { get; set; } = true;
         public bool HideGatheringAttempts { get; set; } = true;
+        public bool ShowCaughtFish { get; set; } = true;
+        public bool ShowMeasuringIlms { get; set; } = true;
         #endregion
         // the below exist just to make saving less cumbersome
 

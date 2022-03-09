@@ -303,5 +303,14 @@ namespace TidyChat
             Fra = new(@"il n'y a actuellement aucune zone instanciée", regexOptions),
         };
 
+        /// <see href="https://xivapi.com/LogMessage/7245?pretty=true">... is activated!"</see>
+        public readonly static LocalizedRegex CairnActivated = new()
+        {
+            Jpn = new(@"が起動した", regexOptions),
+            Eng = new(@"is activated", regexOptions),
+            Deu = new(@"wurde aktiviert", regexOptions),
+            Fra = new(@"s'est activé", regexOptions),
+        };
+
     }
 }
