@@ -51,6 +51,26 @@ namespace TidyChat
                      configuration.ShowDesynthesisObtains && Localization.Get(ChatRegexStrings.YouObtainSystem).IsMatch(input) ||
                      configuration.ShowOnlineStatus && Localization.Get(ChatStrings.OnlineStatus).All(input.Contains) ||
                      configuration.ShowAttachToMail && Localization.Get(ChatStrings.AttachToMail).All(input.Contains) ||
+                     // POTD & HoH filters
+                     configuration.ShowObtainedPomander && Localization.Get(ChatRegexStrings.ObtainedPomander).IsMatch(input) ||
+                     configuration.ShowReturnedPomander && Localization.Get(ChatRegexStrings.ReturnedPomander).IsMatch(input) ||
+                     configuration.ShowCairnGlows && Localization.Get(ChatRegexStrings.CairnGlows).IsMatch(input) ||
+                     configuration.ShowRestoresLifeToFallen && Localization.Get(ChatRegexStrings.RestoresLifeToFallen).IsMatch(input) ||
+                     configuration.ShowCairnActivates && Localization.Get(ChatRegexStrings.CairnActivates).IsMatch(input) ||
+                     configuration.ShowTransference && Localization.Get(ChatRegexStrings.Transference).IsMatch(input) ||
+                     configuration.ShowAetherpoolIncrease && Localization.Get(ChatRegexStrings.AetherpoolIncrease).IsMatch(input) ||
+                     configuration.ShowAetherpoolUnchanged && Localization.Get(ChatRegexStrings.AetherpoolUnchanged).IsMatch(input) ||
+                     configuration.ShowPomanderOfSafety && Localization.Get(ChatRegexStrings.PomanderOfSafety).IsMatch(input) ||
+                     configuration.ShowPomanderOfSight && Localization.Get(ChatRegexStrings.PomanderOfSight).IsMatch(input) ||
+                     configuration.ShowPomanderOfAffluence && Localization.Get(ChatRegexStrings.PomanderOfAffluence).IsMatch(input) ||
+                     configuration.ShowPomanderOfFlight && Localization.Get(ChatRegexStrings.PomanderOfFlight).IsMatch(input) ||
+                     configuration.ShowPomanderOfAlteration && Localization.Get(ChatRegexStrings.PomanderOfAlteration).IsMatch(input) ||
+                     configuration.ShowPomanderOfWitching && Localization.Get(ChatRegexStrings.PomanderOfWitching).IsMatch(input) ||
+                     configuration.ShowPomanderOfSerenity && Localization.Get(ChatRegexStrings.PomanderOfSerenity).IsMatch(input) ||
+                     configuration.ShowFloorNumber && Localization.Get(ChatRegexStrings.FloorNumber).IsMatch(input) ||
+                     configuration.ShowSenseAccursedHoard && Localization.Get(ChatRegexStrings.SenseAccursedHoard).IsMatch(input) ||
+                     configuration.ShowDoNotSenseAccursedHoard && Localization.Get(ChatRegexStrings.DoNotSenseAccursedHoard).IsMatch(input) ||
+                     configuration.ShowDiscoverAccursedHoard && Localization.Get(ChatRegexStrings.DiscoverAccursedHoard).IsMatch(input) ||
                      // not optional so always run last
                      Localization.Get(ChatRegexStrings.ItemSearchCommand).IsMatch(input) ||
                      Localization.Get(ChatStrings.Playtime).All(input.Contains)

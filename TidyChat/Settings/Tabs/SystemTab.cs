@@ -192,6 +192,146 @@ namespace TidyChat.Settings.Tabs
 
             ImGui.Spacing();
 
+            if (ImGui.CollapsingHeader("POTD & HoH"))
+            {
+
+                var showObtainedPomander = configuration.ShowObtainedPomander;
+                if (ImGui.Checkbox("Show when the party obtains a pomander", ref showObtainedPomander))
+                {
+                    configuration.ShowObtainedPomander = showObtainedPomander;
+                    configuration.Save();
+                }
+
+                var showReturnedPomander = configuration.ShowReturnedPomander;
+                if (ImGui.Checkbox("Show when you return a pomander to the coffer", ref showReturnedPomander))
+                {
+                    configuration.ShowReturnedPomander = showReturnedPomander;
+                    configuration.Save();
+                }
+
+                var showCairnGlows = configuration.ShowCairnGlows;
+                if (ImGui.Checkbox("Show when the Cairn of Passage begins to glow", ref showCairnGlows))
+                {
+                    configuration.ShowCairnGlows = showCairnGlows;
+                    configuration.Save();
+                }
+
+                var showRestoresLifeToFallen = configuration.ShowRestoresLifeToFallen;
+                if (ImGui.Checkbox("Show when Cairn of Return is used", ref showRestoresLifeToFallen))
+                {
+                    configuration.ShowRestoresLifeToFallen = showRestoresLifeToFallen;
+                    configuration.Save();
+                }
+
+                var showCairnActivates = configuration.ShowCairnActivates;
+                if (ImGui.Checkbox("Show when the Cairn of Passage is activated", ref showCairnActivates))
+                {
+                    configuration.ShowCairnActivates = showCairnActivates;
+                    configuration.Save();
+                }
+
+                var showTransference = configuration.ShowTransference;
+                if (ImGui.Checkbox("Show transference messages", ref showTransference))
+                {
+                    configuration.ShowTransference = showTransference;
+                    configuration.Save();
+                }
+
+                var showAetherpoolIncrease = configuration.ShowAetherpoolIncrease;
+                if (ImGui.Checkbox("Show Aetherpool increases", ref showAetherpoolIncrease))
+                {
+                    configuration.ShowAetherpoolIncrease = showAetherpoolIncrease;
+                    configuration.Save();
+                }
+
+                var showAetherpoolUnchanged = configuration.ShowAetherpoolUnchanged;
+                if (ImGui.Checkbox("Show Aetherpool remains unchanged...", ref showAetherpoolUnchanged))
+                {
+                    configuration.ShowAetherpoolUnchanged = showAetherpoolUnchanged;
+                    configuration.Save();
+                }
+
+                var showPomanderOfSafety = configuration.ShowPomanderOfSafety;
+                if (ImGui.Checkbox("Show when Pomander of Safety is used", ref showPomanderOfSafety))
+                {
+                    configuration.ShowPomanderOfSafety = showPomanderOfSafety;
+                    configuration.Save();
+                }
+
+                var showPomanderOfSight = configuration.ShowPomanderOfSight;
+                if (ImGui.Checkbox("Show when Pomander of Sight is used", ref showPomanderOfSight))
+                {
+                    configuration.ShowPomanderOfSight = showPomanderOfSight;
+                    configuration.Save();
+                }
+
+                var showPomanderOfAffluence = configuration.ShowPomanderOfAffluence;
+                if (ImGui.Checkbox("Show when Pomander of Affluence is used", ref showPomanderOfAffluence))
+                {
+                    configuration.ShowPomanderOfAffluence = showPomanderOfAffluence;
+                    configuration.Save();
+                }
+
+                var showPomanderOfFlight = configuration.ShowPomanderOfFlight;
+                if (ImGui.Checkbox("Show when Pomander of Flight is used", ref showPomanderOfFlight))
+                {
+                    configuration.ShowPomanderOfFlight = showPomanderOfFlight;
+                    configuration.Save();
+                }
+
+                var showPomanderOfAlteration = configuration.ShowPomanderOfAlteration;
+                if (ImGui.Checkbox("Show when Pomander of Alteration is used", ref showPomanderOfAlteration))
+                {
+                    configuration.ShowPomanderOfAlteration = showPomanderOfAlteration;
+                    configuration.Save();
+                }
+
+                var showPomanderOfWitching = configuration.ShowPomanderOfWitching;
+                if (ImGui.Checkbox("Show when Pomander of Witching is used", ref showPomanderOfWitching))
+                {
+                    configuration.ShowPomanderOfWitching = showPomanderOfWitching;
+                    configuration.Save();
+                }
+
+                var showPomanderOfSerenity = configuration.ShowPomanderOfSerenity;
+                if (ImGui.Checkbox("Show when Pomander of Serenity is used", ref showPomanderOfSerenity))
+                {
+                    configuration.ShowPomanderOfSerenity = showPomanderOfSerenity;
+                    configuration.Save();
+                }
+
+                var showFloorNumber = configuration.ShowFloorNumber;
+                if (ImGui.Checkbox("Show floor number when entering a new floor", ref showFloorNumber))
+                {
+                    configuration.ShowFloorNumber = showFloorNumber;
+                    configuration.Save();
+                }
+
+                var showSenseAccursedHoard = configuration.ShowSenseAccursedHoard;
+                if (ImGui.Checkbox("Show when Accursed Hoard is sensed", ref showSenseAccursedHoard))
+                {
+                    configuration.ShowSenseAccursedHoard = showSenseAccursedHoard;
+                    configuration.Save();
+                }
+
+                var showDoNotSenseAccursedHoard = configuration.ShowDoNotSenseAccursedHoard;
+                if (ImGui.Checkbox("Show when Accursed Hoard is not sensed on the current floor", ref showDoNotSenseAccursedHoard))
+                {
+                    configuration.ShowDoNotSenseAccursedHoard = showDoNotSenseAccursedHoard;
+                    configuration.Save();
+                }
+
+                var showDiscoverAccursedHoard = configuration.ShowDiscoverAccursedHoard;
+                if (ImGui.Checkbox("Show when Accursed Hoard is discovered", ref showDiscoverAccursedHoard))
+                {
+                    configuration.ShowDiscoverAccursedHoard = showDiscoverAccursedHoard;
+                    configuration.Save();
+                }
+
+            }
+
+            ImGui.Spacing();
+
             if (ImGui.CollapsingHeader("Party & Invite Messages"))
             {
                 var showInviteSent = configuration.ShowInviteSent;
