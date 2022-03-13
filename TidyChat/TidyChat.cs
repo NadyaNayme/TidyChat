@@ -156,7 +156,7 @@ namespace TidyChat
                 if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatStrings.StartOfPvp).All(normalizedText.Contains))
                 {
                     UpdateDtrBarEntry("");
-                } 
+                }
                 else if (Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
                 {
                     if (Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText))
@@ -397,6 +397,7 @@ namespace TidyChat
                 var stringBuilder = new SeStringBuilder();
                 Better.AddTidyChatTag(stringBuilder);
                 Better.AddDebugTag(stringBuilder);
+                stringBuilder.AddText(message.TextValue);
                 message = stringBuilder.BuiltString;
                 isHandled = false;
             }
