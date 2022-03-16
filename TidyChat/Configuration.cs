@@ -31,9 +31,7 @@ namespace TidyChat
         #endregion
         #region Better Messaging
         public bool BetterInstanceMessage { get; set; } = true;
-        public bool UseDTRBar { get; set; } = false;
-        public bool DTRIsEnabled { get; set; } = false;
-        public int InstanceMessageTimer { get; set; } = 300;
+        public bool InstanceInDtrBar { get; set; } = false;
         public bool BetterSayReminder { get; set; } = false;
         public bool CopyBetterSayReminder { get; set; } = false;
         public bool BetterCommendationMessage { get; set; } = true;
@@ -174,7 +172,7 @@ namespace TidyChat
 
         public void Save()
         {
-            this.pluginInterface!.SavePluginConfig(this);
+            pluginInterface!.SavePluginConfig(this);
         }
     }
 }

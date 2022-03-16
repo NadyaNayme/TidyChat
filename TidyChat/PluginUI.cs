@@ -37,7 +37,7 @@ namespace TidyChat
             try
             {
                 ImGui.SetNextWindowSize(new Vector2(580, 735), ImGuiCond.FirstUseEver | ImGuiCond.Appearing); 
-                if (!ImGui.Begin("Tidy Chat", ref this.settingsVisible)) return;
+                if (!ImGui.Begin("Tidy Chat", ref settingsVisible)) return;
 
                 if (ImGui.BeginTabBar("##tidychatConfigTabs"))
                 {
@@ -46,44 +46,44 @@ namespace TidyChat
                     ImGui.TextColored(ColorGray, TidyStrings.Version);
                     if (ImGui.BeginTabItem("General"))
                     {
-                        GeneralTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        GeneralTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("System"))
                     {
-                        SystemTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        SystemTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Emotes"))
                     {
-                        EmotesTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        EmotesTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Loot & Obtain"))
                     {
-                        ObtainTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        ObtainTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Progress"))
                     {
-                        ProgressTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        ProgressTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Crafting & Gathering"))
                     {
-                        CraftingGatheringTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        CraftingGatheringTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     if (ImGui.BeginTabItem("Whitelist"))
                     {
-                        WhitelistTab.Draw(this.configuration);
-                        SettingsTabFooter.Display(this.configuration, ref this.settingsVisible);
+                        WhitelistTab.Draw(configuration);
+                        SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
                     ImGui.EndTabBar();

@@ -220,6 +220,15 @@
             Fra = new string[] { "NeedsLocalization" },
         };
 
+        /// <see href="https://xivapi.com/LogMessage/1831?pretty=true">You sense an unsettling presence.</see>
+        public readonly static LocalizedStrings UnsettlingPresence = new()
+        {
+            Jpn = new string[] { "不穏な気配" },
+            Eng = new string[] { "an", "unsettling", "presence" },
+            Deu = new string[] { "beunruhigende", "präsenz" },
+            Fra = new string[] { "présence", "inquiétante" },
+        };
+
         /// <see href="https://xivapi.com/LogMessage/3712?pretty=true">The compass detects a current approximately <##> yalms to the <direction>...</see>
         public readonly static LocalizedStrings AetherCompass = new()
         {

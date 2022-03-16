@@ -19,7 +19,7 @@ namespace TidyChat
                      !configuration.HideInstanceMessage && Localization.Get(ChatStrings.InstancedArea).All(input.Contains) ||
                      !configuration.HideQuestReminder && Localization.Get(ChatStrings.SayQuestReminder).All(input.Contains) ||
                      !configuration.HideReadyChecks && Localization.Get(ChatStrings.ReadyCheckComplete).All(input.Contains) ||
-                     !configuration.HideSpideySenses && Localization.Get(ChatStrings.SpideySenses).All(input.Contains) ||
+                     !configuration.HideSpideySenses && Localization.Get(ChatStrings.SpideySenses).All(input.Contains) && !Localization.Get(ChatStrings.UnsettlingPresence).All(input.Contains) ||
                      !configuration.HideAetherCompass && Localization.Get(ChatStrings.AetherCompass).All(input.Contains) ||
                      !configuration.HideCountdownTime && Localization.Get(ChatStrings.CountdownTime).All(input.Contains) ||
                      configuration.ShowGlamoursProjected && Localization.Get(ChatStrings.GlamoursProjected).All(input.Contains) ||

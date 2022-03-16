@@ -125,21 +125,12 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("Changes the instance text to: You are now in instance: #");
 
-                var useDTRBar = configuration.UseDTRBar;
+                var useDTRBar = configuration.InstanceInDtrBar;
                 if (ImGui.Checkbox("Display current instance in DTR Bar", ref useDTRBar))
                 {
-                    configuration.UseDTRBar = useDTRBar;
+                    configuration.InstanceInDtrBar = useDTRBar;
                     configuration.Save();
                 }
-
-                var instanceMessageTimer = configuration.InstanceMessageTimer;
-                ImGui.SetNextItemWidth(200f);
-                if (ImGui.DragInt("Delay to check for /instance message (in milliseconds)", ref instanceMessageTimer, 50, 100, 1000))
-                {
-                    configuration.InstanceMessageTimer = instanceMessageTimer;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("Slower load times should use a larger number - faster load times should use a smaller number. Recommended value is 300.");
 
                 var betterCommendationMessage = configuration.BetterCommendationMessage;
                 if (ImGui.Checkbox("Improved Player Commendations", ref betterCommendationMessage))

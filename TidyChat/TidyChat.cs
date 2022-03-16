@@ -1,11 +1,13 @@
 ﻿using ChatTwo.Code;
 
+using Dalamud.Game;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Hooking;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
@@ -13,7 +15,7 @@ using Dalamud.Plugin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Runtime.InteropServices;
 using TidyChat.Utility;
 using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
@@ -32,6 +34,7 @@ namespace TidyChat
 
         [PluginService] private DtrBar DtrBar { get; init; }
         private DalamudPluginInterface PluginInterface { get; init; }
+        private SigScanner SigScanner { get; init; }
         private ChatGui ChatGui { get; init; }
         private CommandManager CommandManager { get; init; }
         private Configuration Configuration { get; init; }
@@ -45,7 +48,7 @@ namespace TidyChat
         // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
         private const ushort Clear7 = ~(~0 << 7);
         internal ushort Raw { get; }
-        internal ChatType Type => (ChatType)(this.Raw & Clear7);
+        internal ChatType Type => (ChatType)(Raw & Clear7);
 
         private static ChatType FromCode(ushort code)
         {
@@ -60,59 +63,98 @@ namespace TidyChat
         #region Setup
         public TidyChat(
             [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
+            [RequiredVersion("1.0")] SigScanner sigScanner,
             [RequiredVersion("1.0")] ChatGui chatGui,
             [RequiredVersion("1.0")] CommandManager commandManager,
             [RequiredVersion("1.0")] ClientState clientState)
         {
-            this.PluginInterface = pluginInterface;
-            this.CommandManager = commandManager;
-            this.ChatGui = chatGui;
-            this.ClientState = clientState;
+            PluginInterface = pluginInterface;
+            SigScanner = sigScanner;
+            CommandManager = commandManager;
+            ChatGui = chatGui;
+            ClientState = clientState;
 
             // Player cannot change this without restarting the game so should be safe to grab here
             Localization.Language = clientState.ClientLanguage;
             // Sets name on install / plugin update
             SetPlayerName();
 
-            this.Configuration = this.PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
-            this.Configuration.Initialize(this.PluginInterface);
+            Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+            Configuration.Initialize(PluginInterface);
 
-            if (Configuration.UseDTRBar)
+            if (Configuration.InstanceInDtrBar)
             {
-                this.dtrEntry = DtrBar.Get(this.Name);
+                dtrEntry = DtrBar.Get(Name);
             }
 
             ChatGui.ChatMessage += OnChat;
+            ClientState.TerritoryChanged += OnTerritoryChanged;
 
-            this.PluginUi = new PluginUI(this.Configuration);
+            PluginUi = new PluginUI(Configuration);
 
-            this.CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
+            CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
             {
                 HelpMessage = TidyStrings.SettingsHelper
             });
 
-            this.CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
+            CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
             {
                 HelpMessage = TidyStrings.ShorthandHelper
             });
 
-            this.PluginInterface.UiBuilder.Draw += DrawUI;
-            this.PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+            PluginInterface.UiBuilder.Draw += DrawUI;
+            PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
         }
         #endregion Setup
 
         public void Dispose()
         {
-            this.dtrEntry?.Dispose();
-            this.PluginUi.Dispose();
-            this.CommandManager.RemoveHandler(SettingsCommand);
-            this.CommandManager.RemoveHandler(ShorthandCommand);
-            this.ChatGui.ChatMessage -= this.OnChat;
+            dtrEntry?.Dispose();
+            PluginUi.Dispose();
+            CommandManager.RemoveHandler(SettingsCommand);
+            CommandManager.RemoveHandler(ShorthandCommand);
+            ChatGui.ChatMessage -= OnChat;
+            ClientState.TerritoryChanged -= OnTerritoryChanged;
         }
+        
+        private void OnTerritoryChanged(object? sender, ushort e)
+        {
+            if (Configuration.InstanceInDtrBar)
+            {
+                try
+                {
+                    IntPtr InstanceSignaturePtr = SigScanner.GetStaticAddressFromSig("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 80 BD");
 
-        private bool leftSanctuary = false;
-        private bool enteredSanctuary = false;
-        private bool receivedInstanceText = false;
+                    // This will return the instance value: 0,1,2,3
+                    int InstanceNumberFromSignature = Marshal.ReadByte(InstanceSignaturePtr, 0x20);
+
+                    if (InstanceNumberFromSignature == 1)
+                    {
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
+                    }
+                    else if (InstanceNumberFromSignature == 2)
+                    {
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
+                    }
+                    else if (InstanceNumberFromSignature == 3)
+                    {
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
+                    }
+                    else if (InstanceNumberFromSignature == 0)
+                    {
+                        UpdateDtrBarEntry();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    PluginLog.LogDebug("Error: " + ex);
+                }
+            }
+            else if (!Configuration.InstanceInDtrBar && dtrEntry != null)
+            {
+                dtrEntry?.Dispose();
+            }
+        }
 
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
         {
@@ -120,10 +162,6 @@ namespace TidyChat
             {
                 return;
             }
-
-            #if DEBUG
-            PluginLog.LogDebug(message.Payloads[1].);
-            #endif
 
             var chatType = FromDalamud(type);
             string normalizedText = NormalizeInput.ToLowercase(message);
@@ -143,96 +181,6 @@ namespace TidyChat
             {
                message = Better.Instances(message, Configuration);
             }
-
-#region DTRBar
-            if (Configuration.UseDTRBar && (chatType is ChatType.System || chatType is ChatType.Error) && (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatStrings.StartOfPvp).All(normalizedText.Contains)))
-            {
-                if (!Configuration.DTRIsEnabled)
-                {
-                    Configuration.DTRIsEnabled = true;
-                    this.dtrEntry = DtrBar.Get(this.Name);
-                }
-                string instanceNumber = "";
-                if (Localization.Get(ChatRegexStrings.NotInstancedArea).IsMatch(normalizedText) || Localization.Get(ChatStrings.HasBegun).All(normalizedText.Contains) || Localization.Get(ChatStrings.StartOfPvp).All(normalizedText.Contains))
-                {
-                    UpdateDtrBarEntry("");
-                }
-                else if (Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText) || Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText))
-                {
-                    if (Localization.Get(ChatRegexStrings.LeftSanctuary).IsMatch(normalizedText))
-                    {
-                        leftSanctuary = true;
-                        receivedInstanceText = false;
-                    }
-                    if (Localization.Get(ChatRegexStrings.EnteredSanctuary).IsMatch(normalizedText))
-                    {
-                        enteredSanctuary = true;
-                        receivedInstanceText = false;
-                    }
-                    if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
-                    {
-                        receivedInstanceText = true;
-                    }
-                    if (leftSanctuary && enteredSanctuary)
-                    {
-                        var t = new System.Timers.Timer
-                        {
-                            Interval = Configuration.InstanceMessageTimer,
-                            AutoReset = false
-                        };
-                        t.Elapsed += delegate
-                        {
-                            t.Enabled = false;
-                            if (!receivedInstanceText)
-                            {
-                                UpdateDtrBarEntry("");
-                            }
-                            t.Dispose();
-                            leftSanctuary = false;
-                            enteredSanctuary = false;
-                        };
-                        t.Enabled = true;
-                    }
-                    if (leftSanctuary || enteredSanctuary)
-                    {
-                        var t = new System.Timers.Timer
-                        {
-                            Interval = Configuration.InstanceMessageTimer + 50,
-                            AutoReset = false
-                        };
-                        t.Elapsed += delegate
-                        {
-                            t.Enabled = false;
-                            t.Dispose();
-                            leftSanctuary = false;
-                            enteredSanctuary = false;
-                        };
-                        t.Enabled = true;
-                    }
-                }
-                if (Localization.Get(ChatRegexStrings.GetInstanceNumber).IsMatch(normalizedText) && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
-                {
-                    instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(normalizedText).First().Groups["instance"].Value;
-                    if (instanceNumber == TidyStrings.FirstInstance)
-                    {
-                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
-                    }
-                    else if (instanceNumber == TidyStrings.SecondInstance)
-                    {
-                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
-                    }
-                    else if (instanceNumber == TidyStrings.ThirdInstance)
-                    {
-                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
-                    }
-                }
-            } else if (!Configuration.UseDTRBar && Configuration.DTRIsEnabled)
-            {
-                    Configuration.DTRIsEnabled = false;
-                    UpdateDtrBarEntry("");
-                    dtrEntry.Dispose();
-            }
-#endregion DTRBar
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             {
@@ -410,14 +358,15 @@ namespace TidyChat
                 {
                     return;
                 }
-                this.Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
-                this.Configuration.Save();
+                Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
+                Configuration.Save();
             }
             catch
             {
                 // Just don't do anything if we can't set player name
             }
         }
+
         private void UpdateDtrBarEntry(string text = "")
         {
             dtrEntry.Text = text;
@@ -425,18 +374,18 @@ namespace TidyChat
         private void OnCommand(string command, string args)
         {
             SetPlayerName();
-            this.PluginUi.SettingsVisible = true;
+            PluginUi.SettingsVisible = true;
         }
 
         private void DrawUI()
         {
-            this.PluginUi.Draw();
+            PluginUi.Draw();
         }
 
         private void DrawConfigUI()
         {
             SetPlayerName();
-            this.PluginUi.SettingsVisible = true;
+            PluginUi.SettingsVisible = true;
         }
     }
 }
