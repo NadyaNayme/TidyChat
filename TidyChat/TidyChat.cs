@@ -89,6 +89,7 @@ namespace TidyChat
 
             ChatGui.ChatMessage += OnChat;
             ClientState.TerritoryChanged += OnTerritoryChanged;
+            ClientState.Login += OnLogin;
 
             PluginUi = new PluginUI(Configuration);
 
@@ -115,45 +116,17 @@ namespace TidyChat
             CommandManager.RemoveHandler(ShorthandCommand);
             ChatGui.ChatMessage -= OnChat;
             ClientState.TerritoryChanged -= OnTerritoryChanged;
+            ClientState.Login -= OnLogin;
+        }
+
+
+        private void OnLogin(object? sender, EventArgs e) {
+            InstanceDtrBarUpdates()
         }
         
         private void OnTerritoryChanged(object? sender, ushort e)
         {
-            if (Configuration.InstanceInDtrBar)
-            {
-                try
-                {
-                    IntPtr InstanceSignaturePtr = SigScanner.GetStaticAddressFromSig("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 80 BD");
-
-                    // This will return the instance value: 0,1,2,3
-                    int InstanceNumberFromSignature = Marshal.ReadByte(InstanceSignaturePtr, 0x20);
-
-                    if (InstanceNumberFromSignature == 1)
-                    {
-                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
-                    }
-                    else if (InstanceNumberFromSignature == 2)
-                    {
-                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
-                    }
-                    else if (InstanceNumberFromSignature == 3)
-                    {
-                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
-                    }
-                    else if (InstanceNumberFromSignature == 0)
-                    {
-                        UpdateDtrBarEntry();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    PluginLog.LogDebug("Error: " + ex);
-                }
-            }
-            else if (!Configuration.InstanceInDtrBar && dtrEntry != null)
-            {
-                dtrEntry?.Dispose();
-            }
+            InstanceDtrBarUpdates()
         }
 
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
@@ -364,6 +337,45 @@ namespace TidyChat
             catch
             {
                 // Just don't do anything if we can't set player name
+            }
+        }
+
+        private void InstanceDtrBarUpdates()
+        {
+            if (Configuration.InstanceInDtrBar)
+            {
+                try
+                {
+                    IntPtr InstanceSignaturePtr = SigScanner.GetStaticAddressFromSig("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 80 BD");
+
+                    // This will return the instance value: 0,1,2,3
+                    int InstanceNumberFromSignature = Marshal.ReadByte(InstanceSignaturePtr, 0x20);
+
+                    if (InstanceNumberFromSignature == 1)
+                    {
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
+                    }
+                    else if (InstanceNumberFromSignature == 2)
+                    {
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
+                    }
+                    else if (InstanceNumberFromSignature == 3)
+                    {
+                        UpdateDtrBarEntry($"{Localization.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
+                    }
+                    else if (InstanceNumberFromSignature == 0)
+                    {
+                        UpdateDtrBarEntry();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    PluginLog.LogDebug("Error: " + ex);
+                }
+            }
+            else if (!Configuration.InstanceInDtrBar && dtrEntry != null)
+            {
+                dtrEntry?.Dispose();
             }
         }
 
