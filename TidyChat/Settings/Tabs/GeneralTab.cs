@@ -125,9 +125,11 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("Changes the instance text to: You are now in instance: #");
 
-                var useDTRBar = configuration.InstanceInDtrBar;
+                var useDTRBar = configuration.UseDTRBar;
                 if (ImGui.Checkbox("Display current instance in DTR Bar", ref useDTRBar))
                 {
+                    configuration.UseDTRBar = useDTRBar;
+                    configuration.DTRIsEnabled = useDTRBar;
                     configuration.InstanceInDtrBar = useDTRBar;
                     configuration.Save();
                 }
