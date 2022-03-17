@@ -7,7 +7,6 @@ using Dalamud.Game.Gui;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
-using Dalamud.Hooking;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
@@ -121,12 +120,12 @@ namespace TidyChat
 
 
         private void OnLogin(object? sender, EventArgs e) {
-            InstanceDtrBarUpdates()
+            InstanceDtrBarUpdates();
         }
-        
+
         private void OnTerritoryChanged(object? sender, ushort e)
         {
-            InstanceDtrBarUpdates()
+            InstanceDtrBarUpdates();
         }
 
         private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message, ref bool isHandled)
