@@ -1,6 +1,5 @@
 ﻿using Dalamud.Interface.Components;
 using ImGuiNET;
-using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat.Settings.Tabs
 {
@@ -8,109 +7,63 @@ namespace TidyChat.Settings.Tabs
     {
         public static void Draw(Configuration configuration)
         {
-            var enableDebugMode = configuration.EnableDebugMode;
-            if (ImGui.Checkbox("Enable debug mode", ref enableDebugMode))
-            {
-                configuration.EnableDebugMode = enableDebugMode;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("Display all messages.\nMessages that would be filtered outside of debug mode are prepended with [TidyChat] and [Debug] tags");
 
-            var noCoffee = configuration.NoCoffee;
-            if (ImGui.Checkbox("Hide ko-fi button", ref noCoffee))
+            var filterSystemMessages = configuration.FilterSystemMessages;
+            if (ImGui.Checkbox("Filter System spam", ref filterSystemMessages))
             {
-                configuration.NoCoffee = noCoffee;
+                configuration.FilterSystemMessages = filterSystemMessages;
                 configuration.Save();
             }
 
-            ImGui.Separator();
-            ImGui.Spacing();
-
-            if (ImGui.CollapsingHeader("Chat History"))
+            var filterProgressSpam = configuration.FilterProgressSpam;
+            if (ImGui.Checkbox("Filter Progress spam", ref filterProgressSpam))
             {
-                var chatHistoryFilter = configuration.ChatHistoryFilter;
-                if (ImGui.Checkbox("Enable Chat History Filter", ref chatHistoryFilter))
-                {
-                    configuration.ChatHistoryFilter = chatHistoryFilter;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker($"If a message was sent within the last {configuration.ChatHistoryLength} messages it will be filtered");
+                configuration.FilterProgressSpam = filterProgressSpam;
+                configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("These filters include messages like earned achievements or experience points");
 
-                var disableSelfChatHistory = configuration.DisableSelfChatHistory;
-                if (ImGui.Checkbox("Ignore messages sent by player", ref disableSelfChatHistory))
-                {
-                    configuration.DisableSelfChatHistory = disableSelfChatHistory;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker($"Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.");
+            var filterLootSpam = configuration.FilterLootSpam;
+            if (ImGui.Checkbox("Filter Loot roll spam", ref filterLootSpam))
+            {
+                configuration.FilterLootSpam = filterLootSpam;
+                configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This filter includes messages like rolling greed or player obtained a gear piece");
 
+            var filterObtainedSpam = configuration.FilterObtainedSpam;
+            if (ImGui.Checkbox("Filter Obtained item spam", ref filterObtainedSpam))
+            {
+                configuration.FilterObtainedSpam = filterObtainedSpam;
+                configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This filter includes items obtained as monster drops, quest rewards, and roulette rewards");
 
-                ImGui.TextUnformatted("Number of messages to keep in chat history:");
-                var chatHistoryLength = configuration.ChatHistoryLength;
-                ImGui.SetNextItemWidth(120f);
-                if (ImGui.InputInt("", ref chatHistoryLength))
-                {
-                    configuration.ChatHistoryLength = chatHistoryLength;
-                    configuration.Save();
-                }
-                ImGui.TextUnformatted("WARNING: Having this number set too high may impact game performance.\nIt's recommended to keep it at 50 or lower.");
+            var filterCraftingSpam = configuration.FilterCraftingSpam;
+            if (ImGui.Checkbox("Filter Crafting spam.", ref filterCraftingSpam))
+            {
+                configuration.FilterCraftingSpam = filterCraftingSpam;
+                configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This filter includes all crafting messages except \"You synthesize a/an <item>\"\nThis allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
 
-                ImGui.NewLine();
-                #region Channels
-                int chatHistoryChannels = configuration.ChatHistoryChannels;
-                ImGui.TextUnformatted($"Select channels for Chat History to filter:");
-                if (ImGui.CheckboxFlags($"Emotes", ref chatHistoryChannels, 1 << 1))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                ImGui.SameLine(90f);
-                if (ImGui.CheckboxFlags($"Loot", ref chatHistoryChannels, 1 << 5))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                if (ImGui.CheckboxFlags($"Crafting", ref chatHistoryChannels, 1 << 8))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                ImGui.SameLine(90f);
-                if (ImGui.CheckboxFlags($"Gathering", ref chatHistoryChannels, 1 << 9))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                if (ImGui.CheckboxFlags($"Talking", ref chatHistoryChannels, 1 << 2))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                ImGui.SameLine(90f);
-                if (ImGui.CheckboxFlags($"Login/Logout", ref chatHistoryChannels, 1 << 7))
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                {
-                    configuration.Save();
-                }
-                if (ImGui.CheckboxFlags($"Progress", ref chatHistoryChannels, 1 << 4))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                ImGui.SameLine(90f);
-                if (ImGui.CheckboxFlags($"System", ref chatHistoryChannels, 1 << 3))
-                {
-                    configuration.ChatHistoryChannels = chatHistoryChannels;
-                    configuration.Save();
-                }
-                #endregion Channels
+            var filterGatheringSpam = configuration.FilterGatheringSpam;
+            if (ImGui.Checkbox("Filter Gathering spam.", ref filterGatheringSpam))
+            {
+                configuration.FilterGatheringSpam = filterGatheringSpam;
+                configuration.Save();
+            }
+            ImGuiComponents.HelpMarker("This filter includes \"you begin/finish\" gathering messages, as well as location affects");
+
+            if (ImGui.CollapsingHeader("Emote Filters"))
+            {
+                EmotesTab.Draw(configuration);
             }
 
-            ImGui.Spacing();
-            if (ImGui.CollapsingHeader("Messaging Improvements"))
+            if (ImGui.CollapsingHeader("Improved Messages"))
             {
                 var includeChatTag = configuration.IncludeChatTag;
-                if (ImGui.Checkbox("Add [TidyChat] tag to modified messages", ref includeChatTag))
+                if (ImGui.Checkbox("Add [TidyChat] tag to any modified messages", ref includeChatTag))
                 {
                     configuration.IncludeChatTag = includeChatTag;
                     configuration.Save();
@@ -187,42 +140,13 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.");
 
             }
-
-            ImGui.Spacing();
-            if (ImGui.CollapsingHeader("Uncategorized Filters"))
+            var noCoffee = configuration.NoCoffee;
+            if (ImGui.Checkbox("Hide ko-fi button", ref noCoffee))
             {
-
-                var showSealedOff = configuration.ShowSealedOff;
-                if (ImGui.Checkbox("Show \"<arena> will be sealed off\" type messages", ref showSealedOff))
-                {
-                    configuration.ShowSealedOff = showSealedOff;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("In some instances Cactbot's Raidfinder depends on detecting these messages in chat. It is recommend to enable this setting if you depend on Raidboss callouts.");
-
-                var hideDebugTeleport = configuration.HideDebugTeleport;
-                if (ImGui.Checkbox("Hide \"Teleporting to <Location>...\" Dalamud Debug messages ", ref hideDebugTeleport))
-                {
-                    configuration.HideDebugTeleport = hideDebugTeleport;
-                    configuration.Save();
-                }
-
-                var hideUserLogins = configuration.HideUserLogins;
-                if (ImGui.Checkbox("Hide \"User has logged in\" Free Company messages ", ref hideUserLogins))
-                {
-                    configuration.HideUserLogins = hideUserLogins;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("Hides the message that appears when a Free Company member logs in");
-
-                var hideUserLogouts = configuration.HideUserLogouts;
-                if (ImGui.Checkbox("Hide \"User has logged out\" Free Company messages ", ref hideUserLogouts))
-                {
-                    configuration.HideUserLogouts = hideUserLogouts;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("Hides the message that appears when a Free Company member logs out");
+                configuration.NoCoffee = noCoffee;
+                configuration.Save();
             }
+
             ImGui.EndTabItem();
         }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace TidyChat
 {
-    public static class FilterSystemMessages
+    public static class FilterSystemMessagesInversed
     {
         public static bool IsFiltered(string input, Configuration configuration)
         {
@@ -79,16 +79,16 @@ namespace TidyChat
                     Localization.Get(ChatStrings.Playtime).All(input.Contains)
                 )
                 {
-                    return false;
+                    return true;
                 }
-                // We hit the end of our whitelist - block the message
-                return true;
+                // We hit the end of our whitelist -  allow the message
+                return false;
             }
-            // If we somehow encounter an error - block the message
+            // If we somehow encounter an error - allow the message
             catch (Exception e)
             {
                 PluginLog.LogDebug("Encountered error: " + e);
-                return true;
+                return false;
             }
         }
     }

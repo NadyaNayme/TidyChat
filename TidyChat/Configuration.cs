@@ -11,6 +11,7 @@ namespace TidyChat
         public int Version { get; set; } = 0;
         public bool Enabled { get; set; } = true;
         public bool EnableDebugMode { get; set; } = false;
+        public bool EnableInverseMode { get; set; } = false;
         public bool IncludeChatTag { get; set; } = true;
         public string PlayerName { get; set; } = "";
         public List<PlayerName> Whitelist { get; set; } = new();
@@ -19,6 +20,7 @@ namespace TidyChat
         public bool ChatHistoryFilter { get; set; } = false;
         public int ChatHistoryChannels { get; set; } = 2;
         public int ChatHistoryLength { get; set; } = 10;
+        public int ChatHistoryTimer { get; set; } = 10;
         public bool DisableSelfChatHistory { get; set; } = true;
         public bool NoCoffee { get; set; } = false;
         #region Chat Filters
@@ -58,6 +60,9 @@ namespace TidyChat
         public bool HideSpideySenses { get; set; } = false;
         public bool HideAetherCompass { get; set; } = false;
         public bool HideSearchForItemResults { get; set; } = false;
+        public bool HideExploratoryVoyage { get; set; } = false;
+        public bool HideSubaquaticVoyage { get; set; } = false;
+        public bool HideVistaMessages { get; set; } = false;
         public bool ShowGlamoursProjected { get; set; } = false;
         public bool ShowGearsetEquipped { get; set; } = false;
         public bool ShowMateriaRetrieved { get; set; } = true;
@@ -150,6 +155,7 @@ namespace TidyChat
         public bool ShowMateriaExtract { get; set; } = true;
         public bool ShowDesynthesisLevel { get; set; } = false;
         public bool ShowDesynthesisObtains { get; set; } = false;
+        public bool ShowTrialMessages { get; set; } = true;
         #endregion
 
         #region Gathering

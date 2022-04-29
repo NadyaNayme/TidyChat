@@ -10,20 +10,21 @@ namespace TidyChat
         {
             try
             {
-				if (
-					(configuration.HideGatheringYield &&
+                if (
+                    (configuration.HideGatheringYield &&
                         Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
                         Localization.Get(ChatStrings.GatheringYield).All(input.Contains)) ||
-					(configuration.HideGatherersBoon &&
+                    (configuration.HideGatherersBoon &&
                         Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
-						Localization.Get(ChatStrings.GatherersBoon).All(input.Contains)) ||
-					(configuration.HideGatheringAttempts &&
+                        Localization.Get(ChatStrings.GatherersBoon).All(input.Contains)) ||
+                    (configuration.HideGatheringAttempts &&
                         Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
-						Localization.Get(ChatStrings.GatheringAttempts).All(input.Contains)) ||
-					Localization.Get(ChatRegexStrings.GatheringStartEnd).IsMatch(input)
-				) {
-					return true;
-				}
+                        Localization.Get(ChatStrings.GatheringAttempts).All(input.Contains)) ||
+                    Localization.Get(ChatRegexStrings.GatheringStartEnd).IsMatch(input)
+                )
+                {
+                    return true;
+                }
                 if (
                     (configuration.ShowLocationAffects && Localization.Get(ChatStrings.LocationAffects).All(input.Contains)) ||
                     (configuration.ShowCaughtFish && Localization.Get(ChatStrings.AddedToFishGuide).All(input.Contains)) ||

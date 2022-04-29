@@ -25,74 +25,74 @@ namespace TidyChat.Utility
 
         public static bool CheckFlags(PlayerName player, ChatType chatType)
         {
-                Channels whitelistedPlayerChannels = (Channels)player.whitelistedChannels;
-                if (whitelistedPlayerChannels.HasFlag(Channels.Debug) && chatType is ChatType.Debug)
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.Emotes) && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote))
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.PlayerChannels) &&
-                                    (chatType is ChatType.Say ||
-                                    chatType is ChatType.Shout ||
-                                    chatType is ChatType.Yell ||
-                                    chatType is ChatType.TellIncoming ||
-                                    chatType is ChatType.TellOutgoing ||
-                                    chatType is ChatType.Linkshell1 ||
-                                    chatType is ChatType.Linkshell2 ||
-                                    chatType is ChatType.Linkshell3 ||
-                                    chatType is ChatType.Linkshell4 ||
-                                    chatType is ChatType.Linkshell5 ||
-                                    chatType is ChatType.Linkshell6 ||
-                                    chatType is ChatType.Linkshell7 ||
-                                    chatType is ChatType.Linkshell8 ||
-                                    chatType is ChatType.CrossLinkshell1 ||
-                                    chatType is ChatType.CrossLinkshell2 ||
-                                    chatType is ChatType.CrossLinkshell3 ||
-                                    chatType is ChatType.CrossLinkshell4 ||
-                                    chatType is ChatType.CrossLinkshell5 ||
-                                    chatType is ChatType.CrossLinkshell6 ||
-                                    chatType is ChatType.CrossLinkshell7 ||
-                                    chatType is ChatType.CrossLinkshell8 ||
-                                    chatType is ChatType.Party ||
-                                    chatType is ChatType.CrossParty
-                                    )
-                   )
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.System) && chatType is ChatType.System)
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.Progress) && chatType is ChatType.Progress)
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice)
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll)
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.FreeCompany) && (chatType is ChatType.FreeCompany || chatType is ChatType.FreeCompanyLoginLogout))
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting)
-                {
-                    return false;
-                }
-                if (whitelistedPlayerChannels.HasFlag(Channels.Gathering) && chatType is ChatType.GatheringSystem)
-                {
-                    return false;
-                }
-            return true;
+            Channels whitelistedPlayerChannels = (Channels)player.whitelistedChannels;
+            if (whitelistedPlayerChannels.HasFlag(Channels.Debug) && chatType is ChatType.Debug)
+            {
+                return false;
             }
+            if (whitelistedPlayerChannels.HasFlag(Channels.Emotes) && (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote))
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.PlayerChannels) &&
+                                (chatType is ChatType.Say ||
+                                chatType is ChatType.Shout ||
+                                chatType is ChatType.Yell ||
+                                chatType is ChatType.TellIncoming ||
+                                chatType is ChatType.TellOutgoing ||
+                                chatType is ChatType.Linkshell1 ||
+                                chatType is ChatType.Linkshell2 ||
+                                chatType is ChatType.Linkshell3 ||
+                                chatType is ChatType.Linkshell4 ||
+                                chatType is ChatType.Linkshell5 ||
+                                chatType is ChatType.Linkshell6 ||
+                                chatType is ChatType.Linkshell7 ||
+                                chatType is ChatType.Linkshell8 ||
+                                chatType is ChatType.CrossLinkshell1 ||
+                                chatType is ChatType.CrossLinkshell2 ||
+                                chatType is ChatType.CrossLinkshell3 ||
+                                chatType is ChatType.CrossLinkshell4 ||
+                                chatType is ChatType.CrossLinkshell5 ||
+                                chatType is ChatType.CrossLinkshell6 ||
+                                chatType is ChatType.CrossLinkshell7 ||
+                                chatType is ChatType.CrossLinkshell8 ||
+                                chatType is ChatType.Party ||
+                                chatType is ChatType.CrossParty
+                                )
+               )
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.System) && chatType is ChatType.System)
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.Progress) && chatType is ChatType.Progress)
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice)
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll)
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.FreeCompany) && (chatType is ChatType.FreeCompany || chatType is ChatType.FreeCompanyLoginLogout))
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting)
+            {
+                return false;
+            }
+            if (whitelistedPlayerChannels.HasFlag(Channels.Gathering) && chatType is ChatType.GatheringSystem)
+            {
+                return false;
+            }
+            return true;
+        }
 
         public static bool CheckFlags(Configuration configuration, ChatType chatType)
         {

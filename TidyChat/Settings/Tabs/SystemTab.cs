@@ -7,20 +7,20 @@ namespace TidyChat.Settings.Tabs
     {
         public static void Draw(Configuration configuration)
         {
-            var filterSystemMessages = configuration.FilterSystemMessages;
-            if (ImGui.Checkbox("Filter spammy system messages", ref filterSystemMessages))
+            var enableInverseMode = configuration.EnableInverseMode;
+            if (ImGui.Checkbox("Experimental Feature: Inverse mode", ref enableInverseMode))
             {
-                configuration.FilterSystemMessages = filterSystemMessages;
+                configuration.EnableInverseMode = enableInverseMode;
                 configuration.Save();
             }
+            ImGuiComponents.HelpMarker($"No longer blocks System messages by default.\nHide filters become Show filters and Show filters become Hide filters.");
 
-            ImGui.Separator();
-            ImGui.Spacing();
-
-            if (ImGui.CollapsingHeader("\"Not Spam\" - Hide whitelisted messages"))
+            if (configuration.EnableInverseMode)
             {
-                ImGui.TextUnformatted("Hide messages Tidy Chat does not consider to be spam.");
-
+                ImGui.TextUnformatted("If you have enabled Inverse mode you are on your own and will not receive any support.\nIt is assumed you know what you are doing.");
+            }
+            if (ImGui.CollapsingHeader("Hide System messages Tidy Chat shows by default"))
+            {
                 var instanceMessage = configuration.HideInstanceMessage;
                 if (ImGui.Checkbox("Hide /instance message", ref instanceMessage))
                 {
@@ -87,7 +87,7 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("eg. The compass detects a current approximately 143 yalms to the West...");
 
                 var hideCountdownTime = configuration.HideCountdownTime;
-                if (ImGui.Checkbox("Hide /countdown message", ref hideCountdownTime))
+                if (ImGui.Checkbox("Hide /countdown messages", ref hideCountdownTime))
                 {
                     configuration.HideCountdownTime = hideCountdownTime;
                     configuration.Save();
@@ -109,14 +109,35 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("eg. 1 item found in the 4th tab of your inventory.");
+
+                var hideExploratoryVoyage = configuration.HideExploratoryVoyage;
+                if (ImGui.Checkbox("Hide Airship voyage messages", ref hideExploratoryVoyage))
+                {
+                    configuration.HideExploratoryVoyage = hideExploratoryVoyage;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. A new exploratory voyage destination...has been discovered!");
+
+                var hideSubaquaticVoyage = configuration.HideSubaquaticVoyage;
+                if (ImGui.Checkbox("Hide Submarine voyage messages", ref hideSubaquaticVoyage))
+                {
+                    configuration.HideSubaquaticVoyage = hideSubaquaticVoyage;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. A new subaquatic voyage destination...has been discovered!");
+
+                var hideVistaMessages = configuration.HideVistaMessages;
+                if (ImGui.Checkbox("Hide vista arrival and stray messages", ref hideVistaMessages))
+                {
+                    configuration.HideVistaMessages = hideVistaMessages;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You have arrived at a vista! and You have strayed too far from the vista.");
+
             }
 
-            ImGui.Spacing();
-
-            if (ImGui.CollapsingHeader("\"Spam\" - Show filtered messages"))
+            if (ImGui.CollapsingHeader("Show System messages Tidy Chat hides by default"))
             {
-                ImGui.TextUnformatted("Show messages Tidy Chat considers to be spam");
-
                 var showOnlineStatus = configuration.ShowOnlineStatus;
                 if (ImGui.Checkbox("Show online status updates", ref showOnlineStatus))
                 {
@@ -189,8 +210,6 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("\neg. “RDM (530)” equipped.");
             }
-
-            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("POTD & HoH"))
             {
@@ -330,8 +349,6 @@ namespace TidyChat.Settings.Tabs
 
             }
 
-            ImGui.Spacing();
-
             if (ImGui.CollapsingHeader("Party & Invite Messages"))
             {
                 var showInviteSent = configuration.ShowInviteSent;
@@ -385,8 +402,6 @@ namespace TidyChat.Settings.Tabs
                 }
             }
 
-            ImGui.Spacing();
-
             if (ImGui.CollapsingHeader("Trading Messages"))
             {
                 var showTradeSent = configuration.ShowTradeSent;
@@ -417,6 +432,8 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
             }
+
+
             ImGui.EndTabItem();
         }
     }

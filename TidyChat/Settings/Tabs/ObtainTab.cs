@@ -6,26 +6,7 @@ namespace TidyChat.Settings.Tabs
     internal static class ObtainTab
     {
         public static void Draw(Configuration configuration)
-		{
-
-            var filterLootSpam = configuration.FilterLootSpam;
-            if (ImGui.Checkbox("Filters spammy Loot messages", ref filterLootSpam))
-            {
-                configuration.FilterLootSpam = filterLootSpam;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("These filters include messages from yourself or others rolling on or obtaining loot");
-
-            var filterObtainedSpam = configuration.FilterObtainedSpam;
-            if (ImGui.Checkbox("Filters spammy Obtain messages", ref filterObtainedSpam))
-            {
-                configuration.FilterObtainedSpam = filterObtainedSpam;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("These filters include items obtained as monster drops, quest rewards, and roulette rewards");
-
-            ImGui.Separator();
-            ImGui.TextUnformatted("The options below will allow you to override the Loot & Obtain filters.");
+        {
 
             if (ImGui.CollapsingHeader("Looting & Rolling"))
             {
@@ -71,7 +52,7 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party obtains a loot drop.\neg. Some player obtains an <item>!");
 
             }
-            ImGui.Spacing();
+
             if (ImGui.CollapsingHeader("Common Currencies"))
             {
                 var showObtainedgil = configuration.ShowObtainedGil;
@@ -107,7 +88,6 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("eg. You obtain 117 MGP.");
             }
 
-            ImGui.Spacing();
             if (ImGui.CollapsingHeader("Battle Currencies"))
             {
 
@@ -168,7 +148,6 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("eg. You obtain 100 sacks of Nuts.");
             }
 
-            ImGui.Spacing();
             if (ImGui.CollapsingHeader("Beast Tribe Quests"))
             {
                 var showObtainedMaterials = configuration.ShowObtainedMaterials;
@@ -188,8 +167,7 @@ namespace TidyChat.Settings.Tabs
                 ImGuiComponents.HelpMarker("This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.");
             }
 
-            ImGui.Spacing();
-            if (ImGui.CollapsingHeader("Other"))
+            if (ImGui.CollapsingHeader("Other Obtain Messages"))
             {
                 var showObtainedClusters = configuration.ShowObtainedClusters;
                 if (ImGui.Checkbox("Show cracked clusters", ref showObtainedClusters))
@@ -206,8 +184,8 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters\neg. You obtain 30 ice shards");
-
             }
+
             ImGui.EndTabItem();
         }
     }

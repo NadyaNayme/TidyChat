@@ -30,8 +30,6 @@ namespace TidyChat.Settings.Tabs
                 configuration.Save();
             }
             ImGuiComponents.HelpMarker("This will hide the message that occurs when you use an emote or custom emote.\neg. You gently pat <user>");
-
-			ImGui.EndTabItem();
         }
     }
 }

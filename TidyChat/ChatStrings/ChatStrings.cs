@@ -193,8 +193,17 @@
             Fra = new string[] { "vous", "apprenez" }, // Vous apprenez <ability>.
         };
 
-        /// <see href="https://xivapi.com/LogMessage/5260?pretty=true">Battle commencing in <time> seconds.</see>
+        /// <see href="https://xivapi.com/LogMessage/5264?pretty=true">Engage!</see>
         public readonly static LocalizedStrings CountdownTime = new()
+        {
+            Jpn = new string[] { "戦闘開始" },
+            Eng = new string[] { "engage!" },
+            Deu = new string[] { "start!" },
+            Fra = new string[] { "l'attaque!" },
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/5260?pretty=true">Battle commencing in <time> seconds.</see>
+        public readonly static LocalizedStrings CountdownEngage = new()
         {
             Jpn = new string[] { "戦闘開始まで", "秒" },
             Eng = new string[] { "battle", "commencing", "in", "seconds" },

@@ -1,4 +1,3 @@
-using Dalamud.Interface.Components;
 using ImGuiNET;
 
 namespace TidyChat.Settings.Tabs
@@ -7,25 +6,6 @@ namespace TidyChat.Settings.Tabs
     {
         public static void Draw(Configuration configuration)
         {
-            var filterCraftingSpam = configuration.FilterCraftingSpam;
-            if (ImGui.Checkbox("Filter all Crafting messages except \"You synthesize a/an <item>\"", ref filterCraftingSpam))
-            {
-                configuration.FilterCraftingSpam = filterCraftingSpam;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This allows you to use ChatAlerts to create an alert for \"You synthesize\" instead of using macro-finished alerts");
-
-            var filterGatheringSpam = configuration.FilterGatheringSpam;
-            if (ImGui.Checkbox("Filter spammy Gathering messages.", ref filterGatheringSpam))
-            {
-                configuration.FilterGatheringSpam = filterGatheringSpam;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("Hide \"begin/finish\" gathering messages, as well as location affects");
-
-            ImGui.Separator();
-            ImGui.Spacing();
-
             if (ImGui.CollapsingHeader("Desynthesis"))
             {
                 var showDesynthesisLevel = configuration.ShowDesynthesisLevel;
@@ -42,8 +22,6 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
             }
-
-            ImGui.Spacing();
 
             if (ImGui.CollapsingHeader("Materia"))
             {
@@ -83,7 +61,15 @@ namespace TidyChat.Settings.Tabs
                 }
             }
 
-            ImGui.Spacing();
+            if (ImGui.CollapsingHeader("Crafting"))
+            {
+                var showTrialMessages = configuration.ShowTrialMessages;
+                if (ImGui.Checkbox("Show final status messages upon finishing a Trial synthesis", ref showTrialMessages))
+                {
+                    configuration.ShowTrialMessages = showTrialMessages;
+                    configuration.Save();
+                }
+            }
 
             if (ImGui.CollapsingHeader("Gathering Locations"))
             {
@@ -123,8 +109,6 @@ namespace TidyChat.Settings.Tabs
                 }
             }
 
-            ImGui.Spacing();
-
             if (ImGui.CollapsingHeader("Fishing"))
             {
                 var showCaughtFish = configuration.ShowCaughtFish;
@@ -141,6 +125,7 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
             }
+
 
             ImGui.EndTabItem();
         }

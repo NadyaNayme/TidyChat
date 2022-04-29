@@ -27,7 +27,8 @@ namespace TidyChat
                      !configuration.ShowObtainedCenturioSeals && Localization.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(input) ||
                      !configuration.ShowObtainedNuts && Localization.Get(ChatRegexStrings.ObtainedNuts).IsMatch(input) ||
                      !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input) ||
-                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch {
+                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
+                     {
                          ClientLanguage.Japanese => input.Contains("詩学"),
                          ClientLanguage.English => input.Contains("poetics"),
                          ClientLanguage.German => input.Contains("poesie"),

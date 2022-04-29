@@ -2,8 +2,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Authors>Nana</Authors>
-    <Company></Company>
-    <Version>0.1.1.12</Version>
+    <Company>Served with love</Company>
+    <Version>0.1.1.16</Version>
     <Description>Various chat filters for a less cluttered chat. Use /tidychat to open settings.</Description>
     <Copyright></Copyright>
     <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>

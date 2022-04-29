@@ -1,5 +1,4 @@
 ﻿using Dalamud;
-using Dalamud.Logging;
 using System.Text.RegularExpressions;
 
 namespace TidyChat
@@ -10,9 +9,9 @@ namespace TidyChat
 
         public static string[] Get(string[] strings)
         {
-            #if DEBUG
+#if DEBUG
             PluginLog.LogDebug("Strings not localized: %s", string.Join(",", strings));
-            #endif
+#endif
             return strings;
         }
 
@@ -30,9 +29,9 @@ namespace TidyChat
 
         public static Regex Get(Regex regex)
         {
-            #if DEBUG
+#if DEBUG
             PluginLog.LogDebug("Regex not localized: %s", regex.ToString());
-            #endif
+#endif
             return regex;
         }
 
@@ -50,9 +49,9 @@ namespace TidyChat
 
         public static string GetTidy(string strings)
         {
-            #if DEBUG
+#if DEBUG
             PluginLog.LogDebug("Internal strings not localized: %s", strings.ToString());
-            #endif
+#endif
             return strings;
         }
 

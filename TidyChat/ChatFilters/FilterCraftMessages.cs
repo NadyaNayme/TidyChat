@@ -14,7 +14,11 @@ namespace TidyChat
                     configuration.FilterCraftingSpam && Localization.Get(ChatStrings.YouSynthesize).All(input.Contains) ||
                     configuration.ShowAttachedMateria && Localization.Get(ChatRegexStrings.AttachedMateria).IsMatch(input) ||
                     configuration.ShowOvermeldFailure && Localization.Get(ChatStrings.OvermeldFailure).All(input.Contains) ||
-                    configuration.ShowMateriaExtract && Localization.Get(ChatStrings.MateriaExtract).All(input.Contains)
+                    configuration.ShowMateriaExtract && Localization.Get(ChatStrings.MateriaExtract).All(input.Contains) ||
+                    configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialSynthesis).IsMatch(input) ||
+                    configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialQuality).IsMatch(input) ||
+                    configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialHQ).IsMatch(input) ||
+                    configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialCollectability).IsMatch(input)
                    )
                 {
                     return false;

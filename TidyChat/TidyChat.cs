@@ -118,13 +118,20 @@ namespace TidyChat
             ClientState.Login -= OnLogin;
         }
 
+        private void InitTippyIPC(ushort msg)
+        {
+            var tippyIpc = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
+            tippyIpc.InvokeFunc("Tidy Chat tips will be included in a future release.");
+        }
 
-        private void OnLogin(object? sender, EventArgs e) {
+        private void OnLogin(object? sender, EventArgs e)
+        {
             InstanceDtrBarUpdates();
         }
 
         private void OnTerritoryChanged(object? sender, ushort e)
         {
+
             InstanceDtrBarUpdates();
         }
 
@@ -138,6 +145,11 @@ namespace TidyChat
             var chatType = FromDalamud(type);
             string normalizedText = NormalizeInput.ToLowercase(message);
 
+            if (Localization.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText))
+            {
+                Better.TemporarilyDisableSystemFilter(Configuration, ChatGui);
+            }
+
             if (Configuration.PlayerName != "" && Configuration.PlayerName != null)
             {
                 normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
@@ -148,10 +160,10 @@ namespace TidyChat
                 isHandled = true;
             }
 
-#region Better Messages
+            #region Better Messages
             if (Configuration.BetterInstanceMessage && !Configuration.HideInstanceMessage && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             {
-               message = Better.Instances(message, Configuration);
+                message = Better.Instances(message, Configuration);
             }
 
             if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode && chatType is ChatType.System && Localization.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
@@ -174,10 +186,10 @@ namespace TidyChat
             {
                 message = Better.NoviceNetwork(message, normalizedText, Configuration);
             }
-#endregion
+            #endregion
 
-#region Channel Filters
-#region Emotes
+            #region Channel Filters
+            #region Emotes
             if (Configuration.FilterEmoteSpam && chatType is ChatType.StandardEmote)
             {
                 isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
@@ -192,10 +204,15 @@ namespace TidyChat
             {
                 isHandled = true;
             }
-#endregion Emotes
-            if (Configuration.FilterSystemMessages && chatType is ChatType.System)
+            #endregion Emotes
+            if (!Configuration.EnableInverseMode && Configuration.FilterSystemMessages && chatType is ChatType.System)
             {
                 isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
+            }
+
+            if (Configuration.EnableInverseMode && Configuration.FilterSystemMessages && chatType is ChatType.System)
+            {
+                isHandled = FilterSystemMessagesInversed.IsFiltered(normalizedText, Configuration);
             }
 
             if (Configuration.FilterObtainedSpam && chatType is ChatType.LootNotice)
@@ -213,7 +230,7 @@ namespace TidyChat
                 isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
             }
 
-#region DoH/DoL
+            #region DoH/DoL
             if (Configuration.FilterCraftingSpam && chatType is ChatType.Crafting)
             {
                 isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
@@ -223,15 +240,15 @@ namespace TidyChat
             {
                 isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
             }
-#endregion DoH/DoL
+            #endregion DoH/DoL
 
             if ((Configuration.HideUserLogins || Configuration.HideUserLogouts) && chatType is ChatType.FreeCompanyLoginLogout)
             {
                 isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
             }
-#endregion Channel Filters
+            #endregion Channel Filters
 
-#region Duplicate Message Spam Filter
+            #region Duplicate Message Spam Filter
             if (Configuration.ChatHistoryFilter && !isHandled)
             {
                 try
@@ -244,7 +261,7 @@ namespace TidyChat
                     Flags.Channels historyChannels = (Flags.Channels)Configuration.ChatHistoryChannels;
                     if (!historyChannels.Equals(Flags.Channels.None))
                     {
-                        if(Flags.CheckFlags(Configuration, chatType))
+                        if (Flags.CheckFlags(Configuration, chatType))
                         {
                             string currentMessage = $"{sender.TextValue}: {message.TextValue}";
                             if (ChatHistory.Contains(currentMessage))
@@ -262,6 +279,21 @@ namespace TidyChat
                             {
                                 PluginLog.LogDebug("Added:" + currentMessage);
                                 ChatHistory.Push(currentMessage);
+                                if (Configuration.ChatHistoryTimer > 0)
+                                {
+                                    var t = new System.Timers.Timer
+                                    {
+                                        Interval = Configuration.ChatHistoryTimer * 1000,
+                                        AutoReset = false
+                                    };
+                                    t.Elapsed += delegate
+                                    {
+                                        t.Enabled = false;
+                                        t.Dispose();
+                                        ChatHistory.Pop();
+                                    };
+                                    t.Enabled = true;
+                                }
                             }
                         }
                         return;
@@ -272,9 +304,9 @@ namespace TidyChat
                     PluginLog.LogDebug("Encountered error: " + e);
                 }
             }
-#endregion Duplicate Message Spam Filter
+            #endregion Duplicate Message Spam Filter
 
-#region Whitelist
+            #region Whitelist
             if (Configuration.Whitelist.Count > 0)
             {
                 foreach (var player in Configuration.Whitelist)
@@ -309,9 +341,9 @@ namespace TidyChat
                     }
                 }
             }
-#endregion Whitelist
+            #endregion Whitelist
 
-#region Debug Mode Enabled
+            #region Debug Mode Enabled
             if (Configuration.EnableDebugMode && isHandled && !message.TextValue.ToString().StartsWith("[TidyChat]"))
             {
                 var stringBuilder = new SeStringBuilder();
@@ -321,11 +353,13 @@ namespace TidyChat
                 message = stringBuilder.BuiltString;
                 isHandled = false;
             }
-#endregion Debug Mode Enabled
+            #endregion Debug Mode Enabled
         }
 
-        private void SetPlayerName() {
-            try {
+        private void SetPlayerName()
+        {
+            try
+            {
                 if (ClientState.LocalPlayer == null)
                 {
                     return;

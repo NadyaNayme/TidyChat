@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using ImGuiNET;
+using System.Linq;
 using System.Numerics;
-using ImGuiNET;
 
 namespace TidyChat.Settings.Tabs
 {
@@ -39,7 +39,7 @@ namespace TidyChat.Settings.Tabs
             for (var i = -1; i < list.Count; i++)
             {
                 var alias = i < 0 ? m_placeholder : list[i];
-                
+
                 #region Channels Column
                 ImGui.TableNextColumn();
                 ImGui.Spacing();

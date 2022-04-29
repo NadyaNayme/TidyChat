@@ -1,6 +1,5 @@
 ﻿using Dalamud.Logging;
 using System;
-using System.Linq;
 
 namespace TidyChat
 {
@@ -11,7 +10,7 @@ namespace TidyChat
             try
             {
                 if (
-                    (configuration.HideUserLogins && Localization.Get(ChatRegexStrings.HasLoggedIn).IsMatch(input)) || 
+                    (configuration.HideUserLogins && Localization.Get(ChatRegexStrings.HasLoggedIn).IsMatch(input)) ||
                     (configuration.HideUserLogouts && Localization.Get(ChatRegexStrings.HasLoggedOut).IsMatch(input))
                    )
                 {

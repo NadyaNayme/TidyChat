@@ -7,16 +7,6 @@ namespace TidyChat.Settings.Tabs
     {
         public static void Draw(Configuration configuration)
         {
-            var filterProgressSpam = configuration.FilterProgressSpam;
-            if (ImGui.Checkbox("Filters spammy Progress messages", ref filterProgressSpam))
-            {
-                configuration.FilterProgressSpam = filterProgressSpam;
-                configuration.Save();
-            }
-
-            ImGui.Separator();
-
-            ImGui.TextUnformatted("The options below will allow you to override the spammy Progress messages filter.");
             var showGainExperience = configuration.ShowGainExperience;
             if (ImGui.Checkbox("Show experience gain messages", ref showGainExperience))
             {
@@ -87,7 +77,7 @@ namespace TidyChat.Settings.Tabs
             }
             ImGuiComponents.HelpMarker("This will show the message that occurs when you learn a new ability.\nIt can be considered spammy in Palace of the Dead and Heaven On High.");
 
-			ImGui.EndTabItem();
+            ImGui.EndTabItem();
         }
     }
 }

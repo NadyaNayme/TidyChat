@@ -1,6 +1,4 @@
-﻿using Flags = TidyChat.Utility.ChatFlags;
-
-namespace TidyChat
+﻿namespace TidyChat
 {
     public class PlayerName
     {

@@ -40,6 +40,7 @@ namespace TidyChat.Utility
                     stringBuilder.AddText($"You received {TidyStrings.NumberOfCommendations} {commendations}{dutyName}");
 
                     chatGui.Print(stringBuilder.BuiltString);
+
                     t.Enabled = false;
                     t.Dispose();
                     TidyStrings.NumberOfCommendations = 0;
@@ -104,7 +105,8 @@ namespace TidyChat.Utility
                 }
                 stringBuilder.AddText($"{newMessage}");
                 return stringBuilder.BuiltString;
-            } else if (Localization.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
+            }
+            else if (Localization.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
             {
                 SeString newMessage = Localization.Language switch
                 {
@@ -121,10 +123,28 @@ namespace TidyChat.Utility
                 }
                 stringBuilder.AddText($"{newMessage}");
                 return stringBuilder.BuiltString;
-            } else
+            }
+            else
             {
                 return originalMessage;
             }
+        }
+
+        public static void TemporarilyDisableSystemFilter(Configuration configuration, ChatGui chatGui)
+        {
+            configuration.FilterSystemMessages = false;
+            var t = new System.Timers.Timer
+            {
+                Interval = 1000,
+                AutoReset = false
+            };
+            t.Elapsed += delegate
+            {
+                t.Enabled = false;
+                t.Dispose();
+                configuration.FilterSystemMessages = true;
+            };
+            t.Enabled = true;
         }
 
         /// <summary>

@@ -479,5 +479,78 @@ namespace TidyChat
         };
 
         #endregion PotD & HoH
+
+        #region Airship and Submarine
+        /// <see href="https://xivapi.com/LogMessage/4163?pretty=true">A new exploratory voyage destination...has been discovered</see>
+        public readonly static LocalizedRegex ExploratoryVoyage = new()
+        {
+            Jpn = new(@"目的地", regexOptions),
+            Eng = new(@"new exploratory voyage destination", regexOptions),
+            Deu = new(@"hier befindet sich ein verborgener schatz", regexOptions),
+            Fra = new(@"vous avez découvert un trésor caché", regexOptions),
+        };
+        /// <see href="https://xivapi.com/LogMessage/6061?pretty=true">A new subaquatic voyage destination...has been discovered</see>
+        public readonly static LocalizedRegex SubaquaticVoyage = new()
+        {
+            Jpn = new(@"目的地", regexOptions),
+            Eng = new(@"new subaquatic voyage destination", regexOptions),
+            Deu = new(@"neues erkundungsgebiet entdeckt", regexOptions),
+            Fra = new(@"une nouvelle destination", regexOptions),
+        };
+        #endregion Airship and Submarine
+
+        #region Trial Synthesis
+        /// <see href="https://xivapi.com/LogMessage/5902?pretty=true">Your trial synthesis of a ... proved a success!</see>
+        /// <seealso href="https://xivapi.com/LogMessage/5904?pretty=true">Your trial synthesis of a ... failed!</see>
+        public readonly static LocalizedRegex TrialSynthesis = new()
+        {
+            Jpn = new(@"の製作練習に", regexOptions),
+            Eng = new(@"your trial synthesis of", regexOptions),
+            Deu = new(@"die testsynthese von", regexOptions),
+            Fra = new(@"a réussi sa synthèse", regexOptions),
+        };
+        /// <see href="https://xivapi.com/LogMessage/5906?pretty=true">Quality 6800/6800</see>
+        public readonly static LocalizedRegex TrialQuality = new()
+        {
+            Jpn = new(@" 上昇した品質 \d{1,6}\/\d{1,6}", regexOptions),
+            Eng = new(@" quality \d{1,6}\/\d{1,6}", regexOptions),
+            Deu = new(@" qualität  \d{1,6}\/\d{1,6}", regexOptions),
+            Fra = new(@" qualité  \d{1,6}\/\d{1,6}", regexOptions),
+        };
+        /// <see href="https://xivapi.com/LogMessage/5907?pretty=true">HQ 100%</see>
+        public readonly static LocalizedRegex TrialHQ = new()
+        {
+            Jpn = new(@" hq率 \d{1,3}\%", regexOptions),
+            Eng = new(@" hq \d{1,3}\%", regexOptions),
+            Deu = new(@" hq \d{1,3}\%", regexOptions),
+            Fra = new(@" hq \d{1,3}\%", regexOptions),
+        };
+        /// <see href="https://xivapi.com/LogMessage/5908?pretty=true">Collectability 6800/6800</see>
+        public readonly static LocalizedRegex TrialCollectability = new()
+        {
+            Jpn = new(@" 収集価値\s{1,3}\d{1,5} \/ \d{1,5}", regexOptions),
+            Eng = new(@" collectability \d{1,5}\/\d{1,5}", regexOptions),
+            Deu = new(@" sammlerwert \d{1,5}\/\d{1,5}", regexOptions),
+            Fra = new(@" valeur de collection \d{1,5}\/\d{1,5}", regexOptions),
+        };
+        #endregion Trial Synthesis
+
+        public readonly static LocalizedRegex QuestionMarkCommandResponse = new()
+        {
+            Jpn = new(@"NeedsLocalization", regexOptions),
+            Eng = new(@"^(usage:|aliases:)", regexOptions),
+            Deu = new(@"NeedsLocalization", regexOptions),
+            Fra = new(@"NeedsLocalization", regexOptions),
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/1272?pretty=true">You have arrived at a vista!</see>
+        /// <seealso href="https://xivapi.com/LogMessage/1273?pretty=true">You have strayed too far from the vista.</see>
+        public readonly static LocalizedRegex VistaMessages = new()
+        {
+            Jpn = new(@"(探検手帳の目的地に到達した|探検手帳の目的地から離れた)", regexOptions),
+            Eng = new(@"(you have arrived at a vista!|you have strayed too far from the vista\.)", regexOptions),
+            Deu = new(@"(du bist an einem sehenswerten ort angekommen|du hast dich von dem sehenswerten ort entfernt\.)", regexOptions),
+            Fra = new(@"(à un lieu notoire!|du lieu notoire\.)", regexOptions),
+        };
     }
 }
