@@ -18,7 +18,8 @@ namespace TidyChat
                     configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialSynthesis).IsMatch(input) ||
                     configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialQuality).IsMatch(input) ||
                     configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialHQ).IsMatch(input) ||
-                    configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialCollectability).IsMatch(input)
+                    configuration.ShowTrialMessages && Localization.Get(ChatRegexStrings.TrialCollectability).IsMatch(input) ||
+                    configuration.ShowOtherSynthesis && Localization.Get(ChatRegexStrings.OtherSynthesis).IsMatch(input)
                    )
                 {
                     return false;

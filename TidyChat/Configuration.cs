@@ -9,6 +9,8 @@ namespace TidyChat
     public class Configuration : IPluginConfiguration
     {
         public int Version { get; set; } = 0;
+        public ulong TotalMessagesBlocked { get; set; } = 0; // To be removed next update
+        public ulong TtlMessagesBlocked { get; set; } = 0;
         public bool Enabled { get; set; } = true;
         public bool EnableDebugMode { get; set; } = false;
         public bool EnableInverseMode { get; set; } = false;
@@ -23,6 +25,7 @@ namespace TidyChat
         public int ChatHistoryTimer { get; set; } = 10;
         public bool DisableSelfChatHistory { get; set; } = true;
         public bool NoCoffee { get; set; } = false;
+        public bool EnableTippyTips { get; set; } = false;
         #region Chat Filters
         public bool FilterSystemMessages { get; set; } = true;
         public bool FilterEmoteSpam { get; set; } = true;
@@ -63,6 +66,7 @@ namespace TidyChat
         public bool HideExploratoryVoyage { get; set; } = false;
         public bool HideSubaquaticVoyage { get; set; } = false;
         public bool HideVistaMessages { get; set; } = false;
+        public bool HideTryOnGlamour { get; set; } = true;
         public bool ShowGlamoursProjected { get; set; } = false;
         public bool ShowGearsetEquipped { get; set; } = false;
         public bool ShowMateriaRetrieved { get; set; } = true;
@@ -156,6 +160,7 @@ namespace TidyChat
         public bool ShowDesynthesisLevel { get; set; } = false;
         public bool ShowDesynthesisObtains { get; set; } = false;
         public bool ShowTrialMessages { get; set; } = true;
+        public bool ShowOtherSynthesis { get; set; } = false;
         #endregion
 
         #region Gathering

@@ -8,6 +8,10 @@ namespace TidyChat.Settings.Tabs
         public static void Draw(Configuration configuration)
         {
 
+            ImGui.TextUnformatted($"Tidy Chat has blocked {configuration.TtlMessagesBlocked:n0} messages so far.");
+            ImGuiComponents.HelpMarker("Count is only updated every 100 blocked messages, when changing zones, or when logging off.");
+            ImGui.Separator();
+
             var filterSystemMessages = configuration.FilterSystemMessages;
             if (ImGui.Checkbox("Filter System spam", ref filterSystemMessages))
             {
@@ -139,6 +143,13 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.");
 
+                ImGui.Separator();
+            }
+            var enableTippyTips = configuration.EnableTippyTips;
+            if (ImGui.Checkbox("Enable Tippy IPC", ref enableTippyTips))
+            {
+                configuration.EnableTippyTips = enableTippyTips;
+                configuration.Save();
             }
             var noCoffee = configuration.NoCoffee;
             if (ImGui.Checkbox("Hide ko-fi button", ref noCoffee))

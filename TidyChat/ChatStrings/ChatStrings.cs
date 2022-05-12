@@ -137,10 +137,19 @@
 
         public readonly static LocalizedStrings EarnAchievement = new()
         {
-            Jpn = new string[] { "NeedsLocalization" },
-            Eng = new string[] { "you", "the", "achievement" }, // You earn the achievement <achievement>
-            Deu = new string[] { "NeedsLocalization" },
+            Jpn = new string[] { "アチーブメント" },
+            Eng = new string[] { "you", "earn", "the", "achievement" }, // You earn the achievement <achievement>
+            Deu = new string[] { "hast", "errungenshaft" },
             Fra = new string[] { "vous", "accompli", "haut", "fait" }, // a accompli le haut fait “ Élémentaliste légendaire”!
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/952?pretty=true"">Someone earns the achievement "Blah blah blah, Tidal Wave!"</see>
+        public readonly static LocalizedStrings OtherEarnAchievement = new()
+        {
+            Jpn = new string[] { "アチーブメント" },
+            Eng = new string[] { "earns", "the", "achievement" }, // You earn the achievement <achievement>
+            Deu = new string[] { "hat", "errungenschaft" },
+            Fra = new string[] { "avez", "accompli", "haut", "fait" }, // a accompli le haut fait “ Élémentaliste légendaire”!
         };
 
         public readonly static LocalizedStrings YouSynthesize = new()

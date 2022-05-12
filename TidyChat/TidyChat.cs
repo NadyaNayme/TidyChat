@@ -20,6 +20,7 @@ using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
 using GetDuty = TidyChat.Utility.GetDutyName;
 using TidyStrings = TidyChat.Utility.InternalStrings;
+using Lumina = Lumina.Excel.GeneratedSheets;
 
 namespace TidyChat
 
@@ -30,6 +31,7 @@ namespace TidyChat
 
         private const string SettingsCommand = TidyStrings.SettingsCommand;
         private const string ShorthandCommand = TidyStrings.ShorthandCommand;
+        private ulong SessionBlockedMessages = 0;
 
         [PluginService] private DtrBar DtrBar { get; init; }
         private DalamudPluginInterface PluginInterface { get; init; }
@@ -89,6 +91,7 @@ namespace TidyChat
             ChatGui.ChatMessage += OnChat;
             ClientState.TerritoryChanged += OnTerritoryChanged;
             ClientState.Login += OnLogin;
+            ClientState.Logout += OnLogout;
 
             PluginUi = new PluginUI(Configuration);
 
@@ -116,22 +119,96 @@ namespace TidyChat
             ChatGui.ChatMessage -= OnChat;
             ClientState.TerritoryChanged -= OnTerritoryChanged;
             ClientState.Login -= OnLogin;
+            ClientState.Logout -= OnLogout;
         }
 
-        private void InitTippyIPC(ushort msg)
+        private void TippyIpcTips()
         {
-            var tippyIpc = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
-            tippyIpc.InvokeFunc("Tidy Chat tips will be included in a future release.");
+            if (PluginInterface.PluginInternalNames.Contains("Tippy"))
+            {
+                var tippyTip = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterTip");
+                tippyTip.InvokeFunc("Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!");
+                tippyTip.InvokeFunc("Did you know? Tidy Chat has a chat history feature to block repetitive messages.");
+                tippyTip.InvokeFunc("Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.");
+                tippyTip.InvokeFunc("Tidy Chat has many useful settings that must first be enabled.");
+                tippyTip.InvokeFunc("Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat.");
+
+                switch (Configuration.TtlMessagesBlocked)
+                {
+                    case > 1000000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 1,000,000 messages so far!");
+                        break;
+                    case > 500000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 500,000 messages so far!");
+                        break;
+                    case > 100000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 100,000 messages so far!");
+                        break;
+                    case > 50000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 50,000 messages so far!");
+                        break;
+                    case > 10000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 10,000 messages so far!");
+                        break;
+                    case > 5000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 5,000 messages so far!");
+                        break;
+                    case > 1000:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 1,000 messages so far!");
+                        break;
+                    case > 100:
+                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 100 messages so far!");
+                        break;
+                    case <= 100:
+                        break;
+                }
+            }
+            else
+            {
+                var noTippyMessage = new SeStringBuilder();
+                if (Configuration.IncludeChatTag)
+                {
+                    Better.AddTidyChatTag(noTippyMessage);
+                }
+                noTippyMessage.AddText($"To enable Tippy Tips for Tidy Chat you must first install Tippy.");
+                ChatGui.Print(noTippyMessage.BuiltString);
+            }
+        }
+
+        private void TippyIpcMessages(ushort msg)
+        {
+            var tippyMsg = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
+            switch (msg)
+            {
+                case 0:
+                    tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
+                    break;
+                case 1:
+                    tippyMsg.InvokeFunc("And here is where I'd tell you how many commendations you received... if you had received any.");
+                    break;
+                case 2:
+                    tippyMsg.InvokeFunc("It looks like people like you!");
+                    break;
+            }
         }
 
         private void OnLogin(object? sender, EventArgs e)
         {
+            if (Configuration.EnableTippyTips) 
+            {
+                TippyIpcTips();
+            }
             InstanceDtrBarUpdates();
+        }
+
+        private void OnLogout(object? sender, EventArgs e)
+        {
+            UpdateBlockedCount();
         }
 
         private void OnTerritoryChanged(object? sender, ushort e)
         {
-
+            UpdateBlockedCount();
             InstanceDtrBarUpdates();
         }
 
@@ -145,7 +222,7 @@ namespace TidyChat
             var chatType = FromDalamud(type);
             string normalizedText = NormalizeInput.ToLowercase(message);
 
-            if (Localization.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText))
+            if (Localization.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
             {
                 Better.TemporarilyDisableSystemFilter(Configuration, ChatGui);
             }
@@ -354,6 +431,10 @@ namespace TidyChat
                 isHandled = false;
             }
             #endregion Debug Mode Enabled
+            SessionBlockedMessages += 1;
+            if (SessionBlockedMessages > 100) {
+                UpdateBlockedCount();
+            }
         }
 
         private void SetPlayerName()
@@ -412,6 +493,12 @@ namespace TidyChat
             }
         }
 
+        private void UpdateBlockedCount()
+        {
+            Configuration.TtlMessagesBlocked += SessionBlockedMessages;
+            SessionBlockedMessages = 0;
+            Configuration.Save();
+        }
         private void UpdateDtrBarEntry(string text = "")
         {
             dtrEntry.Text = text;

@@ -552,5 +552,24 @@ namespace TidyChat
             Deu = new(@"(du bist an einem sehenswerten ort angekommen|du hast dich von dem sehenswerten ort entfernt\.)", regexOptions),
             Fra = new(@"(à un lieu notoire!|du lieu notoire\.)", regexOptions),
         };
+
+        /// <see href="https://xivapi.com/LogMessage/1156?pretty=true">Someone synthesizes an item!</see>
+        public readonly static LocalizedRegex OtherSynthesis = new()
+        {
+            Jpn = new(@"完成させた", regexOptions),
+            Eng = new(@"synthesizes", regexOptions),
+            Deu = new(@"hergestellt", regexOptions),
+            Fra = new(@"fabrique", regexOptions),
+        };
+
+        /// <see href="https://xivapi.com/LogMessage/3911?pretty=true">You try on item.</see>
+        public readonly static LocalizedRegex TryOnGlamour = new()
+        {
+            Jpn = new(@"を試着した", regexOptions),
+            Eng = new(@"you try on", regexOptions),
+            Deu = new(@"probeweise angelgt", regexOptions),
+            Fra = new(@"vous essayez", regexOptions),
+        };
+
     }
 }

@@ -134,6 +134,14 @@ namespace TidyChat.Settings.Tabs
                 }
                 ImGuiComponents.HelpMarker("eg. You have arrived at a vista! and You have strayed too far from the vista.");
 
+                var hideTryOnGlamour = configuration.HideTryOnGlamour;
+                if (ImGui.Checkbox("Hide try on glamour messages", ref hideTryOnGlamour))
+                {
+                    configuration.HideTryOnGlamour = hideTryOnGlamour;
+                    configuration.Save();
+                }
+                ImGuiComponents.HelpMarker("eg. You try on item.");
+
             }
 
             if (ImGui.CollapsingHeader("Show System messages Tidy Chat hides by default"))

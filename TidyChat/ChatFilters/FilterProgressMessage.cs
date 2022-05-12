@@ -16,6 +16,7 @@ namespace TidyChat
                      configuration.ShowGainExperience && Localization.Get(ChatRegexStrings.GainExperiencePoints).IsMatch(input) ||
                      configuration.ShowGainPvpExp && Localization.Get(ChatStrings.GainPvpExp).All(input.Contains) ||
                      configuration.ShowEarnAchievement && Localization.Get(ChatStrings.EarnAchievement).All(input.Contains) ||
+                     configuration.ShowOtherEarnedAchievement && Localization.Get(ChatStrings.OtherEarnAchievement).All(input.Contains) ||
                      configuration.ShowLevelUps && Localization.Get(ChatStrings.YouAttainLevel).All(input.Contains) ||
                      configuration.ShowOtherLevelUps && Localization.Get(ChatStrings.OtherAttainsLevel).All(input.Contains) ||
                      configuration.ShowAbilityUnlocks && Localization.Get(ChatStrings.YouLearnAbility).All(input.Contains) ||

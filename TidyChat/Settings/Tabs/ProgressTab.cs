@@ -29,7 +29,7 @@ namespace TidyChat.Settings.Tabs
                 configuration.ShowAdventurerInNeedBonus = showAdventurerInNeedBonus;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.");
+            ImGuiComponents.HelpMarker("eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.");
 
             var showGainPvpExp = configuration.ShowGainPvpExp;
             if (ImGui.Checkbox("Show PVP EXP gain messages", ref showGainPvpExp))

@@ -24,6 +24,7 @@ namespace TidyChat
                     !configuration.HideExploratoryVoyage && Localization.Get(ChatRegexStrings.ExploratoryVoyage).IsMatch(input) ||
                     !configuration.HideSubaquaticVoyage && Localization.Get(ChatRegexStrings.SubaquaticVoyage).IsMatch(input) ||
                     !configuration.HideVistaMessages && Localization.Get(ChatRegexStrings.VistaMessages).IsMatch(input) ||
+                    !configuration.HideTryOnGlamour && Localization.Get(ChatRegexStrings.TryOnGlamour).IsMatch(input) ||
                     configuration.BetterCommendationMessage && Localization.Get(ChatRegexStrings.BetterPlayerCommendation).IsMatch(input) ||
                     configuration.ShowGlamoursProjected && Localization.Get(ChatStrings.GlamoursProjected).All(input.Contains) ||
                     configuration.ShowTradeSent && Localization.Get(ChatStrings.TradeSent).All(input.Contains) ||

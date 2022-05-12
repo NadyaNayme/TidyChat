@@ -69,6 +69,12 @@ namespace TidyChat.Settings.Tabs
                     configuration.ShowTrialMessages = showTrialMessages;
                     configuration.Save();
                 }
+                var showOtherSynthesis = configuration.ShowOtherSynthesis;
+                if (ImGui.Checkbox("Show synthesis message when other players complete a craft.", ref showOtherSynthesis))
+                {
+                    configuration.ShowOtherSynthesis = showOtherSynthesis;
+                    configuration.Save();
+                }
             }
 
             if (ImGui.CollapsingHeader("Gathering Locations"))
