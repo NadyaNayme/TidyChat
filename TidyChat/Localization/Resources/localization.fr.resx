@@ -730,7 +730,7 @@ Enter a player's first and last name and then press &lt;Enter&gt; to add them to
         <value>Select Channels</value>
     </data>
     <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
-        <value>Player Information</value>
+        <value>Informations sur le Joueur</value>
     </data>
     <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
         <value>You must enter the player's name as it would be seen in chat - including any periods.
@@ -741,13 +741,13 @@ Forename Abbreviated: E. Name
 Initials: E. N.</value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
-        <value>First Name: </value>
+        <value>Prénom : </value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
-        <value>Last Name: </value>
+        <value>Nom : </value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
-        <value>Server Name: </value>
+        <value>Nom du Serveur : </value>
     </data>
     <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
         <value>Select channels for Chat History to filter:</value>
