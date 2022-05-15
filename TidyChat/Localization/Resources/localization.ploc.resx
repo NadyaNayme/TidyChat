@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GeneralTab_BlockedMessages" xml:space="preserve">
+    <value>Ţîðý Çĥàţ ĥàš ƀļôçķéð {0:n0} ɱéššàĝéš šô ƒàŕ·</value>
+    <comment>Do not translate "Tidy Chat"</comment>
+  </data>
+  <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
+    <value>Çôûñţ îš ôñļý ûþðàţéð éṽéŕý ①ⓞⓞ ƀļôçķéð ɱéššàĝéš، ŵĥéñ çĥàñĝîñĝ žôñéš، ôŕ ŵĥéñ ļôĝĝîñĝ ôƒƒ·</value>
+  </data>
+  <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
+    <value>Ƒîļţéŕ Šýšţéɱ šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
+    <value>Ƒîļţéŕ Þŕôĝŕéšš šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥéšé ƒîļţéŕš îñçļûðé ɱéššàĝéš ļîķé éàŕñéð àçĥîéṽéɱéñţš ôŕ éẋþéŕîéñçé þôîñţš</value>
+  </data>
+  <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
+    <value>Ƒîļţéŕ Ļôôţ ŕôļļ šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ƒîļţéŕ îñçļûðéš ɱéššàĝéš ļîķé ŕôļļîñĝ ĝŕééð ôŕ þļàýéŕ ôƀţàîñéð à ĝéàŕ þîéçé</value>
+  </data>
+  <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
+    <value>Ƒîļţéŕ Ôƀţàîñéð îţéɱ šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ƒîļţéŕ îñçļûðéš îţéɱš ôƀţàîñéð àš ɱôñšţéŕ ðŕôþš، ǫûéšţ ŕéŵàŕðš، àñð ŕôûļéţţé ŕéŵàŕðš</value>
+  </data>
+  <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
+    <value>Ƒîļţéŕ Çŕàƒţîñĝ šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ƒîļţéŕ îñçļûðéš àļļ çŕàƒţîñĝ ɱéššàĝéš éẋçéþţ "Ýôû šýñţĥéšîžé à/àñ &lt;item&gt;"
+Ţĥîš àļļôŵš ýôû ţô ûšé ÇĥàţÀļéŕţš ţô çŕéàţé àñ àļéŕţ ƒôŕ "Ýôû šýñţĥéšîžé" îñšţéàð ôƒ ûšîñĝ ɱàçŕô‐ƒîñîšĥéð àļéŕţš</value>
+  </data>
+  <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
+    <value>Ƒîļţéŕ Ĝàţĥéŕîñĝ šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ƒîļţéŕ îñçļûðéš "ýôû ƀéĝîñ/ƒîñîšĥ" ĝàţĥéŕîñĝ ɱéššàĝéš، àš ŵéļļ àš ļôçàţîôñ àƒƒéçţš</value>
+  </data>
+  <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
+    <value>Éɱôţé Ƒîļţéŕš</value>
+    <comment>The clickable dropdown header for Emote filters</comment>
+  </data>
+  <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
+    <value>Îɱþŕôṽéð Ṁéššàĝéš</value>
+    <comment>Dropdown header for Improved Messages</comment>
+  </data>
+  <data name="GeneralTab_TidyChatTag" xml:space="preserve">
+    <value>Àðð [TidyChat] ţàĝ ţô àñý ɱôðîƒîéð ɱéššàĝéš</value>
+    <comment>Do not translate [TidyChat]
+</comment>
+  </data>
+  <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
+    <value>Þŕéþéñðš ɱéššàĝéš šéñţ ôŕ ɱôðîƒîéð ƀý Ţîðý Çĥàţ ŵîţĥ [TidyChat]</value>
+    <comment>Do not translate "Tidy Chat" or "[TidyChat]"</comment>
+  </data>
+  <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
+    <value>Îɱþŕôṽéð /îñšţàñçé ɱéššàĝîñĝ</value>
+  </data>
+  <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
+    <value>Çĥàñĝéš ţĥé îñšţàñçé ţéẋţ ţô∶ Ýôû àŕé ñôŵ îñ îñšţàñçé∶ #</value>
+  </data>
+  <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
+    <value>Ðîšþļàý çûŕŕéñţ îñšţàñçé îñ ÐŢŔ Ɓàŕ</value>
+  </data>
+  <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
+    <value>Îɱþŕôṽéð Þļàýéŕ Çôɱɱéñðàţîôñš</value>
+  </data>
+  <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
+    <value>Ðîšàƀļéš Šýšţéɱ ɱéššàĝé ƒôŕ ŕéçéîṽéð çôɱɱéñðàţîôñš àñð îñšţéàð ļôĝš à šîñĝļé ɱéššàĝé ţô ýôûŕ Ðàļàɱûð Ĝéñéŕàļ Çĥàţ Çĥàññéļ (çĥéçķ ýôûŕ Ðàļàɱûð Ĝéñéŕàļ Šéţţîñĝš ƒôŕ ŵĥîçĥ çĥàññéļ ţĥàţ îš ‐ îţ îš Ðéƀûĝ ƀý ðéƒàûļţ)</value>
+  </data>
+  <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
+    <value>Îñçļûðé ðûţý ñàɱé ŵîţĥ çôɱɱéñðàţîôñ ɱéššàĝéš</value>
+  </data>
+  <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
+    <value>Ŕéǫûîŕéš Îɱþŕôṽéð Þļàýéŕ Çôɱɱéñðàţîôñš ţô ƀé éñàƀļéð</value>
+  </data>
+  <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
+    <value>Îɱþŕôṽéð /Šàý ɱéššàĝéš ƒôŕ ǫûéšţš</value>
+  </data>
+  <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
+    <value>Ŵĥéñ à ǫûéšţ ŕéǫûîŕéš ýôû ţô /Šàý šôɱéţĥîñĝ îñ çĥàţ، çĥàñĝé ţĥé ɱéššàĝé îñţô ôñé ţĥàţ çàñ ƀé çôþý àñð þàšţéð éàšîļý</value>
+  </data>
+  <data name="GeneralTab_CopySayMessage" xml:space="preserve">
+    <value>Àûţôɱàţîçàļļý çôþý îɱþŕôṽéð /šàý ɱéššàĝé ţô çļîþƀôàŕð</value>
+    <comment>This is a "copy to clipboard" feature so any similar wording to that is fine.</comment>
+  </data>
+  <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
+    <value>Ŕéǫûîŕéš Îɱþŕôṽéð /Šàý ɱéššàĝé ƒôŕ ǫûéšţš ţô ƀé éñàƀļéð</value>
+  </data>
+  <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
+    <value>Îɱþŕôṽéð Ñôṽîçé Ñéţŵôŕķ ĵôîñ àñð ļéàṽé ɱéššàĝéš</value>
+  </data>
+  <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
+    <value>Ŕéðûçéš ţĥé àɱôûñţ ôƒ Ñôṽîçé Ñéţŵôŕķ ţéẋţ ŵĥéñ ţĥé Ñôṽîçé Ñéţŵôŕķ îš ĵôîñéð àñð çĥàñĝéš ţĥé ļéàṽé ɱéššàĝé ţô ƀé çôñšîšţéñţļý ŵôŕðéð·</value>
+  </data>
+  <data name="GeneralTab_EnableTippy" xml:space="preserve">
+    <value>Éñàƀļé Ţîþþý ÎÞÇ</value>
+  </data>
+  <data name="GeneralTab_HideKofiButton" xml:space="preserve">
+    <value>Ĥîðé ķô‐ƒî ƀûţţôñ</value>
+  </data>
+  <data name="GeneralTab_FilterEmotes" xml:space="preserve">
+    <value>Ƒîļţéŕ éɱôţé šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ ĥîðé àļļ éɱôţé ţéẋţ ûñļéšš îţ îš àñ éɱôţé ţàŕĝéţîñĝ ýôû ôŕ àñ éɱôţé ýôû ûšéð·</value>
+  </data>
+  <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
+    <value>Ƒîļţéŕ çûšţôɱ éɱôţé šþàɱ</value>
+  </data>
+  <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ ĥîðé àļļ "/éɱ" ɱéššàĝéš ûñļéšš îţ ɱéñţîôñš ýôû ôŕ îš à çûšţôɱ éɱôţé ýôû ûšéð·
+éĝ· Àñôţĥéŕ Þļàýéŕ ļéàñš ôṽéŕ àñð ĝîṽéš ýôû à ƀîĝ ƀéàŕ ĥûĝ·</value>
+  </data>
+  <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
+    <value>Ƒîļţéŕ éɱôţéš ûšéð ƀý ýôûŕšéļƒ</value>
+  </data>
+  <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ ĥîðé ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ûšé àñ éɱôţé ôŕ çûšţôɱ éɱôţé·
+éĝ· Ýôû ĝéñţļý þàţ &lt;user&gt;</value>
+  </data>
+  <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
+    <value>Éñàƀļé ðéƀûĝ ɱôðé</value>
+  </data>
+  <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
+    <value>Šýšţéɱ</value>
+  </data>
+  <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
+    <value>Ļôôţ/Ôƀţàîñ</value>
+  </data>
+  <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
+    <value>Þŕôĝŕéšš</value>
+  </data>
+  <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
+    <value>Çŕàƒţîñĝ/Ĝàţĥéŕîñĝ</value>
+  </data>
+  <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
+    <value>Çĥàţ Ĥîšţôŕý</value>
+  </data>
+  <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
+    <value>Ŵĥîţéļîšţ</value>
+  </data>
+  <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
+    <value>Éẋþéŕîɱéñţàļ Ƒéàţûŕé∶ Îñṽéŕšé ɱôðé</value>
+  </data>
+  <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
+    <value>Ñô ļôñĝéŕ ƀļôçķš Šýšţéɱ ɱéššàĝéš ƀý ðéƒàûļţ·
+Ĥîðé ƒîļţéŕš ƀéçôɱé Šĥôŵ ƒîļţéŕš àñð Šĥôŵ ƒîļţéŕš ƀéçôɱé Ĥîðé ƒîļţéŕš·</value>
+  </data>
+  <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
+    <value>Îƒ ýôû ĥàṽé éñàƀļéð Îñṽéŕšé ɱôðé ýôû àŕé ôñ ýôûŕ ôŵñ àñð ŵîļļ ñôţ ŕéçéîṽé àñý šûþþôŕţ·
+Îţ îš àššûɱéð ýôû ķñôŵ ŵĥàţ ýôû àŕé ðôîñĝ·</value>
+  </data>
+  <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
+    <value>Ĥîðé Šýšţéɱ ɱéššàĝéš Ţîðý Çĥàţ šĥôŵš ƀý ðéƒàûļţ</value>
+  </data>
+  <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
+    <value>Ĥîðé /îñšţàñçé ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû àŕé ñôŵ îñ ţĥé îñšţàñçéð àŕéà Ôļð Šĥàŕļàýàñ ·
+Çûŕŕéñţ îñšţàñçé çàñ ƀé çôñƒîŕɱéð àţ àñý ţîɱé ûšîñĝ ţĥé / îñšţàñçé ţéẋţ çôɱɱàñð·</value>
+  </data>
+  <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
+    <value>Ĥîðé Š Ŕàñķ Ĥûñţ šþàŵñ àññôûñçéɱéñţ</value>
+  </data>
+  <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû šéñšé ţĥé þŕéšéñçé ôƒ à þôŵéŕƒûļ ɱàŕķ···</value>
+  </data>
+  <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
+    <value>Ĥîðé ŠŠ Ŕàñķ Ṁîñîôñ àññôûñçéɱéñţš</value>
+  </data>
+  <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+    <value>éĝ· Ţĥé ɱîñîôñš ôƒ àñ éẋţŕàôŕðîñàŕîļý þôŵéŕƒûļ ɱàŕķ àŕé ôñ ţĥé ĥûñţ ƒôŕ þŕéý···
+Ţĥé ɱîñîôñš ôƒ àñ éẋţŕàôŕðîñàŕîļý þôŵéŕƒûļ ɱàŕķ ĥàṽé ŵîţĥðŕàŵñ···</value>
+  </data>
+  <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
+    <value>Ĥîðé Ŕéçéîṽéð Çôɱɱéñðàţîôñš</value>
+  </data>
+  <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ŕéçéîṽéð à þļàýéŕ çôɱɱéñðàţîôñ¡</value>
+  </data>
+  <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
+    <value>Ĥîðé Çôɱþļéţéð Ṽéñţûŕé</value>
+  </data>
+  <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
+    <value>éĝ· ŔéţàîñéŕÑàɱé ĥàš çôɱþļéţéð à ṽéñţûŕé¡</value>
+  </data>
+  <data name="SystemTab_HideSayReminder" xml:space="preserve">
+    <value>Ĥîðé ŕéɱîñðéŕš ôƒ ŵĥàţ ţô /šàý îñ çĥàţ ðûŕîñĝ ǫûéšţš·</value>
+  </data>
+  <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
+    <value>éĝ· Ŵîţĥ ţĥé çĥàţ ɱôðé îñ Šàý، éñţéŕ à þĥŕàšé çôñţàîñîñĝ “Ţàţàŕû” àţ ţĥé ðéšţîñàţîôñ þôîñţ·</value>
+  </data>
+  <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
+    <value>Ĥîðé "Ýôû šéñšé šôɱéţĥîñĝ···" ɱéššàĝéš</value>
+    <comment>This message may not be as consistent for other languages . This originally meant for the Eureka Bunny message: You sense something to the far, far southwest but was expanded for English for all other "You sense something nearby..." type messages.</comment>
+  </data>
+  <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû šéñšé šôɱéţĥîñĝ ţô ţĥé ƒàŕ، ƒàŕ šôûţĥŵéšţ···</value>
+  </data>
+  <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
+    <value>Ĥîðé Àéţĥéŕ Çôɱþàšš ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ţĥé çôɱþàšš ðéţéçţš à çûŕŕéñţ àþþŕôẋîɱàţéļý ①④③ ýàļɱš ţô ţĥé Ŵéšţ···</value>
+  </data>
+  <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
+    <value>Ĥîðé /çôûñţðôŵñ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ɓàţţļé çôɱɱéñçîñĝ îñ ①⑧ šéçôñðš¡</value>
+  </data>
+  <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
+    <value>Ĥîðé /ŕéàðýçĥéçķ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ŕéàðý çĥéçķ çôɱþļéţé·</value>
+  </data>
+  <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
+    <value>Ĥîðé "Šéàŕçĥ ƒôŕ îţéɱš" ŕéšûļţš ɱéššàĝéš</value>
+    <comment>The text that happens after /isearch command is used</comment>
+  </data>
+  <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
+    <value>éĝ· ① îţéɱ ƒôûñð îñ ţĥé ④ţĥ ţàƀ ôƒ ýôûŕ îñṽéñţôŕý·</value>
+  </data>
+  <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
+    <value>Ĥîðé Àîŕšĥîþ ṽôýàĝé ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· À ñéŵ éẋþļôŕàţôŕý ṽôýàĝé ðéšţîñàţîôñ···ĥàš ƀééñ ðîšçôṽéŕéð¡</value>
+  </data>
+  <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
+    <value>Ĥîðé Šûƀɱàŕîñé ṽôýàĝé ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· À ñéŵ šûƀàǫûàţîç ṽôýàĝé ðéšţîñàţîôñ···ĥàš ƀééñ ðîšçôṽéŕéð¡</value>
+  </data>
+  <data name="SystemTab_HideVistaMessages" xml:space="preserve">
+    <value>Ĥîðé ṽîšţà àŕŕîṽàļ àñð šţŕàý ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ĥàṽé àŕŕîṽéð àţ à ṽîšţà¡ àñð Ýôû ĥàṽé šţŕàýéð ţôô ƒàŕ ƒŕôɱ ţĥé ṽîšţà·</value>
+  </data>
+  <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
+    <value>Ĥîðé ţŕý ôñ ĝļàɱôûŕ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ţŕý ôñ îţéɱ·</value>
+  </data>
+  <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
+    <value>Šĥôŵ Šýšţéɱ ɱéššàĝéš Ţîðý Çĥàţ ĥîðéš ƀý ðéƒàûļţ</value>
+  </data>
+  <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
+    <value>Šĥôŵ ôñļîñé šţàţûš ûþðàţéš</value>
+  </data>
+  <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ûþðàţîñĝ ôñļîñé šţàţûš ţô Àŵàý ƒŕôɱ Ķéýƀôàŕð·</value>
+  </data>
+  <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
+    <value>Šĥôŵ îţéɱš àţţàçĥéð ţô šéñţ ɱàîļ</value>
+  </data>
+  <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû àţţàçĥ ② þôţš ôƒ Ðàļàɱûð Ŕéð Ðýé ţô ţĥé ļéţţéŕ·</value>
+  </data>
+  <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
+    <value>Šĥôŵ ÀŔŔ Ŕéļîç ƀôôķ šţéþ þŕôĝŕéšš ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ŕéçôŕð ôƒ Ôûŕàñôš ķîļļ (①/①) àððéð ƒôŕ &lt;Relic Weapon&gt; ‐ Šţŕéñĝţĥ ⁺②·</value>
+  </data>
+  <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
+    <value>Šĥôŵ ÀŔŔ Ŕéļîç ƀôôķ šţéþ çôɱþļéţéð ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Àļļ ôƀĵéçţîṽéš ûñðéŕ ţĥé çàţéĝôŕý Ðûñĝéôñš ƒôŕ &lt;Relic Weapon&gt; ‐ Šţŕéñĝţĥ ⁺② çôɱþļéţé¡</value>
+  </data>
+  <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
+    <value>Šĥôŵ ĥûñţ ɱàŕķ šļàîñ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ĥûñţ ɱàŕķ &lt;mark&gt; šļàîñ¡ ①/③</value>
+  </data>
+  <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
+    <value>Šĥôŵ çôɱþļéţîôñ ţîɱé ŵĥéñ ûñŕéšţŕîçţéð þàŕţý îš àçţîṽé</value>
+  </data>
+  <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
+    <value>éĝ· &lt;Duty&gt; çôɱþļéţîôñ ţîɱé∶ ⓞⓞ∶③ⓞ</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
+    <value>Šĥôŵ ṽôļûɱé çôñţŕôļ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ṁàšţéŕ Ṽôļûɱé ɱûţéð، ƁĜṀ ṽôļûɱé šéţ ţô ⑤ⓞ·</value>
+  </data>
+  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝļàɱôûŕ þļàţéš</value>
+  </data>
+  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
+    <value>
+éĝ· Ĝļàɱôûŕš þŕôĵéçţéð ƒŕôɱ þļàţé ①ⓞ·</value>
+  </data>
+  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš</value>
+  </data>
+  <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
+    <value>
+éĝ· “Ŕéð Ṁàĝé” éǫûîþþéð·</value>
+  </data>
+  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
+    <value>ÞÔŢÐ ⅋ ĤôĤ</value>
+    <comment>Abbreviated or shorthands preferred - please try to avoid using the full "Palace of the Dead" or "Heaven on High" translations unless that is all your language uses to refer to these as.</comment>
+  </data>
+  <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ ţĥé þàŕţý ôƀţàîñš à þôɱàñðéŕ</value>
+  </data>
+  <data name="SystemTab_ShowReturnedPomanderMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ ýôû ŕéţûŕñ à þôɱàñðéŕ ţô ţĥé çôƒƒéŕ</value>
+  </data>
+  <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ ţĥé Çàîŕñ ôƒ Þàššàĝé ƀéĝîñš ţô ĝļôŵ</value>
+  </data>
+  <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Çàîŕñ ôƒ Ŕéţûŕñ îš ûšéð</value>
+  </data>
+  <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ ţĥé Çàîŕñ ôƒ Þàššàĝé îš àçţîṽàţéð</value>
+  </data>
+  <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
+    <value>Šĥôŵ ţŕàñšƒéŕéñçé ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
+    <value>Šĥôŵ Àéţĥéŕþôôļ îñçŕéàšéš</value>
+  </data>
+  <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
+    <value>Šĥôŵ Àéţĥéŕþôôļ ŕéɱàîñš ûñçĥàñĝéð···</value>
+  </data>
+  <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Šàƒéţý îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that reveals traps on the current floor.</comment>
+  </data>
+  <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Šîĝĥţ îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that reveals the map for the current floor.</comment>
+  </data>
+  <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Àƒƒļûéñçé îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that adds more treasure chests to the next floor.</comment>
+  </data>
+  <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Ƒļîĝĥţ îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that reduces mob spawns for the next floor.</comment>
+  </data>
+  <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Àļţéŕàţîôñ îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that transforms a room of mobs in the next floor into mimics or that other mob.</comment>
+  </data>
+  <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Ŵîţçĥîñĝ îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that transforms nearby enemies into mostly harmless mobs.</comment>
+  </data>
+  <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Šéŕéñîţý îš ûšéð</value>
+    <comment>This is the POTD/HOH pomander that removes all enchantments from the current floor.</comment>
+  </data>
+  <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
+    <value>Šĥôŵ ƒļôôŕ ñûɱƀéŕ ŵĥéñ éñţéŕîñĝ à ñéŵ ƒļôôŕ</value>
+  </data>
+  <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš šéñšéð</value>
+  </data>
+  <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš ñôţ šéñšéð ôñ ţĥé çûŕŕéñţ ƒļôôŕ</value>
+  </data>
+  <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
+    <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš ðîšçôṽéŕéð</value>
+  </data>
+  <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
+    <value>Þàŕţý ⅋ Îñṽîţé Ṁéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
+    <value>Šĥôŵ šéñţ þàŕţý îñṽîţéš</value>
+  </data>
+  <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
+    <value>Šĥôŵ þļàýéŕš ĵôîñîñĝ þàŕţý</value>
+  </data>
+  <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
+    <value>Šĥôŵ þļàýéŕš ļéàṽîñĝ þàŕţý</value>
+  </data>
+  <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
+    <value>Šĥôŵ þàŕţý ðîšƀàñðš àñð ðîššôļṽéš</value>
+  </data>
+  <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
+    <value>Šĥôŵ ŕéçéîṽéð þàŕţý îñṽîţàţîôñš</value>
+  </data>
+  <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
+    <value>Šĥôŵ ĵôîñéð þàŕţý/çŕôšš‐þàŕţý ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
+    <value>Šĥôŵ ţéļéþôŕţ ôƒƒéŕš ƒŕôɱ þàŕţý ɱéɱƀéŕš</value>
+  </data>
+  <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
+    <value>Ţŕàðîñĝ Ṁéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ţŕàðé ŕéǫûéšţ šéñţ ţô" ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ţŕàðé çàñçéļéð·" ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àŵàîţîñĝ ţŕàðé çôñƒîŕɱàţîôñ" ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ţŕàðé çôɱþļéţé·" ɱéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
+    <value>Ļôôţîñĝ ⅋ Ŕôļļîñĝ</value>
+  </data>
+  <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ýôû çàšţ ýôûŕ ļôţ" ɱéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕôļļ ôñ ļôôţ·
+éĝ· Ýôû çàšţ ýôûŕ ļôţ ƒôŕ ţĥé &lt;item&gt;</value>
+  </data>
+  <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ýôû ŕôļļéð···" ɱéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš àƒţéŕ éṽéŕýôñé ĥàš ŕôļļéð ôñ ļôôţ àñð ýôû àŕé ĝîṽéñ ţĥé ŕéšûļţ ôƒ ýôûŕ ŕôļļ·
+éĝ· Ýôû ŕôļļ Ñééð/Ĝŕééð ôñ ţĥé &lt;item&gt;· ⑥③¡</value>
+  </data>
+  <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àñôţĥéŕ Þļàýéŕ çàšţš ţĥéîŕ ļôţ &lt;item&gt;" ɱéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ àñôţĥéŕ þļàýéŕ îñ ţĥé þàŕţý ŕôļļš ƒôŕ à ļôôţ ðŕôþ·
+éĝ· Šôɱé þļàýéŕ çàšţš ĥéŕ ļôţ ƒôŕ &lt;item&gt;·</value>
+  </data>
+  <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àñôţĥéŕ Þļàýéŕ ŕôļļš Ĝŕééð···" ɱéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àñôţĥéŕ Þļàýéŕ ôƀţàîñš &lt;item&gt;" ɱéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ àñôţĥéŕ þļàýéŕ îñ ţĥé þàŕţý ôƀţàîñš à ļôôţ ðŕôþ·
+éĝ· Šôɱé þļàýéŕ ôƀţàîñš àñ &lt;item&gt;¡</value>
+  </data>
+  <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
+    <value>Çôɱɱôñ Çûŕŕéñçîéš</value>
+  </data>
+  <data name="ObtainTab_ShowGil" xml:space="preserve">
+    <value>Šĥôŵ Ĝîļ</value>
+  </data>
+  <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ⑥⑨ ĝîļ·</value>
+  </data>
+  <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
+    <value>Šĥôŵ Ĝŕàñð Çôɱþàñý Šéàļš</value>
+  </data>
+  <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ④②ⓞ Ƒļàɱé Šéàļš·</value>
+  </data>
+  <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
+    <value>Šĥôŵ Ṽéñţûŕéš</value>
+  </data>
+  <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ à Ṽéñţûŕé·</value>
+  </data>
+  <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
+    <value>Šĥôŵ ṀĜÞ</value>
+  </data>
+  <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ①①⑦ ṀĜÞ·</value>
+  </data>
+  <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
+    <value>Ɓàţţļé Çûŕŕéñçîéš</value>
+  </data>
+  <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš</value>
+  </data>
+  <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš·</value>
+  </data>
+  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ</value>
+  </data>
+  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ·</value>
+  </data>
+  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý</value>
+  </data>
+  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý·</value>
+  </data>
+  <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
+    <value>Šĥôŵ Ŵôļƒ Ṁàŕķš</value>
+  </data>
+  <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ①،ⓞⓞⓞ Ŵôļƒ Ṁàŕķš·</value>
+  </data>
+  <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļîéð Šéàļš</value>
+  </data>
+  <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļîéð Šéàļš·</value>
+  </data>
+  <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
+    <value>Šĥôŵ Çéñţûŕîô Šéàļš</value>
+  </data>
+  <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ④ⓞ Çéñţûŕîô Šéàļš·</value>
+  </data>
+  <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
+    <value>Šĥôŵ šàçķš ôƒ Ñûţš</value>
+  </data>
+  <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ šàçķš ôƒ Ñûţš·</value>
+  </data>
+  <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
+    <value>Ɓéàšţ Ţŕîƀé Ǫûéšţš</value>
+  </data>
+  <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
+    <value>Šĥôŵ Ɓéàšţ Ţŕîƀé çŕàƒţîñĝ ɱàţéŕîàļš</value>
+  </data>
+  <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕéçéîṽé çŕàƒţîñĝ ɱàţéŕîàļš ţô ƀé ûšéð îñ Ɓéàšţ Ţŕîƀé çŕàƒţîñĝ ǫûéšţš·
+éĝ· Ýôû ôƀţàîñ Šţàŕƀôàŕð Ĥûļļ Çôɱþôñéñţ Ṁàţéŕîàļš</value>
+  </data>
+  <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
+    <value>Šĥôŵ Ɓéàšţ Ţŕîƀé Çûŕŕéñçîéš</value>
+  </data>
+  <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕéçéîṽé Ɓéàšţ Ţŕîƀé çûŕŕéñçîéš ûþôñ çôɱþļéţîôñ ôƒ à Ɓéàšţ Ţŕîƀé ǫûéšţ·</value>
+  </data>
+  <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
+    <value>Ôţĥéŕ Ôƀţàîñ Ṁéššàĝéš</value>
+  </data>
+  <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
+    <value>Šĥôŵ çŕàçķéð çļûšţéŕš</value>
+  </data>
+  <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ çŕàçķéð çļûšţéŕš šûçĥ àš Ðéñðŕôçļûšţéŕš àñð Àñţĥôçļûšţéŕš·
+Ƒôŕ ĥîðîñĝ éļéɱéñţàļ çļûšţéŕš šéé ţĥé ĥîðé éļéɱéñţàļ çļûšţéŕš ôþţîôñ ðôŵñ ƀéļôŵ·
+éĝ· Ýôû ôƀţàîñ à çŕàçķéð ðéñðŕôçļûšţéŕ</value>
+  </data>
+  <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
+    <value>Šĥôŵ éļéɱéñţàļ šĥàŕðš، çŕýšţàļš، àñð çļûšţéŕš</value>
+  </data>
+  <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ĝàţĥéŕ ôŕ ŕéçéîṽé éļéɱéñţàļ šĥàŕðš، çŕýšţàļš، ôŕ çļûšţéŕš
+éĝ· Ýôû ôƀţàîñ ③ⓞ îçé šĥàŕðš</value>
+  </data>
+  <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
+    <value>Éñàƀļé Çĥàţ Ĥîšţôŕý Ƒîļţéŕ</value>
+  </data>
+  <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
+    <value>Îƒ à ɱéššàĝé ŵàš šéñţ ŵîţĥîñ ţĥé ļàšţ {0} ɱéššàĝéš îţ ŵîļļ ƀé ƒîļţéŕéð</value>
+  </data>
+  <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
+    <value>Îĝñôŕé ɱéššàĝéš šéñţ ƀý þļàýéŕ</value>
+  </data>
+  <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
+    <value>Ƒîļţéŕš ðûþļîçàţé ɱéššàĝéš šéñţ ƀý ţĥé þļàýéŕ، éñàƀļé îƒ ýôû ŵàñţ ðûþļîçàţé ɱéššàĝéš ýôû šéñţ ţô ƀé ƒîļţéŕéð ƒŕôɱ ýôûŕ ṽîéŵ·</value>
+  </data>
+  <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
+    <value>Ñûɱƀéŕ ôƒ ɱéššàĝéš ţô ķééþ îñ çĥàţ ĥîšţôŕý</value>
+  </data>
+  <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
+    <value>ŴÀŔÑÎÑĜ∶ Ĥàṽîñĝ ţĥé ĥîšţôŕý ļéñĝţĥ šéţ ţôô ĥîĝĥ ɱàý îɱþàçţ ĝàɱé þéŕƒôŕɱàñçé·
+Îţ'š ŕéçôɱɱéñðéð ţô ķééþ îţ àţ ⑤ⓞ ôŕ ļôŵéŕ·</value>
+  </data>
+  <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
+    <value>Ñûɱƀéŕ ôƒ šéçôñðš ţô ķééþ ɱéššàĝéš îñ çĥàţ ĥîšţôŕý</value>
+  </data>
+  <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
+    <value>Šéţ ţô ⓞ ţô ðîšàƀļé</value>
+  </data>
+  <data name="CraftingGatheringTab_DesynthesisDropdownHeader" xml:space="preserve">
+    <value>Ðéšýñţĥéšîš</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
+    <value>Šĥôŵ ðéšýñţĥéšîš ļéṽéļ îñçŕéàšéš ɱéššàĝéš</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
+    <value>Šĥôŵ ôƀţàîñéð îţéɱš ƒŕôɱ ðéšýñţĥéšîš</value>
+  </data>
+  <data name="CraftingGatheringTab_MateriaDropdownHeader" xml:space="preserve">
+    <value>Ṁàţéŕîà</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ɱàţéŕîà îš šûççéšƒûļļý àţţàçĥéð ţô ĝéàŕ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ɱàţéŕîà ƒàîļš ţô ƀé ôṽéŕɱéļðéð ôñţô ĝéàŕ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ýôû šûççéšƒûļļý ŕéţŕîéṽé ɱàţéŕîà ƒŕôɱ ĝéàŕ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ɱàţéŕîà šĥàţţéŕš ðûŕîñĝ ŕéţŕîéṽàļ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ɱàţéŕîà îš éẋţŕàçţéð ƒŕôɱ šþîŕîţƀôñðéð ĝéàŕ</value>
+  </data>
+  <data name="CraftingGatheringTab_CraftingDropdownHeader" xml:space="preserve">
+    <value>Çŕàƒţîñĝ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
+    <value>Šĥôŵ ƒîñàļ šţàţûš ɱéššàĝéš ûþôñ ƒîñîšĥîñĝ à Ţŕîàļ šýñţĥéšîš</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
+    <value>Šĥôŵ šýñţĥéšîš ɱéššàĝé ŵĥéñ ôţĥéŕ þļàýéŕš çôɱþļéţé à çŕàƒţ·</value>
+  </data>
+  <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
+    <value>Ĝàţĥéŕîñĝ Ļôçàţîôñš</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
+    <value>Šĥôŵ ţĥé ñûɱƀéŕ ôƒ ôƀţàîñéð šàñðš àƒţéŕ ûšîñĝ àéţĥéŕîàļ ŕéðûçţîôñ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ļôçàţîôñ àƒƒéçţš ĝàţĥéŕîñĝ ýîéļð، ŕéçéîṽîñĝ Ĝàţĥéŕéŕ'š Ɓôôñ، ôŕ ĝàţĥéŕîñĝ àţţéɱþţš</value>
+  </data>
+  <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
+    <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ ĝàţĥéŕîñĝ ýîéļð</value>
+  </data>
+  <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
+    <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ ĝàţĥéŕîñĝ àţţéɱþţš</value>
+  </data>
+  <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
+    <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ Ĝàţĥéŕéŕ'š Ɓôôñ</value>
+  </data>
+  <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
+    <value>Ƒîšĥîñĝ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ à ƒîšĥ îš àððéð ţô ţĥé ƒîšĥ ĝûîðé</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
+    <value>Šĥôŵ çàûĝĥţ ƒîšĥ ɱéàšûŕîñĝ [size] îļɱš</value>
+  </data>
+  <data name="SettingsTabFooter_SaveButtonText" xml:space="preserve">
+    <value>Šàṽé</value>
+  </data>
+  <data name="SettingsTabFooter_SaveAndCloseButtonText" xml:space="preserve">
+    <value>Šàṽé àñð Çļôšé Çôñƒîĝ</value>
+  </data>
+  <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
+    <value>Šûþþôŕţ ôñ Ķô‐Ƒî</value>
+  </data>
+  <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
+    <value>Ŵîķî Þàĝé</value>
+  </data>
+  <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
+    <value>Šĥôŵ éẋþéŕîéñçé ĝàîñ ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ĝàîñ ②،③⑧⑧ Éẋþéŕîéñçé Þôîñţš·</value>
+  </data>
+  <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
+    <value>Šĥôŵ ƀôñûš àŵàŕð ƒôŕ ûšîñĝ ðûţý ŕôûļéţţé</value>
+  </data>
+  <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· À ƀôñûš ôƒ ④،②⑤②،④⑨⑧ éẋþéŕîéñçé þôîñţš àñð ①②،ⓞⓞⓞ ĝîļ ĥàš ƀééñ àŵàŕðéð ƒôŕ ûšîñĝ ţĥé ðûţý ŕôûļéţţé·</value>
+  </data>
+  <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
+    <value>Šĥôŵ ƀôñûš àŵàŕðéð ƒôŕ ƀéîñĝ àñ àðṽéñţûŕéŕ îñ ñééð</value>
+  </data>
+  <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· À ƀôñûš ôƒ ⑦،②ⓞⓞ ĝîļ ĥàš ƀééñ àŵàŕðéð ƒôŕ ƀéîñĝ àñ àðṽéñţûŕéŕ îñ ñééð·</value>
+  </data>
+  <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
+    <value>Šĥôŵ ÞṼÞ ÉẊÞ ĝàîñ ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû àçǫûîŕé ⑤ⓞⓞ ÞṽÞ ÉẊÞ·</value>
+  </data>
+  <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
+    <value>Šĥôŵ éàŕñéð àçĥîéṽéɱéñţ ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
+    <value>Šĥôŵ ôţĥéŕ þļàýéŕ'š éàŕñéð àçĥîéṽéɱéñţ ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
+    <value>Šĥôŵ ļéṽéļ ûþ ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ļéṽéļ ûþ·
+Îţ çàñ ƀé çôñšîðéŕéð šþàɱɱý îñ Þàļàçé ôƒ ţĥé Ðéàð àñð Ĥéàṽéñ Ôñ Ĥîĝĥ·</value>
+  </data>
+  <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
+    <value>Šĥôŵ ôţĥéŕ þļàýéŕ'š ļéṽéļ ûþ ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ôţĥéŕš ļéṽéļ ûþ·
+ éĝ· Þļàýéŕ àţţàîñš ļéṽéļ ③③¡</value>
+  </data>
+  <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
+    <value>Šĥôŵ ļéàŕñéð àƀîļîţý ɱéššàĝéš</value>
+  </data>
+  <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ļéàŕñ à ñéŵ àƀîļîţý·
+Îţ çàñ ƀé çôñšîðéŕéð šþàɱɱý îñ Þàļàçé ôƒ ţĥé Ðéàð àñð Ĥéàṽéñ Ôñ Ĥîĝĥ·</value>
+  </data>
+  <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
+    <value>Šĥôŵ àļļ ɱéššàĝéš šéñţ ƀý ŵĥîţéļîšţéð þļàýéŕ</value>
+  </data>
+  <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
+    <value>Šĥôŵ àļļ ɱéššàĝéš ţàŕĝéţîñĝ à ŵĥîţéļîšţéð þļàýéŕ</value>
+  </data>
+  <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
+    <value>Ûšéŕš àððéð ţô ţĥé ŵĥîţéļîšţ ŵîļļ ƀé ţŕéàţéð àš îƒ ţĥéý ŵéŕé ýôû ƒôŕ àļļ ƒîļţéŕ šéţţîñĝš·
+Éñţéŕ à þļàýéŕ'š ƒîŕšţ àñð ļàšţ ñàɱé àñð ţĥéñ þŕéšš &lt;Enter&gt; ţô àðð ţĥéɱ ţô ţĥé ŵĥîţéļîšţ·</value>
+  </data>
+  <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
+    <value>Šéļéçţ Çĥàññéļš</value>
+  </data>
+  <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
+    <value>Þļàýéŕ Îñƒôŕɱàţîôñ</value>
+  </data>
+  <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
+    <value>Ýôû ɱûšţ éñţéŕ ţĥé þļàýéŕ'š ñàɱé àš îţ ŵôûļð ƀé šééñ îñ çĥàţ ‐ îñçļûðîñĝ àñý þéŕîôðš·
+
+éĝ·
+Šûŕñàɱé Àƀƀŕéṽîàţéð∶ Éẋàɱþļé Ñ·
+Ƒôŕéñàɱé Àƀƀŕéṽîàţéð∶ É· Ñàɱé
+Îñîţîàļš∶ É· Ñ·</value>
+  </data>
+  <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
+    <value>Ƒîŕšţ Ñàɱé∶ </value>
+  </data>
+  <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
+    <value>Ļàšţ Ñàɱé∶ </value>
+  </data>
+  <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
+    <value>Šéŕṽéŕ Ñàɱé∶ </value>
+  </data>
+  <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
+    <value>Šéļéçţ çĥàññéļš ƒôŕ Çĥàţ Ĥîšţôŕý ţô ƒîļţéŕ∶</value>
+  </data>
+  <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
+    <value>Éɱôţéš</value>
+  </data>
+  <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
+    <value>Ļôôţ</value>
+  </data>
+  <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
+    <value>Çŕàƒţîñĝ</value>
+  </data>
+  <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
+    <value>Ĝàţĥéŕîñĝ</value>
+  </data>
+  <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
+    <value>Ţàļķîñĝ</value>
+  </data>
+  <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
+    <value>Ļôĝîñ/Ļôĝôûţ</value>
+  </data>
+  <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
+    <value>Þŕôĝŕéšš</value>
+  </data>
+  <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
+    <value>Šýšţéɱ</value>
+    <comment>This should be the name of the System channel for messages</comment>
+  </data>
+  <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
+    <value>Šéţţîñĝš</value>
+  </data>
+  <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
+    <value>Àðṽàñçéð</value>
+  </data>
+  <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
+    <value>Ýôû ŕéçéîṽéð {0} {1}{2}</value>
+  </data>
+  <data name="BetterStrings_CommendationSingular" xml:space="preserve">
+    <value>çôɱɱéñðàţîôñ</value>
+    <comment>Commendation - singular</comment>
+  </data>
+  <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
+    <value>çôɱɱéñðàţîôñš</value>
+    <comment>Commendations - Plural</comment>
+  </data>
+  <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
+    <value>ƒŕôɱ çôɱþļéţîñĝ</value>
+  </data>
+</root>

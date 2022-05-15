@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace TidyChat
 {
-    internal static class Localization
+    internal static class L10N
     {
         public static ClientLanguage Language { get; set; }
 

@@ -13,14 +13,14 @@ namespace TidyChat
             {
                 if (chatType is ChatType.StandardEmote)
                 {
-                    if (configuration.FilterEmoteSpam && !Localization.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
+                    if (configuration.FilterEmoteSpam && !L10N.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
                     {
                         return true;
                     }
                 }
                 else if (chatType is ChatType.CustomEmote)
                 {
-                    if (configuration.HideOtherCustomEmotes && !Localization.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
+                    if (configuration.HideOtherCustomEmotes && !L10N.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
                     {
                         return true;
                     }

@@ -12,23 +12,23 @@ namespace TidyChat
             {
                 if (
                     (configuration.HideGatheringYield &&
-                        Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
-                        Localization.Get(ChatStrings.GatheringYield).All(input.Contains)) ||
+                     L10N.Get(ChatStrings.LocationAffects).All(input.Contains) &&
+                     L10N.Get(ChatStrings.GatheringYield).All(input.Contains)) ||
                     (configuration.HideGatherersBoon &&
-                        Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
-                        Localization.Get(ChatStrings.GatherersBoon).All(input.Contains)) ||
+                     L10N.Get(ChatStrings.LocationAffects).All(input.Contains) &&
+                     L10N.Get(ChatStrings.GatherersBoon).All(input.Contains)) ||
                     (configuration.HideGatheringAttempts &&
-                        Localization.Get(ChatStrings.LocationAffects).All(input.Contains) &&
-                        Localization.Get(ChatStrings.GatheringAttempts).All(input.Contains)) ||
-                    Localization.Get(ChatRegexStrings.GatheringStartEnd).IsMatch(input)
+                     L10N.Get(ChatStrings.LocationAffects).All(input.Contains) &&
+                     L10N.Get(ChatStrings.GatheringAttempts).All(input.Contains)) ||
+                    L10N.Get(ChatRegexStrings.GatheringStartEnd).IsMatch(input)
                 )
                 {
                     return true;
                 }
                 if (
-                    (configuration.ShowLocationAffects && Localization.Get(ChatStrings.LocationAffects).All(input.Contains)) ||
-                    (configuration.ShowCaughtFish && Localization.Get(ChatStrings.AddedToFishGuide).All(input.Contains)) ||
-                    (configuration.ShowMeasuringIlms && Localization.Get(ChatStrings.MeasuringIlms).All(input.Contains))
+                    (configuration.ShowLocationAffects && L10N.Get(ChatStrings.LocationAffects).All(input.Contains)) ||
+                    (configuration.ShowCaughtFish && L10N.Get(ChatStrings.AddedToFishGuide).All(input.Contains)) ||
+                    (configuration.ShowMeasuringIlms && L10N.Get(ChatStrings.MeasuringIlms).All(input.Contains))
                    )
                 {
                     return false;

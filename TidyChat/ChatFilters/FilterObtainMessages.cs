@@ -13,21 +13,21 @@ namespace TidyChat
             {
                 PluginLog.LogDebug("Debug Mode: " + input);
                 if (
-                     !configuration.ShowRouletteBonus && Localization.Get(ChatStrings.RouletteBonus).All(input.Contains) ||
-                     !configuration.ShowAdventurerInNeedBonus && Localization.Get(ChatStrings.AdventurerInNeedBonus).All(input.Contains) ||
-                     !configuration.ShowObtainedGil && Localization.Get(ChatRegexStrings.ObtainedGil).IsMatch(input) ||
-                     !configuration.ShowObtainedMGP && Localization.Get(ChatRegexStrings.ObtainedMGP).IsMatch(input) ||
-                     !configuration.ShowObtainedWolfMarks && Localization.Get(ChatRegexStrings.ObtainedWolfMarks).IsMatch(input) ||
-                     !configuration.ShowObtainedSeals && Localization.Get(ChatRegexStrings.ObtainedSeals).IsMatch(input) ||
-                     !configuration.ShowObtainedVenture && Localization.Get(ChatRegexStrings.ObtainedVenture).IsMatch(input) ||
-                     !configuration.ShowObtainedTribalCurrency && Localization.Get(ChatRegexStrings.ObtainedTribalCurrency).IsMatch(input) ||
-                     !configuration.ShowObtainedShards && Localization.Get(ChatRegexStrings.ObtainedShards).IsMatch(input) ||
-                     !configuration.ShowObtainedClusters && Localization.Get(ChatRegexStrings.ObtainedClusters).IsMatch(input) ||
-                     !configuration.ShowObtainedAlliedSeals && Localization.Get(ChatRegexStrings.ObtainedAlliedSeals).IsMatch(input) ||
-                     !configuration.ShowObtainedCenturioSeals && Localization.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(input) ||
-                     !configuration.ShowObtainedNuts && Localization.Get(ChatRegexStrings.ObtainedNuts).IsMatch(input) ||
-                     !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input) ||
-                     !configuration.ShowObtainedPoeticsTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
+                     !configuration.ShowRouletteBonus && L10N.Get(ChatStrings.RouletteBonus).All(input.Contains) ||
+                     !configuration.ShowAdventurerInNeedBonus && L10N.Get(ChatStrings.AdventurerInNeedBonus).All(input.Contains) ||
+                     !configuration.ShowObtainedGil && L10N.Get(ChatRegexStrings.ObtainedGil).IsMatch(input) ||
+                     !configuration.ShowObtainedMGP && L10N.Get(ChatRegexStrings.ObtainedMGP).IsMatch(input) ||
+                     !configuration.ShowObtainedWolfMarks && L10N.Get(ChatRegexStrings.ObtainedWolfMarks).IsMatch(input) ||
+                     !configuration.ShowObtainedSeals && L10N.Get(ChatRegexStrings.ObtainedSeals).IsMatch(input) ||
+                     !configuration.ShowObtainedVenture && L10N.Get(ChatRegexStrings.ObtainedVenture).IsMatch(input) ||
+                     !configuration.ShowObtainedTribalCurrency && L10N.Get(ChatRegexStrings.ObtainedTribalCurrency).IsMatch(input) ||
+                     !configuration.ShowObtainedShards && L10N.Get(ChatRegexStrings.ObtainedShards).IsMatch(input) ||
+                     !configuration.ShowObtainedClusters && L10N.Get(ChatRegexStrings.ObtainedClusters).IsMatch(input) ||
+                     !configuration.ShowObtainedAlliedSeals && L10N.Get(ChatRegexStrings.ObtainedAlliedSeals).IsMatch(input) ||
+                     !configuration.ShowObtainedCenturioSeals && L10N.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(input) ||
+                     !configuration.ShowObtainedNuts && L10N.Get(ChatRegexStrings.ObtainedNuts).IsMatch(input) ||
+                     !configuration.ShowObtainedMaterials && L10N.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input) ||
+                     !configuration.ShowObtainedPoeticsTomestones && L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && L10N.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("詩学"),
                          ClientLanguage.English => input.Contains("poetics"),
@@ -35,7 +35,7 @@ namespace TidyChat
                          ClientLanguage.French => input.Contains("poétique"),
                          _ => input.Contains("poetics")
                      } ||
-                     !configuration.ShowObtainedAphorismTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
+                     !configuration.ShowObtainedAphorismTomestones && L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && L10N.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("経典"),
                          ClientLanguage.English => input.Contains("aphorism"),
@@ -43,7 +43,7 @@ namespace TidyChat
                          ClientLanguage.French => input.Contains("aphoristique"),
                          _ => input.Contains("aphorism")
                      } ||
-                     !configuration.ShowObtainedAstronomyTomestones && Localization.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && Localization.Language switch
+                     !configuration.ShowObtainedAstronomyTomestones && L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && L10N.Language switch
                      {
                          ClientLanguage.Japanese => input.Contains("天文"),
                          ClientLanguage.English => input.Contains("astronomy"),
@@ -51,8 +51,8 @@ namespace TidyChat
                          ClientLanguage.French => input.Contains("astronomique"),
                          _ => input.Contains("astronomy")
                      } ||
-                     !configuration.ShowOthersObtain && !(input.StartsWith("you ")) && Localization.Get(ChatRegexStrings.OtherObtains).IsMatch(input) ||
-                     !configuration.ShowObtainedMaterials && Localization.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input)
+                     !configuration.ShowOthersObtain && !(input.StartsWith("you ")) && L10N.Get(ChatRegexStrings.OtherObtains).IsMatch(input) ||
+                     !configuration.ShowObtainedMaterials && L10N.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input)
                     )
                 {
                     return true;

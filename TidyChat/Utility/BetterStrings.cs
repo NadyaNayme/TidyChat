@@ -3,7 +3,7 @@ using Dalamud.Game.Gui;
 using Dalamud.Game.Text.SeStringHandling;
 
 using System.Linq;
-
+using TidyChat.Localization.Resources;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat.Utility
@@ -41,7 +41,7 @@ namespace TidyChat.Utility
                         commendations = localization.BetterStrings_CommendationsPlural;
                     }
 
-                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + localization.BetterStrings_CommendationsFromCompletingDuty + " " + Localization.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
+                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + localization.BetterStrings_CommendationsFromCompletingDuty + " " + L10N.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
 
                     // TODO: Localize this
                     // FR: Vous avez reçu <#> honneurs en ayant participé à (...)
@@ -73,7 +73,7 @@ namespace TidyChat.Utility
                 {
                     AddTidyChatTag(stringBuilder);
                 }
-                stringBuilder.AddText($"\"/say {containingPhrase}\" {Localization.GetTidy(TidyStrings.CopiedToClipboard)}");
+                stringBuilder.AddText($"\"/say {containingPhrase}\" {L10N.GetTidy(TidyStrings.CopiedToClipboard)}");
                 TextCopy.ClipboardService.SetText($"/say {containingPhrase}");
                 return stringBuilder.BuiltString;
             }
@@ -82,13 +82,13 @@ namespace TidyChat.Utility
 
         public static SeString Instances(SeString message, Configuration configuration)
         {
-            var instanceNumber = Localization.Get(ChatRegexStrings.GetInstanceNumber).Matches(message.TextValue).First().Groups["instance"].Value;
+            var instanceNumber = L10N.Get(ChatRegexStrings.GetInstanceNumber).Matches(message.TextValue).First().Groups["instance"].Value;
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag)
             {
                 AddTidyChatTag(stringBuilder);
             }
-            stringBuilder.AddText($"{Localization.GetTidy(TidyStrings.InstanceText)} {instanceNumber}");
+            stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceNumber}");
             return stringBuilder.BuiltString;
         }
 
@@ -96,9 +96,9 @@ namespace TidyChat.Utility
         /// <see href="https://xivapi.com/LogMessage/7030?pretty=true">You have left the Novice Network</see>
         public static SeString NoviceNetwork(SeString originalMessage, string normalizedInput, Configuration configuration)
         {
-            if (Localization.Get(ChatStrings.NoviceNetworkJoin).All(normalizedInput.Contains))
+            if (L10N.Get(ChatStrings.NoviceNetworkJoin).All(normalizedInput.Contains))
             {
-                SeString newMessage = Localization.Language switch
+                SeString newMessage = L10N.Language switch
                 {
                     ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
                     ClientLanguage.English => "You've joined the Novice Network.",
@@ -114,9 +114,9 @@ namespace TidyChat.Utility
                 stringBuilder.AddText($"{newMessage}");
                 return stringBuilder.BuiltString;
             }
-            else if (Localization.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
+            else if (L10N.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
             {
-                SeString newMessage = Localization.Language switch
+                SeString newMessage = L10N.Language switch
                 {
                     ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
                     ClientLanguage.English => "You've left the Novice Network.",

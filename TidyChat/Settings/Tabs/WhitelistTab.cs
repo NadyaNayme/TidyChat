@@ -1,6 +1,7 @@
 ﻿using ImGuiNET;
 using System.Linq;
 using System.Numerics;
+using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs
 {

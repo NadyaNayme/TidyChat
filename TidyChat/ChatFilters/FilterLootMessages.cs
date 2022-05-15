@@ -10,9 +10,9 @@ namespace TidyChat
             try
             {
                 if (
-                    !configuration.ShowLootRoll && Localization.Get(ChatRegexStrings.RollsNeedOrGreed).IsMatch(input) ||
-                    !configuration.ShowCastLot && Localization.Get(ChatRegexStrings.CastLot).IsMatch(input) ||
-                    !configuration.ShowObtainedShards && Localization.Get(ChatRegexStrings.ObtainedShards).IsMatch(input) ||
+                    !configuration.ShowLootRoll && L10N.Get(ChatRegexStrings.RollsNeedOrGreed).IsMatch(input) ||
+                    !configuration.ShowCastLot && L10N.Get(ChatRegexStrings.CastLot).IsMatch(input) ||
+                    !configuration.ShowObtainedShards && L10N.Get(ChatRegexStrings.ObtainedShards).IsMatch(input) ||
                     /* TODO: #1
                      * Benchmark zero-width negative lookbehind against StartsWith()
                      * I'm like 99% certain StartsWith will be faster
@@ -25,9 +25,9 @@ namespace TidyChat
                      * 
                      * The && !(input.StartsWith("you")) is done as an alternative to using ^((?!you).).* in each Regex
                      */
-                    !configuration.ShowOthersLootRoll && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OthersRollNeedOrGreed).IsMatch(input) ||
-                    !configuration.ShowOthersCastLot && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OthersCastLot).IsMatch(input) ||
-                    !configuration.ShowOthersObtain && !(input.StartsWith("you")) && Localization.Get(ChatRegexStrings.OtherObtains).IsMatch(input)
+                    !configuration.ShowOthersLootRoll && !(input.StartsWith("you")) && L10N.Get(ChatRegexStrings.OthersRollNeedOrGreed).IsMatch(input) ||
+                    !configuration.ShowOthersCastLot && !(input.StartsWith("you")) && L10N.Get(ChatRegexStrings.OthersCastLot).IsMatch(input) ||
+                    !configuration.ShowOthersObtain && !(input.StartsWith("you")) && L10N.Get(ChatRegexStrings.OtherObtains).IsMatch(input)
                 )
                 {
                     return true;

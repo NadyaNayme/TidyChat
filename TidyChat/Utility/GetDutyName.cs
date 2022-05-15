@@ -12,9 +12,9 @@ namespace TidyChat.Utility
         /// <see href= "https://xivapi.com/LogMessage/1534?pretty=true">Duty has neded</see>
         public static string FindIn(SeString message, string input)
         {
-            if (Localization.Get(ChatStrings.DutyEnded).All(input.Contains))
+            if (L10N.Get(ChatStrings.DutyEnded).All(input.Contains))
             {
-                switch (Localization.Language)
+                switch (L10N.Language)
                 {
                     case ClientLanguage.Japanese:
                         //    match here then grab everything up to "」" starting from "「"
@@ -42,36 +42,36 @@ namespace TidyChat.Utility
                         return message.TextValue.Substring(message.TextValue.IndexOf("“"), message.TextValue.LastIndexOf("”"));
                     default:
                         // This should be unreachable but if we somehow reach it let's keep the last stored duty
-                        return Localization.GetTidy(TidyStrings.LastDuty);
+                        return L10N.GetTidy(TidyStrings.LastDuty);
                 }
             }
 
-            if (Localization.Get(ChatStrings.GuildhestEnded).All(input.Contains))
+            if (L10N.Get(ChatStrings.GuildhestEnded).All(input.Contains))
             {
-                return Localization.GetTidy(TidyStrings.Guildhest);
+                return L10N.GetTidy(TidyStrings.Guildhest);
             }
 
-            if ((Localization.Get(ChatStrings.GainPvpExp).All(input.Contains) ||
-                 Localization.Get(ChatStrings.ObtainWolfMarks).All(input.Contains) ||
-                 Localization.Get(ChatStrings.CappedWolfMarks).All(input.Contains))
+            if ((L10N.Get(ChatStrings.GainPvpExp).All(input.Contains) ||
+                 L10N.Get(ChatStrings.ObtainWolfMarks).All(input.Contains) ||
+                 L10N.Get(ChatStrings.CappedWolfMarks).All(input.Contains))
                )
             {
-                return Localization.GetTidy(TidyStrings.PvPDuty);
+                return L10N.GetTidy(TidyStrings.PvPDuty);
             }
 
-            if (Localization.Get(ChatStrings.PalaceOfTheDead).All(input.Contains))
+            if (L10N.Get(ChatStrings.PalaceOfTheDead).All(input.Contains))
             {
-                return Localization.GetTidy(TidyStrings.POTD);
+                return L10N.GetTidy(TidyStrings.POTD);
             }
 
-            if (Localization.Get(ChatStrings.HeavenOnHigh).All(input.Contains))
+            if (L10N.Get(ChatStrings.HeavenOnHigh).All(input.Contains))
             {
-                return Localization.GetTidy(TidyStrings.HOH);
+                return L10N.GetTidy(TidyStrings.HOH);
             }
 
             // LastDuty doesn't need to update every message but gets checked on every message
             // so we return the last known value if no new value has been detected.
-            return Localization.GetTidy(TidyStrings.LastDuty);
+            return L10N.GetTidy(TidyStrings.LastDuty);
         }
     }
 }
