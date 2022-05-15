@@ -58,8 +58,8 @@ internal static class BetterStrings
     {
         // With the chat mode in Say, enter a phrase containing "Capture this"
 
-        var containingPhraseStart = message.TextValue.IndexOf('“');
-        var containingPhraseEnd = message.TextValue.LastIndexOf('”');
+        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation));
+        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation));
         var lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
         var containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
         if (configuration.CopyBetterSayReminder)

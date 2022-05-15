@@ -75,6 +75,22 @@ internal static class InternalStrings
         Fra = new string("Pilier des Cieux")
     };
 
+    public static readonly LocalizedTidyStrings StartQuotation = new()
+    {
+        Jpn = new string("『"),
+        Eng = new string("“"),
+        Deu = new string("„"),
+        Fra = new string("“")
+    };
+
+    public static readonly LocalizedTidyStrings EndQuotation = new()
+    {
+        Jpn = new string("』"),
+        Eng = new string("”"),
+        Deu = new string("“"),
+        Fra = new string("”")
+    };
+
     public static readonly string FirstInstance = "";
     public static readonly string SecondInstance = "";
     public static readonly string ThirdInstance = "";

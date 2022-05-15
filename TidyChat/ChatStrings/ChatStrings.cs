@@ -50,10 +50,10 @@ public static class ChatStrings
     // With the chat mode in Say, enter a phrase containing "Some Words"
     public static readonly LocalizedStrings SayQuestReminder = new()
     {
-        Jpn = new[] { "NeedsLocalization" },
+        Jpn = new[] { "チャットの会話モードを" },
         Eng = new[] { "with", "the", "chat", "mode", "in" },
-        Deu = new[] { "NeedsLocalization" },
-        Fra = new[] { "NeedsLocalization" }
+        Deu = new[] { "gib", "im", "virtuelle", "tastatur" },
+        Fra = new[] { "en", "mode", "de", "discussion" }
     };
 
     /// <see href="https://xivapi.com/LogMessage/9331?pretty=true">You sense the presence of a powerful mark...</see>
