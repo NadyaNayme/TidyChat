@@ -1,0 +1,3 @@
+files:
+  - source: /TidyChat/Localization/Resources/localization.resx
+    translation: /TidyChat/Localization/Resources/localization.%two_letters_code%.resx
