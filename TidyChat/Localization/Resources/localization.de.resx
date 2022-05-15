@@ -25,7 +25,7 @@
         <value>Tidy Chat hat bisher {0:n0} Nachrichten blockiert.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Wird nur alle 100 blockierten Nachrichten, beim Gebietswechsel, oder beim Ausloggen aktualisiert.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
         <value>Systemnachrichten-Spam filtern</value>
@@ -124,20 +124,20 @@ Dies erlaubt es dir, Benachrichtigungen mit ChatAlerts für "Du stellst ein" sta
         <value>Emote-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-        <value>Filtert alle Emotes, an denen du nicht beteiligt bist.</value>
+        <value>Blockiert alle Emotes, an denen du nicht beteiligt bist.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-        <value>Persönliche Emotes filtern</value>
+        <value>Persönliche Emotes blockieren</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-        <value>Filtert alle "/em" Nachrichten, die nicht von dir stammen oder dich erwähnen.
+        <value>Blockiert alle "/em" Nachrichten, die nicht von dir stammen oder dich erwähnen.
 z.B. Anderer Spieler lehnt sich zu dir rüber und knuddelt dich ganz doll.</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-        <value>Filtere deine eigenen Emotes</value>
+        <value>Blockiere deine eigenen Emotes</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-        <value>Filtert Nachrichten von deinen (persönlichen) Emotes.
+        <value>Blockiert Nachrichten von deinen (persönlichen) Emotes.
 z.B. Du streichelst &lt;user&gt; sanft.</value>
     </data>
     <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
@@ -165,28 +165,28 @@ z.B. Du streichelst &lt;user&gt; sanft.</value>
         <value>Experimentelles Feature: Umgekehrter Modus</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
-        <value>No longer blocks System messages by default.
-Hide filters become Show filters and Show filters become Hide filters.</value>
+        <value>Blockiert Systemnachrichten nicht mehr standardmäßig.
+"Blockieren"-Filter werden zu "Anzeigen"-Filtern, und umgekehrt.</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-        <value>If you have enabled Inverse mode you are on your own and will not receive any support.
-It is assumed you know what you are doing.</value>
+        <value>Wenn du den umgekehrten Modus aktivierst, bist du auf dich allein gestellt und wirst keinen Support erhalten.
+Es wird davon ausgegangen, dass du weißt, was du tust.</value>
     </data>
     <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-        <value>Hide System messages Tidy Chat shows by default</value>
+        <value>Systemnachrichten blockieren, die Tidy Chat standardmäßig anzeigt</value>
     </data>
     <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
-        <value>Hide /instance message</value>
+        <value>/instanz Nachricht blockieren</value>
     </data>
     <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
-        <value>eg. You are now in the instanced area Old Sharlayan .
-Current instance can be confirmed at any time using the / instance text command.</value>
+        <value>z.B. Du bist nun in dem instanziierten Areal „Thavnair “.
+Mit dem Textbefehl /instanz kannst du jederzeit einsehen, ob dein Areal gerade instanziiert ist.</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
-        <value>Hide S Rank Hunt spawn announcement</value>
+        <value>Benachrichtigung über Rang S Elite-Ziele blockieren</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. You sense the presence of a powerful mark...</value>
+        <value>z.B. Du spürst ein sehr starkes Hochwild ...</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
         <value>Hide SS Rank Minion announcements</value>
@@ -196,19 +196,19 @@ Current instance can be confirmed at any time using the / instance text command.
 The minions of an extraordinarily powerful mark have withdrawn...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
-        <value>Hide Received Commendations</value>
+        <value>Erhaltene "Wertvollster Spieler"-Ehrungen blockieren</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
         <value>eg. You received a player commendation!</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-        <value>Hide Completed Venture</value>
+        <value>Abgschlossene Unternehmungen blockieren</value>
     </data>
     <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
         <value>eg. RetainerName has completed a venture!</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
-        <value>Hide reminders of what to /say in chat during quests.</value>
+        <value>Erinnerungen während Aufträgen etwas zu /sagen blockieren.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
         <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
@@ -232,7 +232,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
         <value>eg. Battle commencing in 18 seconds!</value>
     </data>
     <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
-        <value>Hide /readycheck message</value>
+        <value>/readycheck Nachrichten blockieren</value>
     </data>
     <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
         <value>eg. Ready check complete.</value>
