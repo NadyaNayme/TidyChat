@@ -44,13 +44,13 @@ namespace TidyChat
                     ImGui.SameLine(ImGui.GetWindowWidth() - 55f);
                     Vector4 ColorGray = new(0.45f, 0.45f, 0.45f, 1);
                     ImGui.TextColored(ColorGray, TidyStrings.Version);
-                    if (ImGui.BeginTabItem("Settings"))
+                    if (ImGui.BeginTabItem(localization.ConfigWindow_SettingsTabHeader))
                     {
                         GeneralTab.Draw(configuration);
                         SettingsTabFooter.Display(configuration, ref settingsVisible);
                     }
 
-                    if (ImGui.BeginTabItem("Advanced"))
+                    if (ImGui.BeginTabItem(localization.ConfigWindow_AdvancedSettingsTabHeader))
                     {
                         AdvancedTab.Draw(configuration);
                         SettingsTabFooter.Display(configuration, ref settingsVisible);

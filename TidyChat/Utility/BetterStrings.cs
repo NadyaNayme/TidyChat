@@ -31,13 +31,21 @@ namespace TidyChat.Utility
                     {
                         AddTidyChatTag(stringBuilder);
                     }
-                    string commendations = $"commendation{(TidyStrings.NumberOfCommendations == 1 ? "" : "s")}";
 
-                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " from completing " + Localization.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
+                    string commendations = "";
+                    if (TidyStrings.NumberOfCommendations == 1)
+                    {
+                        commendations = string.Format(localization.BetterStrings_CommendationSingular);   
+                    } else if (TidyStrings.NumberOfCommendations > 1)
+                    {
+                        commendations = localization.BetterStrings_CommendationsPlural;
+                    }
+
+                    string dutyName = $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + localization.BetterStrings_CommendationsFromCompletingDuty + " " + Localization.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
 
                     // TODO: Localize this
                     // FR: Vous avez reçu <#> honneurs en ayant participé à (...)
-                    stringBuilder.AddText($"You received {TidyStrings.NumberOfCommendations} {commendations}{dutyName}");
+                    stringBuilder.AddText(string.Format(localization.BetterStrings_ReceivedCommendationsMessages, TidyStrings.NumberOfCommendations.ToString(), commendations, dutyName));
 
                     chatGui.Print(stringBuilder.BuiltString);
 

@@ -84,4 +84,46 @@
     </Reference>
 </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\Resources\localization.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\localization.de.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>localization.de.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\localization.fr.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>localization.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\Resources\localization.ja.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>localization.ja.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Localization\Resources\localization.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>localization.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\Resources\localization.de.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>localization.de.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\Resources\localization.fr.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>localization.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Localization\Resources\localization.ja.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>localization.ja.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

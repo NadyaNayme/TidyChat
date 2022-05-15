@@ -13,6 +13,7 @@ using Dalamud.Plugin;
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using TidyChat.Utility;
@@ -77,6 +78,8 @@ namespace TidyChat
 
             // Player cannot change this without restarting the game so should be safe to grab here
             Localization.Language = clientState.ClientLanguage;
+            pluginInterface.LanguageChanged += UpdateLang;
+            UpdateLang(pluginInterface.UiLanguage);
             // Sets name on install / plugin update
             SetPlayerName();
 
@@ -85,7 +88,7 @@ namespace TidyChat
 
             if (Configuration.InstanceInDtrBar)
             {
-                dtrEntry = DtrBar.Get(Name);
+                if (DtrBar != null) dtrEntry = DtrBar.Get(Name);
             }
 
             ChatGui.ChatMessage += OnChat;
@@ -116,6 +119,7 @@ namespace TidyChat
             PluginUi.Dispose();
             CommandManager.RemoveHandler(SettingsCommand);
             CommandManager.RemoveHandler(ShorthandCommand);
+            PluginInterface.LanguageChanged -= UpdateLang;
             ChatGui.ChatMessage -= OnChat;
             ClientState.TerritoryChanged -= OnTerritoryChanged;
             ClientState.Login -= OnLogin;
@@ -507,6 +511,10 @@ namespace TidyChat
         {
             SetPlayerName();
             PluginUi.SettingsVisible = true;
+        }
+        
+        private void UpdateLang(string langCode) {
+            localization.Culture = new CultureInfo(langCode);
         }
 
         private void DrawUI()

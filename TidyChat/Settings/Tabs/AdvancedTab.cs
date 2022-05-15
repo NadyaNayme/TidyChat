@@ -10,7 +10,7 @@ namespace TidyChat.Settings.Tabs
             ImGui.Spacing();
             ImGui.Spacing();
             var enableDebugMode = configuration.EnableDebugMode;
-            if (ImGui.Checkbox("Enable debug mode", ref enableDebugMode))
+            if (ImGui.Checkbox(localization.AdvancedTab_EnableDebugMode, ref enableDebugMode))
             {
                 configuration.EnableDebugMode = enableDebugMode;
                 configuration.Save();
@@ -19,27 +19,27 @@ namespace TidyChat.Settings.Tabs
             ImGui.Spacing();
             if (ImGui.BeginTabBar("##tidychatAdvancedConfigTabs"))
             {
-                if (ImGui.BeginTabItem("System"))
+                if (ImGui.BeginTabItem(localization.AdvancedTab_SystemTabHeader))
                 {
                     SystemTab.Draw(configuration);
                 }
-                if (ImGui.BeginTabItem("Loot/Obtain"))
+                if (ImGui.BeginTabItem(localization.AdvancedTab_LootObtainTabHeader))
                 {
                     ObtainTab.Draw(configuration);
                 }
-                if (ImGui.BeginTabItem("Progress"))
+                if (ImGui.BeginTabItem(localization.AdvancedTab_ProgressTabHeader))
                 {
                     ProgressTab.Draw(configuration);
                 }
-                if (ImGui.BeginTabItem("Crafting/Gathering"))
+                if (ImGui.BeginTabItem(localization.AdvancedTab_CraftingGatheringTabHeader))
                 {
                     CraftingGatheringTab.Draw(configuration);
                 }
-                if (ImGui.BeginTabItem("Chat History"))
+                if (ImGui.BeginTabItem(localization.AdvancedTab_ChatHistoryTabHeader))
                 {
                     ChatHistoryTab.Draw(configuration);
                 }
-                if (ImGui.BeginTabItem("Whitelist"))
+                if (ImGui.BeginTabItem(localization.AdvancedTab_WhitelistTabHeader))
                 {
                     WhitelistTab.Draw(configuration);
                 }

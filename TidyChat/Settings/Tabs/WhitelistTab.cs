@@ -10,28 +10,28 @@ namespace TidyChat.Settings.Tabs
         public static void Draw(Configuration configuration)
         {
             var sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
-            if (ImGui.Checkbox("Show all messages sent by whitelisted player", ref sentByWhitelistPlayer))
+            if (ImGui.Checkbox(localization.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
             {
                 configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
                 configuration.Save();
             }
 
             var targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
-            if (ImGui.Checkbox("Show all messages targeting a whitelisted player", ref targetingWhitelistPlayer))
+            if (ImGui.Checkbox(localization.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer, ref targetingWhitelistPlayer))
             {
                 configuration.TargetingWhitelistPlayer = targetingWhitelistPlayer;
                 configuration.Save();
             }
 
-            ImGui.TextUnformatted("Users added to the whitelist will be treated as if they were you for all filter settings.\nEnter a player's first and last name and then press <Enter> to add them to the whitelist.");
+            ImGui.TextUnformatted(localization.WhitelistTab_ExplanationMessage);
             ImGui.Spacing();
 
             ImGui.NewLine();
             Vector2 outer_height = new Vector2(540f, 400f);
             if (!ImGui.BeginTable("##whitelistTable", 3, ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg, outer_height)) return;
             ImGui.TableSetupScrollFreeze(0, 1);
-            ImGui.TableSetupColumn("Select Channels", ImGuiTableColumnFlags.WidthFixed);
-            ImGui.TableSetupColumn("Player Information", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn(localization.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn(localization.WhitelistTab_PlayerInformationTableHeader, ImGuiTableColumnFlags.WidthFixed);
             ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthStretch);
             ImGui.TableHeadersRow();
 
@@ -86,7 +86,7 @@ namespace TidyChat.Settings.Tabs
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
                 ImGui.SetNextItemWidth(120);
-                ImGui.TextUnformatted($"First Name: ");
+                ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerFirstName);
                 ImGui.SameLine(75f);
                 if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 20, ImGuiInputTextFlags.EnterReturnsTrue))
                 {
@@ -98,7 +98,7 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGui.SetNextItemWidth(120);
-                ImGui.TextUnformatted($"Last Name: ");
+                ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerLastName);
                 ImGui.SameLine(75f);
                 if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 20, ImGuiInputTextFlags.EnterReturnsTrue))
                 {
@@ -110,7 +110,7 @@ namespace TidyChat.Settings.Tabs
                     configuration.Save();
                 }
                 ImGui.SetNextItemWidth(120);
-                ImGui.TextUnformatted($"Server Name: ");
+                ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerServerName);
                 ImGui.SameLine(75f);
                 if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 32, ImGuiInputTextFlags.EnterReturnsTrue))
                 {
@@ -135,7 +135,7 @@ namespace TidyChat.Settings.Tabs
             ImGui.EndTable();
             ImGui.NewLine();
             ImGui.Spacing();
-            ImGui.TextUnformatted("You must enter the player's name as it would be seen in chat - including any periods.\n\neg.\nSurname Abbreviated: Example N.\nForename Abbreviated: E. Name\nInitials: E. N.");
+            ImGui.TextUnformatted(localization.WhitelistTab_ExactNameMatchWhitelistExplanation);
             ImGui.EndTabItem();
         }
     }

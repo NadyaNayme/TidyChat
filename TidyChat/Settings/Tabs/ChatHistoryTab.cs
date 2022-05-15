@@ -8,83 +8,83 @@ namespace TidyChat.Settings.Tabs
         public static void Draw(Configuration configuration)
         {
             var chatHistoryFilter = configuration.ChatHistoryFilter;
-            if (ImGui.Checkbox("Enable Chat History Filter", ref chatHistoryFilter))
+            if (ImGui.Checkbox(localization.ChatHistoryTab_EnableChatHistoryFilter, ref chatHistoryFilter))
             {
                 configuration.ChatHistoryFilter = chatHistoryFilter;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker($"If a message was sent within the last {configuration.ChatHistoryLength} messages it will be filtered");
+            ImGuiComponents.HelpMarker(string.Format(localization.ChatHistoryTab_EnableChatHistoryFilterHelpMarker, configuration.ChatHistoryLength.ToString()));
 
             var disableSelfChatHistory = configuration.DisableSelfChatHistory;
-            if (ImGui.Checkbox("Ignore messages sent by player", ref disableSelfChatHistory))
+            if (ImGui.Checkbox(localization.ChatHistoryTab_IgnoreMessagesSentByPlayer, ref disableSelfChatHistory))
             {
                 configuration.DisableSelfChatHistory = disableSelfChatHistory;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker($"Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.");
+            ImGuiComponents.HelpMarker(localization.ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker);
 
             var chatHistoryLength = configuration.ChatHistoryLength;
             ImGui.SetNextItemWidth(120f);
-            if (ImGui.InputInt("Number of messages to keep in chat history", ref chatHistoryLength))
+            if (ImGui.InputInt(localization.ChatHistoryTab_LengthOfChatHistory, ref chatHistoryLength))
             {
                 configuration.ChatHistoryLength = chatHistoryLength;
                 configuration.Save();
             }
-            ImGui.TextUnformatted("WARNING: Having the history length set too high may impact game performance.\nIt's recommended to keep it at 50 or lower.");
+            ImGui.TextUnformatted(localization.ChatHistoryTab_LengthOfChatHistoryWarningMessage);
 
             var chatHistoryTimer = configuration.ChatHistoryTimer;
             ImGui.SetNextItemWidth(120f);
-            if (ImGui.InputInt("Number of seconds to keep messages in chat history", ref chatHistoryTimer))
+            if (ImGui.InputInt(localization.ChatHistoryTab_ChatHistoryTimer, ref chatHistoryTimer))
             {
                 configuration.ChatHistoryTimer = chatHistoryTimer;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker($"Set to 0 to disable");
+            ImGuiComponents.HelpMarker(localization.ChatHistoryTab_ChatHistoryTimerHelpMarker);
 
             ImGui.NewLine();
             #region Channels
             int chatHistoryChannels = configuration.ChatHistoryChannels;
-            ImGui.TextUnformatted($"Select channels for Chat History to filter:");
-            if (ImGui.CheckboxFlags($"Emotes", ref chatHistoryChannels, 1 << 1))
+            ImGui.TextUnformatted(localization.ChatHistoryTab_SelectChannels);
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_EmotesChannel, ref chatHistoryChannels, 1 << 1))
             {
                 configuration.ChatHistoryChannels = chatHistoryChannels;
                 configuration.Save();
             }
             ImGui.SameLine(90f);
-            if (ImGui.CheckboxFlags($"Loot", ref chatHistoryChannels, 1 << 5))
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_LootChannel, ref chatHistoryChannels, 1 << 5))
             {
                 configuration.ChatHistoryChannels = chatHistoryChannels;
                 configuration.Save();
             }
-            if (ImGui.CheckboxFlags($"Crafting", ref chatHistoryChannels, 1 << 8))
-            {
-                configuration.ChatHistoryChannels = chatHistoryChannels;
-                configuration.Save();
-            }
-            ImGui.SameLine(90f);
-            if (ImGui.CheckboxFlags($"Gathering", ref chatHistoryChannels, 1 << 9))
-            {
-                configuration.ChatHistoryChannels = chatHistoryChannels;
-                configuration.Save();
-            }
-            if (ImGui.CheckboxFlags($"Talking", ref chatHistoryChannels, 1 << 2))
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_CraftingChannel, ref chatHistoryChannels, 1 << 8))
             {
                 configuration.ChatHistoryChannels = chatHistoryChannels;
                 configuration.Save();
             }
             ImGui.SameLine(90f);
-            if (ImGui.CheckboxFlags($"Login/Logout", ref chatHistoryChannels, 1 << 7))
-                configuration.ChatHistoryChannels = chatHistoryChannels;
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_GatheringChannel, ref chatHistoryChannels, 1 << 9))
             {
+                configuration.ChatHistoryChannels = chatHistoryChannels;
                 configuration.Save();
             }
-            if (ImGui.CheckboxFlags($"Progress", ref chatHistoryChannels, 1 << 4))
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_TalkingChannel, ref chatHistoryChannels, 1 << 2))
             {
                 configuration.ChatHistoryChannels = chatHistoryChannels;
                 configuration.Save();
             }
             ImGui.SameLine(90f);
-            if (ImGui.CheckboxFlags($"System", ref chatHistoryChannels, 1 << 3))
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_LoginLogoutChannel, ref chatHistoryChannels, 1 << 7))
+                configuration.ChatHistoryChannels = chatHistoryChannels;
+            {
+                configuration.Save();
+            }
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_ProgressChannel, ref chatHistoryChannels, 1 << 4))
+            {
+                configuration.ChatHistoryChannels = chatHistoryChannels;
+                configuration.Save();
+            }
+            ImGui.SameLine(90f);
+            if (ImGui.CheckboxFlags(localization.ChatHistoryTab_SystemChannel, ref chatHistoryChannels, 1 << 3))
             {
                 configuration.ChatHistoryChannels = chatHistoryChannels;
                 configuration.Save();

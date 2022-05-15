@@ -8,74 +8,74 @@ namespace TidyChat.Settings.Tabs
         public static void Draw(Configuration configuration)
         {
             var showGainExperience = configuration.ShowGainExperience;
-            if (ImGui.Checkbox("Show experience gain messages", ref showGainExperience))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowExperienceGainMessages, ref showGainExperience))
             {
                 configuration.ShowGainExperience = showGainExperience;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("eg. You gain 2,388 Experience Points.");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
             var showRouletteBonusExperiencePoints = configuration.ShowRouletteBonus;
-            if (ImGui.Checkbox("Show bonus award for using duty roulette", ref showRouletteBonusExperiencePoints))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowBonusAwardForDutyRouletteMessages, ref showRouletteBonusExperiencePoints))
             {
                 configuration.ShowRouletteBonus = showRouletteBonusExperiencePoints;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
 
             var showAdventurerInNeedBonus = configuration.ShowAdventurerInNeedBonus;
-            if (ImGui.Checkbox("Show bonus awarded for being an adventurer in need", ref showAdventurerInNeedBonus))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowAdventurerInNeedAwardMessages, ref showAdventurerInNeedBonus))
             {
                 configuration.ShowAdventurerInNeedBonus = showAdventurerInNeedBonus;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
 
             var showGainPvpExp = configuration.ShowGainPvpExp;
-            if (ImGui.Checkbox("Show PVP EXP gain messages", ref showGainPvpExp))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowPVPExpGainMessages, ref showGainPvpExp))
             {
                 configuration.ShowGainPvpExp = showGainPvpExp;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("eg. You acquire 500 PvP EXP.");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
 
             var showEarnAchievement = configuration.ShowEarnAchievement;
-            if (ImGui.Checkbox("Show earned achievement messages", ref showEarnAchievement))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
             {
                 configuration.ShowEarnAchievement = showEarnAchievement;
                 configuration.Save();
             }
 
             var showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
-            if (ImGui.Checkbox("Show other player's earned achievement messages", ref showOtherEarnedAchievement))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowOtherPlayersEarnedAchievementMessages, ref showOtherEarnedAchievement))
             {
                 configuration.ShowOtherEarnedAchievement = showOtherEarnedAchievement;
                 configuration.Save();
             }
 
             var showLevelUps = configuration.ShowLevelUps;
-            if (ImGui.Checkbox("Show level up messages", ref showLevelUps))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowLevelUpMessages, ref showLevelUps))
             {
                 configuration.ShowLevelUps = showLevelUps;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when you level up.\nIt can be considered spammy in Palace of the Dead and Heaven On High.");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowLevelUpMessagesHelpMarker);
 
             var showOtherLevelUps = configuration.ShowOtherLevelUps;
-            if (ImGui.Checkbox("Show other player's level up messages", ref showOtherLevelUps))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
             {
                 configuration.ShowOtherLevelUps = showOtherLevelUps;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when others level up.\n eg. Player attains level 33!");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
 
             var showAbilityUnlocks = configuration.ShowAbilityUnlocks;
-            if (ImGui.Checkbox("Show learned ability messages", ref showAbilityUnlocks))
+            if (ImGui.Checkbox(localization.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
             {
                 configuration.ShowAbilityUnlocks = showAbilityUnlocks;
                 configuration.Save();
             }
-            ImGuiComponents.HelpMarker("This will show the message that occurs when you learn a new ability.\nIt can be considered spammy in Palace of the Dead and Heaven On High.");
+            ImGuiComponents.HelpMarker(localization.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
 
             ImGui.EndTabItem();
         }

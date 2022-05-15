@@ -10,12 +10,12 @@ namespace TidyChat
             ImGui.Spacing();
             ImGui.Separator();
             ImGui.Spacing();
-            if (ImGui.Button("Save"))
+            if (ImGui.Button(localization.SettingsTabFooter_SaveButtonText))
             {
                 configuration.Save();
             }
             ImGui.SameLine();
-            if (ImGui.Button("Save and Close Config"))
+            if (ImGui.Button(localization.SettingsTabFooter_SaveAndCloseButtonText))
             {
                 configuration.Save();
                 settingsVisible = false;
@@ -27,7 +27,7 @@ namespace TidyChat
                 ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
                 ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
 
-                if (ImGui.Button("Support on Ko-Fi"))
+                if (ImGui.Button(localization.SettingsTabFooter_SupportOnKofiButtonText))
                 {
                     Process.Start(new ProcessStartInfo
                     {
@@ -42,7 +42,7 @@ namespace TidyChat
             ImGui.PushStyleColor(ImGuiCol.Button, 0x80FA8600);
             ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0x2BBB3200);
             ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0x6ED86400);
-            if (ImGui.Button("Wiki Page"))
+            if (ImGui.Button(localization.SettingsTabFooter_WikiPageButtonText))
             {
                 Process.Start(new ProcessStartInfo
                 {
