@@ -23,561 +23,482 @@ using GetDuty = TidyChat.Utility.GetDutyName;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 using Lumina = Lumina.Excel.GeneratedSheets;
 
-namespace TidyChat
+namespace TidyChat;
 
+public sealed class TidyChat : IDalamudPlugin
 {
-    public sealed class TidyChat : IDalamudPlugin
+    private const string SettingsCommand = TidyStrings.SettingsCommand;
+    private const string ShorthandCommand = TidyStrings.ShorthandCommand;
+    private readonly DtrBarEntry dtrEntry;
+    private ulong SessionBlockedMessages;
+
+    #region Setup
+
+    public TidyChat(
+        [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
+        [RequiredVersion("1.0")] SigScanner sigScanner,
+        [RequiredVersion("1.0")] ChatGui chatGui,
+        [RequiredVersion("1.0")] CommandManager commandManager,
+        [RequiredVersion("1.0")] ClientState clientState)
     {
-        public string Name => TidyStrings.PluginName;
+        PluginInterface = pluginInterface;
+        SigScanner = sigScanner;
+        CommandManager = commandManager;
+        ChatGui = chatGui;
+        ClientState = clientState;
 
-        private const string SettingsCommand = TidyStrings.SettingsCommand;
-        private const string ShorthandCommand = TidyStrings.ShorthandCommand;
-        private ulong SessionBlockedMessages = 0;
+        // Player cannot change this without restarting the game so should be safe to grab here
+        L10N.Language = clientState.ClientLanguage;
+        pluginInterface.LanguageChanged += UpdateLang;
+        UpdateLang(pluginInterface.UiLanguage);
+        // Sets name on install / plugin update
+        SetPlayerName();
 
-        [PluginService] private DtrBar DtrBar { get; init; }
-        private DalamudPluginInterface PluginInterface { get; init; }
-        private SigScanner SigScanner { get; init; }
-        private ChatGui ChatGui { get; init; }
-        private CommandManager CommandManager { get; init; }
-        private Configuration Configuration { get; init; }
-        private PluginUI PluginUi { get; init; }
-        private ClientState ClientState { get; init; }
+        Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+        Configuration.Initialize(PluginInterface);
 
-        private Stack<string> ChatHistory { get; init; } = new();
-        private DtrBarEntry dtrEntry;
+        if (Configuration.InstanceInDtrBar)
+            if (DtrBar != null)
+                dtrEntry = DtrBar.Get(Name);
 
-        #region Chat2 ChatTypes
+        ChatGui.ChatMessage += OnChat;
+        ClientState.TerritoryChanged += OnTerritoryChanged;
+        ClientState.Login += OnLogin;
+        ClientState.Logout += OnLogout;
 
-        // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
-        private const ushort Clear7 = ~(~0 << 7);
-        internal ushort Raw { get; }
-        internal ChatType Type => (ChatType)(Raw & Clear7);
+        PluginUi = new PluginUI(Configuration);
 
-        private static ChatType FromCode(ushort code)
+        CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
         {
-            return (ChatType)(code & Clear7);
-        }
+            HelpMessage = TidyStrings.SettingsHelper
+        });
 
-        private static ChatType FromDalamud(XivChatType type)
+        CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
         {
-            return FromCode((ushort)type);
-        }
+            HelpMessage = TidyStrings.ShorthandHelper
+        });
 
-        #endregion Chat2 ChatTypes
+        PluginInterface.UiBuilder.Draw += DrawUI;
+        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+    }
 
-        #region Setup
+    #endregion Setup
 
-        public TidyChat(
-            [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-            [RequiredVersion("1.0")] SigScanner sigScanner,
-            [RequiredVersion("1.0")] ChatGui chatGui,
-            [RequiredVersion("1.0")] CommandManager commandManager,
-            [RequiredVersion("1.0")] ClientState clientState)
+    [PluginService] private DtrBar DtrBar { get; init; }
+    private DalamudPluginInterface PluginInterface { get; }
+    private SigScanner SigScanner { get; }
+    private ChatGui ChatGui { get; }
+    private CommandManager CommandManager { get; }
+    private Configuration Configuration { get; }
+    private PluginUI PluginUi { get; }
+    private ClientState ClientState { get; }
+
+    private Stack<string> ChatHistory { get; } = new();
+    public string Name => TidyStrings.PluginName;
+
+    public void Dispose()
+    {
+        dtrEntry?.Dispose();
+        PluginUi.Dispose();
+        CommandManager.RemoveHandler(SettingsCommand);
+        CommandManager.RemoveHandler(ShorthandCommand);
+        PluginInterface.LanguageChanged -= UpdateLang;
+        ChatGui.ChatMessage -= OnChat;
+        ClientState.TerritoryChanged -= OnTerritoryChanged;
+        ClientState.Login -= OnLogin;
+        ClientState.Logout -= OnLogout;
+    }
+
+    private void TippyIpcTips()
+    {
+        if (PluginInterface.PluginInternalNames.Contains("Tippy"))
         {
-            PluginInterface = pluginInterface;
-            SigScanner = sigScanner;
-            CommandManager = commandManager;
-            ChatGui = chatGui;
-            ClientState = clientState;
+            var tippyTip = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterTip");
+            tippyTip.InvokeFunc(
+                "Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!");
+            tippyTip.InvokeFunc("Did you know? Tidy Chat has a chat history feature to block repetitive messages.");
+            tippyTip.InvokeFunc(
+                "Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.");
+            tippyTip.InvokeFunc("Tidy Chat has many useful settings that must first be enabled.");
+            tippyTip.InvokeFunc(
+                "Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat.");
 
-            // Player cannot change this without restarting the game so should be safe to grab here
-            L10N.Language = clientState.ClientLanguage;
-            pluginInterface.LanguageChanged += UpdateLang;
-            UpdateLang(pluginInterface.UiLanguage);
-            // Sets name on install / plugin update
-            SetPlayerName();
-
-            Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
-            Configuration.Initialize(PluginInterface);
-
-            if (Configuration.InstanceInDtrBar)
+            switch (Configuration.TtlMessagesBlocked)
             {
-                if (DtrBar != null) dtrEntry = DtrBar.Get(Name);
-            }
-
-            ChatGui.ChatMessage += OnChat;
-            ClientState.TerritoryChanged += OnTerritoryChanged;
-            ClientState.Login += OnLogin;
-            ClientState.Logout += OnLogout;
-
-            PluginUi = new PluginUI(Configuration);
-
-            CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
-            {
-                HelpMessage = TidyStrings.SettingsHelper
-            });
-
-            CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
-            {
-                HelpMessage = TidyStrings.ShorthandHelper
-            });
-
-            PluginInterface.UiBuilder.Draw += DrawUI;
-            PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
-        }
-
-        #endregion Setup
-
-        public void Dispose()
-        {
-            dtrEntry?.Dispose();
-            PluginUi.Dispose();
-            CommandManager.RemoveHandler(SettingsCommand);
-            CommandManager.RemoveHandler(ShorthandCommand);
-            PluginInterface.LanguageChanged -= UpdateLang;
-            ChatGui.ChatMessage -= OnChat;
-            ClientState.TerritoryChanged -= OnTerritoryChanged;
-            ClientState.Login -= OnLogin;
-            ClientState.Logout -= OnLogout;
-        }
-
-        private void TippyIpcTips()
-        {
-            if (PluginInterface.PluginInternalNames.Contains("Tippy"))
-            {
-                var tippyTip = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterTip");
-                tippyTip.InvokeFunc(
-                    "Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!");
-                tippyTip.InvokeFunc("Did you know? Tidy Chat has a chat history feature to block repetitive messages.");
-                tippyTip.InvokeFunc(
-                    "Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.");
-                tippyTip.InvokeFunc("Tidy Chat has many useful settings that must first be enabled.");
-                tippyTip.InvokeFunc(
-                    "Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat.");
-
-                switch (Configuration.TtlMessagesBlocked)
-                {
-                    case > 1000000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 1,000,000 messages so far!");
-                        break;
-                    case > 500000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 500,000 messages so far!");
-                        break;
-                    case > 100000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 100,000 messages so far!");
-                        break;
-                    case > 50000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 50,000 messages so far!");
-                        break;
-                    case > 10000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 10,000 messages so far!");
-                        break;
-                    case > 5000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 5,000 messages so far!");
-                        break;
-                    case > 1000:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 1,000 messages so far!");
-                        break;
-                    case > 100:
-                        tippyTip.InvokeFunc($"Tidy Chat has blocked over 100 messages so far!");
-                        break;
-                    case <= 100:
-                        break;
-                }
-            }
-            else
-            {
-                var noTippyMessage = new SeStringBuilder();
-                if (Configuration.IncludeChatTag)
-                {
-                    Better.AddTidyChatTag(noTippyMessage);
-                }
-
-                noTippyMessage.AddText($"To enable Tippy Tips for Tidy Chat you must first install Tippy.");
-                ChatGui.Print(noTippyMessage.BuiltString);
-            }
-        }
-
-        private void TippyIpcMessages(ushort msg)
-        {
-            var tippyMsg = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
-            switch (msg)
-            {
-                case 0:
-                    tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
+                case > 1000000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 1,000,000 messages so far!");
                     break;
-                case 1:
-                    tippyMsg.InvokeFunc(
-                        "And here is where I'd tell you how many commendations you received... if you had received any.");
+                case > 500000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 500,000 messages so far!");
                     break;
-                case 2:
-                    tippyMsg.InvokeFunc("It looks like people like you!");
+                case > 100000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 100,000 messages so far!");
+                    break;
+                case > 50000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 50,000 messages so far!");
+                    break;
+                case > 10000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 10,000 messages so far!");
+                    break;
+                case > 5000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 5,000 messages so far!");
+                    break;
+                case > 1000:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 1,000 messages so far!");
+                    break;
+                case > 100:
+                    tippyTip.InvokeFunc("Tidy Chat has blocked over 100 messages so far!");
+                    break;
+                case <= 100:
                     break;
             }
         }
-
-        private void OnLogin(object? sender, EventArgs e)
+        else
         {
-            if (Configuration.EnableTippyTips)
-            {
-                TippyIpcTips();
-            }
+            var noTippyMessage = new SeStringBuilder();
+            if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
 
-            InstanceDtrBarUpdates();
+            noTippyMessage.AddText("To enable Tippy Tips for Tidy Chat you must first install Tippy.");
+            ChatGui.Print(noTippyMessage.BuiltString);
+        }
+    }
+
+    private void TippyIpcMessages(ushort msg)
+    {
+        var tippyMsg = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
+        switch (msg)
+        {
+            case 0:
+                tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
+                break;
+            case 1:
+                tippyMsg.InvokeFunc(
+                    "And here is where I'd tell you how many commendations you received... if you had received any.");
+                break;
+            case 2:
+                tippyMsg.InvokeFunc("It looks like people like you!");
+                break;
+        }
+    }
+
+    private void OnLogin(object? sender, EventArgs e)
+    {
+        if (Configuration.EnableTippyTips) TippyIpcTips();
+
+        InstanceDtrBarUpdates();
+    }
+
+    private void OnLogout(object? sender, EventArgs e)
+    {
+        UpdateBlockedCount();
+    }
+
+    private void OnTerritoryChanged(object? sender, ushort e)
+    {
+        UpdateBlockedCount();
+        InstanceDtrBarUpdates();
+    }
+
+    private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message,
+        ref bool isHandled)
+    {
+        if (!Configuration.Enabled) return;
+
+        var chatType = FromDalamud(type);
+        var normalizedText = NormalizeInput.ToLowercase(message);
+
+        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) &&
+            Configuration.FilterSystemMessages)
+            Better.TemporarilyDisableSystemFilter(Configuration, ChatGui);
+
+        if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
+
+        if (Configuration.HideDebugTeleport && !Configuration.EnableDebugMode && chatType is ChatType.Debug &&
+            L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
+            isHandled = true;
+
+        #region Better Messages
+
+        if (Configuration.BetterInstanceMessage && !Configuration.HideInstanceMessage &&
+            !Configuration.EnableDebugMode && chatType is ChatType.System &&
+            L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
+            message = Better.Instances(message, Configuration);
+
+        if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode &&
+            chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
+            message = Better.SayReminder(message, Configuration);
+
+        if (Configuration.IncludeDutyNameInComms && !Configuration.EnableDebugMode)
+            TidyStrings.LastDuty = GetDuty.FindIn(message, normalizedText);
+
+        if (Configuration.BetterCommendationMessage && !Configuration.EnableDebugMode &&
+            L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
+        {
+            isHandled = true;
+            Better.Commendations(Configuration, ChatGui);
         }
 
-        private void OnLogout(object? sender, EventArgs e)
-        {
-            UpdateBlockedCount();
-        }
+        if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
+            message = Better.NoviceNetwork(message, normalizedText, Configuration);
 
-        private void OnTerritoryChanged(object? sender, ushort e)
-        {
-            UpdateBlockedCount();
-            InstanceDtrBarUpdates();
-        }
+        #endregion
 
-        private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message,
-            ref bool isHandled)
-        {
-            if (!Configuration.Enabled)
+        #region Channel Filters
+
+        #region Emotes
+
+        if (Configuration.FilterEmoteSpam && chatType is ChatType.StandardEmote)
+            isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
+
+        if (Configuration.HideOtherCustomEmotes && sender.TextValue != Configuration.PlayerName &&
+            chatType is ChatType.CustomEmote)
+            isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
+
+        if (Configuration.HideUsedEmotes &&
+            (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
+            sender.TextValue == Configuration.PlayerName)
+            isHandled = true;
+
+        #endregion Emotes
+
+        if (!Configuration.EnableInverseMode && Configuration.FilterSystemMessages && chatType is ChatType.System)
+            isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
+
+        if (Configuration.EnableInverseMode && Configuration.FilterSystemMessages && chatType is ChatType.System)
+            isHandled = FilterSystemMessagesInversed.IsFiltered(normalizedText, Configuration);
+
+        if (Configuration.FilterObtainedSpam && chatType is ChatType.LootNotice)
+            isHandled = FilterObtainMessages.IsFiltered(normalizedText, Configuration);
+
+        if (Configuration.FilterLootSpam && chatType is ChatType.LootRoll)
+            isHandled = FilterLootMessages.IsFiltered(normalizedText, Configuration);
+
+        if (Configuration.FilterProgressSpam && chatType is ChatType.Progress)
+            isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
+
+        #region DoH/DoL
+
+        if (Configuration.FilterCraftingSpam && chatType is ChatType.Crafting)
+            isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
+
+        if (Configuration.FilterGatheringSpam && chatType is ChatType.GatheringSystem or ChatType.Gathering)
+            isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
+
+        #endregion DoH/DoL
+
+        if ((Configuration.HideUserLogins || Configuration.HideUserLogouts) &&
+            chatType is ChatType.FreeCompanyLoginLogout)
+            isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
+
+        #endregion Channel Filters
+
+        #region Duplicate Message Spam Filter
+
+        if (Configuration.ChatHistoryFilter && !isHandled)
+            try
             {
-                return;
-            }
+                /* Disable Chat History for self-sent messages by default */
+                if (Configuration.DisableSelfChatHistory && sender.TextValue == Configuration.PlayerName) return;
 
-            var chatType = FromDalamud(type);
-            string normalizedText = NormalizeInput.ToLowercase(message);
-
-            if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) &&
-                Configuration.FilterSystemMessages)
-            {
-                Better.TemporarilyDisableSystemFilter(Configuration, ChatGui);
-            }
-
-            if (Configuration.PlayerName != "" && Configuration.PlayerName != null)
-            {
-                normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
-            }
-
-            if (Configuration.HideDebugTeleport && !Configuration.EnableDebugMode && chatType is ChatType.Debug &&
-                L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
-            {
-                isHandled = true;
-            }
-
-            #region Better Messages
-
-            if (Configuration.BetterInstanceMessage && !Configuration.HideInstanceMessage &&
-                !Configuration.EnableDebugMode && chatType is ChatType.System &&
-                L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
-            {
-                message = Better.Instances(message, Configuration);
-            }
-
-            if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode &&
-                chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
-            {
-                message = Better.SayReminder(message, Configuration);
-            }
-
-            if (Configuration.IncludeDutyNameInComms && !Configuration.EnableDebugMode)
-            {
-                TidyStrings.LastDuty = GetDuty.FindIn(message, normalizedText);
-            }
-
-            if (Configuration.BetterCommendationMessage && !Configuration.EnableDebugMode &&
-                L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
-            {
-                isHandled = true;
-                Better.Commendations(Configuration, ChatGui);
-            }
-
-            if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
-            {
-                message = Better.NoviceNetwork(message, normalizedText, Configuration);
-            }
-
-            #endregion
-
-            #region Channel Filters
-
-            #region Emotes
-
-            if (Configuration.FilterEmoteSpam && chatType is ChatType.StandardEmote)
-            {
-                isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
-            }
-
-            if (Configuration.HideOtherCustomEmotes && sender.TextValue != Configuration.PlayerName &&
-                chatType is ChatType.CustomEmote)
-            {
-                isHandled = FilterEmoteMessages.IsFiltered(normalizedText, chatType, Configuration);
-            }
-
-            if (Configuration.HideUsedEmotes &&
-                (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
-                sender.TextValue == Configuration.PlayerName)
-            {
-                isHandled = true;
-            }
-
-            #endregion Emotes
-
-            if (!Configuration.EnableInverseMode && Configuration.FilterSystemMessages && chatType is ChatType.System)
-            {
-                isHandled = FilterSystemMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            if (Configuration.EnableInverseMode && Configuration.FilterSystemMessages && chatType is ChatType.System)
-            {
-                isHandled = FilterSystemMessagesInversed.IsFiltered(normalizedText, Configuration);
-            }
-
-            if (Configuration.FilterObtainedSpam && chatType is ChatType.LootNotice)
-            {
-                isHandled = FilterObtainMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            if (Configuration.FilterLootSpam && chatType is ChatType.LootRoll)
-            {
-                isHandled = FilterLootMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            if (Configuration.FilterProgressSpam && chatType is ChatType.Progress)
-            {
-                isHandled = FilterProgressMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            #region DoH/DoL
-
-            if (Configuration.FilterCraftingSpam && chatType is ChatType.Crafting)
-            {
-                isHandled = FilterCraftMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            if (Configuration.FilterGatheringSpam && chatType is ChatType.GatheringSystem or ChatType.Gathering)
-            {
-                isHandled = FilterGatherMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            #endregion DoH/DoL
-
-            if ((Configuration.HideUserLogins || Configuration.HideUserLogouts) &&
-                chatType is ChatType.FreeCompanyLoginLogout)
-            {
-                isHandled = FilterFreeCompanyMessages.IsFiltered(normalizedText, Configuration);
-            }
-
-            #endregion Channel Filters
-
-            #region Duplicate Message Spam Filter
-
-            if (Configuration.ChatHistoryFilter && !isHandled)
-            {
-                try
+                var historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
+                if (!historyChannels.Equals(ChatFlags.Channels.None))
                 {
-                    /* Disable Chat History for self-sent messages by default */
-                    if (Configuration.DisableSelfChatHistory && sender.TextValue == Configuration.PlayerName)
+                    if (Flags.CheckFlags(Configuration, chatType))
                     {
-                        return;
-                    }
-
-                    ChatFlags.Channels historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
-                    if (!historyChannels.Equals(ChatFlags.Channels.None))
-                    {
-                        if (Flags.CheckFlags(Configuration, chatType))
+                        var currentMessage = $"{sender.TextValue}: {message.TextValue}";
+                        if (ChatHistory.Contains(currentMessage))
                         {
-                            string currentMessage = $"{sender.TextValue}: {message.TextValue}";
-                            if (ChatHistory.Contains(currentMessage))
-                            {
-                                PluginLog.LogDebug($"Found message in chat history and blocked: {currentMessage}");
-                                isHandled = true;
-                            }
-                            else if (ChatHistory.Count > Configuration.ChatHistoryLength)
-                            {
-                                PluginLog.LogDebug("Chat history reached limit. Removed oldest message and added:" +
-                                                   currentMessage);
-                                ChatHistory.Pop();
-                                ChatHistory.Push(currentMessage);
-                            }
-                            else
-                            {
-                                PluginLog.LogDebug("Added:" + currentMessage);
-                                ChatHistory.Push(currentMessage);
-                                if (Configuration.ChatHistoryTimer > 0)
-                                {
-                                    var t = new Timer
-                                    {
-                                        Interval = Configuration.ChatHistoryTimer * 1000,
-                                        AutoReset = false
-                                    };
-                                    t.Elapsed += delegate
-                                    {
-                                        t.Enabled = false;
-                                        t.Dispose();
-                                        ChatHistory.Pop();
-                                    };
-                                    t.Enabled = true;
-                                }
-                            }
+                            PluginLog.LogDebug($"Found message in chat history and blocked: {currentMessage}");
+                            isHandled = true;
                         }
-
-                        return;
-                    }
-                }
-                catch (Exception e)
-                {
-                    PluginLog.LogDebug("Encountered error: " + e);
-                }
-            }
-
-            #endregion Duplicate Message Spam Filter
-
-            #region Whitelist
-
-            if (Configuration.Whitelist.Count > 0)
-            {
-                foreach (var player in Configuration.Whitelist)
-                {
-                    if (isHandled && sender.TextValue == player.FirstName + " " + player.LastName ||
-                        message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName))
-                    {
-                        if (Configuration.SentByWhitelistPlayer)
+                        else if (ChatHistory.Count > Configuration.ChatHistoryLength)
                         {
-                            // The message was sent by a whitelisted player
-                            isHandled = false;
-                        }
-                        else if (Configuration.TargetingWhitelistPlayer && player.ServerName.Length > 0 &&
-                                 message.TextValue.Contains(player.FirstName) &&
-                                 message.TextValue.Contains(player.LastName) &&
-                                 message.TextValue.Contains(player.ServerName))
-                        {
-                            // The whitelisted player name is limited to a server
-                            isHandled = false;
-                        }
-                        else if (Configuration.TargetingWhitelistPlayer &&
-                                 message.TextValue.Contains(player.FirstName) &&
-                                 message.TextValue.Contains(player.LastName))
-                        {
-                            // The whitelisted player isn't limited to a server
-                            isHandled = false;
+                            PluginLog.LogDebug("Chat history reached limit. Removed oldest message and added:" +
+                                               currentMessage);
+                            ChatHistory.Pop();
+                            ChatHistory.Push(currentMessage);
                         }
                         else
                         {
-                            ChatFlags.Channels e = (ChatFlags.Channels)player.whitelistedChannels;
-                            if (!e.Equals(ChatFlags.Channels.None) && isHandled)
+                            PluginLog.LogDebug("Added:" + currentMessage);
+                            ChatHistory.Push(currentMessage);
+                            if (Configuration.ChatHistoryTimer > 0)
                             {
-                                isHandled = Flags.CheckFlags(player, chatType);
-                                return;
+                                var t = new Timer
+                                {
+                                    Interval = Configuration.ChatHistoryTimer * 1000,
+                                    AutoReset = false
+                                };
+                                t.Elapsed += delegate
+                                {
+                                    t.Enabled = false;
+                                    t.Dispose();
+                                    ChatHistory.Pop();
+                                };
+                                t.Enabled = true;
                             }
                         }
                     }
-                }
-            }
 
-            #endregion Whitelist
-
-            #region Debug Mode Enabled
-
-            if (Configuration.EnableDebugMode && isHandled && !message.TextValue.ToString().StartsWith("[TidyChat]"))
-            {
-                var stringBuilder = new SeStringBuilder();
-                Better.AddTidyChatTag(stringBuilder);
-                Better.AddDebugTag(stringBuilder);
-                stringBuilder.AddText(message.TextValue);
-                message = stringBuilder.BuiltString;
-                isHandled = false;
-            }
-
-            #endregion Debug Mode Enabled
-
-            SessionBlockedMessages += 1;
-            if (SessionBlockedMessages > 100)
-            {
-                UpdateBlockedCount();
-            }
-        }
-
-        private void SetPlayerName()
-        {
-            try
-            {
-                if (ClientState.LocalPlayer == null)
-                {
                     return;
                 }
-
-                Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
-                Configuration.Save();
             }
-            catch
+            catch (Exception e)
             {
-                // Just don't do anything if we can't set player name
+                PluginLog.LogDebug("Encountered error: " + e);
             }
-        }
 
-        private void InstanceDtrBarUpdates()
-        {
-            if (Configuration.InstanceInDtrBar)
-            {
-                try
+        #endregion Duplicate Message Spam Filter
+
+        #region Whitelist
+
+        if (Configuration.Whitelist.Count > 0)
+            foreach (var player in Configuration.Whitelist)
+                if ((isHandled && sender.TextValue == player.FirstName + " " + player.LastName) ||
+                    (message.TextValue.Contains(player.FirstName) && message.TextValue.Contains(player.LastName)))
                 {
-                    IntPtr InstanceSignaturePtr =
-                        SigScanner.GetStaticAddressFromSig("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 80 BD");
-
-                    // This will return the instance value: 0,1,2,3
-                    int InstanceNumberFromSignature = Marshal.ReadByte(InstanceSignaturePtr, 0x20);
-
-                    if (InstanceNumberFromSignature == 1)
+                    if (Configuration.SentByWhitelistPlayer)
                     {
-                        UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
+                        // The message was sent by a whitelisted player
+                        isHandled = false;
                     }
-                    else if (InstanceNumberFromSignature == 2)
+                    else if (Configuration.TargetingWhitelistPlayer && player.ServerName.Length > 0 &&
+                             message.TextValue.Contains(player.FirstName) &&
+                             message.TextValue.Contains(player.LastName) &&
+                             message.TextValue.Contains(player.ServerName))
                     {
-                        UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
+                        // The whitelisted player name is limited to a server
+                        isHandled = false;
                     }
-                    else if (InstanceNumberFromSignature == 3)
+                    else if (Configuration.TargetingWhitelistPlayer &&
+                             message.TextValue.Contains(player.FirstName) &&
+                             message.TextValue.Contains(player.LastName))
                     {
-                        UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
+                        // The whitelisted player isn't limited to a server
+                        isHandled = false;
                     }
-                    else if (InstanceNumberFromSignature == 0)
+                    else
                     {
-                        UpdateDtrBarEntry();
+                        var e = (ChatFlags.Channels)player.whitelistedChannels;
+                        if (!e.Equals(ChatFlags.Channels.None) && isHandled)
+                        {
+                            isHandled = Flags.CheckFlags(player, chatType);
+                            return;
+                        }
                     }
                 }
-                catch (Exception ex)
-                {
-                    PluginLog.LogDebug("Error: " + ex);
-                }
-            }
-            else if (!Configuration.InstanceInDtrBar && dtrEntry != null)
-            {
-                dtrEntry?.Dispose();
-            }
+
+        #endregion Whitelist
+
+        #region Debug Mode Enabled
+
+        if (Configuration.EnableDebugMode && isHandled && !message.TextValue.StartsWith("[TidyChat]"))
+        {
+            var stringBuilder = new SeStringBuilder();
+            Better.AddTidyChatTag(stringBuilder);
+            Better.AddDebugTag(stringBuilder);
+            stringBuilder.AddText(message.TextValue);
+            message = stringBuilder.BuiltString;
+            isHandled = false;
         }
 
-        private void UpdateBlockedCount()
+        #endregion Debug Mode Enabled
+
+        SessionBlockedMessages += 1;
+        if (SessionBlockedMessages > 100) UpdateBlockedCount();
+    }
+
+    private void SetPlayerName()
+    {
+        try
         {
-            Configuration.TtlMessagesBlocked += SessionBlockedMessages;
-            SessionBlockedMessages = 0;
+            if (ClientState.LocalPlayer == null) return;
+
+            Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
             Configuration.Save();
         }
-
-        private void UpdateDtrBarEntry(string text = "")
+        catch
         {
-            dtrEntry.Text = text;
-        }
-
-        private void OnCommand(string command, string args)
-        {
-            SetPlayerName();
-            PluginUi.SettingsVisible = true;
-        }
-
-        private void UpdateLang(string langCode)
-        {
-            localization.Culture = new CultureInfo(langCode);
-        }
-
-        private void DrawUI()
-        {
-            PluginUi.Draw();
-        }
-
-        private void DrawConfigUI()
-        {
-            SetPlayerName();
-            PluginUi.SettingsVisible = true;
+            // Just don't do anything if we can't set player name
         }
     }
+
+    private void InstanceDtrBarUpdates()
+    {
+        if (Configuration.InstanceInDtrBar)
+            try
+            {
+                var InstanceSignaturePtr =
+                    SigScanner.GetStaticAddressFromSig("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 80 BD");
+
+                // This will return the instance value: 0,1,2,3
+                int InstanceNumberFromSignature = Marshal.ReadByte(InstanceSignaturePtr, 0x20);
+
+                if (InstanceNumberFromSignature == 1)
+                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
+                else if (InstanceNumberFromSignature == 2)
+                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
+                else if (InstanceNumberFromSignature == 3)
+                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
+                else if (InstanceNumberFromSignature == 0) UpdateDtrBarEntry();
+            }
+            catch (Exception ex)
+            {
+                PluginLog.LogDebug("Error: " + ex);
+            }
+        else if (!Configuration.InstanceInDtrBar && dtrEntry != null) dtrEntry?.Dispose();
+    }
+
+    private void UpdateBlockedCount()
+    {
+        Configuration.TtlMessagesBlocked += SessionBlockedMessages;
+        SessionBlockedMessages = 0;
+        Configuration.Save();
+    }
+
+    private void UpdateDtrBarEntry(string text = "")
+    {
+        dtrEntry.Text = text;
+    }
+
+    private void OnCommand(string command, string args)
+    {
+        SetPlayerName();
+        PluginUi.SettingsVisible = true;
+    }
+
+    private void UpdateLang(string langCode)
+    {
+        localization.Culture = new CultureInfo(langCode);
+    }
+
+    private void DrawUI()
+    {
+        PluginUi.Draw();
+    }
+
+    private void DrawConfigUI()
+    {
+        SetPlayerName();
+        PluginUi.SettingsVisible = true;
+    }
+
+    #region Chat2 ChatTypes
+
+    // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
+    private const ushort Clear7 = ~(~0 << 7);
+    internal ushort Raw { get; }
+    internal ChatType Type => (ChatType)(Raw & Clear7);
+
+    private static ChatType FromCode(ushort code)
+    {
+        return (ChatType)(code & Clear7);
+    }
+
+    private static ChatType FromDalamud(XivChatType type)
+    {
+        return FromCode((ushort)type);
+    }
+
+    #endregion Chat2 ChatTypes
 }

@@ -1,28 +1,25 @@
-﻿using Dalamud.Logging;
-using System;
+﻿using System;
+using Dalamud.Logging;
 
-namespace TidyChat
+namespace TidyChat;
+
+public static class FilterFreeCompanyMessages
 {
-    public static class FilterFreeCompanyMessages
+    public static bool IsFiltered(string input, Configuration configuration)
     {
-        public static bool IsFiltered(string input, Configuration configuration)
+        try
         {
-            try
-            {
-                if (
-                    (configuration.HideUserLogins && L10N.Get(ChatRegexStrings.HasLoggedIn).IsMatch(input)) ||
-                    (configuration.HideUserLogouts && L10N.Get(ChatRegexStrings.HasLoggedOut).IsMatch(input))
-                   )
-                {
-                    return true;
-                }
-                return false;
-            }
-            catch (Exception e)
-            {
-                PluginLog.LogDebug("Encountered error: " + e);
-                return false;
-            }
+            if (
+                (configuration.HideUserLogins && L10N.Get(ChatRegexStrings.HasLoggedIn).IsMatch(input)) ||
+                (configuration.HideUserLogouts && L10N.Get(ChatRegexStrings.HasLoggedOut).IsMatch(input))
+            )
+                return true;
+            return false;
+        }
+        catch (Exception e)
+        {
+            PluginLog.LogDebug("Encountered error: " + e);
+            return false;
         }
     }
 }

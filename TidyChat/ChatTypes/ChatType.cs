@@ -4,8 +4,11 @@
  *
  */
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace ChatTwo.Code;
-[System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1028:Enum Storage should be Int32")]
+
+[SuppressMessage("Design", "CA1028:Enum Storage should be Int32")]
 public enum ChatType : ushort
 {
     Debug = 1,
@@ -89,5 +92,5 @@ public enum ChatType : ushort
     CrossLinkshell5 = 104,
     CrossLinkshell6 = 105,
     CrossLinkshell7 = 106,
-    CrossLinkshell8 = 107,
+    CrossLinkshell8 = 107
 }

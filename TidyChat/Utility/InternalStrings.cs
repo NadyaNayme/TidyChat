@@ -1,86 +1,85 @@
-﻿namespace TidyChat.Utility
+﻿namespace TidyChat.Utility;
+
+internal static class InternalStrings
 {
-    internal static class InternalStrings
+    public const string SettingsCommand = "/tidychat";
+
+    public const string ShorthandCommand = "/tidy";
+    public static readonly string Version = "0.1.1.20";
+
+    public static readonly string PluginName = "Tidy Chat";
+
+    public static readonly string SettingsHelper = "Open settings";
+
+    public static readonly string ShorthandHelper = "Shorthand command to open settings";
+
+    // The space at the end is intentional
+    public static readonly string Tag = "[TidyChat] ";
+    public static readonly string DebugTag = "[Debug] ";
+
+    public static readonly LocalizedTidyStrings InstanceText = new()
     {
-        public readonly static string Version = "0.1.1.20";
+        Jpn = new string("インスタンスエリア"),
+        Eng = new string("You are now in instance:"),
+        Deu = new string("Du bist nun in dem instanziierten:"),
+        Fra = new string("La zone instanciée:")
+    };
 
-        public readonly static string PluginName = "Tidy Chat";
+    public static readonly LocalizedTidyStrings InstanceWord = new()
+    {
+        Jpn = new string("インスタンスエリア"),
+        Eng = new string("Instance"),
+        Deu = new string("Instanziierten"),
+        Fra = new string("Instanciée")
+    };
 
-        public const string SettingsCommand = "/tidychat";
+    public static readonly LocalizedTidyStrings CopiedToClipboard = new()
+    {
+        Jpn = new string("クリップボードにコピーされました"),
+        Eng = new string("has been copied to clipboard"),
+        Deu = new string("wurde in die Zwischenablage kopiert"),
+        Fra = new string("a été copié")
+    };
 
-        public readonly static string SettingsHelper = "Open settings";
+    public static readonly LocalizedTidyStrings Guildhest = new()
+    {
+        Jpn = new string("ギルドヘストから入手"),
+        Eng = new string("a Guildhest"),
+        Deu = new string("ein Gildengeheiß"),
+        Fra = new string("une opération de guilde")
+    };
 
-        public readonly static string ShorthandHelper = "Shorthand command to open settings";
+    public static readonly LocalizedTidyStrings PvPDuty = new()
+    {
+        Jpn = new string("NeedsLocalization"),
+        Eng = new string("a PvP duty"),
+        Deu = new string("aus einer PVP"),
+        Fra = new string("une mission JcJ")
+    };
 
-        public const string ShorthandCommand = "/tidy";
+    /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
+    public static readonly LocalizedTidyStrings POTD = new()
+    {
+        Jpn = new string("NeedsLocalization"),
+        Eng = new string("Palace of the Dead"),
+        Deu = new string("Palast der Toten"),
+        Fra = new string("Palais des morts")
+    };
 
-        // The space at the end is intentional
-        public readonly static string Tag = "[TidyChat] ";
-        public readonly static string DebugTag = "[Debug] ";
+    /// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
+    public static readonly LocalizedTidyStrings HOH = new()
+    {
+        Jpn = new string("NeedsLocalization"),
+        Eng = new string("Heaven-on-High"),
+        Deu = new string("Himmelssäule"),
+        Fra = new string("Pilier des Cieux")
+    };
 
-        public readonly static LocalizedTidyStrings InstanceText = new()
-        {
-            Jpn = new string("インスタンスエリア"),
-            Eng = new string("You are now in instance:"),
-            Deu = new string("Du bist nun in dem instanziierten:"),
-            Fra = new string("La zone instanciée:"),
-        };
+    public static readonly string FirstInstance = "";
+    public static readonly string SecondInstance = "";
+    public static readonly string ThirdInstance = "";
 
-        public readonly static LocalizedTidyStrings InstanceWord = new()
-        {
-            Jpn = new string("インスタンスエリア"),
-            Eng = new string("Instance"),
-            Deu = new string("Instanziierten"),
-            Fra = new string("Instanciée"),
-        };
+    public static string LastDuty { get; set; } = "";
 
-        public readonly static LocalizedTidyStrings CopiedToClipboard = new()
-        {
-            Jpn = new string("クリップボードにコピーされました"),
-            Eng = new string("has been copied to clipboard"),
-            Deu = new string("wurde in die Zwischenablage kopiert"),
-            Fra = new string("a été copié")
-        };
-
-        public readonly static LocalizedTidyStrings Guildhest = new()
-        {
-            Jpn = new string("ギルドヘストから入手"),
-            Eng = new string("a Guildhest"),
-            Deu = new string("ein Gildengeheiß"),
-            Fra = new string("une opération de guilde"),
-        };
-
-        public readonly static LocalizedTidyStrings PvPDuty = new()
-        {
-            Jpn = new string("NeedsLocalization"),
-            Eng = new string("a PvP duty"),
-            Deu = new string("aus einer PVP"),
-            Fra = new string("une mission JcJ"),
-        };
-
-        /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
-        public readonly static LocalizedTidyStrings POTD = new()
-        {
-            Jpn = new string("NeedsLocalization"),
-            Eng = new string("Palace of the Dead"),
-            Deu = new string("Palast der Toten"),
-            Fra = new string("Palais des morts"),
-        };
-
-        /// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
-        public readonly static LocalizedTidyStrings HOH = new()
-        {
-            Jpn = new string("NeedsLocalization"),
-            Eng = new string("Heaven-on-High"),
-            Deu = new string("Himmelssäule"),
-            Fra = new string("Pilier des Cieux"),
-        };
-
-        public static string LastDuty { get; set; } = "";
-
-        public static int NumberOfCommendations { get; set; } = 0;
-        public readonly static string FirstInstance = "";
-        public readonly static string SecondInstance = "";
-        public readonly static string ThirdInstance = "";
-    }
+    public static int NumberOfCommendations { get; set; } = 0;
 }

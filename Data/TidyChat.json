@@ -13,6 +13,8 @@
     "Emote",
     "Spam"
   ],
-  "CategoryTags": [ "Social" ],
+  "CategoryTags": [
+    "Social"
+  ],
   "IconUrl": "https://github.com/NadyaNayme/TidyChat/blob/master/images/icon.png"
 }
