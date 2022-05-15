@@ -22,22 +22,22 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>Tidy Chat hat bisher {0:n0} Nachrichten blockiert.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
         <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>Systemnachrichten-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-        <value>Filter Progress spam</value>
+        <value>Charakterentwicklung-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-        <value>These filters include messages like earned achievements or experience points</value>
+        <value>Diese Filter beinhalten z.B. erhaltene Errungenschaften oder Routine.</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-        <value>Filter Loot roll spam</value>
+        <value>Beutegut-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
         <value>This filter includes messages like rolling greed or player obtained a gear piece</value>
