@@ -152,9 +152,9 @@ public static class ChatStrings
         Fra = new[] { "vous", "accompli", "haut", "fait" } // a accompli le haut fait “ Élémentaliste légendaire”!
     };
 
-    /// <see href="https://xivapi.com/LogMessage/952?pretty=true"">Someone earns the achievement " Blah blah blah, Tidal
+    /// <see href="https://xivapi.com/LogMessage/952?pretty=true">
+    ///     Someone earns the achievement " Blah blah blah, Tidal
     ///     Wave!"
-    /// 
     /// </see>
     public static readonly LocalizedStrings OtherEarnAchievement = new()
     {
@@ -376,7 +376,7 @@ public static class ChatStrings
         Fra = new[] { "vous", "proposez", "un", "échange" }
     };
 
-    /// <see href="https://xivapi.com/LogMessage/32?pretty=true">Awaiting trade confirmation from <player></see>
+    /// <see href="https://xivapi.com/LogMessage/32?pretty=true">Awaiting trade confirmation from player</see>
     public static readonly LocalizedStrings AwaitingTradeConfirmation = new()
     {
         Jpn = new[] { "の内容確認をまっています" },
@@ -385,7 +385,7 @@ public static class ChatStrings
         Fra = new[] { "la", "proposition" }
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1?pretty=true">You invite <player> to a party.</see>
+    /// <see href="https://xivapi.com/LogMessage/1?pretty=true">You invite player to a party.</see>
     public static readonly LocalizedStrings InviteSent = new()
     {
         Jpn = new[] { "をパーティに誘いました" },
@@ -397,9 +397,9 @@ public static class ChatStrings
     public static readonly LocalizedStrings InviteeJoins = new()
     {
         Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "joins", "the", "party" }, // <Player> joins the party.
+        Eng = new[] { "joins", "the", "party" }, // Player joins the party.
         Deu = new[] { "NeedsLocalization" },
-        Fra = new[] { "rejoint", "l'équipe" } // <Player> rejoint l'équipe.
+        Fra = new[] { "rejoint", "l'équipe" } // Player rejoint l'équipe.
     };
 
     /// <see href="https://xivapi.com/LogMessage/73?pretty=true">The party has been disbanded.</see>
@@ -457,14 +457,14 @@ public static class ChatStrings
     public static readonly LocalizedStrings LeftParty = new()
     {
         Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "has", "left", "the", "party" }, // <Player> has left the party.
+        Eng = new[] { "has", "left", "the", "party" }, // Player has left the party.
         Deu = new[] { "NeedsLocalization" },
-        Fra = new[] { "quitté", "l'équipe" } // <Player> a quitté l'équipe.
+        Fra = new[] { "quitté", "l'équipe" } // Player a quitté l'équipe.
     };
 
     /// <see href="https://xivapi.com/LogMessage/440?pretty=true">
     ///     You have been offered a teleport to
-    ///     <Aetheryte> from <Player>.
+    ///     Aetheryte from Player.
     /// </see>
     public static readonly LocalizedStrings OfferedTeleport = new()
     {
@@ -481,14 +481,14 @@ public static class ChatStrings
         Eng = new[]
         {
             "record", "of", "added", "for"
-        }, // Record of <boss> kill (n/m) added for <Relic Weapon> - <Stats>.1
+        }, // Record of boss kill (n/m) added for Relic Weapon - Stats.1
         Deu = new[] { "ephemeridentafel", "wurde", "beseitigt" },
         Fra = new[] { "vous", "notez", "livre" }
     };
 
     /// <see href="https://xivapi.com/LogMessage/4400?pretty=true">
     ///     All objectives under the category
-    ///     <Category> - <buff> complete!
+    ///     Category - buff complete!
     /// </see>
     public static readonly LocalizedStrings RelicBookComplete = new()
     {
@@ -498,7 +498,7 @@ public static class ChatStrings
         Fra = new[] { "vous", "avez", "accompli", "toutes", "catégorie" }
     };
 
-    /// <see href="https://xivapi.com/LogMessage/4411?pretty=true">Hunt mark <mark> slain! #/#</see>
+    /// <see href="https://xivapi.com/LogMessage/4411?pretty=true">Hunt mark mark slain! #/#</see>
     public static readonly LocalizedStrings HuntSlain = new()
     {
         Jpn = new[] { "モブハント" },

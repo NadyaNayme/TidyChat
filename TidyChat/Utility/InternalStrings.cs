@@ -21,7 +21,7 @@ internal static class InternalStrings
     {
         Jpn = new string("インスタンスエリア"),
         Eng = new string("You are now in instance:"),
-        Deu = new string("Du bist nun in dem instanziierten:"),
+        Deu = new string("Du bist jetzt in Instanz:"),
         Fra = new string("La zone instanciée:")
     };
 
@@ -29,7 +29,7 @@ internal static class InternalStrings
     {
         Jpn = new string("インスタンスエリア"),
         Eng = new string("Instance"),
-        Deu = new string("Instanziierten"),
+        Deu = new string("Instanz"),
         Fra = new string("Instanciée")
     };
 
