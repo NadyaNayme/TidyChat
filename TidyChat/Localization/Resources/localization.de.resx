@@ -79,7 +79,7 @@ Dies erlaubt es dir, Benachrichtigungen mit ChatAlerts für "Du stellst ein" sta
         <value>Verbesserte /instanz Nachrichten</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-        <value>Ändert den Instanzentext zu: You are now in instance: #</value>
+        <value>Ändert den Instanzentext zu: Du bist jetzt in Instanz: #</value>
     </data>
     <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
         <value>Aktuelle Instanz in Server-Infoleiste anzeigen</value>
