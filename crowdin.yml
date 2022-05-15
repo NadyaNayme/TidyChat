@@ -1,0 +1,3 @@
+files:
+  - source: /Localization/Resources/localization.resx
+    translation: /Localization/Resources/%original_file_name%.%two_letters_code%.resx
