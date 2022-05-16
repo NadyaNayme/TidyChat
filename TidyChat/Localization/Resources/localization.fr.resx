@@ -713,24 +713,24 @@ It can be considered spammy in Palace of the Dead and Heaven On High.</value>
         <value>Afficher les messages d'actions apprises</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you learn a new ability.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Active l'affichage du message d'apprentissage d'une nouvelle action.
+Ce type de message peut être trop récurrent dans le Palais des Morts ou le Pilier des Cieux.</value>
     </data>
     <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages sent by whitelisted player</value>
+        <value>Afficher tous les messages envoyés par un joueur whitelisté</value>
     </data>
     <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages targeting a whitelisted player</value>
+        <value>Afficher tous les messages envoyés à un joueur whitelisté</value>
     </data>
     <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-        <value>Users added to the whitelist will be treated as if they were you for all filter settings.
-Enter a player's first and last name and then press &lt;Enter&gt; to add them to the whitelist.</value>
+        <value>Les personnages ajoutés à la whitelist seront traités comme s'il s'agissait de vous quant à l'application des paramètres de filtrage.
+Entrez le prénom et nom d'un personnage, puis pressez &lt;Entée&gt; pour les ajouter à votre whitelist.</value>
     </data>
     <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
         <value>Select Channels</value>
     </data>
     <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
-        <value>Informations sur le Joueur</value>
+        <value>Informations du Personnage</value>
     </data>
     <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
         <value>You must enter the player's name as it would be seen in chat - including any periods.
