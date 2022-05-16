@@ -710,7 +710,7 @@ It can be considered spammy in Palace of the Dead and Heaven On High.</value>
  eg. Player attains level 33!</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
-        <value>Show learned ability messages</value>
+        <value>Afficher les messages d'actions apprises</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when you learn a new ability.
