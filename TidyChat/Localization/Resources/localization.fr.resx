@@ -22,10 +22,10 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>À ce jour, Tidy Chat a bloqué {0:n0} messages.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Le compteur n'est actualisé que tous les 100 messages bloqués, lors d'un changement de zone, ou d'une déconnexion.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
         <value>Filter System spam</value>
@@ -675,19 +675,19 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Activer l'affichage du message notifiant le bonus de récompense pour avoir effectué une roulette</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
+        <value>Exemple : Un bonus de 42524498 points d'expérience et 12000 gils vous ont été accordés pour avoir utilisé une roulette.</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
         <value>Activer l'affichage du message notifiant du bonus accordé pour avoir rempli un rôle en nombre insuffisant</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
+        <value>Exemple : Un bonus de 5000 gils vous a été accordé pour avoir rempli un rôle en nombre insuffisant.</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
         <value>Activer l'affichage du message notifiant de gain de points d'expérience de PvP</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You acquire 500 PvP EXP.</value>
+        <value>Exemple : Vous obtenez 500 points d'expérience JCJ.</value>
     </data>
     <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
         <value>Activer l'affichage du message notifiant de l'accomplissement d'un haut-fait</value>
@@ -699,8 +699,8 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Activer l'affichage du message notifiant d'une montée de niveau</value>
     </data>
     <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you level up.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Activer l'affichage du message notifiant d'une montée de niveau.
+Ce type de message peut être trop récurrent dans le Palais des Morts ou le Pilier des Cieux.</value>
     </data>
     <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
         <value>Activer l'affichage du message notifiant de la montée de niveau des autres joueurs</value>
