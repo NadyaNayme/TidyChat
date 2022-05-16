@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <Authors>Nana</Authors>
+        <Authors>Nadya</Authors>
         <Company>Served with love</Company>
-        <Version>0.1.1.20</Version>
-        <Description>Various chat filters for a less cluttered chat. Use /tidychat to open settings.</Description>
+        <Version>0.1.1.21</Version>
+        <Description>Filters most of the game's spammy messages away. Condense earned commendations into a single line, autocopy /say text for most quests, block emote spam and more.</Description>
         <Copyright></Copyright>
         <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -49,8 +49,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="DalamudPackager" Version="2.1.6"/>
-        <PackageReference Include="TextCopy" Version="6.1.0"/>
+        <PackageReference Include="DalamudPackager" Version="2.1.6" />
+        <PackageReference Include="TextCopy" Version="6.1.0" />
     </ItemGroup>
 
     <ItemGroup>
@@ -89,18 +89,6 @@
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>localization.Designer.cs</LastGenOutput>
         </EmbeddedResource>
-        <EmbeddedResource Update="Localization\Resources\localization.de.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>localization.de.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
-        <EmbeddedResource Update="Localization\Resources\localization.fr.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>localization.fr.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
-        <EmbeddedResource Update="Localization\Resources\localization.ja.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>localization.ja.Designer.cs</LastGenOutput>
-        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
@@ -108,21 +96,6 @@
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
             <DependentUpon>localization.resx</DependentUpon>
-        </Compile>
-        <Compile Update="Localization\Resources\localization.de.Designer.cs">
-            <DesignTime>True</DesignTime>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>localization.de.resx</DependentUpon>
-        </Compile>
-        <Compile Update="Localization\Resources\localization.fr.Designer.cs">
-            <DesignTime>True</DesignTime>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>localization.fr.resx</DependentUpon>
-        </Compile>
-        <Compile Update="Localization\Resources\localization.ja.Designer.cs">
-            <DesignTime>True</DesignTime>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>localization.ja.resx</DependentUpon>
         </Compile>
     </ItemGroup>
 

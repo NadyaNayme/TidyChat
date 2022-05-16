@@ -30,7 +30,6 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(localization.SystemTab_HideInstanceMessageHelpMarker);
 
-
             var sRankHunt = configuration.HideSRankHunt;
             if (ImGui.Checkbox(localization.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
             {
