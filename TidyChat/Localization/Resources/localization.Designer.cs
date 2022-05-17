@@ -1654,6 +1654,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide gear reaching 100% spiritbound messages.
+        /// </summary>
+        internal static string SystemTab_HideSpiritboundMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideSpiritboundMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide S Rank Hunt spawn announcement.
         /// </summary>
         internal static string SystemTab_HideSRankSpawnAnnouncement {
@@ -1705,6 +1714,15 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideSubmarineVoyageMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideSubmarineVoyageMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide &quot;Teleporting to...&quot; messages.
+        /// </summary>
+        internal static string SystemTab_HideTeleportingToMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideTeleportingToMessages", resourceCulture);
             }
         }
         
@@ -2229,6 +2247,159 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_TradingDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_TradingDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You earned 0 commendations from dancing thancred was pretty pleasant when i ended up kugane o..
+        /// </summary>
+        internal static string TidyChat_TippyIpcMessagesDancingThancred {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyIpcMessagesDancingThancred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It looks like people like you!.
+        /// </summary>
+        internal static string TidyChat_TippyIpcMessagesPopularCommendations {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyIpcMessagesPopularCommendations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to And here is where I&apos;d tell you how many commendations you received... if you had received any..
+        /// </summary>
+        internal static string TidyChat_TippyIpcMessagesZeroCommendations {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyIpcMessagesZeroCommendations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To enable Tippy Tips for Tidy Chat you must first install Tippy..
+        /// </summary>
+        internal static string TidyChat_TippyIpcToEnable {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyIpcToEnable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat&apos;s whitelist as a name! Yes - that really works!.
+        /// </summary>
+        internal static string TidyChat_TippyTips1 {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTips1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did you know? Tidy Chat has a chat history feature to block repetitive messages..
+        /// </summary>
+        internal static string TidyChat_TippyTips2 {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTips2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead..
+        /// </summary>
+        internal static string TidyChat_TippyTips3 {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTips3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has many useful settings that must first be enabled..
+        /// </summary>
+        internal static string TidyChat_TippyTips4 {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTips4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat..
+        /// </summary>
+        internal static string TidyChat_TippyTips6 {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTips6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 50,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverFiftyThousand {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverFiftyThousand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 500,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverFiveHundredThousand {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverFiveHundredThousand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 5,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverFiveThousand {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverFiveThousand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 100 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverOneHundred {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverOneHundred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 100,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverOneHundredThousand {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverOneHundredThousand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 1,000,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverOneMillion {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverOneMillion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 1,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverOneThousand {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverOneThousand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tidy Chat has blocked over 10,000 messages so far!.
+        /// </summary>
+        internal static string TidyChat_TippyTipsOverTenThousand {
+            get {
+                return ResourceManager.GetString("TidyChat_TippyTipsOverTenThousand", resourceCulture);
             }
         }
         

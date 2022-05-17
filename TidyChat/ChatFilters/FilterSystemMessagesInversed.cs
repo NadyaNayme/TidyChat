@@ -25,6 +25,7 @@ public static class FilterSystemMessagesInversed
                 (!configuration.HideAetherCompass && L10N.Get(ChatStrings.AetherCompass).All(input.Contains)) ||
                 (!configuration.HideCountdownTime && (L10N.Get(ChatStrings.CountdownTime).All(input.Contains) ||
                                                       L10N.Get(ChatStrings.CountdownEngage).All(input.Contains))) ||
+                (!configuration.HideSpiritboundGear && L10N.Get(ChatRegexStrings.CompleteSpiritbond).IsMatch(input)) ||
                 (!configuration.HideExploratoryVoyage && L10N.Get(ChatRegexStrings.ExploratoryVoyage).IsMatch(input)) ||
                 (!configuration.HideSubaquaticVoyage && L10N.Get(ChatRegexStrings.SubaquaticVoyage).IsMatch(input)) ||
                 (!configuration.HideVistaMessages && L10N.Get(ChatRegexStrings.VistaMessages).IsMatch(input)) ||

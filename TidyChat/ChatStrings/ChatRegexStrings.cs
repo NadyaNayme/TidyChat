@@ -216,20 +216,20 @@ public static class ChatRegexStrings
         Fra = new Regex(@"vous vous équipez (.*)\.", regexOptions)
     };
 
-    // Future proofing the materias a bit
+    // Future proofing the materias a bit here
     public static readonly Regex MateriaRetrieved =
         new(
-            @"You (receive|receives) (a|an|2) .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX)",
+            @"You (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}",
             regexOptions);
 
     public static readonly Regex MateriaShatters =
         new(
-            @"The .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX) shatters",
+            @"The .+ materia [I|V|X|L|C|D|M]{1,10} shatters",
             regexOptions);
 
     public static readonly Regex AttachedMateria =
         new(
-            @"You successfully attach (a|an) .+ materia (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVII|XIV|XV|XVI|XVII|XVII|XVIII|XIX) to the",
+            @"You successfully attach (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the",
             regexOptions);
 
     /// <see href="https://xivapi.com/LogMessage/3860?pretty=true">Master volume muted/unmuted</see>
@@ -282,6 +282,15 @@ public static class ChatRegexStrings
         Eng = new Regex(@"(.* gains .* experience points\.)", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(@".* gagnez .* points d'expérience\.", regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with item is complete!</see>
+    public static readonly LocalizedRegex CompleteSpiritbond = new()
+    {
+        Jpn = new Regex(@"の錬精度が100%になった！", regexOptions),
+        Eng = new Regex(@"your spiritbond with .+ is complete\!", regexOptions),
+        Deu = new Regex(@"deine emotionale bindung an .+ hat 100 \% erreicht\!", regexOptions),
+        Fra = new Regex(@"vous êates en symbiose avec", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/3085?pretty=true">Player has logged out</see>

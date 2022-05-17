@@ -96,6 +96,6 @@ internal static class InternalStrings
     public static readonly string ThirdInstance = "";
 
     public static string LastDuty { get; set; } = "";
-
-    public static int NumberOfCommendations { get; set; } = 0;
+    public static short CommendationsEarned { get; set; } = 0;
+    public static short LastCommendations { get; set; } = 0;
 }

@@ -30,6 +30,13 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(localization.SystemTab_HideInstanceMessageHelpMarker);
 
+            var hideDebugTeleport = configuration.HideDebugTeleport;
+            if (ImGui.Checkbox(localization.SystemTab_HideTeleportingToMessages, ref hideDebugTeleport))
+            {
+                configuration.HideDebugTeleport = hideDebugTeleport;
+                configuration.Save();
+            }
+
             var sRankHunt = configuration.HideSRankHunt;
             if (ImGui.Checkbox(localization.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
             {
@@ -155,6 +162,13 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(localization.SystemTab_HideTryOnGlamourMessagesHelpMarker);
+
+            var hideSpiritboundGear = configuration.HideSpiritboundGear;
+            if (ImGui.Checkbox(localization.SystemTab_HideSpiritboundMessages, ref hideSpiritboundGear))
+            {
+                configuration.HideSpiritboundGear = hideSpiritboundGear;
+                configuration.Save();
+            }
         }
 
         if (ImGui.CollapsingHeader(localization.SystemTab_ShowHiddenMessagesDropdownHeader))

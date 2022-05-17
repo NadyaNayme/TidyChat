@@ -4,56 +4,12 @@ using Dalamud;
 using Dalamud.Game.Gui;
 using Dalamud.Game.Text.SeStringHandling;
 using TextCopy;
-using TidyChat.Localization.Resources;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat.Utility;
 
 internal static class BetterStrings
 {
-    public static void Commendations(Configuration configuration, ChatGui chatGui)
-    {
-        TidyStrings.NumberOfCommendations++;
-
-        // Give it a few seconds before sending the /debug message with the total number of commendations in case there is any lag between commendation messages
-        // There shouldn't be any lag since I think they all get sent at once - but having this small wait guarantees that there won't be any problems
-        if (TidyStrings.NumberOfCommendations == 1)
-        {
-            var t = new Timer
-            {
-                Interval = 2500,
-                AutoReset = false
-            };
-            t.Elapsed += delegate
-            {
-                var stringBuilder = new SeStringBuilder();
-                if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-
-                var commendations = "";
-                if (TidyStrings.NumberOfCommendations == 1)
-                    commendations = string.Format(localization.BetterStrings_CommendationSingular);
-                else if (TidyStrings.NumberOfCommendations > 1)
-                    commendations = localization.BetterStrings_CommendationsPlural;
-
-                var dutyName =
-                    $"{(configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + localization.BetterStrings_CommendationsFromCompletingDuty + " " + L10N.GetTidy(TidyStrings.LastDuty) + "." : ".")}";
-
-                // TODO: Localize this
-                // FR: Vous avez reçu <#> honneurs en ayant participé à (...)
-                stringBuilder.AddText(string.Format(localization.BetterStrings_ReceivedCommendationsMessages,
-                    TidyStrings.NumberOfCommendations.ToString(), commendations, dutyName));
-
-                chatGui.Print(stringBuilder.BuiltString);
-
-                t.Enabled = false;
-                t.Dispose();
-                TidyStrings.NumberOfCommendations = 0;
-                TidyStrings.LastDuty = "";
-            };
-            t.Enabled = true;
-        }
-    }
-
     public static SeString SayReminder(SeString message, Configuration configuration)
     {
         // With the chat mode in Say, enter a phrase containing "Capture this"

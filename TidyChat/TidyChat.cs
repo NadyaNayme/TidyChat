@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Timers;
 using ChatTwo.Code;
+using Dalamud.Data;
 using Dalamud.Game;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
@@ -15,6 +16,8 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.IoC;
 using Dalamud.Logging;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Ipc.Exceptions;
+using Lumina.Excel.GeneratedSheets;
 using TidyChat.Localization.Resources;
 using TidyChat.Utility;
 using Better = TidyChat.Utility.BetterStrings;
@@ -38,12 +41,14 @@ public sealed class TidyChat : IDalamudPlugin
         [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
         [RequiredVersion("1.0")] SigScanner sigScanner,
         [RequiredVersion("1.0")] ChatGui chatGui,
+        [RequiredVersion("1.0")] DataManager dataManager,
         [RequiredVersion("1.0")] CommandManager commandManager,
         [RequiredVersion("1.0")] ClientState clientState)
     {
         PluginInterface = pluginInterface;
         SigScanner = sigScanner;
         CommandManager = commandManager;
+        DataManager = dataManager;
         ChatGui = chatGui;
         ClientState = clientState;
 
@@ -84,6 +89,8 @@ public sealed class TidyChat : IDalamudPlugin
 
     #endregion Setup
 
+    private DataManager DataManager { get; } = null!;
+
     [PluginService] private DtrBar DtrBar { get; init; }
     private DalamudPluginInterface PluginInterface { get; }
     private SigScanner SigScanner { get; }
@@ -114,43 +121,55 @@ public sealed class TidyChat : IDalamudPlugin
         if (PluginInterface.PluginInternalNames.Contains("Tippy"))
         {
             var tippyTip = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterTip");
-            tippyTip.InvokeFunc(
-                "Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!");
-            tippyTip.InvokeFunc("Did you know? Tidy Chat has a chat history feature to block repetitive messages.");
-            tippyTip.InvokeFunc(
-                "Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.");
-            tippyTip.InvokeFunc("Tidy Chat has many useful settings that must first be enabled.");
-            tippyTip.InvokeFunc(
-                "Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat.");
 
-            switch (Configuration.TtlMessagesBlocked)
+            try
             {
-                case > 1000000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 1,000,000 messages so far!");
-                    break;
-                case > 500000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 500,000 messages so far!");
-                    break;
-                case > 100000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 100,000 messages so far!");
-                    break;
-                case > 50000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 50,000 messages so far!");
-                    break;
-                case > 10000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 10,000 messages so far!");
-                    break;
-                case > 5000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 5,000 messages so far!");
-                    break;
-                case > 1000:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 1,000 messages so far!");
-                    break;
-                case > 100:
-                    tippyTip.InvokeFunc("Tidy Chat has blocked over 100 messages so far!");
-                    break;
-                case <= 100:
-                    break;
+                tippyTip.InvokeFunc(
+                    localization.TidyChat_TippyTips1);
+                tippyTip.InvokeFunc(localization.TidyChat_TippyTips2);
+                tippyTip.InvokeFunc(
+                    localization.TidyChat_TippyTips3);
+                tippyTip.InvokeFunc(localization.TidyChat_TippyTips4);
+                tippyTip.InvokeFunc(
+                    localization.TidyChat_TippyTips6);
+
+                switch (Configuration.TtlMessagesBlocked)
+                {
+                    case > 1000000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneMillion);
+                        break;
+                    case > 500000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverFiveHundredThousand);
+                        break;
+                    case > 100000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneHundredThousand);
+                        break;
+                    case > 50000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverFiftyThousand);
+                        break;
+                    case > 10000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverTenThousand);
+                        break;
+                    case > 5000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverFiveThousand);
+                        break;
+                    case > 1000:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneThousand);
+                        break;
+                    case > 100:
+                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneHundred);
+                        break;
+                    case <= 100:
+                        break;
+                }
+            }
+            catch (IpcNotReadyError)
+            {
+                var noTippyMessage = new SeStringBuilder();
+                if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
+
+                noTippyMessage.AddText(localization.TidyChat_TippyIpcToEnable);
+                ChatGui.Print(noTippyMessage.BuiltString);
             }
         }
         else
@@ -158,7 +177,7 @@ public sealed class TidyChat : IDalamudPlugin
             var noTippyMessage = new SeStringBuilder();
             if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
 
-            noTippyMessage.AddText("To enable Tippy Tips for Tidy Chat you must first install Tippy.");
+            noTippyMessage.AddText(localization.TidyChat_TippyIpcToEnable);
             ChatGui.Print(noTippyMessage.BuiltString);
         }
     }
@@ -172,11 +191,22 @@ public sealed class TidyChat : IDalamudPlugin
                 tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
                 break;
             case 1:
-                tippyMsg.InvokeFunc(
-                    "And here is where I'd tell you how many commendations you received... if you had received any.");
+                var rnd = new Random().Next(100);
+                switch (rnd)
+                {
+                    case 0:
+                        tippyMsg.InvokeFunc(
+                            localization.TidyChat_TippyIpcMessagesDancingThancred);
+                        break;
+                    case > 85:
+                        tippyMsg.InvokeFunc(
+                            localization.TidyChat_TippyIpcMessagesZeroCommendations);
+                        break;
+                }
+
                 break;
             case 2:
-                tippyMsg.InvokeFunc("It looks like people like you!");
+                tippyMsg.InvokeFunc(localization.TidyChat_TippyIpcMessagesPopularCommendations);
                 break;
         }
     }
@@ -184,6 +214,7 @@ public sealed class TidyChat : IDalamudPlugin
     private void OnLogin(object? sender, EventArgs e)
     {
         if (Configuration.EnableTippyTips) TippyIpcTips();
+        if (Configuration.BetterCommendationMessage) UpdateCommendationsCount();
 
         InstanceDtrBarUpdates();
     }
@@ -196,7 +227,40 @@ public sealed class TidyChat : IDalamudPlugin
     private void OnTerritoryChanged(object? sender, ushort e)
     {
         UpdateBlockedCount();
+        UpdateCommendationsCount();
         InstanceDtrBarUpdates();
+
+        if (Configuration.IncludeDutyNameInComms)
+            try
+            {
+                var territory = DataManager.GetExcelSheet<TerritoryType>()?.GetRow(e);
+                var exclusiveType = DataManager.GetExcelSheet<TerritoryType>()
+                    ?.GetRow(e)
+                    ?.ExclusiveType;
+                var isPvp = DataManager.GetExcelSheet<TerritoryType>()
+                    ?.GetRow(e)
+                    ?.IsPvpZone;
+                if (territory != null)
+                {
+                    var placeName = DataManager.GetExcelSheet<ContentFinderCondition>()
+                        ?.GetRow(territory.PlaceName.Row)
+                        ?.Name.ToString();
+                    var dutyName = DataManager.GetExcelSheet<ContentFinderCondition>()
+                        ?.GetRow(territory.ContentFinderCondition.Row)
+                        ?.Name.ToString();
+                    TidyStrings.LastDuty = exclusiveType switch
+                    {
+                        2 when dutyName?.Length >= 1 => dutyName,
+                        2 when dutyName?.Length == 0 && placeName?.Length > 0 => placeName,
+                        2 when dutyName?.Length == 0 && isPvp == true => L10N.GetTidy(TidyStrings.PvPDuty),
+                        _ => TidyStrings.LastDuty
+                    };
+                }
+            }
+            catch (KeyNotFoundException)
+            {
+                PluginLog.Warning("Could not get territory for current zone");
+            }
     }
 
     private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message,
@@ -228,15 +292,9 @@ public sealed class TidyChat : IDalamudPlugin
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             message = Better.SayReminder(message, Configuration);
 
-        if (Configuration.IncludeDutyNameInComms && !Configuration.EnableDebugMode)
-            TidyStrings.LastDuty = GetDuty.FindIn(message, normalizedText);
-
         if (Configuration.BetterCommendationMessage && !Configuration.EnableDebugMode &&
             L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
-        {
             isHandled = true;
-            Better.Commendations(Configuration, ChatGui);
-        }
 
         if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
             message = Better.NoviceNetwork(message, normalizedText, Configuration);
@@ -454,6 +512,37 @@ public sealed class TidyChat : IDalamudPlugin
         Configuration.TtlMessagesBlocked += SessionBlockedMessages;
         SessionBlockedMessages = 0;
         Configuration.Save();
+    }
+
+    private void UpdateCommendationsCount()
+    {
+        var totalCommendationsPtr =
+            SigScanner.GetStaticAddressFromSig("66 89 05 ?? ?? ?? ?? E9 ?? ?? ?? ?? 8B 44 24 60");
+        TidyStrings.CommendationsEarned = Marshal.ReadInt16(totalCommendationsPtr);
+        var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
+        TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
+
+        if (PluginInterface.PluginInternalNames.Contains("Tippy") && commendationChange == 0) TippyIpcMessages(1);
+        if (PluginInterface.PluginInternalNames.Contains("Tippy") && commendationChange >= 3) TippyIpcMessages(2);
+
+        if (commendationChange is >= 1 and <= 7)
+        {
+            var stringBuilder = new SeStringBuilder();
+            if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
+
+            var commendations = "";
+            commendations = commendationChange == 1
+                ? localization.BetterStrings_CommendationSingular
+                : localization.BetterStrings_CommendationsPlural;
+
+            var dutyName =
+                $"{(Configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + localization.BetterStrings_CommendationsFromCompletingDuty + " " + TidyStrings.LastDuty + "." : ".")}";
+
+            stringBuilder.AddText(string.Format(localization.BetterStrings_ReceivedCommendationsMessages,
+                commendationChange.ToString(), commendations, dutyName));
+
+            ChatGui.Print(stringBuilder.BuiltString);
+        }
     }
 
     private void UpdateDtrBarEntry(string text = "")

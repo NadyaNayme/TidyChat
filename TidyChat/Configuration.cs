@@ -81,6 +81,7 @@ public class Configuration : IPluginConfiguration
     public bool HideUserLogins { get; set; } = false;
     public bool HideUserLogouts { get; set; } = false;
     public bool HideDebugTeleport { get; set; } = false;
+    public bool HideSpiritboundGear { get; set; } = false;
     public bool HideSpideySenses { get; set; } = false;
     public bool HideAetherCompass { get; set; } = false;
     public bool HideSearchForItemResults { get; set; } = false;
