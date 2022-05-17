@@ -675,7 +675,7 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Activer l'affichage du message notifiant le bonus de récompense pour avoir effectué une roulette</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : Un bonus de 42524498 points d'expérience et 12000 gils vous ont été accordés pour avoir utilisé une roulette.</value>
+        <value>Exemple : Un bonus de 42524498 points d'expérience et 12000 gils vous ont été accordés pour avoir utilisé la fonction de mission aléatoire.</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
         <value>Activer l'affichage du message notifiant du bonus accordé pour avoir rempli un rôle en nombre insuffisant</value>
