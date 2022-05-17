@@ -31,73 +31,73 @@
         <value>Filtrer les messages Systèmes indésirables</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-        <value>Filter Progress spam</value>
+        <value>Filtrer les messages de Progression indésirables</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-        <value>These filters include messages like earned achievements or experience points</value>
+        <value>Ces filtres incluent des messages tels que les haut-faits accomplis ou les points d'expérience obtenus</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-        <value>Filter Loot roll spam</value>
+        <value>Filtrer les messages de Butin indésirables</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes messages like rolling greed or player obtained a gear piece</value>
+        <value>Ces filtres incluent des messages tels que les lancers de dés sur le butin ou l'obtention de pièces d'équipements</value>
     </data>
     <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
-        <value>Filter Obtained item spam</value>
+        <value>Filtrer les messages d'Objets obtenus indésirables</value>
     </data>
     <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes items obtained as monster drops, quest rewards, and roulette rewards</value>
+        <value>Ces filtres incluent des messages tels que les butins des monstres et les récompenses de quêtes ou de roulettes</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
-        <value>Filter Crafting spam</value>
+        <value>Filtrer les messages d'Artisanat indésirables</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes all crafting messages except "You synthesize a/an &lt;item&gt;"
-This allows you to use ChatAlerts to create an alert for "You synthesize" instead of using macro-finished alerts</value>
+        <value>Ces filtres incluent tous les messages d'artisanat, excepté "Vous fabriquez un &lt;objet&gt;"
+Cela vous permet d'utiliser ChatAlerts pour créer une alerte pour "Vous fabriquez" au lieu d'utiliser des alertes de chat en fin de macro</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
-        <value>Filter Gathering spam</value>
+        <value>Filtrer les messages de Récolte indésirables</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes "you begin/finish" gathering messages, as well as location affects</value>
+        <value>Ces filtres incluent les messages de début/fin de récoltes, ainsi que des particularités des points de récoltes</value>
     </data>
     <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
-        <value>Emote Filters</value>
+        <value>Filtres d'Emotes</value>
         <comment>The clickable dropdown header for Emote filters</comment>
     </data>
     <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
-        <value>Improved Messages</value>
+        <value>Messages Améliorés</value>
         <comment>Dropdown header for Improved Messages</comment>
     </data>
     <data name="GeneralTab_TidyChatTag" xml:space="preserve">
-        <value>Add [TidyChat] tag to any modified messages</value>
+        <value>Ajouter le tag [TidyChat] à tous les messages altérés</value>
     </data>
     <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
-        <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
+        <value>Ajouter [TidyChat] comme préfixe pour les messages envoyés ou modifiés par TidyChat</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
-        <value>Improved /instance messaging</value>
+        <value>Message de /instance amélioré</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-        <value>Changes the instance text to: You are now in instance: #</value>
+        <value>Change le texte d'instance en : "Vous êtes maintenant dans l'instance : #"</value>
     </data>
     <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
-        <value>Display current instance in DTR Bar</value>
+        <value>Afficher l'instance actuelle dans la Barre DTR</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
-        <value>Improved Player Commendations</value>
+        <value>Honneurs Reçus Améliorés</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
-        <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
+        <value>Désactiver les messages Système reçus pour les Honneurs et envoyer à la place un message unique dans le Canal de Chat Général de Dalamud (vérifiez vos Paramètres Globaux de Dalamud pour savoir de quel canal il s'agit - par défaut, il s'agit du canal Débug)</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
-        <value>Include completed duty with commendations message</value>
+        <value>Inclure le nom de la mission complétée avec le message condensé des honneurs reçus</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
-        <value>Requires Improved Player Commendations to be enabled</value>
+        <value>Nécessite que "Honneurs Reçus Améliorés" soit activé pour fonctionner</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
-        <value>Improved /Say message for quests</value>
+        <value>Message en /dire amélioré pour les quêtes</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
         <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
