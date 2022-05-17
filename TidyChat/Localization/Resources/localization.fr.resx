@@ -100,69 +100,69 @@ Cela vous permet d'utiliser ChatAlerts pour créer une alerte pour "Vous fabriqu
         <value>Message en /dire amélioré pour les quêtes</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-        <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
+        <value>Lorsqu'une quête vous demande de /dire quelque chose dans le chat, cette option permet de l'afficher dans le chat de manière à ce qu'il puisse facilement être copié/collé</value>
     </data>
     <data name="GeneralTab_CopySayMessage" xml:space="preserve">
-        <value>Automatically copy improved /say message to clipboard</value>
+        <value>Copier automatiquement le message à /dire dans le presse-papiers</value>
     </data>
     <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-        <value>Requires Improved /Say message for quests to be enabled</value>
+        <value>Nécessite que "Message en /dire amélioré pour les quêtes" soit activé pour fonctionner</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
-        <value>Improved Novice Network join and leave messages</value>
+        <value>Amélioration des messages relatifs au Réseau des Novices</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
-        <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
+        <value>Réduit la quantité de texte du Réseau des Novices quand vous le rejoignez et modifie le message de départ pour qu'il soit consistant.</value>
     </data>
     <data name="GeneralTab_EnableTippy" xml:space="preserve">
-        <value>Enable Tippy IPC</value>
+        <value>Activer l'IPC pour Tippy</value>
     </data>
     <data name="GeneralTab_HideKofiButton" xml:space="preserve">
-        <value>Hide ko-fi button</value>
+        <value>Masquer le bouton Ko-Fi</value>
     </data>
     <data name="GeneralTab_FilterEmotes" xml:space="preserve">
-        <value>Filter emote spam</value>
+        <value>Filtrer les messages d'Emotes indésirables</value>
     </data>
     <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
+        <value>Désactiver l'affichage des emotes dans le chat à moins que vous ne soyez la personne ayant utilisé l'emote ou qu'elle vous cible.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-        <value>Filter custom emote spam</value>
+        <value>Filtrer les Emotes personnalisées indésirables</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
-eg. Another Player leans over and gives you a big bear hug.</value>
+        <value>Désactiver l'affichage des emotes personnalisées via "/em" dans le chat à moins qu'elle ne vous mentionne ou que ce soit une emote que vous avez utilisée.
+Exemple : Un'autre Personnage se penche vers vous et vous fait un gros câlin.</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-        <value>Filter emotes used by yourself</value>
+        <value>Filtrer les emotes indésirables que vous utilisez vous-même</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide the message that occurs when you use an emote or custom emote.
-eg. You gently pat &lt;user&gt;</value>
+        <value>Désactiver l'affichage des emotes dans le chat lorsque vous utilisez une emote, personnalisée ou non.
+Exemple : Vous saluez &lt;Un'autre Personnage&gt;</value>
     </data>
     <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-        <value>Enable debug mode</value>
+        <value>Activer le mode débogage</value>
     </data>
     <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
-        <value>System</value>
+        <value>Système</value>
     </data>
     <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
-        <value>Loot/Obtain</value>
+        <value>Butin/Obtention</value>
     </data>
     <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
-        <value>Progress</value>
+        <value>Progression</value>
     </data>
     <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
-        <value>Crafting/Gathering</value>
+        <value>Artisanat/Récolte</value>
     </data>
     <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
-        <value>Chat History</value>
+        <value>Historique de Chat</value>
     </data>
     <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
         <value>Whitelist</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
-        <value>Experimental Feature: Inverse mode</value>
+        <value>Fonctionnalité Expérimentale : Mode Inversé</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
         <value>No longer blocks System messages by default.
