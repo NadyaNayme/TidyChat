@@ -28,7 +28,7 @@
         <value>Le compteur n'est actualisé que tous les 100 messages bloqués, lors d'un changement de zone, ou d'une déconnexion.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>Filtrer les messages Systèmes indésirables</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
         <value>Filter Progress spam</value>
