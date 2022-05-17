@@ -185,29 +185,40 @@ public sealed class TidyChat : IDalamudPlugin
     private void TippyIpcMessages(ushort msg)
     {
         var tippyMsg = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
-        switch (msg)
+        try
         {
-            case 0:
-                tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
-                break;
-            case 1:
-                var rnd = new Random().Next(100);
-                switch (rnd)
-                {
-                    case 0:
-                        tippyMsg.InvokeFunc(
-                            localization.TidyChat_TippyIpcMessagesDancingThancred);
-                        break;
-                    case > 85:
-                        tippyMsg.InvokeFunc(
-                            localization.TidyChat_TippyIpcMessagesZeroCommendations);
-                        break;
-                }
+            switch (msg)
+            {
+                case 0:
+                    tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
+                    break;
+                case 1:
+                    var rnd = new Random().Next(100);
+                    switch (rnd)
+                    {
+                        case 0:
+                            tippyMsg.InvokeFunc(
+                                localization.TidyChat_TippyIpcMessagesDancingThancred);
+                            break;
+                        case > 85:
+                            tippyMsg.InvokeFunc(
+                                localization.TidyChat_TippyIpcMessagesZeroCommendations);
+                            break;
+                    }
 
-                break;
-            case 2:
-                tippyMsg.InvokeFunc(localization.TidyChat_TippyIpcMessagesPopularCommendations);
-                break;
+                    break;
+                case 2:
+                    tippyMsg.InvokeFunc(localization.TidyChat_TippyIpcMessagesPopularCommendations);
+                    break;
+            }
+        }
+        catch (IpcNotReadyError)
+        {
+            var noTippyMessage = new SeStringBuilder();
+            if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
+
+            noTippyMessage.AddText(localization.TidyChat_TippyIpcToEnable);
+            ChatGui.Print(noTippyMessage.BuiltString);
         }
     }
 
