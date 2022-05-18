@@ -1,192 +1,208 @@
 using Dalamud.Interface.Components;
 using ImGuiNET;
+using TidyChat.Localization.Resources;
 
-namespace TidyChat.Settings.Tabs
+namespace TidyChat.Settings.Tabs;
+
+internal static class ObtainTab
 {
-    internal static class ObtainTab
+    public static void Draw(Configuration configuration)
     {
-        public static void Draw(Configuration configuration)
+        if (ImGui.CollapsingHeader(localization.ObtainTab_LootingAndRollingDropdownHeader))
         {
-
-            if (ImGui.CollapsingHeader("Looting & Rolling"))
+            var showCastLot = configuration.ShowCastLot;
+            if (ImGui.Checkbox(localization.ObtainTab_CastYourLotMessages, ref showCastLot))
             {
-
-                ImGui.TextUnformatted("The options below will allow you to override the spammy Loot messages filter.");
-                var showCastLot = configuration.ShowCastLot;
-                if (ImGui.Checkbox("Show \"You cast your lot\" messages", ref showCastLot))
-                {
-                    configuration.ShowCastLot = showCastLot;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you roll on loot.\neg. You cast your lot for the <item>");
-
-                var showLootRoll = configuration.ShowLootRoll;
-                if (ImGui.Checkbox("Show \"You rolled...\" messages", ref showLootRoll))
-                {
-                    configuration.ShowLootRoll = showLootRoll;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.\neg. You roll Need/Greed on the <item>. 63!");
-
-                var showOthersCastLot = configuration.ShowOthersCastLot;
-                if (ImGui.Checkbox("Show \"Another Player casts his/her lot <item>\" messages", ref showOthersCastLot))
-                {
-                    configuration.ShowOthersCastLot = showOthersCastLot;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party rolls for a loot drop.\neg. Some player casts her lot for <item>.");
-
-                var showOthersLootRoll = configuration.ShowOthersLootRoll;
-                if (ImGui.Checkbox("Show \"Another Player rolls Greed...\" messages", ref showOthersLootRoll))
-                {
-                    configuration.ShowOthersLootRoll = showOthersLootRoll;
-                    configuration.Save();
-                }
-
-                var showOthersObtain = configuration.ShowOthersObtain;
-                if (ImGui.Checkbox("Show \"Another Player obtains <item>\" messages", ref showOthersObtain))
-                {
-                    configuration.ShowOthersObtain = showOthersObtain;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when another player in the party obtains a loot drop.\neg. Some player obtains an <item>!");
-
+                configuration.ShowCastLot = showCastLot;
+                configuration.Save();
             }
 
-            if (ImGui.CollapsingHeader("Common Currencies"))
+            ImGuiComponents.HelpMarker(localization.ObtainTab_CastYourLotHelpMarker);
+
+            var showLootRoll = configuration.ShowLootRoll;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowYouRolledMessages, ref showLootRoll))
             {
-                var showObtainedgil = configuration.ShowObtainedGil;
-                if (ImGui.Checkbox("Show Gil", ref showObtainedgil))
-                {
-                    configuration.ShowObtainedGil = showObtainedgil;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 69 gil.");
-
-                var showObtainedSeals = configuration.ShowObtainedSeals;
-                if (ImGui.Checkbox("Show Grand Company Seals", ref showObtainedSeals))
-                {
-                    configuration.ShowObtainedSeals = showObtainedSeals;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 420 Flame Seals.");
-
-                var showObtainedVenture = configuration.ShowObtainedVenture;
-                if (ImGui.Checkbox("Show Ventures", ref showObtainedVenture))
-                {
-                    configuration.ShowObtainedVenture = showObtainedVenture;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain a Venture.");
-
-                var showObtainedMGP = configuration.ShowObtainedMGP;
-                if (ImGui.Checkbox("Show MGP", ref showObtainedMGP))
-                {
-                    configuration.ShowObtainedMGP = showObtainedMGP;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 117 MGP.");
+                configuration.ShowLootRoll = showLootRoll;
+                configuration.Save();
             }
 
-            if (ImGui.CollapsingHeader("Battle Currencies"))
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowYouRolledMessagesHelpMarker);
+
+            var showOthersCastLot = configuration.ShowOthersCastLot;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowAnotherPlayerCastsLotMessages, ref showOthersCastLot))
             {
-
-                var showObtainedPoeticsTomestones = configuration.ShowObtainedPoeticsTomestones;
-                if (ImGui.Checkbox("Show Allagan tomestones of Poetics", ref showObtainedPoeticsTomestones))
-                {
-                    configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 100 Allagan tomestones of Poetics.");
-
-                var showObtainedAphorismTomestones = configuration.ShowObtainedAphorismTomestones;
-                if (ImGui.Checkbox("Show Allagan tomestones of Aphorism", ref showObtainedAphorismTomestones))
-                {
-                    configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 60 Allagan tomestones of Aphorism.");
-
-                var showObtainedAstronomyTomestones = configuration.ShowObtainedAstronomyTomestones;
-                if (ImGui.Checkbox("Show Allagan tomestones of Astronomy", ref showObtainedAstronomyTomestones))
-                {
-                    configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 20 Allagan tomestones of Astronomy.");
-
-                var showObtainedWolfMarks = configuration.ShowObtainedWolfMarks;
-                if (ImGui.Checkbox("Show Wolf Marks", ref showObtainedWolfMarks))
-                {
-                    configuration.ShowObtainedWolfMarks = showObtainedWolfMarks;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 1,000 Wolf Marks.");
-
-                var showObtainedAlliedSeals = configuration.ShowObtainedAlliedSeals;
-                if (ImGui.Checkbox("Show Allied Seals", ref showObtainedAlliedSeals))
-                {
-                    configuration.ShowObtainedAlliedSeals = showObtainedAlliedSeals;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 100 Allied Seals.");
-
-                var showObtainedCenturioSeals = configuration.ShowObtainedCenturioSeals;
-                if (ImGui.Checkbox("Show Centurio Seals", ref showObtainedCenturioSeals))
-                {
-                    configuration.ShowObtainedCenturioSeals = showObtainedCenturioSeals;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 40 Centurio Seals.");
-
-                var showObtainedNuts = configuration.ShowObtainedNuts;
-                if (ImGui.Checkbox("Show sacks of Nuts", ref showObtainedNuts))
-                {
-                    configuration.ShowObtainedNuts = showObtainedNuts;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("eg. You obtain 100 sacks of Nuts.");
+                configuration.ShowOthersCastLot = showOthersCastLot;
+                configuration.Save();
             }
 
-            if (ImGui.CollapsingHeader("Beast Tribe Quests"))
-            {
-                var showObtainedMaterials = configuration.ShowObtainedMaterials;
-                if (ImGui.Checkbox("Show Beast Tribe crafting materials", ref showObtainedMaterials))
-                {
-                    configuration.ShowObtainedMaterials = showObtainedMaterials;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.\neg. You obtain Starboard Hull Component Materials");
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker);
 
-                var showObtainedTribalCurrency = configuration.ShowObtainedTribalCurrency;
-                if (ImGui.Checkbox("Show Beast Tribe Currencies", ref showObtainedTribalCurrency))
-                {
-                    configuration.ShowObtainedTribalCurrency = showObtainedTribalCurrency;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.");
+            var showOthersLootRoll = configuration.ShowOthersLootRoll;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowAnotherPlayerRollsMessages, ref showOthersLootRoll))
+            {
+                configuration.ShowOthersLootRoll = showOthersLootRoll;
+                configuration.Save();
             }
 
-            if (ImGui.CollapsingHeader("Other Obtain Messages"))
+            var showOthersObtain = configuration.ShowOthersObtain;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref showOthersObtain))
             {
-                var showObtainedClusters = configuration.ShowObtainedClusters;
-                if (ImGui.Checkbox("Show cracked clusters", ref showObtainedClusters))
-                {
-                    configuration.ShowObtainedClusters = showObtainedClusters;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show cracked clusters such as Dendroclusters and Anthoclusters.\nFor hiding elemental clusters see the hide elemental clusters option down below.\neg. You obtain a cracked dendrocluster");
-
-                var showObtainedShards = configuration.ShowObtainedShards;
-                if (ImGui.Checkbox("Show elemental shards, crystals, and clusters", ref showObtainedShards))
-                {
-                    configuration.ShowObtainedShards = showObtainedShards;
-                    configuration.Save();
-                }
-                ImGuiComponents.HelpMarker("This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters\neg. You obtain 30 ice shards");
+                configuration.ShowOthersObtain = showOthersObtain;
+                configuration.Save();
             }
 
-            ImGui.EndTabItem();
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
         }
+
+        if (ImGui.CollapsingHeader(localization.ObtainTab_CommonCurrenciesDropdownHeader))
+        {
+            var showObtainedgil = configuration.ShowObtainedGil;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowGil, ref showObtainedgil))
+            {
+                configuration.ShowObtainedGil = showObtainedgil;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowGilHelpMarker);
+
+            var showObtainedSeals = configuration.ShowObtainedSeals;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowGrandCompanySealsMessages, ref showObtainedSeals))
+            {
+                configuration.ShowObtainedSeals = showObtainedSeals;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowGrandCompanySealsMessagesHelpMarker);
+
+            var showObtainedVenture = configuration.ShowObtainedVenture;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowVentureMessages, ref showObtainedVenture))
+            {
+                configuration.ShowObtainedVenture = showObtainedVenture;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowVentureMessagesHelpMarker);
+
+            var showObtainedMGP = configuration.ShowObtainedMGP;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowMGPMessages, ref showObtainedMGP))
+            {
+                configuration.ShowObtainedMGP = showObtainedMGP;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowMGPMessagesHelpMarker);
+        }
+
+        if (ImGui.CollapsingHeader(localization.ObtainTab_BattleCurrenciesDropdownHeader))
+        {
+            var showObtainedPoeticsTomestones = configuration.ShowObtainedPoeticsTomestones;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowPoeticsMessages, ref showObtainedPoeticsTomestones))
+            {
+                configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowPoeticsMessagesHelpMarker);
+
+            var showObtainedAphorismTomestones = configuration.ShowObtainedAphorismTomestones;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowAphorismMessages, ref showObtainedAphorismTomestones))
+            {
+                configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAphorismMessagesHelpMarker);
+
+            var showObtainedAstronomyTomestones = configuration.ShowObtainedAstronomyTomestones;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowAstronomyMessages, ref showObtainedAstronomyTomestones))
+            {
+                configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAstronomyMessagesHelpMarker);
+
+            var showObtainedWolfMarks = configuration.ShowObtainedWolfMarks;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowWolfMarksMessages, ref showObtainedWolfMarks))
+            {
+                configuration.ShowObtainedWolfMarks = showObtainedWolfMarks;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowWolfMarksMessagesHelpMarker);
+
+            var showObtainedAlliedSeals = configuration.ShowObtainedAlliedSeals;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowAlliedSealsMessages, ref showObtainedAlliedSeals))
+            {
+                configuration.ShowObtainedAlliedSeals = showObtainedAlliedSeals;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAlliedSealsMessagesHelpMarker);
+
+            var showObtainedCenturioSeals = configuration.ShowObtainedCenturioSeals;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowCenturioSealsMessages, ref showObtainedCenturioSeals))
+            {
+                configuration.ShowObtainedCenturioSeals = showObtainedCenturioSeals;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowCenturioSealsMessagesHelpMarker);
+
+            var showObtainedNuts = configuration.ShowObtainedNuts;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowSacksOfNutsMessages, ref showObtainedNuts))
+            {
+                configuration.ShowObtainedNuts = showObtainedNuts;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowSacksOfNutsMessagesHelpMarker);
+        }
+
+        if (ImGui.CollapsingHeader(localization.ObtainTab_BeastTribeQuestsDropdownHeader))
+        {
+            var showObtainedMaterials = configuration.ShowObtainedMaterials;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowBeastTribeCraftingMaterialsMessages,
+                    ref showObtainedMaterials))
+            {
+                configuration.ShowObtainedMaterials = showObtainedMaterials;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
+
+            var showObtainedTribalCurrency = configuration.ShowObtainedTribalCurrency;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowBeastTribeCurrenciesMessages, ref showObtainedTribalCurrency))
+            {
+                configuration.ShowObtainedTribalCurrency = showObtainedTribalCurrency;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
+        }
+
+        if (ImGui.CollapsingHeader(localization.ObtainTab_OtherObtainMessagesDropdownHeader))
+        {
+            var showObtainedClusters = configuration.ShowObtainedClusters;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowCrackedClustersMessages, ref showObtainedClusters))
+            {
+                configuration.ShowObtainedClusters = showObtainedClusters;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
+
+            var showObtainedShards = configuration.ShowObtainedShards;
+            if (ImGui.Checkbox(localization.ObtainTab_ShowElementalShardsCrystalsClustersMessages,
+                    ref showObtainedShards))
+            {
+                configuration.ShowObtainedShards = showObtainedShards;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+        }
+
+        ImGui.EndTabItem();
     }
 }

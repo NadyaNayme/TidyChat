@@ -1,35 +1,38 @@
 using Dalamud.Interface.Components;
 using ImGuiNET;
+using TidyChat.Localization.Resources;
 
-namespace TidyChat.Settings.Tabs
+namespace TidyChat.Settings.Tabs;
+
+internal static class EmotesTab
 {
-    internal static class EmotesTab
+    public static void Draw(Configuration configuration)
     {
-        public static void Draw(Configuration configuration)
+        var filterEmoteSpam = configuration.FilterEmoteSpam;
+        if (ImGui.Checkbox(localization.GeneralTab_FilterEmotes, ref filterEmoteSpam))
         {
-            var filterEmoteSpam = configuration.FilterEmoteSpam;
-            if (ImGui.Checkbox("Filter emote spam", ref filterEmoteSpam))
-            {
-                configuration.FilterEmoteSpam = filterEmoteSpam;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will hide all emote text unless it is an emote targeting you or an emote you used.");
-
-            var hideOtherCustomEmotes = configuration.HideOtherCustomEmotes;
-            if (ImGui.Checkbox("Filter custom emote spam", ref hideOtherCustomEmotes))
-            {
-                configuration.HideOtherCustomEmotes = hideOtherCustomEmotes;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will hide all \"/em\" messages unless it mentions you or is a custom emote you used.\neg. Another Player leans over and gives you a big bear hug.");
-
-            var hideUsedEmotes = configuration.HideUsedEmotes;
-            if (ImGui.Checkbox("Filter emotes used by yourself", ref hideUsedEmotes))
-            {
-                configuration.HideUsedEmotes = hideUsedEmotes;
-                configuration.Save();
-            }
-            ImGuiComponents.HelpMarker("This will hide the message that occurs when you use an emote or custom emote.\neg. You gently pat <user>");
+            configuration.FilterEmoteSpam = filterEmoteSpam;
+            configuration.Save();
         }
+
+        ImGuiComponents.HelpMarker(localization.GeneralTab_FilterEmotesHelpMarker);
+
+        var hideOtherCustomEmotes = configuration.HideOtherCustomEmotes;
+        if (ImGui.Checkbox(localization.GeneralTab_FilterCustomEmotes, ref hideOtherCustomEmotes))
+        {
+            configuration.HideOtherCustomEmotes = hideOtherCustomEmotes;
+            configuration.Save();
+        }
+
+        ImGuiComponents.HelpMarker(localization.GeneralTab_FilterCustomEmotesHelpMarker);
+
+        var hideUsedEmotes = configuration.HideUsedEmotes;
+        if (ImGui.Checkbox(localization.GeneralTab_FilterSelfEmotes, ref hideUsedEmotes))
+        {
+            configuration.HideUsedEmotes = hideUsedEmotes;
+            configuration.Save();
+        }
+
+        ImGuiComponents.HelpMarker(localization.GeneralTab_FilterSelfEmotesHelpMarker);
     }
 }

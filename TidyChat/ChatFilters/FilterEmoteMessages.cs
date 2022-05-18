@@ -1,38 +1,32 @@
-﻿using ChatTwo.Code;
+﻿using System;
+using ChatTwo.Code;
 using Dalamud.Logging;
-using System;
 
-namespace TidyChat
+namespace TidyChat;
+
+public static class FilterEmoteMessages
 {
-    public static class FilterEmoteMessages
+    public static bool IsFiltered(string input, ChatType chatType, Configuration configuration)
     {
-
-        public static bool IsFiltered(string input, ChatType chatType, Configuration configuration)
+        try
         {
-            try
+            if (chatType is ChatType.StandardEmote)
             {
-                if (chatType is ChatType.StandardEmote)
-                {
-                    if (configuration.FilterEmoteSpam && !Localization.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
-                    {
-                        return true;
-                    }
-                }
-                else if (chatType is ChatType.CustomEmote)
-                {
-                    if (configuration.HideOtherCustomEmotes && !Localization.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
-                    {
-                        return true;
-                    }
+                if (configuration.FilterEmoteSpam && !L10N.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
+                    return true;
+            }
+            else if (chatType is ChatType.CustomEmote)
+            {
+                if (configuration.HideOtherCustomEmotes &&
+                    !L10N.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input)) return true;
+            }
 
-                }
-                return false;
-            }
-            catch (Exception e)
-            {
-                PluginLog.LogDebug("Encountered error: " + e);
-                return true;
-            }
+            return false;
+        }
+        catch (Exception e)
+        {
+            PluginLog.LogDebug("Encountered error: " + e);
+            return true;
         }
     }
 }

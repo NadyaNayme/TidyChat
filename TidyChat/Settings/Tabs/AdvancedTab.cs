@@ -1,52 +1,36 @@
-﻿using Dalamud.Interface.Components;
-using ImGuiNET;
+﻿using ImGuiNET;
+using TidyChat.Localization.Resources;
 
-namespace TidyChat.Settings.Tabs
+namespace TidyChat.Settings.Tabs;
+
+internal static class AdvancedTab
 {
-    internal static class AdvancedTab
+    public static void Draw(Configuration configuration)
     {
-        public static void Draw(Configuration configuration)
+        ImGui.Spacing();
+        ImGui.Spacing();
+        var enableDebugMode = configuration.EnableDebugMode;
+        if (ImGui.Checkbox(localization.AdvancedTab_EnableDebugMode, ref enableDebugMode))
         {
-            ImGui.Spacing();
-            ImGui.Spacing();
-            var enableDebugMode = configuration.EnableDebugMode;
-            if (ImGui.Checkbox("Enable debug mode", ref enableDebugMode))
-            {
-                configuration.EnableDebugMode = enableDebugMode;
-                configuration.Save();
-            }
-            ImGui.Separator();
-            ImGui.Spacing();
-            if (ImGui.BeginTabBar("##tidychatAdvancedConfigTabs"))
-            {
-                if (ImGui.BeginTabItem("System"))
-                {
-                    SystemTab.Draw(configuration);
-                }
-                if (ImGui.BeginTabItem("Loot/Obtain"))
-                {
-                    ObtainTab.Draw(configuration);
-                }
-                if (ImGui.BeginTabItem("Progress"))
-                {
-                    ProgressTab.Draw(configuration);
-                }
-                if (ImGui.BeginTabItem("Crafting/Gathering"))
-                {
-                    CraftingGatheringTab.Draw(configuration);
-                }
-                if (ImGui.BeginTabItem("Chat History"))
-                {
-                    ChatHistoryTab.Draw(configuration);
-                }
-                if (ImGui.BeginTabItem("Whitelist"))
-                {
-                    WhitelistTab.Draw(configuration);
-                }
-            }
-            ImGui.EndTabBar();
-
-            ImGui.EndTabItem();
+            configuration.EnableDebugMode = enableDebugMode;
+            configuration.Save();
         }
+
+        ImGui.Separator();
+        ImGui.Spacing();
+        if (ImGui.BeginTabBar("##tidychatAdvancedConfigTabs"))
+        {
+            if (ImGui.BeginTabItem(localization.AdvancedTab_SystemTabHeader)) SystemTab.Draw(configuration);
+            if (ImGui.BeginTabItem(localization.AdvancedTab_LootObtainTabHeader)) ObtainTab.Draw(configuration);
+            if (ImGui.BeginTabItem(localization.AdvancedTab_ProgressTabHeader)) ProgressTab.Draw(configuration);
+            if (ImGui.BeginTabItem(localization.AdvancedTab_CraftingGatheringTabHeader))
+                CraftingGatheringTab.Draw(configuration);
+            if (ImGui.BeginTabItem(localization.AdvancedTab_ChatHistoryTabHeader)) ChatHistoryTab.Draw(configuration);
+            if (ImGui.BeginTabItem(localization.AdvancedTab_WhitelistTabHeader)) WhitelistTab.Draw(configuration);
+        }
+
+        ImGui.EndTabBar();
+
+        ImGui.EndTabItem();
     }
 }
