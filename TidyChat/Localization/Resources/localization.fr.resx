@@ -854,4 +854,19 @@ Initiales : N. D.</value>
     <data name="TidyChat_TippyIpcMessagesPopularCommendations" xml:space="preserve">
         <value>It looks like people like you!</value>
     </data>
+    <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
+        <value>Free Company</value>
+    </data>
+    <data name="SystemTab_HideLoginMessages" xml:space="preserve">
+        <value>Hide Free Company member login messages</value>
+    </data>
+    <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
+        <value>Hide Free Company member logout messages</value>
+    </data>
+    <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
+        <value>Hide Free Company message book new entry messages</value>
+    </data>
+    <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
+        <value>Hide personal message book new entry messages</value>
+    </data>
 </root>
