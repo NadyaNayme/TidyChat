@@ -22,10 +22,10 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>Tidy Chat ha bloccato {0:n0} messaggi finora.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Il conteggio viene aggiornato solo ogni 100 messaggi bloccati, quando si cambia zona, o quando ci si disconnette.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
         <value>Filter System spam</value>
