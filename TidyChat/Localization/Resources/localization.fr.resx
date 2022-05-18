@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <root>
-    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                id="root"
-                xmlns="">
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
         <xsd:element name="root" msdata:IsDataSet="true">
 
         </xsd:element>
@@ -25,147 +22,147 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>À ce jour, Tidy Chat a bloqué {0:n0} messages.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Le compteur n'est actualisé que tous les 100 messages bloqués, lors d'un changement de zone, ou d'une déconnexion.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>Filtrer les messages Systèmes indésirables</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-        <value>Filter Progress spam</value>
+        <value>Filtrer les messages de Progression indésirables</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-        <value>These filters include messages like earned achievements or experience points</value>
+        <value>Ces filtres incluent des messages tels que les haut-faits accomplis ou les points d'expérience obtenus</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-        <value>Filter Loot roll spam</value>
+        <value>Filtrer les messages de Butin indésirables</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes messages like rolling greed or player obtained a gear piece</value>
+        <value>Ces filtres incluent des messages tels que les lancers de dés sur le butin ou l'obtention de pièces d'équipements</value>
     </data>
     <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
-        <value>Filter Obtained item spam</value>
+        <value>Filtrer les messages d'Objets obtenus indésirables</value>
     </data>
     <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes items obtained as monster drops, quest rewards, and roulette rewards</value>
+        <value>Ces filtres incluent des messages tels que les butins des monstres et les récompenses de quêtes ou de roulettes</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
-        <value>Filter Crafting spam</value>
+        <value>Filtrer les messages d'Artisanat indésirables</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes all crafting messages except "You synthesize a/an &lt;item&gt;"
-This allows you to use ChatAlerts to create an alert for "You synthesize" instead of using macro-finished alerts</value>
+        <value>Ces filtres incluent tous les messages d'artisanat, excepté "Vous fabriquez un &lt;objet&gt;"
+Cela vous permet d'utiliser ChatAlerts pour créer une alerte pour "Vous fabriquez" au lieu d'utiliser des alertes de chat en fin de macro</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
-        <value>Filter Gathering spam</value>
+        <value>Filtrer les messages de Récolte indésirables</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes "you begin/finish" gathering messages, as well as location affects</value>
+        <value>Ces filtres incluent les messages de début/fin de récoltes, ainsi que des particularités des points de récoltes</value>
     </data>
     <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
-        <value>Emote Filters</value>
+        <value>Filtres d'Emotes</value>
         <comment>The clickable dropdown header for Emote filters</comment>
     </data>
     <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
-        <value>Improved Messages</value>
+        <value>Messages Améliorés</value>
         <comment>Dropdown header for Improved Messages</comment>
     </data>
     <data name="GeneralTab_TidyChatTag" xml:space="preserve">
-        <value>Add [TidyChat] tag to any modified messages</value>
+        <value>Ajouter le tag [TidyChat] à tous les messages altérés</value>
     </data>
     <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
-        <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
+        <value>Ajouter [TidyChat] comme préfixe pour les messages envoyés ou modifiés par TidyChat</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
-        <value>Improved /instance messaging</value>
+        <value>Message de /instance amélioré</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-        <value>Changes the instance text to: You are now in instance: #</value>
+        <value>Change le texte d'instance en : "Vous êtes maintenant dans l'instance : #"</value>
     </data>
     <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
-        <value>Display current instance in DTR Bar</value>
+        <value>Afficher l'instance actuelle dans la Barre DTR</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
-        <value>Improved Player Commendations</value>
+        <value>Honneurs Reçus Améliorés</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
-        <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
+        <value>Désactiver les messages Système reçus pour les Honneurs et envoyer à la place un message unique dans le Canal de Chat Général de Dalamud (vérifiez vos Paramètres Globaux de Dalamud pour savoir de quel canal il s'agit - par défaut, il s'agit du canal Débug)</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
-        <value>Include completed duty with commendations message</value>
+        <value>Inclure le nom de la mission complétée avec le message condensé des honneurs reçus</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
-        <value>Requires Improved Player Commendations to be enabled</value>
+        <value>Nécessite que "Honneurs Reçus Améliorés" soit activé pour fonctionner</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
-        <value>Improved /Say message for quests</value>
+        <value>Message en /dire amélioré pour les quêtes</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-        <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
+        <value>Lorsqu'une quête vous demande de /dire quelque chose dans le chat, cette option permet de l'afficher dans le chat de manière à ce qu'il puisse facilement être copié/collé</value>
     </data>
     <data name="GeneralTab_CopySayMessage" xml:space="preserve">
-        <value>Automatically copy improved /say message to clipboard</value>
+        <value>Copier automatiquement le message à /dire dans le presse-papiers</value>
     </data>
     <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-        <value>Requires Improved /Say message for quests to be enabled</value>
+        <value>Nécessite que "Message en /dire amélioré pour les quêtes" soit activé pour fonctionner</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
-        <value>Improved Novice Network join and leave messages</value>
+        <value>Amélioration des messages relatifs au Réseau des Novices</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
-        <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
+        <value>Réduit la quantité de texte du Réseau des Novices quand vous le rejoignez et modifie le message de départ pour qu'il soit consistant.</value>
     </data>
     <data name="GeneralTab_EnableTippy" xml:space="preserve">
-        <value>Enable integration with Tippy (must install Tippy to work)</value>
+        <value>Activer l'IPC pour Tippy</value>
     </data>
     <data name="GeneralTab_HideKofiButton" xml:space="preserve">
-        <value>Hide ko-fi button</value>
+        <value>Masquer le bouton Ko-Fi</value>
     </data>
     <data name="GeneralTab_FilterEmotes" xml:space="preserve">
-        <value>Filter emote spam</value>
+        <value>Filtrer les messages d'Emotes indésirables</value>
     </data>
     <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
+        <value>Désactiver l'affichage des emotes dans le chat à moins que vous ne soyez la personne ayant utilisé l'emote ou qu'elle vous cible.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-        <value>Filter custom emote spam</value>
+        <value>Filtrer les Emotes personnalisées indésirables</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
-eg. Another Player leans over and gives you a big bear hug.</value>
+        <value>Désactiver l'affichage des emotes personnalisées via "/em" dans le chat à moins qu'elle ne vous mentionne ou que ce soit une emote que vous avez utilisée.
+Exemple : Un'autre Personnage se penche vers vous et vous fait un gros câlin.</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-        <value>Filter emotes used by yourself</value>
+        <value>Filtrer les emotes indésirables que vous utilisez vous-même</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide the message that occurs when you use an emote or custom emote.
-eg. You gently pat &lt;user&gt;</value>
+        <value>Désactiver l'affichage des emotes dans le chat lorsque vous utilisez une emote, personnalisée ou non.
+Exemple : Vous saluez &lt;Un'autre Personnage&gt;</value>
     </data>
     <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-        <value>Enable debug mode</value>
+        <value>Activer le mode débogage</value>
     </data>
     <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
-        <value>System</value>
+        <value>Système</value>
     </data>
     <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
-        <value>Loot/Obtain</value>
+        <value>Butin/Obtention</value>
     </data>
     <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
-        <value>Progress</value>
+        <value>Progression</value>
     </data>
     <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
-        <value>Crafting/Gathering</value>
+        <value>Artisanat/Récolte</value>
     </data>
     <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
-        <value>Chat History</value>
+        <value>Historique de Chat</value>
     </data>
     <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
         <value>Whitelist</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
-        <value>Experimental Feature: Inverse mode</value>
+        <value>Fonctionnalité Expérimentale : Mode Inversé</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
         <value>No longer blocks System messages by default.
@@ -648,157 +645,157 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Hide only locations that affect Gatherer's Boon</value>
     </data>
     <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
-        <value>Fishing</value>
+        <value>Pêche</value>
     </data>
     <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
-        <value>Show message when a fish is added to the fish guide</value>
+        <value>Afficher le message quand un poisson est ajouté à la nomenclature des poissons</value>
     </data>
     <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
-        <value>Show caught fish measuring [size] ilms</value>
+        <value>Afficher le message notifiant que le poisson pêché mesure [taille] ilms</value>
     </data>
     <data name="SettingsTabFooter_SaveButtonText" xml:space="preserve">
-        <value>Save</value>
+        <value>Sauvegarder</value>
     </data>
     <data name="SettingsTabFooter_SaveAndCloseButtonText" xml:space="preserve">
-        <value>Save and Close Config</value>
+        <value>Sauvegarder et fermer la configuration</value>
     </data>
     <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
-        <value>Support on Ko-Fi</value>
+        <value>Soutenir via Ko-Fi</value>
     </data>
     <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
-        <value>Wiki Page</value>
+        <value>Page Wiki</value>
     </data>
     <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
-        <value>Show experience gain messages</value>
+        <value>Activer l'affichage du message notifiant d'un gain d'expérience</value>
     </data>
     <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You gain 2,388 Experience Points.</value>
+        <value>Exemple : Vous gagnez 420 points d'expérience.</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
-        <value>Show bonus award for using duty roulette</value>
+        <value>Activer l'affichage du message notifiant le bonus de récompense pour avoir effectué une roulette</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
+        <value>Exemple : Un bonus de 42524498 points d'expérience et 12000 gils vous ont été accordés pour avoir utilisé la fonction de mission aléatoire.</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
-        <value>Show bonus awarded for being an adventurer in need</value>
+        <value>Activer l'affichage du message notifiant du bonus accordé pour avoir rempli un rôle en nombre insuffisant</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
+        <value>Exemple : Un bonus de 5000 gils vous a été accordé pour avoir rempli un rôle en nombre insuffisant.</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-        <value>Show PVP EXP gain messages</value>
+        <value>Activer l'affichage du message notifiant de gain de points d'expérience de PvP</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You acquire 500 PvP EXP.</value>
+        <value>Exemple : Vous obtenez 500 points d'expérience JCJ.</value>
     </data>
     <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
-        <value>Show earned achievement messages</value>
+        <value>Activer l'affichage du message notifiant de l'accomplissement d'un haut-fait</value>
     </data>
     <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
-        <value>Show other player's earned achievement messages</value>
+        <value>Activer l'affichage du message notifiant de l'accomplissement d'un haut-fait par un autre joueur</value>
     </data>
     <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
-        <value>Show level up messages</value>
+        <value>Activer l'affichage du message notifiant d'une montée de niveau</value>
     </data>
     <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you level up.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Activer l'affichage du message notifiant d'une montée de niveau.
+Ce type de message peut être trop récurrent dans le Palais des Morts ou le Pilier des Cieux.</value>
     </data>
     <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
-        <value>Show other player's level up messages</value>
+        <value>Activer l'affichage du message notifiant de la montée de niveau des autres joueurs</value>
     </data>
     <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when others level up.
- eg. Player attains level 33!</value>
+        <value>Activer l'affichage du message notifiant de la montée de niveau d'un autre joueur.
+Exemple : Autre Joueur atteint le niveau 69!</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
-        <value>Show learned ability messages</value>
+        <value>Activer l'affichage du message notifiant qu'une action a été apprise</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you learn a new ability.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Activer l'affichage du message d'apprentissage d'une nouvelle action.
+Ce type de message peut être trop récurrent dans le Palais des Morts ou le Pilier des Cieux.</value>
     </data>
     <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages sent by whitelisted player</value>
+        <value>Afficher tous les messages envoyés par un personnage whitelisté</value>
     </data>
     <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages targeting a whitelisted player</value>
+        <value>Afficher tous les messages envoyés à un personnage whitelisté</value>
     </data>
     <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-        <value>Users added to the whitelist will be treated as if they were you for all filter settings.
-Enter a player's first and last name and then press &lt;Enter&gt; to add them to the whitelist.</value>
+        <value>Les personnages ajoutés à la whitelist seront traités comme s'il s'agissait de vous quant à l'application des paramètres de filtrage.
+Entrez le prénom et nom d'un personnage, puis pressez &lt;Entée&gt; pour les ajouter à votre whitelist.</value>
     </data>
     <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
-        <value>Select Channels</value>
+        <value>Canaux sélectionnés</value>
     </data>
     <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
-        <value>Player Information</value>
+        <value>Informations du Personnage</value>
     </data>
     <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
-        <value>You must enter the player's name as it would be seen in chat - including any periods.
+        <value>Vous devez entrer le nom du personnage tel qu'il serait affiché dans le chat - cela inclut la ponctuation.
 
-eg.
-Surname Abbreviated: Example N.
-Forename Abbreviated: E. Name
-Initials: E. N.</value>
+Exemples :
+Nom de famille abrégé : Nom D.
+Prénom agrégé : N. De'famille
+Initiales : N. D.</value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
-        <value>First Name: </value>
+        <value>Prénom : </value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
-        <value>Last Name: </value>
+        <value>Nom : </value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
-        <value>Server Name: </value>
+        <value>Nom du Serveur : </value>
     </data>
     <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
-        <value>Select channels for Chat History to filter:</value>
+        <value>Sélectionner les canaux à filtrer pour l'Historique de Chat :</value>
     </data>
     <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
         <value>Emotes</value>
     </data>
     <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
-        <value>Loot</value>
+        <value>Butin</value>
     </data>
     <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
-        <value>Crafting</value>
+        <value>Artisanat</value>
     </data>
     <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
-        <value>Gathering</value>
+        <value>Récolte</value>
     </data>
     <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
-        <value>Talking</value>
+        <value>Discussion</value>
     </data>
     <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
-        <value>Login/Logout</value>
+        <value>Connexion/Déconnexion</value>
     </data>
     <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
-        <value>Progress</value>
+        <value>Progression</value>
     </data>
     <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
-        <value>System</value>
+        <value>Système</value>
         <comment>This should be the name of the System channel for messages</comment>
     </data>
     <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
-        <value>Settings</value>
+        <value>Paramètres</value>
     </data>
     <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
-        <value>Advanced</value>
+        <value>Avancé</value>
     </data>
     <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
-        <value>You received {0} {1}{2}</value>
+        <value>Vous avez reçu {0} {1}{2}</value>
     </data>
     <data name="BetterStrings_CommendationSingular" xml:space="preserve">
-        <value>commendation</value>
+        <value>honneur</value>
         <comment>Commendation - singular</comment>
     </data>
     <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
-        <value>commendations</value>
+        <value>honneurs</value>
         <comment>Commendations - Plural</comment>
     </data>
     <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
-        <value>from completing</value>
+        <value>en complétant</value>
     </data>
     <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
         <value>Hide "Teleporting to..." messages</value>

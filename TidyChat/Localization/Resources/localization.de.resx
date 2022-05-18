@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <root>
-    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
-                id="root"
-                xmlns="">
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
         <xsd:element name="root" msdata:IsDataSet="true">
 
         </xsd:element>
@@ -25,171 +22,171 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>Tidy Chat hat bisher {0:n0} Nachrichten blockiert.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Wird nur alle 100 blockierten Nachrichten, beim Gebietswechsel, oder beim Ausloggen aktualisiert.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>Systemnachrichten-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-        <value>Filter Progress spam</value>
+        <value>Charakterentwicklung-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-        <value>These filters include messages like earned achievements or experience points</value>
+        <value>Diese Filter beinhalten z.B. erhaltene Errungenschaften oder Routine</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-        <value>Filter Loot roll spam</value>
+        <value>Würfelergebnis-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes messages like rolling greed or player obtained a gear piece</value>
+        <value>Dieser Filter beinhaltet Nachrichten wie Würfelergebnisse oder den Erhalt von Beutegut</value>
     </data>
     <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
-        <value>Filter Obtained item spam</value>
+        <value>Beutegut-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes items obtained as monster drops, quest rewards, and roulette rewards</value>
+        <value>Dieser Filter beinhaltet Nachrichten beim Erhalt von Gegenständen von Monstern, Quests, und Zufallsinhalten</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
-        <value>Filter Crafting spam</value>
+        <value>Synthese-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes all crafting messages except "You synthesize a/an &lt;item&gt;"
-This allows you to use ChatAlerts to create an alert for "You synthesize" instead of using macro-finished alerts</value>
+        <value>Dieser Filter beinhaltet alle Synthese-Nachrichten außer "Du stellst ein &lt;item&gt;" her
+Dies erlaubt es dir, Benachrichtigungen mit ChatAlerts für "Du stellst ein" statt in Makros zu benutzen</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
-        <value>Filter Gathering spam</value>
+        <value>Sammler-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes "you begin/finish" gathering messages, as well as location affects</value>
+        <value>Dieser Filter beinhaltet "Du beginnst/bist fertig mit", sowie Nachrichten zu Sammelstelleneffekten</value>
     </data>
     <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
-        <value>Emote Filters</value>
+        <value>Emotefilter</value>
         <comment>The clickable dropdown header for Emote filters</comment>
     </data>
     <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
-        <value>Improved Messages</value>
+        <value>Verbesserte Nachrichten</value>
         <comment>Dropdown header for Improved Messages</comment>
     </data>
     <data name="GeneralTab_TidyChatTag" xml:space="preserve">
-        <value>Add [TidyChat] tag to any modified messages</value>
+        <value>Füge [TidyChat] zu modifizierten Nachrichten hinzu</value>
     </data>
     <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
-        <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
+        <value>Stellt Nachrichten, die von Tidy Chat gesendet oder modifiziert wurden, [TidyChat] voran</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
-        <value>Improved /instance messaging</value>
+        <value>Verbesserte /instanz Nachrichten</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-        <value>Changes the instance text to: You are now in instance: #</value>
+        <value>Ändert den Instanzentext zu: Du bist jetzt in Instanz: #</value>
     </data>
     <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
-        <value>Display current instance in DTR Bar</value>
+        <value>Aktuelle Instanz in Server-Infoleiste anzeigen</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
-        <value>Improved Player Commendations</value>
+        <value>Verbesserte "Wertvollster Spieler"-Ehrungen</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
-        <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
+        <value>Deaktiviert die Systemnachricht für erhaltene Ehrungen und ersetzt sie durch eine einzelne Nachricht in deinem Dalamud Chat-Kanal (siehe "Allgemein" Einstellungen in Dalamud - standardmäßig ist dies Debug)</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
-        <value>Include completed duty with commendations message</value>
+        <value>Füge den abgeschlossenen Inhalt der Nachricht zu "Wertvollster Spieler"-Ehrungen hinzu</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
-        <value>Requires Improved Player Commendations to be enabled</value>
+        <value>Verbesserte "Wertvollster Spieler"-Ehrungen muss aktiviert sein</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
-        <value>Improved /Say message for quests</value>
+        <value>Verbesserte /sagen Nachricht für Aufträge</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-        <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
+        <value>Wenn du für einen Auftrag etwas /sagen musst wird die Nachricht so angepasst, dass sie leicht kopiert und eingefügt werden kann</value>
     </data>
     <data name="GeneralTab_CopySayMessage" xml:space="preserve">
-        <value>Automatically copy improved /say message to clipboard</value>
+        <value>Verbesserte /sagen Nachrichten automatisch in die Zwischenablage kopieren</value>
     </data>
     <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-        <value>Requires Improved /Say message for quests to be enabled</value>
+        <value>Verbesserte /sagen Nachrichten muss aktiviert sein</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
-        <value>Improved Novice Network join and leave messages</value>
+        <value>Verbesserte Neulings-Chat-Nachrichten</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
-        <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
+        <value>Reduziert die Textmenge beim Beitritt zum Neulings-Chat und vereinheitlicht die Nachricht beim Verlassen.</value>
     </data>
     <data name="GeneralTab_EnableTippy" xml:space="preserve">
-        <value>Enable integration with Tippy (must install Tippy to work)</value>
+        <value>Integration mit Tippy aktivieren</value>
     </data>
     <data name="GeneralTab_HideKofiButton" xml:space="preserve">
-        <value>Hide ko-fi button</value>
+        <value>Button für Ko-fi ausblenden</value>
     </data>
     <data name="GeneralTab_FilterEmotes" xml:space="preserve">
-        <value>Filter emote spam</value>
+        <value>Emote-Spam filtern</value>
     </data>
     <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
+        <value>Blockiert alle Emotes, an denen du nicht beteiligt bist.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-        <value>Filter custom emote spam</value>
+        <value>Persönliche Emotes blockieren</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
-eg. Another Player leans over and gives you a big bear hug.</value>
+        <value>Blockiert alle "/em" Nachrichten, die nicht von dir stammen oder dich erwähnen.
+z.B. Anderer Spieler lehnt sich zu dir rüber und knuddelt dich ganz doll.</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-        <value>Filter emotes used by yourself</value>
+        <value>Blockiere deine eigenen Emotes</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide the message that occurs when you use an emote or custom emote.
-eg. You gently pat &lt;user&gt;</value>
+        <value>Blockiert Nachrichten von deinen (persönlichen) Emotes.
+z.B. Du streichelst &lt;user&gt; sanft.</value>
     </data>
     <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-        <value>Enable debug mode</value>
+        <value>Debugmodus aktivieren</value>
     </data>
     <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
-        <value>System</value>
+        <value>Systemnachrichten</value>
     </data>
     <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
-        <value>Loot/Obtain</value>
+        <value>Beutegut</value>
     </data>
     <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
-        <value>Progress</value>
+        <value>Charakterentwicklung</value>
     </data>
     <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
-        <value>Crafting/Gathering</value>
+        <value>Synthese/Sammeln</value>
     </data>
     <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
-        <value>Chat History</value>
+        <value>Chatverlauf</value>
     </data>
     <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
         <value>Whitelist</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
-        <value>Experimental Feature: Inverse mode</value>
+        <value>Experimentelles Feature: Umgekehrter Modus</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
-        <value>No longer blocks System messages by default.
-Hide filters become Show filters and Show filters become Hide filters.</value>
+        <value>Blockiert Systemnachrichten nicht mehr standardmäßig.
+"Blockieren"-Filter werden zu "Anzeigen"-Filtern, und umgekehrt.</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-        <value>If you have enabled Inverse mode you are on your own and will not receive any support.
-It is assumed you know what you are doing.</value>
+        <value>Wenn du den umgekehrten Modus aktivierst, bist du auf dich allein gestellt und wirst keinen Support erhalten.
+Es wird davon ausgegangen, dass du weißt, was du tust.</value>
     </data>
     <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-        <value>Hide System messages Tidy Chat shows by default</value>
+        <value>Systemnachrichten blockieren, die Tidy Chat standardmäßig anzeigt</value>
     </data>
     <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
-        <value>Hide /instance message</value>
+        <value>/instanz Nachricht blockieren</value>
     </data>
     <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
-        <value>eg. You are now in the instanced area Old Sharlayan .
-Current instance can be confirmed at any time using the / instance text command.</value>
+        <value>z.B. Du bist nun in dem instanziierten Areal „Thavnair “.
+Mit dem Textbefehl /instanz kannst du jederzeit einsehen, ob dein Areal gerade instanziiert ist.</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
-        <value>Hide S Rank Hunt spawn announcement</value>
+        <value>Benachrichtigung über Rang S Elite-Ziele blockieren</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. You sense the presence of a powerful mark...</value>
+        <value>z.B. Du spürst ein sehr starkes Hochwild ...</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
         <value>Hide SS Rank Minion announcements</value>
@@ -199,19 +196,19 @@ Current instance can be confirmed at any time using the / instance text command.
 The minions of an extraordinarily powerful mark have withdrawn...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
-        <value>Hide Received Commendations</value>
+        <value>Erhaltene "Wertvollster Spieler"-Ehrungen blockieren</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
         <value>eg. You received a player commendation!</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-        <value>Hide Completed Venture</value>
+        <value>Abgschlossene Unternehmungen blockieren</value>
     </data>
     <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
         <value>eg. RetainerName has completed a venture!</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
-        <value>Hide reminders of what to /say in chat during quests.</value>
+        <value>Erinnerungen während Aufträgen etwas zu /sagen blockieren.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
         <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
@@ -235,7 +232,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
         <value>eg. Battle commencing in 18 seconds!</value>
     </data>
     <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
-        <value>Hide /readycheck message</value>
+        <value>/readycheck Nachrichten blockieren</value>
     </data>
     <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
         <value>eg. Ready check complete.</value>
