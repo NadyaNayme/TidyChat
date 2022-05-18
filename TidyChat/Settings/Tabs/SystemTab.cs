@@ -127,24 +127,6 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(localization.SystemTab_HideItemSearchResultsMessageHelpMarker);
 
-            var hideExploratoryVoyage = configuration.HideExploratoryVoyage;
-            if (ImGui.Checkbox(localization.SystemTab_HideAirshipVoyageMessages, ref hideExploratoryVoyage))
-            {
-                configuration.HideExploratoryVoyage = hideExploratoryVoyage;
-                configuration.Save();
-            }
-
-            ImGuiComponents.HelpMarker(localization.SystemTab_HideAirshipVoyageMessagesHelpMarker);
-
-            var hideSubaquaticVoyage = configuration.HideSubaquaticVoyage;
-            if (ImGui.Checkbox(localization.SystemTab_HideSubmarineVoyageMessages, ref hideSubaquaticVoyage))
-            {
-                configuration.HideSubaquaticVoyage = hideSubaquaticVoyage;
-                configuration.Save();
-            }
-
-            ImGuiComponents.HelpMarker(localization.SystemTab_HideSubmarineVoyageMessagesHelpMarker);
-
             var hideVistaMessages = configuration.HideVistaMessages;
             if (ImGui.Checkbox(localization.SystemTab_HideVistaMessages, ref hideVistaMessages))
             {
@@ -162,6 +144,13 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(localization.SystemTab_HideTryOnGlamourMessagesHelpMarker);
+
+            var hidePersonalMessageBook = configuration.HidePersonalMessageBook;
+            if (ImGui.Checkbox(localization.SystemTab_HidePersonalMessageBookMessages, ref hidePersonalMessageBook))
+            {
+                configuration.HidePersonalMessageBook = hidePersonalMessageBook;
+                configuration.Save();
+            }
 
             var hideSpiritboundGear = configuration.HideSpiritboundGear;
             if (ImGui.Checkbox(localization.SystemTab_HideSpiritboundMessages, ref hideSpiritboundGear))
@@ -253,6 +242,49 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(localization.SystemTab_ShowGearsetChangingMessagesHelpMarker);
+        }
+
+        if (ImGui.CollapsingHeader(localization.SystemTab_FreeCompanyDropdownHeader))
+        {
+            var hideUserLogins = configuration.HideUserLogins;
+            if (ImGui.Checkbox(localization.SystemTab_HideLoginMessages, ref hideUserLogins))
+            {
+                configuration.HideUserLogins = hideUserLogins;
+                configuration.Save();
+            }
+
+            var hideUserLogouts = configuration.HideUserLogouts;
+            if (ImGui.Checkbox(localization.SystemTab_HideLogoutMessages, ref hideUserLogouts))
+            {
+                configuration.HideUserLogouts = hideUserLogouts;
+                configuration.Save();
+            }
+
+            var hideFreeCompanyMessageBook = configuration.HideFreeCompanyMessageBook;
+            if (ImGui.Checkbox(localization.SystemTab_HideFreeCompanyMessageBookMessages,
+                    ref hideFreeCompanyMessageBook))
+            {
+                configuration.HideFreeCompanyMessageBook = hideFreeCompanyMessageBook;
+                configuration.Save();
+            }
+
+            var hideExploratoryVoyage = configuration.HideExploratoryVoyage;
+            if (ImGui.Checkbox(localization.SystemTab_HideAirshipVoyageMessages, ref hideExploratoryVoyage))
+            {
+                configuration.HideExploratoryVoyage = hideExploratoryVoyage;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.SystemTab_HideAirshipVoyageMessagesHelpMarker);
+
+            var hideSubaquaticVoyage = configuration.HideSubaquaticVoyage;
+            if (ImGui.Checkbox(localization.SystemTab_HideSubmarineVoyageMessages, ref hideSubaquaticVoyage))
+            {
+                configuration.HideSubaquaticVoyage = hideSubaquaticVoyage;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.SystemTab_HideSubmarineVoyageMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(localization.SystemTab_POTDHoHDropdownHeader))

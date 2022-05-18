@@ -311,6 +311,31 @@ public static class ChatRegexStrings
         Fra = new Regex(@"s'est (déconnecté|déconnectée)\.$", regexOptions)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/6065?pretty=true">A new entry has been added to the free company message book.</see>
+    public static readonly LocalizedRegex FreeCompanyMessageBook = new()
+    {
+        Jpn = new Regex(@"フリーカンパニーハウスの交流帳に新着メッセージがあります", regexOptions),
+        Eng = new Regex(@"new entry has been added to the free company message book", regexOptions),
+        Deu = new Regex(@"jemand hat einen neuen eintrag im diarium der freien gesellschaft hinterlassen",
+            regexOptions),
+        Fra = new Regex(
+            @"un ou plusieurs nouveaux messages ont été laissés dans le livre de correspondance de votre maison de compagnie libre",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/6066?pretty=true">A new entry has been added to your estate message book.</see>
+    public static readonly LocalizedRegex PersonalEstateMessageBook = new()
+    {
+        Jpn = new Regex(@"(個人ハウス|個室|アパルトメント)の交流帳に新着メッセージがあります", regexOptions),
+        Eng = new Regex(@"new entry has been added to your (estate|room|apartment) message book", regexOptions),
+        Deu = new Regex(
+            @"jemand hat einen neuen eintrag im diarium deiner (wohnung hinterlassen|zimmers hinterlassen|unterkunft hinterlassen)",
+            regexOptions),
+        Fra = new Regex(
+            @"un ou plusieurs nouveaux messages ont été laissés dans le livre de correspondance de votre (appartemen|chambre individuelle|maison individuelle)",
+            regexOptions)
+    };
+
     public static readonly LocalizedRegex GetInstanceNumber = new()
     {
         Jpn = new Regex(@"(?<instance>||)", regexOptions),

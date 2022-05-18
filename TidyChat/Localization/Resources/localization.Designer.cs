@@ -566,7 +566,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Tippy IPC.
+        ///   Looks up a localized string similar to Enable integration with Tippy (must install Tippy to work).
         /// </summary>
         internal static string GeneralTab_EnableTippy {
             get {
@@ -1482,6 +1482,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Free Company.
+        /// </summary>
+        internal static string SystemTab_FreeCompanyDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_FreeCompanyDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide Aether Compass message.
         /// </summary>
         internal static string SystemTab_HideAetherCompassMessages {
@@ -1554,6 +1563,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide Free Company message book new entry messages.
+        /// </summary>
+        internal static string SystemTab_HideFreeCompanyMessageBookMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFreeCompanyMessageBookMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide /instance message.
         /// </summary>
         internal static string SystemTab_HideInstanceMessage {
@@ -1587,6 +1605,33 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideItemSearchResultsMessageHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideItemSearchResultsMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Free Company member login messages.
+        /// </summary>
+        internal static string SystemTab_HideLoginMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideLoginMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Free Company member logout messages.
+        /// </summary>
+        internal static string SystemTab_HideLogoutMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideLogoutMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide personal message book new entry messages.
+        /// </summary>
+        internal static string SystemTab_HidePersonalMessageBookMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HidePersonalMessageBookMessages", resourceCulture);
             }
         }
         

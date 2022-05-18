@@ -87,6 +87,8 @@ public class Configuration : IPluginConfiguration
     public bool HideSearchForItemResults { get; set; } = false;
     public bool HideExploratoryVoyage { get; set; } = false;
     public bool HideSubaquaticVoyage { get; set; } = false;
+    public bool HideFreeCompanyMessageBook { get; set; } = false;
+    public bool HidePersonalMessageBook { get; set; } = false;
     public bool HideVistaMessages { get; set; } = false;
     public bool HideTryOnGlamour { get; set; } = true;
     public bool ShowGlamoursProjected { get; set; } = false;

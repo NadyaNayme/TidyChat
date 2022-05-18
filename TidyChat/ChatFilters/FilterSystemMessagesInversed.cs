@@ -29,6 +29,10 @@ public static class FilterSystemMessagesInversed
                 (!configuration.HideExploratoryVoyage && L10N.Get(ChatRegexStrings.ExploratoryVoyage).IsMatch(input)) ||
                 (!configuration.HideSubaquaticVoyage && L10N.Get(ChatRegexStrings.SubaquaticVoyage).IsMatch(input)) ||
                 (!configuration.HideVistaMessages && L10N.Get(ChatRegexStrings.VistaMessages).IsMatch(input)) ||
+                (!configuration.HideFreeCompanyMessageBook &&
+                 L10N.Get(ChatRegexStrings.FreeCompanyMessageBook).IsMatch(input)) ||
+                (!configuration.HidePersonalMessageBook &&
+                 L10N.Get(ChatRegexStrings.PersonalEstateMessageBook).IsMatch(input)) ||
                 (configuration.BetterCommendationMessage &&
                  L10N.Get(ChatRegexStrings.BetterPlayerCommendation).IsMatch(input)) ||
                 (configuration.ShowGlamoursProjected && L10N.Get(ChatStrings.GlamoursProjected).All(input.Contains)) ||
