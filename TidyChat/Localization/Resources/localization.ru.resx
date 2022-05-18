@@ -22,13 +22,13 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>Tidy Chat заблокировал {0:n0} сообщений за всё время.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Счётчик обновляется каждые 100 заблокированных сообщений, когда меняется зона, или выход из игры.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>Фильтровать спам системных сообщений</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
         <value>Filter Progress spam</value>
