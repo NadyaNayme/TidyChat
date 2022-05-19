@@ -466,6 +466,7 @@ public sealed class TidyChat : IDalamudPlugin
             var stringBuilder = new SeStringBuilder();
             Better.AddTidyChatTag(stringBuilder);
             Better.AddDebugTag(stringBuilder);
+            stringBuilder.AddText($"[{chatType.ToString()}] ");
             stringBuilder.AddText(message.TextValue);
             message = stringBuilder.BuiltString;
             isHandled = false;
