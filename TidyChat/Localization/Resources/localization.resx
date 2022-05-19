@@ -872,4 +872,19 @@ Initials: E. N.</value>
     <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
         <value>Hide personal message book new entry messages</value>
     </data>
+    <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
+        <value>Hide number of available coffers messages</value>
+    </data>
+    <data name="SystemTab_ShowNowALeader" xml:space="preserve">
+        <value>Show you are now/no longer a leader messages</value>
+    </data>
+    <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
+        <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
+    </data>
+    <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
+        <value>Show bonus award for a party member's first clear</value>
+    </data>
+    <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
+        <value>Show when Second Chance points will be awarded for duty clear</value>
+    </data>
 </root>
