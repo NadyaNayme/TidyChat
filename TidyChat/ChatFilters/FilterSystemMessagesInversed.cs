@@ -29,6 +29,9 @@ public static class FilterSystemMessagesInversed
                 (!configuration.HideExploratoryVoyage && L10N.Get(ChatRegexStrings.ExploratoryVoyage).IsMatch(input)) ||
                 (!configuration.HideSubaquaticVoyage && L10N.Get(ChatRegexStrings.SubaquaticVoyage).IsMatch(input)) ||
                 (!configuration.HideVistaMessages && L10N.Get(ChatRegexStrings.VistaMessages).IsMatch(input)) ||
+                (!configuration.HideTryOnGlamour && L10N.Get(ChatRegexStrings.TryOnGlamour).IsMatch(input)) ||
+                (!configuration.HideEligibleForCoffers &&
+                 L10N.Get(ChatRegexStrings.EligibleForCoffers).IsMatch(input)) ||
                 (!configuration.HideFreeCompanyMessageBook &&
                  L10N.Get(ChatRegexStrings.FreeCompanyMessageBook).IsMatch(input)) ||
                 (!configuration.HidePersonalMessageBook &&
@@ -40,6 +43,11 @@ public static class FilterSystemMessagesInversed
                 (configuration.ShowTradeCanceled && L10N.Get(ChatStrings.TradeCanceled).All(input.Contains)) ||
                 (configuration.ShowAwaitingTradeConfirmation &&
                  L10N.Get(ChatStrings.AwaitingTradeConfirmation).All(input.Contains)) ||
+                (configuration.ShowNowLeaderOf && L10N.Get(ChatRegexStrings.NowLeaderOf).IsMatch(input)) ||
+                (configuration.ShowFirstClearAward && L10N.Get(ChatRegexStrings.FirstClearAward).IsMatch(input) &&
+                 L10N.Get(ChatRegexStrings.PartyMemberFirstClear).IsMatch(input)) ||
+                (configuration.ShowSecondChanceAward && L10N.Get(ChatRegexStrings.SecondChanceAward).IsMatch(input) &&
+                 L10N.Get(ChatRegexStrings.PartyMemberFirstClear).IsMatch(input)) ||
                 (configuration.ShowTradeComplete && L10N.Get(ChatStrings.TradeComplete).All(input.Contains)) ||
                 (configuration.ShowOfferedTeleport && L10N.Get(ChatStrings.OfferedTeleport).All(input.Contains)) ||
                 (configuration.ShowGearsetEquipped && L10N.Get(ChatRegexStrings.GearsetEquipped).IsMatch(input)) ||
