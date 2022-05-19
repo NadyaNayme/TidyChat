@@ -342,7 +342,7 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"(のリーダーに設定されました|リーダー設定を解除しました)", regexOptions),
         Eng = new Regex(
-            @"((are|is) (now|no longer) a leader|is now the party leader|has promoted you to party leader|have been granted to)",
+            @"((are|is) (now|no longer) a leader|(is now the|has promoted you to) party leader|have been granted to)",
             regexOptions),
         Deu = new Regex(
             @"du bist (nun|nicht) ein anführer",
