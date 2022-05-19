@@ -684,7 +684,7 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Exemple : Un bonus de 5000 gils vous a été accordé pour avoir rempli un rôle en nombre insuffisant.</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-        <value>Activer l'affichage du message notifiant de gain de points d'expérience de PvP</value>
+        <value>Activer l'affichage du message notifiant de gain de points d'expérience de JcJ</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous obtenez 500 points d'expérience JCJ.</value>
