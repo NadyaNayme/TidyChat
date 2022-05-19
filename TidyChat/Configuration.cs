@@ -90,7 +90,8 @@ public class Configuration : IPluginConfiguration
     public bool HideFreeCompanyMessageBook { get; set; } = false;
     public bool HidePersonalMessageBook { get; set; } = false;
     public bool HideVistaMessages { get; set; } = false;
-    public bool HideTryOnGlamour { get; set; } = true;
+    public bool HideTryOnGlamour { get; set; } = false;
+    public bool HideEligibleForCoffers { get; set; } = false;
     public bool ShowGlamoursProjected { get; set; } = false;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
@@ -114,6 +115,9 @@ public class Configuration : IPluginConfiguration
     public bool ShowRelicBookComplete { get; set; } = false;
     public bool ShowOnlineStatus { get; set; } = false;
     public bool ShowAttachToMail { get; set; } = false;
+    public bool ShowNowLeaderOf { get; set; } = false;
+    public bool ShowFirstClearAward { get; set; } = false;
+    public bool ShowSecondChanceAward { get; set; } = false;
 
     #endregion
 

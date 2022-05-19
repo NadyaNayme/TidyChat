@@ -1627,6 +1627,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide number of available coffers messages.
+        /// </summary>
+        internal static string SystemTab_HideNumberOfCoffers {
+            get {
+                return ResourceManager.GetString("SystemTab_HideNumberOfCoffers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide personal message book new entry messages.
         /// </summary>
         internal static string SystemTab_HidePersonalMessageBookMessages {
@@ -1988,6 +1997,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show bonus award for a party member&apos;s first clear.
+        /// </summary>
+        internal static string SystemTab_ShowFirstClearAward {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowFirstClearAward", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show floor number when entering a new floor.
         /// </summary>
         internal static string SystemTab_ShowFloorNumberMessages {
@@ -2107,6 +2125,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show you are now/no longer a leader messages.
+        /// </summary>
+        internal static string SystemTab_ShowNowALeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowNowALeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell..
+        /// </summary>
+        internal static string SystemTab_ShowNowALeaderHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowNowALeaderHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show when the party obtains a pomander.
         /// </summary>
         internal static string SystemTab_ShowObtainedPomanderMessages {
@@ -2211,6 +2247,15 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowReturnedPomanderMessages {
             get {
                 return ResourceManager.GetString("SystemTab_ShowReturnedPomanderMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show when Second Chance points will be awarded for duty clear.
+        /// </summary>
+        internal static string SystemTab_ShowSecondChanceAward {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSecondChanceAward", resourceCulture);
             }
         }
         

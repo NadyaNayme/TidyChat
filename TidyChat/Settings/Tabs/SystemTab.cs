@@ -158,6 +158,13 @@ internal static class SystemTab
                 configuration.HideSpiritboundGear = hideSpiritboundGear;
                 configuration.Save();
             }
+
+            var hideEligibleForCoffers = configuration.HideEligibleForCoffers;
+            if (ImGui.Checkbox(localization.SystemTab_HideNumberOfCoffers, ref hideEligibleForCoffers))
+            {
+                configuration.HideEligibleForCoffers = hideEligibleForCoffers;
+                configuration.Save();
+            }
         }
 
         if (ImGui.CollapsingHeader(localization.SystemTab_ShowHiddenMessagesDropdownHeader))
@@ -242,6 +249,15 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(localization.SystemTab_ShowGearsetChangingMessagesHelpMarker);
+
+            var showNowLeaderOf = configuration.ShowNowLeaderOf;
+            if (ImGui.Checkbox(localization.SystemTab_ShowNowALeader, ref showNowLeaderOf))
+            {
+                configuration.ShowNowLeaderOf = showNowLeaderOf;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(localization.SystemTab_ShowNowALeaderHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(localization.SystemTab_FreeCompanyDropdownHeader))

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Authors>Nadya</Authors>
         <Company>Served with love</Company>
-        <Version>0.1.1.21</Version>
+        <Version>0.1.1.22</Version>
         <Description>Filters most of the game's spammy messages away. Condense earned commendations into a single line, autocopy /say text for most quests, block emote spam and more.</Description>
         <Copyright></Copyright>
         <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>

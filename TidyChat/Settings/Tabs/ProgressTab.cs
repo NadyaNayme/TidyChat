@@ -17,6 +17,20 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(localization.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
+        var showFirstClearAward = configuration.ShowFirstClearAward;
+        if (ImGui.Checkbox(localization.SystemTab_ShowFirstClearAward, ref showFirstClearAward))
+        {
+            configuration.ShowFirstClearAward = showFirstClearAward;
+            configuration.Save();
+        }
+
+        var showSecondChanceAward = configuration.ShowSecondChanceAward;
+        if (ImGui.Checkbox(localization.SystemTab_ShowSecondChanceAward, ref showSecondChanceAward))
+        {
+            configuration.ShowSecondChanceAward = showSecondChanceAward;
+            configuration.Save();
+        }
+
         var showRouletteBonusExperiencePoints = configuration.ShowRouletteBonus;
         if (ImGui.Checkbox(localization.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
                 ref showRouletteBonusExperiencePoints))

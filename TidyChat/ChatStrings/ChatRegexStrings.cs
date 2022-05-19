@@ -336,6 +336,73 @@ public static class ChatRegexStrings
             regexOptions)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/23?pretty=true">You are now a leader of Linkshell.</see>
+    /// <seealso>XivAPI for various other Leader Of messages: 15, 16, 23, 24, 367, 383, 9284, 9285, 9298, 9289, 9290, 9291</seealso>
+    public static readonly LocalizedRegex NowLeaderOf = new()
+    {
+        Jpn = new Regex(@"(のリーダーに設定されました|リーダー設定を解除しました)", regexOptions),
+        Eng = new Regex(@"you are (now|no longer) a leader", regexOptions),
+        Deu = new Regex(
+            @"du bist (nun|nicht) ein anführer",
+            regexOptions),
+        Fra = new Regex(
+            @"êtes maintenant (membre|officier) de",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4233?pretty=true">
+    ///     Party members are eligible for duty rewards. The number of
+    ///     coffers to appear will be 2/2.
+    /// </see>
+    /// <seealso href="https://xivapi.com/LogMessage/4238?pretty=true">
+    ///     Party members are eligible for duty rewards. The number of coffers to appear will be 2/2.</see>
+    ///     <seealso href="https://xivapi.com/LogMessage/4246?pretty=true">
+    ///         Party members are eligible for duty rewards. The
+    ///         number of coffers to appear will be 2/2.</see>
+    public static readonly LocalizedRegex EligibleForCoffers = new()
+    {
+        Jpn = new Regex(@"リワード取得の権利を有するパーティメンバー数が", regexOptions),
+        Eng = new Regex(@"number of coffers", regexOptions),
+        Deu = new Regex(
+            @"wöchentliche vergütung erhalten",
+            regexOptions),
+        Fra = new Regex(
+            @"le nombre de coffres sera de",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4225?pretty=true">
+    ///     One or more party members have yet to complete this duty. A
+    ///     bonus of ... will be awarded upon completion.
+    /// </see>
+    public static readonly LocalizedRegex FirstClearAward = new()
+    {
+        Jpn = new Regex(@"未制覇の参加メンバーがいるため、攻略成功時に", regexOptions),
+        Eng = new Regex(@"one or more party members have yet to complete this duty\.*a bonus of", regexOptions),
+        Deu = new Regex(
+            @"weil ein charakter diesen inhalt noch nicht beendet hat,.*erhalten alle teilnehmer bei abschluss",
+            regexOptions),
+        Fra = new Regex(
+            @"un ou plusieurs participants n\'ont pas encore accompli cette mission\..*l\'équipe recevra",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7975?pretty=true">
+    ///     One or more party members have yet to complete this duty.
+    ///     Second Chance points added to your journal.
+    /// </see>
+    public static readonly LocalizedRegex SecondChanceAward = new()
+    {
+        Jpn = new Regex(@"チャンスポイントが加算されました", regexOptions),
+        Eng = new Regex(@"second chance points added to your journal", regexOptions),
+        Deu = new Regex(
+            @"zusätzliche chance-punkte",
+            regexOptions),
+        Fra = new Regex(
+            @"le nombre de points de chance dans le carnet",
+            regexOptions)
+    };
+
     public static readonly LocalizedRegex GetInstanceNumber = new()
     {
         Jpn = new Regex(@"(?<instance>||)", regexOptions),
