@@ -375,15 +375,31 @@ public static class ChatRegexStrings
     ///     One or more party members have yet to complete this duty. A
     ///     bonus of ... will be awarded upon completion.
     /// </see>
+    public static readonly LocalizedRegex PartyMemberFirstClear = new()
+    {
+        Jpn = new Regex(@"未制覇の参加メンバーがいるため、攻略成功時に", regexOptions),
+        Eng = new Regex(@"one or more party members have yet to complete this duty", regexOptions),
+        Deu = new Regex(
+            @"weil ein charakter diesen inhalt noch nicht beendet hat",
+            regexOptions),
+        Fra = new Regex(
+            @"un ou plusieurs participants n\'ont pas encore accompli cette mission",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4225?pretty=true">
+    ///     One or more party members have yet to complete this duty. A
+    ///     bonus of ... will be awarded upon completion.
+    /// </see>
     public static readonly LocalizedRegex FirstClearAward = new()
     {
         Jpn = new Regex(@"未制覇の参加メンバーがいるため、攻略成功時に", regexOptions),
-        Eng = new Regex(@"one or more party members have yet to complete this duty\.*a bonus of", regexOptions),
+        Eng = new Regex(@"a bonus of", regexOptions),
         Deu = new Regex(
-            @"weil ein charakter diesen inhalt noch nicht beendet hat,.*erhalten alle teilnehmer bei abschluss",
+            @"erhalten alle teilnehmer bei abschluss",
             regexOptions),
         Fra = new Regex(
-            @"un ou plusieurs participants n\'ont pas encore accompli cette mission\..*l\'équipe recevra",
+            @"l\'équipe recevra",
             regexOptions)
     };
 

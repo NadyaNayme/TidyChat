@@ -44,8 +44,10 @@ public static class FilterSystemMessages
                 (configuration.ShowAwaitingTradeConfirmation &&
                  L10N.Get(ChatStrings.AwaitingTradeConfirmation).All(input.Contains)) ||
                 (configuration.ShowNowLeaderOf && L10N.Get(ChatRegexStrings.NowLeaderOf).IsMatch(input)) ||
-                (configuration.ShowFirstClearAward && L10N.Get(ChatRegexStrings.FirstClearAward).IsMatch(input)) ||
-                (configuration.ShowSecondChanceAward && L10N.Get(ChatRegexStrings.SecondChanceAward).IsMatch(input)) ||
+                (configuration.ShowFirstClearAward && L10N.Get(ChatRegexStrings.FirstClearAward).IsMatch(input) &&
+                 L10N.Get(ChatRegexStrings.PartyMemberFirstClear).IsMatch(input)) ||
+                (configuration.ShowSecondChanceAward && L10N.Get(ChatRegexStrings.SecondChanceAward).IsMatch(input) &&
+                 L10N.Get(ChatRegexStrings.PartyMemberFirstClear).IsMatch(input)) ||
                 (configuration.ShowTradeComplete && L10N.Get(ChatStrings.TradeComplete).All(input.Contains)) ||
                 (configuration.ShowOfferedTeleport && L10N.Get(ChatStrings.OfferedTeleport).All(input.Contains)) ||
                 (configuration.ShowGearsetEquipped && L10N.Get(ChatRegexStrings.GearsetEquipped).IsMatch(input)) ||
