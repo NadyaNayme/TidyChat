@@ -341,7 +341,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex NowLeaderOf = new()
     {
         Jpn = new Regex(@"(のリーダーに設定されました|リーダー設定を解除しました)", regexOptions),
-        Eng = new Regex(@"you are (now|no longer) a leader", regexOptions),
+        Eng = new Regex(
+            @"((are|is) (now|no longer) a leader|is now the party leader|has promoted you to party leader|have been granted to)",
+            regexOptions),
         Deu = new Regex(
             @"du bist (nun|nicht) ein anführer",
             regexOptions),
