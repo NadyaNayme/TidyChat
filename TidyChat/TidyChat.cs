@@ -225,52 +225,43 @@ public sealed class TidyChat : IDalamudPlugin
     private void OnLogin(object? sender, EventArgs e)
     {
         if (Configuration.EnableTippyTips) TippyIpcTips();
-        if (Configuration.BetterCommendationMessage) UpdateCommendationsCount();
-
-        InstanceDtrBarUpdates();
+        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate();
     }
 
     private void OnLogout(object? sender, EventArgs e)
     {
-        UpdateBlockedCount();
+        BlockedCountUpdate();
     }
 
     private void OnTerritoryChanged(object? sender, ushort e)
     {
-        UpdateBlockedCount();
-        UpdateCommendationsCount();
-        InstanceDtrBarUpdates();
-
+        BlockedCountUpdate();
+        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate();
         if (Configuration.IncludeDutyNameInComms)
             try
             {
-                var territory = DataManager.GetExcelSheet<TerritoryType>()?.GetRow(e);
-                var exclusiveType = DataManager.GetExcelSheet<TerritoryType>()
-                    ?.GetRow(e)
-                    ?.ExclusiveType;
-                var isPvp = DataManager.GetExcelSheet<TerritoryType>()
-                    ?.GetRow(e)
-                    ?.IsPvpZone;
-                if (territory != null)
+                var territory =
+                    DataManager.GetExcelSheet<TerritoryType>()!.GetRow(e); // built in sheets will never be null
+                var exclusiveType = territory!.ExclusiveType;
+                var isPvp = territory.IsPvpZone;
+
+                var placeName = territory.PlaceName.Value?.Name.ToString();
+                var dutyName = territory.ContentFinderCondition.Value?.Name.ToString();
+
+                TidyStrings.LastDuty = exclusiveType switch
                 {
-                    var placeName = DataManager.GetExcelSheet<ContentFinderCondition>()
-                        ?.GetRow(territory.PlaceName.Row)
-                        ?.Name.ToString();
-                    var dutyName = DataManager.GetExcelSheet<ContentFinderCondition>()
-                        ?.GetRow(territory.ContentFinderCondition.Row)
-                        ?.Name.ToString();
-                    TidyStrings.LastDuty = exclusiveType switch
-                    {
-                        2 when dutyName?.Length >= 1 => dutyName,
-                        2 when dutyName?.Length == 0 && placeName?.Length > 0 => placeName,
-                        2 when dutyName?.Length == 0 && isPvp == true => L10N.GetTidy(TidyStrings.PvPDuty),
-                        _ => TidyStrings.LastDuty
-                    };
-                }
+                    2 when dutyName?.Length >= 1 => dutyName,
+                    2 when dutyName?.Length == 0 && placeName?.Length > 0 => placeName,
+                    2 when dutyName?.Length == 0 && isPvp => L10N.GetTidy(TidyStrings.PvPDuty),
+                    _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
+                };
             }
             catch (KeyNotFoundException)
             {
-                PluginLog.Warning("Could not get territory for current zone");
+                PluginLog.Warning(
+                    "Something somehow somewhere went wrong but we don't want to crash on territory change");
             }
     }
 
@@ -475,7 +466,7 @@ public sealed class TidyChat : IDalamudPlugin
         #endregion Debug Mode Enabled
 
         SessionBlockedMessages += 1;
-        if (SessionBlockedMessages > 100) UpdateBlockedCount();
+        if (SessionBlockedMessages > 100) BlockedCountUpdate();
     }
 
     private void SetPlayerName()
@@ -493,7 +484,7 @@ public sealed class TidyChat : IDalamudPlugin
         }
     }
 
-    private void InstanceDtrBarUpdates()
+    private void InstanceDtrBarUpdate()
     {
         if (Configuration.InstanceInDtrBar)
             try
@@ -519,14 +510,14 @@ public sealed class TidyChat : IDalamudPlugin
         else if (!Configuration.InstanceInDtrBar && dtrEntry != null) dtrEntry?.Dispose();
     }
 
-    private void UpdateBlockedCount()
+    private void BlockedCountUpdate()
     {
         Configuration.TtlMessagesBlocked += SessionBlockedMessages;
         SessionBlockedMessages = 0;
         Configuration.Save();
     }
 
-    private void UpdateCommendationsCount()
+    private void BetterCommendationsUpdate()
     {
         var totalCommendationsPtr =
             SigScanner.GetStaticAddressFromSig("66 89 05 ?? ?? ?? ?? E9 ?? ?? ?? ?? 8B 44 24 60");
