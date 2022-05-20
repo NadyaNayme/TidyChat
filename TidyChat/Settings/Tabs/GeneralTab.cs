@@ -1,4 +1,5 @@
-﻿using Dalamud.Interface.Components;
+﻿using Dalamud.Interface;
+using Dalamud.Interface.Components;
 using ImGuiNET;
 using TidyChat.Localization.Resources;
 
@@ -146,9 +147,11 @@ internal static class GeneralTab
             }
 
             ImGuiComponents.HelpMarker(localization.GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker);
-
-            ImGui.Separator();
         }
+
+        ImGuiHelpers.ScaledDummy(30f);
+        ImGui.Separator();
+        ImGui.Spacing();
 
         var enableTippyTips = configuration.EnableTippyTips;
         if (ImGui.Checkbox(localization.GeneralTab_EnableTippy, ref enableTippyTips))

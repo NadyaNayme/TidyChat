@@ -26,7 +26,7 @@ internal class PluginUI : IDisposable
         if (!SettingsVisible) return;
         try
         {
-            ImGui.SetNextWindowSize(new Vector2(580, 365), ImGuiCond.FirstUseEver | ImGuiCond.Appearing);
+            ImGui.SetNextWindowSize(new Vector2(600, 450), ImGuiCond.FirstUseEver | ImGuiCond.Appearing);
             if (!ImGui.Begin("Tidy Chat", ref settingsVisible)) return;
 
             if (ImGui.BeginTabBar("##tidychatConfigTabs"))
