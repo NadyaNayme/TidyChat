@@ -684,7 +684,7 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Exemple : Un bonus de 5000 gils vous a été accordé pour avoir rempli un rôle en nombre insuffisant.</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-        <value>Activer l'affichage du message notifiant de gain de points d'expérience de PvP</value>
+        <value>Activer l'affichage du message notifiant de gain de points d'expérience de JcJ</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous obtenez 500 points d'expérience JCJ.</value>
@@ -868,5 +868,20 @@ Initiales : N. D.</value>
     </data>
     <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
         <value>Hide personal message book new entry messages</value>
+    </data>
+    <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
+        <value>Hide number of available coffers messages</value>
+    </data>
+    <data name="SystemTab_ShowNowALeader" xml:space="preserve">
+        <value>Show you are now/no longer a leader messages</value>
+    </data>
+    <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
+        <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
+    </data>
+    <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
+        <value>Show bonus award for a party member's first clear</value>
+    </data>
+    <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
+        <value>Show when Second Chance points will be awarded for duty clear</value>
     </data>
 </root>

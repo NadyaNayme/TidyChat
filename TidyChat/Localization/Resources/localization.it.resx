@@ -22,10 +22,10 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>Tidy Chat ha bloccato {0:n0} messaggi finora.</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>Il conteggio viene aggiornato solo ogni 100 messaggi bloccati, quando si cambia zona, o quando ci si disconnette.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
         <value>Filter System spam</value>
@@ -34,13 +34,13 @@
         <value>Filter Progress spam</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-        <value>These filters include messages like earned achievements or experience points</value>
+        <value>Questi filtri includono messaggi come achievements sbloccati o punti esperienza ottenuti</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
         <value>Filter Loot roll spam</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes messages like rolling greed or player obtained a gear piece</value>
+        <value>Questi filtri includono messaggi come "giocatore ha rollato greed" o "giocatore ottiene pezzo di equipaggiamento"</value>
     </data>
     <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
         <value>Filter Obtained item spam</value>
@@ -868,5 +868,20 @@ Initials: E. N.</value>
     </data>
     <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
         <value>Hide personal message book new entry messages</value>
+    </data>
+    <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
+        <value>Hide number of available coffers messages</value>
+    </data>
+    <data name="SystemTab_ShowNowALeader" xml:space="preserve">
+        <value>Show you are now/no longer a leader messages</value>
+    </data>
+    <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
+        <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
+    </data>
+    <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
+        <value>Show bonus award for a party member's first clear</value>
+    </data>
+    <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
+        <value>Show when Second Chance points will be awarded for duty clear</value>
     </data>
 </root>
