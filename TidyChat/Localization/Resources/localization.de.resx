@@ -244,114 +244,114 @@ Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...
         <value>z.B. 1 Gegenstand in der 4. Registerkarte deines Inventars gefunden.</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-        <value>Hide Airship voyage messages</value>
+        <value>Verstecke Luftschiff-Reise-Nachrichten</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A new exploratory voyage destination...has been discovered!</value>
+        <value>z.B. Ein neues Reiseziel für Entdeckungen ... wurde entdeckt!</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-        <value>Hide Submarine voyage messages</value>
+        <value>U-Boot-Reisemeldungen ausblenden</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A new subaquatic voyage destination...has been discovered!</value>
+        <value>z.B. Ein neues Ziel für Unterwasserreisen...wurde entdeckt!</value>
     </data>
     <data name="SystemTab_HideVistaMessages" xml:space="preserve">
-        <value>Hide vista arrival and stray messages</value>
+        <value>Ankunfts- und Verfallsnachrichten für Vista's ausblenden</value>
     </data>
     <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
+        <value>z.B. Du bist an der Vista angekommen! und Du bist zu weit von der Vista weggegangen.</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
-        <value>Hide try on glamour messages</value>
+        <value>Glamour anprobieren Nachrichten ausblenden</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You try on item.</value>
+        <value>z.B. Du probierst den Gegenstand an.</value>
     </data>
     <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
-        <value>Show System messages Tidy Chat hides by default</value>
+        <value>Systemnachrichten anzeigen, die Tidy Chat standardmäßig ausblendet</value>
     </data>
     <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
-        <value>Show online status updates</value>
+        <value>Online-Status Updates anzeigen</value>
     </data>
     <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Updating online status to Away from Keyboard.</value>
+        <value>z.B. Online-Status zu Away from Keyboard gewechselt.</value>
     </data>
     <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
-        <value>Show items attached to sent mail</value>
+        <value>An gesendete Nachrichten angehängte Elemente anzeigen</value>
     </data>
     <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
+        <value>z.B. Du hängst 2 Töpfe Dalamud roten Farbstoff an den Brief an.</value>
     </data>
     <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
-        <value>Show ARR Relic book step progress messages</value>
+        <value>ARR Relikt Buch Schrittfortschrittsnachrichten anzeigen</value>
     </data>
     <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
+        <value>z. B. Datensatz von Ouranos kill (1/1) hinzugefügt für &lt;Relic Weapon&gt; - Stärke +2.</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
-        <value>Show ARR Relic book step completed messages</value>
+        <value>ARR Relikt Buch Schrittabschlussnachrichten anzeigen</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
-        <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
+        <value>z. B. alle Ziele unter der Kategorie Verlies für &lt;Relic Weapon&gt; - Stärke +2 abgeschlossen!</value>
     </data>
     <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
-        <value>Show hunt mark slain messages</value>
+        <value>Jagdmarkierung besiegt Nachrichten anzeigen</value>
     </data>
     <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
+        <value>z. B. Jagdmarkierung &lt;mark&gt; erlegt! 1/3</value>
     </data>
     <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-        <value>Show completion time when unrestricted party is active</value>
+        <value>Vervollständigungszeit anzeigen, wenn unbeschränkte Gruppe aktiv ist</value>
     </data>
     <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-        <value>eg. &lt;Duty&gt; completion time: 00:30</value>
+        <value>z.B. &lt;Duty&gt; Vervollständigungszeit: 00:30</value>
     </data>
     <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
-        <value>Show volume control messages</value>
+        <value>Zeige Lautstärkeregelungsmeldungen</value>
     </data>
     <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Master Volume muted, BGM volume set to 50.</value>
+        <value>z.B. Gesamtlautstärke stumm, Hintergrundmusik auf 50 gesetzt.</value>
     </data>
     <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Show message when changing glamour plates</value>
+        <value>Nachricht beim Ändern von Glamour-Platten anzeigen</value>
     </data>
     <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
         <value>
-eg. Glamours projected from plate 10.</value>
+z.B. Projiziere Glamour von Platte 10.</value>
     </data>
     <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
-        <value>Show message when changing gearsets</value>
+        <value>Nachricht beim Ändern von Ausrüstungssets anzeigen</value>
     </data>
     <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
         <value>
-eg. “Red Mage” equipped.</value>
+zB. "Rotmagier" ausgerüstet.</value>
     </data>
     <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-        <value>POTD &amp; HoH</value>
+        <value>POTD &amp; HH</value>
     </data>
     <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-        <value>Show when the party obtains a pomander</value>
+        <value>Zeige wenn die Gruppe ein Tongefäß erhält</value>
     </data>
     <data name="SystemTab_ShowReturnedPomanderMessages" xml:space="preserve">
-        <value>Show when you return a pomander to the coffer</value>
+        <value>Zeige wenn du ein Tongefäß in den Koffer zurückgibst</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage begins to glow</value>
+        <value>Zeige wenn eine Wegleuchte anfängt zu leuchten</value>
     </data>
     <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-        <value>Show when Cairn of Return is used</value>
+        <value>Zeige wenn eine Totenleuchte benutzt wird</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage is activated</value>
+        <value>Zeige wenn eine Wegleuchte aktiviert wird</value>
     </data>
     <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-        <value>Show transference messages</value>
+        <value>Transfernachrichten anzeigen</value>
     </data>
     <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-        <value>Show Aetherpool increases</value>
+        <value>Zeige AetherPool Stärke erhöht</value>
     </data>
     <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-        <value>Show Aetherpool remains unchanged...</value>
+        <value>Zeige Aetherpool bleibt unverändert...</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
         <value>Show when Pomander of Safety is used</value>
@@ -508,10 +508,10 @@ eg. Some player obtains an &lt;item&gt;!</value>
         <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
     </data>
     <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
-        <value>Show Wolf Marks</value>
+        <value>Zeige Wolfsmarken</value>
     </data>
     <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 1,000 Wolf Marks.</value>
+        <value>z.B. Du erhältst 1.000 Wolf Marken.</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
         <value>Show Allied Seals</value>
