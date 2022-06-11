@@ -189,59 +189,59 @@ Mit dem Textbefehl /instanz kannst du jederzeit einsehen, ob dein Areal gerade i
         <value>z.B. Du spürst ein sehr starkes Hochwild ...</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
-        <value>Hide SS Rank Minion announcements</value>
+        <value>Benachrichtigung über Rang S Elite-Ziele blockieren</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
-The minions of an extraordinarily powerful mark have withdrawn...</value>
+        <value>z.B. Die Lakaien einer außergewöhnlich mächtigen Mark sind auf der Jagd nach Beute...
+Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
         <value>Erhaltene "Wertvollster Spieler"-Ehrungen blockieren</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
-        <value>eg. You received a player commendation!</value>
+        <value>zB. Du hast ein Spieler-Lob erhalten!</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
         <value>Abgschlossene Unternehmungen blockieren</value>
     </data>
     <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-        <value>eg. RetainerName has completed a venture!</value>
+        <value>z. B. RetainerName hat ein Unternehmen abgeschlossen!</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
         <value>Erinnerungen während Aufträgen etwas zu /sagen blockieren.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
-        <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+        <value>z.B. Mit dem Chat-Modus in Sagen, geben Sie am Zielpunkt eine Phrase ein, die „Tataru“ enthält.</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
-        <value>Hide "You sense something..." messages</value>
+        <value>Verstecke "Du spürst etwas..." Nachrichten</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You sense something to the far, far southwest...</value>
+        <value>z.B. Du spürst etwas im weit entfernten Südwesten...</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
-        <value>Hide Aether Compass message</value>
+        <value>Verstecke Aether-Kompass-Nachricht</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
-        <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
+        <value>z.B. Der Kompass erkennt eine Windätherquelle ungefähr 143 Yalms im Westen...</value>
     </data>
     <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
-        <value>Hide /countdown messages</value>
+        <value>Verstecke /countdown Nachrichten </value>
     </data>
     <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Battle commencing in 18 seconds!</value>
+        <value>z.B. Kampf beginnt in 18 Sekunden!</value>
     </data>
     <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
         <value>/readycheck Nachrichten blockieren</value>
     </data>
     <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Ready check complete.</value>
+        <value>z.B. Bereitschaftsanfrage abgeschlossen.</value>
     </data>
     <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
-        <value>Hide "Search for items" results message</value>
+        <value>"Suche nach Gegenstände" Ergebnisnachrichten ausblenden</value>
     </data>
     <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
-        <value>eg. 1 item found in the 4th tab of your inventory.</value>
+        <value>z.B. 1 Gegenstand in der 4. Registerkarte deines Inventars gefunden.</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
         <value>Hide Airship voyage messages</value>
