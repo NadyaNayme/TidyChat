@@ -59,124 +59,124 @@ Isso permite que você use Alertas de Chat para criar um alerta para "Você sint
         <value>Filtrar spam de Gathering</value>
     </data>
     <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes "you begin/finish" gathering messages, as well as location affects</value>
+        <value>Este filtro inclui mensagens de "você começa/termina", tanto quanto a efeitos do local</value>
     </data>
     <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
-        <value>Emote Filters</value>
+        <value>Filtros de Emotes</value>
         <comment>The clickable dropdown header for Emote filters</comment>
     </data>
     <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
-        <value>Improved Messages</value>
+        <value>Mensagens Melhoradas</value>
         <comment>Dropdown header for Improved Messages</comment>
     </data>
     <data name="GeneralTab_TidyChatTag" xml:space="preserve">
-        <value>Add [TidyChat] tag to any modified messages</value>
+        <value>Adiciona a etiqueta [TidyChat] a qualquer mensagem modificada</value>
     </data>
     <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
-        <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
+        <value>Marca o começo de mensagens enviadas ou modificadas por este plugin com [TidyChat]</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
-        <value>Improved /instance messaging</value>
+        <value>Mensagens /instance melhoradas</value>
     </data>
     <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-        <value>Changes the instance text to: You are now in instance: #</value>
+        <value>Muda a informação da instância para: Você está agora na instância: #</value>
     </data>
     <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
-        <value>Display current instance in DTR Bar</value>
+        <value>Mostra instãncia atual na barra de data e hora (DTR)</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
-        <value>Improved Player Commendations</value>
+        <value>Comendas de Jogadores Melhoradas</value>
     </data>
     <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
-        <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
+        <value>Desativa a Mensagem de Sistema para comenda recebida, e, em vez disso, registra apenas uma mensagem no seu canal de Chat usado pelo Dalamud (verifique as Configurações Gerais do Dalamud para saber qual canal de chat é esse - por padrão é o canal Debug)</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
-        <value>Include completed duty with commendations message</value>
+        <value>Incluir mensagem de duty completa com comendas</value>
     </data>
     <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
-        <value>Requires Improved Player Commendations to be enabled</value>
+        <value>Requer que Comendas de Jogador Melhoradas estejam ativas</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
-        <value>Improved /Say message for quests</value>
+        <value>Mensagem de /Say melhorada para missões</value>
     </data>
     <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-        <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
+        <value>Quando uma missão requer que você /Say algo no chat, muda a mensagem para uma que possa ser copiada e colada facilmente</value>
     </data>
     <data name="GeneralTab_CopySayMessage" xml:space="preserve">
-        <value>Automatically copy improved /say message to clipboard</value>
+        <value>Copiar automaticamente mensagem de /say melhorada para a área de transferência</value>
     </data>
     <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-        <value>Requires Improved /Say message for quests to be enabled</value>
+        <value>Requer que Mensagem de /Say melhorada para missões esteja ativa</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
-        <value>Improved Novice Network join and leave messages</value>
+        <value>Melhoria nas mensagens de entrada e saída da Rede de Iniciantes</value>
     </data>
     <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
-        <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
+        <value>Reduz a quantidade de texto da Rede de Iniciantes quando a esta é acessada por alguém e muda a mensagem de "deixou" para um texto mais consistente.</value>
     </data>
     <data name="GeneralTab_EnableTippy" xml:space="preserve">
-        <value>Enable integration with Tippy (must install Tippy to work)</value>
+        <value>Habilitar integração com Tippy (deve instalar o Tippy para funcionar)</value>
     </data>
     <data name="GeneralTab_HideKofiButton" xml:space="preserve">
-        <value>Hide ko-fi button</value>
+        <value>Ocultar botão de ko-fi</value>
     </data>
     <data name="GeneralTab_FilterEmotes" xml:space="preserve">
-        <value>Filter emote spam</value>
+        <value>Filtrar spam de emotes</value>
     </data>
     <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
+        <value>Isto ocultará o texto de todos os emotes a menos que seja um direcionado a você ou um que você usou.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-        <value>Filter custom emote spam</value>
+        <value>Filtrar spam de emotes personalizados</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
-eg. Another Player leans over and gives you a big bear hug.</value>
+        <value>Isso ocultará todas as mensagens "/em", a menos que mencionem você ou seja um que você usou.
+Ex.: Outro jogador se inclina e lhe dá um grande abraço de ursos.</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-        <value>Filter emotes used by yourself</value>
+        <value>Filtrar emotes usados por você mesmo</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide the message that occurs when you use an emote or custom emote.
-eg. You gently pat &lt;user&gt;</value>
+        <value>Isto ocultará a mensagem que ocorre quando você usa um emote ou um emote personalizado.
+Ex.: Você delicadamente toca &lt;user&gt;</value>
     </data>
     <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-        <value>Enable debug mode</value>
+        <value>Ativar modo de depuração</value>
     </data>
     <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
-        <value>System</value>
+        <value>Sistema</value>
     </data>
     <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
-        <value>Loot/Obtain</value>
+        <value>Loot/Obter</value>
     </data>
     <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
-        <value>Progress</value>
+        <value>Progresso</value>
     </data>
     <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
         <value>Crafting/Gathering</value>
     </data>
     <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
-        <value>Chat History</value>
+        <value>Histórico de chats</value>
     </data>
     <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
-        <value>Whitelist</value>
+        <value>Lista de permissões</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
-        <value>Experimental Feature: Inverse mode</value>
+        <value>Recurso experimental: Modo inverso</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
-        <value>No longer blocks System messages by default.
-Hide filters become Show filters and Show filters become Hide filters.</value>
+        <value>Não bloqueia mais mensagens do sistema por padrão.
+ Filtros de ocultação vira Filtros de exibição e Filtros de exibição vira Filtros de ocultação.</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-        <value>If you have enabled Inverse mode you are on your own and will not receive any support.
-It is assumed you know what you are doing.</value>
+        <value>Se você tiver ativado o Modo Inverso, você está sozinho e não receberá qualquer suporte.
+Presume-se que você sabe o que está fazendo.</value>
     </data>
     <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-        <value>Hide System messages Tidy Chat shows by default</value>
+        <value>Ocultar mensagens do sistema que o Tidy Chat mostra por padrão</value>
     </data>
     <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
-        <value>Hide /instance message</value>
+        <value>Ocultar mensagem /instance</value>
     </data>
     <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
         <value>eg. You are now in the instanced area Old Sharlayan .
@@ -333,131 +333,131 @@ eg. “Red Mage” equipped.</value>
         <value>Show when the party obtains a pomander</value>
     </data>
     <data name="SystemTab_ShowReturnedPomanderMessages" xml:space="preserve">
-        <value>Show when you return a pomander to the coffer</value>
+        <value>Mostrar quando você devolver um pomander para o cofre</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage begins to glow</value>
+        <value>Exibir quando o Cairn de Passagem começa a brilhar</value>
     </data>
     <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-        <value>Show when Cairn of Return is used</value>
+        <value>Exibir quando o Cairn de Retorno é usado</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage is activated</value>
+        <value>Mostrar quando o Cairn de Passagem estiver ativado</value>
     </data>
     <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-        <value>Show transference messages</value>
+        <value>Mostrar mensagens de transferência</value>
     </data>
     <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-        <value>Show Aetherpool increases</value>
+        <value>Mostrar aumentos de Aetherpool</value>
     </data>
     <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-        <value>Show Aetherpool remains unchanged...</value>
+        <value>Mostrar Aetherpool permanece inalterado...</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Safety is used</value>
+        <value>Mostrar quando Pomander of Safety é usado</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Sight is used</value>
+        <value>Mostrar quando Pomander of Sight é usado</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Affluence is used</value>
+        <value>Mostrar quando Pomander of Affluence é usado</value>
     </data>
     <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Flight is used</value>
+        <value>Mostrar quando Pomander of Flight é usado</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Alteration is used</value>
+        <value>Mostrar quando Pomander of Alteration é usado</value>
     </data>
     <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Witching is used</value>
+        <value>Mostrar quando Pomander of Witching é usado</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Serenity is used</value>
+        <value>Mostrar quando Pomander of Serenity é usado</value>
     </data>
     <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-        <value>Show floor number when entering a new floor</value>
+        <value>Mostrar o número do piso ao entrar em um novo andar</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is sensed</value>
+        <value>Mostrar quando Accursed Hoard é detectado</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is not sensed on the current floor</value>
+        <value>Mostrar quando Accursed Hoard não é detectado no andar atual</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is discovered</value>
+        <value>Mostrar quando Accursed Hoard é descoberto</value>
     </data>
     <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-        <value>Party &amp; Invite Messages</value>
+        <value>Mensagens de Party e Convite</value>
     </data>
     <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-        <value>Show sent party invites</value>
+        <value>Mostrar convites de party enviados</value>
     </data>
     <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-        <value>Show players joining party</value>
+        <value>Mostrar jogadores entrando na party</value>
     </data>
     <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-        <value>Show players leaving party</value>
+        <value>Mostrar jogadores saindo da party</value>
     </data>
     <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-        <value>Show party disbands and dissolves</value>
+        <value>Mostrar debandadas e dissoluções da party</value>
     </data>
     <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
-        <value>Show received party invitations</value>
+        <value>Mostrar convites de party recebidos</value>
     </data>
     <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-        <value>Show joined party/cross-party message</value>
+        <value>Mostrar mensagem de party/cross-party</value>
     </data>
     <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-        <value>Show teleport offers from party members</value>
+        <value>Mostrar ofertas de teleporte dos membros da party</value>
     </data>
     <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
-        <value>Trading Messages</value>
+        <value>Mensagens de Trading</value>
     </data>
     <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
-        <value>Show "Trade request sent to" message</value>
+        <value>Mostrar mensagem "Pedido de troca enviado para"</value>
     </data>
     <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
-        <value>Show "Trade canceled." message</value>
+        <value>Mostrar mensagem "Troca cancelada"</value>
     </data>
     <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
-        <value>Show "Awaiting trade confirmation" message</value>
+        <value>Mostrar mensagem "Aguardando confirmação de troca"</value>
     </data>
     <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
-        <value>Show "Trade complete." message</value>
+        <value>Mostrar mensagem "Troca Completa"</value>
     </data>
     <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
-        <value>Looting &amp; Rolling</value>
+        <value>Pilhagem e Rolagem</value>
     </data>
     <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
-        <value>Show "You cast your lot" messages</value>
+        <value>Mostrar mensagens "Você lança sua sorte para o item"</value>
     </data>
     <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you roll on loot.
-eg. You cast your lot for the &lt;item&gt;</value>
+        <value>Isto irá mostrar a mensagem que ocorre quando você rolar no saque.
+ex: Você lança sua sorte para o &lt;item&gt;</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-        <value>Show "You rolled..." messages</value>
+        <value>Mostrar mensagens "Você rolou..."</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
-eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
+        <value>Isto irá mostrar a mensagem que ocorre depois que todos rolaram no saque e você recebe o resultado da sua rolagem.
+por exemplo. Você joga Need/Greed no &lt;item&gt;. 63!</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
-        <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
+        <value>Mostrar mensagens de "Outro Jogador lança sua sorte para o item &lt;item&gt;"</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when another player in the party rolls for a loot drop.
-eg. Some player casts her lot for &lt;item&gt;.</value>
+        <value>Isto irá mostrar a mensagem que ocorre quando outro jogador na party rola para receber um loot.
+por exemplo. Alguns jogadores lançam seu lot for &lt;item&gt;.</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
-        <value>Show "Another Player rolls Greed..." messages</value>
+        <value>Mostrar mensagens de "Outro jogador joga Greed..."</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-        <value>Show "Another Player obtains &lt;item&gt;" messages</value>
+        <value>Mostrar mensagens de "Outro Jogador obtém &lt;item&gt;"</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when another player in the party obtains a loot drop.
-eg. Some player obtains an &lt;item&gt;!</value>
+        <value>Isto irá mostrar a mensagem que ocorre quando outro jogador na party rola para receber um loot.
+por exemplo. Alguns jogadores lançam seu lot for &lt;item&gt;!</value>
     </data>
     <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
         <value>Common Currencies</value>
