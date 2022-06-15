@@ -2494,6 +2494,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Channels.
+        /// </summary>
+        internal static string WhitelistTab_ChannelsHeader {
+            get {
+                return ResourceManager.GetString("WhitelistTab_ChannelsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You must enter the player&apos;s name as it would be seen in chat - including any periods.
         ///
         ///eg.

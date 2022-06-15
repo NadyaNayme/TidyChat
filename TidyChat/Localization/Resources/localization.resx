@@ -887,4 +887,7 @@ Initials: E. N.</value>
     <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
         <value>Show when Second Chance points will be awarded for duty clear</value>
     </data>
+    <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
+        <value>Channels</value>
+    </data>
 </root>
