@@ -22,34 +22,34 @@
         </value>
     </resheader>
     <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-        <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+        <value>Tidy Chat は {0:n0} 件のメッセージをブロックしています。</value>
     </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-        <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
+        <value>カウントはブロックされたメッセージが 100 メッセージごとに更新され、ゾーンが変更された場合やログオフ時にのみ更新されます。</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>システムスパムをフィルタ</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-        <value>Filter Progress spam</value>
+        <value>進行中のスパムをフィルター</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-        <value>These filters include messages like earned achievements or experience points</value>
+        <value>これらのフィルターには、獲得した実績や経験値などのメッセージが含まれます</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-        <value>Filter Loot roll spam</value>
+        <value>ルートロールスパムをフィルター</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes messages like rolling greed or player obtained a gear piece</value>
+        <value>このフィルターには、ロールグリードやプレイヤーがギアピースを獲得したなどのメッセージが含まれます</value>
     </data>
     <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
-        <value>Filter Obtained item spam</value>
+        <value>取得したアイテムのスパムをフィルター</value>
     </data>
     <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes items obtained as monster drops, quest rewards, and roulette rewards</value>
+        <value>このフィルターには、モンスタードロップ、クエスト報酬、ルーレット報酬として得られるアイテムが含まれます。</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
-        <value>Filter Crafting spam</value>
+        <value>クラフト時のスパムをフィルタ</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
         <value>This filter includes all crafting messages except "You synthesize a/an &lt;item&gt;"
