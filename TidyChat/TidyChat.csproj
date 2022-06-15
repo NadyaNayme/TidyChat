@@ -4,7 +4,18 @@
         <Authors>Nadya</Authors>
         <Company>Served with love</Company>
         <Version>0.1.1.22</Version>
-        <Description>Filters most of the game's spammy messages away. Condense earned commendations into a single line, autocopy /say text for most quests, block emote spam and more.</Description>
+        <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
+
+            Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
+
+            - Filters most spammy game messages
+            - Blocks emote spam from other players
+            - Condenses earned commendations into a single line
+            - Shortens lengthy messages such as joining Novice Network or entering an instanced zone
+            - Blocks repeated messages from appearing for a period of time
+            - Automatically copies most 'with your chat mode in /say' quest dialogue to your clipboard
+            - And more!
+        </Description>
         <Copyright></Copyright>
         <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>
         <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -22,11 +33,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Content Include="..\Data\TidyChat.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Include="..\images\icon.png">
-            <Link>images/icon.png</Link>
+        <Content Include=".\TidyChat.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Content Include="..\images\icon.png">
@@ -49,7 +56,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="DalamudPackager" Version="2.1.6"/>
+        <PackageReference Include="DalamudPackager" Version="2.1.7"/>
         <PackageReference Include="TextCopy" Version="6.1.0"/>
     </ItemGroup>
 
