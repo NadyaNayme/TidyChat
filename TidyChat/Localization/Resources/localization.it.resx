@@ -46,7 +46,7 @@
         <value>Filter Obtained item spam</value>
     </data>
     <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-        <value>This filter includes items obtained as monster drops, quest rewards, and roulette rewards</value>
+        <value>Questo filtro include oggetti ottenuti come drop dai nemici e ricompense dalle quest o dalle roulette</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
         <value>Filter Crafting spam</value>
@@ -70,7 +70,7 @@ This allows you to use ChatAlerts to create an alert for "You synthesize" instea
         <comment>Dropdown header for Improved Messages</comment>
     </data>
     <data name="GeneralTab_TidyChatTag" xml:space="preserve">
-        <value>Add [TidyChat] tag to any modified messages</value>
+        <value>Aggiungi il tag [TidyChat] ai messaggi modificati</value>
     </data>
     <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
         <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
