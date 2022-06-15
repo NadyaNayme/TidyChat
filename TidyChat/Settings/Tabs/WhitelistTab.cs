@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
+using Dalamud.Interface;
+using Dalamud.Interface.Components;
 using ImGuiNET;
 using TidyChat.Localization.Resources;
 
@@ -37,10 +39,9 @@ internal static class WhitelistTab
         ImGui.TableSetupScrollFreeze(0, 1);
         ImGui.TableSetupColumn(localization.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
         ImGui.TableSetupColumn(localization.WhitelistTab_PlayerInformationTableHeader,
-            ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthStretch);
+            ImGuiTableColumnFlags.WidthStretch);
+        ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
         ImGui.TableHeadersRow();
-
         var list = configuration.Whitelist.ToList();
         for (var i = -1; i < list.Count; i++)
         {
@@ -50,26 +51,40 @@ internal static class WhitelistTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            if (ImGui.CheckboxFlags($"Emotes##whitelist{i}OverrideEmoteFilters", ref alias.whitelistedChannels, 1 << 1))
-                configuration.Save();
-            ImGui.SameLine(80f);
-            if (ImGui.CheckboxFlags($"Loot##whitelist{i}OverrideLootFilters", ref alias.whitelistedChannels, 1 << 5))
-                configuration.Save();
-            if (ImGui.CheckboxFlags($"Crafting##whitelist{i}OverrideCraftingFilters", ref alias.whitelistedChannels,
-                    1 << 8)) configuration.Save();
-            ImGui.SameLine(80f);
-            if (ImGui.CheckboxFlags($"Gathering##whitelist{i}OverrideGatheringFilters", ref alias.whitelistedChannels,
-                    1 << 9)) configuration.Save();
-            if (ImGui.CheckboxFlags($"Talking##whitelist{i}OverrideTalkingFilters", ref alias.whitelistedChannels,
-                    1 << 2)) configuration.Save();
-            ImGui.SameLine(80f);
-            if (ImGui.CheckboxFlags($"Login/Logout##whitelist{i}OverrideFreeCompanyFilters",
-                    ref alias.whitelistedChannels, 1 << 7)) configuration.Save();
-            if (ImGui.CheckboxFlags($"Progress##whitelist{i}OverrideProgressFilters", ref alias.whitelistedChannels,
-                    1 << 4)) configuration.Save();
-            ImGui.SameLine(80f);
-            if (ImGui.CheckboxFlags($"System##whitelist{i}OverrideSystemFilters", ref alias.whitelistedChannels,
-                    1 << 3)) configuration.Save();
+            if (ImGui.CollapsingHeader($"{localization.WhitelistTab_ChannelsHeader}##whitelist{i}ChannelsHeader"))
+            {
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
+                        ref alias.whitelistedChannels, 1 << 1))
+                    configuration.Save();
+                if (ImGui.CheckboxFlags($"{localization.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
+                        ref alias.whitelistedChannels, 1 << 5))
+                    configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 8)) configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 9)) configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 2)) configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
+                        ref alias.whitelistedChannels, 1 << 7)) configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 4)) configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 3)) configuration.Save();
+            }
+
             ImGui.Spacing();
 
             #endregion Channels Column
@@ -78,10 +93,9 @@ internal static class WhitelistTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            ImGui.SetNextItemWidth(120);
             ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerFirstName);
-            ImGui.SameLine(75f);
-            if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 20,
+            ImGuiHelpers.ScaledRelativeSameLine(0f);
+            if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 120,
                     ImGuiInputTextFlags.EnterReturnsTrue))
             {
                 if (i == -1)
@@ -93,10 +107,9 @@ internal static class WhitelistTab
                 configuration.Save();
             }
 
-            ImGui.SetNextItemWidth(120);
             ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerLastName);
-            ImGui.SameLine(75f);
-            if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 20,
+            ImGuiHelpers.ScaledRelativeSameLine(0f);
+            if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 120,
                     ImGuiInputTextFlags.EnterReturnsTrue))
             {
                 if (i == -1)
@@ -108,10 +121,9 @@ internal static class WhitelistTab
                 configuration.Save();
             }
 
-            ImGui.SetNextItemWidth(120);
             ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerServerName);
-            ImGui.SameLine(75f);
-            if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 32,
+            ImGuiHelpers.ScaledRelativeSameLine(0f);
+            if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 132,
                     ImGuiInputTextFlags.EnterReturnsTrue))
             {
                 if (i == -1)
@@ -122,14 +134,17 @@ internal static class WhitelistTab
 
                 configuration.Save();
             }
+
+            ImGuiHelpers.ScaledDummy(10f);
 
             #endregion Player Column
+
 
             #region Delete Column
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            if (i != -1 && ImGui.Button($"Remove##player{i}delete"))
+            if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
             {
                 configuration.Whitelist.Remove(alias);
                 configuration.Save();
