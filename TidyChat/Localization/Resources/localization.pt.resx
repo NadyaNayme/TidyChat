@@ -183,44 +183,44 @@ Presume-se que você sabe o que está fazendo.</value>
 A instância atual pode ser confirmada a qualquer momento usando o comando de texto / instance.</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
-        <value>Hide S Rank Hunt spawn announcement</value>
+        <value>Esconder anúncio de spawn de caçada Rank S</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. You sense the presence of a powerful mark...</value>
+        <value>ex. Você sente a presença de uma caça poderosa...</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
-        <value>Hide SS Rank Minion announcements</value>
+        <value>Esconder anúncios de Minions Rank SS</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
-The minions of an extraordinarily powerful mark have withdrawn...</value>
+        <value>por exemplo. Os lacaios de uma caça extraordinariamente poderosa estão caçando presas...
+Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
-        <value>Hide Received Commendations</value>
+        <value>Ocultar comendas recebidas</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
-        <value>eg. You received a player commendation!</value>
+        <value>ex. Você recebeu um elogio de jogador!</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-        <value>Hide Completed Venture</value>
+        <value>Ocultar Ventura Completada</value>
     </data>
     <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-        <value>eg. RetainerName has completed a venture!</value>
+        <value>ex: NomeDoRetainer completou um empreendimento!</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
-        <value>Hide reminders of what to /say in chat during quests.</value>
+        <value>Ocultar lembretes do que /say no chat durante as missões.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
-        <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+        <value>por exemplo. Com o modo de bate-papo em Say, digite uma frase contendo "Tataru" no ponto de destino.</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
-        <value>Hide "You sense something..." messages</value>
+        <value>Ocultar mensagens "Você sente alguma coisa..."</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You sense something to the far, far southwest...</value>
+        <value>ex. Você percebe algo muito ao sudoeste...</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
-        <value>Hide Aether Compass message</value>
+        <value>Esconder mensagem Bússola de Aether</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
         <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
