@@ -179,8 +179,8 @@ Presume-se que você sabe o que está fazendo.</value>
         <value>Ocultar mensagem /instance</value>
     </data>
     <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
-        <value>eg. You are now in the instanced area Old Sharlayan .
-Current instance can be confirmed at any time using the / instance text command.</value>
+        <value>por exemplo. Você está agora na área instantânea de Old Sharlayan.
+A instância atual pode ser confirmada a qualquer momento usando o comando de texto / instance.</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
         <value>Hide S Rank Hunt spawn announcement</value>
