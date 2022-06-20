@@ -165,15 +165,15 @@ Exemple : Vous saluez &lt;Un'autre Personnage&gt;</value>
         <value>Fonctionnalité Expérimentale : Mode Inversé</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
-        <value>No longer blocks System messages by default.
-Hide filters become Show filters and Show filters become Hide filters.</value>
+        <value>Cesse de bloquer les messages Systèmes par défaut.
+À la place, les filtres "Masquer l'affichage de &lt;x&gt;" fonctionnent comme s'ils étaient "Activer l'affichage de &lt;x&gt;" et vice-versa.</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-        <value>If you have enabled Inverse mode you are on your own and will not receive any support.
-It is assumed you know what you are doing.</value>
+        <value>Si vous avez activé le Mode Inversé, vous ne recevrez aucune aide et devrez vous débrouiller.
+Il sera supposé que vous savez ce que vous faites.</value>
     </data>
     <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-        <value>Hide System messages Tidy Chat shows by default</value>
+        <value>Masquer l'affichage de messages Systèmes que Tidy Chat affiche par défaut</value>
     </data>
     <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
         <value>Hide /instance message</value>
