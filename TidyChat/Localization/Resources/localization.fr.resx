@@ -196,55 +196,55 @@ Il sera supposé que vous savez ce que vous faites.</value>
 Les sous-fifres du monstre d'élite se sont retirés...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
-        <value>Hide Received Commendations</value>
+        <value>Masquer l'affichage des Honneurs reçus suite à une mission</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
-        <value>eg. You received a player commendation!</value>
+        <value>Exemple : Vous avez été honoré·e !</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-        <value>Hide Completed Venture</value>
+        <value>Masquer l'affichage des Tâches Accomplies</value>
     </data>
     <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-        <value>eg. RetainerName has completed a venture!</value>
+        <value>Exemple : Servant a terminé sa tâche !</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
-        <value>Hide reminders of what to /say in chat during quests.</value>
+        <value>Masquer l'affichage des rappels de ce qu'il faut /dire dans le canal de discussion durant les quêtes.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
-        <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+        <value>Exemple : En mode de discussion Dire, entrez une phrase contenant "Tatatu" au lieu indiqué.</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
-        <value>Hide "You sense something..." messages</value>
+        <value>Masquer l'affichage des messages "Vous ressentez quelque chose..."</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You sense something to the far, far southwest...</value>
+        <value>Exemple : Vous ressentez une présence hostile !</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
-        <value>Hide Aether Compass message</value>
+        <value>Masquer l'affichage des messages de la Boussole éthéréenne</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
-        <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
+        <value>Exemple : La boussole éthéréenne indique 143 yalms au sud-ouest.</value>
     </data>
     <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
-        <value>Hide /countdown messages</value>
+        <value>Masquer l'affichage des messages de /compteàrebours</value>
     </data>
     <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Battle commencing in 18 seconds!</value>
+        <value>Exemple : Début du combat dans 18 secondes !</value>
     </data>
     <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
-        <value>Hide /readycheck message</value>
+        <value>Masquer l'affichage des messages de /appelpréparation</value>
     </data>
     <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Ready check complete.</value>
+        <value>Exemple : L'appel de préparation a pris fin.</value>
     </data>
     <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
-        <value>Hide "Search for items" results message</value>
+        <value>Masquer l'affichage des messages de résultats de "Nombre possédé"</value>
     </data>
     <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
-        <value>eg. 1 item found in the 4th tab of your inventory.</value>
+        <value>Exemple : 1 exemplaire de l'objet se trouve dans l'onglet n°1 de l'inventaire.</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-        <value>Hide Airship voyage messages</value>
+        <value>Masquer l'affichage des messages de Voyages d'Aéronefs</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
         <value>eg. A new exploratory voyage destination...has been discovered!</value>
