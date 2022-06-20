@@ -176,24 +176,24 @@ Il sera supposé que vous savez ce que vous faites.</value>
         <value>Masquer l'affichage de messages Systèmes que Tidy Chat affiche par défaut</value>
     </data>
     <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
-        <value>Hide /instance message</value>
+        <value>Masquer l'affichage du message de /instance</value>
     </data>
     <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
-        <value>eg. You are now in the instanced area Old Sharlayan .
-Current instance can be confirmed at any time using the / instance text command.</value>
+        <value>Exemple : Vous avez été transportée vers la zone instanciée “Radz-at-Han ”.
+* Vous pouvez utiliser “/instance” pour vérifier dans quelle instance vous vous trouvez.</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
-        <value>Hide S Rank Hunt spawn announcement</value>
+        <value>Masquer l'affichage des annonces d'apparition de Monstres d'Élite de Rangs S</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. You sense the presence of a powerful mark...</value>
+        <value>Exemple : Vous sentez la présence d'un monstre d'élite !</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
-        <value>Hide SS Rank Minion announcements</value>
+        <value>Masquer l'affichage des annonces d'apparition des Sous-Fifres d'Élite de Rangs SS</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
-The minions of an extraordinarily powerful mark have withdrawn...</value>
+        <value>Exemple : Les sous-fifres du monstre d'élite ont commencé à vous espionner...
+Les sous-fifres du monstre d'élite se sont retirés...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
         <value>Hide Received Commendations</value>
