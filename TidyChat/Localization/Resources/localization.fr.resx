@@ -292,99 +292,97 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
         <value>Afficher les messages de complétion des étapes des Livres de la Relique ARR</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
-        <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
+        <value>Exemple : Vous avez accompli toutes les épreuves de la catégorie “Donjons” du livre “ Bouclier saint âtma - Force +2”.</value>
     </data>
     <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
-        <value>Show hunt mark slain messages</value>
+        <value>Afficher les notifications de monstres de chasse vaincus</value>
     </data>
     <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
+        <value>Exemple : Contrat d'élite : Sophie la dardante 1/1</value>
     </data>
     <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-        <value>Show completion time when unrestricted party is active</value>
+        <value>Afficher le temps de complétion d'une mission durant laquelle Sans restriction est actif</value>
     </data>
     <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-        <value>eg. &lt;Duty&gt; completion time: 00:30</value>
+        <value>Exemple : Temps d'incursion pour “Halatali (brutal)” : 5min 29s</value>
     </data>
     <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
-        <value>Show volume control messages</value>
+        <value>Afficher les messages de contrôle du volume</value>
     </data>
     <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Master Volume muted, BGM volume set to 50.</value>
+        <value>Exemple : Vous avez désactivé les sons systèmes &amp; Vous avez réglé le volume des sons systèmes à 50.</value>
     </data>
     <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Show message when changing glamour plates</value>
+        <value>Afficher un message lorsque vous projetez une planche mirage</value>
     </data>
     <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>
-eg. Glamours projected from plate 10.</value>
+        <value>Exemple : La planche mirage n°10 a été projetée sur votre équipement.</value>
     </data>
     <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
-        <value>Show message when changing gearsets</value>
+        <value>Afficher un message lorsque vous changez de tenue</value>
     </data>
     <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
-        <value>
-eg. “Red Mage” equipped.</value>
+        <value>Exemple :  Vous vous équipez de la tenue “Pêcheur”.</value>
     </data>
     <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-        <value>POTD &amp; HoH</value>
+        <value>Palais des Morts &amp; Palais des Cieux</value>
     </data>
     <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-        <value>Show when the party obtains a pomander</value>
+        <value>Afficher la notification d'obtention de poterie</value>
     </data>
     <data name="SystemTab_ShowReturnedPomanderMessages" xml:space="preserve">
-        <value>Show when you return a pomander to the coffer</value>
+        <value>Afficher la notification lorsqu'une poterie est remise dans son coffre</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage begins to glow</value>
+        <value>Afficher la notification lorsque la pierre de téléportation commence à briller</value>
     </data>
     <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-        <value>Show when Cairn of Return is used</value>
+        <value>Afficher la notification lorsque la pierre de résurrection est utilisée</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage is activated</value>
+        <value>Afficher la notification lorsque la pierre de téléportation s'active</value>
     </data>
     <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-        <value>Show transference messages</value>
+        <value>Afficher la notification de téléportation vers l'étage suivant</value>
     </data>
     <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-        <value>Show Aetherpool increases</value>
+        <value>Afficher la notification d'augmentation de substrat magique</value>
     </data>
     <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-        <value>Show Aetherpool remains unchanged...</value>
+        <value>Afficher la notification lorsque le substrat magique n'a pas pu être amélioré...</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Safety is used</value>
+        <value>Afficher la notification lorsqu'une poterie de Désamorçage est utilisée</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Sight is used</value>
+        <value>Afficher la notification lorsqu'une poterie de Localisation est utilisée</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Affluence is used</value>
+        <value>Afficher la notification lorsqu'une poterie de Décèlement est utilisée</value>
     </data>
     <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Flight is used</value>
+        <value>Afficher la notification lorsqu'une poterie de Sécurisation est utilisée</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Alteration is used</value>
+        <value>Afficher la notification lorsqu'une poterie d'Affaiblissement est utilisée</value>
     </data>
     <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Witching is used</value>
+        <value>Afficher la notification lorsqu'une poterie de Mutation est utilisée</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Serenity is used</value>
+        <value>Afficher la notification lorsqu'une poterie de Dissipation est utilisée</value>
     </data>
     <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-        <value>Show floor number when entering a new floor</value>
+        <value>Afficher la notification de l'étage atteint lors du changement d'étage</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is sensed</value>
+        <value>Afficher la notification lorsqu'une trésor caché est détecté</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is not sensed on the current floor</value>
+        <value>Afficher la notification lorsqu'un trésor caché n'est pas détecté dans l'étage actuel</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is discovered</value>
+        <value>Afficher la notification lorsqu'un trésor caché a été découvert</value>
     </data>
     <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
         <value>Party &amp; Invite Messages</value>
