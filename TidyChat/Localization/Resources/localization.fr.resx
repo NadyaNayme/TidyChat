@@ -247,49 +247,49 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
         <value>Masquer l'affichage des messages de Voyages d'Aéronefs</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A new exploratory voyage destination...has been discovered!</value>
+        <value>Exemple : L'aéronef Ragnarok est parti en expédition d'exploration.</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-        <value>Hide Submarine voyage messages</value>
+        <value>Masquer l'affichage des messages de Voyages de Sous-Marins</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A new subaquatic voyage destination...has been discovered!</value>
+        <value>Exemple : Le sous-marin Syldra est parti en expédition d'exploration.</value>
     </data>
     <data name="SystemTab_HideVistaMessages" xml:space="preserve">
-        <value>Hide vista arrival and stray messages</value>
+        <value>Masquer l'affichage des messages de lieux notoires</value>
     </data>
     <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
+        <value>Exemple : Vous êtes arrivé·e à un lieu notoire ! &amp; Vous vous êtes éloigné·e du lieu notoire.</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
-        <value>Hide try on glamour messages</value>
+        <value>Masquer l'affichage des messages d'essayage d'objets</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You try on item.</value>
+        <value>Exemple : Vous essayez le  bas-de-corps de fauconnier.</value>
     </data>
     <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
-        <value>Show System messages Tidy Chat hides by default</value>
+        <value>Afficher les messages Systèmes que Tidy Chat cache par défaut</value>
     </data>
     <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
-        <value>Show online status updates</value>
+        <value>Afficher les mises à jour de statut</value>
     </data>
     <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Updating online status to Away from Keyboard.</value>
+        <value>Exemple : Votre profil de recherche a été actualisé &amp; État "Absent(e)" annulé.</value>
     </data>
     <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
-        <value>Show items attached to sent mail</value>
+        <value>Afficher les objets joints aux lettres envoyées</value>
     </data>
     <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
+        <value>Exemple : Vous joignez une  barquette de takoyaki à la lettre.</value>
     </data>
     <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
-        <value>Show ARR Relic book step progress messages</value>
+        <value>Afficher les messages de progression des étapes des Livres de la Relique ARR</value>
     </data>
     <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
+        <value>Exemple : Vous notez un adjucateur dans le livre “ Bouclier saint âtma - Force +2” (1/1).</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
-        <value>Show ARR Relic book step completed messages</value>
+        <value>Afficher les messages de complétion des étapes des Livres de la Relique ARR</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
         <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
