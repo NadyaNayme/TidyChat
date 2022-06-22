@@ -565,26 +565,26 @@ Exemple : Vous obtenez un agrégat pétaloïde inactif.</value>
 Exemple : Vous obtenez 35 cristaux d'eau.</value>
     </data>
     <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
-        <value>Enable Chat History Filter</value>
+        <value>Activer le filtre d'historique du chat</value>
     </data>
     <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
-        <value>If a message was sent within the last {0} messages it will be filtered</value>
+        <value>Si un message parmi les {0} derniers messages a déjà été affiché, il sera filtré</value>
     </data>
     <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
-        <value>Ignore messages sent by player</value>
+        <value>Ignorer les messages envoyés par des personnages joueurs</value>
     </data>
     <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
-        <value>Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.</value>
+        <value>Filtre les messages en doublon que vous envoyez, n'activez cette option que si vous voulez filtrer les messages en double que vous envoyez.</value>
     </data>
     <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
-        <value>Number of messages to keep in chat history</value>
+        <value>Nombre de messages que vous souhaitez conserver dans l'historique de chat</value>
     </data>
     <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
-        <value>WARNING: Having the history length set too high may impact game performance.
-It's recommended to keep it at 50 or lower.</value>
+        <value>ATTENTION : Configurer un trop gros historique de chat peut impacter les performances de votre jeu.
+Il est recommandé de conserver ce paramètre à 50, ou moins.</value>
     </data>
     <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
-        <value>Number of seconds to keep messages in chat history</value>
+        <value>Nombre de secondes pendant lesquelles les messages sont conservés dans l'historique de chat</value>
     </data>
     <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
         <value>Définissez 0 pour désactiver cette option</value>
