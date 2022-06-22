@@ -385,22 +385,22 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
         <value>Afficher la notification lorsqu'un trésor caché a été découvert</value>
     </data>
     <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-        <value>Party &amp; Invite Messages</value>
+        <value>Messages d'Équipe et d'Invitation</value>
     </data>
     <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-        <value>Show sent party invites</value>
+        <value>Afficher les invitations d'équipe envoyées</value>
     </data>
     <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-        <value>Show players joining party</value>
+        <value>Afficher les joueurs qui rejoignent l'équipe</value>
     </data>
     <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-        <value>Show players leaving party</value>
+        <value>Afficher les joueurs qui quittent l'équipe</value>
     </data>
     <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-        <value>Show party disbands and dissolves</value>
+        <value>Afficher les dissolutions d'équipe</value>
     </data>
     <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
-        <value>Show received party invitations</value>
+        <value>Afficher les invitations d'équipe reçues</value>
     </data>
     <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
         <value>Show joined party/cross-party message</value>
@@ -458,52 +458,52 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
 eg. Some player obtains an &lt;item&gt;!</value>
     </data>
     <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
-        <value>Common Currencies</value>
+        <value>Devises Communes</value>
     </data>
     <data name="ObtainTab_ShowGil" xml:space="preserve">
-        <value>Show Gil</value>
+        <value>Afficher les Gils</value>
     </data>
     <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 69 gil.</value>
+        <value>Exemple : Vous obtenez 69 gils.</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
-        <value>Show Grand Company Seals</value>
+        <value>Afficher les Sceaux de Grande Compagnie</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 420 Flame Seals.</value>
+        <value>Exemple : Vous obtenez 420 Sceaux de l'ordre des Deux Vipères.</value>
     </data>
     <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
-        <value>Show Ventures</value>
+        <value>Afficher les Jetons de Tâches</value>
     </data>
     <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain a Venture.</value>
+        <value>Exemple : Vous obtenez un jeton de tâche.</value>
     </data>
     <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
-        <value>Show MGP</value>
+        <value>Afficher les PGS</value>
     </data>
     <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 117 MGP.</value>
+        <value>Exemple : Vous obtenez 117 PGS.</value>
     </data>
     <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
-        <value>Battle Currencies</value>
+        <value>Devises de Combat</value>
     </data>
     <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Poetics</value>
+        <value>Afficher les Mémoquartz Allagois Poétiques</value>
     </data>
     <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
+        <value>Exemple : Vous obtenez 100 mémoquartz allagois poétiques.</value>
     </data>
     <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Aphorism</value>
+        <value>Afficher les Mémoquartz Allagois Aphoristiques</value>
     </data>
     <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
+        <value>Exemple : Vous obtenez 60 mémoquartz allagois aphoristiques.</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Astronomy</value>
+        <value>Afficher les Mémoquartz Allagois Astronomiques</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
+        <value>Exemple : Vous obtenez 20 mémoquartz allagois astronomiques.</value>
     </data>
     <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Show Wolf Marks</value>
@@ -512,13 +512,13 @@ eg. Some player obtains an &lt;item&gt;!</value>
         <value>eg. You obtain 1,000 Wolf Marks.</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
-        <value>Show Allied Seals</value>
+        <value>Afficher les Insignes Alliés</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 Allied Seals.</value>
+        <value>Exemple : Vous obtenez 100 insignes alliés.</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
-        <value>Show Centurio Seals</value>
+        <value>Afficher les Insignes Centurio</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
         <value>eg. You obtain 40 Centurio Seals.</value>
