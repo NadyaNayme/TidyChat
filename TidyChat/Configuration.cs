@@ -118,6 +118,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowNowLeaderOf { get; set; } = false;
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
+    public bool HideNoviceNetworkFull { get; set; } = false;
 
     #endregion
 

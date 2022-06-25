@@ -1799,6 +1799,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide unable to join full Novice Network..
+        /// </summary>
+        internal static string SystemTab_HideUnableToJoinFullNoviceNetwork {
+            get {
+                return ResourceManager.GetString("SystemTab_HideUnableToJoinFullNoviceNetwork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide vista arrival and stray messages.
         /// </summary>
         internal static string SystemTab_HideVistaMessages {

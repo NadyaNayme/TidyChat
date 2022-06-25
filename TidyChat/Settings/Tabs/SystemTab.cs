@@ -165,6 +165,13 @@ internal static class SystemTab
                 configuration.HideEligibleForCoffers = hideEligibleForCoffers;
                 configuration.Save();
             }
+
+            var hideNoviceNetworkFull = configuration.HideNoviceNetworkFull;
+            if (ImGui.Checkbox(localization.SystemTab_HideUnableToJoinFullNoviceNetwork, ref hideNoviceNetworkFull))
+            {
+                configuration.HideNoviceNetworkFull = hideNoviceNetworkFull;
+                configuration.Save();
+            }
         }
 
         if (ImGui.CollapsingHeader(localization.SystemTab_ShowHiddenMessagesDropdownHeader))

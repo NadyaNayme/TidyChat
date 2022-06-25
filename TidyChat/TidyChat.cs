@@ -301,6 +301,10 @@ public sealed class TidyChat : IDalamudPlugin
         if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
             message = Better.NoviceNetwork(message, normalizedText, Configuration);
 
+        if (Configuration.HideNoviceNetworkFull && chatType is ChatType.NoviceNetworkSystem &&
+            L10N.Get(ChatRegexStrings.NoviceNetworkFull).IsMatch(normalizedText))
+            isHandled = true;
+
         #endregion
 
         #region Channel Filters

@@ -102,7 +102,7 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"NeedsTranslation", regexOptions),
         Eng = new Regex(
-            @"You (obtain|obtains) (a|an|2) (Steel Amalj'ok|Steel Amalj'oks|Sylphic Goldleaf|Sylphic Goldleaves|Titan Cobaltpiece|Titan Cobaltpieces|Rainbowtide Psashp|Rainbowtide Psashps|Ixali oaknot|Ixali oaknots|Vanu Whitebone|Vanu Whitebones|Black Copper Gil|Black Copper Gils|Carved Kupo Nut|Carved Kupo Nuts|Kojin Sango|Kojin Sangos|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu Koban|Namazu Kobans|Fae Fancies|Fae Fancy|Qitari Compliment|Qitari Compliments|Hammered Frogment|Hammered Frogments)\.",
+            @"You (obtain|obtains) (a|an|2) (Steel (Amalj'ok|Amalj'oks)|Sylphic (Goldleaf|Goldleaves)|Titan (Cobaltpiece|Cobaltpieces)|(Rainbowtide Psashp|Psashps)|Ixali (oaknot|oaknots)|Vanu (Whitebone|Whitebones)|Black Copper (Gil|Gils)|Carved Kupo (Nut|Nuts)|Kojin (Sango|Sangos)|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu (Koban|Kobans)|Fae (Fancy|Fancies)|Qitari (Compliment|Compliments)|Hammered (Frogment|Fragments)|Arkasodara (Pana|Panas))\.",
             regexOptions),
         Deu = new Regex(
             @"(du|you) hast (einen|2) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze) erhalten\.$",
@@ -492,6 +492,21 @@ public static class ChatRegexStrings
         Eng = new Regex(@"you try on", regexOptions),
         Deu = new Regex(@"probeweise angelgt", regexOptions),
         Fra = new Regex(@"vous essayez", regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7005?pretty=true">
+    ///     Unable to join Novice Network. The channel has reached the
+    ///     maximum number of users.
+    /// </see>
+    public static readonly LocalizedRegex NoviceNetworkFull = new()
+    {
+        Jpn = new Regex(@"定員に達しているため", regexOptions),
+        Eng = new Regex(@"^unable to join novice network\. the channel has reached the maximum number of users\.$",
+            regexOptions),
+        Deu = new Regex(@"^du konntest dem neulings-chat nicht beitreten, weil er bereits voll ist\.$", regexOptions),
+        Fra = new Regex(
+            @"^\(rdn\) impossible de rejoindre le réseau des novices\. Le nombre maximal de participants a été atteint\.$",
+            regexOptions)
     };
 
     #region PotD & HoH
