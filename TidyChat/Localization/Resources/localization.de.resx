@@ -348,7 +348,7 @@ zB. "Rotmagier" ausgerüstet.</value>
         <value>Transfernachrichten anzeigen</value>
     </data>
     <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-        <value>Zeige AetherPool Stärke erhöht</value>
+        <value>AetherPool-Erhöhungen anzeigen</value>
     </data>
     <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
         <value>Zeige Aetherpool bleibt unverändert...</value>
@@ -883,5 +883,8 @@ Initials: E. N.</value>
     </data>
     <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
         <value>Show when Second Chance points will be awarded for duty clear</value>
+    </data>
+    <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
+        <value>Channels</value>
     </data>
 </root>
