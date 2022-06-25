@@ -887,4 +887,7 @@ Initials: E. N.</value>
     <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
         <value>Channels</value>
     </data>
+    <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
+        <value>Hide unable to join full Novice Network.</value>
+    </data>
 </root>
