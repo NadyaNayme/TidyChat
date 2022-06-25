@@ -887,6 +887,6 @@ Initiales : N. D.</value>
         <value>Canaux</value>
     </data>
     <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
-        <value>Hide unable to join full Novice Network.</value>
+        <value>Masquer la notification de l'impossibilité de rejoindre un Réseau des Novices déjà plein.</value>
     </data>
 </root>
