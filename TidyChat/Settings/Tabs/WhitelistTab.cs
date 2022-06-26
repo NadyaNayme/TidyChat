@@ -38,7 +38,7 @@ internal static class WhitelistTab
                 ImGuiTableFlags.RowBg, outer_height)) return;
         ImGui.TableSetupScrollFreeze(0, 1);
         ImGui.TableSetupColumn(localization.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn(localization.WhitelistTab_PlayerInformationTableHeader,
+        ImGui.TableSetupColumn(localization.WhitelistTab_FiltersHeader,
             ImGuiTableColumnFlags.WidthStretch);
         ImGui.TableSetupColumn("##AllowColumn", ImGuiTableColumnFlags.WidthFixed, 120f);
         ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
@@ -92,42 +92,12 @@ internal static class WhitelistTab
 
             #region Player Column
 
-            ImGui.SetNextItemWidth(-1);
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerFirstName);
-            ImGuiHelpers.ScaledRelativeSameLine(0f);
+            if (i == -1) ImGui.TextUnformatted(localization.WhitelistTab_MessageContains);
+
+            ImGui.SetNextItemWidth(-1);
             if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 120,
-                    ImGuiInputTextFlags.EnterReturnsTrue))
-            {
-                if (i == -1)
-                {
-                    configuration.Whitelist.Insert(0, alias);
-                    m_placeholder = new PlayerName();
-                }
-
-                configuration.Save();
-            }
-
-            ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerLastName);
-            ImGuiHelpers.ScaledRelativeSameLine(0f);
-
-            if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 120,
-                    ImGuiInputTextFlags.EnterReturnsTrue))
-            {
-                if (i == -1)
-                {
-                    configuration.Whitelist.Insert(0, alias);
-                    m_placeholder = new PlayerName();
-                }
-
-                configuration.Save();
-            }
-
-            ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerServerName);
-            ImGuiHelpers.ScaledRelativeSameLine(0f);
-
-            if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 132,
                     ImGuiInputTextFlags.EnterReturnsTrue))
             {
                 if (i == -1)
@@ -158,6 +128,7 @@ internal static class WhitelistTab
                     previewValue = localization.WhitelistTab_Allow;
                 else
                     previewValue = localization.WhitelistTab_Block;
+                ImGui.SetNextItemWidth(-1);
                 if (ImGui.BeginCombo($"##whitelist{i}AllowSetting", previewValue))
                 {
                     if (ImGui.Selectable($"{localization.WhitelistTab_Allow}##{i}", alias.AllowMessage))

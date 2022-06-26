@@ -26,7 +26,7 @@ internal static class AdvancedTab
             if (ImGui.BeginTabItem(localization.AdvancedTab_CraftingGatheringTabHeader))
                 CraftingGatheringTab.Draw(configuration);
             if (ImGui.BeginTabItem(localization.AdvancedTab_ChatHistoryTabHeader)) ChatHistoryTab.Draw(configuration);
-            if (ImGui.BeginTabItem(localization.AdvancedTab_WhitelistTabHeader)) WhitelistTab.Draw(configuration);
+            if (ImGui.BeginTabItem(localization.AdvancedTab_CustomFiltersHeader)) WhitelistTab.Draw(configuration);
         }
 
         ImGui.EndTabBar();

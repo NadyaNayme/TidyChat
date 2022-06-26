@@ -439,7 +439,7 @@ public sealed class TidyChat : IDalamudPlugin
                             whiteListedChatType = Flags.CheckFlags(playerOrMessage, chatType);
 
                         if (whiteListedChatType &&
-                            sender.TextValue == playerOrMessage.FirstName + " " + playerOrMessage.LastName)
+                            sender.TextValue == playerOrMessage.FirstName)
                         {
                             isHandled = false;
                             PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been allowed.");
@@ -478,7 +478,7 @@ public sealed class TidyChat : IDalamudPlugin
                             whiteListedChatType = Flags.CheckFlags(playerOrMessage, chatType);
 
                         if (whiteListedChatType &&
-                            sender.TextValue == playerOrMessage.FirstName + " " + playerOrMessage.LastName)
+                            sender.TextValue == playerOrMessage.FirstName)
                         {
                             isHandled = true;
                             PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been blocked.");

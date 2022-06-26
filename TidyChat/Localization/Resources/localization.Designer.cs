@@ -79,6 +79,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom Filters.
+        /// </summary>
+        internal static string AdvancedTab_CustomFiltersHeader {
+            get {
+                return ResourceManager.GetString("AdvancedTab_CustomFiltersHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable debug mode.
         /// </summary>
         internal static string AdvancedTab_EnableDebugMode {
@@ -2550,6 +2559,24 @@ namespace TidyChat.Localization.Resources {
         internal static string WhitelistTab_ExplanationMessage {
             get {
                 return ResourceManager.GetString("WhitelistTab_ExplanationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Filters.
+        /// </summary>
+        internal static string WhitelistTab_FiltersHeader {
+            get {
+                return ResourceManager.GetString("WhitelistTab_FiltersHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message contains:.
+        /// </summary>
+        internal static string WhitelistTab_MessageContains {
+            get {
+                return ResourceManager.GetString("WhitelistTab_MessageContains", resourceCulture);
             }
         }
         
