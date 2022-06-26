@@ -112,7 +112,7 @@ public static class ChatRegexStrings
 
     public static readonly LocalizedRegex PlayerTargetedEmote = new()
     {
-        Jpn = new Regex(@"You|Your", regexOptions),
+        Jpn = new Regex(@"you|your", regexOptions),
         Eng = new Regex(@"you|your", regexOptions),
         Deu = new Regex(@"you|your|du|deiner|dir|dich", regexOptions),
         Fra = new Regex(@"you|your|vous", regexOptions)
@@ -120,10 +120,10 @@ public static class ChatRegexStrings
 
     public static readonly LocalizedRegex StartsWithYou = new()
     {
-        Jpn = new Regex(@"^(You|Your)", regexOptions),
-        Eng = new Regex(@"^(You|Your)", regexOptions),
-        Deu = new Regex(@"^(You|Your|du|deiner|dir|dich)", regexOptions),
-        Fra = new Regex(@"^(Vous)", regexOptions)
+        Jpn = new Regex(@"^(you|your)", regexOptions),
+        Eng = new Regex(@"^(you|your)", regexOptions),
+        Deu = new Regex(@"^(you|your|du|deiner|dir|dich)", regexOptions),
+        Fra = new Regex(@"^(vous|you)", regexOptions)
     };
 
     public static readonly LocalizedRegex CastLot = new()
@@ -212,8 +212,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"」に装備変更しました。$", regexOptions),
         Eng = new Regex(@"^“(.*)” equipped\.$", regexOptions),
-        Deu = new Regex(@"^du hast „(.*)“ angelegt\.$", regexOptions),
-        Fra = new Regex(@"^vous vous équipez (.*)\.$", regexOptions)
+        Deu = new Regex(@"^(du|you) hast „(.*)“ angelegt\.$", regexOptions),
+        Fra = new Regex(@"^(vous|you) vous équipez (.*)\.$", regexOptions)
     };
 
     // Future proofing the materias a bit here
@@ -241,7 +241,7 @@ public static class ChatRegexStrings
         Eng = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.$)", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(
-            @"^vous avez (activé|déactivé) (la|le|les|l'ambiance) (musqiue|volume général|effets sonores|voix|sons système|sonore|haut-parleur pour les sons système)\.$",
+            @"^(vous|you) avez (activé|déactivé) (la|le|les|l'ambiance) (musqiue|volume général|effets sonores|voix|sons système|sonore|haut-parleur pour les sons système)\.$",
             regexOptions)
     };
 
@@ -253,10 +253,10 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"は(採掘|砕岩|伐採|草刈)を(開始した|終えた)", regexOptions),
         Eng = new Regex(@"^you (begin|finish) (mining|quarrying|logging|harvesting)\.$", regexOptions),
         Deu = new Regex(
-            @"^(du|deiner|dir|dich) (beginnst|beginnt|bist fertig mit dem|ist fertig mit dem) (abzubauen|herauszubrechen|abzuholzen|abzuernten|Abbauen|Herausbrechen|Abholzen|Abernten)",
+            @"^(du|deiner|dir|dich|you) (beginnst|beginnt|bist fertig mit dem|ist fertig mit dem) (abzubauen|herauszubrechen|abzuholzen|abzuernten|Abbauen|Herausbrechen|Abholzen|Abernten)",
             regexOptions),
         Fra = new Regex(
-            @"^vous (commencez|arrêtez) (á extraire|d'extraire) (du minerai|des pierres|couper du bois|faucher de la végétation)\.",
+            @"^(vous|you) (commencez|arrêtez) (á extraire|d'extraire) (du minerai|des pierres|couper du bois|faucher de la végétation)\.",
             regexOptions)
     };
 
@@ -345,7 +345,7 @@ public static class ChatRegexStrings
             @"((are|is) (now|no longer) a leader|(is now the|has promoted you to) party leader|have been granted to)",
             regexOptions),
         Deu = new Regex(
-            @"du bist (nun|nicht) ein anführer",
+            @"(du|you) bist (nun|nicht) ein anführer",
             regexOptions),
         Fra = new Regex(
             @"êtes maintenant (membre|officier) de",
@@ -434,8 +434,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"レストエリアに入った", regexOptions),
         Eng = new Regex(@"^you have entered a sanctuary", regexOptions),
-        Deu = new Regex(@"^du hast einen ruhebereich betreten", regexOptions),
-        Fra = new Regex(@"^vous êtes (entré|entrée) dans un lieu de repos", regexOptions)
+        Deu = new Regex(@"^(du|you) hast einen ruhebereich betreten", regexOptions),
+        Fra = new Regex(@"^(vous|you) êtes (entré|entrée) dans un lieu de repos", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/733?pretty=true">You have left the sanctuary.</see>
@@ -443,8 +443,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"レストエリアから離れた", regexOptions),
         Eng = new Regex(@"^you have left the sanctuary", regexOptions),
-        Deu = new Regex(@"^du hast den ruhebereich verlassen", regexOptions),
-        Fra = new Regex(@"^vous aves quitté le lieu de repos", regexOptions)
+        Deu = new Regex(@"^(du|you) hast den ruhebereich verlassen", regexOptions),
+        Fra = new Regex(@"^(vous|you) aves quitté le lieu de repos", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1351?pretty=true">You are currently not in an instanced area.</see>
@@ -471,7 +471,7 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"(探検手帳の目的地に到達した|探検手帳の目的地から離れた)", regexOptions),
         Eng = new Regex(@"^you have (arrived at a vista!|strayed too far from the vista\.)", regexOptions),
         Deu = new Regex(
-            @"^du (bist an einem sehenswerten ort angekommen|hast dich von dem sehenswerten ort entfernt\.)",
+            @"^(du|you) (bist an einem sehenswerten ort angekommen|hast dich von dem sehenswerten ort entfernt\.)",
             regexOptions),
         Fra = new Regex(@"(à un lieu notoire!|du lieu notoire\.)", regexOptions)
     };
@@ -491,7 +491,7 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"を試着した", regexOptions),
         Eng = new Regex(@"^you try on", regexOptions),
         Deu = new Regex(@"probeweise angelgt", regexOptions),
-        Fra = new Regex(@"^vous essayez", regexOptions)
+        Fra = new Regex(@"^(vous|you) essayez", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7005?pretty=true">
@@ -503,7 +503,8 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"定員に達しているため", regexOptions),
         Eng = new Regex(@"^unable to join novice network\. the channel has reached the maximum number of users\.$",
             regexOptions),
-        Deu = new Regex(@"^du konntest dem neulings-chat nicht beitreten, weil er bereits voll ist\.$", regexOptions),
+        Deu = new Regex(@"^(du|you) konntest dem neulings-chat nicht beitreten, weil er bereits voll ist\.$",
+            regexOptions),
         Fra = new Regex(
             @"^\(rdn\) impossible de rejoindre le réseau des novices\. Le nombre maximal de participants a été atteint\.$",
             regexOptions)
@@ -528,8 +529,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"はこれ以上、持つことができないようだ。宝箱に戻した、", regexOptions),
         Eng = new Regex(@"^you return the (.*) to the coffer\.$", regexOptions),
-        Deu = new Regex(@"^du kannst kein weiteres (.*) aufnehmen und legst es in die", regexOptions),
-        Fra = new Regex(@"^vous ne pouvez pas obtenir davantage", regexOptions)
+        Deu = new Regex(@"^(du|you) kannst kein weiteres (.*) aufnehmen und legst es in die", regexOptions),
+        Fra = new Regex(@"^(vous|you) ne pouvez pas obtenir davantage", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7242?pretty=true">The cairn begins to glow!"</see>
@@ -615,8 +616,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"どこかに宝箱の気配を感じた", regexOptions),
         Eng = new Regex(@"you sense a treasure coffer somewhere nearby", regexOptions),
-        Deu = new Regex(@"du hast das gefühl, dass irgendwo eine schatztruhe zu finden ist", regexOptions),
-        Fra = new Regex(@"vous avez le sentiment qu'il y a un coffre au trésor dans les environs", regexOptions)
+        Deu = new Regex(@"(du|you) hast das gefühl, dass irgendwo eine schatztruhe zu finden ist", regexOptions),
+        Fra = new Regex(@"(vous|you) avez le sentiment qu'il y a un coffre au trésor dans les environs", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7260?pretty=true">The howls of distant creatures begin to fade"</see>
@@ -624,8 +625,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"どこか遠くの魔物の気配が消えていった", regexOptions),
         Eng = new Regex(@"the howls of distant creatures begin to fade", regexOptions),
-        Deu = new Regex(@"du spürst, dass eine feindliche präsenz in die ferne entschwunden ist", regexOptions),
-        Fra = new Regex(@"vous avez le sentiment qu'une présence hostile a disparu", regexOptions)
+        Deu = new Regex(@"(du|you) spürst, dass eine feindliche präsenz in die ferne entschwunden ist", regexOptions),
+        Fra = new Regex(@"(vous|you) avez le sentiment qu'une présence hostile a disparu", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7261?pretty=true">The sense a distant presence has changed"</see>
@@ -633,8 +634,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"どこか遠くの魔物の気配が変わったようだ", regexOptions),
         Eng = new Regex(@"^you sense a distant presence has changed", regexOptions),
-        Deu = new Regex(@"^du spürst eine veränderte feindliche präsenz in der ferne", regexOptions),
-        Fra = new Regex(@"^vous avez le sentiment qu'une présence hostile a changé de nature", regexOptions)
+        Deu = new Regex(@"^(du|you) spürst eine veränderte feindliche präsenz in der ferne", regexOptions),
+        Fra = new Regex(@"^(vous|you) avez le sentiment qu'une présence hostile a changé de nature", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7264?pretty=true">Shape-altering magicks flow from your body."</see>
@@ -670,7 +671,7 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"^この階層には、財宝がありそうな気がする", regexOptions),
         Eng = new Regex(@"^you sense the accursed hoard calling you", regexOptions),
         Deu = new Regex(@"^auf dieser ebene befindet sich ein schatz", regexOptions),
-        Fra = new Regex(@"^vous avez l'intuition qu'il y a un trésor caché à cet étage", regexOptions)
+        Fra = new Regex(@"^(vous|you) avez l'intuition qu'il y a un trésor caché à cet étage", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7273?pretty=true">
@@ -682,7 +683,7 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"^この階層には、財宝がなさそうな気がする", regexOptions),
         Eng = new Regex(@"^you do not sense the call of the accursed hoard on this floor", regexOptions),
         Deu = new Regex(@"^auf dieser ebene befindet sich kein schatz", regexOptions),
-        Fra = new Regex(@"^vous avez l'intuition qu'il n'y a pas de trésor caché à cet étage", regexOptions)
+        Fra = new Regex(@"^(vous|you) avez l'intuition qu'il n'y a pas de trésor caché à cet étage", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7274?pretty=true">You discover a piece of the Accursed Hoard"</see>
@@ -691,7 +692,7 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"埋もれた財宝を発見した", regexOptions),
         Eng = new Regex(@"^you discover a piece of the accursed hoard", regexOptions),
         Deu = new Regex(@"^hier befindet sich ein verborgener schatz", regexOptions),
-        Fra = new Regex(@"^vous avez découvert un trésor caché", regexOptions)
+        Fra = new Regex(@"^(vous|you) avez découvert un trésor caché", regexOptions)
     };
 
     #endregion PotD & HoH
@@ -704,7 +705,7 @@ public static class ChatRegexStrings
         Jpn = new Regex(@"目的地", regexOptions),
         Eng = new Regex(@"new exploratory voyage destination", regexOptions),
         Deu = new Regex(@"hier befindet sich ein verborgener schatz", regexOptions),
-        Fra = new Regex(@"vous avez découvert un trésor caché", regexOptions)
+        Fra = new Regex(@"(vous|you) avez découvert un trésor caché", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/6061?pretty=true">A new subaquatic voyage destination...has been discovered</see>
