@@ -889,4 +889,10 @@ Initiales : N. D.</value>
     <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
         <value>Masquer la notification de l'impossibilité de rejoindre un Réseau des Novices déjà plein.</value>
     </data>
+    <data name="WhitelistTab_Allow" xml:space="preserve">
+        <value>Allow</value>
+    </data>
+    <data name="WhitelistTab_Block" xml:space="preserve">
+        <value>Block</value>
+    </data>
 </root>
