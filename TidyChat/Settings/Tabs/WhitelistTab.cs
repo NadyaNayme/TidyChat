@@ -55,6 +55,14 @@ internal static class WhitelistTab
             if (ImGui.CollapsingHeader($"{localization.WhitelistTab_ChannelsHeader}##whitelist{i}ChannelsHeader"))
             {
                 if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 3)) configuration.Save();
+                if (ImGui.CheckboxFlags(
+                        $"{localization.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
+                        ref alias.whitelistedChannels,
+                        1 << 2)) configuration.Save();
+                if (ImGui.CheckboxFlags(
                         $"{localization.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
                         ref alias.whitelistedChannels, 1 << 1))
                     configuration.Save();
@@ -70,20 +78,12 @@ internal static class WhitelistTab
                         ref alias.whitelistedChannels,
                         1 << 9)) configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
-                        ref alias.whitelistedChannels,
-                        1 << 2)) configuration.Save();
-                if (ImGui.CheckboxFlags(
                         $"{localization.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
                         ref alias.whitelistedChannels, 1 << 7)) configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{localization.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
                         ref alias.whitelistedChannels,
                         1 << 4)) configuration.Save();
-                if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
-                        ref alias.whitelistedChannels,
-                        1 << 3)) configuration.Save();
             }
 
             ImGui.Spacing();
