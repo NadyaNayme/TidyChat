@@ -890,18 +890,18 @@ Initiales : N. D.</value>
         <value>Masquer la notification de l'impossibilité de rejoindre un Réseau des Novices déjà plein.</value>
     </data>
     <data name="WhitelistTab_Allow" xml:space="preserve">
-        <value>Allow</value>
+        <value>Autoriser</value>
     </data>
     <data name="WhitelistTab_Block" xml:space="preserve">
-        <value>Block</value>
+        <value>Bloquer</value>
     </data>
     <data name="WhitelistTab_MessageContains" xml:space="preserve">
-        <value>Message contains:</value>
+        <value>Message contient:</value>
     </data>
     <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
-        <value>Filters</value>
+        <value>Filtres</value>
     </data>
     <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
-        <value>Custom Filters</value>
+        <value>Filtres Personnalisés</value>
     </data>
 </root>
