@@ -890,4 +890,10 @@ Initials: E. N.</value>
     <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
         <value>Hide unable to join full Novice Network.</value>
     </data>
+    <data name="WhitelistTab_Allow" xml:space="preserve">
+        <value>Allow</value>
+    </data>
+    <data name="WhitelistTab_Block" xml:space="preserve">
+        <value>Block</value>
+    </data>
 </root>
