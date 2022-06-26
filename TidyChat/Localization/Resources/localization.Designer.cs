@@ -2503,6 +2503,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow.
+        /// </summary>
+        internal static string WhitelistTab_Allow {
+            get {
+                return ResourceManager.GetString("WhitelistTab_Allow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block.
+        /// </summary>
+        internal static string WhitelistTab_Block {
+            get {
+                return ResourceManager.GetString("WhitelistTab_Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Channels.
         /// </summary>
         internal static string WhitelistTab_ChannelsHeader {

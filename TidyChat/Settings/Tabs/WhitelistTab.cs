@@ -32,14 +32,15 @@ internal static class WhitelistTab
         ImGui.Spacing();
 
         ImGui.NewLine();
-        var outer_height = new Vector2(540f, 400f);
-        if (!ImGui.BeginTable("##whitelistTable", 3,
+        var outer_height = new Vector2(640f, 400f);
+        if (!ImGui.BeginTable("##whitelistTable", 4,
                 ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
                 ImGuiTableFlags.RowBg, outer_height)) return;
         ImGui.TableSetupScrollFreeze(0, 1);
         ImGui.TableSetupColumn(localization.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
         ImGui.TableSetupColumn(localization.WhitelistTab_PlayerInformationTableHeader,
             ImGuiTableColumnFlags.WidthStretch);
+        ImGui.TableSetupColumn("##AllowColumn", ImGuiTableColumnFlags.WidthFixed, 120f);
         ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
         ImGui.TableHeadersRow();
         var list = configuration.Whitelist.ToList();
@@ -91,6 +92,7 @@ internal static class WhitelistTab
 
             #region Player Column
 
+            ImGui.SetNextItemWidth(-1);
             ImGui.TableNextColumn();
             ImGui.Spacing();
             ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerFirstName);
@@ -109,6 +111,7 @@ internal static class WhitelistTab
 
             ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerLastName);
             ImGuiHelpers.ScaledRelativeSameLine(0f);
+
             if (ImGui.InputText($"##whitelist{i}LastNameInput", ref alias.LastName, 120,
                     ImGuiInputTextFlags.EnterReturnsTrue))
             {
@@ -123,6 +126,7 @@ internal static class WhitelistTab
 
             ImGui.TextUnformatted(localization.WhitelistTab_WhitelistedPlayerServerName);
             ImGuiHelpers.ScaledRelativeSameLine(0f);
+
             if (ImGui.InputText($"##whitelist{i}ServerNameInput", ref alias.ServerName, 132,
                     ImGuiInputTextFlags.EnterReturnsTrue))
             {
@@ -139,16 +143,54 @@ internal static class WhitelistTab
 
             #endregion Player Column
 
+            #region Allow Column
+
+            ImGui.TableNextColumn();
+            ImGui.Spacing();
+            if (i == -1)
+            {
+                // Don't render the Allow/Block for initial addition
+            }
+            else
+            {
+                var previewValue = "";
+                if (alias.AllowMessage)
+                    previewValue = localization.WhitelistTab_Allow;
+                else
+                    previewValue = localization.WhitelistTab_Block;
+                if (ImGui.BeginCombo($"##whitelist{i}AllowSetting", previewValue))
+                {
+                    if (ImGui.Selectable($"{localization.WhitelistTab_Allow}##{i}", alias.AllowMessage))
+                    {
+                        alias.AllowMessage = true;
+                        configuration.Save();
+                    }
+
+                    if (ImGui.Selectable($"{localization.WhitelistTab_Block}##{i}", !alias.AllowMessage))
+                    {
+                        alias.AllowMessage = false;
+                        configuration.Save();
+                    }
+
+                    ImGui.EndCombo();
+                }
+            }
+
+            #endregion Allow Column
+
 
             #region Delete Column
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
+            ImGui.PushID($"Delete{i}");
             if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
             {
-                configuration.Whitelist.Remove(alias);
+                configuration.Whitelist.Remove(list[i]);
                 configuration.Save();
             }
+
+            ImGui.PopID();
 
             #endregion Delete Column
         }

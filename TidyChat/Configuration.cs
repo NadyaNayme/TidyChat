@@ -11,8 +11,7 @@ public class Configuration : IPluginConfiguration
     // the below exist just to make saving less cumbersome
 
     [NonSerialized] private DalamudPluginInterface? pluginInterface;
-
-    public ulong TotalMessagesBlocked { get; set; } = 0; // To be removed next update
+    
     public ulong TtlMessagesBlocked { get; set; } = 0;
     public bool Enabled { get; set; } = true;
     public bool EnableDebugMode { get; set; } = false;
