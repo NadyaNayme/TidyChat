@@ -357,6 +357,14 @@ public sealed class TidyChat : IDalamudPlugin
 
         #endregion Channel Filters
 
+        #region Whitelist
+
+        if (Configuration.Whitelist.Count > 0)
+            foreach (var playerOrMessage in Configuration.Whitelist)
+                CustomFilterCheck(sender, message, ref isHandled, playerOrMessage, chatType);
+
+        #endregion Whitelist
+
         #region Duplicate Message Spam Filter
 
         if (Configuration.ChatHistoryFilter && !isHandled)
@@ -415,95 +423,6 @@ public sealed class TidyChat : IDalamudPlugin
 
         #endregion Duplicate Message Spam Filter
 
-        #region Whitelist
-
-        if (Configuration.Whitelist.Count > 0)
-            foreach (var playerOrMessage in Configuration.Whitelist)
-
-                switch (isHandled)
-                {
-                    case true when playerOrMessage.AllowMessage:
-                    {
-                        var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-                        var isRegex = false;
-                        Regex userPattern = null;
-                        if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
-                        {
-                            isRegex = true;
-                            userPattern =
-                                new Regex(playerOrMessage.FirstName.Substring(1, playerOrMessage.FirstName.Length - 2));
-                        }
-
-                        var whiteListedChatType = false;
-                        if (!e.Equals(ChatFlags.Channels.None))
-                            whiteListedChatType = Flags.CheckFlags(playerOrMessage, chatType);
-
-                        if (whiteListedChatType &&
-                            sender.TextValue == playerOrMessage.FirstName)
-                        {
-                            isHandled = false;
-                            PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been allowed.");
-                        }
-
-                        if (whiteListedChatType && !isRegex && message.TextValue.Contains(playerOrMessage.FirstName))
-                        {
-                            isHandled = false;
-                            PluginLog.LogDebug($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
-                        }
-
-                        if (userPattern != null && whiteListedChatType && isRegex &&
-                            userPattern.IsMatch(message.ToString()))
-                        {
-                            isHandled = false;
-                            PluginLog.LogDebug(
-                                $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
-                        }
-
-                        break;
-                    }
-                    case false when !playerOrMessage.AllowMessage:
-                    {
-                        var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-                        var isRegex = false;
-                        Regex userPattern = null;
-                        if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
-                        {
-                            isRegex = true;
-                            userPattern =
-                                new Regex(playerOrMessage.FirstName.Substring(1, playerOrMessage.FirstName.Length - 2));
-                        }
-
-                        var whiteListedChatType = false;
-                        if (!e.Equals(ChatFlags.Channels.None))
-                            whiteListedChatType = Flags.CheckFlags(playerOrMessage, chatType);
-
-                        if (whiteListedChatType &&
-                            sender.TextValue == playerOrMessage.FirstName)
-                        {
-                            isHandled = true;
-                            PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been blocked.");
-                        }
-
-                        if (whiteListedChatType && !isRegex && message.TextValue.Contains(playerOrMessage.FirstName))
-                        {
-                            isHandled = true;
-                            PluginLog.LogDebug($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
-                        }
-
-                        if (userPattern != null && whiteListedChatType && isRegex &&
-                            userPattern.IsMatch(message.ToString()))
-                        {
-                            isHandled = true;
-                            PluginLog.LogDebug(
-                                $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
-                        }
-
-                        break;
-                    }
-                }
-
-        #endregion Whitelist
-
         #region Debug Mode Enabled
 
         if (Configuration.EnableDebugMode && isHandled && !message.TextValue.StartsWith("[TidyChat]"))
@@ -521,6 +440,92 @@ public sealed class TidyChat : IDalamudPlugin
 
         SessionBlockedMessages += 1;
         if (SessionBlockedMessages > 100) BlockedCountUpdate();
+    }
+
+    private static void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
+        PlayerName playerOrMessage,
+        ChatType chatType)
+    {
+        PluginLog.LogDebug($"Handled? {isHandled} & block/allow? {playerOrMessage.AllowMessage.ToString()}");
+        if (!isHandled && !playerOrMessage.AllowMessage)
+        {
+            PluginLog.LogDebug($"Check if \"{message}\" should be blocked by custom filters.");
+            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
+            var isRegex = false;
+            Regex userPattern = null;
+            if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
+            {
+                isRegex = true;
+                userPattern =
+                    new Regex(playerOrMessage.FirstName.Substring(1, playerOrMessage.FirstName.Length - 2));
+            }
+
+            var channelSelectedToFilter = false;
+            if (!e.Equals(ChatFlags.Channels.None))
+                channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
+
+            if (channelSelectedToFilter &&
+                sender.TextValue == playerOrMessage.FirstName)
+            {
+                isHandled = true;
+                PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been blocked.");
+            }
+
+            if (channelSelectedToFilter && !isRegex &&
+                message.TextValue.Contains(playerOrMessage.FirstName))
+            {
+                isHandled = true;
+                PluginLog.LogDebug($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
+            }
+
+            if (userPattern != null && channelSelectedToFilter && isRegex &&
+                userPattern.IsMatch(message.ToString()))
+            {
+                isHandled = true;
+                PluginLog.LogDebug(
+                    $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
+            }
+        }
+
+        if (isHandled && playerOrMessage.AllowMessage)
+        {
+            PluginLog.LogDebug($"Check if \"{message}\" should be allowed by custom filters.");
+            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
+            var isRegex = false;
+            Regex userPattern = null;
+            if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
+            {
+                isRegex = true;
+                userPattern =
+                    new Regex(playerOrMessage.FirstName.Substring(1, playerOrMessage.FirstName.Length - 2));
+            }
+
+            var channelSelectedToFilter = false;
+            if (!e.Equals(ChatFlags.Channels.None))
+                channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
+
+            if (channelSelectedToFilter &&
+                sender.TextValue == playerOrMessage.FirstName)
+            {
+                isHandled = false;
+                PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been allowed.");
+            }
+
+            if (channelSelectedToFilter && !isRegex &&
+                message.TextValue.Contains(playerOrMessage.FirstName))
+            {
+                isHandled = false;
+                PluginLog.LogDebug($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
+            }
+
+            if (userPattern != null && channelSelectedToFilter && isRegex &&
+                userPattern.IsMatch(message.ToString()))
+            {
+                isHandled = false;
+                PluginLog.LogDebug(
+                    $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
+            }
+        }
     }
 
     private void SetPlayerName()
