@@ -887,4 +887,22 @@ Initials: E. N.</value>
     <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
         <value>Channels</value>
     </data>
+    <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
+        <value>Hide unable to join full Novice Network.</value>
+    </data>
+    <data name="WhitelistTab_Allow" xml:space="preserve">
+        <value>Allow</value>
+    </data>
+    <data name="WhitelistTab_Block" xml:space="preserve">
+        <value>Block</value>
+    </data>
+    <data name="WhitelistTab_MessageContains" xml:space="preserve">
+        <value>Message contains:</value>
+    </data>
+    <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
+        <value>Filters</value>
+    </data>
+    <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
+        <value>Custom Filters</value>
+    </data>
 </root>
