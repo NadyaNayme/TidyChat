@@ -895,4 +895,13 @@ Initiales : N. D.</value>
     <data name="WhitelistTab_Block" xml:space="preserve">
         <value>Block</value>
     </data>
+    <data name="WhitelistTab_MessageContains" xml:space="preserve">
+        <value>Message contains:</value>
+    </data>
+    <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
+        <value>Filters</value>
+    </data>
+    <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
+        <value>Custom Filters</value>
+    </data>
 </root>
