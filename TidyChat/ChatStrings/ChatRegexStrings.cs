@@ -14,16 +14,16 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedGil = new()
     {
         Jpn = new Regex(@"ギルを手に入れた。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.", regexOptions),
-        Deu = new Regex(@"(du|you) hast (\d{1,3},)?\d{1,3} gil erhalten\.$", regexOptions),
-        Fra = new Regex(@"(vous|you) obtenez \d{1,6} gils\.$", regexOptions)
+        Eng = new Regex(@"^You (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.$", regexOptions),
+        Deu = new Regex(@"^(du|you) hast (\d{1,3},)?\d{1,3} gil erhalten\.$", regexOptions),
+        Fra = new Regex(@"^(vous|you) obtenez \d{1,6} gils\.$", regexOptions)
     };
 
     public static readonly LocalizedRegex ObtainedMGP = new()
     {
         Jpn = new Regex(@"(\d{1,3},)?\d{1,3} MGP", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} MGP\.", regexOptions),
-        Deu = new Regex(@"(\d{1,3},)?\d{1,3} MGP erhalten\.", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} MGP\.$", regexOptions),
+        Deu = new Regex(@"(\d{1,3},)?\d{1,3} MGP erhalten\.$", regexOptions),
         Fra = new Regex(@"^(vous|you) (a|avez) reçu \d{1,6} PGS\.$", regexOptions)
     };
 
@@ -31,8 +31,8 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedWolfMarks = new()
     {
         Jpn = new Regex(@"(\d{1,3},)?\d{1,3} 対人戦績", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} wolf marks\.", regexOptions),
-        Deu = new Regex(@"(\d{1,3},)?\d{1,3} wolfsmarken erhalten\.", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} wolf marks\.$", regexOptions),
+        Deu = new Regex(@"(\d{1,3},)?\d{1,3} wolfsmarken erhalten\.$", regexOptions),
         Fra = new Regex(@"^(vous|you) (a|avez) reçu \d{1,6} marque de loup\.$", regexOptions)
     };
 
@@ -45,26 +45,26 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedAlliedSeals = new()
     {
         Jpn = new Regex(@"^同盟記章を(\d{1,3},)?\d{1,3}個手に入れた。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} Allied Seals\.", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} Allied Seals\.$", regexOptions),
         Deu = new Regex(@"(\d{1,3},)?\d{1,3} jagdabzeichen erhalten\.", regexOptions),
-        Fra = new Regex(@"(vous|you) obtenez \d{1,6} insignes alliés\.$", regexOptions)
+        Fra = new Regex(@"^(vous|you) obtenez \d{1,6} insignes alliés\.$", regexOptions)
     };
 
     /// <see href="https://xivapi.com/Item/10307?pretty=true">Centurio Seals</see>
     public static readonly LocalizedRegex ObtainedCenturioSeals = new()
     {
         Jpn = new Regex(@"^セントリオ記章を(\d{1,3},)?\d{1,3}個手に入れた。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} Centurio Seals\.", regexOptions),
-        Deu = new Regex(@"(\d{1,3},)?\d{1,3} centurio-abzeichen erhalten\.", regexOptions),
-        Fra = new Regex(@"(vous|you) obtenez \d{1,6} insignes centurio\.$", regexOptions)
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} Centurio Seals\.$", regexOptions),
+        Deu = new Regex(@"(\d{1,3},)?\d{1,3} centurio-abzeichen erhalten\.$", regexOptions),
+        Fra = new Regex(@"^(vous|you) obtenez \d{1,6} insignes centurio\.$", regexOptions)
     };
 
     public static readonly LocalizedRegex ObtainedNuts = new()
     {
         Jpn = new Regex(@"^モブハントの戦利品を(\d{1,3},)?\d{1,3}個手に入れた。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} sacks of Nuts\.", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} sacks of Nuts\.$", regexOptions),
         Deu = new Regex(@"(\d{1,3},)?\d{1,3} kupo-trophaë\.", regexOptions),
-        Fra = new Regex(@"(vous|you) obtenez \d{1,6} insignes de chasse\.$", regexOptions)
+        Fra = new Regex(@"^(vous|you) obtenez \d{1,6} insignes de chasse\.$", regexOptions)
     };
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">Storm Seals</see>
@@ -74,9 +74,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedSeals = new()
     {
         Jpn = new Regex(@"の軍票(\d{1,3},)?\d{1,3}枚を手に入れた。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (\d{1,3},)?\d{1,3} (Flame|Storm|Serpent) Seals\.", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} (Flame|Storm|Serpent) Seals\.$", regexOptions),
         Deu = new Regex(@"(flottentaler|ordenstaler|legionstaler) erhalten", regexOptions),
-        Fra = new Regex(@"(vous|you) obtenez \d{1,6} sceaux (de|des) (Immortels|Deux Vipères|Maelstrom)\.$",
+        Fra = new Regex(@"^(vous|you) obtenez \d{1,6} sceaux (de|des) (Immortels|Deux Vipères|Maelstrom)\.$",
             regexOptions)
     };
 
@@ -86,26 +86,26 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedClusters = new()
     {
         Jpn = new Regex(@"クラスター(×2)?を(手に入れた|入手した)。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) (a|2) (.*)cluster\.", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (a|2) (.*)cluster\.$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(@"NeedsLocalization", regexOptions)
     };
 
-    public static readonly Regex ObtainedMaterials = new(@"You (obtain|obtains) (.*) materials\.", regexOptions);
+    public static readonly Regex ObtainedMaterials = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions);
 
     public static readonly Regex ObtainedShards =
         new(
-            @"You (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.",
+            @"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$",
             regexOptions);
 
     public static readonly LocalizedRegex ObtainedTribalCurrency = new()
     {
         Jpn = new Regex(@"NeedsTranslation", regexOptions),
         Eng = new Regex(
-            @"You (obtain|obtains) (a|an|2) (Steel (Amalj'ok|Amalj'oks)|Sylphic (Goldleaf|Goldleaves)|Titan (Cobaltpiece|Cobaltpieces)|(Rainbowtide Psashp|Psashps)|Ixali (oaknot|oaknots)|Vanu (Whitebone|Whitebones)|Black Copper (Gil|Gils)|Carved Kupo (Nut|Nuts)|Kojin (Sango|Sangos)|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu (Koban|Kobans)|Fae (Fancy|Fancies)|Qitari (Compliment|Compliments)|Hammered (Frogment|Fragments)|Arkasodara (Pana|Panas))\.",
+            @"^you (obtain|obtains) (a|an|2) (Steel (Amalj'ok|Amalj'oks)|Sylphic (Goldleaf|Goldleaves)|Titan (Cobaltpiece|Cobaltpieces)|(Rainbowtide Psashp|Psashps)|Ixali (oaknot|oaknots)|Vanu (Whitebone|Whitebones)|Black Copper (Gil|Gils)|Carved Kupo (Nut|Nuts)|Kojin (Sango|Sangos)|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu (Koban|Kobans)|Fae (Fancy|Fancies)|Qitari (Compliment|Compliments)|Hammered (Frogment|Fragments)|Arkasodara (Pana|Panas))\.$",
             regexOptions),
         Deu = new Regex(
-            @"(du|you) hast (einen|2) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze) erhalten\.$",
+            @"^(du|you) hast (einen|2) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze) erhalten\.$",
             regexOptions),
         Fra = new Regex(@"NeedsTranslation", regexOptions)
     };
@@ -129,7 +129,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex CastLot = new()
     {
         Jpn = new Regex(@"^youは.*にロットした。$", regexOptions),
-        Eng = new Regex(@"You (cast|casts) (your|his|her) lot for (.*)\.", regexOptions),
+        Eng = new Regex(@"^you (cast|casts) (your|his|her) lot for (.*)\.$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(@"NeedsLocalization", regexOptions)
     };
@@ -137,7 +137,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex RollsNeedOrGreed = new()
     {
         Jpn = new Regex(@"^youは.+に(NEED|GREED)のダイスで\d{1,2}を出した。$", regexOptions),
-        Eng = new Regex(@"You (roll|rolls) (Need|Greed) on (.*)\. \d{1,2}\!", regexOptions),
+        Eng = new Regex(@"^you (roll|rolls) (Need|Greed) on (.*)\. \d{1,2}\!$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(@"NeedsLocalization", regexOptions)
     };
@@ -146,15 +146,15 @@ public static class ChatRegexStrings
     {
         // relies on the fact that all player names have a space between them (or a period if initialised)
         Jpn = new Regex(@"^\w+[ .].+は.+にロットした。$", regexOptions),
-        Eng = new Regex(@"(.*) casts (his|her) lot for (.*)\.", regexOptions),
+        Eng = new Regex(@"(.*) casts (his|her) lot for (.*)\.$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
-        Fra = new Regex(@"(.*) lance ses dés pour (la|le|les) (.*)\.", regexOptions)
+        Fra = new Regex(@"(.*) lance ses dés pour (la|le|les) (.*)\.$", regexOptions)
     };
 
     public static readonly LocalizedRegex OthersRollNeedOrGreed = new()
     {
         Jpn = new Regex(@"^\w+[ .].+は.+に(NEED|GREED)のダイスで\d{1,2}を出した。$", regexOptions),
-        Eng = new Regex(@"(.*) rolls (Need|Greed) on (.*)\. \d{1,2}\!", regexOptions),
+        Eng = new Regex(@"(.*) rolls (Need|Greed) on (.*)\. \d{1,2}\!$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(@"(.*) jette les dés (Cupidité) pour (la|le|les) (.*)", regexOptions)
     };
@@ -199,9 +199,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedTomestones = new()
     {
         Jpn = new Regex(@"^アラガントームストーン:([^を]+)を(\d{1,3}個手に入れた|入手した)。$", regexOptions),
-        Eng = new Regex(@"You (obtain|obtains) \d{1,3} Allagan tomestones of (\w+)", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) \d{1,3} Allagan tomestones of", regexOptions),
         Deu = new Regex(
-            @"(du|you) hast \d{1,3} (Allagischer|Allagisch|Allagische|Allagischa) (Stein|Steine) (der|des) (\w+) erhalten\.$",
+            @"(du|you) hast \d{1,3} (Allagischer|Allagisch|Allagische|Allagischa) (Stein|Steine) (der|des) \w+ erhalten\.$",
             regexOptions),
         Fra = new Regex(@"(vous|you) obtenez \d{1,3} Mémoquartz allagois (\w+)", regexOptions)
     };
@@ -211,25 +211,25 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex GearsetEquipped = new()
     {
         Jpn = new Regex(@"」に装備変更しました。$", regexOptions),
-        Eng = new Regex(@"“(.*)” equipped\.", regexOptions),
-        Deu = new Regex(@"Du hast „(.*)“ angelegt\.", regexOptions),
-        Fra = new Regex(@"vous vous équipez (.*)\.", regexOptions)
+        Eng = new Regex(@"^“(.*)” equipped\.$", regexOptions),
+        Deu = new Regex(@"^du hast „(.*)“ angelegt\.$", regexOptions),
+        Fra = new Regex(@"^vous vous équipez (.*)\.$", regexOptions)
     };
 
     // Future proofing the materias a bit here
     public static readonly Regex MateriaRetrieved =
         new(
-            @"You (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}",
+            @"^you (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}",
             regexOptions);
 
     public static readonly Regex MateriaShatters =
         new(
-            @"The .+ materia [I|V|X|L|C|D|M]{1,10} shatters",
+            @"^the .+ materia [I|V|X|L|C|D|M]{1,10} shatters",
             regexOptions);
 
     public static readonly Regex AttachedMateria =
         new(
-            @"You successfully attach (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the",
+            @"^you successfully attach (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the",
             regexOptions);
 
     /// <see href="https://xivapi.com/LogMessage/3860?pretty=true">Master volume muted/unmuted</see>
@@ -238,10 +238,10 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex VolumeControls = new()
     {
         Jpn = new Regex(@"をミュートしました。$|のミュートを解除しました。$|の音量を\d{1,3}に変更しました。$", regexOptions),
-        Eng = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.)", regexOptions),
+        Eng = new Regex(@"volume (muted|unmuted|set to \d{1,3}\.$)", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(
-            @"vous avez (activé|déactivé) (la|le|les|l'ambiance) (musqiue|volume général|effets sonores|voix|sons système|sonore|haut-parleur pour les sons système)\.",
+            @"^vous avez (activé|déactivé) (la|le|les|l'ambiance) (musqiue|volume général|effets sonores|voix|sons système|sonore|haut-parleur pour les sons système)\.$",
             regexOptions)
     };
 
@@ -251,12 +251,12 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex GatheringStartEnd = new()
     {
         Jpn = new Regex(@"は(採掘|砕岩|伐採|草刈)を(開始した|終えた)", regexOptions),
-        Eng = new Regex(@"you (begin|finish) (mining|quarrying|logging|harvesting)\.", regexOptions),
+        Eng = new Regex(@"^you (begin|finish) (mining|quarrying|logging|harvesting)\.$", regexOptions),
         Deu = new Regex(
-            @"(du|deiner|dir|dich) (beginnst|beginnt|bist fertig mit dem|ist fertig mit dem) (abzubauen|herauszubrechen|abzuholzen|abzuernten|Abbauen|Herausbrechen|Abholzen|Abernten)",
+            @"^(du|deiner|dir|dich) (beginnst|beginnt|bist fertig mit dem|ist fertig mit dem) (abzubauen|herauszubrechen|abzuholzen|abzuernten|Abbauen|Herausbrechen|Abholzen|Abernten)",
             regexOptions),
         Fra = new Regex(
-            @"vous (commencez|arrêtez) (á extraire|d'extraire) (du minerai|des pierres|couper du bois|faucher de la végétation)\.",
+            @"^vous (commencez|arrêtez) (á extraire|d'extraire) (du minerai|des pierres|couper du bois|faucher de la végétation)\.",
             regexOptions)
     };
 
@@ -279,18 +279,18 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex GainExperiencePoints = new()
     {
         Jpn = new Regex(@"ポイントの経験値を得た。$", regexOptions),
-        Eng = new Regex(@"(.* gains .* experience points\.)", regexOptions),
+        Eng = new Regex(@".* gains .* experience points\.$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
-        Fra = new Regex(@".* gagnez .* points d'expérience\.", regexOptions)
+        Fra = new Regex(@".* gagnez .* points d'expérience\.$", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with item is complete!</see>
     public static readonly LocalizedRegex CompleteSpiritbond = new()
     {
-        Jpn = new Regex(@"の錬精度が100%になった！", regexOptions),
-        Eng = new Regex(@"your spiritbond with .+ is complete\!", regexOptions),
-        Deu = new Regex(@"deine emotionale bindung an .+ hat 100 \% erreicht\!", regexOptions),
-        Fra = new Regex(@"vous êates en symbiose avec", regexOptions)
+        Jpn = new Regex(@"の錬精度が100%になった！$", regexOptions),
+        Eng = new Regex(@"^your spiritbond with .+ is complete\!$", regexOptions),
+        Deu = new Regex(@"^deine emotionale bindung an .+ hat 100 \% erreicht\!$", regexOptions),
+        Fra = new Regex(@"^vous êates en symbiose avec", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/3085?pretty=true">Player has logged out</see>
@@ -433,25 +433,25 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex EnteredSanctuary = new()
     {
         Jpn = new Regex(@"レストエリアに入った", regexOptions),
-        Eng = new Regex(@"you have entered a sanctuary", regexOptions),
-        Deu = new Regex(@"du hast einen ruhebereich betreten", regexOptions),
-        Fra = new Regex(@"vous êtes (entré|entrée) dans un lieu de repos", regexOptions)
+        Eng = new Regex(@"^you have entered a sanctuary", regexOptions),
+        Deu = new Regex(@"^du hast einen ruhebereich betreten", regexOptions),
+        Fra = new Regex(@"^vous êtes (entré|entrée) dans un lieu de repos", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/733?pretty=true">You have left the sanctuary.</see>
     public static readonly LocalizedRegex LeftSanctuary = new()
     {
         Jpn = new Regex(@"レストエリアから離れた", regexOptions),
-        Eng = new Regex(@"you have left the sanctuary", regexOptions),
-        Deu = new Regex(@"du hast den ruhebereich verlassen", regexOptions),
-        Fra = new Regex(@"vous aves quitté le lieu de repos", regexOptions)
+        Eng = new Regex(@"^you have left the sanctuary", regexOptions),
+        Deu = new Regex(@"^du hast den ruhebereich verlassen", regexOptions),
+        Fra = new Regex(@"^vous aves quitté le lieu de repos", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1351?pretty=true">You are currently not in an instanced area.</see>
     public static readonly LocalizedRegex NotInstancedArea = new()
     {
         Jpn = new Regex(@"インスタンスエリアは存在しません", regexOptions),
-        Eng = new Regex(@"you are currently not in an instanced area", regexOptions),
+        Eng = new Regex(@"^you are currently not in an instanced area", regexOptions),
         Deu = new Regex(@"momentan ist das areal nicht instanziiert", regexOptions),
         Fra = new Regex(@"il n'y a actuellement aucune zone instanciée", regexOptions)
     };
@@ -469,9 +469,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex VistaMessages = new()
     {
         Jpn = new Regex(@"(探検手帳の目的地に到達した|探検手帳の目的地から離れた)", regexOptions),
-        Eng = new Regex(@"(you have arrived at a vista!|you have strayed too far from the vista\.)", regexOptions),
+        Eng = new Regex(@"^you have (arrived at a vista!|strayed too far from the vista\.)", regexOptions),
         Deu = new Regex(
-            @"(du bist an einem sehenswerten ort angekommen|du hast dich von dem sehenswerten ort entfernt\.)",
+            @"^du (bist an einem sehenswerten ort angekommen|hast dich von dem sehenswerten ort entfernt\.)",
             regexOptions),
         Fra = new Regex(@"(à un lieu notoire!|du lieu notoire\.)", regexOptions)
     };
@@ -489,9 +489,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex TryOnGlamour = new()
     {
         Jpn = new Regex(@"を試着した", regexOptions),
-        Eng = new Regex(@"you try on", regexOptions),
+        Eng = new Regex(@"^you try on", regexOptions),
         Deu = new Regex(@"probeweise angelgt", regexOptions),
-        Fra = new Regex(@"vous essayez", regexOptions)
+        Fra = new Regex(@"^vous essayez", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7005?pretty=true">
@@ -527,9 +527,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ReturnedPomander = new()
     {
         Jpn = new Regex(@"はこれ以上、持つことができないようだ。宝箱に戻した、", regexOptions),
-        Eng = new Regex(@"you return the (.*) to the coffer\.", regexOptions),
-        Deu = new Regex(@"du kannst kein weiteres (.*) aufnehmen und legst es in die", regexOptions),
-        Fra = new Regex(@"vous ne pouvez pas obtenir davantage", regexOptions)
+        Eng = new Regex(@"^you return the (.*) to the coffer\.$", regexOptions),
+        Deu = new Regex(@"^du kannst kein weiteres (.*) aufnehmen und legst es in die", regexOptions),
+        Fra = new Regex(@"^vous ne pouvez pas obtenir davantage", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7242?pretty=true">The cairn begins to glow!"</see>
@@ -632,9 +632,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex PomanderOfAlteration = new()
     {
         Jpn = new Regex(@"どこか遠くの魔物の気配が変わったようだ", regexOptions),
-        Eng = new Regex(@"you sense a distant presence has changed", regexOptions),
-        Deu = new Regex(@"du spürst eine veränderte feindliche präsenz in der ferne", regexOptions),
-        Fra = new Regex(@"vous avez le sentiment qu'une présence hostile a changé de nature", regexOptions)
+        Eng = new Regex(@"^you sense a distant presence has changed", regexOptions),
+        Deu = new Regex(@"^du spürst eine veränderte feindliche präsenz in der ferne", regexOptions),
+        Fra = new Regex(@"^vous avez le sentiment qu'une présence hostile a changé de nature", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7264?pretty=true">Shape-altering magicks flow from your body."</see>
@@ -650,27 +650,27 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex PomanderOfSerenity = new()
     {
         Jpn = new Regex(@"この階層の不浄な魔力が霧散した", regexOptions),
-        Eng = new Regex(@"the enchantments fade from this floor", regexOptions),
-        Deu = new Regex(@"die unheilvolle Aura, die diese Ebene beherrschte, ist verflogen", regexOptions),
-        Fra = new Regex(@"l'aura magique néfaste qui imprégnait l'étage s'est dissipée", regexOptions)
+        Eng = new Regex(@"^the enchantments fade from this floor", regexOptions),
+        Deu = new Regex(@"^die unheilvolle Aura, die diese Ebene beherrschte, ist verflogen", regexOptions),
+        Fra = new Regex(@"^l'aura magique néfaste qui imprégnait l'étage s'est dissipée", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7265?pretty=true">Floor Number"</see>
     public static readonly LocalizedRegex FloorNumber = new()
     {
-        Jpn = new Regex(@"地下(\d|\d\d|\d\d\d)階", regexOptions),
-        Eng = new Regex(@"Floor (\d|\d\d|\d\d\d)", regexOptions),
-        Deu = new Regex(@"ebene (\d|\d\d|\d\d\d) betreten", regexOptions),
-        Fra = new Regex(@"sous-sol (\d|\d\d|\d\d\d)", regexOptions)
+        Jpn = new Regex(@"^地下(\d|\d\d|\d\d\d)階", regexOptions),
+        Eng = new Regex(@"^floor (\d|\d\d|\d\d\d)", regexOptions),
+        Deu = new Regex(@"^ebene (\d|\d\d|\d\d\d) betreten", regexOptions),
+        Fra = new Regex(@"^sous-sol (\d|\d\d|\d\d\d)", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7272?pretty=true">You sense the Accursed Hoard calling you"</see>
     public static readonly LocalizedRegex SenseAccursedHoard = new()
     {
-        Jpn = new Regex(@"この階層には、財宝がありそうな気がする", regexOptions),
-        Eng = new Regex(@"you sense the accursed hoard calling you", regexOptions),
-        Deu = new Regex(@"auf dieser ebene befindet sich ein schatz", regexOptions),
-        Fra = new Regex(@"vous avez l'intuition qu'il y a un trésor caché à cet étage", regexOptions)
+        Jpn = new Regex(@"^この階層には、財宝がありそうな気がする", regexOptions),
+        Eng = new Regex(@"^you sense the accursed hoard calling you", regexOptions),
+        Deu = new Regex(@"^auf dieser ebene befindet sich ein schatz", regexOptions),
+        Fra = new Regex(@"^vous avez l'intuition qu'il y a un trésor caché à cet étage", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7273?pretty=true">
@@ -679,19 +679,19 @@ public static class ChatRegexStrings
     /// </see>
     public static readonly LocalizedRegex DoNotSenseAccursedHoard = new()
     {
-        Jpn = new Regex(@"この階層には、財宝がなさそうな気がする", regexOptions),
-        Eng = new Regex(@"you do not sense the call of the accursed hoard on this floor", regexOptions),
-        Deu = new Regex(@"auf dieser ebene befindet sich kein schatz", regexOptions),
-        Fra = new Regex(@"vous avez l'intuition qu'il n'y a pas de trésor caché à cet étage", regexOptions)
+        Jpn = new Regex(@"^この階層には、財宝がなさそうな気がする", regexOptions),
+        Eng = new Regex(@"^you do not sense the call of the accursed hoard on this floor", regexOptions),
+        Deu = new Regex(@"^auf dieser ebene befindet sich kein schatz", regexOptions),
+        Fra = new Regex(@"^vous avez l'intuition qu'il n'y a pas de trésor caché à cet étage", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/7274?pretty=true">You discover a piece of the Accursed Hoard"</see>
     public static readonly LocalizedRegex DiscoverAccursedHoard = new()
     {
         Jpn = new Regex(@"埋もれた財宝を発見した", regexOptions),
-        Eng = new Regex(@"you discover a piece of the accursed hoard", regexOptions),
-        Deu = new Regex(@"hier befindet sich ein verborgener schatz", regexOptions),
-        Fra = new Regex(@"vous avez découvert un trésor caché", regexOptions)
+        Eng = new Regex(@"^you discover a piece of the accursed hoard", regexOptions),
+        Deu = new Regex(@"^hier befindet sich ein verborgener schatz", regexOptions),
+        Fra = new Regex(@"^vous avez découvert un trésor caché", regexOptions)
     };
 
     #endregion PotD & HoH
@@ -725,9 +725,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex TrialSynthesis = new()
     {
         Jpn = new Regex(@"の製作練習に", regexOptions),
-        Eng = new Regex(@"your trial synthesis of", regexOptions),
-        Deu = new Regex(@"die testsynthese von", regexOptions),
-        Fra = new Regex(@"a réussi sa synthèse", regexOptions)
+        Eng = new Regex(@"^your trial synthesis of", regexOptions),
+        Deu = new Regex(@"^die testsynthese von", regexOptions),
+        Fra = new Regex(@"^a réussi sa synthèse", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/5906?pretty=true">Quality 6800/6800</see>
