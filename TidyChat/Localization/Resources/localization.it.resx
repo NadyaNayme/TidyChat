@@ -211,46 +211,46 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
         <value>Nascondi i promemoria di cosa dire in chat /say durante le quest.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
-        <value>eg. Con la chat in modalità /say, scrivi una frase contenente "Tataru" al punto di destinazione.</value>
+        <value>es. Con la chat in modalità /say, scrivi una frase contenente "Tataru" al punto di destinazione.</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
-        <value>Hide "You sense something..." messages</value>
+        <value>Nascondi i messaggi "Senti qualcosa..."</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You sense something to the far, far southwest...</value>
+        <value>es. Senti qualcosa a sudovest, molto molto lontano...</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
-        <value>Hide Aether Compass message</value>
+        <value>Nascondi i messaggi dell'Aether Compass</value>
     </data>
     <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
-        <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
+        <value>es. La bussola rileva una corrente approssimativamente a 143 yalm verso Ovest...</value>
     </data>
     <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
-        <value>Hide /countdown messages</value>
+        <value>Nascondi i messaggi dei /countdown</value>
     </data>
     <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Battle commencing in 18 seconds!</value>
+        <value>es. La battaglia inizierà tra 18 secondi!</value>
     </data>
     <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
-        <value>Hide /readycheck message</value>
+        <value>Nascondi il messaggio /readycheck</value>
     </data>
     <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Ready check complete.</value>
+        <value>es. Ready check completato.</value>
     </data>
     <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
-        <value>Hide "Search for items" results message</value>
+        <value>Nascondi i messaggi dei risultati di "Search for items"</value>
     </data>
     <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
-        <value>eg. 1 item found in the 4th tab of your inventory.</value>
+        <value>es. 1 elemento trovato nella quarta scheda del tuo inventario.</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-        <value>Hide Airship voyage messages</value>
+        <value>Nascondi i messaggi dei viaggi dell'Airship</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A new exploratory voyage destination...has been discovered!</value>
+        <value>es. E' stata scoperta una nuova destinazione!</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-        <value>Hide Submarine voyage messages</value>
+        <value>Nascondi i messaggi dei viaggi del sottomarino</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
         <value>eg. A new subaquatic voyage destination...has been discovered!</value>
