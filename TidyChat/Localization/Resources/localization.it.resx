@@ -196,16 +196,16 @@ Current instance can be confirmed at any time using the / instance text command.
 The minions of an extraordinarily powerful mark have withdrawn...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
-        <value>Hide Received Commendations</value>
+        <value>Nascondi Commendation Ricevute</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
         <value>eg. You received a player commendation!</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-        <value>Hide Completed Venture</value>
+        <value>Nascondi Venture Completate</value>
     </data>
     <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-        <value>eg. RetainerName has completed a venture!</value>
+        <value>es. RetainerName ha completato una venture!</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
         <value>Hide reminders of what to /say in chat during quests.</value>
