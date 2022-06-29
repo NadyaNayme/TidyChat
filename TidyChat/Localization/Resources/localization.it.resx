@@ -28,28 +28,28 @@
         <value>Il conteggio viene aggiornato solo ogni 100 messaggi bloccati, quando si cambia zona, o quando ci si disconnette.</value>
     </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-        <value>Filter System spam</value>
+        <value>Filtra spam di sistema</value>
     </data>
     <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-        <value>Filter Progress spam</value>
+        <value>Filtro spam di progresso</value>
     </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
         <value>Questi filtri includono messaggi come achievements sbloccati o punti esperienza ottenuti</value>
     </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-        <value>Filter Loot roll spam</value>
+        <value>Filtra lo spam dei roll del Loot</value>
     </data>
     <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
         <value>Questi filtri includono messaggi come "giocatore ha rollato greed" o "giocatore ottiene pezzo di equipaggiamento"</value>
     </data>
     <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
-        <value>Filter Obtained item spam</value>
+        <value>Filtra lo spam degli oggetti ottenuti</value>
     </data>
     <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
         <value>Questo filtro include oggetti ottenuti come drop dai nemici e ricompense dalle quest o dalle roulette</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
-        <value>Filter Crafting spam</value>
+        <value>Filtra lo spam del crafting</value>
     </data>
     <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
         <value>This filter includes all crafting messages except "You synthesize a/an &lt;item&gt;"
@@ -247,19 +247,19 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
         <value>Nascondi i messaggi dei viaggi dell'Airship</value>
     </data>
     <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>es. E' stata scoperta una nuova destinazione!</value>
+        <value>es. E' stata scoperta una nuova destinazione dell'aereonave!</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
         <value>Nascondi i messaggi dei viaggi del sottomarino</value>
     </data>
     <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A new subaquatic voyage destination...has been discovered!</value>
+        <value>es. E' stata scoperta una nuova destinazione del sommergibile!</value>
     </data>
     <data name="SystemTab_HideVistaMessages" xml:space="preserve">
-        <value>Hide vista arrival and stray messages</value>
+        <value>Nascondi i messaggi dell'arrivo e dell'allontanamento da una vista</value>
     </data>
     <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
+        <value>es. Sei arrivato ad una vista! e Ti sei allontanato troppo da una vista.</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
         <value>Hide try on glamour messages</value>
