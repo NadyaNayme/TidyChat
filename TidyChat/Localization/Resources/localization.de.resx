@@ -390,28 +390,28 @@ zB. "Rotmagier" ausgerüstet.</value>
         <value>Party &amp; Invite Messages</value>
     </data>
     <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-        <value>Show sent party invites</value>
+        <value>Zeige gesendete Partyeinladungen</value>
     </data>
     <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-        <value>Show players joining party</value>
+        <value>Zeige der Party beitretende Spieler</value>
     </data>
     <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-        <value>Show players leaving party</value>
+        <value>Zeige die Party verlassende Spieler</value>
     </data>
     <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-        <value>Show party disbands and dissolves</value>
+        <value>Zeige Partyauflösungen</value>
     </data>
     <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
-        <value>Show received party invitations</value>
+        <value>Zeige erhaltene Partyeinladungen</value>
     </data>
     <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
         <value>Show joined party/cross-party message</value>
     </data>
     <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-        <value>Show teleport offers from party members</value>
+        <value>Zeige Teleportanfragen von Partymitgliedern</value>
     </data>
     <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
-        <value>Trading Messages</value>
+        <value>Handelsnachrichten</value>
     </data>
     <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
         <value>Show "Trade request sent to" message</value>
@@ -460,13 +460,13 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
 eg. Some player obtains an &lt;item&gt;!</value>
     </data>
     <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
-        <value>Common Currencies</value>
+        <value>Gewöhnliche Währungen</value>
     </data>
     <data name="ObtainTab_ShowGil" xml:space="preserve">
-        <value>Show Gil</value>
+        <value>Zeige Gil An</value>
     </data>
     <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 69 gil.</value>
+        <value>zB. Du erhältst 69 Gil.</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
         <value>Show Grand Company Seals</value>
