@@ -208,10 +208,10 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
         <value>es. RetainerName ha completato una venture!</value>
     </data>
     <data name="SystemTab_HideSayReminder" xml:space="preserve">
-        <value>Hide reminders of what to /say in chat during quests.</value>
+        <value>Nascondi i promemoria di cosa dire in chat /say durante le quest.</value>
     </data>
     <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
-        <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+        <value>eg. Con la chat in modalità /say, scrivi una frase contenente "Tataru" al punto di destinazione.</value>
     </data>
     <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
         <value>Hide "You sense something..." messages</value>
