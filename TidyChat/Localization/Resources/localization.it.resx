@@ -124,7 +124,7 @@ Questo permette di usare ChatAlerts per creare un allarme per "Hai sintetizzato"
         <value>Filtra lo spam di emote</value>
     </data>
     <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
+        <value>Questo nasconderà tutto il testo delle emote a meno che non si tratti una emote rivolta a te o una emote usata da te.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
         <value>Filter custom emote spam</value>
