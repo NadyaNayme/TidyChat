@@ -354,40 +354,40 @@ zB. "Rotmagier" ausgerüstet.</value>
         <value>Zeige Aetherpool bleibt unverändert...</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Safety is used</value>
+        <value>Anzeigen, wenn das Tongefäß des Siegelbruchs verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Sight is used</value>
+        <value>Anzeigen, wenn das Tongefäß der Sicht verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Affluence is used</value>
+        <value>Anzeigen, wenn das Tongefäß der Schätze verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Flight is used</value>
+        <value>Anzeigen, wenn das Tongefäß des Feindtods verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Alteration is used</value>
+        <value>Anzeigen, wenn das Tongefäß der Feindwandlung verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Witching is used</value>
+        <value>Anzeigen, wenn das Tongefäß der Wandlung verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Serenity is used</value>
+        <value>Anzeigen, wenn das Tongefäß der Enthexung verwendet worden ist</value>
     </data>
     <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-        <value>Show floor number when entering a new floor</value>
+        <value>Zu Beginn einer Ebene die entsprechende Ebenennummer anzeigen</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is sensed</value>
+        <value>Anzeigen, wenn ein Verborgener Schatz gespürt werden kann</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is not sensed on the current floor</value>
+        <value>Anzeigen, wenn in diesem Gebiet kein Verborgener Schatz erspürt werden kann</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is discovered</value>
+        <value>Anzeigen, wenn ein Verborgener Schatz aufgedeckt worden ist</value>
     </data>
     <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-        <value>Party &amp; Invite Messages</value>
+        <value>Gruppen-/Einladungs- Benachrichtigungen</value>
     </data>
     <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
         <value>Zeige gesendete Partyeinladungen</value>
@@ -405,7 +405,7 @@ zB. "Rotmagier" ausgerüstet.</value>
         <value>Zeige erhaltene Partyeinladungen</value>
     </data>
     <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-        <value>Show joined party/cross-party message</value>
+        <value>Meldung zu beigetretener Welten-/Gruppe anzeigen</value>
     </data>
     <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
         <value>Zeige Teleportanfragen von Partymitgliedern</value>
@@ -414,19 +414,19 @@ zB. "Rotmagier" ausgerüstet.</value>
         <value>Handelsnachrichten</value>
     </data>
     <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
-        <value>Show "Trade request sent to" message</value>
+        <value>"Handelsanfrage gesendet an"-Nachricht anzeigen</value>
     </data>
     <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
-        <value>Show "Trade canceled." message</value>
+        <value>"Handel wurde abgebrochen."-Nachricht anzeigen</value>
     </data>
     <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
-        <value>Show "Awaiting trade confirmation" message</value>
+        <value>"Warten auf Handelsbestätigung."-Nachricht anzeigen</value>
     </data>
     <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
-        <value>Show "Trade complete." message</value>
+        <value>"Handel wurde abgeschlossen."-Nachricht anzeigen</value>
     </data>
     <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
-        <value>Looting &amp; Rolling</value>
+        <value>Beutegut &amp; Beuteverteilung</value>
     </data>
     <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
         <value>Show "You cast your lot" messages</value>
@@ -469,43 +469,43 @@ eg. Some player obtains an &lt;item&gt;!</value>
         <value>zB. Du erhältst 69 Gil.</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
-        <value>Show Grand Company Seals</value>
+        <value>Staatstaler anzeigen</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 420 Flame Seals.</value>
+        <value>z.B. Du erhältst 420 Legionstaler</value>
     </data>
     <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
-        <value>Show Ventures</value>
+        <value>Wertmarken anzeigen</value>
     </data>
     <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain a Venture.</value>
+        <value>z.B. Du erhältst eine Wertmarke.</value>
     </data>
     <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
-        <value>Show MGP</value>
+        <value>MGP anzeigen</value>
     </data>
     <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 117 MGP.</value>
+        <value>z.B. Du erhältst 117 MGP.</value>
     </data>
     <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
-        <value>Battle Currencies</value>
+        <value>Kampfwährungen</value>
     </data>
     <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Poetics</value>
+        <value>Allagische Steine der Poesie anzeigen</value>
     </data>
     <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
+        <value>z.B. Du erhältst 100 Allagische Steine der Poesie.</value>
     </data>
     <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Aphorism</value>
+        <value>Allagische Steine des Aphorismus anzeigen.</value>
     </data>
     <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
+        <value>z.B. Du erhältst 60 Allagische Steine des Aphorismus.</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
         <value>Zeige Allagische Steine der Astronomie</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
+        <value>Du erhältst 20 Allagische Steine der Astronomie.</value>
     </data>
     <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Zeige Wolfsmarken</value>
@@ -514,35 +514,35 @@ eg. Some player obtains an &lt;item&gt;!</value>
         <value>z.B. Du erhältst 1.000 Wolf Marken.</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
-        <value>Show Allied Seals</value>
+        <value>Jagdabzeichen anzeigen</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 Allied Seals.</value>
+        <value>z.B. Du erhältst 100 Jagdabzeichen.</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
-        <value>Show Centurio Seals</value>
+        <value>Centurio-Abzeichen anzeigen</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 40 Centurio Seals.</value>
+        <value>z.B. Du erhältst 40 Centurio-Abzeichen.</value>
     </data>
     <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
-        <value>Zeige die Menge von Kupo-Trophäen an</value>
+        <value>Kupo-Trophäen anzeigen</value>
     </data>
     <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
         <value>z.B. Du erhältst 100 Kupo-Trophäen.</value>
     </data>
     <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-        <value>Beast Tribe Quests</value>
+        <value>Stammesvolk-Aufträge</value>
     </data>
     <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
-        <value>Show Beast Tribe crafting materials</value>
+        <value>Stammesvolk Handwerks-Material anzeigen</value>
     </data>
     <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.
-eg. You obtain Starboard Hull Component Materials</value>
+        <value>Dies wird die Nachricht anzeigen die erscheint, sobald du Synthese-Material für den Stammesvolk-Handwerks-Auftrag erhältst.
+z.B. Du erhältst Steuerbordrumpf-Bauteile</value>
     </data>
     <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
-        <value>Show Beast Tribe Currencies</value>
+        <value>Stammesvolk-Währungen anzeigen</value>
     </data>
     <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.</value>
@@ -730,33 +730,32 @@ Enter a player's first and last name and then press &lt;Enter&gt; to add them to
         <value>Select Channels</value>
     </data>
     <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
-        <value>Player Information</value>
+        <value>Informationen zum Spieler</value>
     </data>
     <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
-        <value>You must enter the player's name as it would be seen in chat - including any periods.
-
-eg.
-Surname Abbreviated: Example N.
-Forename Abbreviated: E. Name
-Initials: E. N.</value>
+        <value>Bitte den Namen genau so eingeben, wie dieser auch im Chat zu sehen ist - das bedeutet auch Punkte!
+z.B.
+Nachname abgekürzt: Max M.
+Vorname abgekürzt: M. Mustermann
+Initialen: M. M.</value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
-        <value>First Name: </value>
+        <value>Vorname: </value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
-        <value>Last Name: </value>
+        <value>Nachname: </value>
     </data>
     <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
-        <value>Server Name: </value>
+        <value>Servername: </value>
     </data>
     <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
-        <value>Select channels for Chat History to filter:</value>
+        <value>Folgende Channel sollen vom Chatverlauf gefiltert werden:</value>
     </data>
     <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
         <value>Emotes</value>
     </data>
     <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
-        <value>Loot</value>
+        <value>Beute</value>
     </data>
     <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
         <value>Herstellen</value>
@@ -885,24 +884,24 @@ Initials: E. N.</value>
         <value>Show when Second Chance points will be awarded for duty clear</value>
     </data>
     <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
-        <value>Channels</value>
+        <value>Kanäle</value>
     </data>
     <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
-        <value>Hide unable to join full Novice Network.</value>
+        <value>"Du konntest dem Neulings-Chat nicht beitreten." - Nachrichten ausblenden.</value>
     </data>
     <data name="WhitelistTab_Allow" xml:space="preserve">
-        <value>Allow</value>
+        <value>Zulassen</value>
     </data>
     <data name="WhitelistTab_Block" xml:space="preserve">
-        <value>Block</value>
+        <value>Blockieren</value>
     </data>
     <data name="WhitelistTab_MessageContains" xml:space="preserve">
-        <value>Message contains:</value>
+        <value>Nachricht / Meldung beinhaltet:</value>
     </data>
     <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
-        <value>Filters</value>
+        <value>Filter</value>
     </data>
     <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
-        <value>Custom Filters</value>
+        <value>Benutzerdefinierte Filter</value>
     </data>
 </root>
