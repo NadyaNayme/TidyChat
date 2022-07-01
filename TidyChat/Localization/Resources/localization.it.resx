@@ -150,19 +150,19 @@ eg. You gently pat &lt;user&gt;</value>
         <value>Loot/Obtain</value>
     </data>
     <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
-        <value>Progress</value>
+        <value>Progresso</value>
     </data>
     <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
         <value>Crafting/Gathering</value>
     </data>
     <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
-        <value>Chat History</value>
+        <value>Cronologia chat</value>
     </data>
     <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
         <value>Whitelist</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
-        <value>Experimental Feature: Inverse mode</value>
+        <value>Funzione sperimentale: Modalità inversa</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
         <value>No longer blocks System messages by default.
@@ -891,18 +891,18 @@ Initials: E. N.</value>
         <value>Hide unable to join full Novice Network.</value>
     </data>
     <data name="WhitelistTab_Allow" xml:space="preserve">
-        <value>Allow</value>
+        <value>Consenti</value>
     </data>
     <data name="WhitelistTab_Block" xml:space="preserve">
-        <value>Block</value>
+        <value>Blocca</value>
     </data>
     <data name="WhitelistTab_MessageContains" xml:space="preserve">
-        <value>Message contains:</value>
+        <value>Il messaggio contiene:</value>
     </data>
     <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
-        <value>Filters</value>
+        <value>Filtri</value>
     </data>
     <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
-        <value>Custom Filters</value>
+        <value>Filtri Personalizzati</value>
     </data>
 </root>
