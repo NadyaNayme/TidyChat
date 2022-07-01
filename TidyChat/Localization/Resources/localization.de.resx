@@ -502,7 +502,7 @@ eg. Some player obtains an &lt;item&gt;!</value>
         <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Astronomy</value>
+        <value>Zeige Allagische Steine der Astronomie</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
         <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
@@ -526,10 +526,10 @@ eg. Some player obtains an &lt;item&gt;!</value>
         <value>eg. You obtain 40 Centurio Seals.</value>
     </data>
     <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
-        <value>Show sacks of Nuts</value>
+        <value>Zeige die Menge von Kupo-Trophäen an</value>
     </data>
     <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 sacks of Nuts.</value>
+        <value>z.B. Du erhältst 100 Kupo-Trophäen.</value>
     </data>
     <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
         <value>Beast Tribe Quests</value>
