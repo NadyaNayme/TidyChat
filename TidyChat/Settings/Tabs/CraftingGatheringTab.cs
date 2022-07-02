@@ -17,6 +17,14 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
+            var showDesynthedItem = configuration.ShowDesynthedItem;
+            if (ImGui.Checkbox(localization.CraftingGatheringTab_ShowItemBeingDesynthesized,
+                    ref showDesynthedItem))
+            {
+                configuration.ShowDesynthedItem = showDesynthedItem;
+                configuration.Save();
+            }
+
             var showDesynthesisObtains = configuration.ShowDesynthesisObtains;
             if (ImGui.Checkbox(localization.CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages,
                     ref showDesynthesisObtains))

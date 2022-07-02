@@ -11,7 +11,7 @@ public class Configuration : IPluginConfiguration
     // the below exist just to make saving less cumbersome
 
     [NonSerialized] private DalamudPluginInterface? pluginInterface;
-    
+
     public ulong TtlMessagesBlocked { get; set; } = 0;
     public bool Enabled { get; set; } = true;
     public bool EnableDebugMode { get; set; } = false;
@@ -196,6 +196,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowMateriaShatters { get; set; } = true;
     public bool ShowMateriaExtract { get; set; } = true;
     public bool ShowDesynthesisLevel { get; set; } = false;
+    public bool ShowDesynthedItem { get; set; } = false;
     public bool ShowDesynthesisObtains { get; set; } = false;
     public bool ShowTrialMessages { get; set; } = true;
     public bool ShowOtherSynthesis { get; set; } = false;

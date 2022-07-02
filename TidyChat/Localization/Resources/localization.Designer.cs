@@ -440,6 +440,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show item being desynthesized.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowItemBeingDesynthesized {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowItemBeingDesynthesized", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show message when location affects gathering yield, receiving Gatherer&apos;s Boon, or gathering attempts.
         /// </summary>
         internal static string CraftingGatheringTab_ShowLocationGatheringEffectMessages {

@@ -908,4 +908,7 @@ Initials: E. N.</value>
     <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
         <value>Custom Filters</value>
     </data>
+    <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
+        <value>Show item being desynthesized</value>
+    </data>
 </root>

@@ -159,12 +159,20 @@ public static class ChatRegexStrings
         Fra = new Regex(@"(.*) jette les dés (Cupidité) pour (la|le|les) (.*)", regexOptions)
     };
 
+    public static readonly LocalizedRegex YouDesynth = new()
+    {
+        Jpn = new Regex(@"を分解した！。$", regexOptions),
+        Eng = new Regex(@"^you desynthesize.+", regexOptions),
+        Deu = new Regex(@"^(du|deiner|dir|dich|you) verwertet", regexOptions),
+        Fra = new Regex(@"^(vous|you) obtient", regexOptions)
+    };
+
     public static readonly LocalizedRegex YouObtainSystem = new()
     {
         Jpn = new Regex(@"^youは.+を手に入れた。$", regexOptions),
         Eng = new Regex(@"^you obtain.+", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
-        Fra = new Regex(@"^vous obtient", regexOptions)
+        Fra = new Regex(@"^(vous|you) (recyclez|recycle)", regexOptions)
     };
 
     public static readonly LocalizedRegex OtherObtains = new()

@@ -5,7 +5,7 @@ internal static class InternalStrings
     public const string SettingsCommand = "/tidychat";
 
     public const string ShorthandCommand = "/tidy";
-    public static readonly string Version = "1.2.0";
+    public static readonly string Version = "1.2.1";
 
     public static readonly string PluginName = "Tidy Chat";
 

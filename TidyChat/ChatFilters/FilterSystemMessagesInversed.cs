@@ -73,6 +73,7 @@ public static class FilterSystemMessagesInversed
                 (configuration.ShowHuntSlain && L10N.Get(ChatStrings.HuntSlain).All(input.Contains)) ||
                 (configuration.ShowRelicBookStep && L10N.Get(ChatStrings.RelicBookStep).All(input.Contains)) ||
                 (configuration.ShowRelicBookComplete && L10N.Get(ChatStrings.RelicBookComplete).All(input.Contains)) ||
+                (configuration.ShowDesynthedItem && L10N.Get(ChatRegexStrings.YouDesynth).IsMatch(input)) ||
                 (configuration.ShowDesynthesisObtains && L10N.Get(ChatRegexStrings.YouObtainSystem).IsMatch(input)) ||
                 (configuration.ShowOnlineStatus && L10N.Get(ChatStrings.OnlineStatus).All(input.Contains)) ||
                 (configuration.ShowAttachToMail && L10N.Get(ChatStrings.AttachToMail).All(input.Contains)) ||

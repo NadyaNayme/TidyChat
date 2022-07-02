@@ -291,7 +291,7 @@ public sealed class TidyChat : IDalamudPlugin
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
             message = Better.Instances(message, Configuration);
 
-        if (Configuration.BetterSayReminder && !Configuration.HideQuestReminder && !Configuration.EnableDebugMode &&
+        if (Configuration.BetterSayReminder && !Configuration.EnableDebugMode &&
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
             message = Better.SayReminder(message, Configuration);
 
