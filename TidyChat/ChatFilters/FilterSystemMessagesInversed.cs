@@ -20,7 +20,7 @@ public static class FilterSystemMessagesInversed
                 (!configuration.HideInstanceMessage && L10N.Get(ChatStrings.InstancedArea).All(input.Contains)) ||
                 (!configuration.HideQuestReminder && L10N.Get(ChatStrings.SayQuestReminder).All(input.Contains)) ||
                 (!configuration.HideReadyChecks && L10N.Get(ChatStrings.ReadyCheckComplete).All(input.Contains)) ||
-                (!configuration.HideSpideySenses && L10N.Get(ChatStrings.SpideySenses).All(input.Contains) &&
+                (!configuration.HideSpideySenses && L10N.Get(ChatRegexStrings.SpideySenses).IsMatch(input) &&
                  !L10N.Get(ChatStrings.UnsettlingPresence).All(input.Contains)) ||
                 (!configuration.HideAetherCompass && L10N.Get(ChatStrings.AetherCompass).All(input.Contains)) ||
                 (!configuration.HideCountdownTime && (L10N.Get(ChatStrings.CountdownTime).All(input.Contains) ||

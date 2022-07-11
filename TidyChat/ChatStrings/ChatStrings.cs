@@ -240,16 +240,6 @@ public static class ChatStrings
         Fra = new[] { "NeedsLocalization" }
     };
 
-    /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">You sense something close.</see>
-    public static readonly LocalizedStrings SpideySenses = new()
-    {
-        Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "you", "sense" }, // You sense something... , You sense your mark..., You sense a strange...
-        Deu = new[] { "NeedsLocalization" },
-        Fra = new[] { "NeedsLocalization" }
-    };
-
     /// <see href="https://xivapi.com/LogMessage/1831?pretty=true">You sense an unsettling presence.</see>
     public static readonly LocalizedStrings UnsettlingPresence = new()
     {

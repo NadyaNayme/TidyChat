@@ -126,6 +126,16 @@ public static class ChatRegexStrings
         Fra = new Regex(@"^(vous|you)", regexOptions)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">You sense something close.</see>
+    public static readonly LocalizedRegex SpideySenses = new()
+    {
+        Jpn = new Regex("NeedsLocalization"),
+        Eng = new Regex("you sense"), // You sense something... , You sense your mark..., You sense a strange...
+        Deu = new Regex("NeedsLocalization"),
+        Fra = new Regex("(vous|you) (percevez|ressentez)")
+    };
+
     public static readonly LocalizedRegex CastLot = new()
     {
         Jpn = new Regex(@"^youは.*にロットした。$", regexOptions),
