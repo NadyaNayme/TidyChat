@@ -627,7 +627,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Meldung zu erfolgreicher Gegenstands-Herstellung anderer Spieler anzeigen.</value>
     </data>
     <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
-        <value>Ernte-Orte</value>
+        <value>Gathering</value>
     </data>
     <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
         <value>Die Menge an erhaltenem Sand nach Raffination anzeigen</value>
@@ -906,5 +906,8 @@ Initialen: M. M.</value>
     </data>
     <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
         <value>Show item being desynthesized</value>
+    </data>
+    <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
+        <value>Show "You sense..." messages for gathering locations</value>
     </data>
 </root>
