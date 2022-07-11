@@ -24,6 +24,7 @@ public sealed class FilterGatherMessages
             )
                 return true;
             if (
+                (configuration.ShowGatheringSenses && L10N.Get(ChatStrings.SpideySenses).All(input.Contains)) ||
                 (configuration.ShowLocationAffects && L10N.Get(ChatStrings.LocationAffects).All(input.Contains)) ||
                 (configuration.ShowCaughtFish && L10N.Get(ChatStrings.AddedToFishGuide).All(input.Contains)) ||
                 (configuration.ShowMeasuringIlms && L10N.Get(ChatStrings.MeasuringIlms).All(input.Contains))

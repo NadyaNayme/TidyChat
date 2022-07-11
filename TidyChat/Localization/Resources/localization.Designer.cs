@@ -368,7 +368,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Gathering Locations.
+        ///   Looks up a localized string similar to Gathering.
         /// </summary>
         internal static string CraftingGatheringTab_GatheringLocationsDropdownHeader {
             get {
@@ -436,6 +436,15 @@ namespace TidyChat.Localization.Resources {
         internal static string CraftingGatheringTab_ShowFishSizeMessages {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowFishSizeMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show &quot;You sense...&quot; messages for gathering locations.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowGatheringSensesLabel {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowGatheringSensesLabel", resourceCulture);
             }
         }
         

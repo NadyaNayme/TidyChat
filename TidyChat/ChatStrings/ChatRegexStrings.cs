@@ -187,8 +187,8 @@ public static class ChatRegexStrings
     {
         Jpn = new Regex(@"^\s{1,3}>>|を含む所持アイテムは(\d{1,4}種類見つかりました|ありませんでした)。$", regexOptions),
         Eng = new Regex(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)", regexOptions),
-        Deu = new Regex(@"NeedsLocalization", regexOptions),
-        Fra = new Regex(@"NeedsLocalization", regexOptions)
+        Deu = new Regex(@"\s{1,3}>>", regexOptions),
+        Fra = new Regex(@"\s{1,3}>>|(Il n\'y a aucun objet contenant|Il y a \d{1,4} type)", regexOptions)
     };
 
     public static readonly LocalizedRegex SearchForItemResults = new()
@@ -198,10 +198,12 @@ public static class ChatRegexStrings
             @"^ミラージュドレッサーに\d個あります。$|^愛蔵品キャビネット「.+」に\d個あります。$|に装備中です。$|合計\d{1,9}個見つかりました。|^所持品ブロック[1234]に\d{1,9}個あります。$|^チョコボかばんのかばんタブ[12]に\d{1,9}個あります。$",
             regexOptions),
         Eng = new Regex(
-            @"(\d (item|items) found in glamour dresser\.)|(\d (item|items) found in the .* section of the armoire\.)|(Currently equipped to .* slot)|(Total: \d{1,9} (item|items) found)|(\d{1,9} (item|items) found in the (1st|2nd|3rd|4th) tab of (your|.+'s) inventory)|\d{1,9} (item|items) found in saddlebag",
+            @"(^\d (item|items) found in glamour dresser\.)|(^\d (item|items) found in the .* section of the armoire\.)|(^currently equipped to .* slot)|(^total: \d{1,9} (item|items) found)|(^\d{1,9} (item|items) found in the (1st|2nd|3rd|4th) tab of (your|.+'s) inventory)|^\d{1,9} (item|items) found in saddlebag",
             regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
-        Fra = new Regex(@"NeedsLocalization", regexOptions)
+        Fra = new Regex(
+            @"(^rechergche de l\'objet|^\d{1,4} (exemplaire|exemplaires) de l\'objet se (trouve|trouvent) dans|^Total\: \d{1,6} (résultat|résultats)\.$|^l\'objet est équié dans la case)",
+            regexOptions)
     };
 
     public static readonly LocalizedRegex ObtainedTomestones = new()

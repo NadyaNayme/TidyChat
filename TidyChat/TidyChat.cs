@@ -446,10 +446,8 @@ public sealed class TidyChat : IDalamudPlugin
         PlayerName playerOrMessage,
         ChatType chatType)
     {
-        PluginLog.LogDebug($"Handled? {isHandled} & block/allow? {playerOrMessage.AllowMessage.ToString()}");
         if (!isHandled && !playerOrMessage.AllowMessage)
         {
-            PluginLog.LogDebug($"Check if \"{message}\" should be blocked by custom filters.");
             var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
             var isRegex = false;
             Regex userPattern = null;
@@ -489,7 +487,6 @@ public sealed class TidyChat : IDalamudPlugin
 
         if (isHandled && playerOrMessage.AllowMessage)
         {
-            PluginLog.LogDebug($"Check if \"{message}\" should be allowed by custom filters.");
             var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
             var isRegex = false;
             Regex userPattern = null;

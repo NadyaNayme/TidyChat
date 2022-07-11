@@ -95,6 +95,14 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(localization.CraftingGatheringTab_GatheringLocationsDropdownHeader))
         {
+            var showGatheringSenses = configuration.ShowGatheringSenses;
+            if (ImGui.Checkbox(localization.CraftingGatheringTab_ShowGatheringSensesLabel,
+                    ref showGatheringSenses))
+            {
+                configuration.ShowGatheringSenses = showGatheringSenses;
+                configuration.Save();
+            }
+
             var showAetherialReductionSands = configuration.ShowAetherialReductionSands;
             if (ImGui.Checkbox(localization.CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages,
                     ref showAetherialReductionSands))
