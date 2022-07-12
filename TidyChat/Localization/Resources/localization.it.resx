@@ -127,14 +127,14 @@ Questo permette di usare ChatAlerts per creare un allarme per "Hai sintetizzato"
         <value>Questo nasconderà tutto il testo delle emote a meno che non si tratti una emote rivolta a te o una emote usata da te.</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-        <value>Filter custom emote spam</value>
+        <value>Filtra lo spam di emote personalizzate</value>
     </data>
     <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
-eg. Another Player leans over and gives you a big bear hug.</value>
+        <value>Questo nasconde tutti i messaggi "/em" a meno che non siano rivolti a te o siano una emote personalizzata usata da te.
+es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-        <value>Filter emotes used by yourself</value>
+        <value>Filtra le emote usate da te</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
         <value>This will hide the message that occurs when you use an emote or custom emote.
