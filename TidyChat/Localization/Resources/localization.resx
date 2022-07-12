@@ -630,7 +630,7 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Show synthesis message when other players complete a craft.</value>
     </data>
     <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
-        <value>Gathering Locations</value>
+        <value>Gathering</value>
     </data>
     <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
         <value>Show the number of obtained sands after using aetherial reduction</value>
@@ -910,5 +910,8 @@ Initials: E. N.</value>
     </data>
     <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
         <value>Show item being desynthesized</value>
+    </data>
+    <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
+        <value>Show "You sense..." messages for gathering locations</value>
     </data>
 </root>
