@@ -212,7 +212,7 @@ public static class ChatRegexStrings
             regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(
-            @"((possède|possédez) \d{1,3} (cristal|cristaux)\.$|^recherche de l\'objet|^\d{1,4} (exemplaire|exemplaires) de l\'objet se (trouve|trouvent) dans|^Total\: \d{1,6} (résultat|résultats)\.$|^l\'objet est équipé dans la case|^aucun résultat trouvé\.$)",
+            @"((possède|possédez) \d{1,3} (cristal|cristaux)\.$|^recherche de l\'objet|^\d{1,4} (exemplaire|exemplaires) de l\'objet se (trouve|trouvent) dans|^total\ \: \d{1,6} (résultat|résultats)\.$|^l\'objet est équipé dans la case|^aucun résultat trouvé\.$)",
             regexOptions)
     };
 
