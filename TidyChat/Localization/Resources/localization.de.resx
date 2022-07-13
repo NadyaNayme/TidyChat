@@ -547,7 +547,7 @@ z.B. Du erhältst Steuerbordrumpf-Bauteile</value>
         <value>Dies wird die Nachricht anzeigen die erscheint, sobald du Stammesvolkwährungen aufgrund abgeschlossener Stammesvolk-Aufträge erhältst.</value>
     </data>
     <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
-        <value>Andere Du erhältst Nachrichten</value>
+        <value>Andere "Du erhältst" Nachrichten</value>
     </data>
     <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
         <value>Inaktive Polykristalle anzeigen</value>
@@ -635,10 +635,10 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Nachricht anzeigen, wenn der Ort die Menge der Ernte beeinflusst, du Expertise erlangst, oder du zusätzliche Ernteversuche erhältst</value>
     </data>
     <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect gathering yield</value>
+        <value>Nur Standorte verstecken, die das sammeln beeinflussen</value>
     </data>
     <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect gathering attempts</value>
+        <value>Nur Standorte verstecken, die die Sammelversuche beeinflussen</value>
     </data>
     <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
         <value>Hide only locations that affect Gatherer's Boon</value>
@@ -650,7 +650,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Nachricht anzeigen, wenn ein Fisch dem Fischverzeichnis hinzugefügt worden ist</value>
     </data>
     <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
-        <value>Show caught fish measuring [size] ilms</value>
+        <value>Zeige gefangene Fische die eine Größe von [size] ilm hat</value>
     </data>
     <data name="SettingsTabFooter_SaveButtonText" xml:space="preserve">
         <value>Speichern</value>
@@ -659,34 +659,34 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Konfiguration speichern und beenden</value>
     </data>
     <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
-        <value>Support on Ko-Fi</value>
+        <value>Unterstützung auf Ko-Fi</value>
     </data>
     <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
-        <value>Wiki Page</value>
+        <value>Wiki Seite</value>
     </data>
     <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
-        <value>Show experience gain messages</value>
+        <value>Zeige Erfahrung erhalten Nachrichten</value>
     </data>
     <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
         <value>z. B. Du erhältst 2,388 Routine.</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
-        <value>Show bonus award for using duty roulette</value>
+        <value>Zeige Bonus Vergütung für das Abschließen eines Zufall-Inhaltes</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
+        <value>z. B. Für das Abschließen einer täglichen Herausforderung erhälst du einen Bonus von 4.252.498 Routine und 12.000 Gil.</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
-        <value>Show bonus awarded for being an adventurer in need</value>
+        <value>Zeige Bonus Belohnung für gefragte Rollen</value>
     </data>
     <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
+        <value>z. B. Für das Abschließen mit einer gefragten Rolle erhältst du einen Bonus von 7.200 Gil.</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-        <value>Show PVP EXP gain messages</value>
+        <value>Zeige Nachrichten mit PVP Routine erhalten</value>
     </data>
     <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You acquire 500 PvP EXP.</value>
+        <value>z. B. Du erhältst 500 PvP Routine.</value>
     </data>
     <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
         <value>Meldung zu verdienten Errungenschaften anzeigen</value>
@@ -695,21 +695,21 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Meldung zu verdienten Errungenschaften anderer Spieler anzeigen</value>
     </data>
     <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
-        <value>Show level up messages</value>
+        <value>Zeige Stufenaufstieg Nachrichten</value>
     </data>
     <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>Das hier zeigt dir die Nachricht die du erhältst, wenn du ein Level-Up hast.
 Es kann in diversen Instanzen wie Palast der Toten und Himmelsäule als nervig angesehen werden.</value>
     </data>
     <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
-        <value>Show other player's level up messages</value>
+        <value>Zeige Stufenaufstieg Nachrichten anderer Spieler</value>
     </data>
     <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when others level up.
- eg. Player attains level 33!</value>
+        <value>Dies zeigt nur die Nachricht die auftritt, wenn ein andere Spieler eine Stufe aufsteigt.
+z. B. Spieler erreicht Level 33!</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
-        <value>Show learned ability messages</value>
+        <value>Zeige "Du erlernst" Nachrichten von Fähigkeiten</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when you learn a new ability.
@@ -726,7 +726,7 @@ It can be considered spammy in Palace of the Dead and Heaven On High.</value>
 Enter a player's first and last name and then press &lt;Enter&gt; to add them to the whitelist.</value>
     </data>
     <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
-        <value>Select Channels</value>
+        <value>Wähle Kanäle</value>
     </data>
     <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
         <value>Informationen zum Spieler</value>
@@ -769,7 +769,7 @@ Initialen: M. M.</value>
         <value>Anmelden/Abmelden</value>
     </data>
     <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
-        <value>Progress</value>
+        <value>Fortschritt</value>
     </data>
     <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
         <value>System</value>
@@ -799,7 +799,7 @@ Initialen: M. M.</value>
         <value>"Teleporte zu..."-Meldungen ausblenden</value>
     </data>
     <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
-        <value>Hide gear reaching 100% spiritbound messages</value>
+        <value>Verstecke Nachrichten, wenn ein Gegenstand 100% Seelenbindung erreicht</value>
     </data>
     <data name="TidyChat_TippyTips1" xml:space="preserve">
         <value>Blockiert Tidy Chat eine Nachricht die du sehen möchtest? Füge die Nachricht in Tidy Chats weiße Liste als Name ein! Ja - das geht wirklich!</value>
@@ -808,7 +808,7 @@ Initialen: M. M.</value>
         <value>Wusstest du schon, dass Tidy Chat eine Chatverlauf-Funktion hat, mit der man sich wiederholende Meldungen blocken kann?</value>
     </data>
     <data name="TidyChat_TippyTips3" xml:space="preserve">
-        <value>Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.</value>
+        <value>Tidy Chat blockiert standardmässig alle System Nachrichten. Du kannst den Inverse Modus aktivieren um stattdessen bestimmte System Nachrichten zu blockieren.</value>
     </data>
     <data name="TidyChat_TippyTips4" xml:space="preserve">
         <value>Tidy Chat hat einige hilfreiche Einstellungen, welche erst aktiviert werden müssen.</value>
@@ -862,16 +862,16 @@ Initialen: M. M.</value>
         <value>Meldungen zu sich ausloggenden Mitgliedern der Freien Gesellschaft ausblenden</value>
     </data>
     <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
-        <value>Hide Free Company message book new entry messages</value>
+        <value>Verstecke Nachrichten für neue Einträge im Diarium der Freien Gesellschaft</value>
     </data>
     <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
-        <value>Hide personal message book new entry messages</value>
+        <value>Verstecke Nachrichten für neue Einträge im persönlichen Diarium</value>
     </data>
     <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
         <value>Hide number of available coffers messages</value>
     </data>
     <data name="SystemTab_ShowNowALeader" xml:space="preserve">
-        <value>Show you are now/no longer a leader messages</value>
+        <value>Zeige Nachrichten mit Du bist nun/nicht länger der Anführer der Gruppe</value>
     </data>
     <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
         <value>Diese Meldungen erscheinen, wenn du zum Anführer der Gruppe, der Freien Gesellschaft, PvP-Gruppe oder der Welten-\Kontaktkreise gewählt worden bist.</value>
@@ -907,6 +907,6 @@ Initialen: M. M.</value>
         <value>Show item being desynthesized</value>
     </data>
     <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
-        <value>Show "You sense..." messages for gathering locations</value>
+        <value>Zeige "Du spürst..." Nachrichten für Sammelstellen</value>
     </data>
 </root>
