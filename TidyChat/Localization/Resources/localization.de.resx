@@ -626,7 +626,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Meldung zu erfolgreicher Gegenstands-Herstellung anderer Spieler anzeigen.</value>
     </data>
     <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
-        <value>Sammler</value>
+        <value>Sammeln</value>
     </data>
     <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
         <value>Die Menge an erhaltenem Sand nach Raffination anzeigen</value>
