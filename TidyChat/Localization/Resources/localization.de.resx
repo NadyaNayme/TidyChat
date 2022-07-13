@@ -712,18 +712,18 @@ z. B. Spieler erreicht Level 33!</value>
         <value>Zeige "Du erlernst" Nachrichten von Fähigkeiten</value>
     </data>
     <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you learn a new ability.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Das hier zeigt die Nachricht an, die erscheint, sobald du eine neue Fähigkeiten erlernt hast.
+Das kann in Instanzen wie "Palast der Toten" oder "Himmelsäule" schnell nervig werden.</value>
     </data>
     <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages sent by whitelisted player</value>
+        <value>Alle gesendeten Nachrichten des, in der Whitelist stehenden, Spielers anzeigen</value>
     </data>
     <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages targeting a whitelisted player</value>
+        <value>Alle Nachrichten des anvisierten, in der Whitelist stehenden, Spielers anzeigen</value>
     </data>
     <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-        <value>Users added to the whitelist will be treated as if they were you for all filter settings.
-Enter a player's first and last name and then press &lt;Enter&gt; to add them to the whitelist.</value>
+        <value>Alle User die in der Whitelist stehen, werden so behandelt als seien sie DU mit allen Filter-Einstellungen.
+Tippe des Spielers Vor- und Nachnamen ein, drück &lt;Enter&gt; um diese der Whitelist hinzuzufügen.</value>
     </data>
     <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
         <value>Wähle Kanäle</value>
@@ -793,7 +793,7 @@ Initialen: M. M.</value>
         <comment>Commendations - Plural</comment>
     </data>
     <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
-        <value>from completing</value>
+        <value>bei Abschluss erhalten</value>
     </data>
     <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
         <value>"Teleporte zu..."-Meldungen ausblenden</value>
@@ -868,7 +868,7 @@ Initialen: M. M.</value>
         <value>Verstecke Nachrichten für neue Einträge im persönlichen Diarium</value>
     </data>
     <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
-        <value>Hide number of available coffers messages</value>
+        <value>Menge an verfügbaren Ausrüstungskisten ausblenden</value>
     </data>
     <data name="SystemTab_ShowNowALeader" xml:space="preserve">
         <value>Zeige Nachrichten mit Du bist nun/nicht länger der Anführer der Gruppe</value>
@@ -880,7 +880,7 @@ Initialen: M. M.</value>
         <value>Zeige Bonus-Prämie für das erstmalige Abschließen des Inhalts eines Gruppen-Mitgliedes</value>
     </data>
     <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
-        <value>Show when Second Chance points will be awarded for duty clear</value>
+        <value>Anzeigen, wenn Zweite-Chance-Punkte bei einem Sieg erhalten werden können</value>
     </data>
     <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
         <value>Kanäle</value>
@@ -904,7 +904,7 @@ Initialen: M. M.</value>
         <value>Benutzerdefinierte Filter</value>
     </data>
     <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
-        <value>Show item being desynthesized</value>
+        <value>Anzeigen, wenn ein Item (de)-synthetisiert wird</value>
     </data>
     <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
         <value>Zeige "Du spürst..." Nachrichten für Sammelstellen</value>
