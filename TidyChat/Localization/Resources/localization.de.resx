@@ -436,7 +436,7 @@ zB. "Rotmagier" ausgerüstet.</value>
 z.B. Du würfelst um &lt;item&gt;</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-        <value>Du würfelst</value>
+        <value>Zeige "Du würfelst..." Nachrichten</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
         <value>Du würfelst mit Bedarf/Gier auf &lt;item&gt;: 63!</value>
