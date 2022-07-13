@@ -442,21 +442,21 @@ z.B. Du würfelst um &lt;item&gt;</value>
         <value>Du würfelst mit Bedarf/Gier auf &lt;item&gt;: 63!</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
-        <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
+        <value>Zeigt "Ein anderer Spieler würfelt noch um &lt;item&gt;" Nachrichten</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
         <value>Diese Nachricht wird angezeigt, wenn ein anderer Spieler in der Gruppe um ein Beutegut würfelt.
 z.B. Ein Spieler würfelt um &lt;item&gt;.</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
-        <value>Show "Another Player rolls Greed..." messages</value>
+        <value>Zeigt "Ein anderer Spieler würfelt mit Gier..." Nachrichten</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-        <value>Show "Another Player obtains &lt;item&gt;" messages</value>
+        <value>Zeigt "Ein anderer Spieler erhält &lt;item&gt;" Nachrichten</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when another player in the party obtains a loot drop.
-eg. Some player obtains an &lt;item&gt;!</value>
+        <value>Dies zeigt Nachrichten an, wenn ein anderer Spieler in der Gruppe um die Beute erhält.
+z.B. Ein Spieler hat ein &lt;item&gt; erhalten!</value>
     </data>
     <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
         <value>Gewöhnliche Währungen</value>
