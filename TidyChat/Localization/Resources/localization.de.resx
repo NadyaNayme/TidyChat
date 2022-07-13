@@ -429,25 +429,24 @@ zB. "Rotmagier" ausgerüstet.</value>
         <value>Beutegut &amp; Beuteverteilung</value>
     </data>
     <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
-        <value>Show "You cast your lot" messages</value>
+        <value>Zeigt die "Du würfelst um" Nachrichten</value>
     </data>
     <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you roll on loot.
-eg. You cast your lot for the &lt;item&gt;</value>
+        <value>Dies ist die Nachricht die angezeigt wird, wenn du um Beute würfelst.
+z.B. Du würfelst um &lt;item&gt;</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-        <value>Show "You rolled..." messages</value>
+        <value>Du würfelst</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
-eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
+        <value>Du würfelst mit Bedarf/Gier auf &lt;item&gt;: 63!</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
         <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when another player in the party rolls for a loot drop.
-eg. Some player casts her lot for &lt;item&gt;.</value>
+        <value>Diese Nachricht wird angezeigt, wenn ein anderer Spieler in der Gruppe um ein Beutegut würfelt.
+z.B. Ein Spieler würfelt um &lt;item&gt;.</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
         <value>Show "Another Player rolls Greed..." messages</value>
@@ -548,7 +547,7 @@ z.B. Du erhältst Steuerbordrumpf-Bauteile</value>
         <value>Dies wird die Nachricht anzeigen die erscheint, sobald du Stammesvolkwährungen aufgrund abgeschlossener Stammesvolk-Aufträge erhältst.</value>
     </data>
     <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
-        <value>Other Obtain Messages</value>
+        <value>Andere Du erhältst Nachrichten</value>
     </data>
     <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
         <value>Inaktive Polykristalle anzeigen</value>
@@ -627,7 +626,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Meldung zu erfolgreicher Gegenstands-Herstellung anderer Spieler anzeigen.</value>
     </data>
     <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
-        <value>Gathering</value>
+        <value>Sammler</value>
     </data>
     <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
         <value>Die Menge an erhaltenem Sand nach Raffination anzeigen</value>
@@ -669,7 +668,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Show experience gain messages</value>
     </data>
     <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You gain 2,388 Experience Points.</value>
+        <value>z. B. Du erhältst 2,388 Routine.</value>
     </data>
     <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
         <value>Show bonus award for using duty roulette</value>
@@ -878,7 +877,7 @@ Initialen: M. M.</value>
         <value>Diese Meldungen erscheinen, wenn du zum Anführer der Gruppe, der Freien Gesellschaft, PvP-Gruppe oder der Welten-\Kontaktkreise gewählt worden bist.</value>
     </data>
     <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
-        <value>Show bonus award for a party member's first clear</value>
+        <value>Zeige Bonus-Prämie für das erstmalige Abschließen des Inhalts eines Gruppen-Mitgliedes</value>
     </data>
     <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
         <value>Show when Second Chance points will be awarded for duty clear</value>
