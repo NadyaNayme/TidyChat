@@ -911,9 +911,9 @@ Initiales : N. D.</value>
         <value>Afficher le message "Vous détectez..." pour l'apparition de points de récolte</value>
     </data>
     <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
-        <value>Show message when a fishing location is discovered</value>
+        <value>Afficher le message notifiant qu'un nouveau point de pêche a été découvert</value>
     </data>
     <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
-        <value>Show name of fishing hole when line is cast</value>
+        <value>Afficher le message indiquant le nom du point de pêche lorsque vous lancez votre ligne</value>
     </data>
 </root>
