@@ -909,4 +909,10 @@ Initialen: M. M.</value>
     <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
         <value>Zeige "Du spürst..." Nachrichten für Sammelstellen</value>
     </data>
+    <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
+        <value>Show message when a fishing location is discovered</value>
+    </data>
+    <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
+        <value>Show name of fishing hole when line is cast</value>
+    </data>
 </root>
