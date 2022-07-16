@@ -626,7 +626,7 @@ Il est recommandé de conserver ce paramètre à 50, ou moins.</value>
         <value>Afficher le message de synthèse réussie lorsque les autres joueurs terminent une synthèse.</value>
     </data>
     <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
-        <value>Gathering</value>
+        <value>Récolte</value>
     </data>
     <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
         <value>Afficher le nombre de sables éthéréens obtenus après avoir éthérolysé un objet</value>
@@ -905,10 +905,10 @@ Initiales : N. D.</value>
         <value>Filtres Personnalisés</value>
     </data>
     <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
-        <value>Show item being desynthesized</value>
+        <value>Activer l'affichage du message indiquant qu'un objet est en train d'être recyclé</value>
     </data>
     <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
-        <value>Show "You sense..." messages for gathering locations</value>
+        <value>Afficher le message "Vous détectez..." pour l'apparition de points de récolte</value>
     </data>
     <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
         <value>Show message when a fishing location is discovered</value>
