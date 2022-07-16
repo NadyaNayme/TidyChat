@@ -213,6 +213,7 @@ public class Configuration : IPluginConfiguration
     public bool HideGatherersBoon { get; set; } = true;
     public bool HideGatheringAttempts { get; set; } = true;
     public bool ShowCaughtFish { get; set; } = true;
+    public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;
 

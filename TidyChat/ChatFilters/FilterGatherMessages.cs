@@ -27,7 +27,13 @@ public sealed class FilterGatherMessages
                 (configuration.ShowGatheringSenses && L10N.Get(ChatRegexStrings.SpideySenses).IsMatch(input)) ||
                 (configuration.ShowLocationAffects && L10N.Get(ChatStrings.LocationAffects).All(input.Contains)) ||
                 (configuration.ShowCaughtFish && L10N.Get(ChatStrings.AddedToFishGuide).All(input.Contains)) ||
-                (configuration.ShowMeasuringIlms && L10N.Get(ChatStrings.MeasuringIlms).All(input.Contains))
+                (configuration.ShowCurrentFishingHole &&
+                 L10N.Get(ChatRegexStrings.CurrentFishingHole).IsMatch(input)) ||
+                (configuration.ShowDiscoveredFishingHole &&
+                 L10N.Get(ChatRegexStrings.DiscoveredFishingHole).IsMatch(input)) ||
+                L10N.Get(ChatRegexStrings.DiscoveredFishingHoleARR).IsMatch(input) ||
+                L10N.Get(ChatRegexStrings.DataOnFishinghole).IsMatch(input) || (configuration.ShowMeasuringIlms &&
+                    L10N.Get(ChatStrings.MeasuringIlms).All(input.Contains))
             )
                 return false;
             return true;

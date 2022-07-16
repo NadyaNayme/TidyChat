@@ -280,6 +280,48 @@ public static class ChatRegexStrings
             regexOptions)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/1110?pretty=true">You cast your line on the ...</see>
+    public static readonly LocalizedRegex CurrentFishingHole = new()
+    {
+        Jpn = new Regex(@"で釣りを開始した$", regexOptions),
+        Eng = new Regex(@"^(you cast your|.*? casts (her|his)) line (on|in|at)", regexOptions),
+        Deu = new Regex(
+            @"mit dem fischen",
+            regexOptions),
+        Fra = new Regex(
+            @"point de pêche\:",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3513?pretty=true">
+    ///     The fishing hole ... in/on/at ... is added to your fishing
+    ///     log.
+    /// </see>
+    public static readonly LocalizedRegex DiscoveredFishingHoleARR = new()
+    {
+        Jpn = new Regex(@"^釣り手帳に穴場「.*?」の情報を記録した！$", regexOptions),
+        Eng = new Regex(@"^the fishing hole (in|on|at) .*? is added to your fishing log\.$", regexOptions),
+        Deu = new Regex(
+            @"^im fischer-notizbuch wurde der fischgrund „.*?“ verzeichnet\.$",
+            regexOptions),
+        Fra = new Regex(
+            @"^vous notez le banc de poissons “.*?” dans votre carnet\.$",
+            regexOptions)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3579?pretty=true">Data on ... is added to your fishing log.</see>
+    public static readonly LocalizedRegex DataOnFishinghole = new()
+    {
+        Jpn = new Regex(@"^釣り手帳に新しい漁場「.*?」の情報を記録した！$", regexOptions),
+        Eng = new Regex(@"^data on .*? is added to your fishing log\.$", regexOptions),
+        Deu = new Regex(
+            @"^der neue speerfishgrund „.*?“ wurde in deinem fischer-notizbuch vermerkt",
+            regexOptions),
+        Fra = new Regex(
+            @"^vous notez l\'emplacement du point de harponnage “.*?” dans votre carnet\.$",
+            regexOptions)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1130?pretty=true">You have discovered the fishing location, ...</see>
     public static readonly LocalizedRegex DiscoveredFishingHole = new()
     {
