@@ -77,6 +77,7 @@ public static class FilterSystemMessagesInversed
                 (configuration.ShowDesynthesisObtains && L10N.Get(ChatRegexStrings.YouObtainSystem).IsMatch(input)) ||
                 (configuration.ShowOnlineStatus && L10N.Get(ChatStrings.OnlineStatus).All(input.Contains)) ||
                 (configuration.ShowAttachToMail && L10N.Get(ChatStrings.AttachToMail).All(input.Contains)) ||
+                (configuration.ShowDiscoveredFishingHole && L10N.Get(ChatRegexStrings.DiscoveredFishingHole).IsMatch(input)) ||
                 // POTD & HoH filters
                 (configuration.ShowObtainedPomander && L10N.Get(ChatRegexStrings.ObtainedPomander).IsMatch(input)) ||
                 (configuration.ShowReturnedPomander && L10N.Get(ChatRegexStrings.ReturnedPomander).IsMatch(input)) ||

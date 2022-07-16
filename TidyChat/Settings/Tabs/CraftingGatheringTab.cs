@@ -159,6 +159,14 @@ internal static class CraftingGatheringTab
                 configuration.ShowMeasuringIlms = showMeasuringIlms;
                 configuration.Save();
             }
+
+            var showDiscoveredFishingHole = configuration.ShowDiscoveredFishingHole;
+            if (ImGui.Checkbox(localization.CraftingGatheringTab_ShowFishingHoleDiscovered,
+                    ref showDiscoveredFishingHole))
+            {
+                configuration.ShowDiscoveredFishingHole = showDiscoveredFishingHole;
+                configuration.Save();
+            }
         }
 
 

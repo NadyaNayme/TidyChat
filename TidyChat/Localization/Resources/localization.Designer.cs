@@ -431,6 +431,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show message when a fishing location is discovered.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowFishingHoleDiscovered {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingHoleDiscovered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show caught fish measuring [size] ilms.
         /// </summary>
         internal static string CraftingGatheringTab_ShowFishSizeMessages {

@@ -280,6 +280,19 @@ public static class ChatRegexStrings
             regexOptions)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/1130?pretty=true">You have discovered the fishing location, ...</see>
+    public static readonly LocalizedRegex DiscoveredFishingHole = new()
+    {
+        Jpn = new Regex(@"^新しい釣り場", regexOptions),
+        Eng = new Regex(@"^you have discovered the fishing location", regexOptions),
+        Deu = new Regex(
+            @"^du hast eine neue angelstelle entdeckt",
+            regexOptions),
+        Fra = new Regex(
+            @"^vous avez découvert le point de pêche",
+            regexOptions)
+    };
+
     public static readonly Regex AetherialReductionSands = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions);
 
     /// <see href="https://xivapi.com/LogMessage/2012?pretty=true">Area will be sealed off in 15 seconds</see>
