@@ -472,34 +472,34 @@ es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
         <value>Visualizza i Grand Company Seals</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 420 Flame Seals.</value>
+        <value>es. Hai ottenuto 420 Flame Seals.</value>
     </data>
     <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
-        <value>Show Ventures</value>
+        <value>Visualizza le Venture</value>
     </data>
     <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain a Venture.</value>
+        <value>es. Hai ottenuto una Venture.</value>
     </data>
     <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
-        <value>Show MGP</value>
+        <value>Visualizza i MGP</value>
     </data>
     <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 117 MGP.</value>
+        <value>es. Hai ottenuto 117 MGP.</value>
     </data>
     <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
-        <value>Battle Currencies</value>
+        <value>Valute di battaglia</value>
     </data>
     <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Poetics</value>
+        <value>Vizualizza i Allagan tomestones of Poetics</value>
     </data>
     <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
+        <value>es. Hai ottenuto 100 Allagan tomestones of Poetics.</value>
     </data>
     <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Aphorism</value>
+        <value>Visualizza i Allagan tomestones of Aphorism</value>
     </data>
     <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
+        <value>es. Hai ottenuto 60 Allagan tomestones of Aphorism.</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
         <value>Show Allagan tomestones of Astronomy</value>
