@@ -502,25 +502,25 @@ es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
         <value>es. Hai ottenuto 60 Allagan tomestones of Aphorism.</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Astronomy</value>
+        <value>Visualizza i Allagan tomestones of Astronomy</value>
     </data>
     <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
+        <value>es. Hai ottenuto 20 Allagan tomestones of Astronomy.</value>
     </data>
     <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
-        <value>Show Wolf Marks</value>
+        <value>Visualizza i Wolf Mark</value>
     </data>
     <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 1,000 Wolf Marks.</value>
+        <value>es. Hai ottenuto 1.000 Wolf Mark.</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
-        <value>Show Allied Seals</value>
+        <value>Visualizza i Allied Seal</value>
     </data>
     <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 Allied Seals.</value>
+        <value>es. Hai ottenuto 100 Allied Seal.</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
-        <value>Show Centurio Seals</value>
+        <value>Visualizza i Centurio Seal</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
         <value>eg. You obtain 40 Centurio Seals.</value>
