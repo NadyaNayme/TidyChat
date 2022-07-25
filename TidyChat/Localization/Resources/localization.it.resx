@@ -446,30 +446,30 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
         <value>Visualizza il messaggio "Un altro giocatore tenta la fortuna su &lt;item&gt;"</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when another player in the party rolls for a loot drop.
-eg. Some player casts her lot for &lt;item&gt;.</value>
+        <value>Questo visualizza il messaggio che si attiva quando un altro giocatore tenta la fortuna per su un drop.
+es. Un altro giocatore ha fatto la sua scelta per &lt;item&gt;,.</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
-        <value>Show "Another Player rolls Greed..." messages</value>
+        <value>Visualizza il messaggio "Un altro giocatore ha scelto Greed..."</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-        <value>Show "Another Player obtains &lt;item&gt;" messages</value>
+        <value>Visualizza i messaggi "Un altro giocatore ha ottenuto &lt;item&gt;"</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when another player in the party obtains a loot drop.
-eg. Some player obtains an &lt;item&gt;!</value>
+        <value>Questo visualizza il messaggio che si attiva quando un altro giocatore nel party ottiene un drop.
+es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
     </data>
     <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
-        <value>Common Currencies</value>
+        <value>Valute comuni</value>
     </data>
     <data name="ObtainTab_ShowGil" xml:space="preserve">
-        <value>Show Gil</value>
+        <value>Mostra i Gil</value>
     </data>
     <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 69 gil.</value>
+        <value>es. Hai ottenuto 69 gil.</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
-        <value>Show Grand Company Seals</value>
+        <value>Visualizza i Grand Company Seals</value>
     </data>
     <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
         <value>eg. You obtain 420 Flame Seals.</value>
