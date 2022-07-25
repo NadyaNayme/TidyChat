@@ -137,17 +137,17 @@ es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
         <value>Filtra le emote usate da te</value>
     </data>
     <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-        <value>This will hide the message that occurs when you use an emote or custom emote.
-eg. You gently pat &lt;user&gt;</value>
+        <value>Nasconde il messaggio visualizzato quando usi un'emote o un'emote personalizzata.
+es. Accarezzi delicatamente &lt;user&gt;</value>
     </data>
     <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-        <value>Enable debug mode</value>
+        <value>Abilita la modalità debug</value>
     </data>
     <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
-        <value>System</value>
+        <value>Sistema</value>
     </data>
     <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
-        <value>Loot/Obtain</value>
+        <value>Loot/Ottieni</value>
     </data>
     <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
         <value>Progresso</value>
