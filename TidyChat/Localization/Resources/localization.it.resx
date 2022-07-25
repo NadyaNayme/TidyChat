@@ -165,41 +165,41 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
         <value>Funzione sperimentale: Modalità inversa</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
-        <value>No longer blocks System messages by default.
-Hide filters become Show filters and Show filters become Hide filters.</value>
+        <value>Non blocca più i messaggi di sistema in modo predifinito.
+Nascondi filtri diventa Mostra filtri e Mostra filtri diventa Nascondi filtri.</value>
     </data>
     <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-        <value>If you have enabled Inverse mode you are on your own and will not receive any support.
-It is assumed you know what you are doing.</value>
+        <value>Se hai abilitato la Modalità Inversa sono affari tuoi e non riceverai alcun supporto.
+Si presume che tu sappia cosa stai facendo.</value>
     </data>
     <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-        <value>Hide System messages Tidy Chat shows by default</value>
+        <value>Nasconde i messaggi di sistema che Tidy Chat mostra per impostazione predefinita</value>
     </data>
     <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
-        <value>Hide /instance message</value>
+        <value>Nasconde il messaggio riferito alle istanze</value>
     </data>
     <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
-        <value>eg. You are now in the instanced area Old Sharlayan .
-Current instance can be confirmed at any time using the / instance text command.</value>
+        <value>es. Sei nell'area istanziata Old Sharlayan .
+L'istanza in cui ti trovi può essere confermata in qualsiasi momento usando il comando di testo /instance.</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
-        <value>Hide S Rank Hunt spawn announcement</value>
+        <value>Nasconde gli annunci riguardanti gli spawn delle hunt di rank S</value>
     </data>
     <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. You sense the presence of a powerful mark...</value>
+        <value>es. Senti la presenza di un mostro potente...</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
-        <value>Hide SS Rank Minion announcements</value>
+        <value>Nasconde gli annunci riguardanti gli spawn delle hunt di rank SS</value>
     </data>
     <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
-        <value>eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
-The minions of an extraordinarily powerful mark have withdrawn...</value>
+        <value>es. I minion di un mostro straordinariamente potente sono in cerca di prede...
+I minion di un mostro straordinariamente potente si sono ritirati...</value>
     </data>
     <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
         <value>Nascondi Commendation Ricevute</value>
     </data>
     <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
-        <value>eg. You received a player commendation!</value>
+        <value>es. Hai ricevuto una commendation!</value>
     </data>
     <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
         <value>Nascondi Venture Completate</value>
@@ -262,188 +262,188 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
         <value>es. Sei arrivato ad una vista! e Ti sei allontanato troppo da una vista.</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
-        <value>Hide try on glamour messages</value>
+        <value>Nasconde i messaggi relativi alla prova degli oggetti</value>
     </data>
     <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You try on item.</value>
+        <value>es. Provi un oggetto.</value>
     </data>
     <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
-        <value>Show System messages Tidy Chat hides by default</value>
+        <value>Visualizza i messaggi di sistema che Tidy Chat nasconde per impostazione predefinita</value>
     </data>
     <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
-        <value>Show online status updates</value>
+        <value>Visualizza gli aggiornamenti sul proprio stato online</value>
     </data>
     <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Updating online status to Away from Keyboard.</value>
+        <value>es. Cambiamento dello stato online su Away from Keyboard.</value>
     </data>
     <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
-        <value>Show items attached to sent mail</value>
+        <value>Visualizza gli oggetti allegati alla posta inviata</value>
     </data>
     <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
+        <value>es. Alleghi 2 pots of Dalamud Red Dye alla lettera.</value>
     </data>
     <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
-        <value>Show ARR Relic book step progress messages</value>
+        <value>Visualizza i messaggi di avanzamento dei libri della Relic di ARR</value>
     </data>
     <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
+        <value>es. L'uccisione di Ouranos (1/1) è stata registrata sulla &lt;Relic Weapon&gt; Forza +2.</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
-        <value>Show ARR Relic book step completed messages</value>
+        <value>Visualizza i messaggi di completamento degli step dei libri della Relic di ARR</value>
     </data>
     <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
-        <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
+        <value>es. Tutti gli obiettivi della categoria Dungeons per &lt;Relic Weapon&gt; - Forza +2 sono stati completati!</value>
     </data>
     <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
-        <value>Show hunt mark slain messages</value>
+        <value>Mostra i messaggi delle uccisioni delle hunt</value>
     </data>
     <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
+        <value>es. L'hunt &lt;mark&gt; è stata uccisa! 1/3</value>
     </data>
     <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-        <value>Show completion time when unrestricted party is active</value>
+        <value>Visualizza il tempo di completamento quando è selezionato l'unrestricted party</value>
     </data>
     <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-        <value>eg. &lt;Duty&gt; completion time: 00:30</value>
+        <value>es. Tempo di completamento della &lt;Duty&gt;: 00:30</value>
     </data>
     <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
-        <value>Show volume control messages</value>
+        <value>Visualizza i messaggi di controllo del volume</value>
     </data>
     <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
-        <value>eg. Master Volume muted, BGM volume set to 50.</value>
+        <value>es. Volume globale silenziato, volume di background impostato a 50.</value>
     </data>
     <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Show message when changing glamour plates</value>
+        <value>Visualizza un messaggio quando si cambiano le glamour plate</value>
     </data>
     <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
         <value>
-eg. Glamours projected from plate 10.</value>
+es. Glamour proiettati dalla plate 10.</value>
     </data>
     <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
-        <value>Show message when changing gearsets</value>
+        <value>Visualizza un messaggio quando si cambia gearset</value>
     </data>
     <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
         <value>
-eg. “Red Mage” equipped.</value>
+es. "Red Mage" equipaggiato.</value>
     </data>
     <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
         <value>POTD &amp; HoH</value>
     </data>
     <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-        <value>Show when the party obtains a pomander</value>
+        <value>Visualizza che il party ha ottenuto un pomander</value>
     </data>
     <data name="SystemTab_ShowReturnedPomanderMessages" xml:space="preserve">
-        <value>Show when you return a pomander to the coffer</value>
+        <value>Visualizza quando rimetti un pomander nel forziere</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage begins to glow</value>
+        <value>Visualizza quando il Cairn of Passage inizia a brillare</value>
     </data>
     <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-        <value>Show when Cairn of Return is used</value>
+        <value>Visualizza quando il Cairn of Return viene utilizzato</value>
     </data>
     <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-        <value>Show when the Cairn of Passage is activated</value>
+        <value>Visualizza quando il Cairn of Passage si attiva</value>
     </data>
     <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-        <value>Show transference messages</value>
+        <value>Visualizza i messaggi di trasferimento</value>
     </data>
     <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-        <value>Show Aetherpool increases</value>
+        <value>Visualizza l'incremento di Aetherpool</value>
     </data>
     <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-        <value>Show Aetherpool remains unchanged...</value>
+        <value>Visualizza l'Aetherpool rimane invariato...</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Safety is used</value>
+        <value>Visualizza quando viene usato il Pomander of Safety</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Sight is used</value>
+        <value>Visualizza quando viene utilizzato il Pomander of Sight</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Affluence is used</value>
+        <value>Visualizza quando viene utilizzato il Pomander of Affluence</value>
     </data>
     <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Flight is used</value>
+        <value>Visualizza quando viene utilizzato il Pomander of Flight</value>
     </data>
     <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Alteration is used</value>
+        <value>Visualizza quando viene utilizzato il Pomander of Alteration</value>
     </data>
     <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Witching is used</value>
+        <value>Visualizza quando viene utilizzato il Pomander of Witching</value>
     </data>
     <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
-        <value>Show when Pomander of Serenity is used</value>
+        <value>Visualizza quando viene utilizzato il Pomander of Serenity</value>
     </data>
     <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-        <value>Show floor number when entering a new floor</value>
+        <value>Visualizza il numero quando si entra in un nuovo piano</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is sensed</value>
+        <value>Visualizza quando si avverte la presenza di un Accursed Hoard</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is not sensed on the current floor</value>
+        <value>Visualizza quando non si avverte la presenza di un Accursed Hoard</value>
     </data>
     <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-        <value>Show when Accursed Hoard is discovered</value>
+        <value>Visualizza quando viene scoperto un Accursed Hoard</value>
     </data>
     <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-        <value>Party &amp; Invite Messages</value>
+        <value>Messaggi di invito e party</value>
     </data>
     <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-        <value>Show sent party invites</value>
+        <value>Visualizza inviti al party inviati</value>
     </data>
     <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-        <value>Show players joining party</value>
+        <value>Visualizza i giocatori che si uniscono al party</value>
     </data>
     <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-        <value>Show players leaving party</value>
+        <value>Visualizza i giocatori che escono dal party</value>
     </data>
     <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-        <value>Show party disbands and dissolves</value>
+        <value>Visualizza quando il party viene sciolto e dissolto</value>
     </data>
     <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
-        <value>Show received party invitations</value>
+        <value>Visualizza inviti ai party ricevuti</value>
     </data>
     <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-        <value>Show joined party/cross-party message</value>
+        <value>Visualizza messaggi di partecipazione a party/cross-party</value>
     </data>
     <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-        <value>Show teleport offers from party members</value>
+        <value>Visualizza offerte di teletrasporto dei membri del party</value>
     </data>
     <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
-        <value>Trading Messages</value>
+        <value>Messaggi degli scambi</value>
     </data>
     <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
-        <value>Show "Trade request sent to" message</value>
+        <value>Visualizza il messaggio "Richiesta di scambio inviata a"</value>
     </data>
     <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
-        <value>Show "Trade canceled." message</value>
+        <value>Visualizza il messaggio "Scambio cancellato."</value>
     </data>
     <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
-        <value>Show "Awaiting trade confirmation" message</value>
+        <value>Visualizza il messaggio "In attesa della conferma dello scambio"</value>
     </data>
     <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
-        <value>Show "Trade complete." message</value>
+        <value>Visualizza il messaggio "Scambio completato."</value>
     </data>
     <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
-        <value>Looting &amp; Rolling</value>
+        <value>Loot e Roll</value>
     </data>
     <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
-        <value>Show "You cast your lot" messages</value>
+        <value>Visualizza il messaggio "Hai tentato la fortuna"</value>
     </data>
     <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you roll on loot.
-eg. You cast your lot for the &lt;item&gt;</value>
+        <value>Questo visualizza il messaggio che si attiva quando tirate i dadi su un oggetto.
+es. Tenti la fortuna su &lt;item&gt;</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-        <value>Show "You rolled..." messages</value>
+        <value>Visualizza il messaggio "Hai totalizzato..."</value>
     </data>
     <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
-eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
+        <value>Qeusto visualizza il messaggio che si attiva quando tutti hanno scelto cosa fare con un oggetto e viene visualizzato il tuo numero.
+es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
-        <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
+        <value>Visualizza il messaggio "Un altro giocatore tenta la fortuna su &lt;item&gt;"</value>
     </data>
     <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when another player in the party rolls for a loot drop.
