@@ -523,19 +523,19 @@ es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
         <value>Visualizza i Centurio Seal</value>
     </data>
     <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 40 Centurio Seals.</value>
+        <value>es. Hai ottenuto 40 Centurio Seal.</value>
     </data>
     <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
-        <value>Show sacks of Nuts</value>
+        <value>Visualizza i Sack of Nuts</value>
     </data>
     <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 100 sacks of Nuts.</value>
+        <value>es. Hai ottenuto 100 sack of Nuts.</value>
     </data>
     <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-        <value>Beast Tribe Quests</value>
+        <value>Beast Tribe Quest</value>
     </data>
     <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
-        <value>Show Beast Tribe crafting materials</value>
+        <value>Visualizza i materiali crafting delle Beast Tribe</value>
     </data>
     <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.
@@ -654,16 +654,16 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Show caught fish measuring [size] ilms</value>
     </data>
     <data name="SettingsTabFooter_SaveButtonText" xml:space="preserve">
-        <value>Save</value>
+        <value>Salva</value>
     </data>
     <data name="SettingsTabFooter_SaveAndCloseButtonText" xml:space="preserve">
-        <value>Save and Close Config</value>
+        <value>Salva e chiudi la configurazione</value>
     </data>
     <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
-        <value>Support on Ko-Fi</value>
+        <value>Supporto su Ko-Fi</value>
     </data>
     <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
-        <value>Wiki Page</value>
+        <value>Pagina Wiki</value>
     </data>
     <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
         <value>Show experience gain messages</value>
