@@ -562,96 +562,96 @@ es. Hai ricevuto un craced dendrocluster</value>
         <value>Visualizza gli elemental shard, crystal e cluster</value>
     </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters
-eg. You obtain 30 ice shards</value>
+        <value>Questo visualizza il messaggio che si attiva quand oraccogliete o ricevete elemental shard, crystal o cluster
+es. Hai ricevuto 30 ice shard</value>
     </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
-        <value>Enable Chat History Filter</value>
+        <value>Attiva il filtro sulla storia della chat</value>
     </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
-        <value>If a message was sent within the last {0} messages it will be filtered</value>
+        <value>Se un messaggio è stato inviato entro gli ultimi {0} messaggi, verrà filtrato</value>
     </data>
   <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
-        <value>Ignore messages sent by player</value>
+        <value>Ignora i messaggi inviati da un giocatore</value>
     </data>
   <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
-        <value>Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.</value>
+        <value>Filtra i messaggi duplicati inviati dal giocaotre, abilitala se vuoi che i messaggi duplicati che invii vengano filtrati dalla tua visualizzazione.</value>
     </data>
   <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
-        <value>Number of messages to keep in chat history</value>
+        <value>Numero di messaggi da mantenere nella storia della chat</value>
     </data>
   <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
-        <value>WARNING: Having the history length set too high may impact game performance.
-It's recommended to keep it at 50 or lower.</value>
+        <value>ATTENZIONE: Esagerare con la lunghezza della storia della chat potrebbe influire sulle performance del gioco.
+E' consigliabile tenerla a 50 o meno.</value>
     </data>
   <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
-        <value>Number of seconds to keep messages in chat history</value>
+        <value>Imposta il numero di secondi in cui i messaggi vengono mantenuti nella storia della chat</value>
     </data>
   <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
-        <value>Set to 0 to disable</value>
+        <value>Imposta a 0 per disattivare</value>
     </data>
   <data name="CraftingGatheringTab_DesynthesisDropdownHeader" xml:space="preserve">
-        <value>Desynthesis</value>
+        <value>Desintesi</value>
     </data>
   <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
-        <value>Show desynthesis level increases messages</value>
+        <value>Visualizza l'incremento di livello desintesi</value>
     </data>
   <data name="CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
-        <value>Show obtained items from desynthesis</value>
+        <value>Visualizza gli oggetti ottenuti dalla desintesi</value>
     </data>
   <data name="CraftingGatheringTab_MateriaDropdownHeader" xml:space="preserve">
         <value>Materia</value>
     </data>
   <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
-        <value>Show message when materia is succesfully attached to gear</value>
+        <value>Visualizza un messaggio quando la materia viene inserita con successo nell'equipaggiamento</value>
     </data>
   <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
-        <value>Show message when materia fails to be overmelded onto gear</value>
+        <value>Visualizza un messaggio quando fallisce l'overmelding di una materia sull'equipaggiamento</value>
     </data>
   <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
-        <value>Show message when you succesfully retrieve materia from gear</value>
+        <value>Visualizza un messaggio quando recuperi con successo una materia dall'equipaggiamento</value>
     </data>
   <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
-        <value>Show message when materia shatters during retrieval</value>
+        <value>Visualizza un messaggio quando la materia si rompe durante il recupero</value>
     </data>
   <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
-        <value>Show message when materia is extracted from spiritbonded gear</value>
+        <value>Visualizza un messaggio quando la materia viene estratta da un equipaggiamento con spiritbond completo</value>
     </data>
   <data name="CraftingGatheringTab_CraftingDropdownHeader" xml:space="preserve">
         <value>Crafting</value>
     </data>
   <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
-        <value>Show final status messages upon finishing a Trial synthesis</value>
+        <value>Visualizza il messaggio di stato finale al completamento di una Trial synthesis</value>
     </data>
   <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
-        <value>Show synthesis message when other players complete a craft.</value>
+        <value>Visualizza i messaggi della sintesi quando un altro giocatore completa un craft.</value>
     </data>
   <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
         <value>Gathering</value>
     </data>
   <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
-        <value>Show the number of obtained sands after using aetherial reduction</value>
+        <value>Visualizza il numero di sabbie ottenute dopo aver eseguito l'aetherial reduction</value>
     </data>
   <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
-        <value>Show message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts</value>
+        <value>Visualizza un messaggio quando la zona influsice sul numero di oggetti raccolti, sul numero di tentativi di gathering e quando ricevi il Gatherer's Boon</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect gathering yield</value>
+        <value>Nascondi solo le zone che influenzano il numero di oggetti raccolti</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect gathering attempts</value>
+        <value>Nascondi solo le zone che influiscono sul numero di tentativi di gathering</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect Gatherer's Boon</value>
+        <value>Nascondi solo le zone che influsicono sul Gatherer's Boon</value>
     </data>
   <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
         <value>Pesca</value>
     </data>
   <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
-        <value>Show message when a fish is added to the fish guide</value>
+        <value>Visualizza un messaggio quando un pesce viene aggiunto alla fish guide</value>
     </data>
   <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
-        <value>Show caught fish measuring [size] ilms</value>
+        <value>Visualizza i pesci catturati che misurano [size] ilms</value>
     </data>
   <data name="SettingsTabFooter_SaveButtonText" xml:space="preserve">
         <value>Salva</value>
@@ -666,10 +666,10 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Pagina Wiki</value>
     </data>
   <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
-        <value>Show experience gain messages</value>
+        <value>Visualizza i messaggi sull'esperienza guadagnata</value>
     </data>
   <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You gain 2,388 Experience Points.</value>
+        <value>es. Hai guadagnato 2338 Punti Esperienza.</value>
     </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
         <value>Show bonus award for using duty roulette</value>
@@ -727,10 +727,10 @@ It can be considered spammy in Palace of the Dead and Heaven On High.</value>
 Enter a player's first and last name and then press &lt;Enter&gt; to add them to the whitelist.</value>
     </data>
   <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
-        <value>Select Channels</value>
+        <value>Selezione canali</value>
     </data>
   <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
-        <value>Player Information</value>
+        <value>Informazioni del giocatore</value>
     </data>
   <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
         <value>You must enter the player's name as it would be seen in chat - including any periods.
@@ -741,19 +741,19 @@ Forename Abbreviated: E. Name
 Initials: E. N.</value>
     </data>
   <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
-        <value>First Name: </value>
+        <value>Nome: </value>
     </data>
   <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
-        <value>Last Name: </value>
+        <value>Cognome: </value>
     </data>
   <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
-        <value>Server Name: </value>
+        <value>Nome Server: </value>
     </data>
   <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
         <value>Select channels for Chat History to filter:</value>
     </data>
   <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
-        <value>Emotes</value>
+        <value>Emote</value>
     </data>
   <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
         <value>Loot</value>
@@ -765,26 +765,26 @@ Initials: E. N.</value>
         <value>Gathering</value>
     </data>
   <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
-        <value>Talking</value>
+        <value>Parlare</value>
     </data>
   <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
-        <value>Login/Logout</value>
+        <value>Login e Logout</value>
     </data>
   <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
-        <value>Progress</value>
+        <value>Progresso</value>
     </data>
   <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
-        <value>System</value>
+        <value>Sistema</value>
         <comment>This should be the name of the System channel for messages</comment>
     </data>
   <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
-        <value>Settings</value>
+        <value>Impostazioni</value>
     </data>
   <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
-        <value>Advanced</value>
+        <value>Avanzate</value>
     </data>
   <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
-        <value>You received {0} {1}{2}</value>
+        <value>Hai ricevuto {0}{1}{2}</value>
     </data>
   <data name="BetterStrings_CommendationSingular" xml:space="preserve">
         <value>commendation</value>
@@ -810,49 +810,49 @@ Initials: E. N.</value>
         <value>Did you know? Tidy Chat has a chat history feature to block repetitive messages.</value>
     </data>
   <data name="TidyChat_TippyTips3" xml:space="preserve">
-        <value>Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.</value>
+        <value>Tidy Chat blocca per default tutti i messaggi di sistema. Puoi abilitare la Inverse Mode per bloccare messaggi specifici.</value>
     </data>
   <data name="TidyChat_TippyTips4" xml:space="preserve">
-        <value>Tidy Chat has many useful settings that must first be enabled.</value>
+        <value>Tidy Chat ha molte impostazioni utile che vanno prima attivate.</value>
     </data>
   <data name="TidyChat_TippyTips6" xml:space="preserve">
-        <value>Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat.</value>
+        <value>Prova a dire Tidy Chat dieci volte di fila... Bella prova, adesso cortesemente smetti di dire Taidicià.</value>
     </data>
   <data name="TidyChat_TippyTipsOverOneMillion" xml:space="preserve">
-        <value>Tidy Chat has blocked over 1,000,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 1.000.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverFiveHundredThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 500,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 500.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverOneHundredThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 100,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 100.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverFiftyThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 50,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 50.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverTenThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 10,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 10.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverFiveThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 5,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 5.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverOneThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 1,000 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 1.000 messaggi!</value>
     </data>
   <data name="TidyChat_TippyTipsOverOneHundred" xml:space="preserve">
-        <value>Tidy Chat has blocked over 100 messages so far!</value>
+        <value>Tidy Chat ha già bloccato oltre 100 messaggi!</value>
     </data>
   <data name="TidyChat_TippyIpcToEnable" xml:space="preserve">
-        <value>To enable Tippy Tips for Tidy Chat you must first install Tippy.</value>
+        <value>Per abilitare Tippy Tips per Tidy Chat devi prima installare Tippy.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesDancingThancred" xml:space="preserve">
         <value>You earned 0 commendations from dancing thancred was pretty pleasant when i ended up kugane o.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesZeroCommendations" xml:space="preserve">
-        <value>And here is where I'd tell you how many commendations you received... if you had received any.</value>
+        <value>Ed è qui che ti direi quante commendation hai ricevuto... Se ne avessi ricevute.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesPopularCommendations" xml:space="preserve">
-        <value>It looks like people like you!</value>
+        <value>Sembra proprio che tu piaccia alla persone!</value>
     </data>
   <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
         <value>Free Company</value>
@@ -876,7 +876,7 @@ Initials: E. N.</value>
         <value>Show you are now/no longer a leader messages</value>
     </data>
   <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
-        <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
+        <value>Questo messaggio si attiva quando diventi leader di un party, di una Free Company, di un party PvP, di una Linkshell o di una Cross-world Linkshell.</value>
     </data>
   <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
         <value>Visualizza il bonus ottenuto per la prima clear di un membro del party</value>
