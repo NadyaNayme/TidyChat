@@ -566,7 +566,7 @@ es. Hai ricevuto un craced dendrocluster</value>
 es. Hai ricevuto 30 ice shard</value>
     </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
-        <value>Attiva il filtro sulla storia della chat</value>
+        <value>Attiva il filtro sulla cronologia della chat</value>
     </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
         <value>Se un messaggio è stato inviato entro gli ultimi {0} messaggi, verrà filtrato</value>
@@ -578,14 +578,14 @@ es. Hai ricevuto 30 ice shard</value>
         <value>Filtra i messaggi duplicati inviati dal giocaotre, abilitala se vuoi che i messaggi duplicati che invii vengano filtrati dalla tua visualizzazione.</value>
     </data>
   <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
-        <value>Numero di messaggi da mantenere nella storia della chat</value>
+        <value>Numero di messaggi da mantenere nella cronologia della chat</value>
     </data>
   <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
-        <value>ATTENZIONE: Esagerare con la lunghezza della storia della chat potrebbe influire sulle performance del gioco.
+        <value>ATTENZIONE: Esagerare con la lunghezza della cronologia della chat potrebbe influire sulle performance del gioco.
 E' consigliabile tenerla a 50 o meno.</value>
     </data>
   <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
-        <value>Imposta il numero di secondi in cui i messaggi vengono mantenuti nella storia della chat</value>
+        <value>Imposta il numero di secondi in cui i messaggi vengono mantenuti nella cronologia della chat</value>
     </data>
   <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
         <value>Imposta a 0 per disattivare</value>
@@ -672,55 +672,55 @@ E' consigliabile tenerla a 50 o meno.</value>
         <value>es. Hai guadagnato 2338 Punti Esperienza.</value>
     </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
-        <value>Show bonus award for using duty roulette</value>
+        <value>Visualizza il bonus ottenuto per aver usato la duty roulette</value>
     </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
+        <value>es. Ti è stato elargito un bonus di 4.252.498 punti esperienza e 12.000 gil per aver usato la duty roulette.</value>
     </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
-        <value>Show bonus awarded for being an adventurer in need</value>
+        <value>Visualizza il bonus ottenuto per essere un avventuriero nel bisogno</value>
     </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
-        <value>eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
+        <value>es. Ti è stato elargito un bonus di 7.200 gil per essere un avventuriero nel bisogno.</value>
     </data>
   <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-        <value>Show PVP EXP gain messages</value>
+        <value>Visualizza i messaggi di esperienza PVP ottenuta</value>
     </data>
   <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You acquire 500 PvP EXP.</value>
+        <value>es. Hai acquisito 500 PvP EXP.</value>
     </data>
   <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
-        <value>Show earned achievement messages</value>
+        <value>Visualizza i messaggi degli achievement ottenuti</value>
     </data>
   <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
-        <value>Show other player's earned achievement messages</value>
+        <value>Visualizza i messaggi degli achievement ottenuti dagli altri giocatori</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
-        <value>Show level up messages</value>
+        <value>Visualizza i messaggi di level up</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you level up.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Questo visualizza i messaggi che si attivano quando sali di livello.
+Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
     </data>
   <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
-        <value>Show other player's level up messages</value>
+        <value>Visualizza i messaggi di aumento di livello degli altri giocatori</value>
     </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when others level up.
- eg. Player attains level 33!</value>
+        <value>Questo visualizza il messaggio che si attiva quando gli altri salgono di livello.
+es. Giocatore sale al livello 33!</value>
     </data>
   <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
-        <value>Show learned ability messages</value>
+        <value>Visualizza i messaggi delle abilità apprese</value>
     </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
-        <value>This will show the message that occurs when you learn a new ability.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+        <value>Questo visualizza il messaggio che si attiva quando apprendi una nuova abilità.
+Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
     </data>
   <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages sent by whitelisted player</value>
+        <value>Visualizza tutti i messaggi inviati dai giocatori nella whitelist</value>
     </data>
   <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
-        <value>Show all messages targeting a whitelisted player</value>
+        <value>Visualizza tutti i messaggi diretti a un giocatore nella whitelist</value>
     </data>
   <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
         <value>Users added to the whitelist will be treated as if they were you for all filter settings.
@@ -791,11 +791,11 @@ Initials: E. N.</value>
         <comment>Commendation - singular</comment>
     </data>
   <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
-        <value>commendations</value>
+        <value>commendation</value>
         <comment>Commendations - Plural</comment>
     </data>
   <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
-        <value>from completing</value>
+        <value>per aver completato</value>
     </data>
   <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
         <value>Hide "Teleporting to..." messages</value>
