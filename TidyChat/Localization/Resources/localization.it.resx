@@ -723,8 +723,8 @@ Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
         <value>Visualizza tutti i messaggi diretti a un giocatore nella whitelist</value>
     </data>
   <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-        <value>Users added to the whitelist will be treated as if they were you for all filter settings.
-Enter a player's first and last name and then press &lt;Enter&gt; to add them to the whitelist.</value>
+        <value>Gli utenti aggiunti alla whitelist vengono trattati dai filtri come se si trattasse di te.
+Inserisci il nome e cognome di un giocatore e poi premi &lt;Enter&gt; per aggiungerlo alla whitelist.</value>
     </data>
   <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
         <value>Selezione canali</value>
