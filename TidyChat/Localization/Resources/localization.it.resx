@@ -733,12 +733,12 @@ Inserisci il nome e cognome di un giocatore e poi premi &lt;Enter&gt; per aggiun
         <value>Informazioni del giocatore</value>
     </data>
   <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
-        <value>You must enter the player's name as it would be seen in chat - including any periods.
+        <value>È necessario inserire il nome del giocatore come sarebbe stato visto in chat - compresi i punti.
 
-eg.
-Surname Abbreviated: Example N.
-Forename Abbreviated: E. Name
-Initials: E. N.</value>
+es.
+Cognome Abbreviato: Esempio N.
+Forename Abbreviato: E. Nome
+Iniziali: E. N.</value>
     </data>
   <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
         <value>Nome: </value>
@@ -750,7 +750,7 @@ Initials: E. N.</value>
         <value>Nome Server: </value>
     </data>
   <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
-        <value>Select channels for Chat History to filter:</value>
+        <value>Seleziona i canali della cronologia chat da filtrare:</value>
     </data>
   <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
         <value>Emote</value>
@@ -798,10 +798,10 @@ Initials: E. N.</value>
         <value>per aver completato</value>
     </data>
   <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
-        <value>Hide "Teleporting to..." messages</value>
+        <value>Nascondi i messaggi "Ti stai teletrasportando a..."</value>
     </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
-        <value>Hide gear reaching 100% spiritbound messages</value>
+        <value>Nascondi i messaggi dell'equipaggiamento che raggiunge il 100% di spiritbond</value>
     </data>
   <data name="TidyChat_TippyTips1" xml:space="preserve">
         <value>Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!</value>
