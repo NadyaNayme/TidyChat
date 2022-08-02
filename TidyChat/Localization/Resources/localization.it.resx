@@ -804,10 +804,10 @@ Iniziali: E. N.</value>
         <value>Nascondi i messaggi dell'equipaggiamento che raggiunge il 100% di spiritbond</value>
     </data>
   <data name="TidyChat_TippyTips1" xml:space="preserve">
-        <value>Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!</value>
+        <value>Tidy Chat sta bloccando un messaggio che vuoi vedere? Aggiungi il messaggio alla whitelist di Tidy Chat come un nome! Sì - funziona davvero!</value>
     </data>
   <data name="TidyChat_TippyTips2" xml:space="preserve">
-        <value>Did you know? Tidy Chat has a chat history feature to block repetitive messages.</value>
+        <value>Lo sapevi? Tidy Chat ha una funzione di cronologia chat per bloccare i messaggi ripetitivi.</value>
     </data>
   <data name="TidyChat_TippyTips3" xml:space="preserve">
         <value>Tidy Chat blocca per default tutti i messaggi di sistema. Puoi abilitare la Inverse Mode per bloccare messaggi specifici.</value>
@@ -846,7 +846,7 @@ Iniziali: E. N.</value>
         <value>Per abilitare Tippy Tips per Tidy Chat devi prima installare Tippy.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesDancingThancred" xml:space="preserve">
-        <value>You earned 0 commendations from dancing thancred was pretty pleasant when i ended up kugane o.</value>
+        <value>Hai guadagnato 0 commendation ballando thancred è stato abbastanza piacevole quando sono finito su kugane o.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesZeroCommendations" xml:space="preserve">
         <value>Ed è qui che ti direi quante commendation hai ricevuto... Se ne avessi ricevute.</value>
@@ -858,22 +858,22 @@ Iniziali: E. N.</value>
         <value>Free Company</value>
     </data>
   <data name="SystemTab_HideLoginMessages" xml:space="preserve">
-        <value>Hide Free Company member login messages</value>
+        <value>Nasconde i messaggi di login dei membri della free company</value>
     </data>
   <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
-        <value>Hide Free Company member logout messages</value>
+        <value>Nasconde i messaggi di logout dei membri della free company</value>
     </data>
   <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
-        <value>Hide Free Company message book new entry messages</value>
+        <value>Nasconde i messaggi dei nuovi messaggi scritti nel message book della free company</value>
     </data>
   <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
-        <value>Hide personal message book new entry messages</value>
+        <value>Nasconde i messaggi dei nuovi messaggi scritti nel message book personale</value>
     </data>
   <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
-        <value>Hide number of available coffers messages</value>
+        <value>Nasconde i messaggi relativi ai forzieri disponibili</value>
     </data>
   <data name="SystemTab_ShowNowALeader" xml:space="preserve">
-        <value>Show you are now/no longer a leader messages</value>
+        <value>Visualizza i messaggi sei diventato leader/non sei più un leader</value>
     </data>
   <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
         <value>Questo messaggio si attiva quando diventi leader di un party, di una Free Company, di un party PvP, di una Linkshell o di una Cross-world Linkshell.</value>
