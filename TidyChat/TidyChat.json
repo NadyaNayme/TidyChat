@@ -15,6 +15,5 @@
     "Social"
   ],
   "IconUrl": "https://github.com/NadyaNayme/TidyChat/blob/master/images/icon.png",
-  "DalamudApiLevel": 7,
   "LoadPriority": 1
 }
