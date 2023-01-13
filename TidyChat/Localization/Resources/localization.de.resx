@@ -641,7 +641,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Nur Standorte verstecken, die die Sammelversuche beeinflussen</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect Gatherer's Boon</value>
+        <value>Nur Orte ausblenden, die Gatherer's Boon beeinflussen</value>
     </data>
   <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
         <value>Angeln</value>
@@ -844,7 +844,7 @@ Initialen: M. M.</value>
         <value>Um Tippy Tips für TidyChat zu aktivieren, muss zuerst die Anwendung Tippy installiert sein.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesDancingThancred" xml:space="preserve">
-        <value>You earned 0 commendations from dancing thancred was pretty pleasant when i ended up kugane o.</value>
+        <value>Du verdient 0 Belobigungen von Tanzen thancred war ziemlich angenehm, wenn ich am Ende kugane o.</value>
     </data>
   <data name="TidyChat_TippyIpcMessagesZeroCommendations" xml:space="preserve">
         <value>Und genau hier würde ich dir sagen, wieviele Ehrungen du erhalten hast... wenn du welche erhalten hättest.</value>
@@ -913,6 +913,6 @@ Initialen: M. M.</value>
         <value>Nachricht anzeigen, wenn ein Angelort entdeckt wird</value>
     </data>
   <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
-        <value>Show name of fishing hole when line is cast</value>
+        <value>Zeigt den Namen des Angelplatzes an, wenn die Leine ausgeworfen wird</value>
     </data>
 </root>
