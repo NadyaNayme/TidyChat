@@ -379,7 +379,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings InviteSent = new()
     {
         Jpn = new[] { "をパーティに誘いました" },
-        Eng = new[] { "you", "invite", "to", "a", "party" },
+        Eng = new[] { "you", "invite", "to" },
         Deu = new[] { "du", "hast", "die", "gruppe", "eingeladen" },
         Fra = new[] { "vous", "invitez", "l'équipe" }
     };
@@ -387,7 +387,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings InviteeJoins = new()
     {
         Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "joins", "the", "party" }, // Player joins the party.
+        Eng = new[] { "joins", "the" }, // Player joins the party.
         Deu = new[] { "NeedsLocalization" },
         Fra = new[] { "rejoint", "l'équipe" } // Player rejoint l'équipe.
     };
@@ -413,7 +413,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings InvitedBy = new()
     {
         Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "invites", "you", "to", "a", "party" }, // <Player> invites you to a party.
+        Eng = new[] { "invites", "you", "to" }, // <Player> invites you to a party.
         Deu = new[] { "NeedsLocalization" },
         Fra = new[] { "vous", "dans", "son", "équipe" } // <Player> vous invite dans son équipe.
     };
@@ -421,7 +421,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings JoinParty = new()
     {
         Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "you", "join", "party" }, // You join <Player>'s party.
+        Eng = new[] { "you", "join" }, // You join <Player>'s party.
         Deu = new[] { "NeedsLocalization" },
         Fra = new[] { "vous", "rejoignez", "l'équipe" } // Vous rejoignez l'équipe de <Player>.
     };
@@ -430,7 +430,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings YouLeaveParty = new()
     {
         Jpn = new[] { "パーティから離脱しました" },
-        Eng = new[] { "you", "leave", "party" },
+        Eng = new[] { "you", "leave" },
         Deu = new[] { "du", "hast", "gruppe", "verlassen" },
         Fra = new[] { "vous", "quittez", "l'équipe" }
     };
@@ -447,7 +447,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings LeftParty = new()
     {
         Jpn = new[] { "NeedsLocalization" },
-        Eng = new[] { "has", "left", "the", "party" }, // Player has left the party.
+        Eng = new[] { "has", "left" }, // Player has left the party.
         Deu = new[] { "NeedsLocalization" },
         Fra = new[] { "quitté", "l'équipe" } // Player a quitté l'équipe.
     };

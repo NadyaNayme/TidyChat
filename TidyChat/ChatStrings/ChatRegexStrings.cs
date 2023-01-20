@@ -118,6 +118,14 @@ public static class ChatRegexStrings
         Fra = new Regex(@"you|your|vous", regexOptions)
     };
 
+    public static readonly LocalizedRegex ConsiderEmote = new()
+    {
+        Jpn = new Regex("NeedsLocalization", regexOptions),
+        Eng = new Regex(@"a question springs to|springs a question to", regexOptions),
+        Deu = new Regex("NeedsLocalization", regexOptions),
+        Fra = new Regex("NeedsLocalization", regexOptions)
+    };
+
     public static readonly LocalizedRegex StartsWithYou = new()
     {
         Jpn = new Regex(@"^(you|your)", regexOptions),
@@ -603,7 +611,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ReturnedPomander = new()
     {
         Jpn = new Regex(@"はこれ以上、持つことができないようだ。宝箱に戻した、", regexOptions),
-        Eng = new Regex(@"^you return the (.*) to the coffer\.$", regexOptions),
+        Eng = new Regex(@"^you return the (.*) to the coffer", regexOptions),
         Deu = new Regex(@"^(du|you) kannst kein weiteres (.*) aufnehmen und legst es in die", regexOptions),
         Fra = new Regex(@"^(vous|you) ne pouvez pas obtenir davantage", regexOptions)
     };

@@ -14,6 +14,8 @@ public static class FilterEmoteMessages
             {
                 if (configuration.FilterEmoteSpam && !L10N.Get(ChatRegexStrings.PlayerTargetedEmote).IsMatch(input))
                     return true;
+                if (configuration.FilterEmoteSpam && !L10N.Get(ChatRegexStrings.ConsiderEmote).IsMatch(input))
+                    return true;
             }
             else if (chatType is ChatType.CustomEmote)
             {
