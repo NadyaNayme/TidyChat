@@ -113,17 +113,9 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex PlayerTargetedEmote = new()
     {
         Jpn = new Regex(@"you|your", regexOptions),
-        Eng = new Regex(@"you|your", regexOptions),
+        Eng = new Regex(@"you|your|question springs|springs a question", regexOptions),
         Deu = new Regex(@"you|your|du|deiner|dir|dich", regexOptions),
         Fra = new Regex(@"you|your|vous", regexOptions)
-    };
-
-    public static readonly LocalizedRegex ConsiderEmote = new()
-    {
-        Jpn = new Regex("NeedsLocalization", regexOptions),
-        Eng = new Regex(@"a question springs to|springs a question to", regexOptions),
-        Deu = new Regex("NeedsLocalization", regexOptions),
-        Fra = new Regex("NeedsLocalization", regexOptions)
     };
 
     public static readonly LocalizedRegex StartsWithYou = new()
