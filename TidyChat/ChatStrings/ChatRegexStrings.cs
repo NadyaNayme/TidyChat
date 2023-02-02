@@ -85,8 +85,8 @@ public static class ChatRegexStrings
     /// <seealso href="https://xivapi.com/Item/19?pretty=true">Water Cluster</see>
     public static readonly LocalizedRegex ObtainedClusters = new()
     {
-        Jpn = new Regex(@"クラスター(×2)?を(手に入れた|入手した)。$", regexOptions),
-        Eng = new Regex(@"^you (obtain|obtains) (a|2) (.*)cluster\.$", regexOptions),
+        Jpn = new Regex(@"クラスター(×2)?を(手に入れた|入手した)", regexOptions),
+        Eng = new Regex(@"^you (obtain|obtains) (a|2) (.*)(cluster|clusters)\.$", regexOptions),
         Deu = new Regex(@"NeedsLocalization", regexOptions),
         Fra = new Regex(@"NeedsLocalization", regexOptions)
     };
