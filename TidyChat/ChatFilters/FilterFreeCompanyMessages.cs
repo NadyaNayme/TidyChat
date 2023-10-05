@@ -1,5 +1,4 @@
 ﻿using System;
-using Dalamud.Logging;
 
 namespace TidyChat;
 
@@ -18,7 +17,7 @@ public static class FilterFreeCompanyMessages
         }
         catch (Exception e)
         {
-            PluginLog.LogDebug("Encountered error: " + e);
+            TidyChat.Log.Debug("Encountered error: " + e);
             return false;
         }
     }

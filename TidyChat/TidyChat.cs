@@ -6,18 +6,15 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Timers;
 using ChatTwo.Code;
-using Dalamud.Data;
 using Dalamud.Game;
-using Dalamud.Game.ClientState;
 using Dalamud.Game.Command;
-using Dalamud.Game.Gui;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.IoC;
-using Dalamud.Logging;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Ipc.Exceptions;
+using Dalamud.Plugin.Services;
 using Lumina.Excel.GeneratedSheets;
 using TidyChat.Localization.Resources;
 using TidyChat.Utility;
@@ -31,6 +28,19 @@ namespace TidyChat;
 
 public sealed class TidyChat : IDalamudPlugin
 {
+    [PluginService] public static IDataManager DataManager { get; private set; } = null!;
+    [PluginService] public static IDtrBar DtrBar { get; private set; } = null!;
+    [PluginService] public static ICommandManager CommandManager { get; private set; } = null!;
+    [PluginService] public static DalamudPluginInterface PluginInterface { get; private set; } = null!;
+    [PluginService] public static IClientState ClientState { get; private set; } = null!;
+    [PluginService] public static IChatGui ChatGui { get; private set; } = null!;
+    [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
+    [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
+    [PluginService] public static IPluginLog Log { get; private set; } = null!;
+
+    private Configuration Configuration { get; }
+    private PluginUI PluginUi { get; }
+
     private const string SettingsCommand = TidyStrings.SettingsCommand;
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
     private readonly DtrBarEntry dtrEntry;
@@ -38,25 +48,12 @@ public sealed class TidyChat : IDalamudPlugin
 
     #region Setup
 
-    public TidyChat(
-        [RequiredVersion("1.0")] DalamudPluginInterface pluginInterface,
-        [RequiredVersion("1.0")] SigScanner sigScanner,
-        [RequiredVersion("1.0")] ChatGui chatGui,
-        [RequiredVersion("1.0")] DataManager dataManager,
-        [RequiredVersion("1.0")] CommandManager commandManager,
-        [RequiredVersion("1.0")] ClientState clientState)
+    public TidyChat()
     {
-        PluginInterface = pluginInterface;
-        SigScanner = sigScanner;
-        CommandManager = commandManager;
-        DataManager = dataManager;
-        ChatGui = chatGui;
-        ClientState = clientState;
-
         // Player cannot change this without restarting the game so should be safe to grab here
-        L10N.Language = clientState.ClientLanguage;
-        pluginInterface.LanguageChanged += UpdateLang;
-        UpdateLang(pluginInterface.UiLanguage);
+        L10N.Language = ClientState.ClientLanguage;
+        PluginInterface.LanguageChanged += UpdateLang;
+        UpdateLang(PluginInterface.UiLanguage);
         // Sets name on install / plugin update
         SetPlayerName();
 
@@ -64,8 +61,7 @@ public sealed class TidyChat : IDalamudPlugin
         Configuration.Initialize(PluginInterface);
 
         if (Configuration.InstanceInDtrBar)
-            if (DtrBar != null)
-                dtrEntry = DtrBar.Get(Name);
+            dtrEntry = DtrBar.Get(Name);
 
         ChatGui.ChatMessage += OnChat;
         ClientState.TerritoryChanged += OnTerritoryChanged;
@@ -90,17 +86,6 @@ public sealed class TidyChat : IDalamudPlugin
 
     #endregion Setup
 
-    private DataManager DataManager { get; } = null!;
-
-    [PluginService] private DtrBar DtrBar { get; init; }
-    private DalamudPluginInterface PluginInterface { get; }
-    private SigScanner SigScanner { get; }
-    private ChatGui ChatGui { get; }
-    private CommandManager CommandManager { get; }
-    private Configuration Configuration { get; }
-    private PluginUI PluginUi { get; }
-    private ClientState ClientState { get; }
-
     private Stack<string> ChatHistory { get; } = new();
     public string Name => TidyStrings.PluginName;
 
@@ -119,7 +104,7 @@ public sealed class TidyChat : IDalamudPlugin
 
     private void TippyIpcTips()
     {
-        if (PluginInterface.PluginInternalNames.Contains("Tippy"))
+        if (PluginInterface.InstalledPlugins.Any(p => p.InternalName == "Tippy"))
         {
             var tippyTip = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterTip");
 
@@ -223,19 +208,19 @@ public sealed class TidyChat : IDalamudPlugin
         }
     }
 
-    private void OnLogin(object? sender, EventArgs e)
+    private void OnLogin()
     {
         if (Configuration.EnableTippyTips) TippyIpcTips();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate();
     }
 
-    private void OnLogout(object? sender, EventArgs e)
+    private void OnLogout()
     {
         BlockedCountUpdate();
     }
 
-    private void OnTerritoryChanged(object? sender, ushort e)
+    private void OnTerritoryChanged(ushort e)
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
@@ -261,7 +246,7 @@ public sealed class TidyChat : IDalamudPlugin
             }
             catch (KeyNotFoundException)
             {
-                PluginLog.Warning(
+                Log.Warning(
                     "Something somehow somewhere went wrong but we don't want to crash on territory change");
             }
     }
@@ -276,7 +261,7 @@ public sealed class TidyChat : IDalamudPlugin
 
         if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) &&
             Configuration.FilterSystemMessages)
-            Better.TemporarilyDisableSystemFilter(Configuration, ChatGui);
+            Better.TemporarilyDisableSystemFilter(Configuration);
 
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
@@ -381,19 +366,19 @@ public sealed class TidyChat : IDalamudPlugin
                         var currentMessage = $"{sender.TextValue}: {message.TextValue}";
                         if (ChatHistory.Contains(currentMessage))
                         {
-                            PluginLog.LogDebug($"Found message in chat history and blocked: {currentMessage}");
+                            Log.Debug($"Found message in chat history and blocked: {currentMessage}");
                             isHandled = true;
                         }
                         else if (ChatHistory.Count > Configuration.ChatHistoryLength)
                         {
-                            PluginLog.LogDebug("Chat history reached limit. Removed oldest message and added:" +
-                                               currentMessage);
+                            Log.Debug("Chat history reached limit. Removed oldest message and added:" +
+                                      currentMessage);
                             ChatHistory.Pop();
                             ChatHistory.Push(currentMessage);
                         }
                         else
                         {
-                            PluginLog.LogDebug("Added:" + currentMessage);
+                            Log.Debug("Added:" + currentMessage);
                             ChatHistory.Push(currentMessage);
                             if (Configuration.ChatHistoryTimer > 0)
                             {
@@ -418,7 +403,7 @@ public sealed class TidyChat : IDalamudPlugin
             }
             catch (Exception e)
             {
-                PluginLog.LogDebug("Encountered error: " + e);
+                Log.Debug("Encountered error: " + e);
             }
 
         #endregion Duplicate Message Spam Filter
@@ -466,21 +451,21 @@ public sealed class TidyChat : IDalamudPlugin
                 sender.TextValue == playerOrMessage.FirstName)
             {
                 isHandled = true;
-                PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been blocked.");
+                Log.Debug($"The message from {playerOrMessage.FirstName} has been blocked.");
             }
 
             if (channelSelectedToFilter && !isRegex &&
                 message.TextValue.Contains(playerOrMessage.FirstName))
             {
                 isHandled = true;
-                PluginLog.LogDebug($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
+                Log.Debug($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
             }
 
             if (userPattern != null && channelSelectedToFilter && isRegex &&
                 userPattern.IsMatch(message.ToString()))
             {
                 isHandled = true;
-                PluginLog.LogDebug(
+                Log.Debug(
                     $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
             }
         }
@@ -505,21 +490,21 @@ public sealed class TidyChat : IDalamudPlugin
                 sender.TextValue == playerOrMessage.FirstName)
             {
                 isHandled = false;
-                PluginLog.LogDebug($"The message from {playerOrMessage.FirstName} has been allowed.");
+                Log.Debug($"The message from {playerOrMessage.FirstName} has been allowed.");
             }
 
             if (channelSelectedToFilter && !isRegex &&
                 message.TextValue.Contains(playerOrMessage.FirstName))
             {
                 isHandled = false;
-                PluginLog.LogDebug($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
+                Log.Debug($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
             }
 
             if (userPattern != null && channelSelectedToFilter && isRegex &&
                 userPattern.IsMatch(message.ToString()))
             {
                 isHandled = false;
-                PluginLog.LogDebug(
+                Log.Debug(
                     $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
             }
         }
@@ -561,7 +546,7 @@ public sealed class TidyChat : IDalamudPlugin
             }
             catch (Exception ex)
             {
-                PluginLog.LogDebug("Error: " + ex);
+                Log.Debug("Error: " + ex);
             }
         else if (!Configuration.InstanceInDtrBar && dtrEntry != null) dtrEntry?.Dispose();
     }
@@ -581,8 +566,8 @@ public sealed class TidyChat : IDalamudPlugin
         var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
 
-        if (PluginInterface.PluginInternalNames.Contains("Tippy") && commendationChange == 0) TippyIpcMessages(1);
-        if (PluginInterface.PluginInternalNames.Contains("Tippy") && commendationChange >= 3) TippyIpcMessages(2);
+        if (PluginInterface.InstalledPlugins.Any(p => p.InternalName == "Tippy") && commendationChange == 0) TippyIpcMessages(1);
+        if (PluginInterface.InstalledPlugins.Any(p => p.InternalName == "Tippy") && commendationChange >= 3) TippyIpcMessages(2);
 
         if (commendationChange is >= 1 and <= 7)
         {

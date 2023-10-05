@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Authors>Nadya</Authors>
         <Company>Served with love</Company>
-        <Version>1.2.5</Version>
+        <Version>1.2.6</Version>
         <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
 
             Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
@@ -29,7 +29,6 @@
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <OutputPath>$(AppData)\XIVLauncher\devPlugins\TidyChat\</OutputPath>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
@@ -57,7 +56,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="DalamudPackager" Version="2.1.10"/>
+        <PackageReference Include="DalamudPackager" Version="2.1.12"/>
         <PackageReference Include="TextCopy" Version="6.1.0"/>
     </ItemGroup>
 

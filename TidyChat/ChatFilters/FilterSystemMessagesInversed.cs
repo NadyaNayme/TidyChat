@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using Dalamud.Logging;
 
 namespace TidyChat;
 
@@ -118,7 +117,7 @@ public static class FilterSystemMessagesInversed
         // If we somehow encounter an error - allow the message
         catch (Exception e)
         {
-            PluginLog.LogDebug("Encountered error: " + e);
+            TidyChat.Log.Debug("Encountered error: " + e);
             return false;
         }
     }

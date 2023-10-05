@@ -1,5 +1,4 @@
 ﻿using System;
-using Dalamud.Logging;
 
 namespace TidyChat;
 
@@ -16,13 +15,13 @@ public static class FilterLootMessages
                 /* TODO: #1
                  * Benchmark zero-width negative lookbehind against StartsWith()
                  * I'm like 99% certain StartsWith will be faster
-                 * 
+                 *
                  * TODO: #2
                  * Double check if this is even necessary to avoid false positives with your own Loot/Cast rolls
                  * The goal is to not show "You cast your lot" while still showing "Other Player" casts their lot
                  * when the user has changed the chat log from the Full Name setting to an initialized setting
                  * and has not enabled showing their own loot/cast rolls but has enabled showing others' loot/cast rols.
-                 * 
+                 *
                  * The && !(input.StartsWith("you")) is done as an alternative to using ^((?!you).).* in each Regex
                  */
                 (!configuration.ShowOthersLootRoll && !input.StartsWith("you") &&
@@ -37,7 +36,7 @@ public static class FilterLootMessages
         }
         catch (Exception e)
         {
-            PluginLog.LogDebug("Encountered error: " + e);
+            TidyChat.Log.Debug("Encountered error: " + e);
             return false;
         }
     }

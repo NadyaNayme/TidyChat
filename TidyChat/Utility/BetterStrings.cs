@@ -79,7 +79,7 @@ internal static class BetterStrings
         return originalMessage;
     }
 
-    public static void TemporarilyDisableSystemFilter(Configuration configuration, ChatGui chatGui)
+    public static void TemporarilyDisableSystemFilter(Configuration configuration)
     {
         configuration.FilterSystemMessages = false;
         var t = new Timer
