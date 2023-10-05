@@ -12,9 +12,11 @@ using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.IoC;
+using Dalamud.Logging;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Ipc.Exceptions;
 using Dalamud.Plugin.Services;
+using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.GeneratedSheets;
 using TidyChat.Localization.Resources;
 using TidyChat.Utility;
@@ -558,11 +560,24 @@ public sealed class TidyChat : IDalamudPlugin
         Configuration.Save();
     }
 
-    private void BetterCommendationsUpdate()
+    private unsafe void BetterCommendationsUpdate()
     {
-        var totalCommendationsPtr =
-            SigScanner.GetStaticAddressFromSig("66 89 05 ?? ?? ?? ?? E9 ?? ?? ?? ?? 8B 44 24 60");
-        TidyStrings.CommendationsEarned = Marshal.ReadInt16(totalCommendationsPtr);
+        try
+        {
+            var player = PlayerState.Instance();
+            if (player == null)
+            {
+                Log.Error("PlayerState was null, something went wrong");
+                return;
+            }
+
+            TidyStrings.CommendationsEarned = player->PlayerCommendations;
+        }
+        catch (Exception e)
+        {
+            Log.Error(e, "Something went wrong");
+        }
+
         var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
 
