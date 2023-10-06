@@ -1,6 +1,5 @@
 ﻿using System;
 using ChatTwo.Code;
-using Dalamud.Logging;
 
 namespace TidyChat;
 
@@ -25,7 +24,7 @@ public static class FilterEmoteMessages
         }
         catch (Exception e)
         {
-            PluginLog.LogDebug("Encountered error: " + e);
+            TidyChat.Log.Debug("Encountered error: " + e);
             return true;
         }
     }

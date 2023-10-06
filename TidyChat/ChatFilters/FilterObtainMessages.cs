@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Dalamud;
-using Dalamud.Logging;
 
 namespace TidyChat;
 
@@ -11,7 +10,7 @@ public static class FilterObtainMessages
     {
         try
         {
-            PluginLog.LogDebug("Debug Mode: " + input);
+            TidyChat.Log.Debug("Debug Mode: " + input);
             if (
                 (!configuration.ShowRouletteBonus && L10N.Get(ChatStrings.RouletteBonus).All(input.Contains)) ||
                 (!configuration.ShowAdventurerInNeedBonus &&
@@ -70,7 +69,7 @@ public static class FilterObtainMessages
         // If we somehow encounter an error - allow the message
         catch (Exception e)
         {
-            PluginLog.LogDebug("Encountered error: " + e);
+            TidyChat.Log.Debug("Encountered error: " + e);
             return false;
         }
     }
