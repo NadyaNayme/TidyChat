@@ -154,13 +154,6 @@ internal static class GeneralTab
         ImGui.Separator();
         ImGui.Spacing();
 
-        var enableTippyTips = configuration.EnableTippyTips;
-        if (ImGui.Checkbox(localization.GeneralTab_EnableTippy, ref enableTippyTips))
-        {
-            configuration.EnableTippyTips = enableTippyTips;
-            configuration.Save();
-        }
-
         var noCoffee = configuration.NoCoffee;
         if (ImGui.Checkbox(localization.GeneralTab_HideKofiButton, ref noCoffee))
         {

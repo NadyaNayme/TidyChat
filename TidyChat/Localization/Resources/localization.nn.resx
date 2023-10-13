@@ -114,9 +114,6 @@ This allows you to use ChatAlerts to create an alert for "You synthesize" instea
   <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
         <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
     </data>
-  <data name="GeneralTab_EnableTippy" xml:space="preserve">
-        <value>Enable integration with Tippy (must install Tippy to work)</value>
-    </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
         <value>Hide ko-fi button</value>
     </data>
@@ -802,57 +799,6 @@ Initials: E. N.</value>
     </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
         <value>Hide gear reaching 100% spiritbound messages</value>
-    </data>
-  <data name="TidyChat_TippyTips1" xml:space="preserve">
-        <value>Is Tidy Chat blocking a message you want to see? Add the message to Tidy Chat's whitelist as a name! Yes - that really works!</value>
-    </data>
-  <data name="TidyChat_TippyTips2" xml:space="preserve">
-        <value>Did you know? Tidy Chat has a chat history feature to block repetitive messages.</value>
-    </data>
-  <data name="TidyChat_TippyTips3" xml:space="preserve">
-        <value>Tidy Chat blocks all system messages by default. You can enable Inverse Mode to block specific System messages instead.</value>
-    </data>
-  <data name="TidyChat_TippyTips4" xml:space="preserve">
-        <value>Tidy Chat has many useful settings that must first be enabled.</value>
-    </data>
-  <data name="TidyChat_TippyTips6" xml:space="preserve">
-        <value>Try to say Tidy Chat ten times fast... Good try, now please stop saying Thai Chat.</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneMillion" xml:space="preserve">
-        <value>Tidy Chat has blocked over 1,000,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverFiveHundredThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 500,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneHundredThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 100,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverFiftyThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 50,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverTenThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 10,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverFiveThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 5,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneThousand" xml:space="preserve">
-        <value>Tidy Chat has blocked over 1,000 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneHundred" xml:space="preserve">
-        <value>Tidy Chat has blocked over 100 messages so far!</value>
-    </data>
-  <data name="TidyChat_TippyIpcToEnable" xml:space="preserve">
-        <value>To enable Tippy Tips for Tidy Chat you must first install Tippy.</value>
-    </data>
-  <data name="TidyChat_TippyIpcMessagesDancingThancred" xml:space="preserve">
-        <value>You earned 0 commendations from dancing thancred was pretty pleasant when i ended up kugane o.</value>
-    </data>
-  <data name="TidyChat_TippyIpcMessagesZeroCommendations" xml:space="preserve">
-        <value>And here is where I'd tell you how many commendations you received... if you had received any.</value>
-    </data>
-  <data name="TidyChat_TippyIpcMessagesPopularCommendations" xml:space="preserve">
-        <value>It looks like people like you!</value>
     </data>
   <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
         <value>Free Company</value>

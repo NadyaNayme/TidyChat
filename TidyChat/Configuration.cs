@@ -27,7 +27,6 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
-    public bool EnableTippyTips { get; set; } = false;
     public int Version { get; set; } = 0;
 
     public void Initialize(DalamudPluginInterface pluginInterface)

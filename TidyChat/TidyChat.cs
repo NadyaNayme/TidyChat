@@ -102,116 +102,8 @@ public sealed class TidyChat : IDalamudPlugin
         ClientState.Login -= OnLogin;
         ClientState.Logout -= OnLogout;
     }
-
-    private void TippyIpcTips()
-    {
-        if (PluginInterface.InstalledPlugins.Any(p => p.InternalName == "Tippy"))
-        {
-            var tippyTip = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterTip");
-
-            try
-            {
-                tippyTip.InvokeFunc(
-                    localization.TidyChat_TippyTips1);
-                tippyTip.InvokeFunc(localization.TidyChat_TippyTips2);
-                tippyTip.InvokeFunc(
-                    localization.TidyChat_TippyTips3);
-                tippyTip.InvokeFunc(localization.TidyChat_TippyTips4);
-                tippyTip.InvokeFunc(
-                    localization.TidyChat_TippyTips6);
-
-                switch (Configuration.TtlMessagesBlocked)
-                {
-                    case > 1000000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneMillion);
-                        break;
-                    case > 500000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverFiveHundredThousand);
-                        break;
-                    case > 100000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneHundredThousand);
-                        break;
-                    case > 50000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverFiftyThousand);
-                        break;
-                    case > 10000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverTenThousand);
-                        break;
-                    case > 5000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverFiveThousand);
-                        break;
-                    case > 1000:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneThousand);
-                        break;
-                    case > 100:
-                        tippyTip.InvokeFunc(localization.TidyChat_TippyTipsOverOneHundred);
-                        break;
-                    case <= 100:
-                        break;
-                }
-            }
-            catch (IpcNotReadyError)
-            {
-                var noTippyMessage = new SeStringBuilder();
-                if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
-
-                noTippyMessage.AddText(localization.TidyChat_TippyIpcToEnable);
-                ChatGui.Print(noTippyMessage.BuiltString);
-            }
-        }
-        else
-        {
-            var noTippyMessage = new SeStringBuilder();
-            if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
-
-            noTippyMessage.AddText(localization.TidyChat_TippyIpcToEnable);
-            ChatGui.Print(noTippyMessage.BuiltString);
-        }
-    }
-
-    private void TippyIpcMessages(ushort msg)
-    {
-        var tippyMsg = PluginInterface.GetIpcSubscriber<string, bool>("Tippy.RegisterMessage");
-        try
-        {
-            switch (msg)
-            {
-                case 0:
-                    tippyMsg.InvokeFunc("Tidy Chat IPC Test Message.");
-                    break;
-                case 1:
-                    var rnd = new Random().Next(100);
-                    switch (rnd)
-                    {
-                        case 0:
-                            tippyMsg.InvokeFunc(
-                                localization.TidyChat_TippyIpcMessagesDancingThancred);
-                            break;
-                        case > 85:
-                            tippyMsg.InvokeFunc(
-                                localization.TidyChat_TippyIpcMessagesZeroCommendations);
-                            break;
-                    }
-
-                    break;
-                case 2:
-                    tippyMsg.InvokeFunc(localization.TidyChat_TippyIpcMessagesPopularCommendations);
-                    break;
-            }
-        }
-        catch (IpcNotReadyError)
-        {
-            var noTippyMessage = new SeStringBuilder();
-            if (Configuration.IncludeChatTag) Better.AddTidyChatTag(noTippyMessage);
-
-            noTippyMessage.AddText(localization.TidyChat_TippyIpcToEnable);
-            ChatGui.Print(noTippyMessage.BuiltString);
-        }
-    }
-
     private void OnLogin()
     {
-        if (Configuration.EnableTippyTips) TippyIpcTips();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate();
     }
@@ -579,9 +471,6 @@ public sealed class TidyChat : IDalamudPlugin
 
         var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
-
-        if (PluginInterface.InstalledPlugins.Any(p => p.InternalName == "Tippy") && commendationChange == 0) TippyIpcMessages(1);
-        if (PluginInterface.InstalledPlugins.Any(p => p.InternalName == "Tippy") && commendationChange >= 3) TippyIpcMessages(2);
 
         if (commendationChange is >= 1 and <= 7)
         {
