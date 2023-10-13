@@ -114,9 +114,6 @@ Dies erlaubt es dir, Benachrichtigungen mit ChatAlerts für "Du stellst ein" sta
   <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
         <value>Reduziert die Textmenge beim Beitritt zum Neulings-Chat und vereinheitlicht die Nachricht beim Verlassen.</value>
     </data>
-  <data name="GeneralTab_EnableTippy" xml:space="preserve">
-        <value>Integration mit Tippy aktivieren</value>
-    </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
         <value>Button für Ko-fi ausblenden</value>
     </data>
@@ -800,57 +797,6 @@ Initialen: M. M.</value>
     </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
         <value>Verstecke Nachrichten, wenn ein Gegenstand 100% Seelenbindung erreicht</value>
-    </data>
-  <data name="TidyChat_TippyTips1" xml:space="preserve">
-        <value>Blockiert Tidy Chat eine Nachricht die du sehen möchtest? Füge die Nachricht in Tidy Chats weiße Liste als Name ein! Ja - das geht wirklich!</value>
-    </data>
-  <data name="TidyChat_TippyTips2" xml:space="preserve">
-        <value>Wusstest du schon, dass Tidy Chat eine Chatverlauf-Funktion hat, mit der man sich wiederholende Meldungen blocken kann?</value>
-    </data>
-  <data name="TidyChat_TippyTips3" xml:space="preserve">
-        <value>Tidy Chat blockiert standardmässig alle System Nachrichten. Du kannst den Inverse Modus aktivieren um stattdessen bestimmte System Nachrichten zu blockieren.</value>
-    </data>
-  <data name="TidyChat_TippyTips4" xml:space="preserve">
-        <value>Tidy Chat hat einige hilfreiche Einstellungen, welche erst aktiviert werden müssen.</value>
-    </data>
-  <data name="TidyChat_TippyTips6" xml:space="preserve">
-        <value>Sag' zehn Mal hintereinander "Tidy Chat"! ... Super, dann können wir ja aufhören es "Thai Chat" zu nennen, oder?</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneMillion" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 1.000.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverFiveHundredThousand" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 500.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneHundredThousand" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 100.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverFiftyThousand" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 50.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverTenThousand" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 10.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverFiveThousand" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 5.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneThousand" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 1.000 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyTipsOverOneHundred" xml:space="preserve">
-        <value>Tidy Chat hat bisher bereits 100 Nachrichten geblockt!</value>
-    </data>
-  <data name="TidyChat_TippyIpcToEnable" xml:space="preserve">
-        <value>Um Tippy Tips für TidyChat zu aktivieren, muss zuerst die Anwendung Tippy installiert sein.</value>
-    </data>
-  <data name="TidyChat_TippyIpcMessagesDancingThancred" xml:space="preserve">
-        <value>Du verdient 0 Belobigungen von Tanzen thancred war ziemlich angenehm, wenn ich am Ende kugane o.</value>
-    </data>
-  <data name="TidyChat_TippyIpcMessagesZeroCommendations" xml:space="preserve">
-        <value>Und genau hier würde ich dir sagen, wieviele Ehrungen du erhalten hast... wenn du welche erhalten hättest.</value>
-    </data>
-  <data name="TidyChat_TippyIpcMessagesPopularCommendations" xml:space="preserve">
-        <value>Sieht so aus als ob diese Spieler dich mögen!</value>
     </data>
   <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
         <value>Freie Gesellschaft</value>
