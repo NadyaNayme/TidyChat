@@ -315,9 +315,10 @@ public sealed class TidyChat : IDalamudPlugin
         }
 
         #endregion Debug Mode Enabled
-
-        SessionBlockedMessages += 1;
-        if (SessionBlockedMessages > 100) BlockedCountUpdate();
+        if (isHandled)
+        {
+            SessionBlockedMessages += 1;
+        }
     }
 
     private static void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
