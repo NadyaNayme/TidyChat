@@ -64,7 +64,7 @@ public sealed class TidyChat : IDalamudPlugin
         if (Configuration.InstanceInDtrBar)
             dtrEntry = DtrBar.Get(Name);
 
-        ChatGui.ChatMessage += OnChat;
+        ChatGui.CheckMessageHandled += OnChat;
         ClientState.TerritoryChanged += OnTerritoryChanged;
         ClientState.Login += OnLogin;
         ClientState.Logout += OnLogout;
@@ -97,7 +97,7 @@ public sealed class TidyChat : IDalamudPlugin
         CommandManager.RemoveHandler(SettingsCommand);
         CommandManager.RemoveHandler(ShorthandCommand);
         PluginInterface.LanguageChanged -= UpdateLang;
-        ChatGui.ChatMessage -= OnChat;
+        ChatGui.CheckMessageHandled -= OnChat;
         ClientState.TerritoryChanged -= OnTerritoryChanged;
         ClientState.Login -= OnLogin;
         ClientState.Logout -= OnLogout;
