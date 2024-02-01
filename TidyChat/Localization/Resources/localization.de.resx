@@ -638,7 +638,7 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
         <value>Nur Standorte verstecken, die die Sammelversuche beeinflussen</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-        <value>Nur Orte ausblenden, die Gatherer's Boon beeinflussen</value>
+        <value>Nur Orte ausblenden, die den Stückzahl-Bonus beeinflussen</value>
     </data>
   <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
         <value>Angeln</value>
