@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Dalamud;
+using Dalamud.Game;
 
 namespace TidyChat;
 

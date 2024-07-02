@@ -10,7 +10,7 @@ public class Configuration : IPluginConfiguration
 {
     // the below exist just to make saving less cumbersome
 
-    [NonSerialized] private DalamudPluginInterface? pluginInterface;
+    [NonSerialized] private IDalamudPluginInterface? pluginInterface;
 
     public ulong TtlMessagesBlocked { get; set; } = 0;
     public bool Enabled { get; set; } = true;
@@ -29,7 +29,7 @@ public class Configuration : IPluginConfiguration
     public bool NoCoffee { get; set; } = false;
     public int Version { get; set; } = 0;
 
-    public void Initialize(DalamudPluginInterface pluginInterface)
+    public void Initialize(IDalamudPluginInterface pluginInterface)
     {
         this.pluginInterface = pluginInterface;
     }

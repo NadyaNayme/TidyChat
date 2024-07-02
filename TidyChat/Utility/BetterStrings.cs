@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Timers;
-using Dalamud;
-using Dalamud.Game.Gui;
+using Dalamud.Game;
 using Dalamud.Game.Text.SeStringHandling;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Dalamud;
+using Dalamud.Game;
 using Dalamud.Game.Text.SeStringHandling;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 

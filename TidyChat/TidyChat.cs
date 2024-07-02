@@ -13,7 +13,6 @@ using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.IoC;
 using Dalamud.Plugin;
-using Dalamud.Plugin.Ipc.Exceptions;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.GeneratedSheets;
@@ -32,7 +31,7 @@ public sealed class TidyChat : IDalamudPlugin
     [PluginService] public static IDataManager DataManager { get; private set; } = null!;
     [PluginService] public static IDtrBar DtrBar { get; private set; } = null!;
     [PluginService] public static ICommandManager CommandManager { get; private set; } = null!;
-    [PluginService] public static DalamudPluginInterface PluginInterface { get; private set; } = null!;
+    [PluginService] public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] public static IClientState ClientState { get; private set; } = null!;
     [PluginService] public static IChatGui ChatGui { get; private set; } = null!;
     [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
@@ -62,7 +61,7 @@ public sealed class TidyChat : IDalamudPlugin
         Configuration.Initialize(PluginInterface);
 
         if (Configuration.InstanceInDtrBar)
-            dtrEntry = DtrBar.Get(Name);
+            dtrEntry = (DtrBarEntry?)DtrBar.Get(Name);
 
         ChatGui.CheckMessageHandled += OnChat;
         ClientState.TerritoryChanged += OnTerritoryChanged;
@@ -144,7 +143,7 @@ public sealed class TidyChat : IDalamudPlugin
             }
     }
 
-    private void OnChat(XivChatType type, uint senderId, ref SeString sender, ref SeString message,
+    private void OnChat(XivChatType type, int timestamp, ref SeString sender, ref SeString message,
         ref bool isHandled)
     {
         if (!Configuration.Enabled) return;
@@ -419,16 +418,15 @@ public sealed class TidyChat : IDalamudPlugin
         }
     }
 
-    private void InstanceDtrBarUpdate()
+    unsafe private void InstanceDtrBarUpdate()
     {
         if (Configuration.InstanceInDtrBar)
             try
             {
-                var InstanceSignaturePtr =
-                    SigScanner.GetStaticAddressFromSig("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 80 BD");
 
                 // This will return the instance value: 0,1,2,3
-                int InstanceNumberFromSignature = Marshal.ReadByte(InstanceSignaturePtr, 0x20);
+                int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+                ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
 
                 if (InstanceNumberFromSignature == 1)
                     UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
