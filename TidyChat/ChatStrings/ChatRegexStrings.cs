@@ -249,7 +249,7 @@ public static class ChatRegexStrings
 
     public static readonly Regex AttachedMateria =
         new(
-            @"^you successfully attach (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the",
+            @"^you successfully (attach|attaches) (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the",
             regexOptions);
 
     /// <see href="https://xivapi.com/LogMessage/3860?pretty=true">Master volume muted/unmuted</see>
@@ -494,14 +494,6 @@ public static class ChatRegexStrings
         Fra = new Regex(
             @"le nombre de points de chance dans le carnet",
             regexOptions)
-    };
-
-    public static readonly LocalizedRegex GetInstanceNumber = new()
-    {
-        Jpn = new Regex(@"(?<instance>||)", regexOptions),
-        Eng = new Regex(@"(?<instance>||)", regexOptions),
-        Deu = new Regex(@"(?<instance>||)", regexOptions),
-        Fra = new Regex(@"(?<instance>||)", regexOptions)
     };
 
     /// <see href="https://xivapi.com/LogMessage/732?pretty=true">You have entered a sanctuary.</see>

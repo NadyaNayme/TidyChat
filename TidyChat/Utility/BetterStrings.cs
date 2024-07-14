@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Timers;
 using Dalamud.Game;
+using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
@@ -29,14 +32,23 @@ internal static class BetterStrings
         return $"/say {containingPhrase}";
     }
 
-    public static SeString Instances(SeString message, Configuration configuration)
+    unsafe public static SeString Instances(SeString message, Configuration configuration)
     {
-        var instanceNumber = L10N.Get(ChatRegexStrings.GetInstanceNumber).Matches(message.TextValue).First()
-            .Groups["instance"].Value;
-        var stringBuilder = new SeStringBuilder();
-        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-        stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceNumber}");
-        return stringBuilder.BuiltString;
+        try
+        {
+            // This will return the instance value: 0,1,2,3,4,5,6
+            int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
+            var stringBuilder = new SeStringBuilder();
+            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+            stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceCharacter}");
+            return stringBuilder.BuiltString;
+        }
+        catch (Exception ex)
+        {
+            // Oops
+        }
+        return "";
     }
 
     /// <see href="https://xivapi.com/LogMessage/7027?pretty=true">You've joined the Novice Network</see>

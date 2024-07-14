@@ -93,10 +93,6 @@ internal static class InternalStrings
         Fra = new string("”")
     };
 
-    public static readonly string FirstInstance = "";
-    public static readonly string SecondInstance = "";
-    public static readonly string ThirdInstance = "";
-
     public static string LastDuty { get; set; } = "";
     public static short CommendationsEarned { get; set; } = 0;
     public static short LastCommendations { get; set; } = 0;

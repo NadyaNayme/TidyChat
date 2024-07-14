@@ -423,17 +423,12 @@ public sealed class TidyChat : IDalamudPlugin
         if (Configuration.InstanceInDtrBar)
             try
             {
-
-                // This will return the instance value: 0,1,2,3
+                // This will return the instance value: 0,1,2,3,4,5,6
                 int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
-                ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
+                var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
 
-                if (InstanceNumberFromSignature == 1)
-                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.FirstInstance}");
-                else if (InstanceNumberFromSignature == 2)
-                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.SecondInstance}");
-                else if (InstanceNumberFromSignature == 3)
-                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {TidyStrings.ThirdInstance}");
+                if (InstanceNumberFromSignature >= 1)
+                    UpdateDtrBarEntry($"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}");
                 else if (InstanceNumberFromSignature == 0) UpdateDtrBarEntry();
             }
             catch (Exception ex)
