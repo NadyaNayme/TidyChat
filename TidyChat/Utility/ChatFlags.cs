@@ -64,7 +64,7 @@ public static class ChatFlags
         if (whitelistedPlayerChannels.HasFlag(Channels.FreeCompany) &&
             (chatType is ChatType.FreeCompany || chatType is ChatType.FreeCompanyLoginLogout)) return true;
         if (whitelistedPlayerChannels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Gathering) && chatType is ChatType.GatheringSystem) return true;
+        if (whitelistedPlayerChannels.HasFlag(Channels.Gathering) && (chatType is ChatType.GatheringSystem || chatType is ChatType.Gathering)) return true;
         return false;
     }
 
