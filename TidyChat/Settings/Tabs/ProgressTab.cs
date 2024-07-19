@@ -1,6 +1,6 @@
 using Dalamud.Interface.Components;
 using ImGuiNET;
-using TidyChat.Localization.Resources;
+using TidyChat.Resources.Languages;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -9,65 +9,65 @@ internal static class ProgressTab
     public static void Draw(Configuration configuration)
     {
         var showGainExperience = configuration.ShowGainExperience;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowExperienceGainMessages, ref showGainExperience))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowExperienceGainMessages, ref showGainExperience))
         {
             configuration.ShowGainExperience = showGainExperience;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowExperienceGainMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
         var showFirstClearAward = configuration.ShowFirstClearAward;
-        if (ImGui.Checkbox(localization.SystemTab_ShowFirstClearAward, ref showFirstClearAward))
+        if (ImGui.Checkbox(Languages.SystemTab_ShowFirstClearAward, ref showFirstClearAward))
         {
             configuration.ShowFirstClearAward = showFirstClearAward;
             configuration.Save();
         }
 
         var showSecondChanceAward = configuration.ShowSecondChanceAward;
-        if (ImGui.Checkbox(localization.SystemTab_ShowSecondChanceAward, ref showSecondChanceAward))
+        if (ImGui.Checkbox(Languages.SystemTab_ShowSecondChanceAward, ref showSecondChanceAward))
         {
             configuration.ShowSecondChanceAward = showSecondChanceAward;
             configuration.Save();
         }
 
         var showRouletteBonusExperiencePoints = configuration.ShowRouletteBonus;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
                 ref showRouletteBonusExperiencePoints))
         {
             configuration.ShowRouletteBonus = showRouletteBonusExperiencePoints;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
 
         var showAdventurerInNeedBonus = configuration.ShowAdventurerInNeedBonus;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowAdventurerInNeedAwardMessages, ref showAdventurerInNeedBonus))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref showAdventurerInNeedBonus))
         {
             configuration.ShowAdventurerInNeedBonus = showAdventurerInNeedBonus;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
 
         var showGainPvpExp = configuration.ShowGainPvpExp;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowPVPExpGainMessages, ref showGainPvpExp))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowPVPExpGainMessages, ref showGainPvpExp))
         {
             configuration.ShowGainPvpExp = showGainPvpExp;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
 
         var showEarnAchievement = configuration.ShowEarnAchievement;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
         {
             configuration.ShowEarnAchievement = showEarnAchievement;
             configuration.Save();
         }
 
         var showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
                 ref showOtherEarnedAchievement))
         {
             configuration.ShowOtherEarnedAchievement = showOtherEarnedAchievement;
@@ -75,31 +75,31 @@ internal static class ProgressTab
         }
 
         var showLevelUps = configuration.ShowLevelUps;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowLevelUpMessages, ref showLevelUps))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowLevelUpMessages, ref showLevelUps))
         {
             configuration.ShowLevelUps = showLevelUps;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowLevelUpMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker);
 
         var showOtherLevelUps = configuration.ShowOtherLevelUps;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
         {
             configuration.ShowOtherLevelUps = showOtherLevelUps;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
 
         var showAbilityUnlocks = configuration.ShowAbilityUnlocks;
-        if (ImGui.Checkbox(localization.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
         {
             configuration.ShowAbilityUnlocks = showAbilityUnlocks;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(localization.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
 
         ImGui.EndTabItem();
     }

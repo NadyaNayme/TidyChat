@@ -4,7 +4,7 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
-using TidyChat.Localization.Resources;
+using TidyChat.Resources.Languages;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -15,21 +15,21 @@ internal static class WhitelistTab
     public static void Draw(Configuration configuration)
     {
         var sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
-        if (ImGui.Checkbox(localization.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
+        if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
         {
             configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
             configuration.Save();
         }
 
         var targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
-        if (ImGui.Checkbox(localization.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer,
+        if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer,
                 ref targetingWhitelistPlayer))
         {
             configuration.TargetingWhitelistPlayer = targetingWhitelistPlayer;
             configuration.Save();
         }
 
-        ImGui.TextUnformatted(localization.WhitelistTab_ExplanationMessage);
+        ImGui.TextUnformatted(Languages.WhitelistTab_ExplanationMessage);
         ImGui.Spacing();
 
         ImGui.NewLine();
@@ -38,8 +38,8 @@ internal static class WhitelistTab
                 ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
                 ImGuiTableFlags.RowBg, outer_height)) return;
         ImGui.TableSetupScrollFreeze(0, 1);
-        ImGui.TableSetupColumn(localization.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn(localization.WhitelistTab_FiltersHeader,
+        ImGui.TableSetupColumn(Languages.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
+        ImGui.TableSetupColumn(Languages.WhitelistTab_FiltersHeader,
             ImGuiTableColumnFlags.WidthStretch);
         ImGui.TableSetupColumn("##AllowColumn", ImGuiTableColumnFlags.WidthFixed, 120f);
         ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
@@ -53,36 +53,36 @@ internal static class WhitelistTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            if (ImGui.CollapsingHeader($"{localization.WhitelistTab_ChannelsHeader}##whitelist{i}ChannelsHeader"))
+            if (ImGui.CollapsingHeader($"{Languages.WhitelistTab_ChannelsHeader}##whitelist{i}ChannelsHeader"))
             {
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
+                        $"{Languages.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
                         ref alias.whitelistedChannels,
                         1 << 3)) configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
+                        $"{Languages.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
                         ref alias.whitelistedChannels,
                         1 << 2)) configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
+                        $"{Languages.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
                         ref alias.whitelistedChannels, 1 << 1))
                     configuration.Save();
-                if (ImGui.CheckboxFlags($"{localization.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
+                if (ImGui.CheckboxFlags($"{Languages.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
                         ref alias.whitelistedChannels, 1 << 5))
                     configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
+                        $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
                         ref alias.whitelistedChannels,
                         1 << 8)) configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
+                        $"{Languages.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
                         ref alias.whitelistedChannels,
                         1 << 9)) configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
+                        $"{Languages.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
                         ref alias.whitelistedChannels, 1 << 7)) configuration.Save();
                 if (ImGui.CheckboxFlags(
-                        $"{localization.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
+                        $"{Languages.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
                         ref alias.whitelistedChannels,
                         1 << 4)) configuration.Save();
             }
@@ -95,7 +95,7 @@ internal static class WhitelistTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            if (i == -1) ImGui.TextUnformatted(localization.WhitelistTab_MessageContains);
+            if (i == -1) ImGui.TextUnformatted(Languages.WhitelistTab_MessageContains);
 
             ImGui.SetNextItemWidth(-1);
             if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 120,
@@ -126,19 +126,19 @@ internal static class WhitelistTab
             {
                 var previewValue = "";
                 if (alias.AllowMessage)
-                    previewValue = localization.WhitelistTab_Allow;
+                    previewValue = Languages.WhitelistTab_Allow;
                 else
-                    previewValue = localization.WhitelistTab_Block;
+                    previewValue = Languages.WhitelistTab_Block;
                 ImGui.SetNextItemWidth(-1);
                 if (ImGui.BeginCombo($"##whitelist{i}AllowSetting", previewValue))
                 {
-                    if (ImGui.Selectable($"{localization.WhitelistTab_Allow}##{i}", alias.AllowMessage))
+                    if (ImGui.Selectable($"{Languages.WhitelistTab_Allow}##{i}", alias.AllowMessage))
                     {
                         alias.AllowMessage = true;
                         configuration.Save();
                     }
 
-                    if (ImGui.Selectable($"{localization.WhitelistTab_Block}##{i}", !alias.AllowMessage))
+                    if (ImGui.Selectable($"{Languages.WhitelistTab_Block}##{i}", !alias.AllowMessage))
                     {
                         alias.AllowMessage = false;
                         configuration.Save();
@@ -170,7 +170,7 @@ internal static class WhitelistTab
         ImGui.EndTable();
         ImGui.NewLine();
         ImGui.Spacing();
-        ImGui.TextUnformatted(localization.WhitelistTab_ExactNameMatchWhitelistExplanation);
+        ImGui.TextUnformatted(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
         ImGui.EndTabItem();
     }
 }

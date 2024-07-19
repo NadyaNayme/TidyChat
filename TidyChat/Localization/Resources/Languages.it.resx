@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
+        </value>
+  </resheader>
+  <data name="GeneralTab_BlockedMessages" xml:space="preserve">
+        <value>Tidy Chat ha bloccato {0:n0} messaggi finora.</value>
+    </data>
+  <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
+        <value>Il conteggio viene aggiornato solo ogni 100 messaggi bloccati, quando si cambia zona, o quando ci si disconnette.</value>
+    </data>
+  <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
+        <value>Filtra spam di sistema</value>
+    </data>
+  <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
+        <value>Filtro spam di progresso</value>
+    </data>
+  <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
+        <value>Questi filtri includono messaggi come achievements sbloccati o punti esperienza ottenuti</value>
+    </data>
+  <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
+        <value>Filtra lo spam dei roll del Loot</value>
+    </data>
+  <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
+        <value>Questi filtri includono messaggi come "giocatore ha rollato greed" o "giocatore ottiene pezzo di equipaggiamento"</value>
+    </data>
+  <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
+        <value>Filtra lo spam degli oggetti ottenuti</value>
+    </data>
+  <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
+        <value>Questo filtro include oggetti ottenuti come drop dai nemici e ricompense dalle quest o dalle roulette</value>
+    </data>
+  <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
+        <value>Filtra lo spam del crafting</value>
+    </data>
+  <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
+        <value>Questo filtro include tutti i messaggi relativi al crafting ad eccezione di "Hai sintetizzato un &lt;item&gt;"
+Questo permette di usare ChatAlerts per creare un allarme per "Hai sintetizzato" anziché usare gli alert delle macro completate</value>
+    </data>
+  <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
+        <value>Filtra lo spam del Gathering</value>
+    </data>
+  <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
+        <value>Queto filtro include i messaggi di gathering "inizi/finisci" così come gli effetti che influsicono sulla posizione</value>
+    </data>
+  <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
+        <value>Filtra le emote</value>
+        <comment>The clickable dropdown header for Emote filters</comment>
+    </data>
+  <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
+        <value>Messaggi migliorati</value>
+        <comment>Dropdown header for Improved Messages</comment>
+    </data>
+  <data name="GeneralTab_TidyChatTag" xml:space="preserve">
+        <value>Aggiungi il tag [TidyChat] ai messaggi modificati</value>
+    </data>
+  <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
+        <value>Antepone ai messaggi inviati o modificati da Tydy Chat [TidyChat]</value>
+    </data>
+  <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
+        <value>Migliorata la messaggistica di /instance</value>
+    </data>
+  <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
+        <value>Cambia il testo dell'istanza in: Ti trovi nell'istanza: #</value>
+    </data>
+  <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
+        <value>Visualizza l'istanza corrente nella barra DTR</value>
+    </data>
+  <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
+        <value>Commendation dei giocatori migliorate</value>
+    </data>
+  <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
+        <value>Disabilita il messaggio di sistema per le commendation ricevute e le unisce in un singolo messaggio nel proprio Dalamud General Chat Channel (verifica in Dalamud General Settings di quale canale si tratta - per default è Debug)</value>
+    </data>
+  <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
+        <value>Unisce la duty completata al messaggio delle commendation</value>
+    </data>
+  <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
+        <value>Richiede "Commendation dei giocatori migliorate" per essere abilitata</value>
+    </data>
+  <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
+        <value>Messaggio /say migliorato per le quest</value>
+    </data>
+  <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
+        <value>Quando una quest richiede di scrivere qualcosa in chat /say, cambia quel messaggio in uno che può essere copiato ed incollato facilmente</value>
+    </data>
+  <data name="GeneralTab_CopySayMessage" xml:space="preserve">
+        <value>Copia automaticamente il messaggio /say nella clipboard</value>
+    </data>
+  <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
+        <value>Richiede "Messaggio /say migliorato per le quest" per essere abilitato</value>
+    </data>
+  <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
+        <value>Messaggi di entrata ed uscita dal Novice Network migliorati</value>
+    </data>
+  <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
+        <value>Riduce la quantità di testo visualizzata quando si entra nel Novice Network e cambia il messaggio di uscita per essere formulato più consistentemente.</value>
+    </data>
+  <data name="GeneralTab_HideKofiButton" xml:space="preserve">
+        <value>Nascondi bottone ko-fi</value>
+    </data>
+  <data name="GeneralTab_FilterEmotes" xml:space="preserve">
+        <value>Filtra lo spam di emote</value>
+    </data>
+  <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
+        <value>Questo nasconderà tutto il testo delle emote a meno che non si tratti una emote rivolta a te o una emote usata da te.</value>
+    </data>
+  <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
+        <value>Filtra lo spam di emote personalizzate</value>
+    </data>
+  <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
+        <value>Questo nasconde tutti i messaggi "/em" a meno che non siano rivolti a te o siano una emote personalizzata usata da te.
+es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
+    </data>
+  <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
+        <value>Filtra le emote usate da te</value>
+    </data>
+  <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
+        <value>Nasconde il messaggio visualizzato quando usi un'emote o un'emote personalizzata.
+es. Accarezzi delicatamente &lt;user&gt;</value>
+    </data>
+  <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
+        <value>Abilita la modalità debug</value>
+    </data>
+  <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
+        <value>Sistema</value>
+    </data>
+  <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
+        <value>Loot/Ottieni</value>
+    </data>
+  <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
+        <value>Progresso</value>
+    </data>
+  <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
+        <value>Crafting/Gathering</value>
+    </data>
+  <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
+        <value>Cronologia chat</value>
+    </data>
+  <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
+        <value>Whitelist</value>
+    </data>
+  <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
+        <value>Funzione sperimentale: Modalità inversa</value>
+    </data>
+  <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
+        <value>Non blocca più i messaggi di sistema in modo predifinito.
+Nascondi filtri diventa Mostra filtri e Mostra filtri diventa Nascondi filtri.</value>
+    </data>
+  <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
+        <value>Se hai abilitato la Modalità Inversa sono affari tuoi e non riceverai alcun supporto.
+Si presume che tu sappia cosa stai facendo.</value>
+    </data>
+  <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
+        <value>Nasconde i messaggi di sistema che Tidy Chat mostra per impostazione predefinita</value>
+    </data>
+  <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
+        <value>Nasconde il messaggio riferito alle istanze</value>
+    </data>
+  <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
+        <value>es. Sei nell'area istanziata Old Sharlayan .
+L'istanza in cui ti trovi può essere confermata in qualsiasi momento usando il comando di testo /instance.</value>
+    </data>
+  <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
+        <value>Nasconde gli annunci riguardanti gli spawn delle hunt di rank S</value>
+    </data>
+  <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+        <value>es. Senti la presenza di un mostro potente...</value>
+    </data>
+  <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
+        <value>Nasconde gli annunci riguardanti gli spawn delle hunt di rank SS</value>
+    </data>
+  <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+        <value>es. I minion di un mostro straordinariamente potente sono in cerca di prede...
+I minion di un mostro straordinariamente potente si sono ritirati...</value>
+    </data>
+  <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
+        <value>Nascondi Commendation Ricevute</value>
+    </data>
+  <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
+        <value>es. Hai ricevuto una commendation!</value>
+    </data>
+  <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
+        <value>Nascondi Venture Completate</value>
+    </data>
+  <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
+        <value>es. RetainerName ha completato una venture!</value>
+    </data>
+  <data name="SystemTab_HideSayReminder" xml:space="preserve">
+        <value>Nascondi i promemoria di cosa dire in chat /say durante le quest.</value>
+    </data>
+  <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
+        <value>es. Con la chat in modalità /say, scrivi una frase contenente "Tataru" al punto di destinazione.</value>
+    </data>
+  <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
+        <value>Nascondi i messaggi "Senti qualcosa..."</value>
+    </data>
+  <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+        <value>es. Senti qualcosa a sudovest, molto molto lontano...</value>
+    </data>
+  <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
+        <value>Nascondi i messaggi dell'Aether Compass</value>
+    </data>
+  <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
+        <value>es. La bussola rileva una corrente approssimativamente a 143 yalm verso Ovest...</value>
+    </data>
+  <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
+        <value>Nascondi i messaggi dei /countdown</value>
+    </data>
+  <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
+        <value>es. La battaglia inizierà tra 18 secondi!</value>
+    </data>
+  <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
+        <value>Nascondi il messaggio /readycheck</value>
+    </data>
+  <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
+        <value>es. Ready check completato.</value>
+    </data>
+  <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
+        <value>Nascondi i messaggi dei risultati di "Search for items"</value>
+    </data>
+  <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
+        <value>es. 1 elemento trovato nella quarta scheda del tuo inventario.</value>
+    </data>
+  <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
+        <value>Nascondi i messaggi dei viaggi dell'Airship</value>
+    </data>
+  <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
+        <value>es. E' stata scoperta una nuova destinazione dell'aereonave!</value>
+    </data>
+  <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
+        <value>Nascondi i messaggi dei viaggi del sottomarino</value>
+    </data>
+  <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
+        <value>es. E' stata scoperta una nuova destinazione del sommergibile!</value>
+    </data>
+  <data name="SystemTab_HideVistaMessages" xml:space="preserve">
+        <value>Nascondi i messaggi dell'arrivo e dell'allontanamento da una vista</value>
+    </data>
+  <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
+        <value>es. Sei arrivato ad una vista! e Ti sei allontanato troppo da una vista.</value>
+    </data>
+  <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
+        <value>Nasconde i messaggi relativi alla prova degli oggetti</value>
+    </data>
+  <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
+        <value>es. Provi un oggetto.</value>
+    </data>
+  <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
+        <value>Visualizza i messaggi di sistema che Tidy Chat nasconde per impostazione predefinita</value>
+    </data>
+  <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
+        <value>Visualizza gli aggiornamenti sul proprio stato online</value>
+    </data>
+  <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
+        <value>es. Cambiamento dello stato online su Away from Keyboard.</value>
+    </data>
+  <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
+        <value>Visualizza gli oggetti allegati alla posta inviata</value>
+    </data>
+  <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
+        <value>es. Alleghi 2 pots of Dalamud Red Dye alla lettera.</value>
+    </data>
+  <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di avanzamento dei libri della Relic di ARR</value>
+    </data>
+  <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
+        <value>es. L'uccisione di Ouranos (1/1) è stata registrata sulla &lt;Relic Weapon&gt; Forza +2.</value>
+    </data>
+  <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di completamento degli step dei libri della Relic di ARR</value>
+    </data>
+  <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
+        <value>es. Tutti gli obiettivi della categoria Dungeons per &lt;Relic Weapon&gt; - Forza +2 sono stati completati!</value>
+    </data>
+  <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
+        <value>Mostra i messaggi delle uccisioni delle hunt</value>
+    </data>
+  <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
+        <value>es. L'hunt &lt;mark&gt; è stata uccisa! 1/3</value>
+    </data>
+  <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
+        <value>Visualizza il tempo di completamento quando è selezionato l'unrestricted party</value>
+    </data>
+  <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
+        <value>es. Tempo di completamento della &lt;Duty&gt;: 00:30</value>
+    </data>
+  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di controllo del volume</value>
+    </data>
+  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
+        <value>es. Volume globale silenziato, volume di background impostato a 50.</value>
+    </data>
+  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando si cambiano le glamour plate</value>
+    </data>
+  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
+        <value>
+es. Glamour proiettati dalla plate 10.</value>
+    </data>
+  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando si cambia gearset</value>
+    </data>
+  <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
+        <value>
+es. "Red Mage" equipaggiato.</value>
+    </data>
+  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
+        <value>POTD &amp; HoH</value>
+    </data>
+  <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
+        <value>Visualizza che il party ha ottenuto un pomander</value>
+    </data>
+  <data name="SystemTab_ShowReturnedPomanderMessages" xml:space="preserve">
+        <value>Visualizza quando rimetti un pomander nel forziere</value>
+    </data>
+  <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
+        <value>Visualizza quando il Cairn of Passage inizia a brillare</value>
+    </data>
+  <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
+        <value>Visualizza quando il Cairn of Return viene utilizzato</value>
+    </data>
+  <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
+        <value>Visualizza quando il Cairn of Passage si attiva</value>
+    </data>
+  <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di trasferimento</value>
+    </data>
+  <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
+        <value>Visualizza l'incremento di Aetherpool</value>
+    </data>
+  <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
+        <value>Visualizza l'Aetherpool rimane invariato...</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene usato il Pomander of Safety</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene utilizzato il Pomander of Sight</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene utilizzato il Pomander of Affluence</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene utilizzato il Pomander of Flight</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene utilizzato il Pomander of Alteration</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene utilizzato il Pomander of Witching</value>
+    </data>
+  <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
+        <value>Visualizza quando viene utilizzato il Pomander of Serenity</value>
+    </data>
+  <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
+        <value>Visualizza il numero quando si entra in un nuovo piano</value>
+    </data>
+  <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
+        <value>Visualizza quando si avverte la presenza di un Accursed Hoard</value>
+    </data>
+  <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
+        <value>Visualizza quando non si avverte la presenza di un Accursed Hoard</value>
+    </data>
+  <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
+        <value>Visualizza quando viene scoperto un Accursed Hoard</value>
+    </data>
+  <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
+        <value>Messaggi di invito e party</value>
+    </data>
+  <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
+        <value>Visualizza inviti al party inviati</value>
+    </data>
+  <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
+        <value>Visualizza i giocatori che si uniscono al party</value>
+    </data>
+  <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
+        <value>Visualizza i giocatori che escono dal party</value>
+    </data>
+  <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
+        <value>Visualizza quando il party viene sciolto e dissolto</value>
+    </data>
+  <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
+        <value>Visualizza inviti ai party ricevuti</value>
+    </data>
+  <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
+        <value>Visualizza messaggi di partecipazione a party/cross-party</value>
+    </data>
+  <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
+        <value>Visualizza offerte di teletrasporto dei membri del party</value>
+    </data>
+  <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
+        <value>Messaggi degli scambi</value>
+    </data>
+  <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Richiesta di scambio inviata a"</value>
+    </data>
+  <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Scambio cancellato."</value>
+    </data>
+  <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "In attesa della conferma dello scambio"</value>
+    </data>
+  <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Scambio completato."</value>
+    </data>
+  <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
+        <value>Loot e Roll</value>
+    </data>
+  <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Hai tentato la fortuna"</value>
+    </data>
+  <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quando tirate i dadi su un oggetto.
+es. Tenti la fortuna su &lt;item&gt;</value>
+    </data>
+  <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Hai totalizzato..."</value>
+    </data>
+  <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
+        <value>Qeusto visualizza il messaggio che si attiva quando tutti hanno scelto cosa fare con un oggetto e viene visualizzato il tuo numero.
+es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
+    </data>
+  <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Un altro giocatore tenta la fortuna su &lt;item&gt;"</value>
+    </data>
+  <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quando un altro giocatore tenta la fortuna per su un drop.
+es. Un altro giocatore ha fatto la sua scelta per &lt;item&gt;,.</value>
+    </data>
+  <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
+        <value>Visualizza il messaggio "Un altro giocatore ha scelto Greed..."</value>
+    </data>
+  <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
+        <value>Visualizza i messaggi "Un altro giocatore ha ottenuto &lt;item&gt;"</value>
+    </data>
+  <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quando un altro giocatore nel party ottiene un drop.
+es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
+    </data>
+  <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
+        <value>Valute comuni</value>
+    </data>
+  <data name="ObtainTab_ShowGil" xml:space="preserve">
+        <value>Mostra i Gil</value>
+    </data>
+  <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 69 gil.</value>
+    </data>
+  <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
+        <value>Visualizza i Grand Company Seals</value>
+    </data>
+  <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 420 Flame Seals.</value>
+    </data>
+  <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
+        <value>Visualizza le Venture</value>
+    </data>
+  <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto una Venture.</value>
+    </data>
+  <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
+        <value>Visualizza i MGP</value>
+    </data>
+  <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 117 MGP.</value>
+    </data>
+  <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
+        <value>Valute di battaglia</value>
+    </data>
+  <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
+        <value>Vizualizza i Allagan tomestones of Poetics</value>
+    </data>
+  <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 100 Allagan tomestones of Poetics.</value>
+    </data>
+  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
+        <value>Visualizza i Allagan tomestones of Aphorism</value>
+    </data>
+  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 60 Allagan tomestones of Aphorism.</value>
+    </data>
+  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
+        <value>Visualizza i Allagan tomestones of Astronomy</value>
+    </data>
+  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 20 Allagan tomestones of Astronomy.</value>
+    </data>
+  <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
+        <value>Visualizza i Wolf Mark</value>
+    </data>
+  <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 1.000 Wolf Mark.</value>
+    </data>
+  <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
+        <value>Visualizza i Allied Seal</value>
+    </data>
+  <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 100 Allied Seal.</value>
+    </data>
+  <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
+        <value>Visualizza i Centurio Seal</value>
+    </data>
+  <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 40 Centurio Seal.</value>
+    </data>
+  <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
+        <value>Visualizza i Sack of Nuts</value>
+    </data>
+  <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 100 sack of Nuts.</value>
+    </data>
+  <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
+        <value>Beast Tribe Quest</value>
+    </data>
+  <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
+        <value>Visualizza i materiali crafting delle Beast Tribe</value>
+    </data>
+  <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quando ricevete materiali da crafting utilizzati nelle quest Beast Tribe.
+es. Hai ricevuto Starboard Hull Component Materials</value>
+    </data>
+  <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
+        <value>Visualizza le valute delle Beast Tribe</value>
+    </data>
+  <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
+        <value>Questo mostra il messaggio che si attiva quando ricevi valuta delle Beast Tribe al completamento di una quest Beast Tribe.</value>
+    </data>
+  <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
+        <value>Altri messaggi Hai ricevuto</value>
+    </data>
+  <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
+        <value>Visualizza i cracked clusters</value>
+    </data>
+  <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza i cracked cluster come i Dendroclusters ed i Anthoclusters.
+Per nascondere gli elemental clusters consulta l'opzione per nascondere gli elemental cluster in basso.
+es. Hai ricevuto un craced dendrocluster</value>
+    </data>
+  <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
+        <value>Visualizza gli elemental shard, crystal e cluster</value>
+    </data>
+  <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quand oraccogliete o ricevete elemental shard, crystal o cluster
+es. Hai ricevuto 30 ice shard</value>
+    </data>
+  <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
+        <value>Attiva il filtro sulla cronologia della chat</value>
+    </data>
+  <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
+        <value>Se un messaggio è stato inviato entro gli ultimi {0} messaggi, verrà filtrato</value>
+    </data>
+  <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
+        <value>Ignora i messaggi inviati da un giocatore</value>
+    </data>
+  <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
+        <value>Filtra i messaggi duplicati inviati dal giocaotre, abilitala se vuoi che i messaggi duplicati che invii vengano filtrati dalla tua visualizzazione.</value>
+    </data>
+  <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
+        <value>Numero di messaggi da mantenere nella cronologia della chat</value>
+    </data>
+  <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
+        <value>ATTENZIONE: Esagerare con la lunghezza della cronologia della chat potrebbe influire sulle performance del gioco.
+E' consigliabile tenerla a 50 o meno.</value>
+    </data>
+  <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
+        <value>Imposta il numero di secondi in cui i messaggi vengono mantenuti nella cronologia della chat</value>
+    </data>
+  <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
+        <value>Imposta a 0 per disattivare</value>
+    </data>
+  <data name="CraftingGatheringTab_DesynthesisDropdownHeader" xml:space="preserve">
+        <value>Desintesi</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
+        <value>Visualizza l'incremento di livello desintesi</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
+        <value>Visualizza gli oggetti ottenuti dalla desintesi</value>
+    </data>
+  <data name="CraftingGatheringTab_MateriaDropdownHeader" xml:space="preserve">
+        <value>Materia</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando la materia viene inserita con successo nell'equipaggiamento</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando fallisce l'overmelding di una materia sull'equipaggiamento</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando recuperi con successo una materia dall'equipaggiamento</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando la materia si rompe durante il recupero</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando la materia viene estratta da un equipaggiamento con spiritbond completo</value>
+    </data>
+  <data name="CraftingGatheringTab_CraftingDropdownHeader" xml:space="preserve">
+        <value>Crafting</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
+        <value>Visualizza il messaggio di stato finale al completamento di una Trial synthesis</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
+        <value>Visualizza i messaggi della sintesi quando un altro giocatore completa un craft.</value>
+    </data>
+  <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
+        <value>Gathering</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
+        <value>Visualizza il numero di sabbie ottenute dopo aver eseguito l'aetherial reduction</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando la zona influsice sul numero di oggetti raccolti, sul numero di tentativi di gathering e quando ricevi il Gatherer's Boon</value>
+    </data>
+  <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
+        <value>Nascondi solo le zone che influenzano il numero di oggetti raccolti</value>
+    </data>
+  <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
+        <value>Nascondi solo le zone che influiscono sul numero di tentativi di gathering</value>
+    </data>
+  <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
+        <value>Nascondi solo le zone che influsicono sul Gatherer's Boon</value>
+    </data>
+  <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
+        <value>Pesca</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
+        <value>Visualizza un messaggio quando un pesce viene aggiunto alla fish guide</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
+        <value>Visualizza i pesci catturati che misurano [size] ilms</value>
+    </data>
+  <data name="SettingsTabFooter_SaveButtonText" xml:space="preserve">
+        <value>Salva</value>
+    </data>
+  <data name="SettingsTabFooter_SaveAndCloseButtonText" xml:space="preserve">
+        <value>Salva e chiudi la configurazione</value>
+    </data>
+  <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
+        <value>Supporto su Ko-Fi</value>
+    </data>
+  <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
+        <value>Pagina Wiki</value>
+    </data>
+  <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
+        <value>Visualizza i messaggi sull'esperienza guadagnata</value>
+    </data>
+  <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai guadagnato 2338 Punti Esperienza.</value>
+    </data>
+  <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
+        <value>Visualizza il bonus ottenuto per aver usato la duty roulette</value>
+    </data>
+  <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
+        <value>es. Ti è stato elargito un bonus di 4.252.498 punti esperienza e 12.000 gil per aver usato la duty roulette.</value>
+    </data>
+  <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
+        <value>Visualizza il bonus ottenuto per essere un avventuriero nel bisogno</value>
+    </data>
+  <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
+        <value>es. Ti è stato elargito un bonus di 7.200 gil per essere un avventuriero nel bisogno.</value>
+    </data>
+  <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di esperienza PVP ottenuta</value>
+    </data>
+  <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai acquisito 500 PvP EXP.</value>
+    </data>
+  <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
+        <value>Visualizza i messaggi degli achievement ottenuti</value>
+    </data>
+  <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
+        <value>Visualizza i messaggi degli achievement ottenuti dagli altri giocatori</value>
+    </data>
+  <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di level up</value>
+    </data>
+  <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza i messaggi che si attivano quando sali di livello.
+Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
+    </data>
+  <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
+        <value>Visualizza i messaggi di aumento di livello degli altri giocatori</value>
+    </data>
+  <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quando gli altri salgono di livello.
+es. Giocatore sale al livello 33!</value>
+    </data>
+  <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
+        <value>Visualizza i messaggi delle abilità apprese</value>
+    </data>
+  <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
+        <value>Questo visualizza il messaggio che si attiva quando apprendi una nuova abilità.
+Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
+    </data>
+  <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
+        <value>Visualizza tutti i messaggi inviati dai giocatori nella whitelist</value>
+    </data>
+  <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
+        <value>Visualizza tutti i messaggi diretti a un giocatore nella whitelist</value>
+    </data>
+  <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
+        <value>Gli utenti aggiunti alla whitelist vengono trattati dai filtri come se si trattasse di te.
+Inserisci il nome e cognome di un giocatore e poi premi &lt;Enter&gt; per aggiungerlo alla whitelist.</value>
+    </data>
+  <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
+        <value>Selezione canali</value>
+    </data>
+  <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
+        <value>Informazioni del giocatore</value>
+    </data>
+  <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
+        <value>È necessario inserire il nome del giocatore come sarebbe stato visto in chat - compresi i punti.
+
+es.
+Cognome Abbreviato: Esempio N.
+Forename Abbreviato: E. Nome
+Iniziali: E. N.</value>
+    </data>
+  <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
+        <value>Nome: </value>
+    </data>
+  <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
+        <value>Cognome: </value>
+    </data>
+  <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
+        <value>Nome Server: </value>
+    </data>
+  <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
+        <value>Seleziona i canali della cronologia chat da filtrare:</value>
+    </data>
+  <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
+        <value>Emote</value>
+    </data>
+  <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
+        <value>Loot</value>
+    </data>
+  <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
+        <value>Crafting</value>
+    </data>
+  <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
+        <value>Gathering</value>
+    </data>
+  <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
+        <value>Parlare</value>
+    </data>
+  <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
+        <value>Login e Logout</value>
+    </data>
+  <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
+        <value>Progresso</value>
+    </data>
+  <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
+        <value>Sistema</value>
+        <comment>This should be the name of the System channel for messages</comment>
+    </data>
+  <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
+        <value>Impostazioni</value>
+    </data>
+  <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
+        <value>Avanzate</value>
+    </data>
+  <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
+        <value>Hai ricevuto {0}{1}{2}</value>
+    </data>
+  <data name="BetterStrings_CommendationSingular" xml:space="preserve">
+        <value>commendation</value>
+        <comment>Commendation - singular</comment>
+    </data>
+  <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
+        <value>commendation</value>
+        <comment>Commendations - Plural</comment>
+    </data>
+  <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
+        <value>per aver completato</value>
+    </data>
+  <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
+        <value>Nascondi i messaggi "Ti stai teletrasportando a..."</value>
+    </data>
+  <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
+        <value>Nascondi i messaggi dell'equipaggiamento che raggiunge il 100% di spiritbond</value>
+    </data>
+  <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
+        <value>Free Company</value>
+    </data>
+  <data name="SystemTab_HideLoginMessages" xml:space="preserve">
+        <value>Nasconde i messaggi di login dei membri della free company</value>
+    </data>
+  <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
+        <value>Nasconde i messaggi di logout dei membri della free company</value>
+    </data>
+  <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
+        <value>Nasconde i messaggi dei nuovi messaggi scritti nel message book della free company</value>
+    </data>
+  <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
+        <value>Nasconde i messaggi dei nuovi messaggi scritti nel message book personale</value>
+    </data>
+  <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
+        <value>Nasconde i messaggi relativi ai forzieri disponibili</value>
+    </data>
+  <data name="SystemTab_ShowNowALeader" xml:space="preserve">
+        <value>Visualizza i messaggi sei diventato leader/non sei più un leader</value>
+    </data>
+  <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
+        <value>Questo messaggio si attiva quando diventi leader di un party, di una Free Company, di un party PvP, di una Linkshell o di una Cross-world Linkshell.</value>
+    </data>
+  <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
+        <value>Visualizza il bonus ottenuto per la prima clear di un membro del party</value>
+    </data>
+  <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
+        <value>Visualizza quando vengono ottenuti i punti Second Chance dopo aver completato una duty</value>
+    </data>
+  <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
+        <value>Canali</value>
+    </data>
+  <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
+        <value>Nasconde il messaggio impossibile partecipare al Novice Network pieno.</value>
+    </data>
+  <data name="WhitelistTab_Allow" xml:space="preserve">
+        <value>Consenti</value>
+    </data>
+  <data name="WhitelistTab_Block" xml:space="preserve">
+        <value>Blocca</value>
+    </data>
+  <data name="WhitelistTab_MessageContains" xml:space="preserve">
+        <value>Il messaggio contiene:</value>
+    </data>
+  <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
+        <value>Filtri</value>
+    </data>
+  <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
+        <value>Filtri Personalizzati</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
+        <value>Visualizza l'oggetto in fase di desintesi</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
+        <value>Visualizza il messaggio "Avverti..." per i nodi di gathering</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
+        <value>Visualizza un messaggio quando viene scoperto un punto per pescare</value>
+    </data>
+  <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
+        <value>Visualizza il nome della fishing hole quando viene lanciata l'esca</value>
+    </data>
+</root>

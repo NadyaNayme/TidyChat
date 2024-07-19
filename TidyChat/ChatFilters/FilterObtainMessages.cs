@@ -10,7 +10,7 @@ public static class FilterObtainMessages
     {
         try
         {
-            TidyChat.Log.Debug("Debug Mode: " + input);
+            TidyChatPlugin.Log.Debug("Debug Mode: " + input);
             if (
                 (!configuration.ShowRouletteBonus && L10N.Get(ChatStrings.RouletteBonus).All(input.Contains)) ||
                 (!configuration.ShowAdventurerInNeedBonus &&
@@ -33,31 +33,31 @@ public static class FilterObtainMessages
                 (!configuration.ShowObtainedPoeticsTomestones &&
                  L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && L10N.Language switch
                  {
-                     ClientLanguage.Japanese => input.Contains("詩学"),
-                     ClientLanguage.English => input.Contains("poetics"),
-                     ClientLanguage.German => input.Contains("poesie"),
-                     ClientLanguage.French => input.Contains("poétique"),
-                     _ => input.Contains("poetics")
+                     ClientLanguage.Japanese => input.Contains("詩学", StringComparison.Ordinal),
+                     ClientLanguage.English => input.Contains("poetics", StringComparison.Ordinal),
+                     ClientLanguage.German => input.Contains("poesie", StringComparison.Ordinal),
+                     ClientLanguage.French => input.Contains("poétique", StringComparison.Ordinal),
+                     _ => input.Contains("poetics", StringComparison.Ordinal)
                  }) ||
                 (!configuration.ShowObtainedAphorismTomestones &&
                  L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && L10N.Language switch
                  {
-                     ClientLanguage.Japanese => input.Contains("経典"),
-                     ClientLanguage.English => input.Contains("aphorism"),
-                     ClientLanguage.German => input.Contains("aphorismus"),
-                     ClientLanguage.French => input.Contains("aphoristique"),
-                     _ => input.Contains("aphorism")
+                     ClientLanguage.Japanese => input.Contains("経典", StringComparison.Ordinal),
+                     ClientLanguage.English => input.Contains("aphorism", StringComparison.Ordinal),
+                     ClientLanguage.German => input.Contains("aphorismus", StringComparison.Ordinal),
+                     ClientLanguage.French => input.Contains("aphoristique", StringComparison.Ordinal),
+                     _ => input.Contains("aphorism", StringComparison.Ordinal)
                  }) ||
                 (!configuration.ShowObtainedAstronomyTomestones &&
                  L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(input) && L10N.Language switch
                  {
-                     ClientLanguage.Japanese => input.Contains("天文"),
-                     ClientLanguage.English => input.Contains("astronomy"),
-                     ClientLanguage.German => input.Contains("astronomie"),
-                     ClientLanguage.French => input.Contains("astronomique"),
-                     _ => input.Contains("astronomy")
+                     ClientLanguage.Japanese => input.Contains("天文", StringComparison.Ordinal),
+                     ClientLanguage.English => input.Contains("astronomy", StringComparison.Ordinal),
+                     ClientLanguage.German => input.Contains("astronomie", StringComparison.Ordinal),
+                     ClientLanguage.French => input.Contains("astronomique", StringComparison.Ordinal),
+                     _ => input.Contains("astronomy", StringComparison.Ordinal)
                  }) ||
-                (!configuration.ShowOthersObtain && !input.StartsWith("you ") &&
+                (!configuration.ShowOthersObtain && !input.StartsWith("you ", StringComparison.Ordinal) &&
                  L10N.Get(ChatRegexStrings.OtherObtains).IsMatch(input)) ||
                 (!configuration.ShowObtainedMaterials && L10N.Get(ChatRegexStrings.ObtainedMaterials).IsMatch(input))
             )
@@ -69,7 +69,7 @@ public static class FilterObtainMessages
         // If we somehow encounter an error - allow the message
         catch (Exception e)
         {
-            TidyChat.Log.Debug("Encountered error: " + e);
+            TidyChatPlugin.Log.Error("Encountered error: " + e);
             return false;
         }
     }

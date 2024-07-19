@@ -2,20 +2,15 @@
 using System.Numerics;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
-using TidyChat.Localization.Resources;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
+using TidyChat.Resources.Languages;
 
 namespace TidyChat;
 
-internal class PluginUI : IDisposable
+internal class PluginUI(Configuration configuration) : IDisposable
 {
-    private readonly Configuration configuration;
-
-    public PluginUI(Configuration configuration)
-    {
-        this.configuration = configuration;
-    }
+    private readonly Configuration configuration = configuration;
 
     public void Dispose()
     {
@@ -36,16 +31,16 @@ internal class PluginUI : IDisposable
                 ImGui.SameLine(ImGui.GetWindowWidth() - width);
                 Vector4 ColorGray = new(0.45f, 0.45f, 0.45f, 1);
                 ImGui.TextColored(ColorGray, TidyStrings.Version);
-                if (ImGui.BeginTabItem(localization.ConfigWindow_SettingsTabHeader))
+                if (ImGui.BeginTabItem(Languages.ConfigWindow_SettingsTabHeader))
                 {
                     GeneralTab.Draw(configuration);
-                    SettingsTabFooter.Display(configuration, ref settingsVisible);
+                    TabFooter.Display(configuration, ref settingsVisible);
                 }
 
-                if (ImGui.BeginTabItem(localization.ConfigWindow_AdvancedSettingsTabHeader))
+                if (ImGui.BeginTabItem(Languages.ConfigWindow_AdvancedSettingsTabHeader))
                 {
                     AdvancedTab.Draw(configuration);
-                    SettingsTabFooter.Display(configuration, ref settingsVisible);
+                    TabFooter.Display(configuration, ref settingsVisible);
                 }
 
                 ImGui.EndTabBar();

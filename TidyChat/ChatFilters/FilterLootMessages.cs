@@ -24,11 +24,11 @@ public static class FilterLootMessages
                  *
                  * The && !(input.StartsWith("you")) is done as an alternative to using ^((?!you).).* in each Regex
                  */
-                (!configuration.ShowOthersLootRoll && !input.StartsWith("you") &&
+                (!configuration.ShowOthersLootRoll && !input.StartsWith("you", StringComparison.Ordinal) &&
                  L10N.Get(ChatRegexStrings.OthersRollNeedOrGreed).IsMatch(input)) ||
-                (!configuration.ShowOthersCastLot && !input.StartsWith("you") &&
+                (!configuration.ShowOthersCastLot && !input.StartsWith("you", StringComparison.Ordinal) &&
                  L10N.Get(ChatRegexStrings.OthersCastLot).IsMatch(input)) ||
-                (!configuration.ShowOthersObtain && !input.StartsWith("you") &&
+                (!configuration.ShowOthersObtain && !input.StartsWith("you", StringComparison.Ordinal) &&
                  L10N.Get(ChatRegexStrings.OtherObtains).IsMatch(input))
             )
                 return true;
@@ -36,7 +36,7 @@ public static class FilterLootMessages
         }
         catch (Exception e)
         {
-            TidyChat.Log.Debug("Encountered error: " + e);
+            TidyChatPlugin.Log.Debug("Encountered error: " + e);
             return false;
         }
     }

@@ -1,6 +1,6 @@
 using Dalamud.Interface.Components;
 using ImGuiNET;
-using TidyChat.Localization.Resources;
+using TidyChat.Resources.Languages;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -8,199 +8,199 @@ internal static class ObtainTab
 {
     public static void Draw(Configuration configuration)
     {
-        if (ImGui.CollapsingHeader(localization.ObtainTab_LootingAndRollingDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.ObtainTab_LootingAndRollingDropdownHeader))
         {
             var showCastLot = configuration.ShowCastLot;
-            if (ImGui.Checkbox(localization.ObtainTab_CastYourLotMessages, ref showCastLot))
+            if (ImGui.Checkbox(Languages.ObtainTab_CastYourLotMessages, ref showCastLot))
             {
                 configuration.ShowCastLot = showCastLot;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_CastYourLotHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_CastYourLotHelpMarker);
 
             var showLootRoll = configuration.ShowLootRoll;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowYouRolledMessages, ref showLootRoll))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowYouRolledMessages, ref showLootRoll))
             {
                 configuration.ShowLootRoll = showLootRoll;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowYouRolledMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowYouRolledMessagesHelpMarker);
 
             var showOthersCastLot = configuration.ShowOthersCastLot;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowAnotherPlayerCastsLotMessages, ref showOthersCastLot))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessages, ref showOthersCastLot))
             {
                 configuration.ShowOthersCastLot = showOthersCastLot;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker);
 
             var showOthersLootRoll = configuration.ShowOthersLootRoll;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowAnotherPlayerRollsMessages, ref showOthersLootRoll))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerRollsMessages, ref showOthersLootRoll))
             {
                 configuration.ShowOthersLootRoll = showOthersLootRoll;
                 configuration.Save();
             }
 
             var showOthersObtain = configuration.ShowOthersObtain;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref showOthersObtain))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref showOthersObtain))
             {
                 configuration.ShowOthersObtain = showOthersObtain;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
         }
 
-        if (ImGui.CollapsingHeader(localization.ObtainTab_CommonCurrenciesDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.ObtainTab_CommonCurrenciesDropdownHeader))
         {
             var showObtainedgil = configuration.ShowObtainedGil;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowGil, ref showObtainedgil))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowGil, ref showObtainedgil))
             {
                 configuration.ShowObtainedGil = showObtainedgil;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowGilHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGilHelpMarker);
 
             var showObtainedSeals = configuration.ShowObtainedSeals;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowGrandCompanySealsMessages, ref showObtainedSeals))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowGrandCompanySealsMessages, ref showObtainedSeals))
             {
                 configuration.ShowObtainedSeals = showObtainedSeals;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowGrandCompanySealsMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGrandCompanySealsMessagesHelpMarker);
 
             var showObtainedVenture = configuration.ShowObtainedVenture;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowVentureMessages, ref showObtainedVenture))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowVentureMessages, ref showObtainedVenture))
             {
                 configuration.ShowObtainedVenture = showObtainedVenture;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowVentureMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowVentureMessagesHelpMarker);
 
             var showObtainedMGP = configuration.ShowObtainedMGP;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowMGPMessages, ref showObtainedMGP))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowMGPMessages, ref showObtainedMGP))
             {
                 configuration.ShowObtainedMGP = showObtainedMGP;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowMGPMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowMGPMessagesHelpMarker);
         }
 
-        if (ImGui.CollapsingHeader(localization.ObtainTab_BattleCurrenciesDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.ObtainTab_BattleCurrenciesDropdownHeader))
         {
             var showObtainedPoeticsTomestones = configuration.ShowObtainedPoeticsTomestones;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowPoeticsMessages, ref showObtainedPoeticsTomestones))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowPoeticsMessages, ref showObtainedPoeticsTomestones))
             {
                 configuration.ShowObtainedPoeticsTomestones = showObtainedPoeticsTomestones;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowPoeticsMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowPoeticsMessagesHelpMarker);
 
             var showObtainedAphorismTomestones = configuration.ShowObtainedAphorismTomestones;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowAphorismMessages, ref showObtainedAphorismTomestones))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowAphorismMessages, ref showObtainedAphorismTomestones))
             {
                 configuration.ShowObtainedAphorismTomestones = showObtainedAphorismTomestones;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAphorismMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAphorismMessagesHelpMarker);
 
             var showObtainedAstronomyTomestones = configuration.ShowObtainedAstronomyTomestones;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowAstronomyMessages, ref showObtainedAstronomyTomestones))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowAstronomyMessages, ref showObtainedAstronomyTomestones))
             {
                 configuration.ShowObtainedAstronomyTomestones = showObtainedAstronomyTomestones;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAstronomyMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAstronomyMessagesHelpMarker);
 
             var showObtainedWolfMarks = configuration.ShowObtainedWolfMarks;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowWolfMarksMessages, ref showObtainedWolfMarks))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowWolfMarksMessages, ref showObtainedWolfMarks))
             {
                 configuration.ShowObtainedWolfMarks = showObtainedWolfMarks;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowWolfMarksMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowWolfMarksMessagesHelpMarker);
 
             var showObtainedAlliedSeals = configuration.ShowObtainedAlliedSeals;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowAlliedSealsMessages, ref showObtainedAlliedSeals))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowAlliedSealsMessages, ref showObtainedAlliedSeals))
             {
                 configuration.ShowObtainedAlliedSeals = showObtainedAlliedSeals;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowAlliedSealsMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAlliedSealsMessagesHelpMarker);
 
             var showObtainedCenturioSeals = configuration.ShowObtainedCenturioSeals;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowCenturioSealsMessages, ref showObtainedCenturioSeals))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowCenturioSealsMessages, ref showObtainedCenturioSeals))
             {
                 configuration.ShowObtainedCenturioSeals = showObtainedCenturioSeals;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowCenturioSealsMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowCenturioSealsMessagesHelpMarker);
 
             var showObtainedNuts = configuration.ShowObtainedNuts;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowSacksOfNutsMessages, ref showObtainedNuts))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowSacksOfNutsMessages, ref showObtainedNuts))
             {
                 configuration.ShowObtainedNuts = showObtainedNuts;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowSacksOfNutsMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowSacksOfNutsMessagesHelpMarker);
         }
 
-        if (ImGui.CollapsingHeader(localization.ObtainTab_BeastTribeQuestsDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.ObtainTab_BeastTribeQuestsDropdownHeader))
         {
             var showObtainedMaterials = configuration.ShowObtainedMaterials;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowBeastTribeCraftingMaterialsMessages,
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowBeastTribeCraftingMaterialsMessages,
                     ref showObtainedMaterials))
             {
                 configuration.ShowObtainedMaterials = showObtainedMaterials;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
 
             var showObtainedTribalCurrency = configuration.ShowObtainedTribalCurrency;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowBeastTribeCurrenciesMessages, ref showObtainedTribalCurrency))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowBeastTribeCurrenciesMessages, ref showObtainedTribalCurrency))
             {
                 configuration.ShowObtainedTribalCurrency = showObtainedTribalCurrency;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
         }
 
-        if (ImGui.CollapsingHeader(localization.ObtainTab_OtherObtainMessagesDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.ObtainTab_OtherObtainMessagesDropdownHeader))
         {
             var showObtainedClusters = configuration.ShowObtainedClusters;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowCrackedClustersMessages, ref showObtainedClusters))
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowCrackedClustersMessages, ref showObtainedClusters))
             {
                 configuration.ShowObtainedClusters = showObtainedClusters;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
 
             var showObtainedShards = configuration.ShowObtainedShards;
-            if (ImGui.Checkbox(localization.ObtainTab_ShowElementalShardsCrystalsClustersMessages,
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessages,
                     ref showObtainedShards))
             {
                 configuration.ShowObtainedShards = showObtainedShards;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(localization.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
         }
 
         ImGui.EndTabItem();

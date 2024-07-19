@@ -5,6 +5,7 @@ using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
+using Lumina.Excel.GeneratedSheets;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
@@ -16,8 +17,8 @@ internal static class BetterStrings
     {
         // With the chat mode in Say, enter a phrase containing "Capture this"
 
-        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation));
-        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation));
+        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
+        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
         var lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
         var containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
         if (configuration.CopyBetterSayReminder)
@@ -44,9 +45,9 @@ internal static class BetterStrings
             stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceCharacter}");
             return stringBuilder.BuiltString;
         }
-        catch (Exception ex)
+        catch
         {
-            // Oops
+            // Nah
         }
         return "";
     }
@@ -96,7 +97,7 @@ internal static class BetterStrings
         var t = new Timer
         {
             Interval = 1000,
-            AutoReset = false
+            AutoReset = false,
         };
         t.Elapsed += delegate
         {

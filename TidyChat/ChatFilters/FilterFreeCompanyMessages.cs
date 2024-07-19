@@ -17,7 +17,7 @@ public static class FilterFreeCompanyMessages
         }
         catch (Exception e)
         {
-            TidyChat.Log.Debug("Encountered error: " + e);
+            TidyChatPlugin.Log.Debug("Encountered error: " + e);
             return false;
         }
     }

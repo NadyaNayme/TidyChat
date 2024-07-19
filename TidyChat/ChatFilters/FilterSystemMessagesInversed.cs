@@ -117,7 +117,7 @@ public static class FilterSystemMessagesInversed
         // If we somehow encounter an error - allow the message
         catch (Exception e)
         {
-            TidyChat.Log.Debug("Encountered error: " + e);
+            TidyChatPlugin.Log.Debug("Encountered error: " + e);
             return false;
         }
     }

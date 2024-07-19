@@ -27,7 +27,7 @@ public sealed class FilterProgressMessages
         }
         catch (Exception e)
         {
-            TidyChat.Log.Debug("Encountered error: " + e);
+            TidyChatPlugin.Log.Debug("Encountered error: " + e);
             return true;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using TidyChat.Translation.Data;
 
 namespace TidyChat.Utility;
 
@@ -24,7 +25,7 @@ internal static class InternalStrings
         Jpn = new string("インスタンスエリア"),
         Eng = new string("You are now in instance:"),
         Deu = new string("Du bist jetzt in Instanz:"),
-        Fra = new string("La zone instanciée:")
+        Fra = new string("La zone instanciée:"),
     };
 
     public static readonly LocalizedTidyStrings InstanceWord = new()
@@ -32,7 +33,7 @@ internal static class InternalStrings
         Jpn = new string("インスタンスエリア"),
         Eng = new string("Instance"),
         Deu = new string("Instanz"),
-        Fra = new string("Instanciée")
+        Fra = new string("Instanciée"),
     };
 
     public static readonly LocalizedTidyStrings CopiedToClipboard = new()
@@ -40,7 +41,7 @@ internal static class InternalStrings
         Jpn = new string("クリップボードにコピーされました"),
         Eng = new string("has been copied to clipboard"),
         Deu = new string("wurde in die Zwischenablage kopiert"),
-        Fra = new string("a été copié")
+        Fra = new string("a été copié"),
     };
 
     public static readonly LocalizedTidyStrings Guildhest = new()
@@ -48,7 +49,7 @@ internal static class InternalStrings
         Jpn = new string("ギルドヘストから入手"),
         Eng = new string("a Guildhest"),
         Deu = new string("ein Gildengeheiß"),
-        Fra = new string("une opération de guilde")
+        Fra = new string("une opération de guilde"),
     };
 
     public static readonly LocalizedTidyStrings PvPDuty = new()
@@ -56,7 +57,7 @@ internal static class InternalStrings
         Jpn = new string("NeedsLocalization"),
         Eng = new string("a PvP duty"),
         Deu = new string("aus einer PVP"),
-        Fra = new string("une mission JcJ")
+        Fra = new string("une mission JcJ"),
     };
 
     /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
@@ -65,7 +66,7 @@ internal static class InternalStrings
         Jpn = new string("NeedsLocalization"),
         Eng = new string("Palace of the Dead"),
         Deu = new string("Palast der Toten"),
-        Fra = new string("Palais des morts")
+        Fra = new string("Palais des morts"),
     };
 
     /// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
@@ -74,7 +75,7 @@ internal static class InternalStrings
         Jpn = new string("NeedsLocalization"),
         Eng = new string("Heaven-on-High"),
         Deu = new string("Himmelssäule"),
-        Fra = new string("Pilier des Cieux")
+        Fra = new string("Pilier des Cieux"),
     };
 
     public static readonly LocalizedTidyStrings StartQuotation = new()
@@ -82,7 +83,7 @@ internal static class InternalStrings
         Jpn = new string("『"),
         Eng = new string("“"),
         Deu = new string("„"),
-        Fra = new string("“")
+        Fra = new string("“"),
     };
 
     public static readonly LocalizedTidyStrings EndQuotation = new()
@@ -90,7 +91,7 @@ internal static class InternalStrings
         Jpn = new string("』"),
         Eng = new string("”"),
         Deu = new string("“"),
-        Fra = new string("”")
+        Fra = new string("”"),
     };
 
     public static string LastDuty { get; set; } = "";

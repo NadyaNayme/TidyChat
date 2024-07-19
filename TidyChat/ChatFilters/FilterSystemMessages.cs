@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
@@ -117,7 +118,7 @@ public static class FilterSystemMessages
         // If we somehow encounter an error - block the message
         catch (Exception e)
         {
-            TidyChat.Log.Debug("Encountered error: " + e);
+            TidyChatPlugin.Log.Debug("Encountered error: " + e);
             return true;
         }
     }

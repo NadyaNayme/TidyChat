@@ -1,7 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Reflection;
 using Dalamud.Configuration;
+using Dalamud.Game.Gui.Dtr;
 using Dalamud.Plugin;
+using Dalamud.Plugin.Services;
+using FFXIVClientStructs;
+using FFXIVClientStructs.Havok.Common.Base.Reflection;
 
 namespace TidyChat;
 
@@ -18,7 +24,7 @@ public class Configuration : IPluginConfiguration
     public bool EnableInverseMode { get; set; } = false;
     public bool IncludeChatTag { get; set; } = true;
     public string PlayerName { get; set; } = "";
-    public List<PlayerName> Whitelist { get; set; } = new();
+    public IList<PlayerName> Whitelist { get; set; } = [];
     public bool SentByWhitelistPlayer { get; set; } = true;
     public bool TargetingWhitelistPlayer { get; set; } = true;
     public bool ChatHistoryFilter { get; set; } = false;
@@ -34,9 +40,15 @@ public class Configuration : IPluginConfiguration
         this.pluginInterface = pluginInterface;
     }
 
+    public T? GetPropertyValue<T>(object obj, string propName) {
+        return (T?)obj?.GetType()?.GetProperty(propName)?.GetValue(this, index: null); 
+    }
+
     public void Save()
     {
         pluginInterface!.SavePluginConfig(this);
+        Rules.UpdateIsActiveStates(this);
+        TidyChatPlugin.InstanceDtrBarUpdate(TidyChatPlugin.GetDtrBar(), this);
     }
 
     #region Chat Filters

@@ -1,5 +1,7 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Collections;
+using System.Text.RegularExpressions;
 using Dalamud.Game;
+using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
@@ -66,40 +68,4 @@ internal static class L10N
             _ => strings.Eng // Won't work for J/F/D but at least it's not a crash
         };
     }
-}
-
-public record struct LocalizedStrings
-{
-    /// <remarks>
-    ///     The string to be matched is preprocessed and always replaces the local player name with "you"
-    /// </remarks>
-    public string[] Jpn { get; init; }
-
-    public string[] Eng { get; init; }
-    public string[] Deu { get; init; }
-    public string[] Fra { get; init; }
-}
-
-public record struct LocalizedRegex
-{
-    /// <remarks>
-    ///     The string to be matched is preprocessed and always replaces the local player name with "you"
-    /// </remarks>
-    public Regex Jpn { get; init; }
-
-    public Regex Eng { get; init; }
-    public Regex Deu { get; init; }
-    public Regex Fra { get; init; }
-}
-
-public record struct LocalizedTidyStrings
-{
-    /// <remarks>
-    ///     For use with Utility.InternalStrings and Utility.BetterStrings
-    /// </remarks>
-    public string Jpn { get; init; }
-
-    public string Eng { get; init; }
-    public string Deu { get; init; }
-    public string Fra { get; init; }
 }
