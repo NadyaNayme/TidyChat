@@ -78,30 +78,30 @@ public class Configuration : IPluginConfiguration
 
     #region Whitelisted System Messages
 
-    public bool HideSRankHunt { get; set; } = false;
-    public bool HideSSRankHunt { get; set; } = false;
-    public bool HideCommendations { get; set; } = false;
-    public bool HideCompletedVenture { get; set; } = false;
-    public bool HideInstanceMessage { get; set; } = false;
-    public bool HideQuestReminder { get; set; } = false;
-    public bool HideUsedEmotes { get; set; } = false;
-    public bool HideOtherCustomEmotes { get; set; } = false;
-    public bool HideReadyChecks { get; set; } = false;
-    public bool HideCountdownTime { get; set; } = false;
-    public bool HideUserLogins { get; set; } = false;
-    public bool HideUserLogouts { get; set; } = false;
-    public bool HideDebugTeleport { get; set; } = false;
-    public bool HideSpiritboundGear { get; set; } = false;
-    public bool HideSpideySenses { get; set; } = false;
-    public bool HideAetherCompass { get; set; } = false;
-    public bool HideSearchForItemResults { get; set; } = false;
-    public bool HideExploratoryVoyage { get; set; } = false;
-    public bool HideSubaquaticVoyage { get; set; } = false;
-    public bool HideFreeCompanyMessageBook { get; set; } = false;
-    public bool HidePersonalMessageBook { get; set; } = false;
-    public bool HideVistaMessages { get; set; } = false;
-    public bool HideTryOnGlamour { get; set; } = false;
-    public bool HideEligibleForCoffers { get; set; } = false;
+    public bool ShowSRankHunt { get; set; } = true;
+    public bool ShowSSRankHunt { get; set; } = true;
+    public bool ShowCommendations { get; set; } = true;
+    public bool ShowCompletedVenture { get; set; } = true;
+    public bool ShowInstanceMessage { get; set; } = true;
+    public bool ShowQuestReminder { get; set; } = true;
+    public bool ShowUsedEmotes { get; set; } = true;
+    public bool ShowOtherCustomEmotes { get; set; } = true;
+    public bool ShowReadyChecks { get; set; } = true;
+    public bool ShowCountdownTime { get; set; } = true;
+    public bool ShowUserLogins { get; set; } = true;
+    public bool ShowUserLogouts { get; set; } = true;
+    public bool ShowDebugTeleport { get; set; } = true;
+    public bool ShowSpiritboundGear { get; set; } = true;
+    public bool ShowSpideySenses { get; set; } = true;
+    public bool ShowAetherCompass { get; set; } = true;
+    public bool ShowSearchForItemResults { get; set; } = true;
+    public bool ShowExploratoryVoyage { get; set; } = true;
+    public bool ShowSubaquaticVoyage { get; set; } = true;
+    public bool ShowFreeCompanyMessageBook { get; set; } = true;
+    public bool ShowPersonalMessageBook { get; set; } = true;
+    public bool ShowVistaMessages { get; set; } = true;
+    public bool ShowTryOnGlamour { get; set; } = true;
+    public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGlamoursProjected { get; set; } = false;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
@@ -128,7 +128,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowNowLeaderOf { get; set; } = false;
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
-    public bool HideNoviceNetworkFull { get; set; } = false;
+    public bool ShowNoviceNetworkFull { get; set; } = true;
 
     #endregion
 
@@ -220,9 +220,9 @@ public class Configuration : IPluginConfiguration
     public bool ShowGatheringSenses { get; set; } = true;
     public bool ShowAetherialReductionSands { get; set; } = true;
     public bool ShowLocationAffects { get; set; } = true;
-    public bool HideGatheringYield { get; set; } = true;
-    public bool HideGatherersBoon { get; set; } = true;
-    public bool HideGatheringAttempts { get; set; } = true;
+    public bool ShowGatheringYield { get; set; } = true;
+    public bool ShowGatherersBoon { get; set; } = true;
+    public bool ShowGatheringAttempts { get; set; } = true;
     public bool ShowCaughtFish { get; set; } = true;
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;

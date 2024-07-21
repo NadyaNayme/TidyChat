@@ -21,155 +21,155 @@ internal static class SystemTab
             ImGui.TextUnformatted(Languages.SystemTab_ExperimentalFeatureInverseModeWarningText);
         if (ImGui.CollapsingHeader(Languages.SystemTab_HideShownDefaultDropdownHeader))
         {
-            var instanceMessage = configuration.HideInstanceMessage;
+            var instanceMessage = configuration.ShowInstanceMessage;
             if (ImGui.Checkbox(Languages.SystemTab_HideInstanceMessage, ref instanceMessage))
             {
-                configuration.HideInstanceMessage = instanceMessage;
+                configuration.ShowInstanceMessage = instanceMessage;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideInstanceMessageHelpMarker);
 
-            var hideDebugTeleport = configuration.HideDebugTeleport;
-            if (ImGui.Checkbox(Languages.SystemTab_HideTeleportingToMessages, ref hideDebugTeleport))
+            var showDebugTeleport = configuration.ShowDebugTeleport;
+            if (ImGui.Checkbox(Languages.SystemTab_HideTeleportingToMessages, ref showDebugTeleport))
             {
-                configuration.HideDebugTeleport = hideDebugTeleport;
+                configuration.ShowDebugTeleport = showDebugTeleport;
                 configuration.Save();
             }
 
-            var sRankHunt = configuration.HideSRankHunt;
+            var sRankHunt = configuration.ShowSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
             {
-                configuration.HideSRankHunt = sRankHunt;
+                configuration.ShowSRankHunt = sRankHunt;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSRankSpawnAnnouncementHelpMarker);
 
-            var ssRankHunt = configuration.HideSSRankHunt;
+            var ssRankHunt = configuration.ShowSSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_HideSSRankMinionSpawnAnnouncement, ref ssRankHunt))
             {
-                configuration.HideSSRankHunt = ssRankHunt;
+                configuration.ShowSSRankHunt = ssRankHunt;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker);
 
-            var commendations = configuration.HideCommendations;
+            var commendations = configuration.ShowCommendations;
             if (ImGui.Checkbox(Languages.SystemTab_HideReceivedCommendations, ref commendations))
             {
-                configuration.HideCommendations = commendations;
+                configuration.ShowCommendations = commendations;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideReceivedCommendationsHelpMarker);
 
-            var completedVenture = configuration.HideCompletedVenture;
+            var completedVenture = configuration.ShowCompletedVenture;
             if (ImGui.Checkbox(Languages.SystemTab_HideCompletedVenture, ref completedVenture))
             {
-                configuration.HideCompletedVenture = completedVenture;
+                configuration.ShowCompletedVenture = completedVenture;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideCompletedVentureHelpMarker);
 
-            var hideQuestReminder = configuration.HideQuestReminder;
-            if (ImGui.Checkbox(Languages.SystemTab_HideSayReminder, ref hideQuestReminder))
+            var showQuestReminder = configuration.ShowQuestReminder;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSayReminder, ref showQuestReminder))
             {
-                configuration.HideQuestReminder = hideQuestReminder;
+                configuration.ShowQuestReminder = showQuestReminder;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSayReminderHelpMarker);
 
-            var hideSpideySenses = configuration.HideSpideySenses;
-            if (ImGui.Checkbox(Languages.SystemTab_HideYouSenseSomethingMessages, ref hideSpideySenses))
+            var showSpideySenses = configuration.ShowSpideySenses;
+            if (ImGui.Checkbox(Languages.SystemTab_HideYouSenseSomethingMessages, ref showSpideySenses))
             {
-                configuration.HideSpideySenses = hideSpideySenses;
+                configuration.ShowSpideySenses = showSpideySenses;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideYouSenseSomethingMessagesHelpMarker);
 
-            var hideAetherCompass = configuration.HideAetherCompass;
-            if (ImGui.Checkbox(Languages.SystemTab_HideAetherCompassMessages, ref hideAetherCompass))
+            var showAetherCompass = configuration.ShowAetherCompass;
+            if (ImGui.Checkbox(Languages.SystemTab_HideAetherCompassMessages, ref showAetherCompass))
             {
-                configuration.HideAetherCompass = hideAetherCompass;
+                configuration.ShowAetherCompass = showAetherCompass;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideAetherCompassMessagesHelpMarker);
 
-            var hideCountdownTime = configuration.HideCountdownTime;
-            if (ImGui.Checkbox(Languages.SystemTab_HideCountdownMessages, ref hideCountdownTime))
+            var showCountdownTime = configuration.ShowCountdownTime;
+            if (ImGui.Checkbox(Languages.SystemTab_HideCountdownMessages, ref showCountdownTime))
             {
-                configuration.HideCountdownTime = hideCountdownTime;
+                configuration.ShowCountdownTime = showCountdownTime;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideCountdownMessagesHelpMarker);
 
-            var hideReadyChecks = configuration.HideReadyChecks;
-            if (ImGui.Checkbox(Languages.SystemTab_HideReadycheckMessages, ref hideReadyChecks))
+            var showReadyChecks = configuration.ShowReadyChecks;
+            if (ImGui.Checkbox(Languages.SystemTab_HideReadycheckMessages, ref showReadyChecks))
             {
-                configuration.HideReadyChecks = hideReadyChecks;
+                configuration.ShowReadyChecks = showReadyChecks;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideReadycheckMessagesHelpMarker);
 
-            var hideSearchForItemResults = configuration.HideSearchForItemResults;
-            if (ImGui.Checkbox(Languages.SystemTab_HideItemSearchResultsMessage, ref hideSearchForItemResults))
+            var showSearchForItemResults = configuration.ShowSearchForItemResults;
+            if (ImGui.Checkbox(Languages.SystemTab_HideItemSearchResultsMessage, ref showSearchForItemResults))
             {
-                configuration.HideSearchForItemResults = hideSearchForItemResults;
+                configuration.ShowSearchForItemResults = showSearchForItemResults;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideItemSearchResultsMessageHelpMarker);
 
-            var hideVistaMessages = configuration.HideVistaMessages;
-            if (ImGui.Checkbox(Languages.SystemTab_HideVistaMessages, ref hideVistaMessages))
+            var showVistaMessages = configuration.ShowVistaMessages;
+            if (ImGui.Checkbox(Languages.SystemTab_HideVistaMessages, ref showVistaMessages))
             {
-                configuration.HideVistaMessages = hideVistaMessages;
+                configuration.ShowVistaMessages = showVistaMessages;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideVistaMessagesHelpMarker);
 
-            var hideTryOnGlamour = configuration.HideTryOnGlamour;
-            if (ImGui.Checkbox(Languages.SystemTab_HideTryOnGlamourMessages, ref hideTryOnGlamour))
+            var showTryOnGlamour = configuration.ShowTryOnGlamour;
+            if (ImGui.Checkbox(Languages.SystemTab_HideTryOnGlamourMessages, ref showTryOnGlamour))
             {
-                configuration.HideTryOnGlamour = hideTryOnGlamour;
+                configuration.ShowTryOnGlamour = showTryOnGlamour;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideTryOnGlamourMessagesHelpMarker);
 
-            var hidePersonalMessageBook = configuration.HidePersonalMessageBook;
-            if (ImGui.Checkbox(Languages.SystemTab_HidePersonalMessageBookMessages, ref hidePersonalMessageBook))
+            var showPersonalMessageBook = configuration.ShowPersonalMessageBook;
+            if (ImGui.Checkbox(Languages.SystemTab_HidePersonalMessageBookMessages, ref showPersonalMessageBook))
             {
-                configuration.HidePersonalMessageBook = hidePersonalMessageBook;
+                configuration.ShowPersonalMessageBook = showPersonalMessageBook;
                 configuration.Save();
             }
 
-            var hideSpiritboundGear = configuration.HideSpiritboundGear;
-            if (ImGui.Checkbox(Languages.SystemTab_HideSpiritboundMessages, ref hideSpiritboundGear))
+            var showSpiritboundGear = configuration.ShowSpiritboundGear;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSpiritboundMessages, ref showSpiritboundGear))
             {
-                configuration.HideSpiritboundGear = hideSpiritboundGear;
+                configuration.ShowSpiritboundGear = showSpiritboundGear;
                 configuration.Save();
             }
 
-            var hideEligibleForCoffers = configuration.HideEligibleForCoffers;
-            if (ImGui.Checkbox(Languages.SystemTab_HideNumberOfCoffers, ref hideEligibleForCoffers))
+            var showEligibleForCoffers = configuration.ShowEligibleForCoffers;
+            if (ImGui.Checkbox(Languages.SystemTab_HideNumberOfCoffers, ref showEligibleForCoffers))
             {
-                configuration.HideEligibleForCoffers = hideEligibleForCoffers;
+                configuration.ShowEligibleForCoffers = showEligibleForCoffers;
                 configuration.Save();
             }
 
-            var hideNoviceNetworkFull = configuration.HideNoviceNetworkFull;
-            if (ImGui.Checkbox(Languages.SystemTab_HideUnableToJoinFullNoviceNetwork, ref hideNoviceNetworkFull))
+            var showNoviceNetworkFull = configuration.ShowNoviceNetworkFull;
+            if (ImGui.Checkbox(Languages.SystemTab_HideUnableToJoinFullNoviceNetwork, ref showNoviceNetworkFull))
             {
-                configuration.HideNoviceNetworkFull = hideNoviceNetworkFull;
+                configuration.ShowNoviceNetworkFull = showNoviceNetworkFull;
                 configuration.Save();
             }
         }
@@ -269,41 +269,41 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_FreeCompanyDropdownHeader))
         {
-            var hideUserLogins = configuration.HideUserLogins;
-            if (ImGui.Checkbox(Languages.SystemTab_HideLoginMessages, ref hideUserLogins))
+            var showUserLogins = configuration.ShowUserLogins;
+            if (ImGui.Checkbox(Languages.SystemTab_HideLoginMessages, ref showUserLogins))
             {
-                configuration.HideUserLogins = hideUserLogins;
+                configuration.ShowUserLogins = showUserLogins;
                 configuration.Save();
             }
 
-            var hideUserLogouts = configuration.HideUserLogouts;
-            if (ImGui.Checkbox(Languages.SystemTab_HideLogoutMessages, ref hideUserLogouts))
+            var showUserLogouts = configuration.ShowUserLogouts;
+            if (ImGui.Checkbox(Languages.SystemTab_HideLogoutMessages, ref showUserLogouts))
             {
-                configuration.HideUserLogouts = hideUserLogouts;
+                configuration.ShowUserLogouts = showUserLogouts;
                 configuration.Save();
             }
 
-            var hideFreeCompanyMessageBook = configuration.HideFreeCompanyMessageBook;
+            var showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
             if (ImGui.Checkbox(Languages.SystemTab_HideFreeCompanyMessageBookMessages,
-                    ref hideFreeCompanyMessageBook))
+                    ref showFreeCompanyMessageBook))
             {
-                configuration.HideFreeCompanyMessageBook = hideFreeCompanyMessageBook;
+                configuration.ShowFreeCompanyMessageBook = showFreeCompanyMessageBook;
                 configuration.Save();
             }
 
-            var hideExploratoryVoyage = configuration.HideExploratoryVoyage;
-            if (ImGui.Checkbox(Languages.SystemTab_HideAirshipVoyageMessages, ref hideExploratoryVoyage))
+            var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideAirshipVoyageMessages, ref showExploratoryVoyage))
             {
-                configuration.HideExploratoryVoyage = hideExploratoryVoyage;
+                configuration.ShowExploratoryVoyage = showExploratoryVoyage;
                 configuration.Save();
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideAirshipVoyageMessagesHelpMarker);
 
-            var hideSubaquaticVoyage = configuration.HideSubaquaticVoyage;
-            if (ImGui.Checkbox(Languages.SystemTab_HideSubmarineVoyageMessages, ref hideSubaquaticVoyage))
+            var showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSubmarineVoyageMessages, ref showSubaquaticVoyage))
             {
-                configuration.HideSubaquaticVoyage = hideSubaquaticVoyage;
+                configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
                 configuration.Save();
             }
 

@@ -119,27 +119,27 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var hideGatheringYield = configuration.HideGatheringYield;
+            var showGatheringYield = configuration.ShowGatheringYield;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_HideGatheringYieldLocationMessages,
-                    ref hideGatheringYield))
+                    ref showGatheringYield))
             {
-                configuration.HideGatheringYield = hideGatheringYield;
+                configuration.ShowGatheringYield = showGatheringYield;
                 configuration.Save();
             }
 
-            var hideGatheringAttempts = configuration.HideGatheringAttempts;
+            var showGatheringAttempts = configuration.ShowGatheringAttempts;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_HideGatheringAttemptsLocationMessages,
-                    ref hideGatheringAttempts))
+                    ref showGatheringAttempts))
             {
-                configuration.HideGatheringAttempts = hideGatheringAttempts;
+                configuration.ShowGatheringAttempts = showGatheringAttempts;
                 configuration.Save();
             }
 
-            var hideGatherersBoon = configuration.HideGatherersBoon;
+            var showGatherersBoon = configuration.ShowGatherersBoon;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_HideGatheringBoonLocationMessages,
-                    ref hideGatherersBoon))
+                    ref showGatherersBoon))
             {
-                configuration.HideGatherersBoon = hideGatherersBoon;
+                configuration.ShowGatherersBoon = showGatherersBoon;
                 configuration.Save();
             }
         }

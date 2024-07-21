@@ -19,6 +19,7 @@ using TidyChat.Resources.Languages;
 using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
 using TidyStrings = TidyChat.Utility.InternalStrings;
+using System.Data;
 
 namespace TidyChat;
 
@@ -50,8 +51,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         L10N.Language = ClientState.ClientLanguage;
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
-        // Sets name on install / plugin update
-        SetPlayerName();
 
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
@@ -77,6 +76,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         });
 
         PluginInterface.UiBuilder.Draw += DrawUI;
+        PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
         PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
     }
 
@@ -100,6 +100,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(dtrEntry, Configuration);
+        SetPlayerName();
     }
 
     private void OnLogout()
@@ -149,12 +150,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         var chatType = FromDalamud(type);
 
+        // Don't bother checking anything sent to /echo... unless we're debugging
+        if (chatType == ChatType.Echo && !Configuration.EnableDebugMode)
+        {
+            Log.Verbose($"/echo message - refusing to filter. Please enable Debug Mode if testing which filter the message would have matched.");
+            return;
+        }
+
         // Check that the user has configured the channel to be filtered
         if (!FilterIsEnabled(chatType)) return;
         Log.Verbose($"Filter for {chatType} Channel is enabled - checking message against filters");
 
         // Check if emotes from other players should be filtered or not
-        if (!Configuration.HideOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote) return;
+        if (!Configuration.ShowOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
+        {
+            Log.Verbose($"Filtered an emote: {message.ToString()}");
+            return;
+        }
 
         // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
         var normalizedText = NormalizeInput.ToLowercase(message);
@@ -167,15 +179,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
-        if (Configuration.HideDebugTeleport && !Configuration.EnableDebugMode && chatType is ChatType.Debug &&
+        if (Configuration.ShowDebugTeleport && !Configuration.EnableDebugMode && chatType is ChatType.Debug &&
             L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
             isHandled = true;
 
         #region Better Messages
 
         // Certain messages are improved with better messaging - these will change those messages to be Better Messages
+        // Better Messages must always Early Return to avoid being filtered and because if we bettered the message we aren't filtering it anyway
 
-        if (Configuration.BetterInstanceMessage && !Configuration.HideInstanceMessage &&
+        if (Configuration.BetterInstanceMessage && !Configuration.ShowInstanceMessage &&
             !Configuration.EnableDebugMode && chatType is ChatType.System &&
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
         { 
@@ -187,11 +200,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
 
         {
-            message = Better.SayReminder(message, Configuration);
+            message = Better.SayReminder(message, Configuration); 
             return;
         }
 
-        if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
+        if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode &&
+            (L10N.Get(ChatStrings.NoviceNetworkJoin).All(normalizedText.Contains) || L10N.Get(ChatStrings.NoviceNetworkLeft).All(normalizedText.Contains)))
         {
             message = Better.NoviceNetwork(message, normalizedText, Configuration);
             return;
@@ -205,9 +219,19 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         var rules = Rules.AllRules;
 
 
-        // Filter the message if it comes from a spammy channel - otherwise allow it by default
+        // Block any messages that come from a "spammy" channel
         bool isBlocked = ChannelIsSpammy(chatType);
 
+        // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
+        if (chatType is ChatType.System && Configuration.EnableInverseMode)
+        {
+            Log.Information($"Inverse Mode Active");
+            isBlocked = false;
+        }
+
+        List<String> rulesPassed = [];
+        List<String> rulesSkipped = [];
+        List<String> rulesFailed= [];
         foreach (var rule in rules)
         {
             if (rule.Error is not null)
@@ -216,79 +240,138 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
 
             // Don't bother checking if the rule is not active
-            if (!rule.IsActive) continue;
+            if (!rule.IsActive)
+            {
+                Log.Verbose($"SKIPPING CHECK: {rule.Name} is inactive");
+                rulesSkipped.Add(rule.Name);
+                continue;
+            }
 
             // Don't bother with checks for Channels other than the one the rule intends to filter
-            if (chatType != rule.Channel) continue;
-
-            // Don't bother checking anything sent to /echo... unless we're debugging
-            if (rule.Channel == ChatType.Echo && !Configuration.EnableDebugMode)
+            if (chatType != rule.Channel)
             {
-                Log.Verbose($"/echo message - refusing to filter");
-                return;
+                Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
+                rulesSkipped.Add(rule.Name);
+                continue;
             }
+
             if (rule.Channel == ChatType.Echo)
             {
-                bool foundMatch = false;
+                List<bool> fakeChecksMatched = [];
                 switch (rule.Pattern)
                 {
                     case PatternKind.RegexMatch:
-                        if (L10N.Get(rule.RegexMatch).IsMatch(normalizedText))
+                        if (rule.RegexChecks is null) return;
+                        foreach (var check in rule.RegexChecks)
                         {
-                            Log.Debug($"Rule would have matched: {rule.Name}");
-                            foundMatch = true;
+                            if (L10N.Get(check).IsMatch(normalizedText))
+                            {
+                                Log.Debug($"MATCHED: {rule.Name}");
+                                fakeChecksMatched.Add(true);
+                                rulesPassed.Add(rule.Name);
+                            }
                         }
                         break;
                     case PatternKind.StringMatch:
-                        if (L10N.Get(rule.StringMatch).All(normalizedText.Contains))
+                        if (rule.StringChecks is null) return;
+                        foreach (var check in rule.StringChecks)
                         {
-                            Log.Debug($"Rule would have matched: {rule.Name}");
-                            foundMatch = true;
+                            if (L10N.Get(check).All(normalizedText.Contains))
+                            {
+                                Log.Debug($"MATCHED: {rule.Name}");
+                                fakeChecksMatched.Add(true);
+                                rulesPassed.Add(rule.Name);
+                            }
                         }
                         break;
                 }
-                if (!foundMatch)
+                if (fakeChecksMatched.Count == 0)
                 {
-                    Log.Debug($"/echo message failed to match {rule.Name}");
+                    Log.Debug($"/echo message failed to match any rules");
                 }
                 continue;
             }
 
-            // If Inverse System is enabled System messages should not be blocked by default
-            if (rule.Channel is ChatType.System && Configuration.EnableInverseMode)
-            {
-                Log.Verbose($"Inverse mode is activated - message is being allowed by default unless it matches a rule");
-                isBlocked = false;
-            }
-
-                // If a rule matches a filter it should be allowed
-                switch (rule.Pattern)
+            // Forgive me Father for I have sinned by writing this code
+            switch (rule.Pattern)
             {
                 case PatternKind.RegexMatch:
-                    if (L10N.Get(rule.RegexMatch).IsMatch(normalizedText))
+                    if (rule.RegexChecks is null) return;
+
+                    foreach (var check in rule.RegexChecks)
                     {
-                        Log.Debug($"Rule Matched: {rule.Name}");
-                        // If InverseMode is not enabled it will be Allowed otherwise it will be Blocked
-                        isBlocked = Configuration.EnableInverseMode;
+                        Log.Verbose($"START CHECK FOR: {rule.Name}");
+                        Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
+                        List<bool> regexChecksMatched = [];
+                        if (L10N.Get(check).IsMatch(normalizedText))
+                        {
+                            Log.Verbose($"MATCHED: {rule.Name}");
+                            regexChecksMatched.Add(true);
+                        } else
+                        {
+                            Log.Verbose($"FAILED: {rule.Name}");
+                            regexChecksMatched.Add(false);
+                        }
+                        // If any of the checks fail it doesn't match our rule to allow the message
+                        if (!regexChecksMatched.Contains(false))
+                        {
+                            Log.Verbose($"Passed all checks!");
+                            rulesPassed.Add(rule.Name);
+                            isBlocked = Configuration.EnableInverseMode;
+                        } else
+                        {
+                            rulesFailed.Add(rule.Name);
+                        }
                     }
                     break;
                 case PatternKind.StringMatch:
-                    if (L10N.Get(rule.StringMatch).All(normalizedText.Contains))
+                    if (rule.StringChecks is null) return;
+
+                    foreach (var check in rule.StringChecks)
                     {
-                        Log.Debug($"Rule Matched: {rule.Name}");
-                        isBlocked = Configuration.EnableInverseMode;
+                        Log.Verbose($"START CHECK FOR: {rule.Name}");
+                        Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
+                        List<bool> stringChecksMatched = [];
+                        if (L10N.Get(check).All(normalizedText.Contains))
+                        {
+                            Log.Verbose($"MATCHED: {rule.Name}");
+                            stringChecksMatched.Add(true);
+                        } else
+                        {
+                            Log.Verbose($"FAILED: {rule.Name}");
+                            stringChecksMatched.Add(false);
+                        }
+                        if (!stringChecksMatched.Contains(false))
+                        {
+                            Log.Verbose($"Passed all checks!");
+                            rulesPassed.Add(rule.Name);
+                            isBlocked = Configuration.EnableInverseMode;
+                        } else
+                        {
+                            rulesFailed.Add(rule.Name);
+                        }
                     }
                     break;
             }
         }
+        Log.Debug($"{rulesPassed.Count} Rules Passed: {String.Join(", ", rulesPassed)}");
+        Log.Debug($"{rulesSkipped.Count} Rules Skipped: {String.Join(", ", rulesSkipped)}");
+        Log.Debug($"{rulesFailed.Count} Rules Failed: {String.Join(", ", rulesFailed)}");
         isHandled = isBlocked;
+        if (isHandled)
+        {
+            Log.Debug($"BLOCKED: {message}");
+        } else
+        {
+            Log.Debug($"ALLOWED: {message}");
+        }
 
         #endregion
 
         #region Configuration Filter Overrides
 
         // If the message is an emote used by the player and we are filtering used emotes - it is handled (blocked)
-        if (Configuration.HideUsedEmotes &&
+        if (!Configuration.ShowUsedEmotes &&
             (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
             string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
@@ -446,7 +529,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
 
             if (channelSelectedToFilter &&
-string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
+                string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
             {
                 isHandled = false;
                 Log.Verbose($"The message from {playerOrMessage.FirstName} has been allowed.");
@@ -476,11 +559,24 @@ string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordi
             if (ClientState.LocalPlayer == null) return;
 
             Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
+            Log.Information($"Player name saved as {ClientState.LocalPlayer.Name}");
             Configuration.Save();
         }
         catch (Exception ex)
         {
-            Log.Error("Error: Failed to capture player's name - " + ex);
+            Log.Error("Error: Failed to capture player's name - trying again in 30 seconds" + ex);
+            var t = new Timer
+            {
+                Interval = 30000,
+                AutoReset = false,
+            };
+            t.Elapsed += delegate
+            {
+                t.Enabled = false;
+                t.Dispose();
+                SetPlayerName();
+            };
+            t.Enabled = true;
         }
     }
 
@@ -541,7 +637,7 @@ string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordi
         if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam) return true;
         if (chatType is ChatType.LootRoll && Configuration.FilterLootSpam) return true;
         if (chatType is ChatType.Progress && Configuration.FilterProgressSpam) return true;
-        if (chatType is ChatType.FreeCompanyLoginLogout && Configuration.HideUserLogins) return true;
+        if (chatType is ChatType.FreeCompanyLoginLogout && Configuration.ShowUserLogins) return true;
         return false;
     }
 
@@ -598,7 +694,6 @@ string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordi
 
     private void OnCommand(string command, string args)
     {
-        SetPlayerName();
         PluginUi.SettingsVisible = true;
     }
 
@@ -614,7 +709,6 @@ string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordi
 
     private void DrawConfigUI()
     {
-        SetPlayerName();
         PluginUi.SettingsVisible = true;
     }
 

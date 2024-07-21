@@ -11,8 +11,13 @@ public static class ChatRegexStrings
 
     private static readonly TimeSpan regexTimeout = TimeSpan.FromSeconds(1);
 
-    public static readonly Regex BetterPlayerCommendation = new(@"You received \d{1} (commendation|commendations)",
-        regexOptions, regexTimeout);
+    public static readonly LocalizedRegex BetterPlayerCommendation = new()
+    {
+        Eng = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Jpn = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Deu = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Fra = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+    };
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain...</see>
     public static readonly LocalizedRegex ObtainedGil = new()
@@ -234,27 +239,39 @@ public static class ChatRegexStrings
     // TODO: German/French need to be tested and may not use quotes for the gearsets.
     public static readonly LocalizedRegex GearsetEquipped = new()
     {
-        Jpn = new Regex(@"」に装備変更しました。$", regexOptions, regexTimeout),
-        Eng = new Regex(@"^“(.*)” equipped\.$", regexOptions, regexTimeout),
-        Deu = new Regex(@"^(du|you) hast „(.*)“ angelegt\.$", regexOptions, regexTimeout),
-        Fra = new Regex(@"^(vous|you) vous équipez (.*)\.$", regexOptions, regexTimeout),
+        Jpn = new Regex(@"」に装備変更しました。", regexOptions, regexTimeout),
+        Eng = new Regex(@"^“(.*)” equipped", regexOptions, regexTimeout),
+        Deu = new Regex(@"^(du|you) hast „(.*)“ angelegt\.", regexOptions, regexTimeout),
+        Fra = new Regex(@"^(vous|you) vous équipez (.*)\.", regexOptions, regexTimeout),
     };
 
     // Future proofing the materias a bit here
-    public static readonly Regex MateriaRetrieved =
-        new(
-            @"^you (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}",
-            regexOptions, regexTimeout);
+    public static readonly LocalizedRegex MateriaRetrieved =
+        new()
+        {
+            Jpn = new Regex(@"^you (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}", regexOptions, regexTimeout),
+            Eng = new Regex(@"^you (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}", regexOptions, regexTimeout),
+            Deu = new Regex(@"^you (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}", regexOptions, regexTimeout),
+            Fra = new Regex(@"^you (receive|receives) (a|an|2) .+ materia [I|V|X|L|C|D|M]{1,10}", regexOptions, regexTimeout),
+        };
 
-    public static readonly Regex MateriaShatters =
-        new(
-            @"^the .+ materia [I|V|X|L|C|D|M]{1,10} shatters",
-            regexOptions, regexTimeout);
+    public static readonly LocalizedRegex MateriaShatters =
+        new()
+        {
+            Jpn = new Regex(@"^the .+ materia [I|V|X|L|C|D|M]{1,10} shatters", regexOptions, regexTimeout),
+            Eng = new Regex(@"^the .+ materia [I|V|X|L|C|D|M]{1,10} shatters", regexOptions, regexTimeout),
+            Deu = new Regex(@"^the .+ materia [I|V|X|L|C|D|M]{1,10} shatters", regexOptions, regexTimeout),
+            Fra = new Regex(@"^the .+ materia [I|V|X|L|C|D|M]{1,10} shatters", regexOptions, regexTimeout),
+        };
 
-    public static readonly Regex AttachedMateria =
-        new(
-            @"^you successfully (attach|attaches) (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the",
-            regexOptions, regexTimeout);
+    public static readonly LocalizedRegex AttachedMateria =
+        new()
+        {
+            Jpn = new Regex(@"^you successfully (attach|attaches) (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the", regexOptions, regexTimeout),
+            Eng = new Regex(@"^you successfully (attach|attaches) (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the", regexOptions, regexTimeout),
+            Deu = new Regex(@"^you successfully (attach|attaches) (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the", regexOptions, regexTimeout),
+            Fra = new Regex(@"^you successfully (attach|attaches) (a|an) .+ materia [I|V|X|L|C|D|M]{1,10} to the", regexOptions, regexTimeout),
+        };
 
     /// <see href="https://xivapi.com/LogMessage/3860?pretty=true">Master volume muted/unmuted</see>
     /// ...

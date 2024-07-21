@@ -17,19 +17,19 @@ internal static class EmotesTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
 
-        var hideOtherCustomEmotes = configuration.HideOtherCustomEmotes;
+        var hideOtherCustomEmotes = configuration.ShowOtherCustomEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterCustomEmotes, ref hideOtherCustomEmotes))
         {
-            configuration.HideOtherCustomEmotes = hideOtherCustomEmotes;
+            configuration.ShowOtherCustomEmotes = hideOtherCustomEmotes;
             configuration.Save();
         }
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterCustomEmotesHelpMarker);
 
-        var hideUsedEmotes = configuration.HideUsedEmotes;
+        var hideUsedEmotes = configuration.ShowUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref hideUsedEmotes))
         {
-            configuration.HideUsedEmotes = hideUsedEmotes;
+            configuration.ShowUsedEmotes = hideUsedEmotes;
             configuration.Save();
         }
 

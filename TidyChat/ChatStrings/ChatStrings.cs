@@ -217,7 +217,7 @@ public static class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/5264?pretty=true">Engage!</see>
-    public static readonly LocalizedStrings CountdownTime = new()
+    public static readonly LocalizedStrings CountdownEngage = new()
     {
         Jpn = new[] { "戦闘開始" },
         Eng = new[] { "engage!" },
@@ -226,7 +226,7 @@ public static class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/5260?pretty=true">Battle commencing in <time> seconds.</see>
-    public static readonly LocalizedStrings CountdownEngage = new()
+    public static readonly LocalizedStrings CountdownTime = new()
     {
         Jpn = new[] { "戦闘開始まで", "秒" },
         Eng = new[] { "battle", "commencing", "in", "seconds" },
@@ -339,6 +339,15 @@ public static class ChatStrings
         {
             "tentatives", "récolte", "supplémentaires",
         }, // Les propriétés du lieu vous confèrent des tentatives de récolte supplémentaires!
+    };
+
+    
+    public static readonly LocalizedStrings GearsetEquipped= new()
+    {
+        Jpn = new[] { "NeedsLocalization" },
+        Eng = new[] { "equipped", "glamours", "restored" },
+        Deu = new[] { "NeedsLocalization" },
+        Fra = new[] { "NeedsLocalization" },
     };
 
     /// <see href="https://xivapi.com/LogMessage/38?pretty=true">Trade complete.</see>
