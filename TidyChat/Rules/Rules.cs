@@ -387,11 +387,11 @@ public static class Rules
         #region Emote
         new LocalizedFilterRule
         {
-            Name = "FilterEmoteSpam",
+            Name = "ShowUsedEmotes",
             SettingsTab = "Emotes",
             Channel = ChatType.StandardEmote,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PlayerTargetedEmote],
+            RegexChecks = [ChatRegexStrings.StartsWithYou],
             Pattern = PatternKind.RegexMatch,
         },
         new LocalizedFilterRule
@@ -502,15 +502,6 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowGatherersBoon",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatherersBoon],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
-        {
             Name = "ShowGatheringAttempts",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
@@ -520,7 +511,16 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "FilterGatheringSpam",
+            Name = "ShowGatherersBoon",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatherersBoon],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowGatheringStartEnd",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
@@ -531,7 +531,7 @@ public static class Rules
         {
             Name = "ShowGatheringSenses",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GatheringSystem,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.SpideySenses],
             Pattern = PatternKind.RegexMatch,

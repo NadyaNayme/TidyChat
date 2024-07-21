@@ -223,43 +223,43 @@ Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
         <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
     </data>
   <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
-        <value>Hide /countdown messages</value>
+        <value>Show /countdown messages</value>
     </data>
   <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
         <value>eg. Battle commencing in 18 seconds!</value>
     </data>
   <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
-        <value>Hide /readycheck message</value>
+        <value>Show /readycheck message</value>
     </data>
   <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
         <value>eg. Ready check complete.</value>
     </data>
   <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
-        <value>Hide "Search for items" results message</value>
+        <value>Show "Search for items" results message</value>
     </data>
   <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
         <value>eg. 1 item found in the 4th tab of your inventory.</value>
     </data>
   <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-        <value>Hide Airship voyage messages</value>
+        <value>Show Airship voyage messages</value>
     </data>
   <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
         <value>eg. A new exploratory voyage destination...has been discovered!</value>
     </data>
   <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-        <value>Hide Submarine voyage messages</value>
+        <value>Show Submarine voyage messages</value>
     </data>
   <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
         <value>eg. A new subaquatic voyage destination...has been discovered!</value>
     </data>
   <data name="SystemTab_HideVistaMessages" xml:space="preserve">
-        <value>Hide vista arrival and stray messages</value>
+        <value>Show vista arrival and stray messages</value>
     </data>
   <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
         <value>eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
     </data>
   <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
-        <value>Hide try on glamour messages</value>
+        <value>Show try on glamour messages</value>
     </data>
   <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
         <value>eg. You try on item.</value>
@@ -633,13 +633,13 @@ It's recommended to keep it at 50 or lower.</value>
         <value>Show message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect gathering yield</value>
+        <value>Show only locations that affect gathering yield</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect gathering attempts</value>
+        <value>Show only locations that affect gathering attempts</value>
     </data>
   <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-        <value>Hide only locations that affect Gatherer's Boon</value>
+        <value>Show only locations that affect Gatherer's Boon</value>
     </data>
   <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
         <value>Fishing</value>
@@ -795,28 +795,28 @@ Initials: E. N.</value>
         <value>from completing</value>
     </data>
   <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
-        <value>Hide "Teleporting to..." messages</value>
+        <value>Show "Teleporting to..." messages</value>
     </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
-        <value>Hide gear reaching 100% spiritbound messages</value>
+        <value>Show gear reaching 100% spiritbound messages</value>
     </data>
   <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
         <value>Free Company</value>
     </data>
   <data name="SystemTab_HideLoginMessages" xml:space="preserve">
-        <value>Hide Free Company member login messages</value>
+        <value>Show Free Company member login messages</value>
     </data>
   <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
-        <value>Hide Free Company member logout messages</value>
+        <value>Show Free Company member logout messages</value>
     </data>
   <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
-        <value>Hide Free Company message book new entry messages</value>
+        <value>Show Free Company message book new entry messages</value>
     </data>
   <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
-        <value>Hide personal message book new entry messages</value>
+        <value>Show personal message book new entry messages</value>
     </data>
   <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
-        <value>Hide number of available coffers messages</value>
+        <value>Show number of available coffers messages</value>
     </data>
   <data name="SystemTab_ShowNowALeader" xml:space="preserve">
         <value>Show you are now/no longer a leader messages</value>
@@ -834,7 +834,7 @@ Initials: E. N.</value>
         <value>Channels</value>
     </data>
   <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
-        <value>Hide unable to join full Novice Network.</value>
+        <value>Show unable to join full Novice Network.</value>
     </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
         <value>Allow</value>

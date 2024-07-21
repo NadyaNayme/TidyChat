@@ -220,6 +220,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGatheringSenses { get; set; } = true;
     public bool ShowAetherialReductionSands { get; set; } = true;
     public bool ShowLocationAffects { get; set; } = true;
+    public bool ShowGatheringStartEnd { get; set; } = true;
     public bool ShowGatheringYield { get; set; } = true;
     public bool ShowGatherersBoon { get; set; } = true;
     public bool ShowGatheringAttempts { get; set; } = true;

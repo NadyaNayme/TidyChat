@@ -456,7 +456,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide only locations that affect gathering attempts.
+        ///   Looks up a localized string similar to Show only locations that affect gathering attempts.
         /// </summary>
         internal static string CraftingGatheringTab_HideGatheringAttemptsLocationMessages
         {
@@ -467,7 +467,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide only locations that affect Gatherer&apos;s Boon.
+        ///   Looks up a localized string similar to Show only locations that affect Gatherer&apos;s Boon.
         /// </summary>
         internal static string CraftingGatheringTab_HideGatheringBoonLocationMessages
         {
@@ -478,13 +478,24 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide only locations that affect gathering yield.
+        ///   Looks up a localized string similar to Show only locations that affect gathering yield.
         /// </summary>
         internal static string CraftingGatheringTab_HideGatheringYieldLocationMessages
         {
             get
             {
                 return ResourceManager.GetString("CraftingGatheringTab_HideGatheringYieldLocationMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show only locations that affect gathering yield.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowGatheringStartEnd
+        {
+            get
+            {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowGatheringStartEnd", resourceCulture);
             }
         }
 
@@ -932,7 +943,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide ko-fi button.
+        ///   Looks up a localized string similar to Show ko-fi button.
         /// </summary>
         internal static string GeneralTab_HideKofiButton
         {
@@ -1824,7 +1835,7 @@ namespace TidyChat.Resources.Languages
 
         /// <summary>
         ///   Looks up a localized string similar to No longer blocks System messages by default.
-        ///Hide filters become Show filters and Show filters become Hide filters..
+        ///Show filters become Show filters and Show filters become Show filters..
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseModeHelpMarker
         {
@@ -1858,7 +1869,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Aether Compass message.
+        ///   Looks up a localized string similar to Show Aether Compass message.
         /// </summary>
         internal static string SystemTab_HideAetherCompassMessages
         {
@@ -1880,7 +1891,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Airship voyage messages.
+        ///   Looks up a localized string similar to Show Airship voyage messages.
         /// </summary>
         internal static string SystemTab_HideAirshipVoyageMessages
         {
@@ -1902,7 +1913,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Completed Venture.
+        ///   Looks up a localized string similar to Show Completed Venture.
         /// </summary>
         internal static string SystemTab_HideCompletedVenture
         {
@@ -1924,7 +1935,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide /countdown messages.
+        ///   Looks up a localized string similar to Show /countdown messages.
         /// </summary>
         internal static string SystemTab_HideCountdownMessages
         {
@@ -1946,7 +1957,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Free Company message book new entry messages.
+        ///   Looks up a localized string similar to Show Free Company message book new entry messages.
         /// </summary>
         internal static string SystemTab_HideFreeCompanyMessageBookMessages
         {
@@ -1957,7 +1968,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide /instance message.
+        ///   Looks up a localized string similar to Show /instance message.
         /// </summary>
         internal static string SystemTab_HideInstanceMessage
         {
@@ -1980,7 +1991,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide &quot;Search for items&quot; results message.
+        ///   Looks up a localized string similar to Show &quot;Search for items&quot; results message.
         /// </summary>
         internal static string SystemTab_HideItemSearchResultsMessage
         {
@@ -2002,7 +2013,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Free Company member login messages.
+        ///   Looks up a localized string similar to Show Free Company member login messages.
         /// </summary>
         internal static string SystemTab_HideLoginMessages
         {
@@ -2013,7 +2024,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Free Company member logout messages.
+        ///   Looks up a localized string similar to Show Free Company member logout messages.
         /// </summary>
         internal static string SystemTab_HideLogoutMessages
         {
@@ -2024,7 +2035,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide number of available coffers messages.
+        ///   Looks up a localized string similar to Show number of available coffers messages.
         /// </summary>
         internal static string SystemTab_HideNumberOfCoffers
         {
@@ -2035,7 +2046,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide personal message book new entry messages.
+        ///   Looks up a localized string similar to Show personal message book new entry messages.
         /// </summary>
         internal static string SystemTab_HidePersonalMessageBookMessages
         {
@@ -2046,7 +2057,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide /readycheck message.
+        ///   Looks up a localized string similar to Show /readycheck message.
         /// </summary>
         internal static string SystemTab_HideReadycheckMessages
         {
@@ -2068,7 +2079,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Received Commendations.
+        ///   Looks up a localized string similar to Show Received Commendations.
         /// </summary>
         internal static string SystemTab_HideReceivedCommendations
         {
@@ -2090,7 +2101,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide reminders of what to /say in chat during quests..
+        ///   Looks up a localized string similar to Show reminders of what to /say in chat during quests..
         /// </summary>
         internal static string SystemTab_HideSayReminder
         {
@@ -2112,7 +2123,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide System messages Tidy Chat shows by default.
+        ///   Looks up a localized string similar to Show System messages Tidy Chat shows by default.
         /// </summary>
         internal static string SystemTab_HideShownDefaultDropdownHeader
         {
@@ -2123,7 +2134,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide gear reaching 100% spiritbound messages.
+        ///   Looks up a localized string similar to Show gear reaching 100% spiritbound messages.
         /// </summary>
         internal static string SystemTab_HideSpiritboundMessages
         {
@@ -2134,7 +2145,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide S Rank Hunt spawn announcement.
+        ///   Looks up a localized string similar to Show S Rank Hunt spawn announcement.
         /// </summary>
         internal static string SystemTab_HideSRankSpawnAnnouncement
         {
@@ -2156,7 +2167,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide SS Rank Minion announcements.
+        ///   Looks up a localized string similar to Show SS Rank Minion announcements.
         /// </summary>
         internal static string SystemTab_HideSSRankMinionSpawnAnnouncement
         {
@@ -2179,7 +2190,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide Submarine voyage messages.
+        ///   Looks up a localized string similar to Show Submarine voyage messages.
         /// </summary>
         internal static string SystemTab_HideSubmarineVoyageMessages
         {
@@ -2201,7 +2212,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide &quot;Teleporting to...&quot; messages.
+        ///   Looks up a localized string similar to Show &quot;Teleporting to...&quot; messages.
         /// </summary>
         internal static string SystemTab_HideTeleportingToMessages
         {
@@ -2212,7 +2223,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide try on glamour messages.
+        ///   Looks up a localized string similar to Show try on glamour messages.
         /// </summary>
         internal static string SystemTab_HideTryOnGlamourMessages
         {
@@ -2234,7 +2245,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide unable to join full Novice Network..
+        ///   Looks up a localized string similar to Show unable to join full Novice Network..
         /// </summary>
         internal static string SystemTab_HideUnableToJoinFullNoviceNetwork
         {
@@ -2245,7 +2256,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide vista arrival and stray messages.
+        ///   Looks up a localized string similar to Show vista arrival and stray messages.
         /// </summary>
         internal static string SystemTab_HideVistaMessages
         {
@@ -2267,7 +2278,7 @@ namespace TidyChat.Resources.Languages
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Hide &quot;You sense something...&quot; messages.
+        ///   Looks up a localized string similar to Show &quot;You sense something...&quot; messages.
         /// </summary>
         internal static string SystemTab_HideYouSenseSomethingMessages
         {

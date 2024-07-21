@@ -111,6 +111,14 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
+            var showGatheringStartEnd = configuration.ShowGatheringStartEnd;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringStartEnd,
+                    ref showGatheringStartEnd))
+            {
+                configuration.ShowGatheringStartEnd = showGatheringStartEnd;
+                configuration.Save();
+            }
+
             var showLocationAffects = configuration.ShowLocationAffects;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowLocationGatheringEffectMessages,
                     ref showLocationAffects))
