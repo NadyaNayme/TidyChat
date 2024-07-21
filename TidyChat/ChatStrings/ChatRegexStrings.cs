@@ -11,19 +11,35 @@ public static class ChatRegexStrings
 
     private static readonly TimeSpan regexTimeout = TimeSpan.FromSeconds(1);
 
+    public static readonly LocalizedRegex StartsWithYou = new()
+    {
+        Jpn = new(@"^you", regexOptions, regexTimeout),
+        Eng = new(@"^you", regexOptions, regexTimeout),
+        Deu = new(@"^you", regexOptions, regexTimeout),
+        Fra = new(@"^you", regexOptions, regexTimeout),
+    };
+
+    public static readonly LocalizedRegex NotStartWithYou = new()
+    {
+        Jpn = new(@"^(?!you)", regexOptions, regexTimeout),
+        Eng = new(@"^(?!you)", regexOptions, regexTimeout),
+        Deu = new(@"^(?!you)", regexOptions, regexTimeout),
+        Fra = new(@"^(?!you)", regexOptions, regexTimeout),
+    };
+
     public static readonly LocalizedRegex BetterPlayerCommendation = new()
     {
-        Eng = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Jpn = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Deu = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Fra = new(@"You received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Jpn = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Eng = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Deu = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Fra = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
     };
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain...</see>
     public static readonly LocalizedRegex ObtainedGil = new()
     {
         Jpn = new Regex(@"ギルを手に入れた。$", regexOptions, regexTimeout),
-        Eng = new Regex(@"^You (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.$", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.$", regexOptions, regexTimeout),
         Deu = new Regex(@"^(du|you) hast (\d{1,3},)?\d{1,3} gil erhalten\.$", regexOptions, regexTimeout),
         Fra = new Regex(@"^(vous|you) obtenez \d{1,6} gils\.$", regexOptions, regexTimeout),
     };
@@ -47,8 +63,13 @@ public static class ChatRegexStrings
 
 
     /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
-    public static readonly Regex ObtainedVenture =
-        new(@"You (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout);
+    public static readonly LocalizedRegex ObtainedVenture = new()
+    {
+        Jpn = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
+        Eng = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
+        Deu = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
+        Fra = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
+    };
 
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
     public static readonly LocalizedRegex ObtainedAlliedSeals = new()
@@ -100,12 +121,21 @@ public static class ChatRegexStrings
         Fra = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
     };
 
-    public static readonly Regex ObtainedMaterials = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout);
+    public static readonly LocalizedRegex ObtainedMaterials = new()
+    {
+        Jpn = new Regex(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
+        Deu = new Regex(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
+        Fra = new Regex(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
+    };
 
-    public static readonly Regex ObtainedShards =
-        new(
-            @"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$",
-            regexOptions, regexTimeout);
+    public static readonly LocalizedRegex ObtainedShards = new()
+    {
+        Jpn = new Regex(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
+        Deu = new Regex(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
+        Fra = new Regex(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
+    };
 
     public static readonly LocalizedRegex ObtainedTribalCurrency = new()
     {

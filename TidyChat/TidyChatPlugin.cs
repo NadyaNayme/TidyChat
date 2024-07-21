@@ -261,7 +261,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 switch (rule.Pattern)
                 {
                     case PatternKind.RegexMatch:
-                        if (rule.RegexChecks is null) return;
+                        if (rule.RegexChecks is null) continue;
                         foreach (var check in rule.RegexChecks)
                         {
                             if (L10N.Get(check).IsMatch(normalizedText))
@@ -273,7 +273,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         }
                         break;
                     case PatternKind.StringMatch:
-                        if (rule.StringChecks is null) return;
+                        if (rule.StringChecks is null) continue;
                         foreach (var check in rule.StringChecks)
                         {
                             if (L10N.Get(check).All(normalizedText.Contains))
@@ -296,7 +296,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             switch (rule.Pattern)
             {
                 case PatternKind.RegexMatch:
-                    if (rule.RegexChecks is null) return;
+                    if (rule.RegexChecks is null) continue;
 
                     foreach (var check in rule.RegexChecks)
                     {
@@ -325,7 +325,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     }
                     break;
                 case PatternKind.StringMatch:
-                    if (rule.StringChecks is null) return;
+                    if (rule.StringChecks is null) continue;
 
                     foreach (var check in rule.StringChecks)
                     {
