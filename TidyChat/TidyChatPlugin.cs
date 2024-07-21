@@ -229,7 +229,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isBlocked = false;
         }
 
-        List<String> rulesPassed = [];
+        List<String> rulesMatched = [];
         List<String> rulesSkipped = [];
         List<String> rulesFailed= [];
         foreach (var rule in rules)
@@ -268,7 +268,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                             {
                                 Log.Debug($"MATCHED: {rule.Name}");
                                 fakeChecksMatched.Add(true);
-                                rulesPassed.Add(rule.Name);
+                                rulesMatched.Add(rule.Name);
                             }
                         }
                         break;
@@ -280,7 +280,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                             {
                                 Log.Debug($"MATCHED: {rule.Name}");
                                 fakeChecksMatched.Add(true);
-                                rulesPassed.Add(rule.Name);
+                                rulesMatched.Add(rule.Name);
                             }
                         }
                         break;
@@ -307,7 +307,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             Log.Verbose($"MATCHED: {rule.Name}");
                             regexChecksMatched.Add(true);
-                        } else
+                        }
+                        else
                         {
                             Log.Verbose($"FAILED: {rule.Name}");
                             regexChecksMatched.Add(false);
@@ -316,9 +317,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         if (!regexChecksMatched.Contains(false))
                         {
                             Log.Verbose($"Passed all checks!");
-                            rulesPassed.Add(rule.Name);
+                            rulesMatched.Add(rule.Name);
                             isBlocked = Configuration.EnableInverseMode;
-                        } else
+                        }
+                        else
                         {
                             rulesFailed.Add(rule.Name);
                         }
@@ -336,7 +338,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             Log.Verbose($"MATCHED: {rule.Name}");
                             stringChecksMatched.Add(true);
-                        } else
+                        }
+                        else
                         {
                             Log.Verbose($"FAILED: {rule.Name}");
                             stringChecksMatched.Add(false);
@@ -344,9 +347,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         if (!stringChecksMatched.Contains(false))
                         {
                             Log.Verbose($"Passed all checks!");
-                            rulesPassed.Add(rule.Name);
+                            rulesMatched.Add(rule.Name);
                             isBlocked = Configuration.EnableInverseMode;
-                        } else
+                        }
+                        else
                         {
                             rulesFailed.Add(rule.Name);
                         }
@@ -354,7 +358,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     break;
             }
         }
-        Log.Debug($"{rulesPassed.Count} Rules Passed: {String.Join(", ", rulesPassed)}");
+        Log.Debug($"{rulesMatched.Count} Rules Matched: {String.Join(", ", rulesMatched)}");
         Log.Debug($"{rulesSkipped.Count} Rules Skipped: {String.Join(", ", rulesSkipped)}");
         Log.Debug($"{rulesFailed.Count} Rules Failed: {String.Join(", ", rulesFailed)}");
         isHandled = isBlocked;
