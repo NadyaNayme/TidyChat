@@ -520,7 +520,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "FilterGathering",
+            Name = "FilterGatheringSpam",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,

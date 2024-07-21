@@ -11,22 +11,6 @@ public static class ChatRegexStrings
 
     private static readonly TimeSpan regexTimeout = TimeSpan.FromSeconds(1);
 
-    public static readonly LocalizedRegex StartsWithYou = new()
-    {
-        Jpn = new(@"^you", regexOptions, regexTimeout),
-        Eng = new(@"^you", regexOptions, regexTimeout),
-        Deu = new(@"^you", regexOptions, regexTimeout),
-        Fra = new(@"^you", regexOptions, regexTimeout),
-    };
-
-    public static readonly LocalizedRegex NotStartWithYou = new()
-    {
-        Jpn = new(@"^(?!you)", regexOptions, regexTimeout),
-        Eng = new(@"^(?!you)", regexOptions, regexTimeout),
-        Deu = new(@"^(?!you)", regexOptions, regexTimeout),
-        Fra = new(@"^(?!you)", regexOptions, regexTimeout),
-    };
-
     public static readonly LocalizedRegex BetterPlayerCommendation = new()
     {
         Jpn = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
@@ -163,6 +147,14 @@ public static class ChatRegexStrings
         Eng = new Regex(@"^(you|your)", regexOptions, regexTimeout),
         Deu = new Regex(@"^(you|your|du|deiner|dir|dich)", regexOptions, regexTimeout),
         Fra = new Regex(@"^(vous|you)", regexOptions, regexTimeout),
+    };
+
+    public static readonly LocalizedRegex NotStartWithYou = new()
+    {
+        Jpn = new(@"^(?!you)", regexOptions, regexTimeout),
+        Eng = new(@"^(?!you)", regexOptions, regexTimeout),
+        Deu = new(@"^(?!you)", regexOptions, regexTimeout),
+        Fra = new(@"^(?!you)", regexOptions, regexTimeout),
     };
 
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
