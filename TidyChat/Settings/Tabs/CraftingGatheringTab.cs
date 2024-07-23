@@ -161,6 +161,13 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
+            var showMooching = configuration.ShowMooching;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMooching, ref showMooching))
+            {
+                configuration.ShowMooching = showMooching;
+                configuration.Save();
+            }
+
             var showMeasuringIlms = configuration.ShowMeasuringIlms;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishSizeMessages, ref showMeasuringIlms))
             {

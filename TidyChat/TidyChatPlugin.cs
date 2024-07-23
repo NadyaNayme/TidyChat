@@ -77,7 +77,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         PluginInterface.UiBuilder.Draw += DrawUI;
         PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
-        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI; 
     }
 
     #endregion Setup
@@ -248,7 +248,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
 
             // Don't bother with checks for Channels other than the one the rule intends to filter
-            if (chatType != rule.Channel)
+            if (chatType != rule.Channel && chatType is not ChatType.Echo)
             {
                 Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
                 rulesSkipped.Add(rule.Name);
@@ -266,7 +266,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             if (L10N.Get(check).IsMatch(normalizedText))
                             {
-                                Log.Debug($"MATCHED: {rule.Name}");
+                                Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
                                 fakeChecksMatched.Add(true);
                                 rulesMatched.Add(rule.Name);
                             }
@@ -278,7 +278,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             if (L10N.Get(check).All(normalizedText.Contains))
                             {
-                                Log.Debug($"MATCHED: {rule.Name}");
+                                Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                                 fakeChecksMatched.Add(true);
                                 rulesMatched.Add(rule.Name);
                             }
@@ -300,17 +300,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
                     foreach (var check in rule.RegexChecks)
                     {
-                        Log.Verbose($"START CHECK FOR: {rule.Name}");
+                        Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
                         Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
                         List<bool> regexChecksMatched = [];
                         if (L10N.Get(check).IsMatch(normalizedText))
                         {
-                            Log.Verbose($"MATCHED: {rule.Name}");
+                            Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
                             regexChecksMatched.Add(true);
                         }
                         else
                         {
-                            Log.Verbose($"FAILED: {rule.Name}");
+                            Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
                             regexChecksMatched.Add(false);
                         }
                         // If any of the checks fail it doesn't match our rule to allow the message
@@ -331,17 +331,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
                     foreach (var check in rule.StringChecks)
                     {
-                        Log.Verbose($"START CHECK FOR: {rule.Name}");
+                        Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
                         Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
                         List<bool> stringChecksMatched = [];
                         if (L10N.Get(check).All(normalizedText.Contains))
                         {
-                            Log.Verbose($"MATCHED: {rule.Name}");
+                            Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(true);
                         }
                         else
                         {
-                            Log.Verbose($"FAILED: {rule.Name}");
+                            Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(false);
                         }
                         if (!stringChecksMatched.Contains(false))
@@ -448,11 +448,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         #endregion Duplicate Message Spam Filter
 
+        // Although Echo can be used for /xllog debugging make sure it never ends up filtered
+        if (chatType is ChatType.Echo)
+        {
+            isHandled = false;
+        }
+
         #region Debug Mode Enabled
 
         if (Configuration.EnableDebugMode && isHandled && !message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
-            message = BuildDebugString(chatType, message);
+            message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel);
             isHandled = false;
         }
 
@@ -463,12 +469,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
-    private static SeString BuildDebugString(ChatType chatType, SeString message)
+    private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel)
     {
         var stringBuilder = new SeStringBuilder();
         Better.AddTidyChatTag(stringBuilder);
-        Better.AddDebugTag(stringBuilder);
-        stringBuilder.AddText($"[{chatType}] ");
+        if (debugIncludeChannel)
+        {
+            Better.AddChannelTag(stringBuilder, chatType);
+        }
+        if (rulesMatched.Count > 0)
+        {
+            Better.AddAllowedTag(stringBuilder);
+            Better.AddRuleTag(stringBuilder, rulesMatched);
+        } else
+        {
+            Better.AddBlockedTag(stringBuilder);
+        }
         stringBuilder.AddText(message.TextValue);
         return stringBuilder.BuiltString;
     }
@@ -641,7 +657,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam) return true;
         if (chatType is ChatType.LootRoll && Configuration.FilterLootSpam) return true;
         if (chatType is ChatType.Progress && Configuration.FilterProgressSpam) return true;
-        if (chatType is ChatType.FreeCompanyLoginLogout && Configuration.ShowUserLogins) return true;
+        if (chatType is ChatType.FreeCompanyLoginLogout && (!Configuration.ShowUserLogins && !Configuration.ShowUserLogins)) return true;
+        if (chatType is ChatType.Echo && Configuration.EnableDebugMode) return true;
         return false;
     }
 
@@ -658,7 +675,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             ChatType.LootNotice or 
             ChatType.LootRoll or 
             ChatType.Progress or 
-            ChatType.FreeCompanyLoginLogout => true,
+            ChatType.FreeCompanyLoginLogout or
+            ChatType.Echo => true,
             _ => false,
         };
     }

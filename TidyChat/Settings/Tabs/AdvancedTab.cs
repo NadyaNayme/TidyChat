@@ -16,6 +16,14 @@ internal static class AdvancedTab
             configuration.Save();
         }
 
+        ImGui.Spacing();
+        var debugIncludeChannel = configuration.DebugIncludeChannel;
+        if (ImGui.Checkbox("Include [Channel] Tag in Dry Run Mode", ref debugIncludeChannel))
+        {
+            configuration.DebugIncludeChannel = debugIncludeChannel;
+            configuration.Save();
+        }
+
         ImGui.Separator();
         ImGui.Spacing();
         if (ImGui.BeginTabBar("##tidychatAdvancedConfigTabs"))

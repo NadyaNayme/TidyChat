@@ -323,6 +323,18 @@ public static class ChatRegexStrings
             regexOptions, regexTimeout),
     };
 
+    public static readonly LocalizedRegex Mooching = new()
+    {
+        Jpn = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you recast your line with the fish still hooked", regexOptions, regexTimeout),
+        Deu = new Regex(
+            @"NeedsLocalization",
+            regexOptions, regexTimeout),
+        Fra = new Regex(
+            @"NeedsLocalization",
+            regexOptions, regexTimeout),
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1110?pretty=true">You cast your line on the ...</see>
     public static readonly LocalizedRegex CurrentFishingHole = new()
     {

@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
+using ChatTwo.Code;
 using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
@@ -122,14 +124,53 @@ internal static class BetterStrings
     }
 
     /// <summary>
-    ///     This method takes <paramref name="sestring" /> and adds a yellow "[Debug] " tag text to it
+    ///     This method takes <paramref name="sestring" /> and adds a yellow "[Channel] " tag text to it
     /// </summary>
     /// <param name="sestring">An empty SeStringBuilder()</param>
-    /// <returns>SeString with text: "[Debug] "</returns>
-    public static SeStringBuilder AddDebugTag(SeStringBuilder sestring)
+    /// <returns>SeString with text: "[Channel] "</returns>
+    public static SeStringBuilder AddChannelTag(SeStringBuilder sestring, ChatType channel)
     {
         sestring.AddUiForeground(8);
-        sestring.AddText(TidyStrings.DebugTag);
+        sestring.AddText($"[{channel.ToString()}] ");
+        sestring.AddUiForegroundOff();
+        return sestring;
+    }
+
+    /// <summary>
+    ///     This method takes <paramref name="sestring" /> and adds a purple "[Rule] " tag text to it
+    /// </summary>
+    /// <param name="sestring">An empty SeStringBuilder()</param>
+    /// <returns>SeString with text: "[Rule] "</returns>
+    public static SeStringBuilder AddRuleTag(SeStringBuilder sestring, List<string> rulesMatched)
+    {
+        sestring.AddUiForeground(9);
+        sestring.AddText($"[{String.Join(", ", rulesMatched)}] ");
+        sestring.AddUiForegroundOff();
+        return sestring;
+    }
+
+    /// <summary>
+    ///     This method takes <paramref name="sestring" /> and adds a red "[BLOCKED] " tag text to it
+    /// </summary>
+    /// <param name="sestring">An empty SeStringBuilder()</param>
+    /// <returns>SeString with text: "[Rule] "</returns>
+    public static SeStringBuilder AddBlockedTag(SeStringBuilder sestring)
+    {
+        sestring.AddUiForeground(8);
+        sestring.AddText("[Blocked] ");
+        sestring.AddUiForegroundOff();
+        return sestring;
+    }
+
+    /// <summary>
+    ///     This method takes <paramref name="sestring" /> and adds a purple "[ALLOWED] " tag text to it
+    /// </summary>
+    /// <param name="sestring">An empty SeStringBuilder()</param>
+    /// <returns>SeString with text: "[Rule] "</returns>
+    public static SeStringBuilder AddAllowedTag(SeStringBuilder sestring)
+    {
+        sestring.AddUiForeground(9);
+        sestring.AddText($"[Allowed] ");
         sestring.AddUiForegroundOff();
         return sestring;
     }

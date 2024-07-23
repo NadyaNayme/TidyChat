@@ -132,6 +132,15 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
+            Name = "ShowReadyChecks",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.InitiatedReadyCheck],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
             Name = "ShowSpideySenses",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -553,6 +562,15 @@ public static class Rules
             IsActive = true,
             StringChecks = [ChatStrings.AddedToFishGuide],
             Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowMooching",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.Mooching],
+            Pattern = PatternKind.RegexMatch,
         },
         new LocalizedFilterRule
         {

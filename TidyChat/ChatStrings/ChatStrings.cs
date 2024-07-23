@@ -191,6 +191,14 @@ public static class ChatStrings
         Fra = new[] { "l'appel", "préparation", "pris", "fin" },
     };
 
+    public static readonly LocalizedStrings InitiatedReadyCheck = new()
+    {
+        Jpn = new[] { "NeedsLocalization" },
+        Eng = new[] { "initiated", "ready", "check" },
+        Deu = new[] { "NeedsLocalization" },
+        Fra = new[] { "NeedsLocalization" },
+    };
+
     public static readonly LocalizedStrings YouAttainLevel = new()
     {
         Jpn = new[] { "レベルアップ！", "you", "になった。" },

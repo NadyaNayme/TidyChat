@@ -21,6 +21,7 @@ public class Configuration : IPluginConfiguration
     public ulong TtlMessagesBlocked { get; set; } = 0;
     public bool Enabled { get; set; } = true;
     public bool EnableDebugMode { get; set; } = false;
+    public bool DebugIncludeChannel { get; set; } = false;
     public bool EnableInverseMode { get; set; } = false;
     public bool IncludeChatTag { get; set; } = true;
     public string PlayerName { get; set; } = "";
@@ -225,6 +226,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGatherersBoon { get; set; } = true;
     public bool ShowGatheringAttempts { get; set; } = true;
     public bool ShowCaughtFish { get; set; } = true;
+    public bool ShowMooching { get; set; } = true;
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;

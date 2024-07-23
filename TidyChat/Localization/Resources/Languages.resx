@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-    <value>Tidy Chat has blocked {0:n0} messages so far.</value>
+    <value>Tidy Chat has blocked {0:n0} messages so far</value>
   </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
@@ -234,7 +234,7 @@ eg. Another Player leans over and gives you a big bear hug.</value>
 eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-    <value>Enable debug mode</value>
+    <value>Enable Dry Run Mode - See filtered messages without blocking them</value>
   </data>
   <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
     <value>System</value>
@@ -258,8 +258,8 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Experimental Feature: Inverse mode</value>
   </data>
   <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
-    <value>No longer blocks System messages by default.
-Show filters become Show filters and Show filters become Show filters.</value>
+    <value>No longer blocks System messages by default
+Filters now Hide messages instead of Show them</value>
   </data>
   <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
     <value>If you have enabled Inverse mode you are on your own and will not receive any support.
@@ -301,7 +301,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>eg. RetainerName has completed a venture!</value>
   </data>
   <data name="SystemTab_HideSayReminder" xml:space="preserve">
-    <value>Show reminders of what to /say in chat during quests.</value>
+    <value>Show reminders of what to /say in chat during quests</value>
   </data>
   <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
     <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
@@ -961,5 +961,8 @@ Initials: E. N.</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringStartEnd" xml:space="preserve">
     <value>Show the begin/end gathering messages</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
+    <value>Show message after recasting with a moochable fish</value>
   </data>
 </root>
