@@ -211,7 +211,7 @@ This allows you to use ChatAlerts to create an alert for "You synthesize" instea
     <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
   </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
-    <value>Show ko-fi button</value>
+    <value>Hide ko-fi button</value>
   </data>
   <data name="GeneralTab_FilterEmotes" xml:space="preserve">
     <value>Filter emote channels</value>
