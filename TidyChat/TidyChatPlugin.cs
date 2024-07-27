@@ -20,6 +20,8 @@ using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 using System.Data;
+using System.Reflection.Metadata.Ecma335;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 
 namespace TidyChat;
 
@@ -150,6 +152,26 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         var chatType = FromDalamud(type);
 
+        if (Configuration.NormalizeBlocks)
+        {
+            if (Configuration.AlwaysNormalizeBlocks)
+            {
+                message = DeblockMessage(message);
+            }
+            else if (chatType is ChatType.Party || chatType is ChatType.Alliance)
+            {
+                // Do nothing if the message is to Party or Alliance
+            } else
+            {
+                message = DeblockMessage(message);
+            }
+        }
+
+        if (Configuration.EnableSmolMode)
+        {
+            message = SmolMessage(message);
+        }
+
         // Don't bother checking anything sent to /echo... unless we're debugging
         if (chatType == ChatType.Echo && !Configuration.EnableDebugMode)
         {
@@ -188,7 +210,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Certain messages are improved with better messaging - these will change those messages to be Better Messages
         // Better Messages must always Early Return to avoid being filtered and because if we bettered the message we aren't filtering it anyway
 
-        if (Configuration.BetterInstanceMessage && !Configuration.ShowInstanceMessage &&
+        if (Configuration.BetterInstanceMessage &&
             !Configuration.EnableDebugMode && chatType is ChatType.System &&
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
         { 
@@ -679,6 +701,61 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             ChatType.Echo => true,
             _ => false,
         };
+    }
+
+    private static SeString SmolMessage(SeString msg)
+    {
+        var payloads = msg.Payloads;
+        var stringBuilder = new SeStringBuilder();
+        payloads.ForEach(payload =>
+        {
+            if (payload.Type is not PayloadType.RawText)
+            {
+                stringBuilder.Add(payload);
+            }
+            else if (payload is TextPayload { Text: not null } textPayload)
+            {
+                string smolMessage = "";
+                foreach (int i in textPayload.Text)
+                {
+                    if (i >= 65 && i <= 91) smolMessage += (char)(i + 32);
+                    else smolMessage += (char)i;
+                }
+                stringBuilder.AddText(smolMessage);
+            }
+        });
+        msg = stringBuilder.Build();
+        msg.EncodeWithNullTerminator();
+        return msg;
+    }
+
+    private static SeString DeblockMessage(SeString msg)
+    {
+        var payloads = msg.Payloads;
+        var stringBuilder = new SeStringBuilder();
+        payloads.ForEach(payload =>
+        {
+            if (payload.Type is not PayloadType.RawText)
+            {
+                stringBuilder.Add(payload);
+            }  
+            else if (payload is TextPayload {  Text: not null } textPayload)
+            {
+                string deblockedMessage = "";
+                foreach (int i in textPayload.Text)
+                {
+                    if (i >= 57457 && i <= 57483) deblockedMessage += (char)(i - 57392); // A-Z Blocks
+                    else if (i >= 57487 && i <= 57496) deblockedMessage += (char)(i - 57439); // Number Blocks
+                    else if (i >= 57521 && i <= 57529) deblockedMessage += (char)(i - 57472); // Hexgonical Numbers
+                    else if (i >= 57440 && i <= 57449) deblockedMessage += (char)(i - 57392); // Monospace Numbers
+                    else deblockedMessage += (char)i;
+                }
+                stringBuilder.AddText(deblockedMessage);
+            }
+        });
+        msg = stringBuilder.Build();
+        msg.EncodeWithNullTerminator();
+        return msg;
     }
 
     public static DtrBarEntry GetDtrBar()

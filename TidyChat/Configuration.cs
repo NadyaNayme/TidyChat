@@ -22,6 +22,9 @@ public class Configuration : IPluginConfiguration
     public bool Enabled { get; set; } = true;
     public bool EnableDebugMode { get; set; } = false;
     public bool DebugIncludeChannel { get; set; } = false;
+    public bool EnableSmolMode { get; set; } = false;
+    public bool NormalizeBlocks { get; set; } = false;
+    public bool AlwaysNormalizeBlocks { get; set; } = false;
     public bool EnableInverseMode { get; set; } = false;
     public bool IncludeChatTag { get; set; } = true;
     public string PlayerName { get; set; } = "";

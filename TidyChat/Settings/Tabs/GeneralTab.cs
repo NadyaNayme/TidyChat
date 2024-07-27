@@ -79,6 +79,31 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_TidyChatTagHelpMarker);
 
+            var enableSmolMode = configuration.EnableSmolMode;
+            if (ImGui.Checkbox("enable tiny chat", ref enableSmolMode))
+            {
+                configuration.EnableSmolMode = enableSmolMode;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker("all messages will be lowercased.");
+
+            var normalizeBlocks = configuration.NormalizeBlocks;
+            if (ImGui.Checkbox("Normalize special characters - except in Party or Alliance channels", ref normalizeBlocks))
+            {
+                configuration.NormalizeBlocks = normalizeBlocks;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker("Replaces special characters such as \"\" with \"A\"");
+
+            var alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
+            if (ImGui.Checkbox("Always normalize special characters", ref alwaysNormalizeBlocks))
+            {
+                configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
+                configuration.Save();
+            }
+
             var betterInstanceMessage = configuration.BetterInstanceMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
             {
