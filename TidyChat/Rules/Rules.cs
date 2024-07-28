@@ -55,7 +55,7 @@ public class LocalizedFilterRule
     public SettingTab SettingTab { get; set; } = SettingTab.Basic;
     public SettingCategory SettingCategory { get; set; } = SettingCategory.None;
     public required Boolean IsActive { get; set; } = false;
-    public string? Error { get; set; } 
+    public string? Error { get; set; }
 
 }
 public static class Rules
@@ -1317,18 +1317,18 @@ public static class Rules
     public static void UpdateIsActiveStates(Configuration config)
     {
         foreach (var rule in _rules)
+        {
+            try
             {
-                try
-                {
-                    rule.IsActive = config.GetPropertyValue<Boolean>(config, rule.Name);
-                }
-                catch (Exception ex)
-                {
-                    // If we don't know if a rule is True or False assume it is True
-                    rule.IsActive = true;
-                    rule.Error = ex.ToString();
-                    TidyChatPlugin.Log.Error(rule.Name);
-                }
+                rule.IsActive = config.GetPropertyValue<Boolean>(config, rule.Name);
             }
+            catch (Exception ex)
+            {
+                // If we don't know if a rule is True or False assume it is True
+                rule.IsActive = true;
+                rule.Error = ex.ToString();
+                TidyChatPlugin.Log.Error(rule.Name);
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using Dalamud.Interface.Components;
 using ImGuiNET;
-using TidyChat.Resources.Languages;
+using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs;
 

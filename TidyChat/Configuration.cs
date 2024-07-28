@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Reflection;
 using Dalamud.Configuration;
-using Dalamud.Game.Gui.Dtr;
 using Dalamud.Plugin;
-using Dalamud.Plugin.Services;
-using FFXIVClientStructs;
-using FFXIVClientStructs.Havok.Common.Base.Reflection;
 
 namespace TidyChat;
 
@@ -44,8 +38,9 @@ public class Configuration : IPluginConfiguration
         this.pluginInterface = pluginInterface;
     }
 
-    public T? GetPropertyValue<T>(object obj, string propName) {
-        return (T?)obj?.GetType()?.GetProperty(propName)?.GetValue(this, index: null); 
+    public T? GetPropertyValue<T>(object obj, string propName)
+    {
+        return (T?)obj?.GetType()?.GetProperty(propName)?.GetValue(this, index: null);
     }
 
     public void Save()
@@ -121,6 +116,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowPartyDissolved { get; set; } = false;
     public bool ShowInvitedBy { get; set; } = false;
     public bool ShowJoinParty { get; set; } = false;
+    public bool ShowPartyInformation { get; set; } = true;
     public bool ShowOfferedTeleport { get; set; } = false;
     public bool ShowSealedOff { get; set; } = false;
     public bool ShowHuntSlain { get; set; } = false;

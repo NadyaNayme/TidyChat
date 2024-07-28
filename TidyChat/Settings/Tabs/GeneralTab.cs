@@ -1,7 +1,7 @@
 ﻿using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
-using TidyChat.Resources.Languages;
+using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -80,25 +80,25 @@ internal static class GeneralTab
             ImGuiComponents.HelpMarker(Languages.GeneralTab_TidyChatTagHelpMarker);
 
             var enableSmolMode = configuration.EnableSmolMode;
-            if (ImGui.Checkbox("enable tiny chat", ref enableSmolMode))
+            if (ImGui.Checkbox(Languages.EnableTinyChat, ref enableSmolMode))
             {
                 configuration.EnableSmolMode = enableSmolMode;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker("all messages will be lowercased.");
+            ImGuiComponents.HelpMarker(Languages.AllMessagesWillBeLowercased);
 
             var normalizeBlocks = configuration.NormalizeBlocks;
-            if (ImGui.Checkbox("Normalize special characters - except in Party or Alliance channels", ref normalizeBlocks))
+            if (ImGui.Checkbox(Languages.NormalizeSpecialCharactersExceptInPartyOrAllianceChannels, ref normalizeBlocks))
             {
                 configuration.NormalizeBlocks = normalizeBlocks;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker("Replaces special characters such as \"\" with \"A\"");
+            ImGuiComponents.HelpMarker(Languages.ReplacesSpecialCharactersSuchAsWithA);
 
             var alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
-            if (ImGui.Checkbox("Always normalize special characters", ref alwaysNormalizeBlocks))
+            if (ImGui.Checkbox(Languages.AlwaysNormalizeSpecialCharacters, ref alwaysNormalizeBlocks))
             {
                 configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
                 configuration.Save();

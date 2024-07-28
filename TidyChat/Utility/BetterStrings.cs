@@ -7,7 +7,6 @@ using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
-using Lumina.Excel.GeneratedSheets;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 

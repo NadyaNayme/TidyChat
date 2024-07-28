@@ -965,4 +965,25 @@ Initials: E. N.</value>
   <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
     <value>Show message after recasting with a moochable fish</value>
   </data>
+  <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
+    <value>Include [Channel] Tag in Dry Run Mode</value>
+  </data>
+  <data name="EnableTinyChat" xml:space="preserve">
+    <value>enable tiny chat</value>
+  </data>
+  <data name="AllMessagesWillBeLowercased" xml:space="preserve">
+    <value>all messages will be lowercased.</value>
+  </data>
+  <data name="NormalizeSpecialCharactersExceptInPartyOrAllianceChannels" xml:space="preserve">
+    <value>Normalize special characters - except in Party or Alliance channels</value>
+  </data>
+  <data name="ReplacesSpecialCharactersSuchAsWithA" xml:space="preserve">
+    <value>Replaces special characters such as \"\" with \"A\</value>
+  </data>
+  <data name="AlwaysNormalizeSpecialCharacters" xml:space="preserve">
+    <value>Always normalize special characters</value>
+  </data>
+  <data name="ShowPartyObjectiveAndPartyCommentWhenJoiningAParty" xml:space="preserve">
+    <value>Show Party Objective and Party Comment when joining a party</value>
+  </data>
 </root>

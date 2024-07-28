@@ -2,9 +2,9 @@
 using System.Numerics;
 using Dalamud.Interface.Utility;
 using ImGuiNET;
+using TidyChat.Localization.Resources;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
-using TidyChat.Resources.Languages;
 
 namespace TidyChat;
 

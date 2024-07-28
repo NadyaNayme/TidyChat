@@ -20,7 +20,7 @@ public static class ChatFlags
         Obtain = 1 << 6, // LootRoll
         FreeCompany = 1 << 7, // FreeCompanyLoginLogout
         Crafting = 1 << 8, // Crafting
-        Gathering = 1 << 9 // Gathering
+        Gathering = 1 << 9, // Gathering
     }
 
     public static bool CheckFlags(PlayerName player, ChatType chatType)

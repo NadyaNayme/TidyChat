@@ -92,5 +92,5 @@ public enum ChatType : ushort
     CrossLinkshell5 = 104,
     CrossLinkshell6 = 105,
     CrossLinkshell7 = 106,
-    CrossLinkshell8 = 107
+    CrossLinkshell8 = 107,
 }

@@ -1,5 +1,5 @@
 ﻿using ImGuiNET;
-using TidyChat.Resources.Languages;
+using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -18,7 +18,7 @@ internal static class AdvancedTab
 
         ImGui.Spacing();
         var debugIncludeChannel = configuration.DebugIncludeChannel;
-        if (ImGui.Checkbox("Include [Channel] Tag in Dry Run Mode", ref debugIncludeChannel))
+        if (ImGui.Checkbox(Languages.IncludeChannelTagInDryRunMode, ref debugIncludeChannel))
         {
             configuration.DebugIncludeChannel = debugIncludeChannel;
             configuration.Save();

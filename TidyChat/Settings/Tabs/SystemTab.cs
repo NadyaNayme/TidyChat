@@ -1,6 +1,6 @@
 ﻿using Dalamud.Interface.Components;
 using ImGuiNET;
-using TidyChat.Resources.Languages;
+using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -492,6 +492,13 @@ internal static class SystemTab
             if (ImGui.Checkbox(Languages.SystemTab_ShowJoinedCrossworldPartyMessages, ref showJoinParty))
             {
                 configuration.ShowJoinParty = showJoinParty;
+                configuration.Save();
+            }
+
+            var showPartyInformation = configuration.ShowPartyInformation;
+            if (ImGui.Checkbox(Languages.ShowPartyObjectiveAndPartyCommentWhenJoiningAParty, ref showPartyInformation))
+            {
+                configuration.ShowPartyInformation = showPartyInformation;
                 configuration.Save();
             }
 

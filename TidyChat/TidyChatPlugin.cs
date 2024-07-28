@@ -10,18 +10,16 @@ using Dalamud.Game.Command;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
+using TidyChat.Localization.Resources;
 using TidyChat.Utility;
-using TidyChat.Resources.Languages;
 using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
 using TidyStrings = TidyChat.Utility.InternalStrings;
-using System.Data;
-using System.Reflection.Metadata.Ecma335;
-using Dalamud.Game.Text.SeStringHandling.Payloads;
 
 namespace TidyChat;
 
@@ -79,7 +77,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         PluginInterface.UiBuilder.Draw += DrawUI;
         PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
-        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI; 
+        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
     }
 
     #endregion Setup
@@ -180,7 +178,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // If we join a party - temporarily disable the filters to allow the Party Information messages through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
-        if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty && Configuration.FilterSystemMessages)
+        if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty && Configuration.ShowPartyInformation && Configuration.FilterSystemMessages)
             Better.TemporarilyDisableSystemFilter(Configuration);
 
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
@@ -197,7 +195,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
-        { 
+        {
             message = Better.Instances(message, Configuration);
             return;
         }
@@ -206,7 +204,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
 
         {
-            message = Better.SayReminder(message, Configuration); 
+            message = Better.SayReminder(message, Configuration);
             return;
         }
 
@@ -259,7 +257,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         List<String> rulesMatched = [];
         List<String> rulesSkipped = [];
-        List<String> rulesFailed= [];
+        List<String> rulesFailed = [];
         foreach (var rule in rules)
         {
             if (rule.Error is not null)
@@ -396,14 +394,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (chatType is not ChatType.LootNotice)
         {
             isHandled = isBlocked;
-        } else
+        }
+        else
         {
             isHandled = !isBlocked;
         }
         if (isHandled)
         {
             Log.Debug($"BLOCKED: {message}");
-        } else
+        }
+        else
         {
             Log.Debug($"ALLOWED: {message}");
         }
@@ -519,7 +519,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             Better.AddAllowedTag(stringBuilder);
             Better.AddRuleTag(stringBuilder, rulesMatched);
-        } else
+        }
+        else
         {
             Better.AddBlockedTag(stringBuilder);
         }
@@ -704,15 +705,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         return chatType switch
         {
-            ChatType.System or 
-            ChatType.StandardEmote or 
-            ChatType.CustomEmote or 
-            ChatType.Crafting or 
-            ChatType.Gathering or 
-            ChatType.GatheringSystem or 
-            ChatType.LootNotice or 
-            ChatType.LootRoll or 
-            ChatType.Progress or 
+            ChatType.System or
+            ChatType.StandardEmote or
+            ChatType.CustomEmote or
+            ChatType.Crafting or
+            ChatType.Gathering or
+            ChatType.GatheringSystem or
+            ChatType.LootNotice or
+            ChatType.LootRoll or
+            ChatType.Progress or
             ChatType.FreeCompanyLoginLogout or
             ChatType.Echo => true,
             _ => false,
@@ -754,8 +755,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (payload.Type is not PayloadType.RawText)
             {
                 stringBuilder.Add(payload);
-            }  
-            else if (payload is TextPayload {  Text: not null } textPayload)
+            }
+            else if (payload is TextPayload { Text: not null } textPayload)
             {
                 string deblockedMessage = "";
                 foreach (int i in textPayload.Text)

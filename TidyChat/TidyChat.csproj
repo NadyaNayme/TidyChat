@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Authors>Nadya</Authors>
         <Company>Served with love</Company>
-        <Version>2.0.4</Version>
+        <Version>2.0.5</Version>
         <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
 
             Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
@@ -31,10 +31,6 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
         <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
-
-    <ItemGroup>
-      <None Remove="Localization\Resources\Languages.resources" />
-    </ItemGroup>
 
     <ItemGroup>
         <Content Include=".\TidyChat.json">
@@ -100,14 +96,53 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Update="..\Localization\Resources\Languages.resx">
-			<Generator>Languages</Generator>
+        <EmbeddedResource Update="Localization\Resources\Languages.de.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.es.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.fr.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.it.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ja.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.nn.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ploc.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Languages.ploc.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.pt.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Languages.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ru.resx">
+          <Generator></Generator>
         </EmbeddedResource>
     </ItemGroup>
 
+
+
 	<ItemGroup>
-		<EmbeddedResource Include=".\Localization\Resources\Languages.resources">
-		</EmbeddedResource>
+	  <Compile Update="Localization\Resources\Languages.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Languages.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Localization\Resources\Languages.ploc.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Languages.ploc.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 </Project>
