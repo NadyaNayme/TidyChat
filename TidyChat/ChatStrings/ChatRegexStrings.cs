@@ -49,10 +49,10 @@ public static class ChatRegexStrings
     /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
     public static readonly LocalizedRegex ObtainedVenture = new()
     {
-        Jpn = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
-        Eng = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
-        Deu = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
-        Fra = new Regex(@"you (obtain|obtains) (a venture|2 ventures|3 ventures)\.", regexOptions, regexTimeout),
+        Jpn = new Regex(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
+        Eng = new Regex(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
+        Deu = new Regex(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
+        Fra = new Regex(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
     };
 
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
@@ -206,6 +206,14 @@ public static class ChatRegexStrings
         Eng = new Regex(@"^you desynthesize.+", regexOptions, regexTimeout),
         Deu = new Regex(@"^(du|deiner|dir|dich|you) verwertet", regexOptions, regexTimeout),
         Fra = new Regex(@"^(vous|you) obtient", regexOptions, regexTimeout),
+    };
+
+    public static readonly LocalizedRegex YouObtainItem = new()
+    {
+        Jpn = new Regex(@"^youは.+を手に入れた。$", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you (obtain|obtains) (a|an).+", regexOptions, regexTimeout),
+        Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new Regex(@"^(vous|you) (recyclez|recycle)", regexOptions, regexTimeout),
     };
 
     public static readonly LocalizedRegex YouObtainSystem = new()

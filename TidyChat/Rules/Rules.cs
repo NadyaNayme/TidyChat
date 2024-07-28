@@ -393,7 +393,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "PomanderOfWitching",
+            Name = "ShowPomanderOfSerenity",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1091,7 +1091,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.StartsWithYou],
+            RegexChecks = [ChatRegexStrings.YouObtainItem],
             Pattern = PatternKind.RegexMatch,
         },
         new LocalizedFilterRule

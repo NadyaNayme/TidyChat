@@ -166,7 +166,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Check if emotes from other players should be filtered or not
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
         {
-            Log.Verbose($"Filtered an emote: {message.ToString()}");
+            Log.Verbose($"Filtered an emote: {message}");
             return;
         }
 
@@ -174,14 +174,19 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         var normalizedText = NormalizeInput.ToLowercase(message);
 
         // If the message is a /? command - temporarily disable the filters to allow the command text through
-        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) &&
-            Configuration.FilterSystemMessages)
+        // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
+        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
+            Better.TemporarilyDisableSystemFilter(Configuration);
+
+        // If we join a party - temporarily disable the filters to allow the Party Information messages through
+        // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
+        if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty && Configuration.FilterSystemMessages)
             Better.TemporarilyDisableSystemFilter(Configuration);
 
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
-        if (Configuration.ShowDebugTeleport && && chatType is ChatType.Debug &&
+        if (Configuration.ShowDebugTeleport && chatType is ChatType.Debug &&
             L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
             isHandled = true;
 
