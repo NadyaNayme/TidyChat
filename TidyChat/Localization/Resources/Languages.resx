@@ -556,25 +556,25 @@ eg. Some player obtains an &lt;item&gt;!</value>
     <value>Common Currencies</value>
   </data>
   <data name="ObtainTab_ShowGil" xml:space="preserve">
-    <value>Show Gil</value>
+    <value>Hide Gil</value>
   </data>
   <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
     <value>eg. You obtain 69 gil.</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
-    <value>Show Grand Company Seals</value>
+    <value>Hide Grand Company Seals</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 420 Flame Seals.</value>
   </data>
   <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
-    <value>Show Ventures</value>
+    <value>Hide Ventures</value>
   </data>
   <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain a Venture.</value>
   </data>
   <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
-    <value>Show MGP</value>
+    <value>Hide MGP</value>
   </data>
   <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 117 MGP.</value>
@@ -583,43 +583,43 @@ eg. Some player obtains an &lt;item&gt;!</value>
     <value>Battle Currencies</value>
   </data>
   <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
-    <value>Show Allagan tomestones of Poetics</value>
+    <value>Hide Allagan tomestones of Poetics</value>
   </data>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
   </data>
   <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-    <value>Show Allagan tomestones of Aphorism</value>
+    <value>Hide Allagan tomestones of Aphorism</value>
   </data>
   <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
   </data>
   <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-    <value>Show Allagan tomestones of Astronomy</value>
+    <value>Hide Allagan tomestones of Astronomy</value>
   </data>
   <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
-    <value>Show Wolf Marks</value>
+    <value>Hide Wolf Marks</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 1,000 Wolf Marks.</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
-    <value>Show Allied Seals</value>
+    <value>Hide Allied Seals</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 100 Allied Seals.</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
-    <value>Show Centurio Seals</value>
+    <value>Hide Centurio Seals</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 40 Centurio Seals.</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
-    <value>Show sacks of Nuts</value>
+    <value>Hide sacks of Nuts</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 100 sacks of Nuts.</value>
@@ -628,14 +628,14 @@ eg. Some player obtains an &lt;item&gt;!</value>
     <value>Beast Tribe Quests</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
-    <value>Show Beast Tribe crafting materials</value>
+    <value>Hide Beast Tribe crafting materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.
 eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
-    <value>Show Beast Tribe Currencies</value>
+    <value>Hide Beast Tribe Currencies</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.</value>
@@ -644,7 +644,7 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Other Obtain Messages</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
-    <value>Show cracked clusters</value>
+    <value>Hide cracked clusters</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
     <value>This will show cracked clusters such as Dendroclusters and Anthoclusters.

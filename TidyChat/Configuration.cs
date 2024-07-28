@@ -162,27 +162,27 @@ public class Configuration : IPluginConfiguration
 
     #region Obtained Items
 
-    public bool ShowObtainedGil { get; set; } = false;
-    public bool ShowObtainedMGP { get; set; } = false;
-    public bool ShowObtainedClusters { get; set; } = false;
-    public bool ShowObtainedWolfMarks { get; set; } = false;
-    public bool ShowObtainedSeals { get; set; } = false;
-    public bool ShowObtainedAlliedSeals { get; set; } = false;
-    public bool ShowObtainedCenturioSeals { get; set; } = false;
-    public bool ShowObtainedNuts { get; set; } = false;
-    public bool ShowObtainedVenture { get; set; } = false;
-    public bool ShowObtainedMaterials { get; set; } = false;
-    public bool ShowObtainedTribalCurrency { get; set; } = false;
-    public bool ShowObtainedShards { get; set; } = false;
+    public bool HideObtainedGil { get; set; } = false;
+    public bool HideObtainedMGP { get; set; } = false;
+    public bool HideObtainedClusters { get; set; } = false;
+    public bool HideObtainedWolfMarks { get; set; } = false;
+    public bool HideObtainedSeals { get; set; } = false;
+    public bool HideObtainedAlliedSeals { get; set; } = false;
+    public bool HideObtainedCenturioSeals { get; set; } = false;
+    public bool HideObtainedNuts { get; set; } = false;
+    public bool HideObtainedVenture { get; set; } = false;
+    public bool HideObtainedMaterials { get; set; } = false;
+    public bool HideObtainedTribalCurrency { get; set; } = false;
+    public bool HideObtainedShards { get; set; } = false;
     public bool ShowGainExperience { get; set; } = false;
-    public bool ShowRouletteBonus { get; set; } = false;
-    public bool ShowAdventurerInNeedBonus { get; set; } = false;
+    public bool HideRouletteBonus { get; set; } = false;
+    public bool HideAdventurerInNeedBonus { get; set; } = false;
     public bool ShowGainPvpExp { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
-    public bool ShowObtainedPoeticsTomestones { get; set; } = false;
-    public bool ShowObtainedAphorismTomestones { get; set; } = false;
-    public bool ShowObtainedAstronomyTomestones { get; set; } = false;
+    public bool HideObtainedPoeticsTomestones { get; set; } = false;
+    public bool HideObtainedAphorismTomestones { get; set; } = false;
+    public bool HideObtainedAstronomyTomestones { get; set; } = false;
 
     #endregion
 
@@ -192,7 +192,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowCastLot { get; set; } = false;
     public bool ShowOthersLootRoll { get; set; } = false;
     public bool ShowOthersCastLot { get; set; } = false;
-    public bool ShowOthersObtain { get; set; } = false;
+    public bool HideOthersObtain { get; set; } = false;
 
     #endregion
 

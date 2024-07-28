@@ -31,20 +31,20 @@ internal static class ProgressTab
             configuration.Save();
         }
 
-        var showRouletteBonusExperiencePoints = configuration.ShowRouletteBonus;
+        var hideRouletteBonus = configuration.HideRouletteBonus;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
-                ref showRouletteBonusExperiencePoints))
+                ref hideRouletteBonus))
         {
-            configuration.ShowRouletteBonus = showRouletteBonusExperiencePoints;
+            configuration.HideRouletteBonus = hideRouletteBonus;
             configuration.Save();
         }
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
 
-        var showAdventurerInNeedBonus = configuration.ShowAdventurerInNeedBonus;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref showAdventurerInNeedBonus))
+        var hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
         {
-            configuration.ShowAdventurerInNeedBonus = showAdventurerInNeedBonus;
+            configuration.HideAdventurerInNeedBonus = hideAdventurerInNeedBonus;
             configuration.Save();
         }
 

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Channels;
-using System.Xml.Linq;
 using ChatTwo.Code;
-using Dalamud.Interface.Internal.Windows.Settings;
 using TidyChat.Translation.Data;
-using static FFXIVClientStructs.FFXIV.Client.Graphics.Kernel.VertexShader;
 
 namespace TidyChat;
 
@@ -1048,7 +1044,16 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedShards",
+            Name = "HideObtainedShards",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.ObtainedShards],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "HideObtainedShards",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
@@ -1087,16 +1092,7 @@ public static class Rules
         #region Obtain
         new LocalizedFilterRule
         {
-            Name = "FilterObtainedSpam",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.YouObtainItem],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowRouletteBonus",
+            Name = "HideRouletteBonus",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1105,7 +1101,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowAdventurerInNeedBonus",
+            Name = "HideAdventurerInNeedBonus",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1114,7 +1110,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedGil",
+            Name = "HideObtainedGil",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1123,7 +1119,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedMGP",
+            Name = "HideObtainedMGP",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1132,7 +1128,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedWolfMarks",
+            Name = "HideObtainedWolfMarks",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1141,7 +1137,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedSeals",
+            Name = "HideObtainedSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1150,7 +1146,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedVenture",
+            Name = "HideObtainedVenture",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1159,7 +1155,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedTribalCurrency",
+            Name = "HideObtainedTribalCurrency",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1168,7 +1164,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedShards",
+            Name = "HideObtainedShards",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1177,7 +1173,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedClusters",
+            Name = "HideObtainedClusters",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1186,7 +1182,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedAlliedSeals",
+            Name = "HideObtainedAlliedSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1195,7 +1191,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedCenturioSeals",
+            Name = "HideObtainedCenturioSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1204,7 +1200,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedNuts",
+            Name = "HideObtainedNuts",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1213,7 +1209,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowObtainedMaterials",
+            Name = "HideObtainedMaterials",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -1222,7 +1218,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowOthersObtain",
+            Name = "HideOthersObtain",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,

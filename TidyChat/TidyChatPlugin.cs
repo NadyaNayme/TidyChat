@@ -389,7 +389,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         Log.Debug($"{rulesMatched.Count} Rules Matched: {String.Join(", ", rulesMatched)}");
         Log.Debug($"{rulesSkipped.Count} Rules Skipped: {String.Join(", ", rulesSkipped)}");
         Log.Debug($"{rulesFailed.Count} Rules Failed: {String.Join(", ", rulesFailed)}");
-        isHandled = isBlocked;
+
+        // Sigh... previously LootNotice was Allow-By-Default and the filters Blocked
+        // so we have to do some inversion here to restore previous behavior since
+        // Tidy Chat 2.0 only runs Checks with True Configuration values
+        if (chatType is not ChatType.LootNotice)
+        {
+            isHandled = isBlocked;
+        } else
+        {
+            isHandled = !isBlocked;
+        }
         if (isHandled)
         {
             Log.Debug($"BLOCKED: {message}");

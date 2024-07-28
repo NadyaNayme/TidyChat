@@ -131,7 +131,7 @@ internal static class BetterStrings
     public static SeStringBuilder AddChannelTag(SeStringBuilder sestring, ChatType channel)
     {
         sestring.AddUiForeground(8);
-        sestring.AddText($"[{channel.ToString()}] ");
+        sestring.AddText($"[{channel}] ");
         sestring.AddUiForegroundOff();
         return sestring;
     }
