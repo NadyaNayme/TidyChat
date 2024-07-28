@@ -152,26 +152,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         var chatType = FromDalamud(type);
 
-        if (Configuration.NormalizeBlocks)
-        {
-            if (Configuration.AlwaysNormalizeBlocks)
-            {
-                message = DeblockMessage(message);
-            }
-            else if (chatType is ChatType.Party || chatType is ChatType.Alliance)
-            {
-                // Do nothing if the message is to Party or Alliance
-            } else
-            {
-                message = DeblockMessage(message);
-            }
-        }
-
-        if (Configuration.EnableSmolMode)
-        {
-            message = SmolMessage(message);
-        }
-
         // Don't bother checking anything sent to /echo... unless we're debugging
         if (chatType == ChatType.Echo && !Configuration.EnableDebugMode)
         {
@@ -201,7 +181,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
-        if (Configuration.ShowDebugTeleport && !Configuration.EnableDebugMode && chatType is ChatType.Debug &&
+        if (Configuration.ShowDebugTeleport && && chatType is ChatType.Debug &&
             L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
             isHandled = true;
 
@@ -210,15 +190,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Certain messages are improved with better messaging - these will change those messages to be Better Messages
         // Better Messages must always Early Return to avoid being filtered and because if we bettered the message we aren't filtering it anyway
 
-        if (Configuration.BetterInstanceMessage &&
-            !Configuration.EnableDebugMode && chatType is ChatType.System &&
+        if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
         { 
             message = Better.Instances(message, Configuration);
             return;
         }
 
-        if (Configuration.BetterSayReminder && !Configuration.EnableDebugMode &&
+        if (Configuration.BetterSayReminder &&
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
 
         {
@@ -226,11 +205,33 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
-        if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode &&
+        if (Configuration.BetterNoviceNetworkMessage &&
             (L10N.Get(ChatStrings.NoviceNetworkJoin).All(normalizedText.Contains) || L10N.Get(ChatStrings.NoviceNetworkLeft).All(normalizedText.Contains)))
         {
             message = Better.NoviceNetwork(message, normalizedText, Configuration);
             return;
+        }
+
+        // No early returns in the following Better Message settings as the messages still need to be filtered - but have been modified
+        if (Configuration.NormalizeBlocks)
+        {
+            if (Configuration.AlwaysNormalizeBlocks)
+            {
+                message = DeblockMessage(message);
+            }
+            else if (chatType is ChatType.Party || chatType is ChatType.Alliance)
+            {
+                // Do nothing if the message is to Party or Alliance
+            }
+            else
+            {
+                message = DeblockMessage(message);
+            }
+        }
+
+        if (Configuration.EnableSmolMode)
+        {
+            message = SmolMessage(message);
         }
 
         #endregion

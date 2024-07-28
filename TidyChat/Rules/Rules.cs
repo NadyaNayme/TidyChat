@@ -123,6 +123,321 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
+            Name = "ShowInviteSent",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.InviteSent],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowInviteeJoins",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.InviteeJoins],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowLeftParty",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.LeftParty],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowLeftParty",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.YouLeaveParty],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPartyDisband",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.PartyDisband],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPartyDissolved",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.PartyDissolved],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowInvitedBy",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.InvitedBy],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowJoinParty",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.JoinParty],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowJoinParty",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.JoinCrossParty],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowHuntSlain",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.HuntSlain],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowRelicBookStep",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.RelicBookStep],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowRelicBookComplete",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.RelicBookComplete],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowOnlineStatus",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.OnlineStatus],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowAttachToMail",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.AttachToMail],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowDesynthedItem",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.YouDesynth],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowDesynthesisObtains",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.YouObtainSystem],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowObtainedPomander",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.ObtainedPomander],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowReturnedPomander",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.ReturnedPomander],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowCairnGlows",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.CairnGlows],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowRestoresLifeToFallen",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.RestoresLifeToFallen],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowCairnActivates",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.CairnActivates],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowTransference",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.Transference],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowAetherpoolIncrease",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.AetherpoolIncrease],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowAetherpoolUnchanged",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.AetherpoolUnchanged],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPomanderOfSafety",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfSafety],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPomanderOfSight",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfSight],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPomanderOfAffluence",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfAffluence],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPomanderOfFlight",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfFlight],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPomanderOfAlteration",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfAlteration],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowPomanderOfWitching",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfWitching],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "PomanderOfWitching",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.PomanderOfSerenity],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowFloorNumber",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.FloorNumber],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowSenseAccursedHoard",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.SenseAccursedHoard],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowDoNotSenseAccursedHoard",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.DoNotSenseAccursedHoard],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowDiscoverAccursedHoard",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.DiscoverAccursedHoard],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
             Name = "ShowReadyChecks",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -372,6 +687,78 @@ public static class Rules
             IsActive = true,
             StringChecks = [ChatStrings.GearsetEquipped],
             Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.OfferedTeleport],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.GearsetEquipped],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowMateriaRetrieved",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.MateriaRetrieved],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowMateriaShatters",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.MateriaShatters],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowVolumeControlMessage",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.VolumeControls],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.AetherialReductionSands],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowSealedOff",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.SealedOff],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.SearchForItemResults],
+            Pattern = PatternKind.RegexMatch,
         },
         new LocalizedFilterRule
         {
@@ -698,6 +1085,15 @@ public static class Rules
         #endregion
 
         #region Obtain
+        new LocalizedFilterRule
+        {
+            Name = "FilterObtainedSpam",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.StartsWithYou],
+            Pattern = PatternKind.RegexMatch,
+        },
         new LocalizedFilterRule
         {
             Name = "ShowRouletteBonus",

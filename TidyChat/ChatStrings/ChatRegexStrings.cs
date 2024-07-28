@@ -390,7 +390,13 @@ public static class ChatRegexStrings
             regexOptions, regexTimeout),
     };
 
-    public static readonly Regex AetherialReductionSands = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout);
+    public static readonly LocalizedRegex AetherialReductionSands = new()
+    {
+        Jpn = new Regex(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
+        Eng = new Regex(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
+        Deu = new Regex(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
+        Fra = new Regex(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
+    };
 
     /// <see href="https://xivapi.com/LogMessage/2012?pretty=true">Area will be sealed off in 15 seconds</see>
     /// <seealso href="https://xivapi.com/LogMessage/2013?pretty=true">
