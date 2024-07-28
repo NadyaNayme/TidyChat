@@ -88,7 +88,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ObtainedSeals = new()
     {
         Jpn = new Regex(@"の軍票(\d{1,3},)?\d{1,3}枚を手に入れた。$", regexOptions, regexTimeout),
-        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} (Flame|Storm|Serpent) Seals\.$", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3}(\(\+\d{1,2}\%\))? (Flame|Storm|Serpent) Seals\.$", regexOptions, regexTimeout),
         Deu = new Regex(@"(flottentaler|ordenstaler|legionstaler) erhalten", regexOptions, regexTimeout),
         Fra = new Regex(@"^(vous|you) obtenez \d{1,6} sceaux (de|des) (Immortels|Deux Vipères|Maelstrom)\.$",
             regexOptions, regexTimeout),
