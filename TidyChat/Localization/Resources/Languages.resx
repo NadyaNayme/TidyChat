@@ -546,7 +546,7 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
     <value>Show "Another Player rolls Greed..." messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Show "Another Player obtains &lt;item&gt;" messages</value>
+    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when another player in the party obtains a loot drop.

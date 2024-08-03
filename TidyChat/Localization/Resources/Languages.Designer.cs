@@ -1066,7 +1066,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show &quot;Another Player obtains &lt;item&gt;&quot; messages.
+        ///   Looks up a localized string similar to Hide &quot;Another Player obtains &lt;item&gt;&quot; messages.
         /// </summary>
         internal static string ObtainTab_ShowAnotherPlayerObtainsItemMessages {
             get {
