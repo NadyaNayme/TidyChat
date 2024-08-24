@@ -265,6 +265,15 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowNowALeaderHelpMarker);
+
+            var showEverythingElse = configuration.ShowEverythingElse;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
+            {
+                configuration.ShowEverythingElse = showEverythingElse;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowEverythingElseHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_FreeCompanyDropdownHeader))

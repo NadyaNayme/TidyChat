@@ -2123,6 +2123,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show everything else.
+        /// </summary>
+        internal static string SystemTab_ShowEverythingElse {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowEverythingElse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All system messages that aren&apos;t controlled by a different checkbox.
+        /// </summary>
+        internal static string SystemTab_ShowEverythingElseHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowEverythingElseHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show bonus award for a party member&apos;s first clear.
         /// </summary>
         internal static string SystemTab_ShowFirstClearAward {

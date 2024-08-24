@@ -255,6 +255,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isBlocked = false;
         }
 
+        var showEverythingElse = false;
+        if (chatType is ChatType.System && Configuration.ShowEverythingElse)
+        {
+            isBlocked = !isBlocked;
+            showEverythingElse = true;
+        }
+        var defaultBlocked = isBlocked;
+
         List<String> rulesMatched = [];
         List<String> rulesSkipped = [];
         List<String> rulesFailed = [];
@@ -266,9 +274,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
 
             // Don't bother checking if the rule is not active
-            if (!rule.IsActive)
+            if (rule.IsActive == showEverythingElse)
             {
-                Log.Verbose($"SKIPPING CHECK: {rule.Name} is inactive");
+                var activeOrInactive = showEverythingElse ? "active" : "inactive";
+                Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
                 rulesSkipped.Add(rule.Name);
                 continue;
             }
@@ -344,7 +353,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             Log.Verbose($"Passed all checks!");
                             rulesMatched.Add(rule.Name);
-                            isBlocked = Configuration.EnableInverseMode;
+                            isBlocked = !defaultBlocked;
                         }
                         else
                         {
@@ -374,7 +383,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             Log.Verbose($"Passed all checks!");
                             rulesMatched.Add(rule.Name);
-                            isBlocked = Configuration.EnableInverseMode;
+                            isBlocked = !defaultBlocked;
                         }
                         else
                         {

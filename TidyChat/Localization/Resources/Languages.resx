@@ -986,4 +986,10 @@ Initials: E. N.</value>
   <data name="ShowPartyObjectiveAndPartyCommentWhenJoiningAParty" xml:space="preserve">
     <value>Show Party Objective and Party Comment when joining a party</value>
   </data>
+  <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
+    <value>Show everything else</value>
+  </data>
+  <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
+    <value>All system messages that aren't controlled by a different checkbox</value>
+  </data>
 </root>
