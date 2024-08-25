@@ -273,7 +273,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 Log.Debug($"Error: {rule.Error}");
             }
 
-            // Don't bother checking if the rule is not active
+            // Skip rules that wouldn't change isBlocked away from defaultBlocked
             if (rule.IsActive == showEverythingElse)
             {
                 var activeOrInactive = showEverythingElse ? "active" : "inactive";
