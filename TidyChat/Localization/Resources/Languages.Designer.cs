@@ -1570,7 +1570,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Experimental Feature: Inverse mode.
+        ///   Looks up a localized string similar to DEPRECATED! Inverse mode.
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseMode {
             get {
@@ -1589,8 +1589,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you have enabled Inverse mode you are on your own and will not receive any support.
-        ///It is assumed you know what you are doing..
+        ///   Looks up a localized string similar to Please turn this setting off and use &quot;Show everything else&quot; instead.
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseModeWarningText {
             get {
