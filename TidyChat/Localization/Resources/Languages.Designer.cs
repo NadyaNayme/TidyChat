@@ -1570,7 +1570,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Experimental Feature: Inverse mode.
+        ///   Looks up a localized string similar to DEPRECATED! Inverse mode.
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseMode {
             get {
@@ -1589,8 +1589,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you have enabled Inverse mode you are on your own and will not receive any support.
-        ///It is assumed you know what you are doing..
+        ///   Looks up a localized string similar to Please turn this setting off and use &quot;Show all other System messages&quot; instead.
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseModeWarningText {
             get {
@@ -2119,6 +2118,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowDisbandAndDissolveMessages {
             get {
                 return ResourceManager.GetString("SystemTab_ShowDisbandAndDissolveMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show all other System messages.
+        /// </summary>
+        internal static string SystemTab_ShowEverythingElse {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowEverythingElse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All system messages that aren&apos;t controlled by a different checkbox.
+        /// </summary>
+        internal static string SystemTab_ShowEverythingElseHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowEverythingElseHelpMarker", resourceCulture);
             }
         }
         

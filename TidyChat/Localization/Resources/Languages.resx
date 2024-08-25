@@ -255,15 +255,14 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Whitelist</value>
   </data>
   <data name="SystemTab_ExperimentalFeatureInverseMode" xml:space="preserve">
-    <value>Experimental Feature: Inverse mode</value>
+    <value>DEPRECATED! Inverse mode</value>
   </data>
   <data name="SystemTab_ExperimentalFeatureInverseModeHelpMarker" xml:space="preserve">
     <value>No longer blocks System messages by default
 Filters now Hide messages instead of Show them</value>
   </data>
   <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-    <value>If you have enabled Inverse mode you are on your own and will not receive any support.
-It is assumed you know what you are doing.</value>
+    <value>Please turn this setting off and use "Show all other System messages" instead</value>
   </data>
   <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
     <value>Show System messages Tidy Chat shows by default</value>
@@ -985,5 +984,11 @@ Initials: E. N.</value>
   </data>
   <data name="ShowPartyObjectiveAndPartyCommentWhenJoiningAParty" xml:space="preserve">
     <value>Show Party Objective and Party Comment when joining a party</value>
+  </data>
+  <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
+    <value>Show all other System messages</value>
+  </data>
+  <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
+    <value>All system messages that aren't controlled by a different checkbox</value>
   </data>
 </root>
