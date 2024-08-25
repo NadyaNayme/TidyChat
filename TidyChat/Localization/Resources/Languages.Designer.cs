@@ -1589,7 +1589,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please turn this setting off and use &quot;Show everything else&quot; instead.
+        ///   Looks up a localized string similar to Please turn this setting off and use &quot;Show all other System messages&quot; instead.
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseModeWarningText {
             get {
@@ -2122,7 +2122,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show everything else.
+        ///   Looks up a localized string similar to Show all other System messages.
         /// </summary>
         internal static string SystemTab_ShowEverythingElse {
             get {

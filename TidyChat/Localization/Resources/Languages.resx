@@ -262,7 +262,7 @@ eg. You gently pat &lt;user&gt;</value>
 Filters now Hide messages instead of Show them</value>
   </data>
   <data name="SystemTab_ExperimentalFeatureInverseModeWarningText" xml:space="preserve">
-    <value>Please turn this setting off and use "Show everything else" instead</value>
+    <value>Please turn this setting off and use "Show all other System messages" instead</value>
   </data>
   <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
     <value>Show System messages Tidy Chat shows by default</value>
@@ -986,7 +986,7 @@ Initials: E. N.</value>
     <value>Show Party Objective and Party Comment when joining a party</value>
   </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
-    <value>Show everything else</value>
+    <value>Show all other System messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>All system messages that aren't controlled by a different checkbox</value>
