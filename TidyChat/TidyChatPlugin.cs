@@ -503,9 +503,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         #region Debug Mode Enabled
 
-        if (Configuration.EnableDebugMode && isHandled && !message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+        if (Configuration.EnableDebugMode && !message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
-            message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel);
+            if (Configuration.DebugIncludeChannel || isHandled)
+            {
+                message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+            }
             isHandled = false;
         }
 
@@ -516,7 +519,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
-    private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel)
+    private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel, bool isBlocked)
     {
         var stringBuilder = new SeStringBuilder();
         Better.AddTidyChatTag(stringBuilder);
@@ -529,7 +532,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Better.AddAllowedTag(stringBuilder);
             Better.AddRuleTag(stringBuilder, rulesMatched);
         }
-        else
+        else if (isBlocked)
         {
             Better.AddBlockedTag(stringBuilder);
         }
