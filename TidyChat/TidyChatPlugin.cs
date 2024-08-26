@@ -527,14 +527,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             Better.AddChannelTag(stringBuilder, chatType);
         }
+        if (isBlocked) Better.AddBlockedTag(stringBuilder);
         if (rulesMatched.Count > 0)
         {
-            Better.AddAllowedTag(stringBuilder);
+            if (!isBlocked) Better.AddAllowedTag(stringBuilder);
             Better.AddRuleTag(stringBuilder, rulesMatched);
-        }
-        else if (isBlocked)
-        {
-            Better.AddBlockedTag(stringBuilder);
         }
         stringBuilder.AddText(message.TextValue);
         return stringBuilder.BuiltString;
