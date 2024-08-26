@@ -212,6 +212,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowDesynthesisObtains { get; set; } = false;
     public bool ShowTrialMessages { get; set; } = true;
     public bool ShowOtherSynthesis { get; set; } = false;
+    public bool ShowAllOtherCrafting { get; set; } = false;
 
     #endregion
 
@@ -230,6 +231,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;
+    public bool ShowAllOtherGathering { get; set; } = false;
 
     #endregion
 }

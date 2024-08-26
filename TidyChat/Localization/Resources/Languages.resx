@@ -991,4 +991,10 @@ Initials: E. N.</value>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>All system messages that aren't controlled by a different checkbox</value>
   </data>
+  <data name="CraftingGatheringTab_ShowAllOtherCrafting" xml:space="preserve">
+    <value>Show all other Crafting messages</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowAllOtherGathering" xml:space="preserve">
+    <value>Show all other Gathering messages</value>
+  </data>
 </root>

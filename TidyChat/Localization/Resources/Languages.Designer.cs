@@ -431,6 +431,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show all other Crafting messages.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowAllOtherCrafting {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowAllOtherCrafting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show all other Gathering messages.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowAllOtherGathering {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowAllOtherGathering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show desynthesis level increases messages.
         /// </summary>
         internal static string CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages {
