@@ -254,6 +254,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isBlocked = false;
         }
 
+        var showEverythingElse = false;
+        if (chatType is ChatType.System && Configuration.ShowEverythingElse)
+        {
+            isBlocked = !isBlocked;
+            showEverythingElse = true;
+        }
+        var defaultBlocked = isBlocked;
+
         List<String> rulesMatched = [];
         List<String> rulesSkipped = [];
         List<String> rulesFailed = [];
@@ -264,10 +272,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 Log.Debug($"Error: {rule.Error}");
             }
 
-            // Don't bother checking if the rule is not active
-            if (!rule.IsActive)
+            // Skip rules that wouldn't change isBlocked away from defaultBlocked
+            if (rule.IsActive == showEverythingElse)
             {
-                Log.Verbose($"SKIPPING CHECK: {rule.Name} is inactive");
+                var activeOrInactive = showEverythingElse ? "active" : "inactive";
+                Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
                 rulesSkipped.Add(rule.Name);
                 continue;
             }
@@ -343,7 +352,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             Log.Verbose($"Passed all checks!");
                             rulesMatched.Add(rule.Name);
-                            isBlocked = Configuration.EnableInverseMode;
+                            isBlocked = !defaultBlocked;
                         }
                         else
                         {
@@ -373,7 +382,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         {
                             Log.Verbose($"Passed all checks!");
                             rulesMatched.Add(rule.Name);
-                            isBlocked = Configuration.EnableInverseMode;
+                            isBlocked = !defaultBlocked;
                         }
                         else
                         {
@@ -493,9 +502,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         #region Debug Mode Enabled
 
-        if (Configuration.EnableDebugMode && isHandled && !message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+        if (Configuration.EnableDebugMode && !message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
-            message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel);
+            if (Configuration.DebugIncludeChannel || isHandled)
+            {
+                message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+            }
             isHandled = false;
         }
 
@@ -506,7 +518,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
-    private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel)
+    private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel, bool isBlocked)
     {
         var stringBuilder = new SeStringBuilder();
         Better.AddTidyChatTag(stringBuilder);
@@ -514,14 +526,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             Better.AddChannelTag(stringBuilder, chatType);
         }
+        if (isBlocked) Better.AddBlockedTag(stringBuilder);
         if (rulesMatched.Count > 0)
         {
-            Better.AddAllowedTag(stringBuilder);
+            if (!isBlocked) Better.AddAllowedTag(stringBuilder);
             Better.AddRuleTag(stringBuilder, rulesMatched);
-        }
-        else
-        {
-            Better.AddBlockedTag(stringBuilder);
         }
         stringBuilder.AddText(message.TextValue);
         return stringBuilder.BuiltString;

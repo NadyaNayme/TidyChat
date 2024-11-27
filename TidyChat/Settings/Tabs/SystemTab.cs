@@ -9,16 +9,20 @@ internal static class SystemTab
     public static void Draw(Configuration configuration)
     {
         var enableInverseMode = configuration.EnableInverseMode;
-        if (ImGui.Checkbox(Languages.SystemTab_ExperimentalFeatureInverseMode, ref enableInverseMode))
+        if (enableInverseMode)
         {
-            configuration.EnableInverseMode = enableInverseMode;
-            configuration.Save();
+            if (ImGui.Checkbox(Languages.SystemTab_ExperimentalFeatureInverseMode, ref enableInverseMode))
+            {
+                configuration.EnableInverseMode = enableInverseMode;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ExperimentalFeatureInverseModeHelpMarker);
+
+            if (configuration.EnableInverseMode)
+                ImGui.TextUnformatted(Languages.SystemTab_ExperimentalFeatureInverseModeWarningText);
         }
 
-        ImGuiComponents.HelpMarker(Languages.SystemTab_ExperimentalFeatureInverseModeHelpMarker);
-
-        if (configuration.EnableInverseMode)
-            ImGui.TextUnformatted(Languages.SystemTab_ExperimentalFeatureInverseModeWarningText);
         if (ImGui.CollapsingHeader(Languages.SystemTab_HideShownDefaultDropdownHeader))
         {
             var instanceMessage = configuration.ShowInstanceMessage;
@@ -265,6 +269,15 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowNowALeaderHelpMarker);
+
+            var showEverythingElse = configuration.ShowEverythingElse;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
+            {
+                configuration.ShowEverythingElse = showEverythingElse;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowEverythingElseHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_FreeCompanyDropdownHeader))

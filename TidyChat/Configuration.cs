@@ -129,6 +129,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowNoviceNetworkFull { get; set; } = true;
+    public bool ShowEverythingElse { get; set; } = false;
 
     #endregion
 
