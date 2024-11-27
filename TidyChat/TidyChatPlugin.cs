@@ -34,13 +34,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
     [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
     [PluginService] public static IPluginLog Log { get; private set; } = null!;
+    private static IDtrBarEntry DtrEntry { get; set; } = null!;
 
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
 
     private const string SettingsCommand = TidyStrings.SettingsCommand;
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
-    private readonly DtrBarEntry dtrEntry;
+    
     private ulong SessionBlockedMessages;
 
     #region Setup
@@ -51,12 +52,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         L10N.Language = ClientState.ClientLanguage;
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
-
+        
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-
-        dtrEntry = (DtrBarEntry)DtrBar.Get(TidyStrings.PluginName);
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(dtrEntry, Configuration);
+        
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(DtrEntry, Configuration);
 
         ChatGui.CheckMessageHandled += OnChat;
         ClientState.TerritoryChanged += OnTerritoryChanged;
@@ -86,7 +86,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     public void Dispose()
     {
-        dtrEntry.Dispose();
         PluginUi.Dispose();
         CommandManager.RemoveHandler(SettingsCommand);
         CommandManager.RemoveHandler(ShorthandCommand);
@@ -99,11 +98,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private void OnLogin()
     {
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(dtrEntry, Configuration);
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(DtrEntry, Configuration);
         SetPlayerName();
     }
 
-    private void OnLogout()
+    private void OnLogout(int add, int remove)
     {
         BlockedCountUpdate();
     }
@@ -112,17 +111,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(dtrEntry, Configuration);
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(DtrEntry, Configuration);
         if (Configuration.IncludeDutyNameInComms)
             try
             {
                 var territory =
-                    DataManager.GetExcelSheet<Lumina.Excel.GeneratedSheets.TerritoryType>()!.GetRow(e); // built in sheets will never be null
+                    DataManager.GetExcelSheet<Lumina.Excel.Sheets.TerritoryType>()!.GetRow(e); // built in sheets will never be null
                 var exclusiveType = territory!.ExclusiveType;
                 var isPvp = territory.IsPvpZone;
 
-                var placeName = territory.PlaceName.Value?.Name.ToString();
-                var dutyName = territory.ContentFinderCondition.Value?.Name.ToString();
+                var placeName = territory.PlaceName.Value.Name.ToString();
+                var dutyName = territory.ContentFinderCondition.Value.Name.ToString();
 
                 TidyStrings.LastDuty = exclusiveType switch
                 {
@@ -775,32 +774,27 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return msg;
     }
 
-    public static DtrBarEntry GetDtrBar()
-    {
-        return (DtrBarEntry)DtrBar.Get(TidyStrings.PluginName);
-    }
-    unsafe public static void InstanceDtrBarUpdate(DtrBarEntry dtrEntry, Configuration configuration)
+    public static IDtrBarEntry GetDtrBar() => (IDtrBarEntry)DtrBar.Get(TidyStrings.PluginName);
+
+    public static unsafe void InstanceDtrBarUpdate(IDtrBarEntry dtr, Configuration configuration)
     {
         if (!configuration.InstanceInDtrBar)
         {
-            dtrEntry.Text = String.Empty;
+            dtr.Text = String.Empty;
             return;
         }
         try
         {
             // This will return the instance value: 0,1,2,3,4,5,6
-            int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
-            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
+            var instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
-            if (InstanceNumberFromSignature >= 1)
+            dtr.Text = instanceNumberFromSignature switch
             {
-                dtrEntry.Text = $"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}";
-            }
-
-            else if (InstanceNumberFromSignature == 0)
-            {
-                dtrEntry.Text = String.Empty;
-            }
+                >= 1 => $"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}",
+                0 => String.Empty,
+                _ => dtr.Text
+            };
         }
         catch (Exception ex)
         {
