@@ -156,10 +156,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
-        // Check that the user has configured the channel to be filtered
-        if (!FilterIsEnabled(chatType)) return;
-        Log.Verbose($"Filter for {chatType} Channel is enabled - checking message against filters");
-
         // Check if emotes from other players should be filtered or not
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
         {
