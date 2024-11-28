@@ -91,6 +91,13 @@ internal static class CraftingGatheringTab
                 configuration.ShowOtherSynthesis = showOtherSynthesis;
                 configuration.Save();
             }
+
+            var showAllOtherCrafting = configuration.ShowAllOtherCrafting;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAllOtherCrafting, ref showAllOtherCrafting))
+            {
+                configuration.ShowAllOtherCrafting = showAllOtherCrafting;
+                configuration.Save();
+            }
         }
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_GatheringLocationsDropdownHeader))
@@ -148,6 +155,13 @@ internal static class CraftingGatheringTab
                     ref showGatherersBoon))
             {
                 configuration.ShowGatherersBoon = showGatherersBoon;
+                configuration.Save();
+            }
+
+            var showAllOtherGathering = configuration.ShowAllOtherGathering;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAllOtherGathering, ref showAllOtherGathering))
+            {
+                configuration.ShowAllOtherGathering = showAllOtherGathering;
                 configuration.Save();
             }
         }

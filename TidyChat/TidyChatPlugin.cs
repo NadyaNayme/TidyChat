@@ -255,7 +255,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         var showEverythingElse = false;
-        if (chatType is ChatType.System && Configuration.ShowEverythingElse)
+        if ((chatType is ChatType.System && Configuration.ShowEverythingElse) ||
+            (chatType is ChatType.Crafting && Configuration.ShowAllOtherCrafting) ||
+            (chatType is ChatType.Gathering or ChatType.GatheringSystem && Configuration.ShowAllOtherGathering))
         {
             isBlocked = !isBlocked;
             showEverythingElse = true;
