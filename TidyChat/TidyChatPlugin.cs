@@ -159,7 +159,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Check if emotes from other players should be filtered or not
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
         {
-            Log.Verbose($"Filtered an emote: {message}");
+            if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message}");
             return;
         }
 
@@ -246,7 +246,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
         if (chatType is ChatType.System && Configuration.EnableInverseMode)
         {
-            Log.Information($"Inverse Mode Active");
+            if (Configuration.EnableDebugMode) Log.Information($"Inverse Mode Active");
             isBlocked = false;
         }
 
@@ -274,7 +274,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (rule.IsActive == showEverythingElse)
             {
                 var activeOrInactive = showEverythingElse ? "active" : "inactive";
-                Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
+                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
                 rulesSkipped.Add(rule.Name);
                 continue;
             }
@@ -282,7 +282,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             // Don't bother with checks for Channels other than the one the rule intends to filter
             if (chatType != rule.Channel && chatType is not ChatType.Echo)
             {
-                Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
+                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
                 rulesSkipped.Add(rule.Name);
                 continue;
             }
@@ -296,30 +296,26 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         if (rule.RegexChecks is null) continue;
                         foreach (var check in rule.RegexChecks)
                         {
-                            if (L10N.Get(check).IsMatch(normalizedText))
-                            {
-                                Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
-                                fakeChecksMatched.Add(true);
-                                rulesMatched.Add(rule.Name);
-                            }
+                            if (!L10N.Get(check).IsMatch(normalizedText)) continue;
+                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
+                            fakeChecksMatched.Add(true);
+                            rulesMatched.Add(rule.Name);
                         }
                         break;
                     case PatternKind.StringMatch:
                         if (rule.StringChecks is null) continue;
                         foreach (var check in rule.StringChecks)
                         {
-                            if (L10N.Get(check).All(normalizedText.Contains))
-                            {
-                                Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
-                                fakeChecksMatched.Add(true);
-                                rulesMatched.Add(rule.Name);
-                            }
+                            if (!L10N.Get(check).All(normalizedText.Contains)) continue;
+                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
+                            fakeChecksMatched.Add(true);
+                            rulesMatched.Add(rule.Name);
                         }
                         break;
                 }
                 if (fakeChecksMatched.Count == 0)
                 {
-                    Log.Debug($"/echo message failed to match any rules");
+                    if (Configuration.EnableDebugMode) Log.Debug($"/echo message failed to match any rules");
                 }
                 continue;
             }
@@ -332,23 +328,27 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
                     foreach (var check in rule.RegexChecks)
                     {
-                        Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
-                        Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
+                        if (Configuration.EnableDebugMode) 
+                        {
+                            Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
+                            Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
+                        }
+                        
                         List<bool> regexChecksMatched = [];
                         if (L10N.Get(check).IsMatch(normalizedText))
                         {
-                            Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
+                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
                             regexChecksMatched.Add(true);
                         }
                         else
                         {
-                            Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
+                            if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
                             regexChecksMatched.Add(false);
                         }
                         // If any of the checks fail it doesn't match our rule to allow the message
                         if (!regexChecksMatched.Contains(false))
                         {
-                            Log.Verbose($"Passed all checks!");
+                            if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
                             rulesMatched.Add(rule.Name);
                             isBlocked = !defaultBlocked;
                         }
@@ -363,22 +363,25 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
                     foreach (var check in rule.StringChecks)
                     {
-                        Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
-                        Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
+                        if (Configuration.EnableDebugMode)
+                        {
+                            Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
+                            Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
+                        }
                         List<bool> stringChecksMatched = [];
                         if (L10N.Get(check).All(normalizedText.Contains))
                         {
-                            Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
+                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(true);
                         }
                         else
                         {
-                            Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
+                            if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(false);
                         }
                         if (!stringChecksMatched.Contains(false))
                         {
-                            Log.Verbose($"Passed all checks!");
+                            if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
                             rulesMatched.Add(rule.Name);
                             isBlocked = !defaultBlocked;
                         }
@@ -390,9 +393,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     break;
             }
         }
-        Log.Debug($"{rulesMatched.Count} Rules Matched: {String.Join(", ", rulesMatched)}");
-        Log.Debug($"{rulesSkipped.Count} Rules Skipped: {String.Join(", ", rulesSkipped)}");
-        Log.Debug($"{rulesFailed.Count} Rules Failed: {String.Join(", ", rulesFailed)}");
+
+        if (Configuration.EnableDebugMode)
+        {
+            Log.Debug($"{rulesMatched.Count} Rules Matched: {String.Join(", ", rulesMatched)}");
+            Log.Debug($"{rulesSkipped.Count} Rules Skipped: {String.Join(", ", rulesSkipped)}");
+            Log.Debug($"{rulesFailed.Count} Rules Failed: {String.Join(", ", rulesFailed)}");   
+        }
 
         // Sigh... previously LootNotice was Allow-By-Default and the filters Blocked
         // so we have to do some inversion here to restore previous behavior since
@@ -405,7 +412,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             isHandled = !isBlocked;
         }
-        if (isHandled)
+        if (isHandled && Configuration.EnableDebugMode)
         {
             Log.Debug($"BLOCKED: {message}");
         }
@@ -417,8 +424,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         #endregion
 
         #region Configuration Filter Overrides
+        
+        // If the text is a Custom Emote and it comes from the player it should not be blocked
+        if (chatType is ChatType.CustomEmote &&
+            string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
+        {
+            if (Configuration.EnableDebugMode) Log.Information($"Allowing custom emote used by player");
+            isHandled = false;
+        }
 
-        // If the message is an emote used by the player and we are filtering used emotes - it is handled (blocked)
+        // If the message is an emote used by the player and we are filtering used emotes - it should be blocked
         if (!Configuration.ShowUsedEmotes &&
             (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
             string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
@@ -534,7 +549,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return stringBuilder.BuiltString;
     }
 
-    private static void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
+    private void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
         PlayerName playerOrMessage,
         ChatType chatType)
     {
@@ -558,21 +573,21 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
             {
                 isHandled = true;
-                Log.Verbose($"The message from {playerOrMessage.FirstName} has been blocked.");
+                if (Configuration.EnableDebugMode) Log.Verbose($"The message from {playerOrMessage.FirstName} has been blocked.");
             }
 
             if (channelSelectedToFilter && !isRegex &&
                 message.TextValue.Contains(playerOrMessage.FirstName, StringComparison.Ordinal))
             {
                 isHandled = true;
-                Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
+                if (Configuration.EnableDebugMode) Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
             }
 
             if (userPattern != null && channelSelectedToFilter && isRegex &&
                 userPattern.IsMatch(message.ToString()))
             {
                 isHandled = true;
-                Log.Verbose(
+                if (Configuration.EnableDebugMode) Log.Verbose(
                     $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
             }
         }
@@ -597,21 +612,21 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
             {
                 isHandled = false;
-                Log.Verbose($"The message from {playerOrMessage.FirstName} has been allowed.");
+                if (Configuration.EnableDebugMode) Log.Verbose($"The message from {playerOrMessage.FirstName} has been allowed.");
             }
 
             if (channelSelectedToFilter && !isRegex &&
                 message.TextValue.Contains(playerOrMessage.FirstName, StringComparison.Ordinal))
             {
                 isHandled = false;
-                Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
+                if (Configuration.EnableDebugMode) Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
             }
 
             if (userPattern != null && channelSelectedToFilter && isRegex &&
                 userPattern.IsMatch(message.ToString()))
             {
                 isHandled = false;
-                Log.Verbose(
+                if (Configuration.EnableDebugMode) Log.Verbose(
                     $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
             }
         }
@@ -695,16 +710,21 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private bool FilterIsEnabled(ChatType chatType)
     {
-        if (chatType is ChatType.System && Configuration.FilterSystemMessages) return true;
-        if ((chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) && Configuration.FilterEmoteSpam) return true;
-        if (chatType is ChatType.Crafting && Configuration.FilterCraftingSpam) return true;
-        if ((chatType is ChatType.Gathering || chatType is ChatType.GatheringSystem) && Configuration.FilterGatheringSpam) return true;
-        if (chatType is ChatType.LootNotice && Configuration.FilterObtainedSpam) return true;
-        if (chatType is ChatType.LootRoll && Configuration.FilterLootSpam) return true;
-        if (chatType is ChatType.Progress && Configuration.FilterProgressSpam) return true;
-        if (chatType is ChatType.FreeCompanyLoginLogout && (!Configuration.ShowUserLogins && !Configuration.ShowUserLogins)) return true;
-        if (chatType is ChatType.Echo && Configuration.EnableDebugMode) return true;
-        return false;
+        switch (chatType)
+        {
+            case ChatType.System when Configuration.FilterSystemMessages:
+            case ChatType.StandardEmote or ChatType.CustomEmote when Configuration.FilterEmoteSpam:
+            case ChatType.Crafting when Configuration.FilterCraftingSpam:
+            case ChatType.Gathering or ChatType.GatheringSystem when Configuration.FilterGatheringSpam:
+            case ChatType.LootNotice when Configuration.FilterObtainedSpam:
+            case ChatType.LootRoll when Configuration.FilterLootSpam:
+            case ChatType.Progress when Configuration.FilterProgressSpam:
+            case ChatType.FreeCompanyLoginLogout when (!Configuration.ShowUserLogins && !Configuration.ShowUserLogins):
+            case ChatType.Echo when Configuration.EnableDebugMode:
+                return true;
+            default:
+                return false;
+        }
     }
 
     private static bool ChannelIsSpammy(ChatType chatType)
