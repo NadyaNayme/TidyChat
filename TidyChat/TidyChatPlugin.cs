@@ -168,13 +168,24 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // If the message is a /? command - temporarily disable the filters to allow the command text through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
-        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
+        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages) 
+        {
             Better.TemporarilyDisableSystemFilter(Configuration);
+            isHandled = false;
+            return;
+        }
+            
 
         // If we join a party - temporarily disable the filters to allow the Party Information messages through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
-        if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty && Configuration.ShowPartyInformation && Configuration.FilterSystemMessages)
+        if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty &&
+            Configuration.ShowPartyInformation && Configuration.FilterSystemMessages)
+        {
             Better.TemporarilyDisableSystemFilter(Configuration);
+            isHandled = false;
+            return;
+        }
+            
 
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
@@ -242,6 +253,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // Block any messages that come from a "spammy" channel
         bool isBlocked = ChannelIsSpammy(chatType);
+        
+        // Skip filtering if chatType is System and System Filter is disabled
+        if (chatType is ChatType.System && !Configuration.FilterSystemMessages) return;
 
         // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
         if (chatType is ChatType.System && Configuration.EnableInverseMode)

@@ -62,7 +62,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings PowerfulMark = new()
     {
         Jpn = ["強大なリスキーモブの気配を感じる"],
-        Eng = ["you", "sense", "the", "presence", "of", "a", "powerful", "mark"],
+        Eng = ["sense", "presence", "powerful", "mark"],
         Deu = ["du", "spücrst", "hochwild"],
         Fra = ["vous", "ressentez", "présence", "monstre"],
     };

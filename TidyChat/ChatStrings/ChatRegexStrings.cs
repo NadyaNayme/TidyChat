@@ -423,7 +423,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex GainExperiencePoints = new()
     {
         Jpn = new Regex(@"ポイントの経験値を得た。$", regexOptions, regexTimeout),
-        Eng = new Regex(@".* gains .* experience points\.$", regexOptions, regexTimeout),
+        Eng = new Regex(@".* (gain|gains) .* experience points\.$", regexOptions, regexTimeout),
         Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new Regex(@".* gagnez .* points d'expérience\.$", regexOptions, regexTimeout),
     };
