@@ -149,11 +149,18 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         var chatType = FromDalamud(type);
 
-        // Don't bother checking anything sent to /echo... unless we're debugging
-        if (chatType == ChatType.Echo && !Configuration.EnableDebugMode)
+        switch (chatType)
         {
-            Log.Verbose($"/echo message - refusing to filter. Please enable Debug Mode if testing which filter the message would have matched.");
-            return;
+            // These channels should never be filtered
+            // Clean this up with a similar "ChannelIsSpammy" check
+            case ChatType.BattleSystem or ChatType.Action or ChatType.Alarm or ChatType.Damage or ChatType.Error
+                or ChatType.Healing or ChatType.Miss or ChatType.Sign or ChatType.LoseBuff or ChatType.LoseDebuff
+                or ChatType.PvpTeam:
+                return;
+            // Don't bother checking anything sent to /echo... unless we're debugging
+            case ChatType.Echo when !Configuration.EnableDebugMode:
+                Log.Verbose($"/echo message - refusing to filter. Please enable Debug Mode if testing which filter the message would have matched.");
+                return;
         }
 
         // Check if emotes from other players should be filtered or not
