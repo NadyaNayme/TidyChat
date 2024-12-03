@@ -146,22 +146,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Log.Verbose($"Tidy Chat is not enabled");
             return;
         }
+        
+        // Ignore already filtered messages by other plugins such as NoSol
+        // TODO: Allow Custom Filters to still run
+        if (isHandled) return;
 
         var chatType = FromDalamud(type);
 
-        switch (chatType)
-        {
-            // These channels should never be filtered
-            // Clean this up with a similar "ChannelIsSpammy" check
-            case ChatType.BattleSystem or ChatType.Action or ChatType.Alarm or ChatType.Damage or ChatType.Error
-                or ChatType.Healing or ChatType.Miss or ChatType.Sign or ChatType.LoseBuff or ChatType.LoseDebuff
-                or ChatType.PvpTeam:
-                return;
-            // Don't bother checking anything sent to /echo... unless we're debugging
-            case ChatType.Echo when !Configuration.EnableDebugMode:
-                Log.Verbose($"/echo message - refusing to filter. Please enable Debug Mode if testing which filter the message would have matched.");
-                return;
-        }
+        // If the channel is not one that Tidy Chat filters - don't bother running any rules
+        // This includes all Battle-related channels, GM-related channels, NPC Dialogue, 
+        // and a few other channels
+        if (!ChannelCanBeFiltered((chatType))) return;
 
         // Check if emotes from other players should be filtered or not
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
@@ -763,6 +758,52 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             ChatType.Progress or
             ChatType.FreeCompanyLoginLogout or
             ChatType.Echo => true,
+            _ => false,
+        };
+    }
+    
+    private static bool ChannelCanBeFiltered(ChatType chatType)
+    {
+        return chatType switch
+        {
+            ChatType.Say or
+                ChatType.Shout or
+                ChatType.Yell or
+                ChatType.TellIncoming or
+                ChatType.PvpTeam or
+                ChatType.NoviceNetwork or
+                ChatType.FreeCompany or
+                ChatType.PeriodicRecruitmentNotification or
+                ChatType.Party or
+                ChatType.CrossParty or
+                ChatType.Alliance or                
+                ChatType.Linkshell1 or
+                ChatType.Linkshell2 or
+                ChatType.Linkshell3 or
+                ChatType.Linkshell4 or
+                ChatType.Linkshell5 or
+                ChatType.Linkshell6 or
+                ChatType.Linkshell7 or
+                ChatType.Linkshell8 or
+                ChatType.CrossLinkshell1 or
+                ChatType.CrossLinkshell2 or
+                ChatType.CrossLinkshell3 or
+                ChatType.CrossLinkshell4 or
+                ChatType.CrossLinkshell5 or
+                ChatType.CrossLinkshell6 or
+                ChatType.CrossLinkshell7 or
+                ChatType.CrossLinkshell8 or
+                ChatType.System or
+                ChatType.StandardEmote or
+                ChatType.CustomEmote or
+                ChatType.Crafting or
+                ChatType.Gathering or
+                ChatType.GatheringSystem or
+                ChatType.LootNotice or
+                ChatType.LootRoll or
+                ChatType.Progress or
+                ChatType.FreeCompanyLoginLogout or
+                ChatType.Echo => true,
             _ => false,
         };
     }
