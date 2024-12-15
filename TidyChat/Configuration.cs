@@ -53,7 +53,8 @@ public class Configuration : IPluginConfiguration
     #region Chat Filters
 
     public bool FilterSystemMessages { get; set; } = true;
-    public bool FilterEmoteSpam { get; set; } = true;
+    public bool FilterEmoteChannel { get; set; } = false;
+    public bool FilterCustomEmoteChannel { get; set; } = false;
     public bool FilterObtainedSpam { get; set; } = true;
     public bool FilterLootSpam { get; set; } = true;
     public bool FilterProgressSpam { get; set; } = true;
@@ -83,7 +84,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowCompletedVenture { get; set; } = true;
     public bool ShowInstanceMessage { get; set; } = true;
     public bool ShowQuestReminder { get; set; } = true;
-    public bool ShowUsedEmotes { get; set; } = true;
+    public bool ShowSelfUsedEmotes { get; set; } = true;
     public bool ShowOtherCustomEmotes { get; set; } = true;
     public bool ShowReadyChecks { get; set; } = true;
     public bool ShowCountdownTime { get; set; } = true;

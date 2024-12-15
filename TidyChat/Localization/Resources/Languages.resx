@@ -214,7 +214,7 @@ This allows you to use ChatAlerts to create an alert for "You synthesize" instea
     <value>Hide ko-fi button</value>
   </data>
   <data name="GeneralTab_FilterEmotes" xml:space="preserve">
-    <value>Filter emote channels</value>
+    <value>Filter Standard Emote channel</value>
   </data>
   <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
     <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>

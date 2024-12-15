@@ -148,6 +148,14 @@ public static class ChatRegexStrings
         Deu = new Regex(@"^(you|your|du|deiner|dir|dich)", regexOptions, regexTimeout),
         Fra = new Regex(@"^(vous|you)", regexOptions, regexTimeout),
     };
+    
+    public static readonly LocalizedRegex ContainsPlayerName = new()
+    {
+        Jpn = new Regex(@"(you|your)", regexOptions, regexTimeout),
+        Eng = new Regex(@"(you|your)", regexOptions, regexTimeout),
+        Deu = new Regex(@"(you|your|du|deiner|dir|dich)", regexOptions, regexTimeout),
+        Fra = new Regex(@"(vous|you)", regexOptions, regexTimeout),
+    };
 
     public static readonly LocalizedRegex NotStartWithYou = new()
     {
@@ -422,10 +430,10 @@ public static class ChatRegexStrings
     // Name S. gains \d{1,4} (+\d{1,2}%) experience points.
     public static readonly LocalizedRegex GainExperiencePoints = new()
     {
-        Jpn = new Regex(@"ポイントの経験値を得た。$", regexOptions, regexTimeout),
-        Eng = new Regex(@".* (gain|gains) .* experience points\.$", regexOptions, regexTimeout),
+        Jpn = new Regex(@"ポイントの経験値を得た", regexOptions, regexTimeout),
+        Eng = new Regex(@".* (gain|gains) .* experience points", regexOptions, regexTimeout),
         Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new Regex(@".* gagnez .* points d'expérience\.$", regexOptions, regexTimeout),
+        Fra = new Regex(@".* gagnez .* points d'expérience", regexOptions, regexTimeout),
     };
 
     /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with item is complete!</see>

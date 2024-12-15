@@ -783,7 +783,7 @@ public static class Rules
             SettingsTab = "Emotes",
             Channel = ChatType.StandardEmote,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.StartsWithYou],
+            RegexChecks = [ChatRegexStrings.ContainsPlayerName],
             Pattern = PatternKind.RegexMatch,
         },
         new LocalizedFilterRule

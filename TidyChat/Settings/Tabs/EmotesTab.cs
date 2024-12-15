@@ -8,28 +8,28 @@ internal static class EmotesTab
 {
     public static void Draw(Configuration configuration)
     {
-        var filterEmoteSpam = configuration.FilterEmoteSpam;
+        var filterEmoteSpam = configuration.FilterEmoteChannel;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
         {
-            configuration.FilterEmoteSpam = filterEmoteSpam;
+            configuration.FilterEmoteChannel = filterEmoteSpam;
             configuration.Save();
         }
-
+        
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
-
-        var hideOtherCustomEmotes = configuration.ShowOtherCustomEmotes;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterCustomEmotes, ref hideOtherCustomEmotes))
+        
+        var filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
+        if (ImGui.Checkbox("Filter Custom Emote Channel", ref filterCustomEmoteSpam))
         {
-            configuration.ShowOtherCustomEmotes = hideOtherCustomEmotes;
+            configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterCustomEmotesHelpMarker);
+        ImGuiComponents.HelpMarker("This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.");
 
-        var hideUsedEmotes = configuration.ShowUsedEmotes;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref hideUsedEmotes))
+        var showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
+        if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))
         {
-            configuration.ShowUsedEmotes = hideUsedEmotes;
+            configuration.ShowSelfUsedEmotes = showSelfUsedEmotes;
             configuration.Save();
         }
 

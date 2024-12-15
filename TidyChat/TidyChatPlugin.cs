@@ -157,6 +157,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // This includes all Battle-related channels, GM-related channels, NPC Dialogue, 
         // and a few other channels
         if (!ChannelCanBeFiltered((chatType))) return;
+        
+        // This logic exists elsewhere but I don't care to find/clean it up so I'll be redundant and check here too
+        if (chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) return;
+        if (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel) return;
 
         // Check if emotes from other players should be filtered or not
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
@@ -450,7 +454,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         // If the message is an emote used by the player and we are filtering used emotes - it should be blocked
-        if (!Configuration.ShowUsedEmotes &&
+        if (!Configuration.ShowSelfUsedEmotes &&
             (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
             string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
@@ -729,7 +733,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         switch (chatType)
         {
             case ChatType.System when Configuration.FilterSystemMessages:
-            case ChatType.StandardEmote or ChatType.CustomEmote when Configuration.FilterEmoteSpam:
+            case ChatType.StandardEmote or ChatType.CustomEmote when Configuration.FilterEmoteChannel:
             case ChatType.Crafting when Configuration.FilterCraftingSpam:
             case ChatType.Gathering or ChatType.GatheringSystem when Configuration.FilterGatheringSpam:
             case ChatType.LootNotice when Configuration.FilterObtainedSpam:
