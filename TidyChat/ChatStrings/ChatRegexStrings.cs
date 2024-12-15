@@ -159,10 +159,10 @@ public static class ChatRegexStrings
 
     public static readonly LocalizedRegex NotStartWithYou = new()
     {
-        Jpn = new(@"^(?!you)", regexOptions, regexTimeout),
-        Eng = new(@"^(?!you)", regexOptions, regexTimeout),
-        Deu = new(@"^(?!you)", regexOptions, regexTimeout),
-        Fra = new(@"^(?!you)", regexOptions, regexTimeout),
+        Jpn = new Regex(@"^(?!you)", regexOptions, regexTimeout),
+        Eng = new Regex(@"^(?!you)", regexOptions, regexTimeout),
+        Deu = new Regex(@"^(?!you)", regexOptions, regexTimeout),
+        Fra = new Regex(@"^(?!you)", regexOptions, regexTimeout),
     };
 
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
