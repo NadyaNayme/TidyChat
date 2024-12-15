@@ -1080,7 +1080,7 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowOthersLootRoll",
+            Name = "HideOthersObtain",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
