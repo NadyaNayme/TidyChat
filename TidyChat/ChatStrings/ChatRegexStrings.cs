@@ -194,16 +194,16 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex OthersCastLot = new()
     {
         // relies on the fact that all player names have a space between them (or a period if initialised)
-        Jpn = new Regex(@"^\w+[ .].+は.+にロットした。$", regexOptions, regexTimeout),
-        Eng = new Regex(@"(.*) casts (his|her) lot for (.*)\.$", regexOptions, regexTimeout),
+        Jpn = new Regex(@"^\w+[ .].+は.+にロットした", regexOptions, regexTimeout),
+        Eng = new Regex(@"(.*) casts (his|her) lot for (.*)", regexOptions, regexTimeout),
         Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new Regex(@"(.*) lance ses dés pour (la|le|les) (.*)\.$", regexOptions, regexTimeout),
+        Fra = new Regex(@"(.*) lance ses dés pour (la|le|les) (.*)", regexOptions, regexTimeout),
     };
 
     public static readonly LocalizedRegex OthersRollNeedOrGreed = new()
     {
-        Jpn = new Regex(@"^\w+[ .].+は.+に(NEED|GREED)のダイスで\d{1,2}を出した。$", regexOptions, regexTimeout),
-        Eng = new Regex(@"(.*) rolls (Need|Greed) on (.*)\. \d{1,2}\!$", regexOptions, regexTimeout),
+        Jpn = new Regex(@"^\w+[ .].+は.+に(NEED|GREED)のダイスで\d{1,2}を出した", regexOptions, regexTimeout),
+        Eng = new Regex(@"(.*) rolls (Need|Greed) on (.*)\. \d{1,2}", regexOptions, regexTimeout),
         Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new Regex(@"(.*) jette les dés (Cupidité) pour (la|le|les) (.*)", regexOptions, regexTimeout),
     };
