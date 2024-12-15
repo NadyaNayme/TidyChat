@@ -13,10 +13,10 @@ public static class ChatRegexStrings
 
     public static readonly LocalizedRegex BetterPlayerCommendation = new()
     {
-        Jpn = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Eng = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Deu = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Fra = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Jpn = new Regex(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Eng = new Regex(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Deu = new Regex(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
+        Fra = new Regex(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
     };
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain...</see>
