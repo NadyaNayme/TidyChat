@@ -40,7 +40,9 @@ public class Configuration : IPluginConfiguration
 
     public T? GetPropertyValue<T>(object obj, string propName)
     {
-        return (T?)obj?.GetType()?.GetProperty(propName)?.GetValue(this, index: null);
+        var prop = obj.GetType().GetProperty(propName);
+        if (prop == null) return default;
+        return (T?)prop.GetValue(this, index: null);
     }
 
     public void Save()

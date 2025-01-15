@@ -287,7 +287,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             if (rule.Error is not null)
             {
-                Log.Debug($"Error: {rule.Error}");
+                Log.Error($"Error: {rule.Error}");
             }
 
             // Skip rules that wouldn't change isBlocked away from defaultBlocked
