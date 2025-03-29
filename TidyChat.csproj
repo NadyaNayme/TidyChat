@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Dalamud.NET.Sdk/12.0.2">
+    <PropertyGroup>
+        <Authors>Nadya</Authors>
+        <Company>Served with love</Company>
+        <Version>2.0.14</Version>
+        <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
+
+            Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
+
+            - Filters most spammy game messages
+            - Blocks emote spam from other players
+            - Condenses earned commendations into a single line
+            - Shortens lengthy messages such as joining Novice Network or entering an instanced zone
+            - Blocks repeated messages from appearing for a period of time
+            - Automatically copies most 'with your chat mode in /say' quest dialogue to your clipboard
+            - And more!
+        </Description>
+        <Copyright></Copyright>
+        <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <Platforms>x64</Platforms>
+        <Nullable>enable</Nullable>
+        <LangVersion>latest</LangVersion>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include=".\TidyChat.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Include="..\images\icon.png">
+            <Link>images/icon.png</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
+        <PackageIcon>icon.png</PackageIcon>
+        <RepositoryUrl>https://github.com/NadyaNayme/TidyChat/</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\images\icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="DalamudPackager" Version="12.0.2" />
+        <PackageReference Include="Meziantou.Analyzer" Version="2.0.161">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="TextCopy" Version="6.2.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="ImGuiScene">
+            <HintPath>$(DalamudLibPath)ImGuiScene.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Update="Localization\Resources\Languages.de.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.es.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.fr.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.it.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ja.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.nn.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ploc.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Languages.ploc.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.pt.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>Languages.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ru.resx">
+          <Generator></Generator>
+        </EmbeddedResource>
+    </ItemGroup>
+
+
+
+	<ItemGroup>
+	  <Compile Update="Localization\Resources\Languages.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Languages.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Localization\Resources\Languages.ploc.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Languages.ploc.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+</Project>
