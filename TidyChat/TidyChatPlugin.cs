@@ -11,6 +11,7 @@ using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
+using Dalamud.Interface.Windowing;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
@@ -38,6 +39,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
+    private readonly WindowSystem WindowSystem = new WindowSystem("TidyChat");
 
     private const string SettingsCommand = TidyStrings.SettingsCommand;
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
@@ -64,6 +66,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         ClientState.Logout += OnLogout;
 
         PluginUi = new PluginUI(Configuration);
+        WindowSystem.AddWindow(PluginUi);
 
         CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
         {
@@ -897,7 +900,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void OnCommand(string command, string args)
     {
-        PluginUi.SettingsVisible = true;
+        PluginUi.IsOpen = true;
     }
 
     private void UpdateLang(string langCode)
@@ -907,12 +910,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void DrawUI()
     {
-        PluginUi.Draw();
+        WindowSystem.Draw();
     }
 
     private void DrawConfigUI()
     {
-        PluginUi.SettingsVisible = true;
+        PluginUi.IsOpen = true;
     }
 
     #region Chat2 ChatTypes

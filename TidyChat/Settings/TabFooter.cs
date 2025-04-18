@@ -6,7 +6,7 @@ namespace TidyChat;
 
 public static class TabFooter
 {
-    public static void Display(Configuration configuration, ref bool settingsVisible)
+    public static bool Display(Configuration configuration)
     {
         ImGui.Spacing();
         ImGui.Separator();
@@ -16,7 +16,7 @@ public static class TabFooter
         if (ImGui.Button(Languages.SettingsTabFooter_SaveAndCloseButtonText))
         {
             configuration.Save();
-            settingsVisible = false;
+            return true;
         }
 
         if (!configuration.NoCoffee)
@@ -47,5 +47,7 @@ public static class TabFooter
                 UseShellExecute = true,
             });
         ImGui.PopStyleColor(3);
+
+        return false;
     }
 }
