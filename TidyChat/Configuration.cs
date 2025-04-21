@@ -49,7 +49,7 @@ public class Configuration : IPluginConfiguration
     {
         pluginInterface!.SavePluginConfig(this);
         Rules.UpdateIsActiveStates(this);
-        TidyChatPlugin.InstanceDtrBarUpdate(TidyChatPlugin.GetDtrBar(), this);
+        TidyChatPlugin.InstanceDtrBarUpdate(this);
     }
 
     #region Chat Filters

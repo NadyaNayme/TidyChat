@@ -34,7 +34,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
     [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
     [PluginService] public static IPluginLog Log { get; private set; } = null!;
-    private static IDtrBarEntry DtrEntry { get; set; } = null!;
+    private static IDtrBarEntry? DtrEntry { get; set; }
 
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
@@ -56,7 +56,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
         
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(DtrEntry, Configuration);
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
 
         ChatGui.CheckMessageHandled += OnChat;
         ClientState.TerritoryChanged += OnTerritoryChanged;
@@ -98,7 +98,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private void OnLogin()
     {
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(DtrEntry, Configuration);
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
         SetPlayerName();
     }
 
@@ -111,7 +111,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(DtrEntry, Configuration);
+        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
         if (Configuration.IncludeDutyNameInComms)
             try
             {
@@ -869,11 +869,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     public static IDtrBarEntry GetDtrBar() => (IDtrBarEntry)DtrBar.Get(TidyStrings.PluginName);
 
-    public static unsafe void InstanceDtrBarUpdate(IDtrBarEntry dtr, Configuration configuration)
+    public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
     {
+        DtrEntry ??= GetDtrBar();
+        DtrEntry.Tooltip = "TidyChat";
+
         if (!configuration.InstanceInDtrBar)
         {
-            dtr.Text = String.Empty;
+            DtrEntry.Shown = false;
+            DtrEntry.Text = String.Empty;
             return;
         }
         try
@@ -882,11 +886,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             var instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
             var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
-            dtr.Text = instanceNumberFromSignature switch
+            DtrEntry.Shown = true;
+            DtrEntry.Text = instanceNumberFromSignature switch
             {
                 >= 1 => $"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}",
                 0 => String.Empty,
-                _ => dtr.Text
+                _ => DtrEntry.Text
             };
         }
         catch (Exception ex)
