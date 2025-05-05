@@ -449,7 +449,7 @@ public static class ChatStrings
     public static readonly LocalizedStrings YouLeaveParty = new()
     {
         Jpn = ["パーティから離脱しました"],
-        Eng = ["you", "leave"],
+        Eng = ["you", " leave "],
         Deu = ["du", "hast", "gruppe", "verlassen"],
         Fra = ["vous", "quittez", "l'équipe"],
     };
