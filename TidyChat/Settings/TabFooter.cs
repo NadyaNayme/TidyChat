@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using ImGuiNET;
 using TidyChat.Localization.Resources;
 
 namespace TidyChat;
