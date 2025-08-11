@@ -1,4 +1,3 @@
-using ImGuiNET;
 using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs;
