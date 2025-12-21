@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Dalamud.NET.Sdk/13.0.0">
+<Project Sdk="Dalamud.NET.Sdk/14.0.1">
     <PropertyGroup>
         <Authors>Nadya</Authors>
         <Company>Served with love</Company>
-        <Version>2.0.15</Version>
+        <Version>2.1.0</Version>
         <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
 
             Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
@@ -43,7 +43,7 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="TextCopy" Version="6.2.1" />
-        <PackageReference Update="DalamudPackager" Version="13.0.0" />
+        <PackageReference Update="DalamudPackager" Version="14.0.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -95,6 +95,9 @@
 	    <DependentUpon>Languages.ploc.resx</DependentUpon>
 	  </Compile>
 	</ItemGroup>
-
+    
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);MA0051;MA0026</NoWarn>
+    </PropertyGroup>
 </Project>
 

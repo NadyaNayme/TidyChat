@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Timers;
 using ChatTwo.Code;
 using Dalamud.Game;
+using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Game.Text;
@@ -33,6 +34,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
     [PluginService] public static IClientState ClientState { get; private set; } = null!;
     [PluginService] public static IChatGui ChatGui { get; private set; } = null!;
+    [PluginService] public static IObjectTable ObjectTable { get; private set; } = null!;
     [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
     [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
     [PluginService] public static IPluginLog Log { get; private set; } = null!;
@@ -660,10 +662,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         try
         {
-            if (ClientState.LocalPlayer == null) return;
+            if ((ObjectTable[0] as IPlayerCharacter) == null) return;
 
-            Configuration.PlayerName = $"{ClientState.LocalPlayer.Name}";
-            Log.Information($"Player name saved as {ClientState.LocalPlayer.Name}");
+            Configuration.PlayerName = $"{(ObjectTable[0] as IPlayerCharacter)?.Name}";
+            Log.Information($"Player name saved as {(ObjectTable[0] as IPlayerCharacter)?.Name}");
             Configuration.Save();
         }
         catch (Exception ex)
