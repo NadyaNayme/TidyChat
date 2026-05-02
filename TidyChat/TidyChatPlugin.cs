@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Timers;
 using ChatTwo.Code;
 using Dalamud.Game;
+using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Game.Command;
 using Dalamud.Game.Gui.Dtr;
@@ -113,7 +114,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         BlockedCountUpdate();
     }
 
-    private void OnTerritoryChanged(ushort e)
+    private void OnTerritoryChanged(uint e)
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
@@ -144,9 +145,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
     }
 
-    private void OnChat(XivChatType type, int timestamp, ref SeString sender, ref SeString message,
-        ref bool isHandled)
+    private void OnChat(IHandleableChatMessage chatMessage)
     {
+        // dirty kludge
+        var message = chatMessage.Message;
+        var sender = chatMessage.Sender;
+        var type = chatMessage.LogKind;
+
         if (!Configuration.Enabled)
         {
             Log.Verbose($"Tidy Chat is not enabled");
@@ -155,7 +160,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         
         // Ignore already filtered messages by other plugins such as NoSol
         // TODO: Allow Custom Filters to still run
-        if (isHandled) return;
+        if (chatMessage.IsHandled) return;
 
         var chatType = FromDalamud(type);
 
@@ -183,7 +188,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages) 
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
-            isHandled = false;
+            // we can't override isHandled like this anymore
             return;
         }
             
@@ -194,7 +199,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Configuration.ShowPartyInformation && Configuration.FilterSystemMessages)
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
-            isHandled = false;
+            // we can't override isHandled like this anymore
             return;
         }
             
@@ -204,7 +209,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (Configuration.ShowDebugTeleport && chatType is ChatType.Debug &&
             L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
-            isHandled = true;
+            chatMessage.PreventOriginal();
 
         #region Better Messages
 
@@ -430,6 +435,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Sigh... previously LootNotice was Allow-By-Default and the filters Blocked
         // so we have to do some inversion here to restore previous behavior since
         // Tidy Chat 2.0 only runs Checks with True Configuration values
+        
+        //TODO from Franz: I don't know the codebase well enough to sort these out.
+        // We can't override isHandled anymore, but PreventOriginal() is the same as setting it to true
         if (chatType is not ChatType.LootNotice)
         {
             isHandled = isBlocked;
@@ -438,7 +446,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             isHandled = !isBlocked;
         }
-        if (isHandled && Configuration.EnableDebugMode)
+        if (chatMessage.IsHandled && Configuration.EnableDebugMode)
         {
             Log.Debug($"BLOCKED: {message}");
         }
@@ -456,14 +464,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
         {
             if (Configuration.EnableDebugMode) Log.Information($"Allowing custom emote used by player");
-            isHandled = false;
+            // we can't override isHandled like this anymore
         }
 
         // If the message is an emote used by the player and we are filtering used emotes - it should be blocked
         if (!Configuration.ShowSelfUsedEmotes &&
             (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
             string.Equals(sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
-            isHandled = true;
+            chatMessage.PreventOriginal();
 
         #endregion Channel Filters
 
@@ -471,13 +479,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (Configuration.Whitelist.Count > 0)
             foreach (var playerOrMessage in Configuration.Whitelist)
-                CustomFilterCheck(sender, message, ref isHandled, playerOrMessage, chatType);
+                CustomFilterCheck(chatMessage, playerOrMessage);
 
         #endregion Whitelist
 
         #region Duplicate Message Spam Filter
 
-        if (Configuration.ChatHistoryFilter && !isHandled)
+        if (Configuration.ChatHistoryFilter && !chatMessage.IsHandled)
             try
             {
                 /* Disable Chat History for self-sent messages by default */
@@ -492,7 +500,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         if (ChatHistory.Contains(currentMessage, StringComparer.Ordinal))
                         {
                             Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
-                            isHandled = true;
+                            chatMessage.PreventOriginal();
                         }
                         else if (ChatHistory.Count > Configuration.ChatHistoryLength)
                         {
@@ -536,22 +544,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Although Echo can be used for /xllog debugging make sure it never ends up filtered
         if (chatType is ChatType.Echo)
         {
-            isHandled = false;
+            // we can't override isHandled like this anymore
         }
 
         #region Debug Mode Enabled
 
         if (Configuration.EnableDebugMode && !message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
-            if (Configuration.DebugIncludeChannel || isHandled)
+            if (Configuration.DebugIncludeChannel || chatMessage.IsHandled)
             {
-                message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+                message = BuildDebugString(chatType, message, rulesMatched, Configuration.DebugIncludeChannel, chatMessage.IsHandled);
             }
-            isHandled = false;
+            // we can't override isHandled like this anymore
         }
 
         #endregion Debug Mode Enabled
-        if (isHandled)
+        if (chatMessage.IsHandled)
         {
             SessionBlockedMessages += 1;
         }
@@ -575,11 +583,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return stringBuilder.BuiltString;
     }
 
-    private void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
-        PlayerName playerOrMessage,
-        ChatType chatType)
+    private void CustomFilterCheck(IHandleableChatMessage chatMessage, PlayerName playerOrMessage)
     {
-        if (!isHandled && !playerOrMessage.AllowMessage)
+        // dirty kludge
+        var message = chatMessage.Message;
+        var sender = chatMessage.Sender;
+        var chatType = (ChatType)chatMessage.LogKind;
+
+        if (!chatMessage.IsHandled && !playerOrMessage.AllowMessage)
         {
             var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
             var isRegex = false;
@@ -598,27 +609,27 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (channelSelectedToFilter &&
                 string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
             {
-                isHandled = true;
+                chatMessage.PreventOriginal();
                 if (Configuration.EnableDebugMode) Log.Verbose($"The message from {playerOrMessage.FirstName} has been blocked.");
             }
 
             if (channelSelectedToFilter && !isRegex &&
                 message.TextValue.Contains(playerOrMessage.FirstName, StringComparison.Ordinal))
             {
-                isHandled = true;
+                chatMessage.PreventOriginal();
                 if (Configuration.EnableDebugMode) Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
             }
 
             if (userPattern != null && channelSelectedToFilter && isRegex &&
                 userPattern.IsMatch(message.ToString()))
             {
-                isHandled = true;
+                chatMessage.PreventOriginal();
                 if (Configuration.EnableDebugMode) Log.Verbose(
                     $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
             }
         }
 
-        if (isHandled && playerOrMessage.AllowMessage)
+        if (chatMessage.IsHandled && playerOrMessage.AllowMessage)
         {
             var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
             var isRegex = false;
@@ -637,21 +648,21 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (channelSelectedToFilter &&
                 string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
             {
-                isHandled = false;
+                // we can't override isHandled like this anymore
                 if (Configuration.EnableDebugMode) Log.Verbose($"The message from {playerOrMessage.FirstName} has been allowed.");
             }
 
             if (channelSelectedToFilter && !isRegex &&
                 message.TextValue.Contains(playerOrMessage.FirstName, StringComparison.Ordinal))
             {
-                isHandled = false;
+                // we can't override isHandled like this anymore
                 if (Configuration.EnableDebugMode) Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
             }
 
             if (userPattern != null && channelSelectedToFilter && isRegex &&
                 userPattern.IsMatch(message.ToString()))
             {
-                isHandled = false;
+                // we can't override isHandled like this anymore
                 if (Configuration.EnableDebugMode) Log.Verbose(
                     $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
             }
