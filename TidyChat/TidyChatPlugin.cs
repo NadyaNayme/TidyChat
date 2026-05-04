@@ -42,7 +42,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
-    private readonly WindowSystem WindowSystem = new WindowSystem("TidyChat");
+    private readonly WindowSystem WindowSystem = new("TidyChat");
 
     private const string SettingsCommand = TidyStrings.SettingsCommand;
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
@@ -113,7 +113,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         BlockedCountUpdate();
     }
 
-    private void OnTerritoryChanged(ushort e)
+    private void OnTerritoryChanged(uint e)
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
