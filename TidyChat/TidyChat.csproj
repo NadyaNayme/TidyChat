@@ -43,7 +43,6 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="TextCopy" Version="6.2.1" />
-        <PackageReference Update="DalamudPackager" Version="15.0.0" />
     </ItemGroup>
 
     <ItemGroup>
