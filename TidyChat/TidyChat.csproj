@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Dalamud.NET.Sdk/15.0.0">
     <PropertyGroup>
-        <Authors>Kagekazu</Authors>
+        <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
         <Version>2.3.0</Version>
         <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
