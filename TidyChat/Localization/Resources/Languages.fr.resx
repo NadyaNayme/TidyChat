@@ -309,12 +309,6 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous avez désactivé les sons systèmes &amp; Vous avez réglé le volume des sons systèmes à 50.</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Afficher un message lorsque vous projetez une planche mirage</value>
-    </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : La planche mirage n°10 a été projetée sur votre équipement.</value>
-    </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Afficher un message lorsque vous changez de tenue</value>
     </data>

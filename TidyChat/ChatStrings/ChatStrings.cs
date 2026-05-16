@@ -270,16 +270,6 @@ public static class ChatStrings
         Fra = ["boussole", "indique"],
     };
 
-    /// <see href="https://xivapi.com/LogMessage/4364?pretty=true">
-    ///     Glamours projected from plate <##></see>
-    public static readonly LocalizedStrings GlamoursProjected = new()
-    {
-        Jpn = ["ミラージュプレート", "により武具投影が行われました。"],
-        Eng = ["glamours", "projected", "from", "plate"],
-        Deu = ["die", "projektionsplatte", "angewendet"],
-        Fra = ["planche", "mirage", "projeté"],
-    };
-
     public static readonly LocalizedStrings OvermeldFailure = new()
     {
         Jpn = ["NeedsLocalization"],

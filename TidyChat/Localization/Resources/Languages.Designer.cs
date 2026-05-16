@@ -2194,25 +2194,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show message when changing glamour plates.
-        /// </summary>
-        internal static string SystemTab_ShowGlamourPlateChangingMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGlamourPlateChangingMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 
-        ///eg. Glamours projected from plate 10..
-        /// </summary>
-        internal static string SystemTab_ShowGlamourPlateChangingMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGlamourPlateChangingMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show System messages Tidy Chat hides by default.
         /// </summary>
         internal static string SystemTab_ShowHiddenMessagesDropdownHeader {

@@ -105,7 +105,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowVistaMessages { get; set; } = true;
     public bool ShowTryOnGlamour { get; set; } = true;
     public bool ShowEligibleForCoffers { get; set; } = true;
-    public bool ShowGlamoursProjected { get; set; } = false;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
     public bool ShowVolumeControlMessage { get; set; } = false;

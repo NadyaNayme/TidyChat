@@ -569,15 +569,6 @@ public static class Rules
         },
         new LocalizedFilterRule
         {
-            Name = "ShowGlamoursProjected",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.GlamoursProjected],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
-        {
             Name = "ShowTradeSent",
             SettingsTab = "System",
             Channel = ChatType.System,
