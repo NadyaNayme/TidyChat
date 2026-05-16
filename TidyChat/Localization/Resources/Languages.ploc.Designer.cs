@@ -1944,25 +1944,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝļàɱôûŕ þļàţéš.
-        /// </summary>
-        internal static string SystemTab_ShowGlamourPlateChangingMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGlamourPlateChangingMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 
-        ///éĝ· Ĝļàɱôûŕš þŕôĵéçţéð ƒŕôɱ þļàţé ①ⓞ·.
-        /// </summary>
-        internal static string SystemTab_ShowGlamourPlateChangingMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGlamourPlateChangingMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Šĥôŵ Šýšţéɱ ɱéššàĝéš Ţîðý Çĥàţ ĥîðéš ƀý ðéƒàûļţ.
         /// </summary>
         internal static string SystemTab_ShowHiddenMessagesDropdownHeader {

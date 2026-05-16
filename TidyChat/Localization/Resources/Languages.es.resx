@@ -309,13 +309,6 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>eg. Master Volume muted, BGM volume set to 50.</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Show message when changing glamour plates</value>
-    </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>
-eg. Glamours projected from plate 10.</value>
-    </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Show message when changing gearsets</value>
     </data>

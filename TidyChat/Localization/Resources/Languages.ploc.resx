@@ -317,13 +317,6 @@
     <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ṁàšţéŕ Ṽôļûɱé ɱûţéð، ƁĜṀ ṽôļûɱé šéţ ţô ⑤ⓞ·</value>
   </data>
-    <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-    <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝļàɱôûŕ þļàţéš</value>
-  </data>
-    <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-    <value>
-éĝ· Ĝļàɱôûŕš þŕôĵéçţéð ƒŕôɱ þļàţé ①ⓞ·</value>
-  </data>
     <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš</value>
   </data>

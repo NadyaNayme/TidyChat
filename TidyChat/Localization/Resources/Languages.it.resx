@@ -309,13 +309,6 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>es. Volume globale silenziato, volume di background impostato a 50.</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Visualizza un messaggio quando si cambiano le glamour plate</value>
-    </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>
-es. Glamour proiettati dalla plate 10.</value>
-    </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Visualizza un messaggio quando si cambia gearset</value>
     </data>
