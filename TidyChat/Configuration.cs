@@ -75,6 +75,7 @@ public class Configuration : IPluginConfiguration
     public bool BetterCommendationMessage { get; set; } = true;
     public bool IncludeDutyNameInComms { get; set; } = true;
     public bool BetterNoviceNetworkMessage { get; set; } = true;
+    public bool BetterTreasureDungeonMessage { get; set; } = true;
 
     #endregion
 

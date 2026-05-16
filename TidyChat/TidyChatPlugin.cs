@@ -233,6 +233,28 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
+        if (Configuration.BetterTreasureDungeonMessage && chatType is ChatType.System)
+        {
+            if (L10N.Get(ChatRegexStrings.ChamberOpens).IsMatch(normalizedText))
+            {
+                var match = L10N.Get(ChatRegexStrings.ChamberOpens).Match(normalizedText);
+                if (match.Groups["chamber"].Success)
+                {
+                    TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
+                }
+                return;
+            }
+
+            if (L10N.Get(ChatRegexStrings.TrapTriggered).IsMatch(normalizedText))
+            {
+                if (TidyStrings.LastTreasureDungeonChamber.Length > 0)
+                {
+                    message.Message = Better.TreasureDungeon(Configuration);
+                }
+                return;
+            }
+        }
+
         // No early returns in the following Better Message settings as the messages still need to be filtered - but have been modified
         if (Configuration.NormalizeBlocks)
         {

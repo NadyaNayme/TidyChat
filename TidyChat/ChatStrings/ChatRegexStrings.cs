@@ -841,6 +841,28 @@ public static class ChatRegexStrings
 
     #endregion PotD & HoH
 
+    #region Treasure Dungeons
+
+    /// <summary>The gate to the 1st/2nd/3rd/4th/5th/6th chamber opens.</summary>
+    public static readonly LocalizedRegex ChamberOpens = new()
+    {
+        Jpn = new Regex(@"第(?<chamber>[1-6])区画が開放された", regexOptions, regexTimeout),
+        Eng = new Regex(@"^the gate to the (?<chamber>1st|2nd|3rd|4th|5th|6th) chamber opens\.$", regexOptions, regexTimeout),
+        Deu = new Regex(@"^der zugang zur (?<chamber>1|2|3|4|5|6)\. kammer öffnet sich\.$", regexOptions, regexTimeout),
+        Fra = new Regex(@"^la porte de la (?<chamber>1|2|3|4|5|6)(?:re|e) salle s'ouvre\.$", regexOptions, regexTimeout),
+    };
+
+    /// <summary>A trap is triggered! You are expelled from the area!</summary>
+    public static readonly LocalizedRegex TrapTriggered = new()
+    {
+        Jpn = new Regex(@"トラップが発動した！.*退出させられた", regexOptions, regexTimeout),
+        Eng = new Regex(@"^a trap is triggered! you are expelled from the area!$", regexOptions, regexTimeout),
+        Deu = new Regex(@"^eine falle wurde ausgelöst! ihr werdet aus dem gebiet entfernt!$", regexOptions, regexTimeout),
+        Fra = new Regex(@"^un piège s'est déclenché ! vous êtes expulsé de la zone !$", regexOptions, regexTimeout),
+    };
+
+    #endregion Treasure Dungeons
+
     #region Airship and Submarine
 
     /// <see href="https://xivapi.com/LogMessage/4163?pretty=true">A new exploratory voyage destination...has been discovered</see>
