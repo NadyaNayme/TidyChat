@@ -218,6 +218,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
+        // When Better Commendations is enabled, suppress the original System message so only
+        // the synthesized better message (printed on territory change) is shown.
+        if (Configuration.BetterCommendationMessage && chatType is ChatType.System &&
+            L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
+        {
+            message.PreventOriginal();
+            _sessionBlockedMessages += 1;
+            return;
+        }
+
         if (Configuration.BetterSayReminder &&
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
 
@@ -374,15 +384,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 case PatternKind.RegexMatch:
                     if (rule.RegexChecks is null) continue;
 
+                    if (Configuration.EnableDebugMode) 
+                    {
+                        Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
+                        Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
+                    }
+
+                    List<bool> regexChecksMatched = [];
                     foreach (var check in rule.RegexChecks)
                     {
-                        if (Configuration.EnableDebugMode) 
-                        {
-                            Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
-                            Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
-                        }
-                        
-                        List<bool> regexChecksMatched = [];
                         if (L10N.Get(check).IsMatch(normalizedText))
                         {
                             if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
@@ -393,30 +403,31 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                             if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
                             regexChecksMatched.Add(false);
                         }
-                        // If any of the checks fail it doesn't match our rule to allow the message
-                        if (!regexChecksMatched.Contains(false))
-                        {
-                            if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
-                            rulesMatched.Add(rule.Name);
-                            isBlocked = !defaultBlocked;
-                        }
-                        else
-                        {
-                            rulesFailed.Add(rule.Name);
-                        }
+                    }
+                    // All checks must pass (AND logic)
+                    if (!regexChecksMatched.Contains(false))
+                    {
+                        if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
+                        rulesMatched.Add(rule.Name);
+                        isBlocked = !defaultBlocked;
+                    }
+                    else
+                    {
+                        rulesFailed.Add(rule.Name);
                     }
                     break;
                 case PatternKind.StringMatch:
                     if (rule.StringChecks is null) continue;
 
+                    if (Configuration.EnableDebugMode)
+                    {
+                        Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
+                        Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
+                    }
+
+                    List<bool> stringChecksMatched = [];
                     foreach (var check in rule.StringChecks)
                     {
-                        if (Configuration.EnableDebugMode)
-                        {
-                            Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
-                            Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
-                        }
-                        List<bool> stringChecksMatched = [];
                         if (L10N.Get(check).All(normalizedText.Contains))
                         {
                             if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
@@ -427,16 +438,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                             if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(false);
                         }
-                        if (!stringChecksMatched.Contains(false))
-                        {
-                            if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
-                            rulesMatched.Add(rule.Name);
-                            isBlocked = !defaultBlocked;
-                        }
-                        else
-                        {
-                            rulesFailed.Add(rule.Name);
-                        }
+                    }
+                    // All checks must pass (AND logic)
+                    if (!stringChecksMatched.Contains(false))
+                    {
+                        if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
+                        rulesMatched.Add(rule.Name);
+                        isBlocked = !defaultBlocked;
+                    }
+                    else
+                    {
+                        rulesFailed.Add(rule.Name);
                     }
                     break;
             }
