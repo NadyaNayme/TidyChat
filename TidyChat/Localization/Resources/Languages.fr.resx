@@ -309,6 +309,15 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous avez désactivé les sons systèmes &amp; Vous avez réglé le volume des sons systèmes à 50.</value>
     </data>
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+        <value>Messages d'erreur</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+        <value>Masquer les messages de synchronisation de niveau des FATE</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+        <value>Exemple : Votre niveau est supérieur de 5 ou plus au niveau recommandé pour cette FATE.</value>
+    </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Afficher un message lorsque vous changez de tenue</value>
     </data>

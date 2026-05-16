@@ -604,6 +604,26 @@ public static class ChatStrings
         Fra = ["notez", "informations", "votre", "nomenclature"],
     };
 
+    /// <see href="https://xivapi.com/LogMessage/2735?pretty=true">
+    ///     You are X or more levels above the recommended level for this FATE.</see>
+    public static readonly LocalizedStrings FateLevelSyncWarning = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["recommended level for this fate"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/2736?pretty=true">
+    ///     To join, use the level sync function located in the duty list.</see>
+    public static readonly LocalizedStrings FateLevelSyncJoinPrompt = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["level sync", "duty list"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
+
     /// <see href="https://xivapi.com/LogMessage/3512?pretty=true">[Player] lands a [fish] measuring ... ilms</see>
     public static readonly LocalizedStrings MeasuringIlms = new()
     {

@@ -798,7 +798,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         return chatType switch
         {
-            ChatType.Say or
+            ChatType.Error or
+                ChatType.Say or
                 ChatType.Shout or
                 ChatType.Yell or
                 ChatType.TellIncoming or

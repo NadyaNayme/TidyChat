@@ -309,6 +309,15 @@ Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>z.B. Gesamtlautstärke stumm, Hintergrundmusik auf 50 gesetzt.</value>
     </data>
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+        <value>Fehlermeldungen</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+        <value>FATE-Stufenabgleich-Meldungen ausblenden</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+        <value>z.B. Dein Level ist mindestens 5 Stufen über dem empfohlenen Level für dieses FATE.</value>
+    </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Nachricht beim Ändern von Ausrüstungssets anzeigen</value>
     </data>

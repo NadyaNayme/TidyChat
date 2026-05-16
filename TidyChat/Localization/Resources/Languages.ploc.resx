@@ -317,6 +317,15 @@
     <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ṁàšţéŕ Ṽôļûɱé ɱûţéð، ƁĜṀ ṽôļûɱé šéţ ţô ⑤ⓞ·</value>
   </data>
+    <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+    <value>Éŕŕôŕ Ṁéššàĝéš</value>
+  </data>
+    <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+    <value>Ĥîðé ƑÀŢÉ ļéṽéļ šýñç ɱéššàĝéš</value>
+  </data>
+    <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû àŕé ⑤ ôŕ ɱôŕé ļéṽéļš àƀôṽé ţĥé ŕéçôɱɱéñðéð ļéṽéļ ƒôŕ ţĥîš ƑÀŢÉ·</value>
+  </data>
     <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš</value>
   </data>

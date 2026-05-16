@@ -309,6 +309,15 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>es. Volume globale silenziato, volume di background impostato a 50.</value>
     </data>
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+        <value>Messaggi di errore</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+        <value>Nascondi i messaggi di sincronizzazione del livello per le FATE</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+        <value>es. Il tuo livello è di 5 o più livelli superiore al livello consigliato per questa FATE.</value>
+    </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Visualizza un messaggio quando si cambia gearset</value>
     </data>

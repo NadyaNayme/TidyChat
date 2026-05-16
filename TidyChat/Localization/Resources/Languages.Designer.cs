@@ -2139,6 +2139,33 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Messages.
+        /// </summary>
+        internal static string SystemTab_ErrorMessagesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ErrorMessagesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide FATE level sync messages.
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You are 5 or more levels above the recommended level for this FATE..
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show all other System messages.
         /// </summary>
         internal static string SystemTab_ShowEverythingElse {

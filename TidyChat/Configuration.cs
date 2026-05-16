@@ -136,6 +136,12 @@ public class Configuration : IPluginConfiguration
 
     #endregion
 
+    #region Error Messages
+
+    public bool HideFateLevelSync { get; set; } = true;
+
+    #endregion
+
     #region PotD & HoH
 
     public bool ShowObtainedPomander { get; set; } = true;

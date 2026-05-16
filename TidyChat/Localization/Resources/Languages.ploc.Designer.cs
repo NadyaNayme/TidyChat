@@ -1925,6 +1925,33 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Éŕŕôŕ Ṁéššàĝéš.
+        /// </summary>
+        internal static string SystemTab_ErrorMessagesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ErrorMessagesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ĥîðé ƑÀŢÉ ļéṽéļ šýñç ɱéššàĝéš.
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to éĝ· Ýôû àŕé ⑤ ôŕ ɱôŕé ļéṽéļš àƀôṽé ţĥé ŕéçôɱɱéñðéð ļéṽéļ ƒôŕ ţĥîš ƑÀŢÉ·.
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš.
         /// </summary>
         internal static string SystemTab_ShowGearsetChangingMessages {

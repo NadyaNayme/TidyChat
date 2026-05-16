@@ -648,6 +648,29 @@ public static class Rules
             StringChecks = [ChatStrings.TradeComplete],
             Pattern = PatternKind.StringMatch,
         },
+
+        #region Error Messages
+
+        new LocalizedFilterRule
+        {
+            Name = "HideFateLevelSync",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            StringChecks = [ChatStrings.FateLevelSyncWarning],
+            Pattern = PatternKind.StringMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "HideFateLevelSync",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            StringChecks = [ChatStrings.FateLevelSyncJoinPrompt],
+            Pattern = PatternKind.StringMatch,
+        },
+
+        #endregion
         new LocalizedFilterRule
         {
             Name = "ShowOfferedTeleport",
