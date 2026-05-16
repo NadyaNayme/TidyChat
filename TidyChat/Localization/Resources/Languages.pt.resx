@@ -494,17 +494,17 @@ por exemplo. Alguns jogadores lançam seu lot for &lt;item&gt;!</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Aphorism</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Show Allagan tomestones of Mathematics</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>eg. You obtain 60 Allagan tomestones of Mathematics.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Astronomy</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Show Allagan tomestones of Mnemonics</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>eg. You obtain 20 Allagan tomestones of Mnemonics.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Show Wolf Marks</value>

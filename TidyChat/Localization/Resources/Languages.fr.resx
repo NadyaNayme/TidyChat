@@ -493,17 +493,17 @@ Exemple : Autre Personnage obtient un &lt;objet&gt; !</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous obtenez 100 mémoquartz allagois poétiques.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Afficher les Mémoquartz Allagois Aphoristiques</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Afficher les Mémoquartz Allagois Mathématiques</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : Vous obtenez 60 mémoquartz allagois aphoristiques.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>Exemple : Vous obtenez 60 mémoquartz allagois mathématiques.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Afficher les Mémoquartz Allagois Astronomiques</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Afficher les Mémoquartz Allagois Mnémoniques</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : Vous obtenez 20 mémoquartz allagois astronomiques.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>Exemple : Vous obtenez 20 mémoquartz allagois mnémoniques.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Afficher les Marques de loup</value>

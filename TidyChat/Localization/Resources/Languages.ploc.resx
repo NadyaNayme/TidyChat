@@ -510,17 +510,17 @@
     <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš·</value>
   </data>
-    <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ</value>
+    <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš</value>
   </data>
-    <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ·</value>
+    <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš·</value>
   </data>
-    <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý</value>
+    <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš</value>
   </data>
-    <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý·</value>
+    <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš·</value>
   </data>
     <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
     <value>Šĥôŵ Ŵôļƒ Ṁàŕķš</value>

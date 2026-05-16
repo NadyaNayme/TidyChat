@@ -103,23 +103,23 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowPoeticsMessagesHelpMarker);
 
-            var hideObtainedAphorismTomestones = configuration.HideObtainedAphorismTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowAphorismMessages, ref hideObtainedAphorismTomestones))
+            var hideObtainedMathematicsTomestones = configuration.HideObtainedMathematicsTomestones;
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowMathematicsMessages, ref hideObtainedMathematicsTomestones))
             {
-                configuration.HideObtainedAphorismTomestones = hideObtainedAphorismTomestones;
+                configuration.HideObtainedMathematicsTomestones = hideObtainedMathematicsTomestones;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAphorismMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowMathematicsMessagesHelpMarker);
 
-            var hideObtainedAstronomyTomestones = configuration.HideObtainedAstronomyTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowAstronomyMessages, ref hideObtainedAstronomyTomestones))
+            var hideObtainedMnemonicsTomestones = configuration.HideObtainedMnemonicsTomestones;
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowMnemonicsMessages, ref hideObtainedMnemonicsTomestones))
             {
-                configuration.HideObtainedAstronomyTomestones = hideObtainedAstronomyTomestones;
+                configuration.HideObtainedMnemonicsTomestones = hideObtainedMnemonicsTomestones;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAstronomyMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowMnemonicsMessagesHelpMarker);
 
             var hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowWolfMarksMessages, ref hideObtainedWolfMarks))

@@ -494,17 +494,17 @@ es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>es. Hai ottenuto 100 Allagan tomestones of Poetics.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Visualizza i Allagan tomestones of Aphorism</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Visualizza i Allagan tomestones of Mathematics</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>es. Hai ottenuto 60 Allagan tomestones of Aphorism.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 60 Allagan tomestones of Mathematics.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Visualizza i Allagan tomestones of Astronomy</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Visualizza i Allagan tomestones of Mnemonics</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>es. Hai ottenuto 20 Allagan tomestones of Astronomy.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>es. Hai ottenuto 20 Allagan tomestones of Mnemonics.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Visualizza i Wolf Mark</value>

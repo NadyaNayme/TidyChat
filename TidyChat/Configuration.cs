@@ -187,8 +187,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
     public bool HideObtainedPoeticsTomestones { get; set; } = false;
-    public bool HideObtainedAphorismTomestones { get; set; } = false;
-    public bool HideObtainedAstronomyTomestones { get; set; } = false;
+    public bool HideObtainedMathematicsTomestones { get; set; } = false;
+    public bool HideObtainedMnemonicsTomestones { get; set; } = false;
 
     #endregion
 

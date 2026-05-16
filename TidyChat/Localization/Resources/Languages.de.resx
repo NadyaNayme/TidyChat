@@ -493,17 +493,17 @@ z.B. Ein Spieler hat ein &lt;item&gt; erhalten!</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>z.B. Du erhältst 100 Allagische Steine der Poesie.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Allagische Steine des Aphorismus anzeigen.</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Allagische Steine der Mathematik anzeigen</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>z.B. Du erhältst 60 Allagische Steine des Aphorismus.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>z.B. Du erhältst 60 Allagische Steine der Mathematik.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Zeige Allagische Steine der Astronomie</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Allagische Steine der Mnemonik anzeigen</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>Du erhältst 20 Allagische Steine der Astronomie.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>z.B. Du erhältst 20 Allagische Steine der Mnemonik.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Zeige Wolfsmarken</value>

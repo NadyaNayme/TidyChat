@@ -986,38 +986,38 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ.
+        ///   Looks up a localized string similar to Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš.
         /// </summary>
-        internal static string ObtainTab_ShowAphorismMessages {
+        internal static string ObtainTab_ShowMathematicsMessages {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAphorismMessages", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ·.
+        ///   Looks up a localized string similar to éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš·.
         /// </summary>
-        internal static string ObtainTab_ShowAphorismMessagesHelpMarker {
+        internal static string ObtainTab_ShowMathematicsMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAphorismMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessagesHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý.
+        ///   Looks up a localized string similar to Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš.
         /// </summary>
-        internal static string ObtainTab_ShowAstronomyMessages {
+        internal static string ObtainTab_ShowMnemonicsMessages {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAstronomyMessages", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý·.
+        ///   Looks up a localized string similar to éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš·.
         /// </summary>
-        internal static string ObtainTab_ShowAstronomyMessagesHelpMarker {
+        internal static string ObtainTab_ShowMnemonicsMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAstronomyMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessagesHelpMarker", resourceCulture);
             }
         }
         
