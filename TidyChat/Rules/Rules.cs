@@ -654,6 +654,26 @@ public static class Rules
         },
         new()
         {
+            // IDs 1049/1053 = "You obtain a handful of <collectable>" in the Gathering channel
+            // (gathering a collectable item with Collector's Glove before reducing it)
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1049, 1053]
+        },
+        new()
+        {
+            // ID 3553 = "You successfully reduce <item> (Collectability: N)." (reduction success)
+            // ID 3555 = "N <sands> are obtained." (the resulting aethersand)
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3553, 3555]
+        },
+        new()
+        {
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
             Channel = ChatType.System,
