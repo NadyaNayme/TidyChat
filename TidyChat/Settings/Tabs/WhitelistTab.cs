@@ -4,7 +4,6 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class WhitelistTab
@@ -46,7 +45,7 @@ internal static class WhitelistTab
         var list = configuration.Whitelist.ToList();
         for (var i = -1; i < list.Count; i++)
         {
-            var alias = i < 0 ? m_placeholder : list[i];
+            PlayerName alias = i < 0 ? m_placeholder : list[i];
 
             #region Channels Column
 
@@ -103,7 +102,7 @@ internal static class WhitelistTab
                 if (i == -1)
                 {
                     configuration.Whitelist.Insert(0, alias);
-                    m_placeholder = new PlayerName();
+                    m_placeholder = new();
                 }
 
                 configuration.Save();

@@ -275,5 +275,4 @@ public static class ChatRegexStrings
     };
 
     #endregion Treasure Dungeons
-
 }

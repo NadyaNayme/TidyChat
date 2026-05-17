@@ -1,6 +1,5 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class EmotesTab
@@ -13,9 +12,9 @@ internal static class EmotesTab
             configuration.FilterEmoteChannel = filterEmoteSpam;
             configuration.Save();
         }
-        
+
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
-        
+
         var filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
         if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
         {

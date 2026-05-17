@@ -1,6 +1,6 @@
-﻿using ChatTwo.Code;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ChatTwo.Code;
 using TidyChat.Translation.Data;
 namespace TidyChat;
 
@@ -1304,7 +1304,7 @@ public static class Rules
         foreach(LocalizedFilterRule rule in _rules)
         {
             if (rule.LogMessageIds is null) continue;
-            foreach(uint id in rule.LogMessageIds)
+            foreach(var id in rule.LogMessageIds)
             {
                 if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
                 {
@@ -1315,7 +1315,7 @@ public static class Rules
             }
         }
         var result = new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>(mutable.Count);
-        foreach (var kvp in mutable)
+        foreach(KeyValuePair<uint, List<LocalizedFilterRule>> kvp in mutable)
             result[kvp.Key] = kvp.Value;
         return result;
     }

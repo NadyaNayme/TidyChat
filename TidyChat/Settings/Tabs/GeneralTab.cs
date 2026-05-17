@@ -1,7 +1,6 @@
 ﻿using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class GeneralTab

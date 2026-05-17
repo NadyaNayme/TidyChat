@@ -1,7 +1,5 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-using TidyChat;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class ObtainTab
@@ -122,7 +120,7 @@ internal static class ObtainTab
             }
             else
             {
-                foreach (var tomestone in TidyChatPlugin.Tomestones)
+                foreach(TomestoneInfo tomestone in TidyChatPlugin.Tomestones)
                 {
                     configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide);
                     if (ImGui.Checkbox($"Hide {tomestone.Name}", ref hide))

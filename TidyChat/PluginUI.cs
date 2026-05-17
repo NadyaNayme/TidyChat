@@ -1,7 +1,7 @@
-﻿using Dalamud.Interface.Utility;
-using Dalamud.Interface.Windowing;
-using System;
+﻿using System;
 using System.Numerics;
+using Dalamud.Interface.Utility;
+using Dalamud.Interface.Windowing;
 using TidyChat.Localization.Resources;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
@@ -29,7 +29,7 @@ internal class PluginUI : Window, IDisposable
         if (!ImGui.BeginTabBar("##tidychatConfigTabs"))
             return;
 
-        float width = ImGui.CalcTextSize(TidyStrings.Version).X + (20.0f * ImGuiHelpers.GlobalScale);
+        var width = ImGui.CalcTextSize(TidyStrings.Version).X + (20.0f * ImGuiHelpers.GlobalScale);
         ImGui.SameLine(ImGui.GetWindowWidth() - width);
         Vector4 ColorGray = new(0.45f, 0.45f, 0.45f, 1);
         ImGui.TextColored(ColorGray, TidyStrings.Version);

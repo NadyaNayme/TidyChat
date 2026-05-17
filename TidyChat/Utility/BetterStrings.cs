@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Timers;
 using ChatTwo.Code;
@@ -34,12 +35,12 @@ internal static class BetterStrings
         return $"/say {containingPhrase}";
     }
 
-    unsafe public static SeString Instances(SeString message, Configuration configuration)
+    public unsafe static SeString Instances(SeString message, Configuration configuration)
     {
         try
         {
             // This will return the instance value: 0,1,2,3,4,5,6
-            int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            var InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
             var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
@@ -97,7 +98,7 @@ internal static class BetterStrings
         var chamber = TidyStrings.LastTreasureDungeonChamber;
         var stringBuilder = new SeStringBuilder();
         if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-        stringBuilder.AddText(string.Format(System.Globalization.CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
+        stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
         return stringBuilder.BuiltString;
     }
 
@@ -107,7 +108,7 @@ internal static class BetterStrings
         var t = new Timer
         {
             Interval = 1000,
-            AutoReset = false,
+            AutoReset = false
         };
         t.Elapsed += delegate
         {
@@ -152,7 +153,7 @@ internal static class BetterStrings
     public static SeStringBuilder AddRuleTag(SeStringBuilder sestring, List<string> rulesMatched)
     {
         sestring.AddUiForeground(9);
-        sestring.AddText($"[{String.Join(", ", rulesMatched)}] ");
+        sestring.AddText($"[{string.Join(", ", rulesMatched)}] ");
         sestring.AddUiForegroundOff();
         return sestring;
     }
@@ -178,7 +179,7 @@ internal static class BetterStrings
     public static SeStringBuilder AddAllowedTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(9);
-        sestring.AddText($"[Allowed] ");
+        sestring.AddText("[Allowed] ");
         sestring.AddUiForegroundOff();
         return sestring;
     }

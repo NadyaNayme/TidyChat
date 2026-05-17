@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Dalamud.Game;
 using Dalamud.Game.Text.SeStringHandling;
 using TidyStrings = TidyChat.Utility.InternalStrings;
@@ -13,26 +14,26 @@ internal static class GetDutyName
         if (L10N.Get(ChatStrings.DutyEnded).All(input.Contains))
             return L10N.Language switch
             {
-                ClientLanguage.Japanese => message.TextValue.Substring(message.TextValue.IndexOf('「', System.StringComparison.Ordinal),
-                                        message.TextValue.LastIndexOf('」')),//    match here then grab everything up to "」" starting from "「"
-                                                                            //         |
-                                                                            //         v
-                                                                            // 「<duty>」 has ended.
-                ClientLanguage.English => message.TextValue[..(message.TextValue.LastIndexOf(' ') - 4)],//      match here then go back 4 characters to capture everything before " has"
-                                                                                                        //           |
-                                                                                                        //           v
-                                                                                                        // <duty> has ended.
-                ClientLanguage.German => message.TextValue.Substring(message.TextValue.IndexOf('„', System.StringComparison.Ordinal),
-                                        message.TextValue.LastIndexOf('“')),//   match here then grab everything up to "“" starting from "„"
-                                                                            //        |
-                                                                            //        v
-                                                                            // „<duty>“ wurde beendet.
-                ClientLanguage.French => message.TextValue.Substring(message.TextValue.IndexOf('“', System.StringComparison.Ordinal),
-                                        message.TextValue.LastIndexOf('”')),//              match here then grab everything up to "“" starting from "“"
-                                                                            //                   |
-                                                                            //                   v
-                                                                            // La mission “<duty>” prend fin.
-                _ => L10N.GetTidy(TidyStrings.LastDuty),// This should be unreachable but if we somehow reach it let's keep the last stored duty
+                ClientLanguage.Japanese => message.TextValue.Substring(message.TextValue.IndexOf('「', StringComparison.Ordinal),
+                    message.TextValue.LastIndexOf('」')), //    match here then grab everything up to "」" starting from "「"
+                //         |
+                //         v
+                // 「<duty>」 has ended.
+                ClientLanguage.English => message.TextValue[..(message.TextValue.LastIndexOf(' ') - 4)], //      match here then go back 4 characters to capture everything before " has"
+                //           |
+                //           v
+                // <duty> has ended.
+                ClientLanguage.German => message.TextValue.Substring(message.TextValue.IndexOf('„', StringComparison.Ordinal),
+                    message.TextValue.LastIndexOf('“')), //   match here then grab everything up to "“" starting from "„"
+                //        |
+                //        v
+                // „<duty>“ wurde beendet.
+                ClientLanguage.French => message.TextValue.Substring(message.TextValue.IndexOf('“', StringComparison.Ordinal),
+                    message.TextValue.LastIndexOf('”')), //              match here then grab everything up to "“" starting from "“"
+                //                   |
+                //                   v
+                // La mission “<duty>” prend fin.
+                _ => L10N.GetTidy(TidyStrings.LastDuty) // This should be unreachable but if we somehow reach it let's keep the last stored duty
             };
         if (L10N.Get(ChatStrings.GuildhestEnded).All(input.Contains)) return L10N.GetTidy(TidyStrings.Guildhest);
 

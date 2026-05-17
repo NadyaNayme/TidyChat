@@ -1,8 +1,8 @@
-﻿using Dalamud.Configuration;
-using Dalamud.Plugin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Dalamud.Configuration;
+using Dalamud.Plugin;
 namespace TidyChat;
 
 [Serializable]

@@ -1,4 +1,10 @@
 ﻿global using Dalamud.Bindings.ImGui;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Timers;
 using ChatTwo.Code;
 using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Objects.SubKinds;
@@ -12,12 +18,7 @@ using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Timers;
+using Lumina.Text.ReadOnly;
 using TidyChat.Localization.Resources;
 using TidyChat.Translation.Data;
 using TidyChat.Utility;
@@ -90,10 +91,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
 
     /// <summary>
-    /// Fishing flavor text loaded from game data at startup.
-    /// Covers Fisher's Intuition messages (FishingSpot.BigFishOnReach/End/Refresh per spot)
-    /// and per-fish lure flavor text (FishParameter.Unknown_70_1/2/3, added in Dawntrail).
-    /// Stored with OrdinalIgnoreCase for O(1) comparison against normalized incoming messages.
+    ///     Fishing flavor text loaded from game data at startup.
+    ///     Covers Fisher's Intuition messages (FishingSpot.BigFishOnReach/End/Refresh per spot)
+    ///     and per-fish lure flavor text (FishParameter.Unknown_70_1/2/3, added in Dawntrail).
+    ///     Stored with OrdinalIgnoreCase for O(1) comparison against normalized incoming messages.
     /// </summary>
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -136,18 +137,18 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             {
                 TerritoryType territory =
                     DataManager.GetExcelSheet<TerritoryType>().GetRow(e); // built in sheets will never be null
-                byte exclusiveType = territory.ExclusiveType;
-                bool isPvp = territory.IsPvpZone;
+                var exclusiveType = territory.ExclusiveType;
+                var isPvp = territory.IsPvpZone;
 
-                string placeName = $"{territory.PlaceName.Value.Name}";
-                string dutyName = $"{territory.ContentFinderCondition.Value.Name}";
+                var placeName = $"{territory.PlaceName.Value.Name}";
+                var dutyName = $"{territory.ContentFinderCondition.Value.Name}";
 
                 TidyStrings.LastDuty = exclusiveType switch
                 {
                     2 when dutyName.Length >= 1 => dutyName,
                     2 when dutyName.Length == 0 && placeName.Length > 0 => placeName,
                     2 when dutyName.Length == 0 && isPvp => L10N.GetTidy(TidyStrings.PvPDuty),
-                    var _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
+                    _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
                 };
             }
             catch(KeyNotFoundException)
@@ -156,7 +157,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     "Something somehow somewhere went wrong but we don't want to crash on territory change");
             }
     }
-    
+
     private void OnLogMessage(ILogMessage message)
     {
         if (!Configuration.Enabled || message.IsHandled) return;
@@ -164,7 +165,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Update rule active states so the lookup reflects current config
         Rules.UpdateIsActiveStates(Configuration);
 
-        if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out var matchingRules)) 
+        if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out IReadOnlyList<LocalizedFilterRule>? matchingRules))
         {
             // No rules registered for this ID — log it in debug mode for ID discovery.
             // Includes the formatted message text so you can correlate the ID with
@@ -173,7 +174,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             {
                 try
                 {
-                    var formatted = message.FormatLogMessageForDebugging();
+                    ReadOnlySeString formatted = message.FormatLogMessageForDebugging();
                     Log.Debug($"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount} | Text: {formatted.ExtractText()}");
                 }
                 catch
@@ -184,7 +185,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
-        foreach (var rule in matchingRules)
+        foreach(LocalizedFilterRule rule in matchingRules)
         {
             // ShouldBlock respects both "Show*" semantics (block when !IsActive)
             // and "Hide*" semantics (block when IsActive) via BlockWhenActive.
@@ -239,7 +240,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
-        string normalizedText = NormalizeInput.ToLowercase(message.Message);
+        var normalizedText = NormalizeInput.ToLowercase(message.Message);
 
         // If the message is a /? command - temporarily disable the filters to allow the command text through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
@@ -354,7 +355,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
 
         // Block any messages that come from a "spammy" channel
-        bool isBlocked = ChannelIsSpammy(chatType);
+        var isBlocked = ChannelIsSpammy(chatType);
 
         // Skip filtering if channel filter is disabled — show all messages in that channel.
         // This mirrors FilterSystemMessages and applies to the other filterable channels.
@@ -372,7 +373,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isBlocked = false;
         }
 
-        bool showEverythingElse = false;
+        var showEverythingElse = false;
         if ((chatType is ChatType.System && Configuration.ShowEverythingElse) ||
             (chatType is ChatType.Crafting && Configuration.ShowAllOtherCrafting) ||
             (chatType is ChatType.Gathering or ChatType.GatheringSystem && Configuration.ShowAllOtherGathering))
@@ -380,7 +381,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isBlocked = !isBlocked;
             showEverythingElse = true;
         }
-        bool defaultBlocked = isBlocked;
+        var defaultBlocked = isBlocked;
 
         List<string> rulesMatched = [];
         List<string> rulesSkipped = [];
@@ -403,7 +404,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             // Skip rules that wouldn't change isBlocked away from defaultBlocked
             if (rule.IsActive == showEverythingElse)
             {
-                string activeOrInactive = showEverythingElse ? "active" : "inactive";
+                var activeOrInactive = showEverythingElse ? "active" : "inactive";
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
                 rulesSkipped.Add(rule.Name);
                 continue;
@@ -577,7 +578,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (chatType is ChatType.LootRoll && !isHandled &&
             Configuration.ShowOnlyPartyMemberRolls && PartyList.Length > 0)
         {
-            bool isPartyMember = PartyList.Any(member =>
+            var isPartyMember = PartyList.Any(member =>
                 normalizedText.StartsWith(
                     member.Name.TextValue.ToLower(CultureInfo.InvariantCulture) + " ",
                     StringComparison.Ordinal));
@@ -603,12 +604,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             foreach(TomestoneInfo tomestone in Tomestones)
             {
-                string itemNameLower = tomestone.Name.ToLower(CultureInfo.InvariantCulture);
-                int lastWordStart = itemNameLower.LastIndexOf(' ') + 1;
-                string typeName = itemNameLower[lastWordStart..];
+                var itemNameLower = tomestone.Name.ToLower(CultureInfo.InvariantCulture);
+                var lastWordStart = itemNameLower.LastIndexOf(' ') + 1;
+                var typeName = itemNameLower[lastWordStart..];
                 if (normalizedText.Contains(typeName, StringComparison.Ordinal))
                 {
-                    if (Configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out bool hide) && hide)
+                    if (Configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide)
                     {
                         if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (tomestone): {message.Message}");
                         isHandled = true;
@@ -636,12 +637,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 /* Disable Chat History for self-sent messages by default */
                 if (Configuration.DisableSelfChatHistory && string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal)) return;
 
-                ChatFlags.Channels historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
+                var historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
                 if (!historyChannels.Equals(ChatFlags.Channels.None))
                 {
                     if (Flags.CheckFlags(Configuration, chatType))
                     {
-                        string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
+                        var currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
                         if (ChatHistory.Contains(currentMessage, StringComparer.Ordinal))
                         {
                             Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
@@ -735,8 +736,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (!isHandled && !playerOrMessage.AllowMessage)
         {
-            ChatFlags.Channels e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-            bool isRegex = false;
+            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
+            var isRegex = false;
             Regex? userPattern = null;
             if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
             {
@@ -745,7 +746,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     new(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
             }
 
-            bool channelSelectedToFilter = false;
+            var channelSelectedToFilter = false;
             if (!e.Equals(ChatFlags.Channels.None))
                 channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
 
@@ -775,8 +776,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (isHandled && playerOrMessage.AllowMessage)
         {
-            ChatFlags.Channels e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-            bool isRegex = false;
+            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
+            var isRegex = false;
             Regex? userPattern = null;
             if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
             {
@@ -785,7 +786,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     new(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
             }
 
-            bool channelSelectedToFilter = false;
+            var channelSelectedToFilter = false;
             if (!e.Equals(ChatFlags.Channels.None))
                 channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
 
@@ -867,7 +868,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Log.Error("Failed to improve Commendations message", ex);
         }
 
-        int commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
+        var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
 
         if (commendationChange is >= 1 and <= 7)
@@ -875,11 +876,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             SeStringBuilder stringBuilder = new();
             if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
 
-            string commendations = commendationChange == 1
+            var commendations = commendationChange == 1
                 ? Languages.BetterStrings_CommendationSingular
                 : Languages.BetterStrings_CommendationsPlural;
 
-            string dutyName =
+            var dutyName =
                 $"{(Configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + Languages.BetterStrings_CommendationsFromCompletingDuty + " " + TidyStrings.LastDuty + "." : ".")}";
 
             stringBuilder.AddText(
@@ -898,7 +899,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             // BigFishOnReach   = message shown when a big fish becomes catchable (Fisher's Intuition activates)
             // BigFishOnEnd     = message shown when the big fish window expires
             // BigFishOnRefresh = message shown when the window refreshes
-            foreach (FishingSpot row in DataManager.GetExcelSheet<FishingSpot>())
+            foreach(FishingSpot row in DataManager.GetExcelSheet<FishingSpot>())
             {
                 var reach = $"{row.BigFishOnReach}".Trim();
                 var end = $"{row.BigFishOnEnd}".Trim();
@@ -909,7 +910,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 if (!string.IsNullOrWhiteSpace(refresh)) messages.Add(refresh);
             }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Log.Error("Failed to load fishing flavor messages from FishingSpot: " + ex);
         }
@@ -920,7 +921,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             // Unknown_70_1/2/3 are three lure flavor message variants per fish entry,
             // added in patch 7.0 (Dawntrail). They appear in the Gathering channel when
             // a lure (Versatile/Ambitious/Modest Lure) is used at a compatible fishing spot.
-            foreach (FishParameter row in DataManager.GetExcelSheet<FishParameter>())
+            foreach(FishParameter row in DataManager.GetExcelSheet<FishParameter>())
             {
                 var lure1 = $"{row.Unknown_70_1}".Trim();
                 var lure2 = $"{row.Unknown_70_2}".Trim();
@@ -931,7 +932,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 if (!string.IsNullOrWhiteSpace(lure3)) messages.Add(lure3);
             }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Log.Error("Failed to load lure flavor messages from FishParameter: " + ex);
         }
@@ -950,14 +951,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Dictionary<uint, (uint RowId, string Name)> bestPerSlot = new();
             foreach(TomestonesItem row in DataManager.GetExcelSheet<TomestonesItem>())
             {
-                uint slotId = row.Tomestones.RowId;
+                var slotId = row.Tomestones.RowId;
                 if (slotId == 0) continue;
-                string name = $"{row.Item.Value.Name}";
+                var name = $"{row.Item.Value.Name}";
                 if (string.IsNullOrWhiteSpace(name)) continue;
                 if (!bestPerSlot.TryGetValue(slotId, out (uint RowId, string Name) existing) || row.RowId > existing.RowId)
                     bestPerSlot[slotId] = (row.RowId, name);
             }
-            foreach((uint rowId, string name) in bestPerSlot.Values)
+            foreach((var rowId, var name) in bestPerSlot.Values)
                 tomestones.Add(new(rowId, name));
         }
         catch(Exception ex)
@@ -983,7 +984,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 ChatType.Progress or
                 ChatType.FreeCompanyLoginLogout or
                 ChatType.Echo => true,
-            var _ => false
+            _ => false
         };
     }
 
@@ -1031,7 +1032,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 ChatType.FreeCompanyLoginLogout or
                 ChatType.Orchestrion or
                 ChatType.Echo => true,
-            var _ => false
+            _ => false
         };
     }
 
@@ -1047,7 +1048,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
             else if (payload is TextPayload { Text: not null } textPayload)
             {
-                string smolMessage = "";
+                var smolMessage = "";
                 foreach(int i in textPayload.Text)
                 {
                     if (i is >= 65 and <= 91) smolMessage += (char)(i + 32);
@@ -1073,7 +1074,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
             else if (payload is TextPayload { Text: not null } textPayload)
             {
-                string deblockedMessage = "";
+                var deblockedMessage = "";
                 foreach(int i in textPayload.Text)
                 {
                     switch (i)
@@ -1121,7 +1122,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         t.Enabled = true;
     }
 
-    public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
+    public unsafe static void InstanceDtrBarUpdate(Configuration configuration)
     {
         DtrEntry ??= GetDtrBar();
         DtrEntry.Tooltip = "TidyChat";
@@ -1135,13 +1136,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         try
         {
             // This will return the instance value: 0,1,2,3,4,5,6
-            int instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
-            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
+            var instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
             DtrEntry.Text = instanceNumberFromSignature switch
             {
                 >= 1 => $"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}",
-                var _ => string.Empty
+                _ => string.Empty
             };
             DtrEntry.Shown = instanceNumberFromSignature >= 1;
         }

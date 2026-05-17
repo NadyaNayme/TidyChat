@@ -178,5 +178,4 @@ public static class ChatStrings
         Deu = ["hast", "neulings-chat", "verlassen"],
         Fra = ["vous", "quitté", "réseau", "novices"]
     };
-
 }

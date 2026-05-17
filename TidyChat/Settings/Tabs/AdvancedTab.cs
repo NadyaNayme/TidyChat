@@ -1,5 +1,4 @@
 ﻿using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class AdvancedTab

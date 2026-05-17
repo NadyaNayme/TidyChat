@@ -1,7 +1,7 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class ChatHistoryTab
@@ -16,7 +16,7 @@ internal static class ChatHistoryTab
         }
 
         ImGuiComponents.HelpMarker(helpText: string.Format(CultureInfo.CurrentCulture, Languages.ChatHistoryTab_EnableChatHistoryFilterHelpMarker,
-            configuration.ChatHistoryLength.ToString(CultureInfo.CurrentCulture), System.StringComparison.Ordinal));
+            configuration.ChatHistoryLength.ToString(CultureInfo.CurrentCulture), StringComparison.Ordinal));
 
         var disableSelfChatHistory = configuration.DisableSelfChatHistory;
         if (ImGui.Checkbox(Languages.ChatHistoryTab_IgnoreMessagesSentByPlayer, ref disableSelfChatHistory))

@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat;
 
 public static class TabFooter
@@ -29,7 +28,7 @@ public static class TabFooter
                 Process.Start(new ProcessStartInfo
                 {
                     FileName = "https://ko-fi.com/kagekazu",
-                    UseShellExecute = true,
+                    UseShellExecute = true
                 });
 
             ImGui.PopStyleColor(3);
@@ -43,7 +42,7 @@ public static class TabFooter
             Process.Start(new ProcessStartInfo
             {
                 FileName = "https://github.com/NadyaNayme/TidyChat/wiki",
-                UseShellExecute = true,
+                UseShellExecute = true
             });
         ImGui.PopStyleColor(3);
 
