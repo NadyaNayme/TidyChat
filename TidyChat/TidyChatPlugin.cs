@@ -120,7 +120,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+        if (Configuration.InstanceInDtrBar) DelayedInstanceDtrBarUpdate(Configuration);
         if (Configuration.IncludeDutyNameInComms)
             try
             {
@@ -218,6 +218,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
         {
             message.Message = Better.Instances(message.Message, Configuration);
+            if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
             return;
         }
 
@@ -975,6 +976,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     public static IDtrBarEntry GetDtrBar() => DtrBar.Get(TidyStrings.PluginName);
 
+    private static void DelayedInstanceDtrBarUpdate(Configuration configuration)
+    {
+        var t = new Timer
+        {
+            Interval = 1000,
+            AutoReset = false,
+        };
+        t.Elapsed += delegate
+        {
+            t.Enabled = false;
+            t.Dispose();
+            InstanceDtrBarUpdate(configuration);
+        };
+        t.Enabled = true;
+    }
+
     public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
     {
         DtrEntry ??= GetDtrBar();
@@ -992,13 +1009,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             var instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
             var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
-            DtrEntry.Shown = true;
             DtrEntry.Text = instanceNumberFromSignature switch
             {
                 >= 1 => $"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}",
-                0 => String.Empty,
-                _ => DtrEntry.Text
+                _ => String.Empty,
             };
+            DtrEntry.Shown = instanceNumberFromSignature >= 1;
         }
         catch (Exception ex)
         {
