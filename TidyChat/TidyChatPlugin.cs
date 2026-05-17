@@ -508,7 +508,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             foreach (var tomestone in Tomestones)
             {
-                if (normalizedText.Contains(tomestone.Name.ToLower(CultureInfo.InvariantCulture), StringComparison.Ordinal))
+                var itemNameLower = tomestone.Name.ToLower(CultureInfo.InvariantCulture);
+                var lastWordStart = itemNameLower.LastIndexOf(' ') + 1;
+                var typeName = itemNameLower[lastWordStart..];
+                if (normalizedText.Contains(typeName, StringComparison.Ordinal))
                 {
                     if (Configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide)
                     {
@@ -794,13 +797,20 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         var tomestones = new List<TomestoneInfo>();
         try
         {
+            // Each Tomestones slot (Poetics / capped / weekly-capped) accumulates retired tomestones over patches.
+            // Take the highest TomestonesItem RowId per slot — that’s the currently active one for that slot.
+            var bestPerSlot = new Dictionary<uint, (uint RowId, string Name)>();
             foreach (var row in DataManager.GetExcelSheet<Lumina.Excel.Sheets.TomestonesItem>())
             {
-                if (row.Tomestones.RowId == 0) continue;
+                var slotId = row.Tomestones.RowId;
+                if (slotId == 0) continue;
                 var name = row.Item.Value.Name.ToString();
                 if (string.IsNullOrWhiteSpace(name)) continue;
-                tomestones.Add(new TomestoneInfo(row.RowId, name));
+                if (!bestPerSlot.TryGetValue(slotId, out var existing) || row.RowId > existing.RowId)
+                    bestPerSlot[slotId] = (row.RowId, name);
             }
+            foreach (var (rowId, name) in bestPerSlot.Values)
+                tomestones.Add(new TomestoneInfo(rowId, name));
         }
         catch (Exception ex)
         {
