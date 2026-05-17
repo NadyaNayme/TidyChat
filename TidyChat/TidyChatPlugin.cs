@@ -90,11 +90,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
 
     /// <summary>
-    /// Fisher's Intuition flavor text loaded from FishingSpot.BigFishOnReach/End/Refresh at startup.
-    /// Stored lowercase for O(1) comparison against normalized incoming messages.
-    /// TODO: Also load per-fish lure flavor text from FishParameter columns 2/3/4
-    ///       ("Unknown_70_*" in SaintCoinach format). These columns are not exposed
-    ///       by the current EXDSchema and need further investigation.
+    /// Fishing flavor text loaded from game data at startup.
+    /// Covers Fisher's Intuition messages (FishingSpot.BigFishOnReach/End/Refresh per spot)
+    /// and per-fish lure flavor text (FishParameter.Unknown_70_1/2/3, added in Dawntrail).
+    /// Stored with OrdinalIgnoreCase for O(1) comparison against normalized incoming messages.
     /// </summary>
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -211,8 +210,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
-        // Ignore already filtered messages by other plugins such as NoSol
-        // TODO: Allow Custom Filters to still run
+        // Ignore already filtered messages by other plugins such as NoSol.
+        // IHandleableChatMessage only exposes a one-way PreventOriginal(); there is no
+        // corresponding "AllowOriginal", so TidyChat cannot un-block messages that another
+        // plugin has already suppressed. Custom Allow-list entries therefore cannot override
+        // blocks imposed by other plugins (e.g. NoSol).
         if (message.IsHandled) return;
 
         ChatType chatType = FromDalamud(message.LogKind);
@@ -585,8 +587,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
         }
 
-        // Per-fish fishing flavor text whitelisting using Lumina-loaded game data.
-        // Covers Fisher's Intuition messages (BigFishOnReach/End/Refresh from FishingSpot).
+        // Fishing flavor text whitelisting using Lumina-loaded game data.
+        // Covers Fisher's Intuition (FishingSpot) and per-fish lure flavor text (FishParameter).
         if (chatType is ChatType.Gathering && isHandled && Configuration.ShowFishingFlavorText &&
             FishingFlavorMessages.Count > 0 && FishingFlavorMessages.Contains(normalizedText))
         {
@@ -891,9 +893,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         var messages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         try
         {
-            // Load Fisher's Intuition flavor text from FishingSpot sheet
-            // BigFishOnReach = message shown when a big fish becomes catchable (Fisher's Intuition activates)
-            // BigFishOnEnd   = message shown when the big fish window expires
+            // Load Fisher's Intuition flavor text from FishingSpot sheet.
+            // BigFishOnReach   = message shown when a big fish becomes catchable (Fisher's Intuition activates)
+            // BigFishOnEnd     = message shown when the big fish window expires
             // BigFishOnRefresh = message shown when the window refreshes
             foreach (FishingSpot row in DataManager.GetExcelSheet<FishingSpot>())
             {
@@ -909,6 +911,28 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         catch (Exception ex)
         {
             Log.Error("Failed to load fishing flavor messages from FishingSpot: " + ex);
+        }
+
+        try
+        {
+            // Load per-fish lure flavor text from FishParameter sheet.
+            // Unknown_70_1/2/3 are three lure flavor message variants per fish entry,
+            // added in patch 7.0 (Dawntrail). They appear in the Gathering channel when
+            // a lure (Versatile/Ambitious/Modest Lure) is used at a compatible fishing spot.
+            foreach (FishParameter row in DataManager.GetExcelSheet<FishParameter>())
+            {
+                var lure1 = $"{row.Unknown_70_1}".Trim();
+                var lure2 = $"{row.Unknown_70_2}".Trim();
+                var lure3 = $"{row.Unknown_70_3}".Trim();
+
+                if (!string.IsNullOrWhiteSpace(lure1)) messages.Add(lure1);
+                if (!string.IsNullOrWhiteSpace(lure2)) messages.Add(lure2);
+                if (!string.IsNullOrWhiteSpace(lure3)) messages.Add(lure3);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Error("Failed to load lure flavor messages from FishParameter: " + ex);
         }
 
         FishingFlavorMessages = messages;
