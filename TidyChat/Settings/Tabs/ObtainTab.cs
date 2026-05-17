@@ -44,6 +44,20 @@ internal static class ObtainTab
                 configuration.Save();
             }
 
+            if (configuration.ShowOthersLootRoll)
+            {
+                ImGui.Indent();
+                var showOnlyPartyMemberRolls = configuration.ShowOnlyPartyMemberRolls;
+                if (ImGui.Checkbox(Languages.ObtainTab_ShowOnlyPartyMemberRolls, ref showOnlyPartyMemberRolls))
+                {
+                    configuration.ShowOnlyPartyMemberRolls = showOnlyPartyMemberRolls;
+                    configuration.Save();
+                }
+
+                ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowOnlyPartyMemberRollsHelpMarker);
+                ImGui.Unindent();
+            }
+
             var hideOthersObtain = configuration.HideOthersObtain;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
             {
