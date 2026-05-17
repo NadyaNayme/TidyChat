@@ -151,7 +151,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [4]
+            LogMessageIds = [4, 69]
         },
         new()
         {
@@ -168,6 +168,14 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [72]
+        },
+        new()
+        {
+            Name = "ShowInvitedBy",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3]
         },
         new()
         {
@@ -193,7 +201,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7446]
+            LogMessageIds = [61, 7446]
         },
         new()
         {
@@ -257,7 +265,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7221]
+            LogMessageIds = [7220, 7221]
         },
         new()
         {
@@ -298,6 +306,14 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7246, 7247, 7248]
+        },
+        new()
+        {
+            Name = "ShowAetherpoolIncrease",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [7250]
         },
         new()
         {
@@ -378,6 +394,14 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [1531]
+        },
+        new()
+        {
+            Name = "ShowFloorNumber",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
             RegexChecks = [ChatRegexStrings.FloorNumber],
             Pattern = PatternKind.RegexMatch
         },
@@ -411,7 +435,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [3794]
+            LogMessageIds = [3790, 3794]
         },
         new()
         {
@@ -508,7 +532,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [6065]
+            LogMessageIds = [3087, 6065]
         },
         new()
         {
@@ -638,7 +662,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [700]
+            LogMessageIds = [700, 755]
         },
         new()
         {
@@ -851,6 +875,14 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
+            LogMessageIds = [3537]
+        },
+        new()
+        {
+            Name = "ShowGatheringYield",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
             StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatheringYield],
             Pattern = PatternKind.StringMatch
         },
@@ -862,6 +894,14 @@ public static class Rules
             IsActive = true,
             StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatheringAttempts],
             Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowGatherersBoon",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1097]
         },
         new()
         {
@@ -886,8 +926,24 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
+            LogMessageIds = [1086, 3501]
+        },
+        new()
+        {
+            Name = "ShowGatheringSenses",
+            SettingsTab = "Gathering",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
             RegexChecks = [ChatRegexStrings.SpideySenses],
             Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
+            Name = "ShowLocationAffects",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1098]
         },
         new()
         {
