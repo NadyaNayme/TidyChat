@@ -142,15 +142,6 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.LeftParty],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowLeftParty",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
             LogMessageIds = [4, 69]
         },
         new()
@@ -176,24 +167,6 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3]
-        },
-        new()
-        {
-            Name = "ShowInvitedBy",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.InvitedBy],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowJoinParty",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.JoinParty],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -394,7 +367,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [1531]
+            LogMessageIds = [1531, 9218]
         },
         new()
         {
@@ -436,15 +409,6 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3790, 3794]
-        },
-        new()
-        {
-            Name = "ShowReadyChecks",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.InitiatedReadyCheck],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -663,33 +627,6 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [700, 755]
-        },
-        new()
-        {
-            Name = "ShowGearsetEquipped",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.GearsetEquipped],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.OfferedTeleport],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowGearsetEquipped",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.GearsetEquipped],
-            Pattern = PatternKind.RegexMatch
         },
         new()
         {

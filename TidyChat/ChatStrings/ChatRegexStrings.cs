@@ -256,7 +256,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex FloorNumber = new()
     {
         Jpn = new(@"^地下(\d|\d\d|\d\d\d)階", regexOptions, regexTimeout),
-        Eng = new(@"^floor (\d|\d\d|\d\d\d)", regexOptions, regexTimeout),
+        Eng = new(@"^floor (\d|\d\d|\d\d\d)|floors \d+-\d+\) has begun", regexOptions, regexTimeout),
         Deu = new(@"^ebene (\d|\d\d|\d\d\d) betreten", regexOptions, regexTimeout),
         Fra = new(@"^sous-sol (\d|\d\d|\d\d\d)", regexOptions, regexTimeout)
     };
