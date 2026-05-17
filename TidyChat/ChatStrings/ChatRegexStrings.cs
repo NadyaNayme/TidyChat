@@ -843,11 +843,11 @@ public static class ChatRegexStrings
     
     #region Orchestrion
 
-    /// <see href="https://xivapi.com/LogMessage/3861?pretty=true">Orchestrion now plays <song>.</see>
+    // eg. "A Fierce Air Forceth is now playing."
     public static readonly LocalizedRegex OrchestrionPlaying = new()
     {
         Jpn = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
-        Eng = new Regex(@"^orchestrion now plays .+\.$", regexOptions, regexTimeout),
+        Eng = new Regex(@"^.+ is now playing\.$", regexOptions, regexTimeout),
         Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
     };

@@ -632,4 +632,13 @@ public static class ChatStrings
         Deu = ["ilme", "gefangen"],
         Fra = ["pêché", "de"],
     };
+
+    // You used Aetheryte Ticket (Remaining: ###).
+    public static readonly LocalizedStrings AetheryteTicket = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["aetheryte", "ticket"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
 }

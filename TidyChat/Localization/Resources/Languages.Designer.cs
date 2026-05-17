@@ -1941,6 +1941,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Aetheryte Ticket usage message.
+        /// </summary>
+        internal static string SystemTab_ShowAetheryteTicketMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You used Aetheryte Ticket (Remaining: 5)..
+        /// </summary>
+        internal static string SystemTab_ShowAetheryteTicketMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show vista arrival and stray messages.
         /// </summary>
         internal static string SystemTab_HideVistaMessages {

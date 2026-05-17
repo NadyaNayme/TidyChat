@@ -138,6 +138,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowNoviceNetworkFull { get; set; } = true;
+    public bool ShowAetheryteTicket { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
 

@@ -175,6 +175,15 @@ internal static class SystemTab
                 configuration.ShowNoviceNetworkFull = showNoviceNetworkFull;
                 configuration.Save();
             }
+
+            var showAetheryteTicket = configuration.ShowAetheryteTicket;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowAetheryteTicketMessage, ref showAetheryteTicket))
+            {
+                configuration.ShowAetheryteTicket = showAetheryteTicket;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ShowHiddenMessagesDropdownHeader))

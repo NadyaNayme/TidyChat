@@ -788,6 +788,15 @@ public static class Rules
             StringChecks = [ChatStrings.Playtime],
             Pattern = PatternKind.StringMatch,
         },
+        new LocalizedFilterRule
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.AetheryteTicket],
+            Pattern = PatternKind.StringMatch,
+        },
         #endregion
 
         #region Emote

@@ -924,6 +924,12 @@ Initials: E. N.</value>
   <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
     <value>Show unable to join full Novice Network.</value>
   </data>
+  <data name="SystemTab_ShowAetheryteTicketMessage" xml:space="preserve">
+    <value>Show Aetheryte Ticket usage message</value>
+  </data>
+  <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
+    <value>eg. You used Aetheryte Ticket (Remaining: 5).</value>
+  </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
     <value>Allow</value>
   </data>
