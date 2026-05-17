@@ -309,11 +309,14 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous avez désactivé les sons systèmes &amp; Vous avez réglé le volume des sons systèmes à 50.</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Afficher un message lorsque vous projetez une planche mirage</value>
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+        <value>Messages d'erreur</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : La planche mirage n°10 a été projetée sur votre équipement.</value>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+        <value>Masquer les messages de synchronisation de niveau des FATE</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+        <value>Exemple : Votre niveau est supérieur de 5 ou plus au niveau recommandé pour cette FATE.</value>
     </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Afficher un message lorsque vous changez de tenue</value>
@@ -490,17 +493,17 @@ Exemple : Autre Personnage obtient un &lt;objet&gt; !</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>Exemple : Vous obtenez 100 mémoquartz allagois poétiques.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Afficher les Mémoquartz Allagois Aphoristiques</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Afficher les Mémoquartz Allagois Mathématiques</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : Vous obtenez 60 mémoquartz allagois aphoristiques.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>Exemple : Vous obtenez 60 mémoquartz allagois mathématiques.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Afficher les Mémoquartz Allagois Astronomiques</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Afficher les Mémoquartz Allagois Mnémoniques</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>Exemple : Vous obtenez 20 mémoquartz allagois astronomiques.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>Exemple : Vous obtenez 20 mémoquartz allagois mnémoniques.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Afficher les Marques de loup</value>

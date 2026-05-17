@@ -1111,38 +1111,38 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide Allagan tomestones of Aphorism.
+        ///   Looks up a localized string similar to Hide Allagan tomestones of Mathematics.
         /// </summary>
-        internal static string ObtainTab_ShowAphorismMessages {
+        internal static string ObtainTab_ShowMathematicsMessages {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAphorismMessages", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eg. You obtain 60 Allagan tomestones of Aphorism..
+        ///   Looks up a localized string similar to eg. You obtain 60 Allagan tomestones of Mathematics..
         /// </summary>
-        internal static string ObtainTab_ShowAphorismMessagesHelpMarker {
+        internal static string ObtainTab_ShowMathematicsMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAphorismMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessagesHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide Allagan tomestones of Astronomy.
+        ///   Looks up a localized string similar to Hide Allagan tomestones of Mnemonics.
         /// </summary>
-        internal static string ObtainTab_ShowAstronomyMessages {
+        internal static string ObtainTab_ShowMnemonicsMessages {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAstronomyMessages", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eg. You obtain 20 Allagan tomestones of Astronomy..
+        ///   Looks up a localized string similar to eg. You obtain 20 Allagan tomestones of Mnemonics..
         /// </summary>
-        internal static string ObtainTab_ShowAstronomyMessagesHelpMarker {
+        internal static string ObtainTab_ShowMnemonicsMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("ObtainTab_ShowAstronomyMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessagesHelpMarker", resourceCulture);
             }
         }
         
@@ -2139,6 +2139,33 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Messages.
+        /// </summary>
+        internal static string SystemTab_ErrorMessagesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ErrorMessagesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide FATE level sync messages.
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You are 5 or more levels above the recommended level for this FATE..
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show all other System messages.
         /// </summary>
         internal static string SystemTab_ShowEverythingElse {
@@ -2190,25 +2217,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowGearsetChangingMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowGearsetChangingMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show message when changing glamour plates.
-        /// </summary>
-        internal static string SystemTab_ShowGlamourPlateChangingMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGlamourPlateChangingMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 
-        ///eg. Glamours projected from plate 10..
-        /// </summary>
-        internal static string SystemTab_ShowGlamourPlateChangingMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGlamourPlateChangingMessagesHelpMarker", resourceCulture);
             }
         }
         

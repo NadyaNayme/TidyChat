@@ -242,15 +242,6 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowVolumeControlMessagesHelpMarker);
 
-            var showGlamoursProjected = configuration.ShowGlamoursProjected;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlateChangingMessages, ref showGlamoursProjected))
-            {
-                configuration.ShowGlamoursProjected = showGlamoursProjected;
-                configuration.Save();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowGlamourPlateChangingMessagesHelpMarker);
-
             var showGearsetEquipped = configuration.ShowGearsetEquipped;
             if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
             {
@@ -554,6 +545,18 @@ internal static class SystemTab
             }
         }
 
+
+        if (ImGui.CollapsingHeader(Languages.SystemTab_ErrorMessagesDropdownHeader))
+        {
+            var hideFateLevelSync = configuration.HideFateLevelSync;
+            if (ImGui.Checkbox(Languages.SystemTab_HideFateLevelSyncMessages, ref hideFateLevelSync))
+            {
+                configuration.HideFateLevelSync = hideFateLevelSync;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideFateLevelSyncMessagesHelpMarker);
+        }
 
         ImGui.EndTabItem();
     }

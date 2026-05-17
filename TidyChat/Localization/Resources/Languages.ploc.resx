@@ -317,12 +317,14 @@
     <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ṁàšţéŕ Ṽôļûɱé ɱûţéð، ƁĜṀ ṽôļûɱé šéţ ţô ⑤ⓞ·</value>
   </data>
-    <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-    <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝļàɱôûŕ þļàţéš</value>
+    <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+    <value>Éŕŕôŕ Ṁéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-    <value>
-éĝ· Ĝļàɱôûŕš þŕôĵéçţéð ƒŕôɱ þļàţé ①ⓞ·</value>
+    <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+    <value>Ĥîðé ƑÀŢÉ ļéṽéļ šýñç ɱéššàĝéš</value>
+  </data>
+    <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû àŕé ⑤ ôŕ ɱôŕé ļéṽéļš àƀôṽé ţĥé ŕéçôɱɱéñðéð ļéṽéļ ƒôŕ ţĥîš ƑÀŢÉ·</value>
   </data>
     <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš</value>
@@ -508,17 +510,17 @@
     <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš·</value>
   </data>
-    <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ</value>
+    <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš</value>
   </data>
-    <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àþĥôŕîšɱ·</value>
+    <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš·</value>
   </data>
-    <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý</value>
+    <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+    <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš</value>
   </data>
-    <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Àšţŕôñôɱý·</value>
+    <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš·</value>
   </data>
     <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
     <value>Šĥôŵ Ŵôļƒ Ṁàŕķš</value>

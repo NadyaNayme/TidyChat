@@ -1,8 +1,15 @@
 ﻿global using Dalamud.Bindings.ImGui;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Timers;
 using ChatTwo.Code;
-using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Objects.SubKinds;
+using Dalamud.Game.Command;
 using Dalamud.Game.Gui.Dtr;
+using Dalamud.Game.Chat;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
@@ -11,15 +18,7 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
-using Lumina.Excel.Sheets;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Timers;
 using TidyChat.Localization.Resources;
-using TidyChat.Translation.Data;
 using TidyChat.Utility;
 using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
@@ -29,10 +28,27 @@ namespace TidyChat;
 
 public sealed class TidyChatPlugin : IDalamudPlugin
 {
-    private const string SettingsCommand = TidyStrings.SettingsCommand;
-    private const string ShorthandCommand = TidyStrings.ShorthandCommand;
+    [PluginService] public static IDataManager DataManager { get; private set; } = null!;
+    [PluginService] public static IDtrBar DtrBar { get; private set; } = null!;
+    [PluginService] public static ICommandManager CommandManager { get; private set; } = null!;
+    [PluginService] public static IDalamudPluginInterface PluginInterface { get; private set; } = null!;
+    [PluginService] public static IClientState ClientState { get; private set; } = null!;
+    [PluginService] public static IChatGui ChatGui { get; private set; } = null!;
+    [PluginService] public static IObjectTable ObjectTable { get; private set; } = null!;
+    [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
+    [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
+    [PluginService] public static IPluginLog Log { get; private set; } = null!;
+    private static IDtrBarEntry? DtrEntry { get; set; }
+
+    public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
+
+    private Configuration Configuration { get; }
+    private PluginUI PluginUi { get; }
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
+    private const string SettingsCommand = TidyStrings.SettingsCommand;
+    private const string ShorthandCommand = TidyStrings.ShorthandCommand;
+    
     private ulong _sessionBlockedMessages;
 
     #region Setup
@@ -41,12 +57,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         // Player cannot change this without restarting the game so should be safe to grab here
         L10N.Language = ClientState.ClientLanguage;
+        LoadTomestones();
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
-
+        
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-
+        
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
 
         ChatGui.CheckMessageHandled += OnChat;
@@ -54,17 +71,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         ClientState.Login += OnLogin;
         ClientState.Logout += OnLogout;
 
-        PluginUi = new(Configuration);
+        PluginUi = new PluginUI(Configuration);
         _windowSystem.AddWindow(PluginUi);
 
-        CommandManager.AddHandler(SettingsCommand, new(OnCommand)
+        CommandManager.AddHandler(SettingsCommand, new CommandInfo(OnCommand)
         {
-            HelpMessage = TidyStrings.SettingsHelper
+            HelpMessage = TidyStrings.SettingsHelper,
         });
 
-        CommandManager.AddHandler(ShorthandCommand, new(OnCommand)
+        CommandManager.AddHandler(ShorthandCommand, new CommandInfo(OnCommand)
         {
-            HelpMessage = TidyStrings.ShorthandHelper
+            HelpMessage = TidyStrings.ShorthandHelper,
         });
 
         PluginInterface.UiBuilder.Draw += DrawUI;
@@ -73,20 +90,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     #endregion Setup
-    [PluginService] public static IDataManager DataManager { get; } = null!;
-    [PluginService] public static IDtrBar DtrBar { get; } = null!;
-    [PluginService] public static ICommandManager CommandManager { get; } = null!;
-    [PluginService] public static IDalamudPluginInterface PluginInterface { get; } = null!;
-    [PluginService] public static IClientState ClientState { get; } = null!;
-    [PluginService] public static IChatGui ChatGui { get; } = null!;
-    [PluginService] public static IObjectTable ObjectTable { get; } = null!;
-    [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
-    [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
-    [PluginService] public static IPluginLog Log { get; } = null!;
-    private static IDtrBarEntry? DtrEntry { get; set; }
-
-    private Configuration Configuration { get; }
-    private PluginUI PluginUi { get; }
 
     private Stack<string> ChatHistory { get; } = new();
 
@@ -117,27 +120,27 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         BlockedCountUpdate();
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+        if (Configuration.InstanceInDtrBar) DelayedInstanceDtrBarUpdate(Configuration);
         if (Configuration.IncludeDutyNameInComms)
             try
             {
-                TerritoryType territory =
-                    DataManager.GetExcelSheet<TerritoryType>().GetRow(e); // built in sheets will never be null
-                byte exclusiveType = territory.ExclusiveType;
-                bool isPvp = territory.IsPvpZone;
+                var territory =
+                    DataManager.GetExcelSheet<Lumina.Excel.Sheets.TerritoryType>().GetRow(e); // built in sheets will never be null
+                var exclusiveType = territory.ExclusiveType;
+                var isPvp = territory.IsPvpZone;
 
-                string placeName = territory.PlaceName.Value.Name.ToString();
-                string dutyName = territory.ContentFinderCondition.Value.Name.ToString();
+                var placeName = territory.PlaceName.Value.Name.ToString();
+                var dutyName = territory.ContentFinderCondition.Value.Name.ToString();
 
                 TidyStrings.LastDuty = exclusiveType switch
                 {
                     2 when dutyName.Length >= 1 => dutyName,
                     2 when dutyName.Length == 0 && placeName.Length > 0 => placeName,
                     2 when dutyName.Length == 0 && isPvp => L10N.GetTidy(TidyStrings.PvPDuty),
-                    var _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
+                    _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
                 };
             }
-            catch(KeyNotFoundException)
+            catch (KeyNotFoundException)
             {
                 Log.Warning(
                     "Something somehow somewhere went wrong but we don't want to crash on territory change");
@@ -148,22 +151,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (!Configuration.Enabled)
         {
-            Log.Verbose("Tidy Chat is not enabled");
+            Log.Verbose($"Tidy Chat is not enabled");
             return;
         }
-
+        
         // Ignore already filtered messages by other plugins such as NoSol
         // TODO: Allow Custom Filters to still run
         if (message.IsHandled) return;
 
-        ChatType chatType = FromDalamud(message.LogKind);
+        var chatType = FromDalamud(message.LogKind);
         bool isHandled;
 
         // If the channel is not one that Tidy Chat filters - don't bother running any rules
         // This includes all Battle-related channels, GM-related channels, NPC Dialogue, 
         // and a few other channels
         if (!ChannelCanBeFiltered((chatType))) return;
-
+        
         // This logic exists elsewhere but I don't care to find/clean it up so I'll be redundant and check here too
         if (chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) return;
         if (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel) return;
@@ -176,16 +179,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
-        string normalizedText = NormalizeInput.ToLowercase(message.Message);
+        var normalizedText = NormalizeInput.ToLowercase(message.Message);
 
         // If the message is a /? command - temporarily disable the filters to allow the command text through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
-        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
+        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages) 
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
             return;
         }
-
+            
 
         // If we join a party - temporarily disable the filters to allow the Party Information messages through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
@@ -195,7 +198,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Better.TemporarilyDisableSystemFilter(Configuration);
             return;
         }
-
+            
 
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
@@ -203,6 +206,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (Configuration.ShowDebugTeleport && chatType is ChatType.Debug &&
             L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
         {
+            
         }
 
         #region Better Messages
@@ -214,6 +218,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
         {
             message.Message = Better.Instances(message.Message, Configuration);
+            if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+            return;
+        }
+
+        // When Better Commendations is enabled, suppress the original System message so only
+        // the synthesized better message (printed on territory change) is shown.
+        if (Configuration.BetterCommendationMessage && chatType is ChatType.System &&
+            L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
+        {
+            message.PreventOriginal();
+            _sessionBlockedMessages += 1;
             return;
         }
 
@@ -230,6 +245,28 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             message.Message = Better.NoviceNetwork(message.Message, normalizedText, Configuration);
             return;
+        }
+
+        if (Configuration.BetterTreasureDungeonMessage && chatType is ChatType.System)
+        {
+            if (L10N.Get(ChatRegexStrings.ChamberOpens).IsMatch(normalizedText))
+            {
+                var match = L10N.Get(ChatRegexStrings.ChamberOpens).Match(normalizedText);
+                if (match.Groups["chamber"].Success)
+                {
+                    TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
+                }
+                return;
+            }
+
+            if (L10N.Get(ChatRegexStrings.TrapTriggered).IsMatch(normalizedText))
+            {
+                if (TidyStrings.LastTreasureDungeonChamber.Length > 0)
+                {
+                    message.Message = Better.TreasureDungeon(Configuration);
+                }
+                return;
+            }
         }
 
         // No early returns in the following Better Message settings as the messages still need to be filtered - but have been modified
@@ -259,23 +296,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         #region Channel Filters
 
         Rules.UpdateIsActiveStates(Configuration);
-        LocalizedFilterRule[] rules = Rules.AllRules;
+        var rules = Rules.AllRules;
 
 
         // Block any messages that come from a "spammy" channel
         bool isBlocked = ChannelIsSpammy(chatType);
-
+        
         // Skip filtering if chatType is System and System Filter is disabled
         if (chatType is ChatType.System && !Configuration.FilterSystemMessages) return;
 
         // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
         if (chatType is ChatType.System && Configuration.EnableInverseMode)
         {
-            if (Configuration.EnableDebugMode) Log.Information("Inverse Mode Active");
+            if (Configuration.EnableDebugMode) Log.Information($"Inverse Mode Active");
             isBlocked = false;
         }
 
-        bool showEverythingElse = false;
+        var showEverythingElse = false;
         if ((chatType is ChatType.System && Configuration.ShowEverythingElse) ||
             (chatType is ChatType.Crafting && Configuration.ShowAllOtherCrafting) ||
             (chatType is ChatType.Gathering or ChatType.GatheringSystem && Configuration.ShowAllOtherGathering))
@@ -283,12 +320,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isBlocked = !isBlocked;
             showEverythingElse = true;
         }
-        bool defaultBlocked = isBlocked;
+        var defaultBlocked = isBlocked;
 
-        List<string> rulesMatched = [];
-        List<string> rulesSkipped = [];
-        List<string> rulesFailed = [];
-        foreach(LocalizedFilterRule rule in rules)
+        List<String> rulesMatched = [];
+        List<String> rulesSkipped = [];
+        List<String> rulesFailed = [];
+        foreach (var rule in rules)
         {
             if (rule.Error is not null)
             {
@@ -298,7 +335,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             // Skip rules that wouldn't change isBlocked away from defaultBlocked
             if (rule.IsActive == showEverythingElse)
             {
-                string activeOrInactive = showEverythingElse ? "active" : "inactive";
+                var activeOrInactive = showEverythingElse ? "active" : "inactive";
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
                 rulesSkipped.Add(rule.Name);
                 continue;
@@ -319,7 +356,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 {
                     case PatternKind.RegexMatch:
                         if (rule.RegexChecks is null) continue;
-                        foreach(LocalizedRegex check in rule.RegexChecks)
+                        foreach (var check in rule.RegexChecks)
                         {
                             if (!L10N.Get(check).IsMatch(normalizedText)) continue;
                             if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
@@ -329,10 +366,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         break;
                     case PatternKind.StringMatch:
                         if (rule.StringChecks is null) continue;
-                        foreach(LocalizedStrings check in rule.StringChecks)
+                        foreach (var check in rule.StringChecks)
                         {
                             if (!L10N.Get(check).All(normalizedText.Contains)) continue;
-                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
+                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             fakeChecksMatched.Add(true);
                             rulesMatched.Add(rule.Name);
                         }
@@ -340,7 +377,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 }
                 if (fakeChecksMatched.Count == 0)
                 {
-                    if (Configuration.EnableDebugMode) Log.Debug("/echo message failed to match any rules");
+                    if (Configuration.EnableDebugMode) Log.Debug($"/echo message failed to match any rules");
                 }
                 continue;
             }
@@ -351,15 +388,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 case PatternKind.RegexMatch:
                     if (rule.RegexChecks is null) continue;
 
-                    foreach(LocalizedRegex check in rule.RegexChecks)
+                    if (Configuration.EnableDebugMode) 
                     {
-                        if (Configuration.EnableDebugMode)
-                        {
-                            Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
-                            Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
-                        }
+                        Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
+                        Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
+                    }
 
-                        List<bool> regexChecksMatched = [];
+                    List<bool> regexChecksMatched = [];
+                    foreach (var check in rule.RegexChecks)
+                    {
                         if (L10N.Get(check).IsMatch(normalizedText))
                         {
                             if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
@@ -370,50 +407,52 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                             if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
                             regexChecksMatched.Add(false);
                         }
-                        // If any of the checks fail it doesn't match our rule to allow the message
-                        if (!regexChecksMatched.Contains(false))
-                        {
-                            if (Configuration.EnableDebugMode) Log.Verbose("Passed all checks!");
-                            rulesMatched.Add(rule.Name);
-                            isBlocked = !defaultBlocked;
-                        }
-                        else
-                        {
-                            rulesFailed.Add(rule.Name);
-                        }
+                    }
+                    // All checks must pass (AND logic)
+                    if (!regexChecksMatched.Contains(false))
+                    {
+                        if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
+                        rulesMatched.Add(rule.Name);
+                        isBlocked = !defaultBlocked;
+                    }
+                    else
+                    {
+                        rulesFailed.Add(rule.Name);
                     }
                     break;
                 case PatternKind.StringMatch:
                     if (rule.StringChecks is null) continue;
 
-                    foreach(LocalizedStrings check in rule.StringChecks)
+                    if (Configuration.EnableDebugMode)
                     {
-                        if (Configuration.EnableDebugMode)
-                        {
-                            Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
-                            Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
-                        }
-                        List<bool> stringChecksMatched = [];
+                        Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
+                        Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
+                    }
+
+                    List<bool> stringChecksMatched = [];
+                    foreach (var check in rule.StringChecks)
+                    {
                         if (L10N.Get(check).All(normalizedText.Contains))
                         {
-                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
+                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(true);
                         }
                         else
                         {
-                            if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
+                            if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {String.Join(", ", L10N.Get(check))}");
                             stringChecksMatched.Add(false);
                         }
-                        if (!stringChecksMatched.Contains(false))
-                        {
-                            if (Configuration.EnableDebugMode) Log.Verbose("Passed all checks!");
-                            rulesMatched.Add(rule.Name);
-                            isBlocked = !defaultBlocked;
-                        }
-                        else
-                        {
-                            rulesFailed.Add(rule.Name);
-                        }
+                    }
+                    // All checks must pass (AND logic)
+                    if (!stringChecksMatched.Contains(false))
+                    {
+                        if (Configuration.EnableDebugMode) Log.Verbose($"Passed all checks!");
+                        rulesMatched.Add(rule.Name);
+                        isBlocked = !defaultBlocked;
+                    }
+                    else
+                    {
+                        rulesFailed.Add(rule.Name);
                     }
                     break;
             }
@@ -421,9 +460,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (Configuration.EnableDebugMode)
         {
-            Log.Debug($"{rulesMatched.Count} Rules Matched: {string.Join(", ", rulesMatched)}");
-            Log.Debug($"{rulesSkipped.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
-            Log.Debug($"{rulesFailed.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
+            Log.Debug($"{rulesMatched.Count} Rules Matched: {String.Join(", ", rulesMatched)}");
+            Log.Debug($"{rulesSkipped.Count} Rules Skipped: {String.Join(", ", rulesSkipped)}");
+            Log.Debug($"{rulesFailed.Count} Rules Failed: {String.Join(", ", rulesFailed)}");   
         }
 
         // Sigh... previously LootNotice was Allow-By-Default and the filters Blocked
@@ -449,12 +488,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         #endregion
 
         #region Configuration Filter Overrides
-
+        
         // If the text is a Custom Emote and it comes from the player it should not be blocked
         if (chatType is ChatType.CustomEmote &&
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
         {
-            if (Configuration.EnableDebugMode) Log.Information("Allowing custom emote used by player");
+            if (Configuration.EnableDebugMode) Log.Information($"Allowing custom emote used by player");
             isHandled = false;
         }
 
@@ -464,12 +503,33 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
 
+        // Per-type tomestone filtering using Lumina-loaded game data.
+        if (chatType is ChatType.LootNotice && !isHandled &&
+            L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
+        {
+            foreach (var tomestone in Tomestones)
+            {
+                var itemNameLower = tomestone.Name.ToLower(CultureInfo.InvariantCulture);
+                var lastWordStart = itemNameLower.LastIndexOf(' ') + 1;
+                var typeName = itemNameLower[lastWordStart..];
+                if (normalizedText.Contains(typeName, StringComparison.Ordinal))
+                {
+                    if (Configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide)
+                    {
+                        if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (tomestone): {message.Message}");
+                        isHandled = true;
+                    }
+                    break;
+                }
+            }
+        }
+
         #endregion Channel Filters
 
         #region Whitelist
 
         if (Configuration.Whitelist.Count > 0)
-            foreach(PlayerName playerOrMessage in Configuration.Whitelist)
+            foreach (var playerOrMessage in Configuration.Whitelist)
                 CustomFilterCheck(message.Sender, message.Message, ref isHandled, playerOrMessage, chatType);
 
         #endregion Whitelist
@@ -482,12 +542,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 /* Disable Chat History for self-sent messages by default */
                 if (Configuration.DisableSelfChatHistory && string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal)) return;
 
-                ChatFlags.Channels historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
+                var historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
                 if (!historyChannels.Equals(ChatFlags.Channels.None))
                 {
                     if (Flags.CheckFlags(Configuration, chatType))
                     {
-                        string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
+                        var currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
                         if (ChatHistory.Contains(currentMessage, StringComparer.Ordinal))
                         {
                             Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
@@ -496,7 +556,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         else if (ChatHistory.Count > Configuration.ChatHistoryLength)
                         {
                             Log.Verbose("Chat history reached limit. Removed oldest message and added:" +
-                                        currentMessage);
+                                      currentMessage);
                             ChatHistory.Pop();
                             ChatHistory.Push(currentMessage);
                         }
@@ -506,10 +566,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                             ChatHistory.Push(currentMessage);
                             if (Configuration.ChatHistoryTimer > 0)
                             {
-                                Timer t = new()
+                                var t = new Timer
                                 {
                                     Interval = Configuration.ChatHistoryTimer * 1000,
-                                    AutoReset = false
+                                    AutoReset = false,
                                 };
                                 t.Elapsed += delegate
                                 {
@@ -525,7 +585,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log.Error("Error: Failed to handle Chat History - " + ex);
             }
@@ -559,7 +619,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel, bool isBlocked)
     {
-        SeStringBuilder stringBuilder = new();
+        var stringBuilder = new SeStringBuilder();
         Better.AddTidyChatTag(stringBuilder);
         if (debugIncludeChannel)
         {
@@ -581,17 +641,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (!isHandled && !playerOrMessage.AllowMessage)
         {
-            ChatFlags.Channels e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-            bool isRegex = false;
+            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
+            var isRegex = false;
             Regex? userPattern = null;
             if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
             {
                 isRegex = true;
                 userPattern =
-                    new(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
+                    new Regex(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
             }
 
-            bool channelSelectedToFilter = false;
+            var channelSelectedToFilter = false;
             if (!e.Equals(ChatFlags.Channels.None))
                 channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
 
@@ -613,25 +673,24 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 userPattern.IsMatch(message.ToString()))
             {
                 isHandled = true;
-                if (Configuration.EnableDebugMode)
-                    Log.Verbose(
-                        $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
+                if (Configuration.EnableDebugMode) Log.Verbose(
+                    $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
             }
         }
 
         if (isHandled && playerOrMessage.AllowMessage)
         {
-            ChatFlags.Channels e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-            bool isRegex = false;
+            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
+            var isRegex = false;
             Regex? userPattern = null;
             if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
             {
                 isRegex = true;
                 userPattern =
-                    new(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
+                    new Regex(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
             }
 
-            bool channelSelectedToFilter = false;
+            var channelSelectedToFilter = false;
             if (!e.Equals(ChatFlags.Channels.None))
                 channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
 
@@ -653,9 +712,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 userPattern.IsMatch(message.ToString()))
             {
                 isHandled = false;
-                if (Configuration.EnableDebugMode)
-                    Log.Verbose(
-                        $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
+                if (Configuration.EnableDebugMode) Log.Verbose(
+                    $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
             }
         }
     }
@@ -670,13 +728,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Log.Information($"Player name saved as {(ObjectTable[0] as IPlayerCharacter)?.Name}");
             Configuration.Save();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Error("Error: Failed to capture player's name - trying again in 30 seconds" + ex);
-            Timer t = new()
+            var t = new Timer
             {
                 Interval = 30000,
-                AutoReset = false
+                AutoReset = false,
             };
             t.Elapsed += delegate
             {
@@ -699,7 +757,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         try
         {
-            PlayerState* player = PlayerState.Instance();
+            var player = PlayerState.Instance();
             if (player == null)
             {
                 Log.Error("PlayerState was null, something went wrong");
@@ -708,24 +766,24 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
             TidyStrings.CommendationsEarned = player->PlayerCommendations;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Error("Failed to improve Commendations message", ex);
         }
 
-        int commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
+        var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
 
         if (commendationChange is >= 1 and <= 7)
         {
-            SeStringBuilder stringBuilder = new();
+            var stringBuilder = new SeStringBuilder();
             if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
 
             string commendations = commendationChange == 1
                 ? Languages.BetterStrings_CommendationSingular
                 : Languages.BetterStrings_CommendationsPlural;
 
-            string dutyName =
+            var dutyName =
                 $"{(Configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + Languages.BetterStrings_CommendationsFromCompletingDuty + " " + TidyStrings.LastDuty + "." : ".")}";
 
             stringBuilder.AddText(
@@ -733,6 +791,34 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
             ChatGui.Print(stringBuilder.BuiltString);
         }
+    }
+
+    private static void LoadTomestones()
+    {
+        var tomestones = new List<TomestoneInfo>();
+        try
+        {
+            // Each Tomestones slot (Poetics / capped / weekly-capped) accumulates retired tomestones over patches.
+            // Take the highest TomestonesItem RowId per slot — that’s the currently active one for that slot.
+            var bestPerSlot = new Dictionary<uint, (uint RowId, string Name)>();
+            foreach (var row in DataManager.GetExcelSheet<Lumina.Excel.Sheets.TomestonesItem>())
+            {
+                var slotId = row.Tomestones.RowId;
+                if (slotId == 0) continue;
+                var name = row.Item.Value.Name.ToString();
+                if (string.IsNullOrWhiteSpace(name)) continue;
+                if (!bestPerSlot.TryGetValue(slotId, out var existing) || row.RowId > existing.RowId)
+                    bestPerSlot[slotId] = (row.RowId, name);
+            }
+            foreach (var (rowId, name) in bestPerSlot.Values)
+                tomestones.Add(new TomestoneInfo(rowId, name));
+        }
+        catch (Exception ex)
+        {
+            Log.Error("Failed to load tomestone data from Lumina: " + ex);
+        }
+        Tomestones = tomestones.AsReadOnly();
+        Log.Information($"Loaded {Tomestones.Count} tomestones: {string.Join(", ", Tomestones.Select(t => t.Name))}");
     }
 
     private bool FilterIsEnabled(ChatType chatType)
@@ -759,25 +845,26 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return chatType switch
         {
             ChatType.System or
-                ChatType.StandardEmote or
-                ChatType.CustomEmote or
-                ChatType.Crafting or
-                ChatType.Gathering or
-                ChatType.GatheringSystem or
-                ChatType.LootNotice or
-                ChatType.LootRoll or
-                ChatType.Progress or
-                ChatType.FreeCompanyLoginLogout or
-                ChatType.Echo => true,
-            var _ => false
+            ChatType.StandardEmote or
+            ChatType.CustomEmote or
+            ChatType.Crafting or
+            ChatType.Gathering or
+            ChatType.GatheringSystem or
+            ChatType.LootNotice or
+            ChatType.LootRoll or
+            ChatType.Progress or
+            ChatType.FreeCompanyLoginLogout or
+            ChatType.Echo => true,
+            _ => false,
         };
     }
-
+    
     private static bool ChannelCanBeFiltered(ChatType chatType)
     {
         return chatType switch
         {
-            ChatType.Say or
+            ChatType.Error or
+                ChatType.Say or
                 ChatType.Shout or
                 ChatType.Yell or
                 ChatType.TellIncoming or
@@ -787,7 +874,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 ChatType.PeriodicRecruitmentNotification or
                 ChatType.Party or
                 ChatType.CrossParty or
-                ChatType.Alliance or
+                ChatType.Alliance or                
                 ChatType.Linkshell1 or
                 ChatType.Linkshell2 or
                 ChatType.Linkshell3 or
@@ -815,14 +902,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 ChatType.Progress or
                 ChatType.FreeCompanyLoginLogout or
                 ChatType.Echo => true,
-            var _ => false
+            _ => false,
         };
     }
 
     private static SeString SmolMessage(SeString msg)
     {
-        List<Payload> payloads = msg.Payloads;
-        SeStringBuilder stringBuilder = new();
+        var payloads = msg.Payloads;
+        var stringBuilder = new SeStringBuilder();
         payloads.ForEach(payload =>
         {
             if (payload.Type is not PayloadType.RawText)
@@ -832,7 +919,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             else if (payload is TextPayload { Text: not null } textPayload)
             {
                 string smolMessage = "";
-                foreach(int i in textPayload.Text)
+                foreach (int i in textPayload.Text)
                 {
                     if (i is >= 65 and <= 91) smolMessage += (char)(i + 32);
                     else smolMessage += (char)i;
@@ -847,8 +934,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private static SeString DeblockMessage(SeString msg)
     {
-        List<Payload> payloads = msg.Payloads;
-        SeStringBuilder stringBuilder = new();
+        var payloads = msg.Payloads;
+        var stringBuilder = new SeStringBuilder();
         payloads.ForEach(payload =>
         {
             if (payload.Type is not PayloadType.RawText)
@@ -858,7 +945,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             else if (payload is TextPayload { Text: not null } textPayload)
             {
                 string deblockedMessage = "";
-                foreach(int i in textPayload.Text)
+                foreach (int i in textPayload.Text)
                 {
                     switch (i)
                     {
@@ -889,6 +976,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     public static IDtrBarEntry GetDtrBar() => DtrBar.Get(TidyStrings.PluginName);
 
+    private static void DelayedInstanceDtrBarUpdate(Configuration configuration)
+    {
+        var t = new Timer
+        {
+            Interval = 1000,
+            AutoReset = false,
+        };
+        t.Elapsed += delegate
+        {
+            t.Enabled = false;
+            t.Dispose();
+            InstanceDtrBarUpdate(configuration);
+        };
+        t.Enabled = true;
+    }
+
     public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
     {
         DtrEntry ??= GetDtrBar();
@@ -897,24 +1000,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (!configuration.InstanceInDtrBar)
         {
             DtrEntry.Shown = false;
-            DtrEntry.Text = string.Empty;
+            DtrEntry.Text = String.Empty;
             return;
         }
         try
         {
             // This will return the instance value: 0,1,2,3,4,5,6
-            int instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
-            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
+            var instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
-            DtrEntry.Shown = true;
             DtrEntry.Text = instanceNumberFromSignature switch
             {
                 >= 1 => $"{L10N.GetTidy(TidyStrings.InstanceWord)} {instanceCharacter}",
-                0 => string.Empty,
-                var _ => DtrEntry.Text
+                _ => String.Empty,
             };
+            DtrEntry.Shown = instanceNumberFromSignature >= 1;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Error("Error: Failed to update Instance for DtrBarEntry - " + ex);
         }
@@ -927,7 +1029,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void UpdateLang(string langCode)
     {
-        Languages.Culture = new(langCode);
+        Languages.Culture = new CultureInfo(langCode);
     }
 
     private void DrawUI()
@@ -945,9 +1047,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     // Stole this region from Anna's Chat2: https://git.annaclemens.io/ascclemens/ChatTwo/src/branch/main/ChatTwo
     private const ushort Clear7 = ~(~0 << 7);
 
-    private static ChatType FromCode(ushort code) => (ChatType)(code & Clear7);
+    private static ChatType FromCode(ushort code)
+    {
+        return (ChatType)(code & Clear7);
+    }
 
-    private static ChatType FromDalamud(XivChatType type) => FromCode((ushort)type);
+    private static ChatType FromDalamud(XivChatType type)
+    {
+        return FromCode((ushort)type);
+    }
 
     #endregion Chat2 ChatTypes
 }

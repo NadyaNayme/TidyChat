@@ -309,12 +309,14 @@ Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>z.B. Gesamtlautstärke stumm, Hintergrundmusik auf 50 gesetzt.</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Nachricht beim Ändern von Glamour-Platten anzeigen</value>
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+        <value>Fehlermeldungen</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>
-z.B. Projiziere Glamour von Platte 10.</value>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+        <value>FATE-Stufenabgleich-Meldungen ausblenden</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+        <value>z.B. Dein Level ist mindestens 5 Stufen über dem empfohlenen Level für dieses FATE.</value>
     </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Nachricht beim Ändern von Ausrüstungssets anzeigen</value>
@@ -491,17 +493,17 @@ z.B. Ein Spieler hat ein &lt;item&gt; erhalten!</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>z.B. Du erhältst 100 Allagische Steine der Poesie.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Allagische Steine des Aphorismus anzeigen.</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Allagische Steine der Mathematik anzeigen</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>z.B. Du erhältst 60 Allagische Steine des Aphorismus.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>z.B. Du erhältst 60 Allagische Steine der Mathematik.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Zeige Allagische Steine der Astronomie</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Allagische Steine der Mnemonik anzeigen</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>Du erhältst 20 Allagische Steine der Astronomie.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>z.B. Du erhältst 20 Allagische Steine der Mnemonik.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Zeige Wolfsmarken</value>

@@ -31,6 +31,12 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
+
+    #region Error Messages
+
+    public bool HideFateLevelSync { get; set; } = true;
+
+    #endregion
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
@@ -75,6 +81,7 @@ public class Configuration : IPluginConfiguration
     public bool BetterCommendationMessage { get; set; } = true;
     public bool IncludeDutyNameInComms { get; set; } = true;
     public bool BetterNoviceNetworkMessage { get; set; } = true;
+    public bool BetterTreasureDungeonMessage { get; set; } = true;
 
     #endregion
 
@@ -104,7 +111,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowVistaMessages { get; set; } = true;
     public bool ShowTryOnGlamour { get; set; } = true;
     public bool ShowEligibleForCoffers { get; set; } = true;
-    public bool ShowGlamoursProjected { get; set; } = false;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
     public bool ShowVolumeControlMessage { get; set; } = false;
@@ -180,9 +186,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGainPvpExp { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
-    public bool HideObtainedPoeticsTomestones { get; set; } = false;
-    public bool HideObtainedAphorismTomestones { get; set; } = false;
-    public bool HideObtainedAstronomyTomestones { get; set; } = false;
+    public Dictionary<uint, bool> HideTomestoneById { get; set; } = [];
 
     #endregion
 

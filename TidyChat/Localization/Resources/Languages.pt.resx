@@ -309,12 +309,14 @@ Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
         <value>eg. Master Volume muted, BGM volume set to 50.</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessages" xml:space="preserve">
-        <value>Show message when changing glamour plates</value>
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+        <value>Error Messages</value>
     </data>
-  <data name="SystemTab_ShowGlamourPlateChangingMessagesHelpMarker" xml:space="preserve">
-        <value>
-eg. Glamours projected from plate 10.</value>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+        <value>Hide FATE level sync messages</value>
+    </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+        <value>eg. You are 5 or more levels above the recommended level for this FATE.</value>
     </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
         <value>Show message when changing gearsets</value>
@@ -492,17 +494,17 @@ por exemplo. Alguns jogadores lançam seu lot for &lt;item&gt;!</value>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
         <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Aphorism</value>
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+        <value>Show Allagan tomestones of Mathematics</value>
     </data>
-  <data name="ObtainTab_ShowAphorismMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 60 Allagan tomestones of Aphorism.</value>
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+        <value>eg. You obtain 60 Allagan tomestones of Mathematics.</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessages" xml:space="preserve">
-        <value>Show Allagan tomestones of Astronomy</value>
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+        <value>Show Allagan tomestones of Mnemonics</value>
     </data>
-  <data name="ObtainTab_ShowAstronomyMessagesHelpMarker" xml:space="preserve">
-        <value>eg. You obtain 20 Allagan tomestones of Astronomy.</value>
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+        <value>eg. You obtain 20 Allagan tomestones of Mnemonics.</value>
     </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
         <value>Show Wolf Marks</value>

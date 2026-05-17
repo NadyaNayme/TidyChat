@@ -92,6 +92,15 @@ internal static class BetterStrings
         return originalMessage;
     }
 
+    public static SeString TreasureDungeon(Configuration configuration)
+    {
+        var chamber = TidyStrings.LastTreasureDungeonChamber;
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        stringBuilder.AddText(string.Format(System.Globalization.CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
+        return stringBuilder.BuiltString;
+    }
+
     public static void TemporarilyDisableSystemFilter(Configuration configuration)
     {
         configuration.FilterSystemMessages = false;

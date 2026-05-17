@@ -97,4 +97,13 @@ internal static class InternalStrings
     public static string LastDuty { get; set; } = "";
     public static short CommendationsEarned { get; set; } = 0;
     public static short LastCommendations { get; set; } = 0;
+    public static string LastTreasureDungeonChamber { get; set; } = "";
+
+    public static readonly LocalizedTidyStrings KickedOutMessage = new()
+    {
+        Jpn = new string("第{0}区画で追い出された。"),
+        Eng = new string("Kicked out on {0} floor."),
+        Deu = new string("Bei der {0}. Kammer rausgeworfen."),
+        Fra = new string("Expulsé à la {0} salle."),
+    };
 }

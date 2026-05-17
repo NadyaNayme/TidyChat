@@ -270,16 +270,6 @@ public static class ChatStrings
         Fra = ["boussole", "indique"],
     };
 
-    /// <see href="https://xivapi.com/LogMessage/4364?pretty=true">
-    ///     Glamours projected from plate <##></see>
-    public static readonly LocalizedStrings GlamoursProjected = new()
-    {
-        Jpn = ["ミラージュプレート", "により武具投影が行われました。"],
-        Eng = ["glamours", "projected", "from", "plate"],
-        Deu = ["die", "projektionsplatte", "angewendet"],
-        Fra = ["planche", "mirage", "projeté"],
-    };
-
     public static readonly LocalizedStrings OvermeldFailure = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -612,6 +602,26 @@ public static class ChatStrings
         Eng = ["data", "added", "fish", "guide"],
         Deu = ["fischverzeichnis", "vermerkt"],
         Fra = ["notez", "informations", "votre", "nomenclature"],
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/2735?pretty=true">
+    ///     You are X or more levels above the recommended level for this FATE.</see>
+    public static readonly LocalizedStrings FateLevelSyncWarning = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["recommended level for this fate"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/2736?pretty=true">
+    ///     To join, use the level sync function located in the duty list.</see>
+    public static readonly LocalizedStrings FateLevelSyncJoinPrompt = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["level sync", "duty list"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
     };
 
     /// <see href="https://xivapi.com/LogMessage/3512?pretty=true">[Player] lands a [fish] measuring ... ilms</see>

@@ -1,5 +1,6 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
+using TidyChat;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -94,32 +95,22 @@ internal static class ObtainTab
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_BattleCurrenciesDropdownHeader))
         {
-            var hideObtainedPoeticsTomestones = configuration.HideObtainedPoeticsTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowPoeticsMessages, ref hideObtainedPoeticsTomestones))
+            if (TidyChatPlugin.Tomestones.Count == 0)
             {
-                configuration.HideObtainedPoeticsTomestones = hideObtainedPoeticsTomestones;
-                configuration.Save();
+                ImGui.TextDisabled("Tomestone data unavailable");
             }
-
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowPoeticsMessagesHelpMarker);
-
-            var hideObtainedAphorismTomestones = configuration.HideObtainedAphorismTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowAphorismMessages, ref hideObtainedAphorismTomestones))
+            else
             {
-                configuration.HideObtainedAphorismTomestones = hideObtainedAphorismTomestones;
-                configuration.Save();
+                foreach (var tomestone in TidyChatPlugin.Tomestones)
+                {
+                    configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide);
+                    if (ImGui.Checkbox($"Hide {tomestone.Name}", ref hide))
+                    {
+                        configuration.HideTomestoneById[tomestone.RowId] = hide;
+                        configuration.Save();
+                    }
+                }
             }
-
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAphorismMessagesHelpMarker);
-
-            var hideObtainedAstronomyTomestones = configuration.HideObtainedAstronomyTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowAstronomyMessages, ref hideObtainedAstronomyTomestones))
-            {
-                configuration.HideObtainedAstronomyTomestones = hideObtainedAstronomyTomestones;
-                configuration.Save();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAstronomyMessagesHelpMarker);
 
             var hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowWolfMarksMessages, ref hideObtainedWolfMarks))

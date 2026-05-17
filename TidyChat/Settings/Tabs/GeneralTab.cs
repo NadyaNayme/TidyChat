@@ -171,6 +171,15 @@ internal static class GeneralTab
             }
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker);
+
+            var betterTreasureDungeonMessage = configuration.BetterTreasureDungeonMessage;
+            if (ImGui.Checkbox("Improved Treasure Dungeon Messages", ref betterTreasureDungeonMessage))
+            {
+                configuration.BetterTreasureDungeonMessage = betterTreasureDungeonMessage;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker("When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.");
         }
 
         ImGuiHelpers.ScaledDummy(30f);
