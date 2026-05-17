@@ -1,5 +1,6 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
+using TidyChat;
 
 namespace TidyChat.Settings.Tabs;
 
@@ -94,32 +95,22 @@ internal static class ObtainTab
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_BattleCurrenciesDropdownHeader))
         {
-            var hideObtainedPoeticsTomestones = configuration.HideObtainedPoeticsTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowPoeticsMessages, ref hideObtainedPoeticsTomestones))
+            if (TidyChatPlugin.Tomestones.Count == 0)
             {
-                configuration.HideObtainedPoeticsTomestones = hideObtainedPoeticsTomestones;
-                configuration.Save();
+                ImGui.TextDisabled("Tomestone data unavailable");
             }
-
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowPoeticsMessagesHelpMarker);
-
-            var hideObtainedMathematicsTomestones = configuration.HideObtainedMathematicsTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowMathematicsMessages, ref hideObtainedMathematicsTomestones))
+            else
             {
-                configuration.HideObtainedMathematicsTomestones = hideObtainedMathematicsTomestones;
-                configuration.Save();
+                foreach (var tomestone in TidyChatPlugin.Tomestones)
+                {
+                    configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide);
+                    if (ImGui.Checkbox($"Hide {tomestone.Name}", ref hide))
+                    {
+                        configuration.HideTomestoneById[tomestone.RowId] = hide;
+                        configuration.Save();
+                    }
+                }
             }
-
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowMathematicsMessagesHelpMarker);
-
-            var hideObtainedMnemonicsTomestones = configuration.HideObtainedMnemonicsTomestones;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowMnemonicsMessages, ref hideObtainedMnemonicsTomestones))
-            {
-                configuration.HideObtainedMnemonicsTomestones = hideObtainedMnemonicsTomestones;
-                configuration.Save();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowMnemonicsMessagesHelpMarker);
 
             var hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowWolfMarksMessages, ref hideObtainedWolfMarks))

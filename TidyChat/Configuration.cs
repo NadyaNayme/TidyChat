@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Dalamud.Configuration;
+﻿using Dalamud.Configuration;
 using Dalamud.Plugin;
-
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 namespace TidyChat;
 
 [Serializable]
@@ -31,6 +31,12 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
+
+    #region Error Messages
+
+    public bool HideFateLevelSync { get; set; } = true;
+
+    #endregion
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
@@ -40,9 +46,9 @@ public class Configuration : IPluginConfiguration
 
     public T? GetPropertyValue<T>(object obj, string propName)
     {
-        var prop = obj.GetType().GetProperty(propName);
+        PropertyInfo? prop = obj.GetType().GetProperty(propName);
         if (prop == null) return default;
-        return (T?)prop.GetValue(this, index: null);
+        return (T?)prop.GetValue(this, null);
     }
 
     public void Save()
@@ -136,12 +142,6 @@ public class Configuration : IPluginConfiguration
 
     #endregion
 
-    #region Error Messages
-
-    public bool HideFateLevelSync { get; set; } = true;
-
-    #endregion
-
     #region PotD & HoH
 
     public bool ShowObtainedPomander { get; set; } = true;
@@ -186,9 +186,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGainPvpExp { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
-    public bool HideObtainedPoeticsTomestones { get; set; } = false;
-    public bool HideObtainedMathematicsTomestones { get; set; } = false;
-    public bool HideObtainedMnemonicsTomestones { get; set; } = false;
+    public Dictionary<uint, bool> HideTomestoneById { get; set; } = [];
 
     #endregion
 

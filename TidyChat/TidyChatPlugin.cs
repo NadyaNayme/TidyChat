@@ -40,6 +40,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static IPluginLog Log { get; private set; } = null!;
     private static IDtrBarEntry? DtrEntry { get; set; }
 
+    public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
+
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
     private readonly WindowSystem _windowSystem = new("TidyChat");
@@ -55,6 +57,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         // Player cannot change this without restarting the game so should be safe to grab here
         L10N.Language = ClientState.ClientLanguage;
+        LoadTomestones();
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
         
@@ -499,6 +502,24 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
 
+        // Per-type tomestone filtering using Lumina-loaded game data.
+        if (chatType is ChatType.LootNotice && !isHandled &&
+            L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
+        {
+            foreach (var tomestone in Tomestones)
+            {
+                if (normalizedText.Contains(tomestone.Name.ToLower(CultureInfo.InvariantCulture), StringComparison.Ordinal))
+                {
+                    if (Configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide)
+                    {
+                        if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (tomestone): {message.Message}");
+                        isHandled = true;
+                    }
+                    break;
+                }
+            }
+        }
+
         #endregion Channel Filters
 
         #region Whitelist
@@ -766,6 +787,27 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
             ChatGui.Print(stringBuilder.BuiltString);
         }
+    }
+
+    private static void LoadTomestones()
+    {
+        var tomestones = new List<TomestoneInfo>();
+        try
+        {
+            foreach (var row in DataManager.GetExcelSheet<Lumina.Excel.Sheets.TomestonesItem>())
+            {
+                if (row.Tomestones.RowId == 0) continue;
+                var name = row.Item.Value.Name.ToString();
+                if (string.IsNullOrWhiteSpace(name)) continue;
+                tomestones.Add(new TomestoneInfo(row.RowId, name));
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Error("Failed to load tomestone data from Lumina: " + ex);
+        }
+        Tomestones = tomestones.AsReadOnly();
+        Log.Information($"Loaded {Tomestones.Count} tomestones: {string.Join(", ", Tomestones.Select(t => t.Name))}");
     }
 
     private bool FilterIsEnabled(ChatType chatType)
