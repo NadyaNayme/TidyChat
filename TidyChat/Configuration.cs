@@ -188,7 +188,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGainPvpExp { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
-    public Dictionary<uint, bool> HideTomestoneById { get; set; } = [];
+    public IDictionary<uint, bool> HideTomestoneById { get; set; } = new Dictionary<uint, bool>();
 
     #endregion
 
@@ -197,6 +197,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowLootRoll { get; set; } = false;
     public bool ShowCastLot { get; set; } = false;
     public bool ShowOthersLootRoll { get; set; } = false;
+    public bool ShowOnlyPartyMemberRolls { get; set; } = false;
     public bool ShowOthersCastLot { get; set; } = false;
     public bool HideOthersObtain { get; set; } = false;
 

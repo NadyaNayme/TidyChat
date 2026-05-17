@@ -537,6 +537,13 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
   <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
     <value>Show "Another Player rolls Greed..." messages</value>
   </data>
+  <data name="ObtainTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
+    <value>Show only rolls from party members</value>
+  </data>
+  <data name="ObtainTab_ShowOnlyPartyMemberRollsHelpMarker" xml:space="preserve">
+    <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
+Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
+  </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
     <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
   </data>

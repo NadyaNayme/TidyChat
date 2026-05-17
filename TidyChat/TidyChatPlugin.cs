@@ -82,6 +82,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static IClientState ClientState { get; set; } = null!;
     [PluginService] public static IChatGui ChatGui { get; set; } = null!;
     [PluginService] public static IObjectTable ObjectTable { get; set; } = null!;
+    [PluginService] public static IPartyList PartyList { get; set; } = null!;
     [PluginService] public static IPluginLog Log { get; set; } = null!;
     private static IDtrBarEntry? DtrEntry { get; set; }
 
@@ -94,7 +95,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     ///       ("Unknown_70_*" in SaintCoinach format). These columns are not exposed
     ///       by the current EXDSchema and need further investigation.
     /// </summary>
-    public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>();
+    public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
@@ -137,8 +138,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 byte exclusiveType = territory.ExclusiveType;
                 bool isPvp = territory.IsPvpZone;
 
-                string placeName = territory.PlaceName.Value.Name.ToString();
-                string dutyName = territory.ContentFinderCondition.Value.Name.ToString();
+                string placeName = $"{territory.PlaceName.Value.Name}";
+                string dutyName = $"{territory.ContentFinderCondition.Value.Name}";
 
                 TidyStrings.LastDuty = exclusiveType switch
                 {
@@ -512,6 +513,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
 
+        // Filter loot roll messages from non-party members (alliance/raid) when ShowOnlyPartyMemberRolls is on.
+        // Applies to any LootRoll message that was unblocked (ShowOthersLootRoll, ShowOthersCastLot, etc.)
+        // Only active when actually in a party (PartyList.Length > 0).
+        if (chatType is ChatType.LootRoll && !isHandled &&
+            Configuration.ShowOnlyPartyMemberRolls && PartyList.Length > 0)
+        {
+            bool isPartyMember = PartyList.Any(member =>
+                normalizedText.StartsWith(
+                    member.Name.TextValue.ToLower(CultureInfo.InvariantCulture) + " ",
+                    StringComparison.Ordinal));
+            if (!isPartyMember)
+            {
+                if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (non-party loot): {message.Message}");
+                isHandled = true;
+            }
+        }
+
         // Per-fish fishing flavor text whitelisting using Lumina-loaded game data.
         // Covers Fisher's Intuition messages (BigFishOnReach/End/Refresh from FishingSpot).
         if (chatType is ChatType.Gathering && isHandled && Configuration.ShowFishingFlavorText &&
@@ -824,9 +842,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             // BigFishOnRefresh = message shown when the window refreshes
             foreach (FishingSpot row in DataManager.GetExcelSheet<FishingSpot>())
             {
-                var reach = row.BigFishOnReach.ToString().Trim();
-                var end = row.BigFishOnEnd.ToString().Trim();
-                var refresh = row.BigFishOnRefresh.ToString().Trim();
+                var reach = $"{row.BigFishOnReach}".Trim();
+                var end = $"{row.BigFishOnEnd}".Trim();
+                var refresh = $"{row.BigFishOnRefresh}".Trim();
 
                 if (!string.IsNullOrWhiteSpace(reach)) messages.Add(reach);
                 if (!string.IsNullOrWhiteSpace(end)) messages.Add(end);
@@ -854,7 +872,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             {
                 uint slotId = row.Tomestones.RowId;
                 if (slotId == 0) continue;
-                string name = row.Item.Value.Name.ToString();
+                string name = $"{row.Item.Value.Name}";
                 if (string.IsNullOrWhiteSpace(name)) continue;
                 if (!bestPerSlot.TryGetValue(slotId, out (uint RowId, string Name) existing) || row.RowId > existing.RowId)
                     bestPerSlot[slotId] = (row.RowId, name);

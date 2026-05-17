@@ -1147,6 +1147,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show only rolls from party members.
+        /// </summary>
+        internal static string ObtainTab_ShowOnlyPartyMemberRolls {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowOnlyPartyMemberRolls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When enabled, hides loot roll messages from players outside your party.
+        /// </summary>
+        internal static string ObtainTab_ShowOnlyPartyMemberRollsHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowOnlyPartyMemberRollsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide Allagan tomestones of Mathematics.
         /// </summary>
         internal static string ObtainTab_ShowMathematicsMessages {
