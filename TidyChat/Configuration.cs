@@ -34,7 +34,7 @@ public class Configuration : IPluginConfiguration
 
     #region Error Messages
 
-    public bool HideFateLevelSync { get; set; } = true;
+    public bool HideFateLevelSync { get; set; } = false;
 
     #endregion
     public int Version { get; set; } = 0;
@@ -138,6 +138,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowNoviceNetworkFull { get; set; } = true;
+    public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
 
     #endregion

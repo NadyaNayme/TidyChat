@@ -546,6 +546,18 @@ internal static class SystemTab
         }
 
 
+        if (ImGui.CollapsingHeader(Languages.SystemTab_OrchestrionDropdownHeader))
+        {
+            var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
+            if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
+            {
+                configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
+        }
+
         if (ImGui.CollapsingHeader(Languages.SystemTab_ErrorMessagesDropdownHeader))
         {
             var hideFateLevelSync = configuration.HideFateLevelSync;

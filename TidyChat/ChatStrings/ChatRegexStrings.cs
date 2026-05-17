@@ -840,6 +840,19 @@ public static class ChatRegexStrings
     };
 
     #endregion PotD & HoH
+    
+    #region Orchestrion
+
+    /// <see href="https://xivapi.com/LogMessage/3861?pretty=true">Orchestrion now plays <song>.</see>
+    public static readonly LocalizedRegex OrchestrionPlaying = new()
+    {
+        Jpn = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new Regex(@"^orchestrion now plays .+\.$", regexOptions, regexTimeout),
+        Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+    };
+    
+    #endregion Orchestrion
 
     #region Treasure Dungeons
 

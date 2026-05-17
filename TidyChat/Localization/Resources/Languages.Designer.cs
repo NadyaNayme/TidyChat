@@ -2500,6 +2500,33 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Orchestrion.
+        /// </summary>
+        internal static string SystemTab_OrchestrionDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_OrchestrionDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide &quot;Orchestrion now plays&quot; messages.
+        /// </summary>
+        internal static string SystemTab_HideOrchestrionPlaying {
+            get {
+                return ResourceManager.GetString("SystemTab_HideOrchestrionPlaying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Orchestrion now plays &lt;song&gt;.
+        /// </summary>
+        internal static string SystemTab_HideOrchestrionPlayingHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideOrchestrionPlayingHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trading Messages.
         /// </summary>
         internal static string SystemTab_TradingDropdownHeader {

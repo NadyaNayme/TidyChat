@@ -999,4 +999,13 @@ Initials: E. N.</value>
   <data name="CraftingGatheringTab_ShowAllOtherGathering" xml:space="preserve">
     <value>Show all other Gathering messages</value>
   </data>
+  <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
+    <value>Orchestrion</value>
+  </data>
+  <data name="SystemTab_HideOrchestrionPlaying" xml:space="preserve">
+    <value>Hide "Orchestrion now plays" messages</value>
+  </data>
+  <data name="SystemTab_HideOrchestrionPlayingHelpMarker" xml:space="preserve">
+    <value>eg. Orchestrion now plays &lt;song&gt;.</value>
+  </data>
 </root>

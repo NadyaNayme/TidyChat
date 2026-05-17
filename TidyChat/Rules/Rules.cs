@@ -1037,6 +1037,18 @@ public static class Rules
         },
         #endregion
 
+        #region Orchestrion
+        new LocalizedFilterRule
+        {
+            Name = "HideOrchestrionPlaying",
+            SettingsTab = "System",
+            Channel = ChatType.Orchestrion,
+            IsActive = false,
+            RegexChecks = [ChatRegexStrings.OrchestrionPlaying],
+            Pattern = PatternKind.RegexMatch,
+        },
+        #endregion
+
         #region Loot
         new LocalizedFilterRule
         {

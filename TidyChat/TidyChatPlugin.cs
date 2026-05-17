@@ -831,7 +831,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             case ChatType.LootNotice when Configuration.FilterObtainedSpam:
             case ChatType.LootRoll when Configuration.FilterLootSpam:
             case ChatType.Progress when Configuration.FilterProgressSpam:
-            case ChatType.FreeCompanyLoginLogout when (!Configuration.ShowUserLogins && !Configuration.ShowUserLogins):
+            case ChatType.FreeCompanyLoginLogout when (!Configuration.ShowUserLogins && !Configuration.ShowUserLogouts):
             case ChatType.Echo when Configuration.EnableDebugMode:
                 return true;
             default:
@@ -900,6 +900,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 ChatType.LootRoll or
                 ChatType.Progress or
                 ChatType.FreeCompanyLoginLogout or
+                ChatType.Orchestrion or
                 ChatType.Echo => true,
             var _ => false
         };
