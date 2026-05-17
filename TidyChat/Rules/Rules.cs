@@ -56,7 +56,16 @@ public class LocalizedFilterRule
     public SettingCategory SettingCategory { get; set; } = SettingCategory.None;
     public required Boolean IsActive { get; set; } = false;
     public string? Error { get; set; }
+    
+    public uint[]? LogMessageIds { get; set; }
 
+    /// <summary>
+    /// When true, the rule blocks messages when IsActive is true ("Hide*" semantics).
+    /// When false (default), the rule blocks when IsActive is false ("Show*" semantics).
+    /// </summary>
+    public bool BlockWhenActive { get; set; } = false;
+    
+    public bool ShouldBlock => BlockWhenActive ? IsActive : !IsActive;
 }
 public static class Rules
 {
@@ -69,8 +78,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.PowerfulMark],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [9331]
         },
         new LocalizedFilterRule
         {
@@ -78,8 +86,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.ExtraordinarilyPowerfulMark],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [9332]
         },
         new LocalizedFilterRule
         {
@@ -87,8 +94,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CompletedVenture],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4341]
         },
         new LocalizedFilterRule
         {
@@ -123,8 +129,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.InviteSent],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [1]
         },
         new LocalizedFilterRule
         {
@@ -150,8 +155,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.YouLeaveParty],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4]
         },
         new LocalizedFilterRule
         {
@@ -159,8 +163,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.PartyDisband],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [73]
         },
         new LocalizedFilterRule
         {
@@ -168,8 +171,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.PartyDissolved],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [72]
         },
         new LocalizedFilterRule
         {
@@ -195,8 +197,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.JoinCrossParty],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [7446]
         },
         new LocalizedFilterRule
         {
@@ -204,8 +205,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.HuntSlain],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4411]
         },
         new LocalizedFilterRule
         {
@@ -213,8 +213,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.RelicBookStep],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4402]
         },
         new LocalizedFilterRule
         {
@@ -222,8 +221,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.RelicBookComplete],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4400]
         },
         new LocalizedFilterRule
         {
@@ -231,8 +229,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.OnlineStatus],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [97]
         },
         new LocalizedFilterRule
         {
@@ -240,8 +237,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AttachToMail],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [672, 673]
         },
         new LocalizedFilterRule
         {
@@ -267,8 +263,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedPomander],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7221]
         },
         new LocalizedFilterRule
         {
@@ -276,8 +271,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ReturnedPomander],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7222]
         },
         new LocalizedFilterRule
         {
@@ -285,8 +279,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CairnGlows],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7242]
         },
         new LocalizedFilterRule
         {
@@ -294,8 +287,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.RestoresLifeToFallen],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7243]
         },
         new LocalizedFilterRule
         {
@@ -303,8 +295,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CairnActivates],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7245]
         },
         new LocalizedFilterRule
         {
@@ -312,8 +303,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.Transference],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7246, 7247, 7248]
         },
         new LocalizedFilterRule
         {
@@ -330,8 +320,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.AetherpoolUnchanged],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7251]
         },
         new LocalizedFilterRule
         {
@@ -339,8 +328,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfSafety],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7255]
         },
         new LocalizedFilterRule
         {
@@ -348,8 +336,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfSight],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7256]
         },
         new LocalizedFilterRule
         {
@@ -357,8 +344,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfAffluence],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7259]
         },
         new LocalizedFilterRule
         {
@@ -366,8 +352,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfFlight],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7260]
         },
         new LocalizedFilterRule
         {
@@ -375,8 +360,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfAlteration],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7261]
         },
         new LocalizedFilterRule
         {
@@ -384,8 +368,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfWitching],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7264]
         },
         new LocalizedFilterRule
         {
@@ -393,8 +376,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfSerenity],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7265]
         },
         new LocalizedFilterRule
         {
@@ -411,8 +393,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SenseAccursedHoard],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7272]
         },
         new LocalizedFilterRule
         {
@@ -420,8 +401,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DoNotSenseAccursedHoard],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7273]
         },
         new LocalizedFilterRule
         {
@@ -429,8 +409,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DiscoverAccursedHoard],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7274]
         },
         new LocalizedFilterRule
         {
@@ -438,8 +417,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.ReadyCheckComplete],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3794]
         },
         new LocalizedFilterRule
         {
@@ -456,8 +434,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SpideySenses],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [2600, 4791]
         },
         new LocalizedFilterRule
         {
@@ -465,8 +442,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AetherCompass],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3712]
         },
         new LocalizedFilterRule
         {
@@ -474,8 +450,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CountdownTime],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [5260]
         },
         new LocalizedFilterRule
         {
@@ -483,8 +458,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CountdownEngage],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [5264]
         },
         new LocalizedFilterRule
         {
@@ -492,8 +466,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CompleteSpiritbond],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [744]
         },
         new LocalizedFilterRule
         {
@@ -501,8 +474,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ExploratoryVoyage],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4163]
         },
         new LocalizedFilterRule
         {
@@ -510,8 +482,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SubaquaticVoyage],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [6061]
         },
         new LocalizedFilterRule
         {
@@ -519,8 +490,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.VistaMessages],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1272, 1273]
         },
         new LocalizedFilterRule
         {
@@ -528,8 +498,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TryOnGlamour],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3911]
         },
         new LocalizedFilterRule
         {
@@ -537,8 +506,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.EligibleForCoffers],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4233, 4238, 4246]
         },
         new LocalizedFilterRule
         {
@@ -546,8 +514,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.FreeCompanyMessageBook],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [6065]
         },
         new LocalizedFilterRule
         {
@@ -555,8 +522,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PersonalEstateMessageBook],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [6066]
         },
         new LocalizedFilterRule
         {
@@ -573,8 +539,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.TradeSent],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [33]
         },
         new LocalizedFilterRule
         {
@@ -582,8 +547,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.TradeCanceled],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [36]
         },
         new LocalizedFilterRule
         {
@@ -591,8 +555,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AwaitingTradeConfirmation],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [32]
         },
         new LocalizedFilterRule
         {
@@ -600,8 +563,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.NowLeaderOf],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [15, 16, 23, 24, 367, 383, 9284, 9285, 9289, 9290, 9291, 9298]
         },
         new LocalizedFilterRule
         {
@@ -609,8 +571,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.FirstClearAward],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4225]
         },
         new LocalizedFilterRule
         {
@@ -627,8 +588,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SecondChanceAward],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7975]
         },
         new LocalizedFilterRule
         {
@@ -645,8 +605,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.TradeComplete],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [38]
         },
 
         #region Error Messages
@@ -657,8 +616,8 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
-            StringChecks = [ChatStrings.FateLevelSyncWarning],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2735]
         },
         new LocalizedFilterRule
         {
@@ -666,8 +625,8 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
-            StringChecks = [ChatStrings.FateLevelSyncJoinPrompt],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2736]
         },
 
         #endregion
@@ -677,8 +636,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.OfferedTeleport],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [440]
         },
         new LocalizedFilterRule
         {
@@ -686,8 +644,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.GearsetEquipped],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [700]
         },
         new LocalizedFilterRule
         {
@@ -740,8 +697,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.VolumeControls],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866]
         },
         new LocalizedFilterRule
         {
@@ -758,8 +714,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SealedOff],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [2012, 2013, 2014]
         },
         new LocalizedFilterRule
         {
@@ -785,8 +740,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.Playtime],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [859]
         },
         new LocalizedFilterRule
         {
@@ -864,8 +818,7 @@ public static class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialSynthesis],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5902, 5904]
         },
         new LocalizedFilterRule
         {
@@ -873,8 +826,7 @@ public static class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialQuality],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5906]
         },
         new LocalizedFilterRule
         {
@@ -882,8 +834,7 @@ public static class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialHQ],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5907]
         },
         new LocalizedFilterRule
         {
@@ -891,8 +842,7 @@ public static class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialCollectability],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5908]
         },
         new LocalizedFilterRule
         {
@@ -900,8 +850,7 @@ public static class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.OtherSynthesis],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1156]
         },
         #endregion
 
@@ -939,8 +888,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.GatheringStartEnd],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070]
         },
         new LocalizedFilterRule
         {
@@ -966,8 +914,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            StringChecks = [ChatStrings.AddedToFishGuide],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [1114]
         },
         new LocalizedFilterRule
         {
@@ -984,8 +931,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CurrentFishingHole],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1110]
         },
         new LocalizedFilterRule
         {
@@ -993,8 +939,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DiscoveredFishingHole],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1130]
         },
         new LocalizedFilterRule
         {
@@ -1002,8 +947,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DiscoveredFishingHoleARR],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3513]
         },
         new LocalizedFilterRule
         {
@@ -1011,8 +955,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DataOnFishinghole],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3579]
         },
         new LocalizedFilterRule
         {
@@ -1020,8 +963,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            StringChecks = [ChatStrings.MeasuringIlms],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3512]
         },
         new LocalizedFilterRule
         {
@@ -1050,8 +992,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.FreeCompanyLoginLogout,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.HasLoggedIn],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3085]
         },
         new LocalizedFilterRule
         {
@@ -1059,8 +1000,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.FreeCompanyLoginLogout,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.HasLoggedOut],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3086]
         },
         #endregion
 
@@ -1149,8 +1089,8 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            StringChecks = [ChatStrings.RouletteBonus],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2246]
         },
         new LocalizedFilterRule
         {
@@ -1158,8 +1098,8 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            StringChecks = [ChatStrings.AdventurerInNeedBonus],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2244]
         },
         new LocalizedFilterRule
         {
@@ -1167,8 +1107,8 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedGil],
-            Pattern = PatternKind.RegexMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [657]
         },
         new LocalizedFilterRule
         {
@@ -1287,8 +1227,7 @@ public static class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.CompletionTime],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4679]
         },
         new LocalizedFilterRule
         {
@@ -1305,8 +1244,7 @@ public static class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.GainPvpExp],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [659]
         },
         new LocalizedFilterRule
         {
@@ -1314,8 +1252,7 @@ public static class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.EarnAchievement],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [952]
         },
         new LocalizedFilterRule
         {
@@ -1367,6 +1304,32 @@ public static class Rules
     ];
 
     public static LocalizedFilterRule[] AllRules => [.. _rules];
+
+    /// <summary>
+    /// Lookup from LogMessageId → list of rules that match that ID.
+    /// Built once at static init from rules that have LogMessageIds set.
+    /// </summary>
+    public static Dictionary<uint, List<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
+
+    private static Dictionary<uint, List<LocalizedFilterRule>> BuildLogMessageIdLookup()
+    {
+        var lookup = new Dictionary<uint, List<LocalizedFilterRule>>();
+        foreach (var rule in _rules)
+        {
+            if (rule.LogMessageIds is null) continue;
+            foreach (uint id in rule.LogMessageIds)
+            {
+                if (!lookup.TryGetValue(id, out var list))
+                {
+                    list = [];
+                    lookup[id] = list;
+                }
+                list.Add(rule);
+            }
+        }
+        return lookup;
+    }
+
     public static void UpdateIsActiveStates(Configuration config)
     {
         foreach (var rule in _rules)

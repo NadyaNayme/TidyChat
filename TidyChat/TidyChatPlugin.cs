@@ -52,6 +52,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
 
         ChatGui.CheckMessageHandled += OnChat;
+        ChatGui.LogMessage += OnLogMessage;
         ClientState.TerritoryChanged += OnTerritoryChanged;
         ClientState.Login += OnLogin;
         ClientState.Logout += OnLogout;
@@ -109,6 +110,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         CommandManager.RemoveHandler(ShorthandCommand);
         PluginInterface.LanguageChanged -= UpdateLang;
         ChatGui.CheckMessageHandled -= OnChat;
+        ChatGui.LogMessage -= OnLogMessage;
         ClientState.TerritoryChanged -= OnTerritoryChanged;
         ClientState.Login -= OnLogin;
         ClientState.Logout -= OnLogout;
@@ -154,6 +156,51 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 Log.Warning(
                     "Something somehow somewhere went wrong but we don't want to crash on territory change");
             }
+    }
+    
+    private void OnLogMessage(ILogMessage message)
+    {
+        if (!Configuration.Enabled || message.IsHandled) return;
+
+        // Update rule active states so the lookup reflects current config
+        Rules.UpdateIsActiveStates(Configuration);
+
+        if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out var matchingRules)) 
+        {
+            // No rules registered for this ID — log it in debug mode for ID discovery.
+            // Includes the formatted message text so you can correlate the ID with
+            // what appeared in chat, making it easy to map unknown messages to IDs in-game.
+            if (Configuration.EnableDebugMode)
+            {
+                try
+                {
+                    var formatted = message.FormatLogMessageForDebugging();
+                    Log.Debug($"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount} | Text: {formatted.ExtractText()}");
+                }
+                catch
+                {
+                    Log.Debug($"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount}");
+                }
+            }
+            return;
+        }
+
+        foreach (var rule in matchingRules)
+        {
+            // ShouldBlock respects both "Show*" semantics (block when !IsActive)
+            // and "Hide*" semantics (block when IsActive) via BlockWhenActive.
+            if (rule.ShouldBlock)
+            {
+                if (Configuration.EnableDebugMode)
+                    Log.Debug($"[LogMessage] BLOCKED by {rule.Name} (ID: {message.LogMessageId})");
+                message.PreventOriginal();
+                _sessionBlockedMessages += 1;
+                return;
+            }
+        }
+
+        if (Configuration.EnableDebugMode)
+            Log.Debug($"[LogMessage] ALLOWED (ID: {message.LogMessageId}, Rules: {string.Join(", ", matchingRules.Select(r => r.Name))})");
     }
 
     private void OnChat(IHandleableChatMessage message)
@@ -340,6 +387,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (rule.Error is not null)
             {
                 Log.Error($"Error: {rule.Error}");
+            }
+
+            // Skip rules already handled by OnLogMessage via LogMessageIds
+            if (rule.LogMessageIds is not null)
+            {
+                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} handled by LogMessage ID");
+                rulesSkipped.Add(rule.Name);
+                continue;
             }
 
             // Skip rules that wouldn't change isBlocked away from defaultBlocked
