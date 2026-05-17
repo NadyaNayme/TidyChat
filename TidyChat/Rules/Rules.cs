@@ -1137,15 +1137,6 @@ public static class Rules
         },
         new()
         {
-            Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
             Name = "HideObtainedClusters",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
@@ -1187,15 +1178,6 @@ public static class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedMaterials],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
-            Name = "HideOthersObtain",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
             Pattern = PatternKind.RegexMatch
         },
 

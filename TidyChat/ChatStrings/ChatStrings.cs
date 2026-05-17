@@ -86,13 +86,6 @@ public static class ChatStrings
         Fra = ["avez", "accompli", "haut", "fait"] // a accompli le haut fait “ Élémentaliste légendaire”!,
     };
 
-    public static readonly LocalizedStrings DebugTeleport = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["teleporting", "to"], // Teleporting to <Location>...
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
     public static readonly LocalizedStrings LocationAffects = new()
     {
         Jpn = ["NeedsLocalization"],

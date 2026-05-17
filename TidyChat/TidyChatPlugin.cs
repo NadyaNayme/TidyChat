@@ -968,25 +968,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         Log.Information($"Loaded {Tomestones.Count} tomestones: {string.Join(", ", Tomestones.Select(t => t.Name))}");
     }
 
-    private bool FilterIsEnabled(ChatType chatType)
-    {
-        switch (chatType)
-        {
-            case ChatType.System when Configuration.FilterSystemMessages:
-            case ChatType.StandardEmote or ChatType.CustomEmote when Configuration.FilterEmoteChannel:
-            case ChatType.Crafting when Configuration.FilterCraftingSpam:
-            case ChatType.Gathering or ChatType.GatheringSystem when Configuration.FilterGatheringSpam:
-            case ChatType.LootNotice when Configuration.FilterObtainedSpam:
-            case ChatType.LootRoll when Configuration.FilterLootSpam:
-            case ChatType.Progress when Configuration.FilterProgressSpam:
-            case ChatType.FreeCompanyLoginLogout when (!Configuration.ShowUserLogins && !Configuration.ShowUserLogouts):
-            case ChatType.Echo when Configuration.EnableDebugMode:
-                return true;
-            default:
-                return false;
-        }
-    }
-
     private static bool ChannelIsSpammy(ChatType chatType)
     {
         return chatType switch
