@@ -180,6 +180,7 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedMaterials { get; set; } = false;
     public bool HideObtainedTribalCurrency { get; set; } = false;
     public bool HideObtainedShards { get; set; } = false;
+    public bool HideObtainedShardsFromLoot { get; set; } = false;
     public bool ShowGainExperience { get; set; } = false;
     public bool HideRouletteBonus { get; set; } = false;
     public bool HideAdventurerInNeedBonus { get; set; } = false;
@@ -198,6 +199,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowOnlyPartyMemberRolls { get; set; } = false;
     public bool ShowOthersCastLot { get; set; } = false;
     public bool HideOthersObtain { get; set; } = false;
+    public bool HideOthersObtainFromLoot { get; set; } = false;
 
     #endregion
 
@@ -220,6 +222,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowDesynthesisObtains { get; set; } = false;
     public bool ShowTrialMessages { get; set; } = true;
     public bool ShowOtherSynthesis { get; set; } = false;
+    public bool ShowCraftingSynthesisComplete { get; set; } = true;
     public bool ShowAllOtherCrafting { get; set; } = false;
 
     #endregion

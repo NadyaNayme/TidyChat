@@ -255,6 +255,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowNowALeaderHelpMarker);
 
+            var showSealedOff = configuration.ShowSealedOff;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowSealedOffMessages, ref showSealedOff))
+            {
+                configuration.ShowSealedOff = showSealedOff;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowSealedOffMessagesHelpMarker);
+
             var showEverythingElse = configuration.ShowEverythingElse;
             if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
             {

@@ -66,6 +66,13 @@ internal static class ObtainTab
             }
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+
+            var hideOthersObtainFromLoot = configuration.HideOthersObtainFromLoot;
+            if (ImGui.Checkbox(Languages.ObtainTab_HideOthersObtainFromLoot, ref hideOthersObtainFromLoot))
+            {
+                configuration.HideOthersObtainFromLoot = hideOthersObtainFromLoot;
+                configuration.Save();
+            }
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_CommonCurrenciesDropdownHeader))
@@ -205,6 +212,13 @@ internal static class ObtainTab
             }
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+
+            var hideObtainedShardsFromLoot = configuration.HideObtainedShardsFromLoot;
+            if (ImGui.Checkbox(Languages.ObtainTab_HideObtainedShardsFromLoot, ref hideObtainedShardsFromLoot))
+            {
+                configuration.HideObtainedShardsFromLoot = hideObtainedShardsFromLoot;
+                configuration.Save();
+            }
         }
 
         ImGui.EndTabItem();

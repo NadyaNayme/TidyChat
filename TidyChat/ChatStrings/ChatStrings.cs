@@ -86,6 +86,14 @@ public static class ChatStrings
         Fra = ["avez", "accompli", "haut", "fait"] // a accompli le haut fait “ Élémentaliste légendaire”!,
     };
 
+    public static readonly LocalizedStrings SynthesisComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["you", "synthesize"], // You synthesize a/an <item>.
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     public static readonly LocalizedStrings LocationAffects = new()
     {
         Jpn = ["NeedsLocalization"],

@@ -793,6 +793,15 @@ public static class Rules
             IsActive = true,
             LogMessageIds = [1156]
         },
+        new()
+        {
+            Name = "ShowCraftingSynthesisComplete",
+            SettingsTab = "Crafting",
+            Channel = ChatType.Crafting,
+            IsActive = true,
+            StringChecks = [ChatStrings.SynthesisComplete],
+            Pattern = PatternKind.StringMatch
+        },
 
         #endregion
 
@@ -1180,6 +1189,24 @@ public static class Rules
             RegexChecks = [ChatRegexStrings.ObtainedMaterials],
             Pattern = PatternKind.RegexMatch
         },
+        new()
+        {
+            Name = "HideObtainedShardsFromLoot",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.ObtainedShards],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
+            Name = "HideOthersObtainFromLoot",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
+            Pattern = PatternKind.RegexMatch
+        },
 
         #endregion
 
@@ -1268,25 +1295,29 @@ public static class Rules
     ///     Lookup from LogMessageId → list of rules that match that ID.
     ///     Built once at static init from rules that have LogMessageIds set.
     /// </summary>
-    public static Dictionary<uint, List<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
+    public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
 
-    private static Dictionary<uint, List<LocalizedFilterRule>> BuildLogMessageIdLookup()
+    private static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> BuildLogMessageIdLookup()
     {
-        Dictionary<uint, List<LocalizedFilterRule>> lookup = new();
+        // Build with mutable inner lists, then expose as read-only.
+        var mutable = new Dictionary<uint, List<LocalizedFilterRule>>();
         foreach(LocalizedFilterRule rule in _rules)
         {
             if (rule.LogMessageIds is null) continue;
             foreach(uint id in rule.LogMessageIds)
             {
-                if (!lookup.TryGetValue(id, out List<LocalizedFilterRule>? list))
+                if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
                 {
                     list = [];
-                    lookup[id] = list;
+                    mutable[id] = list;
                 }
                 list.Add(rule);
             }
         }
-        return lookup;
+        var result = new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>(mutable.Count);
+        foreach (var kvp in mutable)
+            result[kvp.Key] = kvp.Value;
+        return result;
     }
 
     public static void UpdateIsActiveStates(Configuration config)

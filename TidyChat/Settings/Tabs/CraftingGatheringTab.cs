@@ -77,6 +77,15 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_CraftingDropdownHeader))
         {
+            var showCraftingSynthesisComplete = configuration.ShowCraftingSynthesisComplete;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCraftingSynthesisComplete, ref showCraftingSynthesisComplete))
+            {
+                configuration.ShowCraftingSynthesisComplete = showCraftingSynthesisComplete;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker);
+
             var showTrialMessages = configuration.ShowTrialMessages;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowTrialSynthesisMessages, ref showTrialMessages))
             {

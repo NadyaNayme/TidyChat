@@ -648,6 +648,21 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show final status messages upon finishing a Trial synthesis.
         /// </summary>
+        internal static string CraftingGatheringTab_ShowCraftingSynthesisComplete {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You synthesize a Linen Bandana.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker", resourceCulture);
+            }
+        }
+        
         internal static string CraftingGatheringTab_ShowTrialSynthesisMessages {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowTrialSynthesisMessages", resourceCulture);
@@ -1314,6 +1329,18 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show elemental shards, crystals, and clusters.
         /// </summary>
+        internal static string ObtainTab_HideObtainedShardsFromLoot {
+            get {
+                return ResourceManager.GetString("ObtainTab_HideObtainedShardsFromLoot", resourceCulture);
+            }
+        }
+        
+        internal static string ObtainTab_HideOthersObtainFromLoot {
+            get {
+                return ResourceManager.GetString("ObtainTab_HideOthersObtainFromLoot", resourceCulture);
+            }
+        }
+        
         internal static string ObtainTab_ShowElementalShardsCrystalsClustersMessages {
             get {
                 return ResourceManager.GetString("ObtainTab_ShowElementalShardsCrystalsClustersMessages", resourceCulture);
@@ -2276,6 +2303,18 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show all other System messages.
         /// </summary>
+        internal static string SystemTab_ShowSealedOffMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSealedOffMessages", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ShowSealedOffMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSealedOffMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
         internal static string SystemTab_ShowEverythingElse {
             get {
                 return ResourceManager.GetString("SystemTab_ShowEverythingElse", resourceCulture);
