@@ -448,6 +448,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show synthesis complete message.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowCraftingSynthesisComplete {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You synthesize a Linen Bandana. (English only; other languages need localization).
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show desynthesis level increases messages.
         /// </summary>
         internal static string CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages {
@@ -462,6 +480,24 @@ namespace TidyChat.Localization.Resources {
         internal static string CraftingGatheringTab_ShowFishAddedToGuideMessages {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowFishAddedToGuideMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Fisher&apos;s Intuition flavor text.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowFishingFlavorText {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingFlavorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows Fisher&apos;s Intuition messages (&quot;the scent of baitfish...&quot;) and per-fish lure flavor text (loaded from game data at startup)..
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowFishingFlavorTextHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingFlavorTextHelpMarker", resourceCulture);
             }
         }
         
@@ -529,6 +565,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Modest/Ambitious Lure and bite feeling messages.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowLureMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowLureMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you&apos;ve attracted a fish with a weak bite!.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowLureMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowLureMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show message when materia is extracted from spiritbonded gear.
         /// </summary>
         internal static string CraftingGatheringTab_ShowMateriaExtractedMessages {
@@ -561,42 +615,6 @@ namespace TidyChat.Localization.Resources {
         internal static string CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show Fisher's Intuition flavor text.
-        /// </summary>
-        internal static string CraftingGatheringTab_ShowFishingFlavorText {
-            get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingFlavorText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. You see the flickering light of eyes beneath the waters. (loaded from game data at startup).
-        /// </summary>
-        internal static string CraftingGatheringTab_ShowFishingFlavorTextHelpMarker {
-            get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingFlavorTextHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show Modest/Ambitious Lure and bite feeling messages.
-        /// </summary>
-        internal static string CraftingGatheringTab_ShowLureMessages {
-            get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowLureMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!.
-        /// </summary>
-        internal static string CraftingGatheringTab_ShowLureMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowLureMessagesHelpMarker", resourceCulture);
             }
         }
         
@@ -648,24 +666,27 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show final status messages upon finishing a Trial synthesis.
         /// </summary>
-        internal static string CraftingGatheringTab_ShowCraftingSynthesisComplete {
+        internal static string CraftingGatheringTab_ShowTrialSynthesisMessages {
             get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisComplete", resourceCulture);
+                return ResourceManager.GetString("CraftingGatheringTab_ShowTrialSynthesisMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eg. You synthesize a Linen Bandana.
+        ///   Looks up a localized string similar to Filter Custom Emote Channel.
         /// </summary>
-        internal static string CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker {
+        internal static string EmotesTab_FilterCustomEmoteChannel {
             get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker", resourceCulture);
+                return ResourceManager.GetString("EmotesTab_FilterCustomEmoteChannel", resourceCulture);
             }
         }
         
-        internal static string CraftingGatheringTab_ShowTrialSynthesisMessages {
+        /// <summary>
+        ///   Looks up a localized string similar to This will hide all Custom Emotes unless it is an emote targeting you or an emote you used..
+        /// </summary>
+        internal static string EmotesTab_FilterCustomEmoteChannelHelpMarker {
             get {
-                return ResourceManager.GetString("CraftingGatheringTab_ShowTrialSynthesisMessages", resourceCulture);
+                return ResourceManager.GetString("EmotesTab_FilterCustomEmoteChannelHelpMarker", resourceCulture);
             }
         }
         
@@ -733,30 +754,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This filter includes all crafting messages except &quot;You synthesize a/an &lt;item&gt;&quot;
-        ///This allows you to use ChatAlerts to create an alert for &quot;You synthesize&quot; instead of using macro-finished alerts.
+        ///   Looks up a localized string similar to When enabled, crafting messages are hidden unless a specific option below allows them. When disabled, all crafting messages are shown regardless of the options below..
         /// </summary>
         internal static string GeneralTab_FilterCraftingSpamHelpMarker {
             get {
                 return ResourceManager.GetString("GeneralTab_FilterCraftingSpamHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filter Custom Emote Channel.
-        /// </summary>
-        internal static string EmotesTab_FilterCustomEmoteChannel {
-            get {
-                return ResourceManager.GetString("EmotesTab_FilterCustomEmoteChannel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.
-        /// </summary>
-        internal static string EmotesTab_FilterCustomEmoteChannelHelpMarker {
-            get {
-                return ResourceManager.GetString("EmotesTab_FilterCustomEmoteChannelHelpMarker", resourceCulture);
             }
         }
         
@@ -807,7 +809,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This filter includes &quot;you begin/finish&quot; gathering messages, as well as location affects.
+        ///   Looks up a localized string similar to When enabled, gathering messages are hidden unless a specific option below allows them. When disabled, all gathering messages are shown regardless of the options below..
         /// </summary>
         internal static string GeneralTab_FilterGatheringSpamHelpMarker {
             get {
@@ -1015,7 +1017,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.
+        ///   Looks up a localized string similar to When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on..
         /// </summary>
         internal static string GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker {
             get {
@@ -1115,6 +1117,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide elemental shards, crystals, and clusters (from loot).
+        /// </summary>
+        internal static string ObtainTab_HideObtainedShardsFromLoot {
+            get {
+                return ResourceManager.GetString("ObtainTab_HideObtainedShardsFromLoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide &quot;Another player obtains&quot; messages (from loot).
+        /// </summary>
+        internal static string ObtainTab_HideOthersObtainFromLoot {
+            get {
+                return ResourceManager.GetString("ObtainTab_HideOthersObtainFromLoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Looting &amp; Rolling.
         /// </summary>
         internal static string ObtainTab_LootingAndRollingDropdownHeader {
@@ -1170,7 +1190,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide &quot;Another Player obtains &lt;item&gt;&quot; messages.
+        ///   Looks up a localized string similar to Show &quot;Another Player obtains &lt;item&gt;&quot; messages.
         /// </summary>
         internal static string ObtainTab_ShowAnotherPlayerObtainsItemMessages {
             get {
@@ -1194,60 +1214,6 @@ namespace TidyChat.Localization.Resources {
         internal static string ObtainTab_ShowAnotherPlayerRollsMessages {
             get {
                 return ResourceManager.GetString("ObtainTab_ShowAnotherPlayerRollsMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show only rolls from party members.
-        /// </summary>
-        internal static string ObtainTab_ShowOnlyPartyMemberRolls {
-            get {
-                return ResourceManager.GetString("ObtainTab_ShowOnlyPartyMemberRolls", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to When enabled, hides loot roll messages from players outside your party.
-        /// </summary>
-        internal static string ObtainTab_ShowOnlyPartyMemberRollsHelpMarker {
-            get {
-                return ResourceManager.GetString("ObtainTab_ShowOnlyPartyMemberRollsHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hide Allagan tomestones of Mathematics.
-        /// </summary>
-        internal static string ObtainTab_ShowMathematicsMessages {
-            get {
-                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. You obtain 60 Allagan tomestones of Mathematics..
-        /// </summary>
-        internal static string ObtainTab_ShowMathematicsMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hide Allagan tomestones of Mnemonics.
-        /// </summary>
-        internal static string ObtainTab_ShowMnemonicsMessages {
-            get {
-                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. You obtain 20 Allagan tomestones of Mnemonics..
-        /// </summary>
-        internal static string ObtainTab_ShowMnemonicsMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessagesHelpMarker", resourceCulture);
             }
         }
         
@@ -1329,18 +1295,6 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show elemental shards, crystals, and clusters.
         /// </summary>
-        internal static string ObtainTab_HideObtainedShardsFromLoot {
-            get {
-                return ResourceManager.GetString("ObtainTab_HideObtainedShardsFromLoot", resourceCulture);
-            }
-        }
-        
-        internal static string ObtainTab_HideOthersObtainFromLoot {
-            get {
-                return ResourceManager.GetString("ObtainTab_HideOthersObtainFromLoot", resourceCulture);
-            }
-        }
-        
         internal static string ObtainTab_ShowElementalShardsCrystalsClustersMessages {
             get {
                 return ResourceManager.GetString("ObtainTab_ShowElementalShardsCrystalsClustersMessages", resourceCulture);
@@ -1394,6 +1348,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide Allagan tomestones of Mathematics.
+        /// </summary>
+        internal static string ObtainTab_ShowMathematicsMessages {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You obtain 60 Allagan tomestones of Mathematics..
+        /// </summary>
+        internal static string ObtainTab_ShowMathematicsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowMathematicsMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide MGP.
         /// </summary>
         internal static string ObtainTab_ShowMGPMessages {
@@ -1408,6 +1380,43 @@ namespace TidyChat.Localization.Resources {
         internal static string ObtainTab_ShowMGPMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("ObtainTab_ShowMGPMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide Allagan tomestones of Mnemonics.
+        /// </summary>
+        internal static string ObtainTab_ShowMnemonicsMessages {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You obtain 20 Allagan tomestones of Mnemonics..
+        /// </summary>
+        internal static string ObtainTab_ShowMnemonicsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowMnemonicsMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show only rolls from party members.
+        /// </summary>
+        internal static string ObtainTab_ShowOnlyPartyMemberRolls {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowOnlyPartyMemberRolls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
+        ///Requires &quot;Show Another Player rolls&quot; to be enabled and only takes effect while in a party..
+        /// </summary>
+        internal static string ObtainTab_ShowOnlyPartyMemberRollsHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowOnlyPartyMemberRollsHelpMarker", resourceCulture);
             }
         }
         
@@ -1503,7 +1512,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show bonus awarded for being an adventurer in need.
+        ///   Looks up a localized string similar to Hide bonus awarded for being an adventurer in need.
         /// </summary>
         internal static string ProgressTab_ShowAdventurerInNeedAwardMessages {
             get {
@@ -1521,7 +1530,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show bonus award for using duty roulette.
+        ///   Looks up a localized string similar to Hide bonus award for using duty roulette.
         /// </summary>
         internal static string ProgressTab_ShowBonusAwardForDutyRouletteMessages {
             get {
@@ -1704,6 +1713,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error Messages.
+        /// </summary>
+        internal static string SystemTab_ErrorMessagesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ErrorMessagesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DEPRECATED! Inverse mode.
         /// </summary>
         internal static string SystemTab_ExperimentalFeatureInverseMode {
@@ -1813,6 +1831,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide FATE level sync messages.
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You are 5 or more levels above the recommended level for this FATE..
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show Free Company message book new entry messages.
         /// </summary>
         internal static string SystemTab_HideFreeCompanyMessageBookMessages {
@@ -1882,6 +1918,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideNumberOfCoffers {
             get {
                 return ResourceManager.GetString("SystemTab_HideNumberOfCoffers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide &quot;Orchestrion now plays&quot; messages.
+        /// </summary>
+        internal static string SystemTab_HideOrchestrionPlaying {
+            get {
+                return ResourceManager.GetString("SystemTab_HideOrchestrionPlaying", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Orchestrion now plays &lt;song&gt;..
+        /// </summary>
+        internal static string SystemTab_HideOrchestrionPlayingHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideOrchestrionPlayingHelpMarker", resourceCulture);
             }
         }
         
@@ -2058,24 +2112,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Aetheryte Ticket usage message.
-        /// </summary>
-        internal static string SystemTab_ShowAetheryteTicketMessage {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. You used Aetheryte Ticket (Remaining: 5)..
-        /// </summary>
-        internal static string SystemTab_ShowAetheryteTicketMessageHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessageHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show vista arrival and stray messages.
         /// </summary>
         internal static string SystemTab_HideVistaMessages {
@@ -2108,6 +2144,15 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideYouSenseSomethingMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideYouSenseSomethingMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orchestrion.
+        /// </summary>
+        internal static string SystemTab_OrchestrionDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_OrchestrionDropdownHeader", resourceCulture);
             }
         }
         
@@ -2171,6 +2216,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowAetherpoolRemainsUnchangedMessages {
             get {
                 return ResourceManager.GetString("SystemTab_ShowAetherpoolRemainsUnchangedMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Aetheryte Ticket usage message.
+        /// </summary>
+        internal static string SystemTab_ShowAetheryteTicketMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You used Aetheryte Ticket (Remaining: 5)..
+        /// </summary>
+        internal static string SystemTab_ShowAetheryteTicketMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessageHelpMarker", resourceCulture);
             }
         }
         
@@ -2274,47 +2337,8 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Error Messages.
-        /// </summary>
-        internal static string SystemTab_ErrorMessagesDropdownHeader {
-            get {
-                return ResourceManager.GetString("SystemTab_ErrorMessagesDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hide FATE level sync messages.
-        /// </summary>
-        internal static string SystemTab_HideFateLevelSyncMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. You are 5 or more levels above the recommended level for this FATE..
-        /// </summary>
-        internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show all other System messages.
         /// </summary>
-        internal static string SystemTab_ShowSealedOffMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowSealedOffMessages", resourceCulture);
-            }
-        }
-        
-        internal static string SystemTab_ShowSealedOffMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowSealedOffMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
         internal static string SystemTab_ShowEverythingElse {
             get {
                 return ResourceManager.GetString("SystemTab_ShowEverythingElse", resourceCulture);
@@ -2566,6 +2590,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show area sealed/unsealed messages.
+        /// </summary>
+        internal static string SystemTab_ShowSealedOffMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSealedOffMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. The area has been sealed off! / The area is no longer sealed..
+        /// </summary>
+        internal static string SystemTab_ShowSealedOffMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSealedOffMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show when Second Chance points will be awarded for duty clear.
         /// </summary>
         internal static string SystemTab_ShowSecondChanceAward {
@@ -2643,33 +2685,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowVolumeControlMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowVolumeControlMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Orchestrion.
-        /// </summary>
-        internal static string SystemTab_OrchestrionDropdownHeader {
-            get {
-                return ResourceManager.GetString("SystemTab_OrchestrionDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hide &quot;Orchestrion now plays&quot; messages.
-        /// </summary>
-        internal static string SystemTab_HideOrchestrionPlaying {
-            get {
-                return ResourceManager.GetString("SystemTab_HideOrchestrionPlaying", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. Orchestrion now plays &lt;song&gt;.
-        /// </summary>
-        internal static string SystemTab_HideOrchestrionPlayingHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_HideOrchestrionPlayingHelpMarker", resourceCulture);
             }
         }
         
