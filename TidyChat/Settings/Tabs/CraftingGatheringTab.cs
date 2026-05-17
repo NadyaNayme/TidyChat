@@ -1,3 +1,4 @@
+using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
 
 namespace TidyChat.Settings.Tabs;
@@ -203,6 +204,24 @@ internal static class CraftingGatheringTab
                 configuration.ShowDiscoveredFishingHole = showDiscoveredFishingHole;
                 configuration.Save();
             }
+
+            var showLureMessages = configuration.ShowLureMessages;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowLureMessages, ref showLureMessages))
+            {
+                configuration.ShowLureMessages = showLureMessages;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowLureMessagesHelpMarker);
+
+            var showFishingFlavorText = configuration.ShowFishingFlavorText;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishingFlavorText, ref showFishingFlavorText))
+            {
+                configuration.ShowFishingFlavorText = showFishingFlavorText;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowFishingFlavorTextHelpMarker);
         }
 
 

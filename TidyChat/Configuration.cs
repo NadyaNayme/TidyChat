@@ -240,6 +240,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;
+    public bool ShowLureMessages { get; set; } = true;
+    public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
 
     #endregion

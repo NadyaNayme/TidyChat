@@ -963,6 +963,18 @@ Initials: E. N.</value>
   <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
     <value>Show message after recasting with a moochable fish</value>
   </data>
+  <data name="CraftingGatheringTab_ShowLureMessages" xml:space="preserve">
+    <value>Show Modest/Ambitious Lure and bite feeling messages</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowFishingFlavorText" xml:space="preserve">
+    <value>Show Fisher's Intuition flavor text</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
+    <value>eg. You see the flickering light of eyes beneath the waters. (loaded from game data at startup)</value>
+  </data>
   <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
     <value>Include [Channel] Tag in Dry Run Mode</value>
   </data>

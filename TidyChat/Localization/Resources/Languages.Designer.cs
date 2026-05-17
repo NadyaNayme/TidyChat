@@ -565,6 +565,42 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Fisher's Intuition flavor text.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowFishingFlavorText {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingFlavorText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You see the flickering light of eyes beneath the waters. (loaded from game data at startup).
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowFishingFlavorTextHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowFishingFlavorTextHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Modest/Ambitious Lure and bite feeling messages.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowLureMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowLureMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowLureMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowLureMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show message after recasting with a moochable fish.
         /// </summary>
         internal static string CraftingGatheringTab_ShowMooching {

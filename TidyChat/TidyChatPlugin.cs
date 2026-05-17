@@ -42,6 +42,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Player cannot change this without restarting the game so should be safe to grab here
         L10N.Language = ClientState.ClientLanguage;
         LoadTomestones();
+        LoadFishingFlavorMessages();
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
 
@@ -85,6 +86,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private static IDtrBarEntry? DtrEntry { get; set; }
 
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
+
+    /// <summary>
+    /// Fisher's Intuition flavor text loaded from FishingSpot.BigFishOnReach/End/Refresh at startup.
+    /// Stored lowercase for O(1) comparison against normalized incoming messages.
+    /// TODO: Also load per-fish lure flavor text from FishParameter columns 2/3/4
+    ///       ("Unknown_70_*" in SaintCoinach format). These columns are not exposed
+    ///       by the current EXDSchema and need further investigation.
+    /// </summary>
+    public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>();
 
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
@@ -502,6 +512,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
 
+        // Per-fish fishing flavor text whitelisting using Lumina-loaded game data.
+        // Covers Fisher's Intuition messages (BigFishOnReach/End/Refresh from FishingSpot).
+        if (chatType is ChatType.Gathering && isHandled && Configuration.ShowFishingFlavorText &&
+            FishingFlavorMessages.Count > 0 && FishingFlavorMessages.Contains(normalizedText))
+        {
+            if (Configuration.EnableDebugMode) Log.Debug($"ALLOWED (fishing flavor): {message.Message}");
+            isHandled = false;
+        }
+
         // Per-type tomestone filtering using Lumina-loaded game data.
         if (chatType is ChatType.LootNotice && !isHandled &&
             L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
@@ -792,6 +811,35 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
             ChatGui.Print(stringBuilder.BuiltString);
         }
+    }
+
+    private static void LoadFishingFlavorMessages()
+    {
+        var messages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        try
+        {
+            // Load Fisher's Intuition flavor text from FishingSpot sheet
+            // BigFishOnReach = message shown when a big fish becomes catchable (Fisher's Intuition activates)
+            // BigFishOnEnd   = message shown when the big fish window expires
+            // BigFishOnRefresh = message shown when the window refreshes
+            foreach (FishingSpot row in DataManager.GetExcelSheet<FishingSpot>())
+            {
+                var reach = row.BigFishOnReach.ToString().Trim();
+                var end = row.BigFishOnEnd.ToString().Trim();
+                var refresh = row.BigFishOnRefresh.ToString().Trim();
+
+                if (!string.IsNullOrWhiteSpace(reach)) messages.Add(reach);
+                if (!string.IsNullOrWhiteSpace(end)) messages.Add(end);
+                if (!string.IsNullOrWhiteSpace(refresh)) messages.Add(refresh);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Error("Failed to load fishing flavor messages from FishingSpot: " + ex);
+        }
+
+        FishingFlavorMessages = messages;
+        Log.Information($"Loaded {FishingFlavorMessages.Count} fishing flavor messages.");
     }
 
     private static void LoadTomestones()

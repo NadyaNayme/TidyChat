@@ -1023,6 +1023,24 @@ public static class Rules
             StringChecks = [ChatStrings.MeasuringIlms],
             Pattern = PatternKind.StringMatch,
         },
+        new LocalizedFilterRule
+        {
+            Name = "ShowLureMessages",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.LureAttempt],
+            Pattern = PatternKind.RegexMatch,
+        },
+        new LocalizedFilterRule
+        {
+            Name = "ShowLureMessages",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.LureBite],
+            Pattern = PatternKind.RegexMatch,
+        },
         #endregion
 
         #region FreeCompany

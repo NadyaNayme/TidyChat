@@ -938,4 +938,28 @@ public static class ChatRegexStrings
     };
 
     #endregion Trial Synthesis
+
+    #region Fishing / Lure
+
+    // eg. "You attempt to lure small-jawed fish to your hook."
+    //     "You make a second attempt to lure large-jawed fish to your hook."
+    public static readonly LocalizedRegex LureAttempt = new()
+    {
+        Jpn = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new Regex(@"lure .+(small|large)-jawed fish to your hook", regexOptions, regexTimeout),
+        Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+    };
+
+    // eg. "You have a feeling you've attracted a fish with a strong bite!"
+    //     "You have a feeling you've attracted a fish with a weak bite!"
+    public static readonly LocalizedRegex LureBite = new()
+    {
+        Jpn = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new Regex(@"^you have a feeling you've attracted a fish with a (strong|weak) bite", regexOptions, regexTimeout),
+        Deu = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new Regex(@"NeedsLocalization", regexOptions, regexTimeout),
+    };
+
+    #endregion Fishing / Lure
 }
