@@ -960,8 +960,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.LureAttempt],
-            Pattern = PatternKind.RegexMatch
+            LogMessageIds = [5566]
         },
         new()
         {
@@ -969,8 +968,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.LureBite],
-            Pattern = PatternKind.RegexMatch
+            LogMessageIds = [5565, 5569]
         },
 
         #endregion
