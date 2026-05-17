@@ -263,11 +263,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
-        if (Configuration.ShowDebugTeleport && chatType is ChatType.Debug &&
-            L10N.Get(ChatStrings.DebugTeleport).All(normalizedText.Contains))
-        {
-        }
-
         #region Better Messages
 
         // Certain messages are improved with better messaging - these will change those messages to be Better Messages
@@ -361,8 +356,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // Block any messages that come from a "spammy" channel
         bool isBlocked = ChannelIsSpammy(chatType);
 
-        // Skip filtering if chatType is System and System Filter is disabled
+        // Skip filtering if channel filter is disabled — show all messages in that channel.
+        // This mirrors FilterSystemMessages and applies to the other filterable channels.
         if (chatType is ChatType.System && !Configuration.FilterSystemMessages) return;
+        if (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) return;
+        if (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) return;
+        if (chatType is ChatType.LootNotice && !Configuration.FilterObtainedSpam) return;
+        if (chatType is ChatType.Gathering or ChatType.GatheringSystem && !Configuration.FilterGatheringSpam) return;
+        if (chatType is ChatType.Crafting && !Configuration.FilterCraftingSpam) return;
 
         // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
         if (chatType is ChatType.System && Configuration.EnableInverseMode)

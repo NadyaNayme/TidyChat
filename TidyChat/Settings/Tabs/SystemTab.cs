@@ -33,13 +33,6 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideInstanceMessageHelpMarker);
 
-            var showDebugTeleport = configuration.ShowDebugTeleport;
-            if (ImGui.Checkbox(Languages.SystemTab_HideTeleportingToMessages, ref showDebugTeleport))
-            {
-                configuration.ShowDebugTeleport = showDebugTeleport;
-                configuration.Save();
-            }
-
             var sRankHunt = configuration.ShowSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
             {
@@ -166,13 +159,6 @@ internal static class SystemTab
             if (ImGui.Checkbox(Languages.SystemTab_HideNumberOfCoffers, ref showEligibleForCoffers))
             {
                 configuration.ShowEligibleForCoffers = showEligibleForCoffers;
-                configuration.Save();
-            }
-
-            var showNoviceNetworkFull = configuration.ShowNoviceNetworkFull;
-            if (ImGui.Checkbox(Languages.SystemTab_HideUnableToJoinFullNoviceNetwork, ref showNoviceNetworkFull))
-            {
-                configuration.ShowNoviceNetworkFull = showNoviceNetworkFull;
                 configuration.Save();
             }
 

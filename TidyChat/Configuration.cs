@@ -99,7 +99,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowCountdownTime { get; set; } = true;
     public bool ShowUserLogins { get; set; } = true;
     public bool ShowUserLogouts { get; set; } = true;
-    public bool ShowDebugTeleport { get; set; } = true;
     public bool ShowSpiritboundGear { get; set; } = true;
     public bool ShowSpideySenses { get; set; } = true;
     public bool ShowAetherCompass { get; set; } = true;
@@ -137,7 +136,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowNowLeaderOf { get; set; } = false;
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
-    public bool ShowNoviceNetworkFull { get; set; } = true;
     public bool ShowAetheryteTicket { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;

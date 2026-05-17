@@ -731,14 +731,6 @@ public static class Rules
 
         new()
         {
-            Name = "FilterCraftingSpam",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
-            LogMessageIds = [1158]
-        },
-        new()
-        {
             Name = "ShowAttachedMateria",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,

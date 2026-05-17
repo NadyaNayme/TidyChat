@@ -148,8 +148,7 @@
     <value>Filter Crafting channel</value>
   </data>
   <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-    <value>This filter includes all crafting messages except "You synthesize a/an &lt;item&gt;"
-This allows you to use ChatAlerts to create an alert for "You synthesize" instead of using macro-finished alerts</value>
+    <value>When enabled, crafting messages are hidden unless a specific option below allows them. When disabled, all crafting messages are shown regardless of the options below.</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
     <value>Filter Gathering channels</value>
@@ -557,7 +556,7 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
 Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
+    <value>Show "Another Player obtains &lt;item&gt;" messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when another player in the party obtains a loot drop.
@@ -776,13 +775,13 @@ It's recommended to keep it at 50 or lower.</value>
     <value>eg. You gain 2,388 Experience Points.</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
-    <value>Show bonus award for using duty roulette</value>
+    <value>Hide bonus award for using duty roulette</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
     <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
-    <value>Show bonus awarded for being an adventurer in need</value>
+    <value>Hide bonus awarded for being an adventurer in need</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
     <value>eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
@@ -992,7 +991,7 @@ Initials: E. N.</value>
     <value>Show Fisher's Intuition flavor text</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
-    <value>eg. You see the flickering light of eyes beneath the waters. (loaded from game data at startup)</value>
+    <value>Shows Fisher's Intuition messages ("the scent of baitfish...") and per-fish lure flavor text (loaded from game data at startup).</value>
   </data>
   <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
     <value>Include [Channel] Tag in Dry Run Mode</value>
