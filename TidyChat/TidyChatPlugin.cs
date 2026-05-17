@@ -74,16 +74,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     #endregion Setup
-    [PluginService] public static IDataManager DataManager { get; } = null!;
-    [PluginService] public static IDtrBar DtrBar { get; } = null!;
-    [PluginService] public static ICommandManager CommandManager { get; } = null!;
-    [PluginService] public static IDalamudPluginInterface PluginInterface { get; } = null!;
-    [PluginService] public static IClientState ClientState { get; } = null!;
-    [PluginService] public static IChatGui ChatGui { get; } = null!;
-    [PluginService] public static IObjectTable ObjectTable { get; } = null!;
-    [PluginService] public static ISigScanner SigScanner { get; private set; } = null!;
-    [PluginService] public static IGameInteropProvider Hook { get; private set; } = null!;
-    [PluginService] public static IPluginLog Log { get; } = null!;
+    [PluginService] public static IDataManager DataManager { get; set; } = null!;
+    [PluginService] public static IDtrBar DtrBar { get; set; } = null!;
+    [PluginService] public static ICommandManager CommandManager { get; set; } = null!;
+    [PluginService] public static IDalamudPluginInterface PluginInterface { get; set; } = null!;
+    [PluginService] public static IClientState ClientState { get; set; } = null!;
+    [PluginService] public static IChatGui ChatGui { get; set; } = null!;
+    [PluginService] public static IObjectTable ObjectTable { get; set; } = null!;
+    [PluginService] public static ISigScanner SigScanner { get; set; } = null!;
+    [PluginService] public static IGameInteropProvider Hook { get; set; } = null!;
+    [PluginService] public static IPluginLog Log { get; set; } = null!;
     private static IDtrBarEntry? DtrEntry { get; set; }
 
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
