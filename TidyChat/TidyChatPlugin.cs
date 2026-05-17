@@ -81,8 +81,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static IClientState ClientState { get; set; } = null!;
     [PluginService] public static IChatGui ChatGui { get; set; } = null!;
     [PluginService] public static IObjectTable ObjectTable { get; set; } = null!;
-    [PluginService] public static ISigScanner SigScanner { get; set; } = null!;
-    [PluginService] public static IGameInteropProvider Hook { get; set; } = null!;
     [PluginService] public static IPluginLog Log { get; set; } = null!;
     private static IDtrBarEntry? DtrEntry { get; set; }
 
