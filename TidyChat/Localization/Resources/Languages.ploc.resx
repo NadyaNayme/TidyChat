@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
     <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata"
                 xmlns="" id="root">
@@ -811,5 +811,17 @@
   </data>
     <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
     <value>ƒŕôɱ çôɱþļéţîñĝ</value>
+  </data>
+  <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
+    <value>Filter Custom Emote Channel</value>
+  </data>
+  <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
+    <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
+  </data>
+  <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
+    <value>Improved Treasure Dungeon Messages</value>
+  </data>
+  <data name="GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker" xml:space="preserve">
+    <value>When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.</value>
   </data>
 </root>

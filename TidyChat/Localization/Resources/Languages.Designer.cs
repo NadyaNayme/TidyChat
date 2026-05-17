@@ -728,6 +728,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Filter Custom Emote Channel.
+        /// </summary>
+        internal static string EmotesTab_FilterCustomEmoteChannel {
+            get {
+                return ResourceManager.GetString("EmotesTab_FilterCustomEmoteChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.
+        /// </summary>
+        internal static string EmotesTab_FilterCustomEmoteChannelHelpMarker {
+            get {
+                return ResourceManager.GetString("EmotesTab_FilterCustomEmoteChannelHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show custom emote spam.
         /// </summary>
         internal static string GeneralTab_FilterCustomEmotes {
@@ -969,6 +987,24 @@ namespace TidyChat.Localization.Resources {
         internal static string GeneralTab_ImprovedSayMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("GeneralTab_ImprovedSayMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Improved Treasure Dungeon Messages.
+        /// </summary>
+        internal static string GeneralTab_ImprovedTreasureDungeonMessages {
+            get {
+                return ResourceManager.GetString("GeneralTab_ImprovedTreasureDungeonMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.
+        /// </summary>
+        internal static string GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker", resourceCulture);
             }
         }
         

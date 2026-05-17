@@ -17,13 +17,13 @@ internal static class EmotesTab
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
         
         var filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
-        if (ImGui.Checkbox("Filter Custom Emote Channel", ref filterCustomEmoteSpam))
+        if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
         {
             configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker("This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.");
+        ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
         var showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))

@@ -210,6 +210,12 @@ This allows you to use ChatAlerts to create an alert for "You synthesize" instea
   <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
     <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
   </data>
+  <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
+    <value>Improved Treasure Dungeon Messages</value>
+  </data>
+  <data name="GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker" xml:space="preserve">
+    <value>When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.</value>
+  </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
     <value>Hide ko-fi button</value>
   </data>
@@ -232,6 +238,12 @@ eg. Another Player leans over and gives you a big bear hug.</value>
   <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
     <value>This will hide the message that occurs when you use an emote or custom emote.
 eg. You gently pat &lt;user&gt;</value>
+  </data>
+  <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
+    <value>Filter Custom Emote Channel</value>
+  </data>
+  <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
+    <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
   </data>
   <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
     <value>Enable Dry Run Mode - See filtered messages without blocking them</value>
