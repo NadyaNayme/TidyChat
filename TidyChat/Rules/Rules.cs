@@ -674,6 +674,18 @@ public static class Rules
         },
         new()
         {
+            // 5514 = "Your meticulous actions prove effective. Integrity is not reduced."
+            // 5516 = "Collectability can be raised no higher."
+            // 5573 = "Collector's high standard sharpens your focus. Brazen and meticulous actions are enhanced."
+            // All are fixed-text (0 params) GatheringSystem notifications unique to the collectable mini-game.
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [5514, 5516, 5573]
+        },
+        new()
+        {
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -922,6 +934,17 @@ public static class Rules
         },
         new()
         {
+            // 1116 = "Something bites!"
+            // 1117 = "You lose your bait..."
+            // 5584 = "You reel in your line."
+            Name = "ShowCaughtFish",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1116, 1117, 5584]
+        },
+        new()
+        {
             Name = "ShowMooching",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
@@ -962,11 +985,12 @@ public static class Rules
         },
         new()
         {
+            // 3512 = measuring ilms message; 3559 = "You land N <fish> measuring M ilms!"
             Name = "ShowMeasuringIlms",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            LogMessageIds = [3512]
+            LogMessageIds = [3512, 3559]
         },
         new()
         {
@@ -983,6 +1007,15 @@ public static class Rules
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5565, 5569]
+        },
+        new()
+        {
+            // 5570/5571/5572 = 1st/2nd/3rd attempt to lure small-jawed fish
+            Name = "ShowLureMessages",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5570, 5571, 5572]
         },
 
         #endregion
