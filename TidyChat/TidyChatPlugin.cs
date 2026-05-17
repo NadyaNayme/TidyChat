@@ -173,6 +173,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
         {
             if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message.Message}");
+            message.PreventOriginal();
+            _sessionBlockedMessages += 1;
             return;
         }
 

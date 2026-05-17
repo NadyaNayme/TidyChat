@@ -802,7 +802,7 @@ public static class Rules
         #region Emote
         new LocalizedFilterRule
         {
-            Name = "ShowUsedEmotes",
+            Name = "FilterEmoteChannel",
             SettingsTab = "Emotes",
             Channel = ChatType.StandardEmote,
             IsActive = true,
