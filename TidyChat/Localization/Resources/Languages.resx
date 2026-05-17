@@ -154,7 +154,7 @@
     <value>Filter Gathering channels</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-    <value>This filter includes "you begin/finish" gathering messages, as well as location affects</value>
+    <value>When enabled, gathering messages are hidden unless a specific option below allows them. When disabled, all gathering messages are shown regardless of the options below.</value>
   </data>
   <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
     <value>Emote Filters</value>

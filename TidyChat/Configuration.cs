@@ -226,7 +226,7 @@ public class Configuration : IPluginConfiguration
 
     #region Gathering
 
-    public bool FilterGatheringSpam { get; set; } = false;
+    public bool FilterGatheringSpam { get; set; } = true;
     public bool ShowGatheringSenses { get; set; } = true;
     public bool ShowAetherialReductionSands { get; set; } = true;
     public bool ShowLocationAffects { get; set; } = true;
