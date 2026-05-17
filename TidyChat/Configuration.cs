@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Dalamud.Configuration;
+﻿using Dalamud.Configuration;
 using Dalamud.Plugin;
-
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 namespace TidyChat;
 
 [Serializable]
@@ -40,9 +40,9 @@ public class Configuration : IPluginConfiguration
 
     public T? GetPropertyValue<T>(object obj, string propName)
     {
-        var prop = obj.GetType().GetProperty(propName);
+        PropertyInfo? prop = obj.GetType().GetProperty(propName);
         if (prop == null) return default;
-        return (T?)prop.GetValue(this, index: null);
+        return (T?)prop.GetValue(this, null);
     }
 
     public void Save()

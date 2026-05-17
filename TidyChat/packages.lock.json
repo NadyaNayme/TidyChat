@@ -10,15 +10,15 @@
       },
       "DotNet.ReproducibleBuilds": {
         "type": "Direct",
-        "requested": "[1.2.39, )",
-        "resolved": "1.2.39",
-        "contentHash": "fcFN01tDTIQqDuTwr1jUQK/geofiwjG5DycJQOnC72i1SsLAk1ELe+apBOuZ11UMQG8YKFZG1FgvjZPbqHyatg=="
+        "requested": "[2.0.2, )",
+        "resolved": "2.0.2",
+        "contentHash": "VaHoEN6YHp0jXucxm67vfuRy8zo9ufiKSuaZ4ZudRi8xmWcEFMKxfCsg2nvYNvdISFTURDu+IHqADGh53+Bamw=="
       },
       "Meziantou.Analyzer": {
         "type": "Direct",
-        "requested": "[2.0.161, )",
-        "resolved": "2.0.161",
-        "contentHash": "UiHpQz4A1u0pKVPT6JbzA0/k/H8QjTg/9y7OJr6AK/2A+SIAa5IZOrOgUoxBHJDEGdXS/hMFFf+uNrFfUSstNg=="
+        "requested": "[3.0.85, )",
+        "resolved": "3.0.85",
+        "contentHash": "GMTpPcWrTYxKu02P+/PoYsHbGO2/0u69UkpisTepd1Rwn3ToQrh2EorEXRsa0bW5ltX2LoOuryKKwQ4taxT8JA=="
       },
       "TextCopy": {
         "type": "Direct",

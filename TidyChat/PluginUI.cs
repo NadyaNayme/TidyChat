@@ -1,7 +1,7 @@
-﻿using System;
-using System.Numerics;
-using Dalamud.Interface.Utility;
+﻿using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
+using System;
+using System.Numerics;
 using TidyChat.Localization.Resources;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
@@ -18,7 +18,7 @@ internal class PluginUI : Window, IDisposable
         Size = new Vector2(600, 450);
         SizeCondition = ImGuiCond.FirstUseEver;
     }
-    
+
     public void Dispose()
     {
         // Have around in case we need it
@@ -28,7 +28,7 @@ internal class PluginUI : Window, IDisposable
     {
         if (!ImGui.BeginTabBar("##tidychatConfigTabs"))
             return;
-        
+
         float width = ImGui.CalcTextSize(TidyStrings.Version).X + (20.0f * ImGuiHelpers.GlobalScale);
         ImGui.SameLine(ImGui.GetWindowWidth() - width);
         Vector4 ColorGray = new(0.45f, 0.45f, 0.45f, 1);
