@@ -28,7 +28,7 @@ public static class TabFooter
             if (ImGui.Button(Languages.SettingsTabFooter_SupportOnKofiButtonText))
                 Process.Start(new ProcessStartInfo
                 {
-                    FileName = "https://ko-fi.com/nadyanayme",
+                    FileName = "https://ko-fi.com/kagekazu",
                     UseShellExecute = true,
                 });
 
