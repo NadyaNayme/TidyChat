@@ -19,10 +19,10 @@ internal static class BetterStrings
     {
         // With the chat mode in Say, enter a phrase containing "Capture this"
 
-        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
-        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
-        var lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
-        var containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
+        int containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
+        int containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
+        int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
+        string containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
         if (configuration.CopyBetterSayReminder)
         {
             var stringBuilder = new SeStringBuilder();
@@ -40,8 +40,8 @@ internal static class BetterStrings
         try
         {
             // This will return the instance value: 0,1,2,3,4,5,6
-            var InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
-            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
+            int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
             stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceCharacter}");
@@ -95,7 +95,7 @@ internal static class BetterStrings
 
     public static SeString TreasureDungeon(Configuration configuration)
     {
-        var chamber = TidyStrings.LastTreasureDungeonChamber;
+        string chamber = TidyStrings.LastTreasureDungeonChamber;
         var stringBuilder = new SeStringBuilder();
         if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
         stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));

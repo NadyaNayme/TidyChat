@@ -25,11 +25,11 @@ internal static class NormalizeInput
     public static string ReplaceName(string normalizedInput, Configuration configuration)
     {
         // I do not claim to be a smart man, but I do like to dabble in the dark magics.
-        var FirstNameLastInitial =
+        string FirstNameLastInitial =
             $"{configuration.PlayerName.Split(' ')[0]} {configuration.PlayerName.Split(' ')[1][0]}.";
-        var FirstInitialLastName =
+        string FirstInitialLastName =
             $"{configuration.PlayerName.Split(' ')[0][0]}. {configuration.PlayerName.Split(' ')[1]}";
-        var InitialsOnly = $"{configuration.PlayerName.Split(' ')[0][0]}. {configuration.PlayerName.Split(' ')[1][0]}.";
+        string InitialsOnly = $"{configuration.PlayerName.Split(' ')[0][0]}. {configuration.PlayerName.Split(' ')[1][0]}.";
         Regex FNLI = new(@"(^|\s)" + FirstNameLastInitial.ToLower(CultureInfo.CurrentCulture) + @"(\s|$)", regexOptions, regexTimeout);
         Regex FILN = new(@"(^|\s)" + FirstInitialLastName.ToLower(CultureInfo.CurrentCulture) + @"(\s|$)", regexOptions, regexTimeout);
         Regex IO = new(@"(^|\s)" + InitialsOnly.ToLower(CultureInfo.CurrentCulture) + @"(\s|$)", regexOptions, regexTimeout);

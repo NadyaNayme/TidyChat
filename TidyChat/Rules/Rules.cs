@@ -1304,7 +1304,7 @@ public static class Rules
         foreach(LocalizedFilterRule rule in _rules)
         {
             if (rule.LogMessageIds is null) continue;
-            foreach(var id in rule.LogMessageIds)
+            foreach(uint id in rule.LogMessageIds)
             {
                 if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
                 {

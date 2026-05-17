@@ -6,7 +6,7 @@ internal static class EmotesTab
 {
     public static void Draw(Configuration configuration)
     {
-        var filterEmoteSpam = configuration.FilterEmoteChannel;
+        bool filterEmoteSpam = configuration.FilterEmoteChannel;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
         {
             configuration.FilterEmoteChannel = filterEmoteSpam;
@@ -15,7 +15,7 @@ internal static class EmotesTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
 
-        var filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
+        bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
         if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
         {
             configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
@@ -24,7 +24,7 @@ internal static class EmotesTab
 
         ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
-        var showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
+        bool showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))
         {
             configuration.ShowSelfUsedEmotes = showSelfUsedEmotes;

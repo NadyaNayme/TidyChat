@@ -12,14 +12,14 @@ internal static class WhitelistTab
 
     public static void Draw(Configuration configuration)
     {
-        var sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
+        bool sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
         {
             configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
             configuration.Save();
         }
 
-        var targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
+        bool targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer,
                 ref targetingWhitelistPlayer))
         {
@@ -43,7 +43,7 @@ internal static class WhitelistTab
         ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
         ImGui.TableHeadersRow();
         var list = configuration.Whitelist.ToList();
-        for (var i = -1; i < list.Count; i++)
+        for (int i = -1; i < list.Count; i++)
         {
             PlayerName alias = i < 0 ? m_placeholder : list[i];
 
@@ -122,7 +122,7 @@ internal static class WhitelistTab
             }
             else
             {
-                var previewValue = "";
+                string? previewValue = "";
                 if (alias.AllowMessage)
                     previewValue = Languages.WhitelistTab_Allow;
                 else

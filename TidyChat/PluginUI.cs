@@ -29,7 +29,7 @@ internal class PluginUI : Window, IDisposable
         if (!ImGui.BeginTabBar("##tidychatConfigTabs"))
             return;
 
-        var width = ImGui.CalcTextSize(TidyStrings.Version).X + (20.0f * ImGuiHelpers.GlobalScale);
+        float width = ImGui.CalcTextSize(TidyStrings.Version).X + (20.0f * ImGuiHelpers.GlobalScale);
         ImGui.SameLine(ImGui.GetWindowWidth() - width);
         Vector4 ColorGray = new(0.45f, 0.45f, 0.45f, 1);
         ImGui.TextColored(ColorGray, TidyStrings.Version);

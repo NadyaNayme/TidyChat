@@ -8,7 +8,7 @@ internal static class ChatHistoryTab
 {
     public static void Draw(Configuration configuration)
     {
-        var chatHistoryFilter = configuration.ChatHistoryFilter;
+        bool chatHistoryFilter = configuration.ChatHistoryFilter;
         if (ImGui.Checkbox(Languages.ChatHistoryTab_EnableChatHistoryFilter, ref chatHistoryFilter))
         {
             configuration.ChatHistoryFilter = chatHistoryFilter;
@@ -18,7 +18,7 @@ internal static class ChatHistoryTab
         ImGuiComponents.HelpMarker(helpText: string.Format(CultureInfo.CurrentCulture, Languages.ChatHistoryTab_EnableChatHistoryFilterHelpMarker,
             configuration.ChatHistoryLength.ToString(CultureInfo.CurrentCulture), StringComparison.Ordinal));
 
-        var disableSelfChatHistory = configuration.DisableSelfChatHistory;
+        bool disableSelfChatHistory = configuration.DisableSelfChatHistory;
         if (ImGui.Checkbox(Languages.ChatHistoryTab_IgnoreMessagesSentByPlayer, ref disableSelfChatHistory))
         {
             configuration.DisableSelfChatHistory = disableSelfChatHistory;
@@ -27,7 +27,7 @@ internal static class ChatHistoryTab
 
         ImGuiComponents.HelpMarker(Languages.ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker);
 
-        var chatHistoryLength = configuration.ChatHistoryLength;
+        int chatHistoryLength = configuration.ChatHistoryLength;
         ImGui.SetNextItemWidth(120f);
         if (ImGui.InputInt(Languages.ChatHistoryTab_LengthOfChatHistory, ref chatHistoryLength))
         {
@@ -37,7 +37,7 @@ internal static class ChatHistoryTab
 
         ImGui.TextUnformatted(Languages.ChatHistoryTab_LengthOfChatHistoryWarningMessage);
 
-        var chatHistoryTimer = configuration.ChatHistoryTimer;
+        int chatHistoryTimer = configuration.ChatHistoryTimer;
         ImGui.SetNextItemWidth(120f);
         if (ImGui.InputInt(Languages.ChatHistoryTab_ChatHistoryTimer, ref chatHistoryTimer))
         {
@@ -51,7 +51,7 @@ internal static class ChatHistoryTab
 
         #region Channels
 
-        var chatHistoryChannels = configuration.ChatHistoryChannels;
+        int chatHistoryChannels = configuration.ChatHistoryChannels;
         ImGui.TextUnformatted(Languages.ChatHistoryTab_SelectChannels);
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_EmotesChannel, ref chatHistoryChannels, 1 << 1))
         {

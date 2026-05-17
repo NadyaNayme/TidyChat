@@ -6,7 +6,7 @@ internal static class SystemTab
 {
     public static void Draw(Configuration configuration)
     {
-        var enableInverseMode = configuration.EnableInverseMode;
+        bool enableInverseMode = configuration.EnableInverseMode;
         if (enableInverseMode)
         {
             if (ImGui.Checkbox(Languages.SystemTab_ExperimentalFeatureInverseMode, ref enableInverseMode))
@@ -23,7 +23,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_HideShownDefaultDropdownHeader))
         {
-            var instanceMessage = configuration.ShowInstanceMessage;
+            bool instanceMessage = configuration.ShowInstanceMessage;
             if (ImGui.Checkbox(Languages.SystemTab_HideInstanceMessage, ref instanceMessage))
             {
                 configuration.ShowInstanceMessage = instanceMessage;
@@ -32,7 +32,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideInstanceMessageHelpMarker);
 
-            var sRankHunt = configuration.ShowSRankHunt;
+            bool sRankHunt = configuration.ShowSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
             {
                 configuration.ShowSRankHunt = sRankHunt;
@@ -41,7 +41,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSRankSpawnAnnouncementHelpMarker);
 
-            var ssRankHunt = configuration.ShowSSRankHunt;
+            bool ssRankHunt = configuration.ShowSSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_HideSSRankMinionSpawnAnnouncement, ref ssRankHunt))
             {
                 configuration.ShowSSRankHunt = ssRankHunt;
@@ -50,7 +50,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker);
 
-            var commendations = configuration.ShowCommendations;
+            bool commendations = configuration.ShowCommendations;
             if (ImGui.Checkbox(Languages.SystemTab_HideReceivedCommendations, ref commendations))
             {
                 configuration.ShowCommendations = commendations;
@@ -59,7 +59,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideReceivedCommendationsHelpMarker);
 
-            var completedVenture = configuration.ShowCompletedVenture;
+            bool completedVenture = configuration.ShowCompletedVenture;
             if (ImGui.Checkbox(Languages.SystemTab_HideCompletedVenture, ref completedVenture))
             {
                 configuration.ShowCompletedVenture = completedVenture;
@@ -68,7 +68,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideCompletedVentureHelpMarker);
 
-            var showQuestReminder = configuration.ShowQuestReminder;
+            bool showQuestReminder = configuration.ShowQuestReminder;
             if (ImGui.Checkbox(Languages.SystemTab_HideSayReminder, ref showQuestReminder))
             {
                 configuration.ShowQuestReminder = showQuestReminder;
@@ -77,7 +77,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSayReminderHelpMarker);
 
-            var showSpideySenses = configuration.ShowSpideySenses;
+            bool showSpideySenses = configuration.ShowSpideySenses;
             if (ImGui.Checkbox(Languages.SystemTab_HideYouSenseSomethingMessages, ref showSpideySenses))
             {
                 configuration.ShowSpideySenses = showSpideySenses;
@@ -86,7 +86,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideYouSenseSomethingMessagesHelpMarker);
 
-            var showAetherCompass = configuration.ShowAetherCompass;
+            bool showAetherCompass = configuration.ShowAetherCompass;
             if (ImGui.Checkbox(Languages.SystemTab_HideAetherCompassMessages, ref showAetherCompass))
             {
                 configuration.ShowAetherCompass = showAetherCompass;
@@ -95,7 +95,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideAetherCompassMessagesHelpMarker);
 
-            var showCountdownTime = configuration.ShowCountdownTime;
+            bool showCountdownTime = configuration.ShowCountdownTime;
             if (ImGui.Checkbox(Languages.SystemTab_HideCountdownMessages, ref showCountdownTime))
             {
                 configuration.ShowCountdownTime = showCountdownTime;
@@ -104,7 +104,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideCountdownMessagesHelpMarker);
 
-            var showReadyChecks = configuration.ShowReadyChecks;
+            bool showReadyChecks = configuration.ShowReadyChecks;
             if (ImGui.Checkbox(Languages.SystemTab_HideReadycheckMessages, ref showReadyChecks))
             {
                 configuration.ShowReadyChecks = showReadyChecks;
@@ -113,7 +113,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideReadycheckMessagesHelpMarker);
 
-            var showSearchForItemResults = configuration.ShowSearchForItemResults;
+            bool showSearchForItemResults = configuration.ShowSearchForItemResults;
             if (ImGui.Checkbox(Languages.SystemTab_HideItemSearchResultsMessage, ref showSearchForItemResults))
             {
                 configuration.ShowSearchForItemResults = showSearchForItemResults;
@@ -122,7 +122,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideItemSearchResultsMessageHelpMarker);
 
-            var showVistaMessages = configuration.ShowVistaMessages;
+            bool showVistaMessages = configuration.ShowVistaMessages;
             if (ImGui.Checkbox(Languages.SystemTab_HideVistaMessages, ref showVistaMessages))
             {
                 configuration.ShowVistaMessages = showVistaMessages;
@@ -131,7 +131,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideVistaMessagesHelpMarker);
 
-            var showTryOnGlamour = configuration.ShowTryOnGlamour;
+            bool showTryOnGlamour = configuration.ShowTryOnGlamour;
             if (ImGui.Checkbox(Languages.SystemTab_HideTryOnGlamourMessages, ref showTryOnGlamour))
             {
                 configuration.ShowTryOnGlamour = showTryOnGlamour;
@@ -140,28 +140,28 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideTryOnGlamourMessagesHelpMarker);
 
-            var showPersonalMessageBook = configuration.ShowPersonalMessageBook;
+            bool showPersonalMessageBook = configuration.ShowPersonalMessageBook;
             if (ImGui.Checkbox(Languages.SystemTab_HidePersonalMessageBookMessages, ref showPersonalMessageBook))
             {
                 configuration.ShowPersonalMessageBook = showPersonalMessageBook;
                 configuration.Save();
             }
 
-            var showSpiritboundGear = configuration.ShowSpiritboundGear;
+            bool showSpiritboundGear = configuration.ShowSpiritboundGear;
             if (ImGui.Checkbox(Languages.SystemTab_HideSpiritboundMessages, ref showSpiritboundGear))
             {
                 configuration.ShowSpiritboundGear = showSpiritboundGear;
                 configuration.Save();
             }
 
-            var showEligibleForCoffers = configuration.ShowEligibleForCoffers;
+            bool showEligibleForCoffers = configuration.ShowEligibleForCoffers;
             if (ImGui.Checkbox(Languages.SystemTab_HideNumberOfCoffers, ref showEligibleForCoffers))
             {
                 configuration.ShowEligibleForCoffers = showEligibleForCoffers;
                 configuration.Save();
             }
 
-            var showAetheryteTicket = configuration.ShowAetheryteTicket;
+            bool showAetheryteTicket = configuration.ShowAetheryteTicket;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAetheryteTicketMessage, ref showAetheryteTicket))
             {
                 configuration.ShowAetheryteTicket = showAetheryteTicket;
@@ -173,7 +173,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ShowHiddenMessagesDropdownHeader))
         {
-            var showOnlineStatus = configuration.ShowOnlineStatus;
+            bool showOnlineStatus = configuration.ShowOnlineStatus;
             if (ImGui.Checkbox(Languages.SystemTab_ShowOnlineStatusMessages, ref showOnlineStatus))
             {
                 configuration.ShowOnlineStatus = showOnlineStatus;
@@ -182,7 +182,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowOnlineStatusMessagesHelpMarker);
 
-            var showAttachToMail = configuration.ShowAttachToMail;
+            bool showAttachToMail = configuration.ShowAttachToMail;
             if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
             {
                 configuration.ShowAttachToMail = showAttachToMail;
@@ -191,7 +191,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
 
-            var showRelicBookStep = configuration.ShowRelicBookStep;
+            bool showRelicBookStep = configuration.ShowRelicBookStep;
             if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
             {
                 configuration.ShowRelicBookStep = showRelicBookStep;
@@ -200,7 +200,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowARRRelicProgressMessagesHelpMarker);
 
-            var showRelicBookComplete = configuration.ShowRelicBookComplete;
+            bool showRelicBookComplete = configuration.ShowRelicBookComplete;
             if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
             {
                 configuration.ShowRelicBookComplete = showRelicBookComplete;
@@ -209,7 +209,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowARRRelicBookStepMessagesHelpMarker);
 
-            var showHuntSlain = configuration.ShowHuntSlain;
+            bool showHuntSlain = configuration.ShowHuntSlain;
             if (ImGui.Checkbox(Languages.SystemTab_ShowHuntMarkSlainMessages, ref showHuntSlain))
             {
                 configuration.ShowHuntSlain = showHuntSlain;
@@ -218,7 +218,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowHuntMarkSlainMessagesHelpMarker);
 
-            var showCompletionTime = configuration.ShowCompletionTime;
+            bool showCompletionTime = configuration.ShowCompletionTime;
             if (ImGui.Checkbox(Languages.SystemTab_ShowCompletionTimeForUnrestrictedParty, ref showCompletionTime))
             {
                 configuration.ShowCompletionTime = showCompletionTime;
@@ -227,7 +227,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker);
 
-            var showVolumeControlMessage = configuration.ShowVolumeControlMessage;
+            bool showVolumeControlMessage = configuration.ShowVolumeControlMessage;
             if (ImGui.Checkbox(Languages.SystemTab_ShowVolumeControlMessages, ref showVolumeControlMessage))
             {
                 configuration.ShowVolumeControlMessage = showVolumeControlMessage;
@@ -236,7 +236,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowVolumeControlMessagesHelpMarker);
 
-            var showGearsetEquipped = configuration.ShowGearsetEquipped;
+            bool showGearsetEquipped = configuration.ShowGearsetEquipped;
             if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
             {
                 configuration.ShowGearsetEquipped = showGearsetEquipped;
@@ -245,7 +245,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
 
-            var showNowLeaderOf = configuration.ShowNowLeaderOf;
+            bool showNowLeaderOf = configuration.ShowNowLeaderOf;
             if (ImGui.Checkbox(Languages.SystemTab_ShowNowALeader, ref showNowLeaderOf))
             {
                 configuration.ShowNowLeaderOf = showNowLeaderOf;
@@ -254,7 +254,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowNowALeaderHelpMarker);
 
-            var showSealedOff = configuration.ShowSealedOff;
+            bool showSealedOff = configuration.ShowSealedOff;
             if (ImGui.Checkbox(Languages.SystemTab_ShowSealedOffMessages, ref showSealedOff))
             {
                 configuration.ShowSealedOff = showSealedOff;
@@ -263,7 +263,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowSealedOffMessagesHelpMarker);
 
-            var showEverythingElse = configuration.ShowEverythingElse;
+            bool showEverythingElse = configuration.ShowEverythingElse;
             if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
             {
                 configuration.ShowEverythingElse = showEverythingElse;
@@ -275,21 +275,21 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_FreeCompanyDropdownHeader))
         {
-            var showUserLogins = configuration.ShowUserLogins;
+            bool showUserLogins = configuration.ShowUserLogins;
             if (ImGui.Checkbox(Languages.SystemTab_HideLoginMessages, ref showUserLogins))
             {
                 configuration.ShowUserLogins = showUserLogins;
                 configuration.Save();
             }
 
-            var showUserLogouts = configuration.ShowUserLogouts;
+            bool showUserLogouts = configuration.ShowUserLogouts;
             if (ImGui.Checkbox(Languages.SystemTab_HideLogoutMessages, ref showUserLogouts))
             {
                 configuration.ShowUserLogouts = showUserLogouts;
                 configuration.Save();
             }
 
-            var showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
+            bool showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
             if (ImGui.Checkbox(Languages.SystemTab_HideFreeCompanyMessageBookMessages,
                     ref showFreeCompanyMessageBook))
             {
@@ -297,7 +297,7 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
+            bool showExploratoryVoyage = configuration.ShowExploratoryVoyage;
             if (ImGui.Checkbox(Languages.SystemTab_HideAirshipVoyageMessages, ref showExploratoryVoyage))
             {
                 configuration.ShowExploratoryVoyage = showExploratoryVoyage;
@@ -306,7 +306,7 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideAirshipVoyageMessagesHelpMarker);
 
-            var showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
+            bool showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
             if (ImGui.Checkbox(Languages.SystemTab_HideSubmarineVoyageMessages, ref showSubaquaticVoyage))
             {
                 configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
@@ -318,56 +318,56 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_POTDHoHDropdownHeader))
         {
-            var showObtainedPomander = configuration.ShowObtainedPomander;
+            bool showObtainedPomander = configuration.ShowObtainedPomander;
             if (ImGui.Checkbox(Languages.SystemTab_ShowObtainedPomanderMessages, ref showObtainedPomander))
             {
                 configuration.ShowObtainedPomander = showObtainedPomander;
                 configuration.Save();
             }
 
-            var showReturnedPomander = configuration.ShowReturnedPomander;
+            bool showReturnedPomander = configuration.ShowReturnedPomander;
             if (ImGui.Checkbox(Languages.SystemTab_ShowReturnedPomanderMessages, ref showReturnedPomander))
             {
                 configuration.ShowReturnedPomander = showReturnedPomander;
                 configuration.Save();
             }
 
-            var showCairnGlows = configuration.ShowCairnGlows;
+            bool showCairnGlows = configuration.ShowCairnGlows;
             if (ImGui.Checkbox(Languages.SystemTab_ShowCairnOfPassageGlowsMessages, ref showCairnGlows))
             {
                 configuration.ShowCairnGlows = showCairnGlows;
                 configuration.Save();
             }
 
-            var showRestoresLifeToFallen = configuration.ShowRestoresLifeToFallen;
+            bool showRestoresLifeToFallen = configuration.ShowRestoresLifeToFallen;
             if (ImGui.Checkbox(Languages.SystemTab_ShowCairnOfReturnUsedMessages, ref showRestoresLifeToFallen))
             {
                 configuration.ShowRestoresLifeToFallen = showRestoresLifeToFallen;
                 configuration.Save();
             }
 
-            var showCairnActivates = configuration.ShowCairnActivates;
+            bool showCairnActivates = configuration.ShowCairnActivates;
             if (ImGui.Checkbox(Languages.SystemTab_ShowCairnOfPassageActivatedMessages, ref showCairnActivates))
             {
                 configuration.ShowCairnActivates = showCairnActivates;
                 configuration.Save();
             }
 
-            var showTransference = configuration.ShowTransference;
+            bool showTransference = configuration.ShowTransference;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTransferenceMessages, ref showTransference))
             {
                 configuration.ShowTransference = showTransference;
                 configuration.Save();
             }
 
-            var showAetherpoolIncrease = configuration.ShowAetherpoolIncrease;
+            bool showAetherpoolIncrease = configuration.ShowAetherpoolIncrease;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAetherpoolIncreasesMessages, ref showAetherpoolIncrease))
             {
                 configuration.ShowAetherpoolIncrease = showAetherpoolIncrease;
                 configuration.Save();
             }
 
-            var showAetherpoolUnchanged = configuration.ShowAetherpoolUnchanged;
+            bool showAetherpoolUnchanged = configuration.ShowAetherpoolUnchanged;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAetherpoolRemainsUnchangedMessages,
                     ref showAetherpoolUnchanged))
             {
@@ -375,35 +375,35 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            var showPomanderOfSafety = configuration.ShowPomanderOfSafety;
+            bool showPomanderOfSafety = configuration.ShowPomanderOfSafety;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfSafetyUsedMessages, ref showPomanderOfSafety))
             {
                 configuration.ShowPomanderOfSafety = showPomanderOfSafety;
                 configuration.Save();
             }
 
-            var showPomanderOfSight = configuration.ShowPomanderOfSight;
+            bool showPomanderOfSight = configuration.ShowPomanderOfSight;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfSightUsedMessages, ref showPomanderOfSight))
             {
                 configuration.ShowPomanderOfSight = showPomanderOfSight;
                 configuration.Save();
             }
 
-            var showPomanderOfAffluence = configuration.ShowPomanderOfAffluence;
+            bool showPomanderOfAffluence = configuration.ShowPomanderOfAffluence;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfAffluenceUsedMessages, ref showPomanderOfAffluence))
             {
                 configuration.ShowPomanderOfAffluence = showPomanderOfAffluence;
                 configuration.Save();
             }
 
-            var showPomanderOfFlight = configuration.ShowPomanderOfFlight;
+            bool showPomanderOfFlight = configuration.ShowPomanderOfFlight;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfFlightUsedMessages, ref showPomanderOfFlight))
             {
                 configuration.ShowPomanderOfFlight = showPomanderOfFlight;
                 configuration.Save();
             }
 
-            var showPomanderOfAlteration = configuration.ShowPomanderOfAlteration;
+            bool showPomanderOfAlteration = configuration.ShowPomanderOfAlteration;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfAlterationUsedMessages,
                     ref showPomanderOfAlteration))
             {
@@ -411,35 +411,35 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            var showPomanderOfWitching = configuration.ShowPomanderOfWitching;
+            bool showPomanderOfWitching = configuration.ShowPomanderOfWitching;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfWitchingUsedMessages, ref showPomanderOfWitching))
             {
                 configuration.ShowPomanderOfWitching = showPomanderOfWitching;
                 configuration.Save();
             }
 
-            var showPomanderOfSerenity = configuration.ShowPomanderOfSerenity;
+            bool showPomanderOfSerenity = configuration.ShowPomanderOfSerenity;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfSerenityUsedMessages, ref showPomanderOfSerenity))
             {
                 configuration.ShowPomanderOfSerenity = showPomanderOfSerenity;
                 configuration.Save();
             }
 
-            var showFloorNumber = configuration.ShowFloorNumber;
+            bool showFloorNumber = configuration.ShowFloorNumber;
             if (ImGui.Checkbox(Languages.SystemTab_ShowFloorNumberMessages, ref showFloorNumber))
             {
                 configuration.ShowFloorNumber = showFloorNumber;
                 configuration.Save();
             }
 
-            var showSenseAccursedHoard = configuration.ShowSenseAccursedHoard;
+            bool showSenseAccursedHoard = configuration.ShowSenseAccursedHoard;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAccursedHoardSensedMessages, ref showSenseAccursedHoard))
             {
                 configuration.ShowSenseAccursedHoard = showSenseAccursedHoard;
                 configuration.Save();
             }
 
-            var showDoNotSenseAccursedHoard = configuration.ShowDoNotSenseAccursedHoard;
+            bool showDoNotSenseAccursedHoard = configuration.ShowDoNotSenseAccursedHoard;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAccursedHoardNotSensedMessages,
                     ref showDoNotSenseAccursedHoard))
             {
@@ -447,7 +447,7 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            var showDiscoverAccursedHoard = configuration.ShowDiscoverAccursedHoard;
+            bool showDiscoverAccursedHoard = configuration.ShowDiscoverAccursedHoard;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAccursedHoardDiscoveredMessages,
                     ref showDiscoverAccursedHoard))
             {
@@ -458,28 +458,28 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_PartyAndInviteDropdownHeader))
         {
-            var showInviteSent = configuration.ShowInviteSent;
+            bool showInviteSent = configuration.ShowInviteSent;
             if (ImGui.Checkbox(Languages.SystemTab_ShowSentPartyInviteMessages, ref showInviteSent))
             {
                 configuration.ShowInviteSent = showInviteSent;
                 configuration.Save();
             }
 
-            var showInviteeJoins = configuration.ShowInviteeJoins;
+            bool showInviteeJoins = configuration.ShowInviteeJoins;
             if (ImGui.Checkbox(Languages.SystemTab_ShowJoiningPartyMessages, ref showInviteeJoins))
             {
                 configuration.ShowInviteeJoins = showInviteeJoins;
                 configuration.Save();
             }
 
-            var showLeftParty = configuration.ShowLeftParty;
+            bool showLeftParty = configuration.ShowLeftParty;
             if (ImGui.Checkbox(Languages.SystemTab_ShowLeftPartyMessages, ref showLeftParty))
             {
                 configuration.ShowLeftParty = showLeftParty;
                 configuration.Save();
             }
 
-            var showPartyDisband = configuration.ShowPartyDisband;
+            bool showPartyDisband = configuration.ShowPartyDisband;
             if (ImGui.Checkbox(Languages.SystemTab_ShowDisbandAndDissolveMessages, ref showPartyDisband))
             {
                 configuration.ShowPartyDisband = showPartyDisband;
@@ -487,28 +487,28 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            var showInvitedBy = configuration.ShowInvitedBy;
+            bool showInvitedBy = configuration.ShowInvitedBy;
             if (ImGui.Checkbox(Languages.SystemTab_ShowReceivedPartyInvitationMessages, ref showInvitedBy))
             {
                 configuration.ShowInvitedBy = showInvitedBy;
                 configuration.Save();
             }
 
-            var showJoinParty = configuration.ShowJoinParty;
+            bool showJoinParty = configuration.ShowJoinParty;
             if (ImGui.Checkbox(Languages.SystemTab_ShowJoinedCrossworldPartyMessages, ref showJoinParty))
             {
                 configuration.ShowJoinParty = showJoinParty;
                 configuration.Save();
             }
 
-            var showPartyInformation = configuration.ShowPartyInformation;
+            bool showPartyInformation = configuration.ShowPartyInformation;
             if (ImGui.Checkbox(Languages.ShowPartyObjectiveAndPartyCommentWhenJoiningAParty, ref showPartyInformation))
             {
                 configuration.ShowPartyInformation = showPartyInformation;
                 configuration.Save();
             }
 
-            var showOfferedTeleport = configuration.ShowOfferedTeleport;
+            bool showOfferedTeleport = configuration.ShowOfferedTeleport;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTeleportOfferFromPartyMessages, ref showOfferedTeleport))
             {
                 configuration.ShowOfferedTeleport = showOfferedTeleport;
@@ -518,21 +518,21 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_TradingDropdownHeader))
         {
-            var showTradeSent = configuration.ShowTradeSent;
+            bool showTradeSent = configuration.ShowTradeSent;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTradeRequestSentMessages, ref showTradeSent))
             {
                 configuration.ShowTradeSent = showTradeSent;
                 configuration.Save();
             }
 
-            var showTradeCanceled = configuration.ShowTradeCanceled;
+            bool showTradeCanceled = configuration.ShowTradeCanceled;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTradeCanceledMessages, ref showTradeCanceled))
             {
                 configuration.ShowTradeCanceled = showTradeCanceled;
                 configuration.Save();
             }
 
-            var showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
+            bool showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAwaitingTradeConfirmationMessages,
                     ref showAwaitingTradeConfirmation))
             {
@@ -540,7 +540,7 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            var showTradeComplete = configuration.ShowTradeComplete;
+            bool showTradeComplete = configuration.ShowTradeComplete;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTradeCompleteMessages, ref showTradeComplete))
             {
                 configuration.ShowTradeComplete = showTradeComplete;
@@ -551,7 +551,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_OrchestrionDropdownHeader))
         {
-            var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
+            bool hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
             if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
             {
                 configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
@@ -563,7 +563,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ErrorMessagesDropdownHeader))
         {
-            var hideFateLevelSync = configuration.HideFateLevelSync;
+            bool hideFateLevelSync = configuration.HideFateLevelSync;
             if (ImGui.Checkbox(Languages.SystemTab_HideFateLevelSyncMessages, ref hideFateLevelSync))
             {
                 configuration.HideFateLevelSync = hideFateLevelSync;

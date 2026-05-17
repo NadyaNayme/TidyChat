@@ -7,7 +7,7 @@ internal static class AdvancedTab
     {
         ImGui.Spacing();
         ImGui.Spacing();
-        var enableDebugMode = configuration.EnableDebugMode;
+        bool enableDebugMode = configuration.EnableDebugMode;
         if (ImGui.Checkbox(Languages.AdvancedTab_EnableDebugMode, ref enableDebugMode))
         {
             configuration.EnableDebugMode = enableDebugMode;
@@ -15,7 +15,7 @@ internal static class AdvancedTab
         }
 
         ImGui.Spacing();
-        var debugIncludeChannel = configuration.DebugIncludeChannel;
+        bool debugIncludeChannel = configuration.DebugIncludeChannel;
         if (ImGui.Checkbox(Languages.IncludeChannelTagInDryRunMode, ref debugIncludeChannel))
         {
             configuration.DebugIncludeChannel = debugIncludeChannel;
