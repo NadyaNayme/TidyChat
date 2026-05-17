@@ -38,14 +38,6 @@ public static class ChatStrings
         Fra = ["guilde", "allez", "quitter"]
     };
 
-    // With the chat mode in Say, enter a phrase containing "Some Words"
-    public static readonly LocalizedStrings SayQuestReminder = new()
-    {
-        Jpn = ["チャットの会話モードを"],
-        Eng = ["with", "the", "chat", "mode", "in"],
-        Deu = ["gib", "im", "virtuelle", "tastatur"],
-        Fra = ["en", "mode", "de", "discussion"]
-    };
     /// <see href="https://xivapi.com/LogMessage/659?pretty=true">You acquire \d PvP EXP.</see>
     public static readonly LocalizedStrings GainPvpExp = new()
     {
@@ -73,6 +65,15 @@ public static class ChatStrings
         Deu = ["du", "kannst", "keine", "wolfsmarken"],
         Fra = ["marques", "de", "loup"]
     };
+
+    // With the chat mode in Say, enter a phrase containing "Some Words"
+    public static readonly LocalizedStrings SayQuestReminder = new()
+    {
+        Jpn = ["チャットの会話モードを"],
+        Eng = ["with", "the", "chat", "mode", "in"],
+        Deu = ["gib", "im", "virtuelle", "tastatur"],
+        Fra = ["en", "mode", "de", "discussion"]
+    };
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">
     ///     Someone earns the achievement " Blah blah blah, Tidal
     ///     Wave!"
@@ -85,45 +86,6 @@ public static class ChatStrings
         Fra = ["avez", "accompli", "haut", "fait"] // a accompli le haut fait “ Élémentaliste légendaire”!,
     };
 
-    public static readonly LocalizedStrings YouSynthesize = new()
-    {
-        Jpn = ["you", "を完成させた！"],
-        Eng = ["you", "synthesize"], // You synthesize a/an <item>
-        Deu = ["NeedsLocalization"],
-        Fra = ["vous", "fabriquez"] // Vous fabriquez un <item>,
-    };
-    public static readonly LocalizedStrings InitiatedReadyCheck = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["initiated", "ready", "check"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    public static readonly LocalizedStrings YouAttainLevel = new()
-    {
-        Jpn = ["レベルアップ！", "you", "になった。"],
-        Eng = ["you", "level"], // You attain level <level>.
-        Deu = ["NeedsLocalization"],
-        Fra = ["vous", "niveau"] // Vous atteignez le niveau <level>!,
-    };
-
-    public static readonly LocalizedStrings OtherAttainsLevel = new()
-    {
-        // BUG: this won't match abbreviated player names; need to be able to mix string and regexp
-        Jpn = ["レベルアップ！", " ", "になった。"],
-        Eng = ["attains", "level"], // <Player> attains level 33!
-        Deu = ["NeedsLocalization"],
-        Fra = ["atteint", "niveau"]
-    };
-
-    public static readonly LocalizedStrings YouLearnAbility = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "learn"], // You learn <ability>.
-        Deu = ["NeedsLocalization"],
-        Fra = ["vous", "apprenez"] // Vous apprenez <ability>.,
-    };
     public static readonly LocalizedStrings DebugTeleport = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -131,31 +93,6 @@ public static class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-    public static readonly LocalizedStrings OvermeldFailure = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng =
-        [
-            "you", "unable", "to", "attach", "the", "materia", "to"
-        ], // You are unable to attach the materia to the <item>. The <materia> was lost.
-        Deu = ["NeedsLocalization"],
-        Fra =
-        [
-            "sertissage", "vous", "avez", "perdu"
-        ] // Le sertissage de la  lorica d'hoplomachus classique a échoué... Vous avez perdu 2  matérias de la parade stratégique IX.
-    };
-
-    public static readonly LocalizedStrings MateriaExtract = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "successfully", "a", "from", "the"], // You succesfully extra a <materia> from the <item>
-        Deu = ["NeedsLocalization"],
-        Fra =
-        [
-            "vous", "matérialisez", "obtenez"
-        ] // Vous matérialisez un  couteau de cuisine en chondrite et obtenez une  matéria du contrôle IX.
-    };
-
     public static readonly LocalizedStrings LocationAffects = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -200,28 +137,6 @@ public static class ChatStrings
         ] // Les propriétés du lieu vous confèrent des tentatives de récolte supplémentaires!
     };
 
-    public static readonly LocalizedStrings GearsetEquipped = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["equipped", "glamours", "restored"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-    public static readonly LocalizedStrings InviteeJoins = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["joins", "the"], // Player joins the party.
-        Deu = ["NeedsLocalization"],
-        Fra = ["rejoint", "l'équipe"] // Player rejoint l'équipe.,
-    };
-    public static readonly LocalizedStrings InvitedBy = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["invites", "you", "to"], // <Player> invites you to a party.
-        Deu = ["NeedsLocalization"],
-        Fra = ["vous", "dans", "son", "équipe"] // <Player> vous invite dans son équipe.,
-    };
-
     public static readonly LocalizedStrings JoinParty = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -229,26 +144,6 @@ public static class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["vous", "rejoignez", "l'équipe"] // Vous rejoignez l'équipe de <Player>.,
     };
-    public static readonly LocalizedStrings LeftParty = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["has", "left"], // Player has left the party.
-        Deu = ["NeedsLocalization"],
-        Fra = ["quitté", "l'équipe"] // Player a quitté l'équipe.,
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/440?pretty=true">
-    ///     You have been offered a teleport to
-    ///     Aetheryte from Player.
-    /// </see>
-    public static readonly LocalizedStrings OfferedTeleport = new()
-    {
-        Jpn = ["へのテレポ勧誘を受けました"],
-        Eng = ["you", "have", "been", "offered", "a", "teleport", "to", "from"],
-        Deu = ["beitet", "einen", "teleport", "zielort"],
-        Fra = ["offre", "de", "vous", "téléporter", "destination"]
-    };
-
     // https://xivapi.com/LogMessage/4402?pretty=true
     public static readonly LocalizedStrings PalaceOfTheDead = new()
     {
@@ -283,20 +178,4 @@ public static class ChatStrings
         Fra = ["vous", "quitté", "réseau", "novices"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/4325?pretty=true">Desynthesis level increases by</see>
-    public static readonly LocalizedStrings DesynthesisLevel = new()
-    {
-        Jpn = ["ポイント上昇した"],
-        Eng = ["desynthesis", "skill", "increases"],
-        Deu = ["ist", "um", "gestiegen"],
-        Fra = ["recyclage", "augmente"]
-    };
-// You used Aetheryte Ticket (Remaining: ###).
-    public static readonly LocalizedStrings AetheryteTicket = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["aetheryte", "ticket"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
 }

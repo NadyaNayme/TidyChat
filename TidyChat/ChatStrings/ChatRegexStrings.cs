@@ -198,16 +198,6 @@ public static class ChatRegexStrings
         Fra = new(@"(vous|you) obtenez \d{1,3} Mémoquartz allagois (\w+)", regexOptions, regexTimeout)
     };
 
-    /// <see href="https://xivapi.com/LogMessage/700?pretty=true">Gearset equipped.</see>
-    // TODO: German/French need to be tested and may not use quotes for the gearsets.
-    public static readonly LocalizedRegex GearsetEquipped = new()
-    {
-        Jpn = new(@"」に装備変更しました。", regexOptions, regexTimeout),
-        Eng = new(@"^“(.*)” equipped", regexOptions, regexTimeout),
-        Deu = new(@"^(du|you) hast „(.*)“ angelegt\.", regexOptions, regexTimeout),
-        Fra = new(@"^(vous|you) vous équipez (.*)\.", regexOptions, regexTimeout)
-    };
-
     public static readonly LocalizedRegex AetherialReductionSands = new()
     {
         Jpn = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
@@ -286,27 +276,4 @@ public static class ChatRegexStrings
 
     #endregion Treasure Dungeons
 
-    #region Fishing / Lure
-
-    // eg. "You attempt to lure small-jawed fish to your hook."
-    //     "You make a second attempt to lure large-jawed fish to your hook."
-    public static readonly LocalizedRegex LureAttempt = new()
-    {
-        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Eng = new(@"lure .+(small|large)-jawed fish to your hook", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
-    };
-
-    // eg. "You have a feeling you've attracted a fish with a strong bite!"
-    //     "You have a feeling you've attracted a fish with a weak bite!"
-    public static readonly LocalizedRegex LureBite = new()
-    {
-        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Eng = new(@"^you have a feeling you've attracted a fish with a (strong|weak) bite", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
-    };
-
-    #endregion Fishing / Lure
 }
