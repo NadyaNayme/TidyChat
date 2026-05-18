@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Timers;
+using System.Threading;
 using ChatTwo.Code;
 using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Objects.SubKinds;
@@ -25,6 +25,7 @@ using TidyChat.Utility;
 using Better = TidyChat.Utility.BetterStrings;
 using Flags = TidyChat.Utility.ChatFlags;
 using TidyStrings = TidyChat.Utility.InternalStrings;
+using Timer = System.Timers.Timer;
 
 namespace TidyChat;
 
@@ -48,6 +49,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     ///     instead of silently suppressing them via PreventOriginal.
     /// </summary>
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
+    private readonly Lock _logMessageLock = new();
+    private readonly Lock _chatHistoryLock = new();
+    volatile private bool _setPlayerNamePending;
 
     #region Setup
 
@@ -114,7 +118,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
 
-    private Stack<string> ChatHistory { get; } = new();
+    private Queue<string> ChatHistory { get; } = new();
 
     public void Dispose()
     {
@@ -175,9 +179,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (!Configuration.Enabled || message.IsHandled) return;
 
-        // Update rule active states so the lookup reflects current config
-        Rules.UpdateIsActiveStates(Configuration);
-
         if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out IReadOnlyList<LocalizedFilterRule>? matchingRules))
         {
             // No rules registered for this ID — log it in debug mode for ID discovery.
@@ -212,9 +213,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     {
                         string text = message.FormatLogMessageForDebugging().ExtractText();
                         if (!string.IsNullOrEmpty(text))
-                            _blockedByLogMessage.Add(text);
+                            lock (_logMessageLock) { _blockedByLogMessage.Add(text); }
                     }
-                    catch { }
+                    catch
+                    {
+                        // ignored
+                    }
                     return;
                 }
                 message.PreventOriginal();
@@ -233,7 +237,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             string text = message.FormatLogMessageForDebugging().ExtractText();
             if (!string.IsNullOrEmpty(text))
-                _allowedByLogMessage.Add(text);
+                lock (_logMessageLock) { _allowedByLogMessage.Add(text); }
         }
         catch { /* Safe to ignore — worst case OnChat re-evaluates the message */ }
 
@@ -383,7 +387,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         #endregion
 
         // If OnLogMessage already decided to block this message, show it with [Blocked] in debug.
-        if (_blockedByLogMessage.Count > 0 && _blockedByLogMessage.Remove(rawTextValue))
+        bool wasBlockedByLog;
+        lock (_logMessageLock) { wasBlockedByLog = _blockedByLogMessage.Count > 0 && _blockedByLogMessage.Remove(rawTextValue); }
+        if (wasBlockedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
             {
@@ -394,7 +400,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // If OnLogMessage already decided to allow this message via an ID-based rule,
         // respect that decision and don't let OnChat's default-block logic override it.
-        if (_allowedByLogMessage.Count > 0 && _allowedByLogMessage.Remove(rawTextValue))
+        bool wasAllowedByLog;
+        lock (_logMessageLock) { wasAllowedByLog = _allowedByLogMessage.Count > 0 && _allowedByLogMessage.Remove(rawTextValue); }
+        if (wasAllowedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
             {
@@ -700,36 +708,43 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     if (Flags.CheckFlags(Configuration, chatType))
                     {
                         string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
-                        if (ChatHistory.Contains(currentMessage, StringComparer.Ordinal))
+                        lock (_chatHistoryLock)
                         {
-                            Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
-                            isHandled = true;
-                        }
-                        else if (ChatHistory.Count > Configuration.ChatHistoryLength)
-                        {
-                            Log.Verbose("Chat history reached limit. Removed oldest message and added:" +
-                                        currentMessage);
-                            ChatHistory.Pop();
-                            ChatHistory.Push(currentMessage);
-                        }
-                        else
-                        {
-                            Log.Verbose("Added:" + currentMessage);
-                            ChatHistory.Push(currentMessage);
-                            if (Configuration.ChatHistoryTimer > 0)
+                            if (ChatHistory.Contains(currentMessage))
                             {
-                                Timer t = new()
+                                Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
+                                isHandled = true;
+                            }
+                            else if (ChatHistory.Count >= Configuration.ChatHistoryLength)
+                            {
+                                Log.Verbose("Chat history reached limit. Removed oldest message and added:" +
+                                            currentMessage);
+                                ChatHistory.Dequeue(); // removes oldest (FIFO)
+                                ChatHistory.Enqueue(currentMessage);
+                            }
+                            else
+                            {
+                                Log.Verbose("Added:" + currentMessage);
+                                ChatHistory.Enqueue(currentMessage);
+                                if (Configuration.ChatHistoryTimer > 0)
                                 {
-                                    Interval = Configuration.ChatHistoryTimer * 1000,
-                                    AutoReset = false
-                                };
-                                t.Elapsed += delegate
-                                {
-                                    t.Enabled = false;
-                                    t.Dispose();
-                                    ChatHistory.Pop();
-                                };
-                                t.Enabled = true;
+                                    Timer t = new()
+                                    {
+                                        Interval = Configuration.ChatHistoryTimer * 1000,
+                                        AutoReset = false
+                                    };
+                                    t.Elapsed += delegate
+                                    {
+                                        t.Enabled = false;
+                                        t.Dispose();
+                                        lock (_chatHistoryLock)
+                                        {
+                                            if (ChatHistory.Count > 0)
+                                                ChatHistory.Dequeue();
+                                        }
+                                    };
+                                    t.Enabled = true;
+                                }
                             }
                         }
                     }
@@ -874,6 +889,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void SetPlayerName()
     {
+        if (_setPlayerNamePending) return;
         try
         {
             if ((ObjectTable[0] as IPlayerCharacter) == null) return;
@@ -885,6 +901,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         catch(Exception ex)
         {
             Log.Error("Error: Failed to capture player's name - trying again in 30 seconds" + ex);
+            _setPlayerNamePending = true;
             Timer t = new()
             {
                 Interval = 30000,
@@ -892,6 +909,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             };
             t.Elapsed += delegate
             {
+                _setPlayerNamePending = false;
                 t.Enabled = false;
                 t.Dispose();
                 SetPlayerName();
@@ -1109,7 +1127,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 string smolMessage = "";
                 foreach(int i in textPayload.Text)
                 {
-                    if (i is >= 65 and <= 91) smolMessage += (char)(i + 32);
+                    if (i is >= 65 and <= 90) smolMessage += (char)(i + 32); // 65='A', 90='Z' (91='[', not a letter)
                     else smolMessage += (char)i;
                 }
                 stringBuilder.AddText(smolMessage);

@@ -500,15 +500,6 @@ public static class Rules
         },
         new()
         {
-            Name = "ShowSecondChanceAward",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PartyMemberFirstClear],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
             Name = "ShowTradeComplete",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -740,7 +731,7 @@ public static class Rules
         new()
         {
             Name = "ShowMateriaExtract",
-            SettingsTab = "SysCraftingtem",
+            SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
             LogMessageIds = [1200]
@@ -1302,7 +1293,8 @@ public static class Rules
         #endregion
     ];
 
-    public static LocalizedFilterRule[] AllRules => [.. _rules];
+    private static readonly LocalizedFilterRule[] _allRulesCache = [.. _rules];
+    public static LocalizedFilterRule[] AllRules => _allRulesCache;
 
     /// <summary>
     ///     Lookup from LogMessageId → list of rules that match that ID.
