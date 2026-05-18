@@ -54,43 +54,44 @@ internal static class BetterStrings
         return "";
     }
 
-    /// <see href="https://xivapi.com/LogMessage/7027?pretty=true">You've joined the Novice Network</see>
-    /// <see href="https://xivapi.com/LogMessage/7030?pretty=true">You have left the Novice Network</see>
-    public static SeString NoviceNetwork(SeString originalMessage, string normalizedInput, Configuration configuration)
+    /// <summary>
+    ///     Builds the compact "You've joined the Novice Network." replacement message.
+    ///     Used by <c>OnLogMessage</c> after suppressing the original multi-line join LogMessage (ID 7027).
+    /// </summary>
+    public static SeString NoviceNetworkJoinMessage(Configuration configuration)
     {
-        if (L10N.Get(ChatStrings.NoviceNetworkJoin).All(normalizedInput.Contains))
+        SeString newMessage = L10N.Language switch
         {
-            SeString newMessage = L10N.Language switch
-            {
-                ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
-                ClientLanguage.English => "You've joined the Novice Network.",
-                ClientLanguage.German => "Du bist dem Neulings-Chat beigetreten.",
-                ClientLanguage.French => "Vous avez rejoint le réseau des novices.",
-                _ => "You've joined the Novice Network."
-            };
-            var stringBuilder = new SeStringBuilder();
-            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-            stringBuilder.AddText($"{newMessage}");
-            return stringBuilder.BuiltString;
-        }
+            ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
+            ClientLanguage.English => "You've joined the Novice Network.",
+            ClientLanguage.German => "Du bist dem Neulings-Chat beigetreten.",
+            ClientLanguage.French => "Vous avez rejoint le réseau des novices.",
+            _ => "You've joined the Novice Network."
+        };
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        stringBuilder.AddText($"{newMessage}");
+        return stringBuilder.BuiltString;
+    }
 
-        if (L10N.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
+    /// <summary>
+    ///     Builds the compact "You've left the Novice Network." replacement message.
+    ///     Used by <c>OnLogMessage</c> after suppressing the original leave LogMessage (ID 7030).
+    /// </summary>
+    public static SeString NoviceNetworkLeaveMessage(Configuration configuration)
+    {
+        SeString newMessage = L10N.Language switch
         {
-            SeString newMessage = L10N.Language switch
-            {
-                ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
-                ClientLanguage.English => "You've left the Novice Network.",
-                ClientLanguage.German => "Du hast den Neulings-Chat verlassen.",
-                ClientLanguage.French => "Vous avez quitté le réseau des novices.",
-                _ => "You've left the Novice Network."
-            };
-            var stringBuilder = new SeStringBuilder();
-            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-            stringBuilder.AddText($"{newMessage}");
-            return stringBuilder.BuiltString;
-        }
-
-        return originalMessage;
+            ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
+            ClientLanguage.English => "You've left the Novice Network.",
+            ClientLanguage.German => "Du hast den Neulings-Chat verlassen.",
+            ClientLanguage.French => "Vous avez quitté le réseau des novices.",
+            _ => "You've left the Novice Network."
+        };
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        stringBuilder.AddText($"{newMessage}");
+        return stringBuilder.BuiltString;
     }
 
     public static SeString TreasureDungeon(Configuration configuration)

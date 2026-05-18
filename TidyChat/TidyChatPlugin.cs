@@ -195,6 +195,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     Log.Debug($"[LogMessage] BLOCKED by {rule.Name} (ID: {message.LogMessageId})");
                 message.PreventOriginal();
                 _sessionBlockedMessages += 1;
+                // Print a compact replacement for the suppressed NN join/leave messages.
+                if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
+                    ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
+                else if (message.LogMessageId == 7030)
+                    ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
                 return;
             }
         }
@@ -292,13 +297,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         {
             message.Message = Better.SayReminder(message.Message, Configuration);
-            return;
-        }
-
-        if (Configuration.BetterNoviceNetworkMessage &&
-            (L10N.Get(ChatStrings.NoviceNetworkJoin).All(normalizedText.Contains) || L10N.Get(ChatStrings.NoviceNetworkLeft).All(normalizedText.Contains)))
-        {
-            message.Message = Better.NoviceNetwork(message.Message, normalizedText, Configuration);
             return;
         }
 
@@ -998,7 +996,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 ChatType.Yell or
                 ChatType.TellIncoming or
                 ChatType.PvpTeam or
-                ChatType.NoviceNetwork or
+            ChatType.NoviceNetwork or
+                ChatType.NoviceNetworkSystem or
                 ChatType.FreeCompany or
                 ChatType.PeriodicRecruitmentNotification or
                 ChatType.Party or

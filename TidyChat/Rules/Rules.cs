@@ -733,6 +733,40 @@ public static class Rules
             IsActive = true,
             LogMessageIds = [503, 535]
         },
+        // LogMessage 7025 = "You have joined the Novice Network." — a redundant single-line
+        // announcement that fires alongside 7027. Suppress it when the setting is on.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetwork,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7025]
+        },
+        // LogMessage 7027 = "You've joined the Novice Network." — fires via auto-join.
+        // LogMessage 7011 = "You've joined the Novice Network." — fires via "Change chat channel" button.
+        // Both are multi-line; suppressed in OnLogMessage with a compact replacement via ChatGui.Print.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetworkSystem,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7011, 7027]
+        },
+        // LogMessage 7030 = "You have left the Novice Network." — handled via OnLogMessage
+        // for consistency with 7025/7027, printing "You've left the Novice Network." as the replacement.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetworkSystem,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7030]
+        },
 
         #endregion
 

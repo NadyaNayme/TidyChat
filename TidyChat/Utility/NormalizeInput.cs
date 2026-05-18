@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Dalamud.Game.Text.SeStringHandling;
+using Lumina.Text.ReadOnly;
 namespace TidyChat.Utility;
 
 internal static class NormalizeInput
@@ -11,8 +12,24 @@ internal static class NormalizeInput
         RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture;
 
     private static readonly TimeSpan regexTimeout = TimeSpan.FromSeconds(1);
-    // Make everything lowercase so I don't have to think about which words are capitalized in the message
-    public static string ToLowercase(SeString message) => message.TextValue.ToLower(CultureInfo.CurrentCulture);
+
+    // Make everything lowercase so I don't have to think about which words are capitalized in the message.
+    // Uses Lumina's ReadOnlySeString.ExtractText() rather than SeString.TextValue so that text embedded
+    // inside link/expression payloads (e.g. channel-link payloads that encode "Novice Network" as a
+    // string-argument expression rather than a raw TextPayload) is also included in the result.
+    // Falls back to TextValue if encoding/extraction throws for any reason.
+    public static string ToLowercase(SeString message)
+    {
+        try
+        {
+            return new ReadOnlySeString(message.Encode()).ExtractText()
+                .ToLower(CultureInfo.CurrentCulture);
+        }
+        catch
+        {
+            return message.TextValue.ToLower(CultureInfo.CurrentCulture);
+        }
+    }
 
     /*
      * IMPORTANT:

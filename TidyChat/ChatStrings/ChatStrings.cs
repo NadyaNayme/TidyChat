@@ -161,21 +161,4 @@ public static class ChatStrings
         Deu = ["himmelssäule"],
         Fra = ["pilier", "des", "cieux"]
     };
-    /// <see href="https://xivapi.com/LogMessage/7027?pretty=true">You've joined the Novice Network</see>
-    public static readonly LocalizedStrings NoviceNetworkJoin = new()
-    {
-        Jpn = ["ビギナーチャンネルに参加しました"],
-        Eng = ["joined", "the", "novice", "network"],
-        Deu = ["bist", "neulings-chat", "beigetreten"],
-        Fra = ["vous", "rejoint", "réseau", "novices"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/7030?pretty=true">You have left the Novice Network</see>
-    public static readonly LocalizedStrings NoviceNetworkLeft = new()
-    {
-        Jpn = ["ビギナーチャンネルから退出しました"],
-        Eng = ["left", "the", "novice", "network"],
-        Deu = ["hast", "neulings-chat", "verlassen"],
-        Fra = ["vous", "quitté", "réseau", "novices"]
-    };
 }
