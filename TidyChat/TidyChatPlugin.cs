@@ -633,7 +633,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (chatType is ChatType.LootRoll && !isHandled &&
             Configuration.ShowOnlyPartyMemberRolls && PartyList.Length > 0)
         {
-            bool isPartyMember = PartyList.Any(member =>
+            // Player's own messages start with "you" after name normalization — always allow those.
+            bool isPlayerMessage = normalizedText.StartsWith("you ", StringComparison.Ordinal);
+            bool isPartyMember = isPlayerMessage || PartyList.Any(member =>
                 normalizedText.StartsWith(
                     member.Name.TextValue.ToLower(CultureInfo.InvariantCulture) + " ",
                     StringComparison.Ordinal));
