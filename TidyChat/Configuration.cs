@@ -145,20 +145,13 @@ public class Configuration : IPluginConfiguration
     #region PotD & HoH
 
     public bool ShowObtainedPomander { get; set; } = true;
-    public bool ShowReturnedPomander { get; set; } = false;
     public bool ShowCairnGlows { get; set; } = true;
     public bool ShowRestoresLifeToFallen { get; set; } = false;
     public bool ShowCairnActivates { get; set; } = true;
     public bool ShowTransference { get; set; } = false;
     public bool ShowAetherpoolIncrease { get; set; } = true;
     public bool ShowAetherpoolUnchanged { get; set; } = false;
-    public bool ShowPomanderOfSafety { get; set; } = true;
-    public bool ShowPomanderOfSight { get; set; } = true;
-    public bool ShowPomanderOfAffluence { get; set; } = true;
-    public bool ShowPomanderOfFlight { get; set; } = true;
-    public bool ShowPomanderOfAlteration { get; set; } = true;
-    public bool ShowPomanderOfWitching { get; set; } = true;
-    public bool ShowPomanderOfSerenity { get; set; } = true;
+    public bool ShowPomanderEffects { get; set; } = true;
     public bool ShowFloorNumber { get; set; } = true;
     public bool ShowSenseAccursedHoard { get; set; } = true;
     public bool ShowDoNotSenseAccursedHoard { get; set; } = false;

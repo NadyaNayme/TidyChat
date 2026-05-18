@@ -2509,65 +2509,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Affluence is used.
+        ///   Looks up a localized string similar to Show pomander effect messages.
         /// </summary>
-        internal static string SystemTab_ShowPomanderOfAffluenceUsedMessages {
+        internal static string SystemTab_ShowPomanderEffectsMessages {
             get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfAffluenceUsedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Alteration is used.
-        /// </summary>
-        internal static string SystemTab_ShowPomanderOfAlterationUsedMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfAlterationUsedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Flight is used.
-        /// </summary>
-        internal static string SystemTab_ShowPomanderOfFlightUsedMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfFlightUsedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Safety is used.
-        /// </summary>
-        internal static string SystemTab_ShowPomanderOfSafetyUsedMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfSafetyUsedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Serenity is used.
-        /// </summary>
-        internal static string SystemTab_ShowPomanderOfSerenityUsedMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfSerenityUsedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Sight is used.
-        /// </summary>
-        internal static string SystemTab_ShowPomanderOfSightUsedMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfSightUsedMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show when Pomander of Witching is used.
-        /// </summary>
-        internal static string SystemTab_ShowPomanderOfWitchingUsedMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowPomanderOfWitchingUsedMessages", resourceCulture);
+                return ResourceManager.GetString("SystemTab_ShowPomanderEffectsMessages", resourceCulture);
             }
         }
         

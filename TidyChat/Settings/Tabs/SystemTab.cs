@@ -318,20 +318,6 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_POTDHoHDropdownHeader))
         {
-            bool showObtainedPomander = configuration.ShowObtainedPomander;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowObtainedPomanderMessages, ref showObtainedPomander))
-            {
-                configuration.ShowObtainedPomander = showObtainedPomander;
-                configuration.Save();
-            }
-
-            bool showReturnedPomander = configuration.ShowReturnedPomander;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowReturnedPomanderMessages, ref showReturnedPomander))
-            {
-                configuration.ShowReturnedPomander = showReturnedPomander;
-                configuration.Save();
-            }
-
             bool showCairnGlows = configuration.ShowCairnGlows;
             if (ImGui.Checkbox(Languages.SystemTab_ShowCairnOfPassageGlowsMessages, ref showCairnGlows))
             {
@@ -375,56 +361,19 @@ internal static class SystemTab
                 configuration.Save();
             }
 
-            bool showPomanderOfSafety = configuration.ShowPomanderOfSafety;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfSafetyUsedMessages, ref showPomanderOfSafety))
+ bool showObtainedPomander = configuration.ShowObtainedPomander;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowObtainedPomanderMessages, ref showObtainedPomander))
             {
-                configuration.ShowPomanderOfSafety = showPomanderOfSafety;
+                configuration.ShowObtainedPomander = showObtainedPomander;
                 configuration.Save();
             }
 
-            bool showPomanderOfSight = configuration.ShowPomanderOfSight;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfSightUsedMessages, ref showPomanderOfSight))
+            bool showPomanderEffects = configuration.ShowPomanderEffects;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderEffectsMessages, ref showPomanderEffects))
             {
-                configuration.ShowPomanderOfSight = showPomanderOfSight;
+                configuration.ShowPomanderEffects = showPomanderEffects;
                 configuration.Save();
             }
-
-            bool showPomanderOfAffluence = configuration.ShowPomanderOfAffluence;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfAffluenceUsedMessages, ref showPomanderOfAffluence))
-            {
-                configuration.ShowPomanderOfAffluence = showPomanderOfAffluence;
-                configuration.Save();
-            }
-
-            bool showPomanderOfFlight = configuration.ShowPomanderOfFlight;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfFlightUsedMessages, ref showPomanderOfFlight))
-            {
-                configuration.ShowPomanderOfFlight = showPomanderOfFlight;
-                configuration.Save();
-            }
-
-            bool showPomanderOfAlteration = configuration.ShowPomanderOfAlteration;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfAlterationUsedMessages,
-                    ref showPomanderOfAlteration))
-            {
-                configuration.ShowPomanderOfAlteration = showPomanderOfAlteration;
-                configuration.Save();
-            }
-
-            bool showPomanderOfWitching = configuration.ShowPomanderOfWitching;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfWitchingUsedMessages, ref showPomanderOfWitching))
-            {
-                configuration.ShowPomanderOfWitching = showPomanderOfWitching;
-                configuration.Save();
-            }
-
-            bool showPomanderOfSerenity = configuration.ShowPomanderOfSerenity;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderOfSerenityUsedMessages, ref showPomanderOfSerenity))
-            {
-                configuration.ShowPomanderOfSerenity = showPomanderOfSerenity;
-                configuration.Save();
-            }
-
             bool showFloorNumber = configuration.ShowFloorNumber;
             if (ImGui.Checkbox(Languages.SystemTab_ShowFloorNumberMessages, ref showFloorNumber))
             {

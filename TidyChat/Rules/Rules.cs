@@ -238,15 +238,7 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7220, 7221]
-        },
-        new()
-        {
-            Name = "ShowReturnedPomander",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7222]
+            LogMessageIds = [7220, 7221, 7222]
         },
         new()
         {
@@ -290,15 +282,6 @@ public static class Rules
         },
         new()
         {
-            Name = "ShowAetherpoolIncrease",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.AetherpoolIncrease],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
             Name = "ShowAetherpoolUnchanged",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -307,59 +290,11 @@ public static class Rules
         },
         new()
         {
-            Name = "ShowPomanderOfSafety",
+            Name = "ShowPomanderEffects",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7255]
-        },
-        new()
-        {
-            Name = "ShowPomanderOfSight",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7256]
-        },
-        new()
-        {
-            Name = "ShowPomanderOfAffluence",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7259]
-        },
-        new()
-        {
-            Name = "ShowPomanderOfFlight",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7260]
-        },
-        new()
-        {
-            Name = "ShowPomanderOfAlteration",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7261]
-        },
-        new()
-        {
-            Name = "ShowPomanderOfWitching",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7264]
-        },
-        new()
-        {
-            Name = "ShowPomanderOfSerenity",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7265]
+            LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7264, 7265]
         },
         new()
         {
@@ -368,15 +303,6 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1531, 9218]
-        },
-        new()
-        {
-            Name = "ShowFloorNumber",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.FloorNumber],
-            Pattern = PatternKind.RegexMatch
         },
         new()
         {

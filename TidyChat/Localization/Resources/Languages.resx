@@ -1047,26 +1047,8 @@ eg. “Red Mage” equipped.</value>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
     <value>eg. Updating online status to Away from Keyboard.</value>
   </data>
-  <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Affluence is used</value>
-  </data>
-  <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Alteration is used</value>
-  </data>
-  <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Flight is used</value>
-  </data>
-  <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Safety is used</value>
-  </data>
-  <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Serenity is used</value>
-  </data>
-  <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Sight is used</value>
-  </data>
-  <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
-    <value>Show when Pomander of Witching is used</value>
+  <data name="SystemTab_ShowPomanderEffectsMessages" xml:space="preserve">
+    <value>Show pomander effect messages</value>
   </data>
   <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Show received party invitations</value>

@@ -36,6 +36,19 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private ulong _sessionBlockedMessages;
 
+    /// <summary>
+    ///     Texts of messages that OnLogMessage explicitly allowed via ID-based rules.
+    ///     OnChat checks this set so it doesn't re-block messages that OnLogMessage already approved.
+    /// </summary>
+    private readonly HashSet<string> _allowedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
+    ///     Texts of messages that OnLogMessage would have blocked.
+    ///     Only populated in debug mode so OnChat can display them with the [Blocked] prefix
+    ///     instead of silently suppressing them via PreventOriginal.
+    /// </summary>
+    private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
+
     #region Setup
 
     public TidyChatPlugin()
@@ -192,7 +205,18 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (rule.ShouldBlock)
             {
                 if (Configuration.EnableDebugMode)
+                {
                     Log.Debug($"[LogMessage] BLOCKED by {rule.Name} (ID: {message.LogMessageId})");
+                    // In debug mode, don't suppress — let OnChat display it with [Blocked] prefix.
+                    try
+                    {
+                        string text = message.FormatLogMessageForDebugging().ExtractText();
+                        if (!string.IsNullOrEmpty(text))
+                            _blockedByLogMessage.Add(text);
+                    }
+                    catch { }
+                    return;
+                }
                 message.PreventOriginal();
                 _sessionBlockedMessages += 1;
                 // Print a compact replacement for the suppressed NN join/leave messages.
@@ -203,6 +227,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 return;
             }
         }
+
+        // Track the allowed text so OnChat doesn't re-block this message.
+        try
+        {
+            string text = message.FormatLogMessageForDebugging().ExtractText();
+            if (!string.IsNullOrEmpty(text))
+                _allowedByLogMessage.Add(text);
+        }
+        catch { /* Safe to ignore — worst case OnChat re-evaluates the message */ }
 
         if (Configuration.EnableDebugMode)
             Log.Debug($"[LogMessage] ALLOWED (ID: {message.LogMessageId}, Rules: {string.Join(", ", matchingRules.Select(r => r.Name))})");
@@ -246,6 +279,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
         string normalizedText = NormalizeInput.ToLowercase(message.Message);
+
+        // Save original text before Better Messages may modify message.Message
+        string rawTextValue = message.Message.TextValue;
 
         // If the message is a /? command - temporarily disable the filters to allow the command text through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
@@ -345,6 +381,27 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         #endregion
+
+        // If OnLogMessage already decided to block this message, show it with [Blocked] in debug.
+        if (_blockedByLogMessage.Count > 0 && _blockedByLogMessage.Remove(rawTextValue))
+        {
+            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+            {
+                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
+            }
+            return;
+        }
+
+        // If OnLogMessage already decided to allow this message via an ID-based rule,
+        // respect that decision and don't let OnChat's default-block logic override it.
+        if (_allowedByLogMessage.Count > 0 && _allowedByLogMessage.Remove(rawTextValue))
+        {
+            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+            {
+                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
+            }
+            return;
+        }
 
         #region Channel Filters
 
