@@ -52,6 +52,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private readonly Lock _logMessageLock = new();
     private readonly Lock _chatHistoryLock = new();
     volatile private bool _setPlayerNamePending;
+    private int _setPlayerNameRetries;
+    private const int MaxSetPlayerNameRetries = 10;
 
     #region Setup
 
@@ -136,6 +138,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+        _setPlayerNameRetries = 0; // each login gets a fresh retry budget
         SetPlayerName();
     }
 
@@ -268,16 +271,30 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // and a few other channels
         if (!ChannelCanBeFiltered((chatType))) return;
 
-        // This logic exists elsewhere but I don't care to find/clean it up so I'll be redundant and check here too
-        if (chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) return;
-        if (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel) return;
+        // This logic exists elsewhere but I don't care to find/clean it up so I'll be redundant and check here too.
+        // Whitelist Block rules are still honoured here so users can suppress one specific spammer
+        // in an otherwise-unfiltered emote channel.
+        if ((chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) ||
+            (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel))
+        {
+            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType))
+            {
+                message.PreventOriginal();
+                _sessionBlockedMessages += 1;
+            }
+            return;
+        }
 
-        // Check if emotes from other players should be filtered or not
+        // Check if emotes from other players should be filtered or not.
+        // Whitelist Allow rules override this so favourited players' custom emotes still come through.
         if (!Configuration.ShowOtherCustomEmotes && !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
         {
-            if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message.Message}");
-            message.PreventOriginal();
-            _sessionBlockedMessages += 1;
+            if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType))
+            {
+                if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message.Message}");
+                message.PreventOriginal();
+                _sessionBlockedMessages += 1;
+            }
             return;
         }
 
@@ -422,12 +439,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // Skip filtering if channel filter is disabled — show all messages in that channel.
         // This mirrors FilterSystemMessages and applies to the other filterable channels.
-        if (chatType is ChatType.System && !Configuration.FilterSystemMessages) return;
-        if (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) return;
-        if (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) return;
-        if (chatType is ChatType.LootNotice && !Configuration.FilterObtainedSpam) return;
-        if (chatType is ChatType.Gathering or ChatType.GatheringSystem && !Configuration.FilterGatheringSpam) return;
-        if (chatType is ChatType.Crafting && !Configuration.FilterCraftingSpam) return;
+        // Whitelist Block rules are still honoured here so users can suppress one specific
+        // spammer in an otherwise-unfiltered channel.
+        if ((chatType is ChatType.System && !Configuration.FilterSystemMessages) ||
+            (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
+            (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) ||
+            (chatType is ChatType.LootNotice && !Configuration.FilterObtainedSpam) ||
+            (chatType is ChatType.Gathering or ChatType.GatheringSystem && !Configuration.FilterGatheringSpam) ||
+            (chatType is ChatType.Crafting && !Configuration.FilterCraftingSpam))
+        {
+            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType))
+            {
+                message.PreventOriginal();
+                _sessionBlockedMessages += 1;
+            }
+            return;
+        }
 
         // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
         if (chatType is ChatType.System && Configuration.EnableInverseMode)
@@ -688,9 +715,24 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         #region Whitelist
 
+        // Two-pass so Allow rules always win regardless of where they appear in the list:
+        // pass 1 applies all Block rules, pass 2 lets any matching Allow rule unblock them.
         if (Configuration.Whitelist.Count > 0)
-            foreach(PlayerName playerOrMessage in Configuration.Whitelist)
-                CustomFilterCheck(message.Sender, message.Message, ref isHandled, playerOrMessage, chatType);
+        {
+            try
+            {
+                foreach(PlayerName p in Configuration.Whitelist)
+                    if (!p.AllowMessage)
+                        CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+                foreach(PlayerName p in Configuration.Whitelist)
+                    if (p.AllowMessage)
+                        CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+            }
+            catch(Exception ex)
+            {
+                Log.Error("Error: Failed to evaluate Whitelist - " + ex);
+            }
+        }
 
         #endregion Whitelist
 
@@ -802,88 +844,86 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return stringBuilder.BuiltString;
     }
 
+    /// <summary>
+    ///     Returns true if <paramref name="entry"/> matches the message/sender/channel. Handles the empty-name guard,
+    ///     channel scoping, regex (cached + crash-safe via <see cref="PlayerName.GetCompiledRegex"/>), and the
+    ///     <see cref="PlayerNameMatchMode"/> selection for plain-text entries.
+    /// </summary>
+    private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType)
+    {
+        if (string.IsNullOrWhiteSpace(entry.FirstName)) return false; // empty name would Contains-match everything
+
+        var channels = (ChatFlags.Channels)entry.whitelistedChannels;
+        if (channels == ChatFlags.Channels.None) return false;
+        if (!Flags.CheckFlags(entry, chatType)) return false;
+
+        if (entry.IsRegex)
+        {
+            Regex? regex = entry.GetCompiledRegex((src, ex) =>
+                Log.Warning($"[Whitelist] Invalid regex \"{src}\": {ex.Message}"));
+            try
+            {
+                return regex != null && regex.IsMatch(message.TextValue);
+            }
+            catch(RegexMatchTimeoutException)
+            {
+                Log.Warning($"[Whitelist] Regex match timeout for \"{entry.FirstName}\"");
+                return false;
+            }
+        }
+
+        // Plain text mode
+        if (entry.MatchMode == PlayerNameMatchMode.ExactSender)
+            return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal);
+
+        // MessageContains (backward-compatible default): sender match OR substring match
+        return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal)
+            || message.TextValue.Contains(entry.FirstName, StringComparison.Ordinal);
+    }
+
+    /// <summary>True if any Allow rule in the whitelist would unblock this message.</summary>
+    private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType)
+    {
+        if (Configuration.Whitelist.Count == 0) return false;
+        foreach(PlayerName p in Configuration.Whitelist)
+        {
+            if (!p.AllowMessage) continue;
+            if (CustomFilterMatches(sender, message, p, chatType)) return true;
+        }
+        return false;
+    }
+
+    /// <summary>True if any Block rule in the whitelist would suppress this message.</summary>
+    private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType)
+    {
+        if (Configuration.Whitelist.Count == 0) return false;
+        foreach(PlayerName p in Configuration.Whitelist)
+        {
+            if (p.AllowMessage) continue;
+            if (CustomFilterMatches(sender, message, p, chatType)) return true;
+        }
+        return false;
+    }
+
     private void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
         PlayerName playerOrMessage,
         ChatType chatType)
     {
+        // Cheap rejects first: empty entries match everything via Contains("") so they must be skipped.
+        if (string.IsNullOrWhiteSpace(playerOrMessage.FirstName)) return;
+        if (!CustomFilterMatches(sender, message, playerOrMessage, chatType)) return;
+
         if (!isHandled && !playerOrMessage.AllowMessage)
         {
-            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-            bool isRegex = false;
-            Regex? userPattern = null;
-            if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
-            {
-                isRegex = true;
-                userPattern =
-                    new(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
-            }
-
-            bool channelSelectedToFilter = false;
-            if (!e.Equals(ChatFlags.Channels.None))
-                channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
-
-            if (channelSelectedToFilter &&
-                string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
-            {
-                isHandled = true;
-                if (Configuration.EnableDebugMode) Log.Verbose($"The message from {playerOrMessage.FirstName} has been blocked.");
-            }
-
-            if (channelSelectedToFilter && !isRegex &&
-                message.TextValue.Contains(playerOrMessage.FirstName, StringComparison.Ordinal))
-            {
-                isHandled = true;
-                if (Configuration.EnableDebugMode) Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
-            }
-
-            if (userPattern != null && channelSelectedToFilter && isRegex &&
-                userPattern.IsMatch(message.ToString()))
-            {
-                isHandled = true;
-                if (Configuration.EnableDebugMode)
-                    Log.Verbose(
-                        $"A message matching the regex \"{playerOrMessage.FirstName}\" has been blocked.");
-            }
+            isHandled = true;
+            if (Configuration.EnableDebugMode)
+                Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
         }
-
-        if (isHandled && playerOrMessage.AllowMessage)
+        else if (isHandled && playerOrMessage.AllowMessage)
         {
-            var e = (ChatFlags.Channels)playerOrMessage.whitelistedChannels;
-            bool isRegex = false;
-            Regex? userPattern = null;
-            if (playerOrMessage.FirstName.StartsWith('/') && playerOrMessage.FirstName.EndsWith('/'))
-            {
-                isRegex = true;
-                userPattern =
-                    new(playerOrMessage.FirstName[1..^1], RegexOptions.None, TimeSpan.FromSeconds(1));
-            }
-
-            bool channelSelectedToFilter = false;
-            if (!e.Equals(ChatFlags.Channels.None))
-                channelSelectedToFilter = Flags.CheckFlags(playerOrMessage, chatType);
-
-            if (channelSelectedToFilter &&
-                string.Equals(sender.TextValue, playerOrMessage.FirstName, StringComparison.Ordinal))
-            {
-                isHandled = false;
-                if (Configuration.EnableDebugMode) Log.Verbose($"The message from {playerOrMessage.FirstName} has been allowed.");
-            }
-
-            if (channelSelectedToFilter && !isRegex &&
-                message.TextValue.Contains(playerOrMessage.FirstName, StringComparison.Ordinal))
-            {
-                isHandled = false;
-                if (Configuration.EnableDebugMode) Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
-            }
-
-            if (userPattern != null && channelSelectedToFilter && isRegex &&
-                userPattern.IsMatch(message.ToString()))
-            {
-                isHandled = false;
-                if (Configuration.EnableDebugMode)
-                    Log.Verbose(
-                        $"A message matching the regex \"{playerOrMessage.FirstName}\" has been allowed.");
-            }
+            isHandled = false;
+            if (Configuration.EnableDebugMode)
+                Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
         }
     }
 
@@ -897,10 +937,18 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Configuration.PlayerName = $"{(ObjectTable[0] as IPlayerCharacter)?.Name}";
             Log.Information($"Player name saved as {(ObjectTable[0] as IPlayerCharacter)?.Name}");
             Configuration.Save();
+            _setPlayerNameRetries = 0; // success — reset the retry budget for the next login cycle
         }
         catch(Exception ex)
         {
-            Log.Error("Error: Failed to capture player's name - trying again in 30 seconds" + ex);
+            if (_setPlayerNameRetries >= MaxSetPlayerNameRetries)
+            {
+                Log.Error($"Error: Failed to capture player's name after {MaxSetPlayerNameRetries} retries. Giving up until next login. " + ex);
+                return;
+            }
+
+            _setPlayerNameRetries++;
+            Log.Error($"Error: Failed to capture player's name - retry {_setPlayerNameRetries}/{MaxSetPlayerNameRetries} in 30 seconds. " + ex);
             _setPlayerNamePending = true;
             Timer t = new()
             {

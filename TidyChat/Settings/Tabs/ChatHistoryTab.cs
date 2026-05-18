@@ -15,8 +15,9 @@ internal static class ChatHistoryTab
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker(helpText: string.Format(CultureInfo.CurrentCulture, Languages.ChatHistoryTab_EnableChatHistoryFilterHelpMarker,
-            configuration.ChatHistoryLength.ToString(CultureInfo.CurrentCulture), StringComparison.Ordinal));
+        ImGuiComponents.HelpMarker(helpText: string.Format(CultureInfo.CurrentCulture,
+            Languages.ChatHistoryTab_EnableChatHistoryFilterHelpMarker,
+            configuration.ChatHistoryLength.ToString(CultureInfo.CurrentCulture)));
 
         bool disableSelfChatHistory = configuration.DisableSelfChatHistory;
         if (ImGui.Checkbox(Languages.ChatHistoryTab_IgnoreMessagesSentByPlayer, ref disableSelfChatHistory))
@@ -31,7 +32,7 @@ internal static class ChatHistoryTab
         ImGui.SetNextItemWidth(120f);
         if (ImGui.InputInt(Languages.ChatHistoryTab_LengthOfChatHistory, ref chatHistoryLength))
         {
-            configuration.ChatHistoryLength = chatHistoryLength;
+            configuration.ChatHistoryLength = Math.Clamp(chatHistoryLength, 1, 1000);
             configuration.Save();
         }
 
@@ -41,7 +42,7 @@ internal static class ChatHistoryTab
         ImGui.SetNextItemWidth(120f);
         if (ImGui.InputInt(Languages.ChatHistoryTab_ChatHistoryTimer, ref chatHistoryTimer))
         {
-            configuration.ChatHistoryTimer = chatHistoryTimer;
+            configuration.ChatHistoryTimer = Math.Clamp(chatHistoryTimer, 0, 3600);
             configuration.Save();
         }
 
@@ -87,8 +88,8 @@ internal static class ChatHistoryTab
 
         ImGui.SameLine(90f);
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_LoginLogoutChannel, ref chatHistoryChannels, 1 << 7))
-            configuration.ChatHistoryChannels = chatHistoryChannels;
         {
+            configuration.ChatHistoryChannels = chatHistoryChannels;
             configuration.Save();
         }
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_ProgressChannel, ref chatHistoryChannels, 1 << 4))

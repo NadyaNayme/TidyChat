@@ -7,19 +7,16 @@ internal static class SystemTab
     public static void Draw(Configuration configuration)
     {
         bool enableInverseMode = configuration.EnableInverseMode;
-        if (enableInverseMode)
+        if (ImGui.Checkbox(Languages.SystemTab_ExperimentalFeatureInverseMode, ref enableInverseMode))
         {
-            if (ImGui.Checkbox(Languages.SystemTab_ExperimentalFeatureInverseMode, ref enableInverseMode))
-            {
-                configuration.EnableInverseMode = enableInverseMode;
-                configuration.Save();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.SystemTab_ExperimentalFeatureInverseModeHelpMarker);
-
-            if (configuration.EnableInverseMode)
-                ImGui.TextUnformatted(Languages.SystemTab_ExperimentalFeatureInverseModeWarningText);
+            configuration.EnableInverseMode = enableInverseMode;
+            configuration.Save();
         }
+
+        ImGuiComponents.HelpMarker(Languages.SystemTab_ExperimentalFeatureInverseModeHelpMarker);
+
+        if (configuration.EnableInverseMode)
+            ImGui.TextUnformatted(Languages.SystemTab_ExperimentalFeatureInverseModeWarningText);
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_HideShownDefaultDropdownHeader))
         {
@@ -361,7 +358,7 @@ internal static class SystemTab
                 configuration.Save();
             }
 
- bool showObtainedPomander = configuration.ShowObtainedPomander;
+            bool showObtainedPomander = configuration.ShowObtainedPomander;
             if (ImGui.Checkbox(Languages.SystemTab_ShowObtainedPomanderMessages, ref showObtainedPomander))
             {
                 configuration.ShowObtainedPomander = showObtainedPomander;

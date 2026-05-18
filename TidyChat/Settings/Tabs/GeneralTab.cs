@@ -111,12 +111,10 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
 
-            bool useDTRBar = configuration.UseDTRBar;
-            if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref useDTRBar))
+            bool instanceInDtrBar = configuration.InstanceInDtrBar;
+            if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
             {
-                configuration.UseDTRBar = useDTRBar;
-                configuration.DTRIsEnabled = useDTRBar;
-                configuration.InstanceInDtrBar = useDTRBar;
+                configuration.InstanceInDtrBar = instanceInDtrBar;
                 configuration.Save();
             }
 

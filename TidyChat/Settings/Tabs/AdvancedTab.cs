@@ -33,9 +33,8 @@ internal static class AdvancedTab
                 CraftingGatheringTab.Draw(configuration);
             if (ImGui.BeginTabItem(Languages.AdvancedTab_ChatHistoryTabHeader)) ChatHistoryTab.Draw(configuration);
             if (ImGui.BeginTabItem(Languages.AdvancedTab_CustomFiltersHeader)) WhitelistTab.Draw(configuration);
+            ImGui.EndTabBar();
         }
-
-        ImGui.EndTabBar();
 
         ImGui.EndTabItem();
     }

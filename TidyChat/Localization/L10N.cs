@@ -1,19 +1,20 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 using Dalamud.Game;
-using Dalamud.IoC;
-using Dalamud.Plugin.Services;
 using TidyChat.Translation.Data;
+
 namespace TidyChat;
 
 internal static class L10N
 {
     public static ClientLanguage Language { get; set; }
-    [PluginService] public static IPluginLog PluginLog { get; } = null!;
 
+    // Dalamud's [PluginService] attribute only works on the main IDalamudPlugin class — a static class
+    // like L10N never receives injection. Use TidyChatPlugin.Log directly, with a null-check to keep
+    // the localizer usable in unit tests or before plugin construction completes.
     public static string[] Get(string[] strings)
     {
 #if DEBUG
-        PluginLog.Debug("Strings not localized: %s", string.Join(",", strings));
+        TidyChatPlugin.Log?.Debug("Strings not localized: {0}", string.Join(",", strings));
 #endif
         return strings;
     }
@@ -22,10 +23,10 @@ internal static class L10N
     {
         return Language switch
         {
-            ClientLanguage.Japanese => strings.Jpn,
+            ClientLanguage.Japanese => FallbackIfMissing(strings.Jpn, strings.Eng),
             ClientLanguage.English => strings.Eng,
-            ClientLanguage.German => strings.Deu,
-            ClientLanguage.French => strings.Fra,
+            ClientLanguage.German => FallbackIfMissing(strings.Deu, strings.Eng),
+            ClientLanguage.French => FallbackIfMissing(strings.Fra, strings.Eng),
             _ => strings.Eng // Won't work for J/F/D but at least it's not a crash
         };
     }
@@ -33,7 +34,7 @@ internal static class L10N
     public static Regex Get(Regex regex)
     {
 #if DEBUG
-        PluginLog.Debug("Regex not localized: %s", regex.ToString());
+        TidyChatPlugin.Log?.Debug("Regex not localized: {0}", regex.ToString());
 #endif
         return regex;
     }
@@ -53,7 +54,7 @@ internal static class L10N
     public static string GetTidy(string strings)
     {
 #if DEBUG
-        PluginLog.Debug("Internal strings not localized: %s", strings);
+        TidyChatPlugin.Log?.Debug("Internal strings not localized: {0}", strings);
 #endif
         return strings;
     }
@@ -62,11 +63,27 @@ internal static class L10N
     {
         return Language switch
         {
-            ClientLanguage.Japanese => strings.Jpn,
+            ClientLanguage.Japanese => FallbackIfMissing(strings.Jpn, strings.Eng),
             ClientLanguage.English => strings.Eng,
-            ClientLanguage.German => strings.Deu,
-            ClientLanguage.French => strings.Fra,
+            ClientLanguage.German => FallbackIfMissing(strings.Deu, strings.Eng),
+            ClientLanguage.French => FallbackIfMissing(strings.Fra, strings.Eng),
             _ => strings.Eng // Won't work for J/F/D but at least it's not a crash
         };
     }
+
+    /// <summary>
+    ///     Returns <paramref name="primary"/> unless it is missing or is still the literal
+    ///     <c>"NeedsLocalization"</c> placeholder, in which case <paramref name="fallback"/> is returned.
+    ///     Prevents the literal placeholder text from leaking into chat for partially-localized strings.
+    /// </summary>
+    private static string FallbackIfMissing(string primary, string fallback)
+        => string.IsNullOrEmpty(primary) || string.Equals(primary, "NeedsLocalization", System.StringComparison.Ordinal)
+            ? fallback
+            : primary;
+
+    private static string[] FallbackIfMissing(string[] primary, string[] fallback)
+        => primary is null || primary.Length == 0 ||
+           (primary.Length == 1 && string.Equals(primary[0], "NeedsLocalization", System.StringComparison.Ordinal))
+            ? fallback
+            : primary;
 }

@@ -108,6 +108,32 @@ internal static class WhitelistTab
                 configuration.Save();
             }
 
+            // Match-mode selector for existing entries. Hidden for regex entries (the regex itself controls matching)
+            // and for the placeholder row (-1) where there's no entry to configure yet.
+            if (i != -1 && !alias.IsRegex)
+            {
+                string matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
+                    ? "Match: Exact sender only"
+                    : "Match: Sender or message contains";
+                ImGui.SetNextItemWidth(-1);
+                if (ImGui.BeginCombo($"##whitelist{i}MatchMode", matchPreview))
+                {
+                    if (ImGui.Selectable("Sender or message contains (default)",
+                            alias.MatchMode == PlayerNameMatchMode.MessageContains))
+                    {
+                        alias.MatchMode = PlayerNameMatchMode.MessageContains;
+                        configuration.Save();
+                    }
+                    if (ImGui.Selectable("Exact sender only",
+                            alias.MatchMode == PlayerNameMatchMode.ExactSender))
+                    {
+                        alias.MatchMode = PlayerNameMatchMode.ExactSender;
+                        configuration.Save();
+                    }
+                    ImGui.EndCombo();
+                }
+            }
+
             ImGuiHelpers.ScaledDummy(10f);
 
             #endregion Player Column
