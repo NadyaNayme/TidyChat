@@ -124,7 +124,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     public void Dispose()
     {
+        // UI: tear down the window system and the three UiBuilder subscriptions so the host
+        // doesn't keep calling into a disposed plugin on reload.
+        PluginInterface.UiBuilder.Draw -= DrawUI;
+        PluginInterface.UiBuilder.OpenMainUi -= DrawConfigUI;
+        PluginInterface.UiBuilder.OpenConfigUi -= DrawConfigUI;
+        _windowSystem.RemoveAllWindows();
         PluginUi.Dispose();
+
+        // DTR bar: drop the entry so it doesn't linger after the plugin is gone.
+        if (DtrEntry is not null)
+        {
+            try { DtrEntry.Remove(); }
+            catch(Exception ex) { Log.Warning("Failed to remove DTR bar entry on dispose: " + ex); }
+            DtrEntry = null;
+        }
+
         CommandManager.RemoveHandler(SettingsCommand);
         CommandManager.RemoveHandler(ShorthandCommand);
         PluginInterface.LanguageChanged -= UpdateLang;
@@ -932,10 +947,12 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (_setPlayerNamePending) return;
         try
         {
-            if ((ObjectTable[0] as IPlayerCharacter) == null) return;
+            // Single cast — avoids a race where ObjectTable[0] could change between checks.
+            IPlayerCharacter? player = ObjectTable[0] as IPlayerCharacter;
+            if (player is null) return;
 
-            Configuration.PlayerName = $"{(ObjectTable[0] as IPlayerCharacter)?.Name}";
-            Log.Information($"Player name saved as {(ObjectTable[0] as IPlayerCharacter)?.Name}");
+            Configuration.PlayerName = $"{player.Name}";
+            Log.Information($"Player name saved as {player.Name}");
             Configuration.Save();
             _setPlayerNameRetries = 0; // success — reset the retry budget for the next login cycle
         }
@@ -988,7 +1005,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
         catch(Exception ex)
         {
-            Log.Error("Failed to improve Commendations message", ex);
+            Log.Error(ex, "Failed to improve Commendations message");
         }
 
         int commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
