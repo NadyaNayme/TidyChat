@@ -1,4 +1,4 @@
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using Dalamud.Game;
 using TidyChat.Translation.Data;
 
@@ -7,10 +7,7 @@ namespace TidyChat;
 internal static class L10N
 {
     public static ClientLanguage Language { get; set; }
-
-    // Dalamud's [PluginService] attribute only works on the main IDalamudPlugin class — a static class
-    // like L10N never receives injection. Use TidyChatPlugin.Log directly, with a null-check to keep
-    // the localizer usable in unit tests or before plugin construction completes.
+    
     public static string[] Get(string[] strings)
     {
 #if DEBUG

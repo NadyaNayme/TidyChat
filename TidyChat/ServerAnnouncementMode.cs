@@ -1,7 +1,7 @@
 namespace TidyChat;
 
 /// <summary>
-///     Controls how the login / world-travel server announcement block (#122) is handled —
+///     Controls how the login / world-travel server announcement block is handled —
 ///     the "Welcome to &lt;world&gt;", event-promo, congestion and phishing-warning messages.
 /// </summary>
 public enum ServerAnnouncementMode
