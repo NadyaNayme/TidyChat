@@ -988,9 +988,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (_setPlayerNamePending) return;
         try
         {
-            // ObjectTable.LocalPlayer is Dalamud's documented accessor for the local character
-            // (IClientState.LocalPlayer was deprecated and moved here). Clearer and correctly
-            // typed vs. the old "ObjectTable[0] as IPlayerCharacter" cast.
             IPlayerCharacter? player = ObjectTable.LocalPlayer;
             if (player is null) return;
 
@@ -1319,8 +1316,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
         try
         {
-            // Null-guard the native pointer: dereferencing a null UIState in unsafe code throws
-            // AccessViolationException, which a normal catch cannot reliably handle.
             UIState* uiState = UIState.Instance();
             if (uiState == null)
             {

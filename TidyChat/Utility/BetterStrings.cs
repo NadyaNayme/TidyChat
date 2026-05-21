@@ -39,8 +39,6 @@ internal static class BetterStrings
     {
         try
         {
-            // Null-guard the native pointer: dereferencing a null UIState in unsafe code throws
-            // AccessViolationException, which a normal catch cannot reliably handle.
             UIState* uiState = UIState.Instance();
             if (uiState == null) return "";
 
