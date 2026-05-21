@@ -137,13 +137,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowAetheryteTicket { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
-
-    // #122: Controls the login / world-travel server announcement block (welcome headers,
-    // in-game event promos, congestion notices, phishing warning). Defaults to ShowAll to
-    // preserve current behaviour. Implemented as a direct, System-channel-scoped text-match
-    // in TidyChatPlugin.OnChat (server announcements have no LogMessageId). Patterns live in
-    // ChatRegexStrings.ServerWorldGreeting / ServerAnnouncement — complete for English;
-    // Jpn/Deu/Fra currently catch only the sqex.to link lines.
     public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
 
     #endregion
