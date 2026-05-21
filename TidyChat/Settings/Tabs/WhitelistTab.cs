@@ -4,7 +4,6 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class WhitelistTab
@@ -13,14 +12,14 @@ internal static class WhitelistTab
 
     public static void Draw(Configuration configuration)
     {
-        var sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
+        bool sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
         {
             configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
             configuration.Save();
         }
 
-        var targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
+        bool targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer,
                 ref targetingWhitelistPlayer))
         {
@@ -44,9 +43,9 @@ internal static class WhitelistTab
         ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
         ImGui.TableHeadersRow();
         var list = configuration.Whitelist.ToList();
-        for (var i = -1; i < list.Count; i++)
+        for (int i = -1; i < list.Count; i++)
         {
-            var alias = i < 0 ? m_placeholder : list[i];
+            PlayerName alias = i < 0 ? m_placeholder : list[i];
 
             #region Channels Column
 
@@ -103,10 +102,36 @@ internal static class WhitelistTab
                 if (i == -1)
                 {
                     configuration.Whitelist.Insert(0, alias);
-                    m_placeholder = new PlayerName();
+                    m_placeholder = new();
                 }
 
                 configuration.Save();
+            }
+
+            // Match-mode selector for existing entries. Hidden for regex entries (the regex itself controls matching)
+            // and for the placeholder row (-1) where there's no entry to configure yet.
+            if (i != -1 && !alias.IsRegex)
+            {
+                string matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
+                    ? "Match: Exact sender only"
+                    : "Match: Sender or message contains";
+                ImGui.SetNextItemWidth(-1);
+                if (ImGui.BeginCombo($"##whitelist{i}MatchMode", matchPreview))
+                {
+                    if (ImGui.Selectable("Sender or message contains (default)",
+                            alias.MatchMode == PlayerNameMatchMode.MessageContains))
+                    {
+                        alias.MatchMode = PlayerNameMatchMode.MessageContains;
+                        configuration.Save();
+                    }
+                    if (ImGui.Selectable("Exact sender only",
+                            alias.MatchMode == PlayerNameMatchMode.ExactSender))
+                    {
+                        alias.MatchMode = PlayerNameMatchMode.ExactSender;
+                        configuration.Save();
+                    }
+                    ImGui.EndCombo();
+                }
             }
 
             ImGuiHelpers.ScaledDummy(10f);
@@ -123,7 +148,7 @@ internal static class WhitelistTab
             }
             else
             {
-                var previewValue = "";
+                string? previewValue = "";
                 if (alias.AllowMessage)
                     previewValue = Languages.WhitelistTab_Allow;
                 else

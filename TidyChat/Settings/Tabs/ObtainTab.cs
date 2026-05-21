@@ -1,7 +1,5 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-using TidyChat;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class ObtainTab
@@ -10,7 +8,7 @@ internal static class ObtainTab
     {
         if (ImGui.CollapsingHeader(Languages.ObtainTab_LootingAndRollingDropdownHeader))
         {
-            var showCastLot = configuration.ShowCastLot;
+            bool showCastLot = configuration.ShowCastLot;
             if (ImGui.Checkbox(Languages.ObtainTab_CastYourLotMessages, ref showCastLot))
             {
                 configuration.ShowCastLot = showCastLot;
@@ -19,7 +17,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_CastYourLotHelpMarker);
 
-            var showLootRoll = configuration.ShowLootRoll;
+            bool showLootRoll = configuration.ShowLootRoll;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowYouRolledMessages, ref showLootRoll))
             {
                 configuration.ShowLootRoll = showLootRoll;
@@ -28,7 +26,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowYouRolledMessagesHelpMarker);
 
-            var showOthersCastLot = configuration.ShowOthersCastLot;
+            bool showOthersCastLot = configuration.ShowOthersCastLot;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessages, ref showOthersCastLot))
             {
                 configuration.ShowOthersCastLot = showOthersCastLot;
@@ -37,7 +35,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker);
 
-            var showOthersLootRoll = configuration.ShowOthersLootRoll;
+            bool showOthersLootRoll = configuration.ShowOthersLootRoll;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerRollsMessages, ref showOthersLootRoll))
             {
                 configuration.ShowOthersLootRoll = showOthersLootRoll;
@@ -47,7 +45,7 @@ internal static class ObtainTab
             if (configuration.ShowOthersLootRoll)
             {
                 ImGui.Indent();
-                var showOnlyPartyMemberRolls = configuration.ShowOnlyPartyMemberRolls;
+                bool showOnlyPartyMemberRolls = configuration.ShowOnlyPartyMemberRolls;
                 if (ImGui.Checkbox(Languages.ObtainTab_ShowOnlyPartyMemberRolls, ref showOnlyPartyMemberRolls))
                 {
                     configuration.ShowOnlyPartyMemberRolls = showOnlyPartyMemberRolls;
@@ -58,7 +56,7 @@ internal static class ObtainTab
                 ImGui.Unindent();
             }
 
-            var hideOthersObtain = configuration.HideOthersObtain;
+            bool hideOthersObtain = configuration.HideOthersObtain;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
             {
                 configuration.HideOthersObtain = hideOthersObtain;
@@ -66,11 +64,18 @@ internal static class ObtainTab
             }
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+
+            bool hideOthersObtainFromLoot = configuration.HideOthersObtainFromLoot;
+            if (ImGui.Checkbox(Languages.ObtainTab_HideOthersObtainFromLoot, ref hideOthersObtainFromLoot))
+            {
+                configuration.HideOthersObtainFromLoot = hideOthersObtainFromLoot;
+                configuration.Save();
+            }
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_CommonCurrenciesDropdownHeader))
         {
-            var hideObtainedgil = configuration.HideObtainedGil;
+            bool hideObtainedgil = configuration.HideObtainedGil;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowGil, ref hideObtainedgil))
             {
                 configuration.HideObtainedGil = hideObtainedgil;
@@ -79,7 +84,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGilHelpMarker);
 
-            var hideObtainedSeals = configuration.HideObtainedSeals;
+            bool hideObtainedSeals = configuration.HideObtainedSeals;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowGrandCompanySealsMessages, ref hideObtainedSeals))
             {
                 configuration.HideObtainedSeals = hideObtainedSeals;
@@ -88,7 +93,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGrandCompanySealsMessagesHelpMarker);
 
-            var hideObtainedVenture = configuration.HideObtainedVenture;
+            bool hideObtainedVenture = configuration.HideObtainedVenture;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowVentureMessages, ref hideObtainedVenture))
             {
                 configuration.HideObtainedVenture = hideObtainedVenture;
@@ -97,7 +102,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowVentureMessagesHelpMarker);
 
-            var hideObtainedMGP = configuration.HideObtainedMGP;
+            bool hideObtainedMGP = configuration.HideObtainedMGP;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowMGPMessages, ref hideObtainedMGP))
             {
                 configuration.HideObtainedMGP = hideObtainedMGP;
@@ -115,9 +120,9 @@ internal static class ObtainTab
             }
             else
             {
-                foreach (var tomestone in TidyChatPlugin.Tomestones)
+                foreach(TomestoneInfo tomestone in TidyChatPlugin.Tomestones)
                 {
-                    configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide);
+                    configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out bool hide);
                     if (ImGui.Checkbox($"Hide {tomestone.Name}", ref hide))
                     {
                         configuration.HideTomestoneById[tomestone.RowId] = hide;
@@ -126,7 +131,7 @@ internal static class ObtainTab
                 }
             }
 
-            var hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
+            bool hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowWolfMarksMessages, ref hideObtainedWolfMarks))
             {
                 configuration.HideObtainedWolfMarks = hideObtainedWolfMarks;
@@ -135,7 +140,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowWolfMarksMessagesHelpMarker);
 
-            var hideObtainedAlliedSeals = configuration.HideObtainedAlliedSeals;
+            bool hideObtainedAlliedSeals = configuration.HideObtainedAlliedSeals;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAlliedSealsMessages, ref hideObtainedAlliedSeals))
             {
                 configuration.HideObtainedAlliedSeals = hideObtainedAlliedSeals;
@@ -144,7 +149,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAlliedSealsMessagesHelpMarker);
 
-            var hideObtainedCenturioSeals = configuration.HideObtainedCenturioSeals;
+            bool hideObtainedCenturioSeals = configuration.HideObtainedCenturioSeals;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowCenturioSealsMessages, ref hideObtainedCenturioSeals))
             {
                 configuration.HideObtainedCenturioSeals = hideObtainedCenturioSeals;
@@ -153,7 +158,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowCenturioSealsMessagesHelpMarker);
 
-            var hideObtainedNuts = configuration.HideObtainedNuts;
+            bool hideObtainedNuts = configuration.HideObtainedNuts;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowSacksOfNutsMessages, ref hideObtainedNuts))
             {
                 configuration.HideObtainedNuts = hideObtainedNuts;
@@ -165,7 +170,7 @@ internal static class ObtainTab
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_BeastTribeQuestsDropdownHeader))
         {
-            var hideObtainedMaterials = configuration.HideObtainedMaterials;
+            bool hideObtainedMaterials = configuration.HideObtainedMaterials;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowBeastTribeCraftingMaterialsMessages,
                     ref hideObtainedMaterials))
             {
@@ -175,7 +180,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
 
-            var hideObtainedTribalCurrency = configuration.HideObtainedTribalCurrency;
+            bool hideObtainedTribalCurrency = configuration.HideObtainedTribalCurrency;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowBeastTribeCurrenciesMessages, ref hideObtainedTribalCurrency))
             {
                 configuration.HideObtainedTribalCurrency = hideObtainedTribalCurrency;
@@ -187,7 +192,7 @@ internal static class ObtainTab
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_OtherObtainMessagesDropdownHeader))
         {
-            var hideObtainedClusters = configuration.HideObtainedClusters;
+            bool hideObtainedClusters = configuration.HideObtainedClusters;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowCrackedClustersMessages, ref hideObtainedClusters))
             {
                 configuration.HideObtainedClusters = hideObtainedClusters;
@@ -196,7 +201,7 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
 
-            var hideObtainedShards = configuration.HideObtainedShards;
+            bool hideObtainedShards = configuration.HideObtainedShards;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessages,
                     ref hideObtainedShards))
             {
@@ -205,6 +210,13 @@ internal static class ObtainTab
             }
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+
+            bool hideObtainedShardsFromLoot = configuration.HideObtainedShardsFromLoot;
+            if (ImGui.Checkbox(Languages.ObtainTab_HideObtainedShardsFromLoot, ref hideObtainedShardsFromLoot))
+            {
+                configuration.HideObtainedShardsFromLoot = hideObtainedShardsFromLoot;
+                configuration.Save();
+            }
         }
 
         ImGui.EndTabItem();

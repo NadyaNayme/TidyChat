@@ -1,6 +1,5 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class CraftingGatheringTab
@@ -9,7 +8,7 @@ internal static class CraftingGatheringTab
     {
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_DesynthesisDropdownHeader))
         {
-            var showDesynthesisLevel = configuration.ShowDesynthesisLevel;
+            bool showDesynthesisLevel = configuration.ShowDesynthesisLevel;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages,
                     ref showDesynthesisLevel))
             {
@@ -17,7 +16,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showDesynthedItem = configuration.ShowDesynthedItem;
+            bool showDesynthedItem = configuration.ShowDesynthedItem;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowItemBeingDesynthesized,
                     ref showDesynthedItem))
             {
@@ -25,7 +24,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showDesynthesisObtains = configuration.ShowDesynthesisObtains;
+            bool showDesynthesisObtains = configuration.ShowDesynthesisObtains;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages,
                     ref showDesynthesisObtains))
             {
@@ -36,7 +35,7 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_MateriaDropdownHeader))
         {
-            var showAttachedMateria = configuration.ShowAttachedMateria;
+            bool showAttachedMateria = configuration.ShowAttachedMateria;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages,
                     ref showAttachedMateria))
             {
@@ -44,7 +43,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showOvermeldFailure = configuration.ShowOvermeldFailure;
+            bool showOvermeldFailure = configuration.ShowOvermeldFailure;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages,
                     ref showOvermeldFailure))
             {
@@ -52,7 +51,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showMateriaRetrieved = configuration.ShowMateriaRetrieved;
+            bool showMateriaRetrieved = configuration.ShowMateriaRetrieved;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages,
                     ref showMateriaRetrieved))
             {
@@ -60,14 +59,14 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showMateriaShatters = configuration.ShowMateriaShatters;
+            bool showMateriaShatters = configuration.ShowMateriaShatters;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaShattersMessages, ref showMateriaShatters))
             {
                 configuration.ShowMateriaShatters = showMateriaShatters;
                 configuration.Save();
             }
 
-            var showMateriaExtract = configuration.ShowMateriaExtract;
+            bool showMateriaExtract = configuration.ShowMateriaExtract;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaExtractedMessages, ref showMateriaExtract))
             {
                 configuration.ShowMateriaExtract = showMateriaExtract;
@@ -77,14 +76,23 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_CraftingDropdownHeader))
         {
-            var showTrialMessages = configuration.ShowTrialMessages;
+            bool showCraftingSynthesisComplete = configuration.ShowCraftingSynthesisComplete;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCraftingSynthesisComplete, ref showCraftingSynthesisComplete))
+            {
+                configuration.ShowCraftingSynthesisComplete = showCraftingSynthesisComplete;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker);
+
+            bool showTrialMessages = configuration.ShowTrialMessages;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowTrialSynthesisMessages, ref showTrialMessages))
             {
                 configuration.ShowTrialMessages = showTrialMessages;
                 configuration.Save();
             }
 
-            var showOtherSynthesis = configuration.ShowOtherSynthesis;
+            bool showOtherSynthesis = configuration.ShowOtherSynthesis;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages,
                     ref showOtherSynthesis))
             {
@@ -92,7 +100,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showAllOtherCrafting = configuration.ShowAllOtherCrafting;
+            bool showAllOtherCrafting = configuration.ShowAllOtherCrafting;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAllOtherCrafting, ref showAllOtherCrafting))
             {
                 configuration.ShowAllOtherCrafting = showAllOtherCrafting;
@@ -102,7 +110,7 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_GatheringLocationsDropdownHeader))
         {
-            var showGatheringSenses = configuration.ShowGatheringSenses;
+            bool showGatheringSenses = configuration.ShowGatheringSenses;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringSensesLabel,
                     ref showGatheringSenses))
             {
@@ -110,7 +118,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showAetherialReductionSands = configuration.ShowAetherialReductionSands;
+            bool showAetherialReductionSands = configuration.ShowAetherialReductionSands;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages,
                     ref showAetherialReductionSands))
             {
@@ -118,7 +126,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showGatheringStartEnd = configuration.ShowGatheringStartEnd;
+            bool showGatheringStartEnd = configuration.ShowGatheringStartEnd;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringStartEnd,
                     ref showGatheringStartEnd))
             {
@@ -126,7 +134,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showLocationAffects = configuration.ShowLocationAffects;
+            bool showLocationAffects = configuration.ShowLocationAffects;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowLocationGatheringEffectMessages,
                     ref showLocationAffects))
             {
@@ -134,7 +142,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showGatheringYield = configuration.ShowGatheringYield;
+            bool showGatheringYield = configuration.ShowGatheringYield;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_HideGatheringYieldLocationMessages,
                     ref showGatheringYield))
             {
@@ -142,7 +150,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showGatheringAttempts = configuration.ShowGatheringAttempts;
+            bool showGatheringAttempts = configuration.ShowGatheringAttempts;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_HideGatheringAttemptsLocationMessages,
                     ref showGatheringAttempts))
             {
@@ -150,7 +158,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showGatherersBoon = configuration.ShowGatherersBoon;
+            bool showGatherersBoon = configuration.ShowGatherersBoon;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_HideGatheringBoonLocationMessages,
                     ref showGatherersBoon))
             {
@@ -158,7 +166,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showAllOtherGathering = configuration.ShowAllOtherGathering;
+            bool showAllOtherGathering = configuration.ShowAllOtherGathering;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAllOtherGathering, ref showAllOtherGathering))
             {
                 configuration.ShowAllOtherGathering = showAllOtherGathering;
@@ -168,28 +176,28 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_FishingDropdownHeader))
         {
-            var showCaughtFish = configuration.ShowCaughtFish;
+            bool showCaughtFish = configuration.ShowCaughtFish;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishAddedToGuideMessages, ref showCaughtFish))
             {
                 configuration.ShowCaughtFish = showCaughtFish;
                 configuration.Save();
             }
 
-            var showMooching = configuration.ShowMooching;
+            bool showMooching = configuration.ShowMooching;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMooching, ref showMooching))
             {
                 configuration.ShowMooching = showMooching;
                 configuration.Save();
             }
 
-            var showMeasuringIlms = configuration.ShowMeasuringIlms;
+            bool showMeasuringIlms = configuration.ShowMeasuringIlms;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishSizeMessages, ref showMeasuringIlms))
             {
                 configuration.ShowMeasuringIlms = showMeasuringIlms;
                 configuration.Save();
             }
 
-            var showCurrentFishingHole = configuration.ShowCurrentFishingHole;
+            bool showCurrentFishingHole = configuration.ShowCurrentFishingHole;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishingHoleName,
                     ref showCurrentFishingHole))
             {
@@ -197,7 +205,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showDiscoveredFishingHole = configuration.ShowDiscoveredFishingHole;
+            bool showDiscoveredFishingHole = configuration.ShowDiscoveredFishingHole;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishingHoleDiscovered,
                     ref showDiscoveredFishingHole))
             {
@@ -205,7 +213,7 @@ internal static class CraftingGatheringTab
                 configuration.Save();
             }
 
-            var showLureMessages = configuration.ShowLureMessages;
+            bool showLureMessages = configuration.ShowLureMessages;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowLureMessages, ref showLureMessages))
             {
                 configuration.ShowLureMessages = showLureMessages;
@@ -214,7 +222,7 @@ internal static class CraftingGatheringTab
 
             ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowLureMessagesHelpMarker);
 
-            var showFishingFlavorText = configuration.ShowFishingFlavorText;
+            bool showFishingFlavorText = configuration.ShowFishingFlavorText;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowFishingFlavorText, ref showFishingFlavorText))
             {
                 configuration.ShowFishingFlavorText = showFishingFlavorText;

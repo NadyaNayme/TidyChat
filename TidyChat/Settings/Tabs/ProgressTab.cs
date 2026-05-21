@@ -1,13 +1,12 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class ProgressTab
 {
     public static void Draw(Configuration configuration)
     {
-        var showGainExperience = configuration.ShowGainExperience;
+        bool showGainExperience = configuration.ShowGainExperience;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowExperienceGainMessages, ref showGainExperience))
         {
             configuration.ShowGainExperience = showGainExperience;
@@ -16,21 +15,21 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
-        var showFirstClearAward = configuration.ShowFirstClearAward;
+        bool showFirstClearAward = configuration.ShowFirstClearAward;
         if (ImGui.Checkbox(Languages.SystemTab_ShowFirstClearAward, ref showFirstClearAward))
         {
             configuration.ShowFirstClearAward = showFirstClearAward;
             configuration.Save();
         }
 
-        var showSecondChanceAward = configuration.ShowSecondChanceAward;
+        bool showSecondChanceAward = configuration.ShowSecondChanceAward;
         if (ImGui.Checkbox(Languages.SystemTab_ShowSecondChanceAward, ref showSecondChanceAward))
         {
             configuration.ShowSecondChanceAward = showSecondChanceAward;
             configuration.Save();
         }
 
-        var hideRouletteBonus = configuration.HideRouletteBonus;
+        bool hideRouletteBonus = configuration.HideRouletteBonus;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
                 ref hideRouletteBonus))
         {
@@ -40,7 +39,7 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
 
-        var hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
+        bool hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
         {
             configuration.HideAdventurerInNeedBonus = hideAdventurerInNeedBonus;
@@ -49,7 +48,7 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
 
-        var showGainPvpExp = configuration.ShowGainPvpExp;
+        bool showGainPvpExp = configuration.ShowGainPvpExp;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowPVPExpGainMessages, ref showGainPvpExp))
         {
             configuration.ShowGainPvpExp = showGainPvpExp;
@@ -58,14 +57,14 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
 
-        var showEarnAchievement = configuration.ShowEarnAchievement;
+        bool showEarnAchievement = configuration.ShowEarnAchievement;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
         {
             configuration.ShowEarnAchievement = showEarnAchievement;
             configuration.Save();
         }
 
-        var showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
+        bool showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
                 ref showOtherEarnedAchievement))
         {
@@ -73,7 +72,7 @@ internal static class ProgressTab
             configuration.Save();
         }
 
-        var showLevelUps = configuration.ShowLevelUps;
+        bool showLevelUps = configuration.ShowLevelUps;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowLevelUpMessages, ref showLevelUps))
         {
             configuration.ShowLevelUps = showLevelUps;
@@ -82,7 +81,7 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker);
 
-        var showOtherLevelUps = configuration.ShowOtherLevelUps;
+        bool showOtherLevelUps = configuration.ShowOtherLevelUps;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
         {
             configuration.ShowOtherLevelUps = showOtherLevelUps;
@@ -91,7 +90,7 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
 
-        var showAbilityUnlocks = configuration.ShowAbilityUnlocks;
+        bool showAbilityUnlocks = configuration.ShowAbilityUnlocks;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
         {
             configuration.ShowAbilityUnlocks = showAbilityUnlocks;

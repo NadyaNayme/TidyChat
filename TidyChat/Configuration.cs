@@ -1,8 +1,8 @@
-﻿using Dalamud.Configuration;
-using Dalamud.Plugin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Dalamud.Configuration;
+using Dalamud.Plugin;
 namespace TidyChat;
 
 [Serializable]
@@ -48,7 +48,7 @@ public class Configuration : IPluginConfiguration
     {
         PropertyInfo? prop = obj.GetType().GetProperty(propName);
         if (prop == null) return default;
-        return (T?)prop.GetValue(this, null);
+        return (T?)prop.GetValue(obj, null);
     }
 
     public void Save()
@@ -73,8 +73,6 @@ public class Configuration : IPluginConfiguration
     #region Better Messaging
 
     public bool BetterInstanceMessage { get; set; } = true;
-    public bool UseDTRBar { get; set; } = false;
-    public bool DTRIsEnabled { get; set; } = false;
     public bool InstanceInDtrBar { get; set; } = false;
     public bool BetterSayReminder { get; set; } = false;
     public bool CopyBetterSayReminder { get; set; } = false;
@@ -99,7 +97,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowCountdownTime { get; set; } = true;
     public bool ShowUserLogins { get; set; } = true;
     public bool ShowUserLogouts { get; set; } = true;
-    public bool ShowDebugTeleport { get; set; } = true;
     public bool ShowSpiritboundGear { get; set; } = true;
     public bool ShowSpideySenses { get; set; } = true;
     public bool ShowAetherCompass { get; set; } = true;
@@ -137,30 +134,30 @@ public class Configuration : IPluginConfiguration
     public bool ShowNowLeaderOf { get; set; } = false;
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
-    public bool ShowNoviceNetworkFull { get; set; } = true;
     public bool ShowAetheryteTicket { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
+
+    // #122: Controls the login / world-travel server announcement block (welcome headers,
+    // in-game event promos, congestion notices, phishing warning). Defaults to ShowAll to
+    // preserve current behaviour. Implemented as a direct, System-channel-scoped text-match
+    // in TidyChatPlugin.OnChat (server announcements have no LogMessageId). Patterns live in
+    // ChatRegexStrings.ServerWorldGreeting / ServerAnnouncement — complete for English;
+    // Jpn/Deu/Fra currently catch only the sqex.to link lines.
+    public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
 
     #endregion
 
     #region PotD & HoH
 
     public bool ShowObtainedPomander { get; set; } = true;
-    public bool ShowReturnedPomander { get; set; } = false;
     public bool ShowCairnGlows { get; set; } = true;
     public bool ShowRestoresLifeToFallen { get; set; } = false;
     public bool ShowCairnActivates { get; set; } = true;
     public bool ShowTransference { get; set; } = false;
     public bool ShowAetherpoolIncrease { get; set; } = true;
     public bool ShowAetherpoolUnchanged { get; set; } = false;
-    public bool ShowPomanderOfSafety { get; set; } = true;
-    public bool ShowPomanderOfSight { get; set; } = true;
-    public bool ShowPomanderOfAffluence { get; set; } = true;
-    public bool ShowPomanderOfFlight { get; set; } = true;
-    public bool ShowPomanderOfAlteration { get; set; } = true;
-    public bool ShowPomanderOfWitching { get; set; } = true;
-    public bool ShowPomanderOfSerenity { get; set; } = true;
+    public bool ShowPomanderEffects { get; set; } = true;
     public bool ShowFloorNumber { get; set; } = true;
     public bool ShowSenseAccursedHoard { get; set; } = true;
     public bool ShowDoNotSenseAccursedHoard { get; set; } = false;
@@ -182,6 +179,7 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedMaterials { get; set; } = false;
     public bool HideObtainedTribalCurrency { get; set; } = false;
     public bool HideObtainedShards { get; set; } = false;
+    public bool HideObtainedShardsFromLoot { get; set; } = false;
     public bool ShowGainExperience { get; set; } = false;
     public bool HideRouletteBonus { get; set; } = false;
     public bool HideAdventurerInNeedBonus { get; set; } = false;
@@ -200,6 +198,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowOnlyPartyMemberRolls { get; set; } = false;
     public bool ShowOthersCastLot { get; set; } = false;
     public bool HideOthersObtain { get; set; } = false;
+    public bool HideOthersObtainFromLoot { get; set; } = false;
 
     #endregion
 
@@ -222,13 +221,14 @@ public class Configuration : IPluginConfiguration
     public bool ShowDesynthesisObtains { get; set; } = false;
     public bool ShowTrialMessages { get; set; } = true;
     public bool ShowOtherSynthesis { get; set; } = false;
+    public bool ShowCraftingSynthesisComplete { get; set; } = true;
     public bool ShowAllOtherCrafting { get; set; } = false;
 
     #endregion
 
     #region Gathering
 
-    public bool FilterGatheringSpam { get; set; } = false;
+    public bool FilterGatheringSpam { get; set; } = true;
     public bool ShowGatheringSenses { get; set; } = true;
     public bool ShowAetherialReductionSands { get; set; } = true;
     public bool ShowLocationAffects { get; set; } = true;

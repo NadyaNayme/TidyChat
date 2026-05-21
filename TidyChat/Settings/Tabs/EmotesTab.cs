@@ -1,31 +1,30 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class EmotesTab
 {
     public static void Draw(Configuration configuration)
     {
-        var filterEmoteSpam = configuration.FilterEmoteChannel;
+        bool filterEmoteSpam = configuration.FilterEmoteChannel;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
         {
             configuration.FilterEmoteChannel = filterEmoteSpam;
             configuration.Save();
         }
-        
+
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
-        
-        var filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
-        if (ImGui.Checkbox("Filter Custom Emote Channel", ref filterCustomEmoteSpam))
+
+        bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
+        if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
         {
             configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
             configuration.Save();
         }
 
-        ImGuiComponents.HelpMarker("This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.");
+        ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
-        var showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
+        bool showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))
         {
             configuration.ShowSelfUsedEmotes = showSelfUsedEmotes;

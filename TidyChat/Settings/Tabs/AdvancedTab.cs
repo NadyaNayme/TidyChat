@@ -1,5 +1,4 @@
 ﻿using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class AdvancedTab
@@ -8,7 +7,7 @@ internal static class AdvancedTab
     {
         ImGui.Spacing();
         ImGui.Spacing();
-        var enableDebugMode = configuration.EnableDebugMode;
+        bool enableDebugMode = configuration.EnableDebugMode;
         if (ImGui.Checkbox(Languages.AdvancedTab_EnableDebugMode, ref enableDebugMode))
         {
             configuration.EnableDebugMode = enableDebugMode;
@@ -16,7 +15,7 @@ internal static class AdvancedTab
         }
 
         ImGui.Spacing();
-        var debugIncludeChannel = configuration.DebugIncludeChannel;
+        bool debugIncludeChannel = configuration.DebugIncludeChannel;
         if (ImGui.Checkbox(Languages.IncludeChannelTagInDryRunMode, ref debugIncludeChannel))
         {
             configuration.DebugIncludeChannel = debugIncludeChannel;
@@ -34,9 +33,8 @@ internal static class AdvancedTab
                 CraftingGatheringTab.Draw(configuration);
             if (ImGui.BeginTabItem(Languages.AdvancedTab_ChatHistoryTabHeader)) ChatHistoryTab.Draw(configuration);
             if (ImGui.BeginTabItem(Languages.AdvancedTab_CustomFiltersHeader)) WhitelistTab.Draw(configuration);
+            ImGui.EndTabBar();
         }
-
-        ImGui.EndTabBar();
 
         ImGui.EndTabItem();
     }

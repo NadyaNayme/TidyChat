@@ -1,7 +1,6 @@
 ﻿using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class GeneralTab
@@ -13,14 +12,14 @@ internal static class GeneralTab
         ImGuiComponents.HelpMarker(Languages.GeneralTab_BlockCountHelpMarker);
         ImGui.Separator();
 
-        var filterSystemMessages = configuration.FilterSystemMessages;
+        bool filterSystemMessages = configuration.FilterSystemMessages;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSystemSpam, ref filterSystemMessages))
         {
             configuration.FilterSystemMessages = filterSystemMessages;
             configuration.Save();
         }
 
-        var filterProgressSpam = configuration.FilterProgressSpam;
+        bool filterProgressSpam = configuration.FilterProgressSpam;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterProgressSpam, ref filterProgressSpam))
         {
             configuration.FilterProgressSpam = filterProgressSpam;
@@ -29,7 +28,7 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterProgressSpamHelpMarker);
 
-        var filterLootSpam = configuration.FilterLootSpam;
+        bool filterLootSpam = configuration.FilterLootSpam;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterLootSpam, ref filterLootSpam))
         {
             configuration.FilterLootSpam = filterLootSpam;
@@ -38,7 +37,7 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterLootSpamHelpMarker);
 
-        var filterObtainedSpam = configuration.FilterObtainedSpam;
+        bool filterObtainedSpam = configuration.FilterObtainedSpam;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterObtianedSpam, ref filterObtainedSpam))
         {
             configuration.FilterObtainedSpam = filterObtainedSpam;
@@ -47,7 +46,7 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterObtainedSpamHelpMarker);
 
-        var filterCraftingSpam = configuration.FilterCraftingSpam;
+        bool filterCraftingSpam = configuration.FilterCraftingSpam;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterCraftingSpam, ref filterCraftingSpam))
         {
             configuration.FilterCraftingSpam = filterCraftingSpam;
@@ -56,7 +55,7 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterCraftingSpamHelpMarker);
 
-        var filterGatheringSpam = configuration.FilterGatheringSpam;
+        bool filterGatheringSpam = configuration.FilterGatheringSpam;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterGatheringSpam, ref filterGatheringSpam))
         {
             configuration.FilterGatheringSpam = filterGatheringSpam;
@@ -69,7 +68,7 @@ internal static class GeneralTab
 
         if (ImGui.CollapsingHeader(Languages.GeneralTab_ImprovedMessagesHeader))
         {
-            var includeChatTag = configuration.IncludeChatTag;
+            bool includeChatTag = configuration.IncludeChatTag;
             if (ImGui.Checkbox(Languages.GeneralTab_TidyChatTag, ref includeChatTag))
             {
                 configuration.IncludeChatTag = includeChatTag;
@@ -78,7 +77,7 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_TidyChatTagHelpMarker);
 
-            var enableSmolMode = configuration.EnableSmolMode;
+            bool enableSmolMode = configuration.EnableSmolMode;
             if (ImGui.Checkbox(Languages.EnableTinyChat, ref enableSmolMode))
             {
                 configuration.EnableSmolMode = enableSmolMode;
@@ -87,7 +86,7 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.AllMessagesWillBeLowercased);
 
-            var normalizeBlocks = configuration.NormalizeBlocks;
+            bool normalizeBlocks = configuration.NormalizeBlocks;
             if (ImGui.Checkbox(Languages.NormalizeSpecialCharactersExceptInPartyOrAllianceChannels, ref normalizeBlocks))
             {
                 configuration.NormalizeBlocks = normalizeBlocks;
@@ -96,14 +95,14 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.ReplacesSpecialCharactersSuchAsWithA);
 
-            var alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
+            bool alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
             if (ImGui.Checkbox(Languages.AlwaysNormalizeSpecialCharacters, ref alwaysNormalizeBlocks))
             {
                 configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
                 configuration.Save();
             }
 
-            var betterInstanceMessage = configuration.BetterInstanceMessage;
+            bool betterInstanceMessage = configuration.BetterInstanceMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
             {
                 configuration.BetterInstanceMessage = betterInstanceMessage;
@@ -112,16 +111,14 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
 
-            var useDTRBar = configuration.UseDTRBar;
-            if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref useDTRBar))
+            bool instanceInDtrBar = configuration.InstanceInDtrBar;
+            if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
             {
-                configuration.UseDTRBar = useDTRBar;
-                configuration.DTRIsEnabled = useDTRBar;
-                configuration.InstanceInDtrBar = useDTRBar;
+                configuration.InstanceInDtrBar = instanceInDtrBar;
                 configuration.Save();
             }
 
-            var betterCommendationMessage = configuration.BetterCommendationMessage;
+            bool betterCommendationMessage = configuration.BetterCommendationMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedPlayerCommendations, ref betterCommendationMessage))
             {
                 configuration.BetterCommendationMessage = betterCommendationMessage;
@@ -130,7 +127,7 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedPlayerCommendationsHelpMarker);
 
-            var includeDutyNameInComms = configuration.IncludeDutyNameInComms;
+            bool includeDutyNameInComms = configuration.IncludeDutyNameInComms;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
             {
                 configuration.IncludeDutyNameInComms = includeDutyNameInComms;
@@ -141,7 +138,7 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
 
-            var betterSayReminder = configuration.BetterSayReminder;
+            bool betterSayReminder = configuration.BetterSayReminder;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedSayMessages, ref betterSayReminder))
             {
                 configuration.BetterSayReminder = betterSayReminder;
@@ -152,7 +149,7 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedSayMessagesHelpMarker);
 
-            var copyBetterSayReminder = configuration.CopyBetterSayReminder;
+            bool copyBetterSayReminder = configuration.CopyBetterSayReminder;
             if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
             {
                 configuration.CopyBetterSayReminder = copyBetterSayReminder;
@@ -163,7 +160,7 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
 
-            var betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
+            bool betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedNoviceNetworkMessages, ref betterNoviceNetworkMessage))
             {
                 configuration.BetterNoviceNetworkMessage = betterNoviceNetworkMessage;
@@ -172,21 +169,21 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker);
 
-            var betterTreasureDungeonMessage = configuration.BetterTreasureDungeonMessage;
-            if (ImGui.Checkbox("Improved Treasure Dungeon Messages", ref betterTreasureDungeonMessage))
+            bool betterTreasureDungeonMessage = configuration.BetterTreasureDungeonMessage;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedTreasureDungeonMessages, ref betterTreasureDungeonMessage))
             {
                 configuration.BetterTreasureDungeonMessage = betterTreasureDungeonMessage;
                 configuration.Save();
             }
 
-            ImGuiComponents.HelpMarker("When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.");
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker);
         }
 
         ImGuiHelpers.ScaledDummy(30f);
         ImGui.Separator();
         ImGui.Spacing();
 
-        var noCoffee = configuration.NoCoffee;
+        bool noCoffee = configuration.NoCoffee;
         if (ImGui.Checkbox(Languages.GeneralTab_HideKofiButton, ref noCoffee))
         {
             configuration.NoCoffee = noCoffee;

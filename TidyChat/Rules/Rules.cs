@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using ChatTwo.Code;
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 #pragma warning disable MA0048
@@ -10,7 +9,7 @@ public enum PatternKind
 {
     None,
     StringMatch,
-    RegexMatch,
+    RegexMatch
 }
 
 public enum SettingTab
@@ -19,7 +18,7 @@ public enum SettingTab
     System,
     LootObtain,
     Progress,
-    CraftingGathering,
+    CraftingGathering
 }
 
 public enum SettingCategory
@@ -40,1342 +39,1301 @@ public enum SettingCategory
     Materia,
     Crafting,
     Gathering,
-    Fishing,
+    Fishing
 }
 
 public class LocalizedFilterRule
 {
     public required string Name { get; set; }
     public required string SettingsTab { get; set; }
-
     public ChatType Channel { get; set; }
     public IList<LocalizedRegex>? RegexChecks { get; set; }
     public IList<LocalizedStrings>? StringChecks { get; set; }
     public PatternKind Pattern { get; set; } = PatternKind.None;
-    public SettingTab SettingTab { get; set; } = SettingTab.Basic;
-    public SettingCategory SettingCategory { get; set; } = SettingCategory.None;
-    public required Boolean IsActive { get; set; } = false;
+    public required bool IsActive { get; set; }
     public string? Error { get; set; }
+    public uint[]? LogMessageIds { get; set; }
 
+    /// <summary>
+    ///     When true, the rule blocks messages when IsActive is true ("Hide*" semantics).
+    ///     When false (default), the rule blocks when IsActive is false ("Show*" semantics).
+    /// </summary>
+    public bool BlockWhenActive { get; set; }
+
+    public bool ShouldBlock => BlockWhenActive ? IsActive : !IsActive;
 }
+
 public static class Rules
 {
     private static readonly List<LocalizedFilterRule> _rules =
     [
         #region System
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "ShowSRankHunt",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.PowerfulMark],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [9331]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSSRankHunt",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.ExtraordinarilyPowerfulMark],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [9332]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCompletedVenture",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CompletedVenture],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4341]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCommendations",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.PlayerCommendation],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowInstanceMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.InstancedArea],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowQuestReminder",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.SayQuestReminder],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowInviteSent",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.InviteSent],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [1]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowInviteeJoins",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.InviteeJoins],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [60]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowLeftParty",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.LeftParty],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4, 69]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowLeftParty",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.YouLeaveParty],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowPartyDisband",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.PartyDisband],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [73]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowPartyDissolved",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.PartyDissolved],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [72]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowInvitedBy",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.InvitedBy],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowJoinParty",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.JoinParty],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [61, 7446]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowJoinParty",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.JoinCrossParty],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowHuntSlain",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.HuntSlain],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4411]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowRelicBookStep",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.RelicBookStep],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4402]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowRelicBookComplete",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.RelicBookComplete],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4400]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOnlineStatus",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.OnlineStatus],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [97]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAttachToMail",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AttachToMail],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [672, 673]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDesynthedItem",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.YouDesynth],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4321]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDesynthesisObtains",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.YouObtainSystem],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4322, 4323]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowObtainedPomander",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedPomander],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7220, 7221, 7222]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowReturnedPomander",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.ReturnedPomander],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCairnGlows",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CairnGlows],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7242]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowRestoresLifeToFallen",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.RestoresLifeToFallen],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7243]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCairnActivates",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CairnActivates],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7245]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTransference",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.Transference],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7246, 7247, 7248]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAetherpoolIncrease",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.AetherpoolIncrease],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7250]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAetherpoolUnchanged",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.AetherpoolUnchanged],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7251]
         },
-        new LocalizedFilterRule
+        new()
         {
-            Name = "ShowPomanderOfSafety",
+            Name = "ShowPomanderEffects",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfSafety],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7264, 7265]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowPomanderOfSight",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfSight],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowPomanderOfAffluence",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfAffluence],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowPomanderOfFlight",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfFlight],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowPomanderOfAlteration",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfAlteration],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowPomanderOfWitching",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfWitching],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowPomanderOfSerenity",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PomanderOfSerenity],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowFloorNumber",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.FloorNumber],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1531, 9218]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSenseAccursedHoard",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SenseAccursedHoard],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7272]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDoNotSenseAccursedHoard",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DoNotSenseAccursedHoard],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7273]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDiscoverAccursedHoard",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DiscoverAccursedHoard],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7274]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowReadyChecks",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.ReadyCheckComplete],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3790, 3794]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowReadyChecks",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.InitiatedReadyCheck],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSpideySenses",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SpideySenses],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [2600, 4791]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAetherCompass",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AetherCompass],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3712]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCountdownTime",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CountdownTime],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [5260]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCountdownTime",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CountdownEngage],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [5264]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSpiritboundGear",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CompleteSpiritbond],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [744]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowExploratoryVoyage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ExploratoryVoyage],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4163]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSubaquaticVoyage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SubaquaticVoyage],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [6061]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowVistaMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.VistaMessages],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1272, 1273]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTryOnGlamour",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TryOnGlamour],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3911]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowEligibleForCoffers",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.EligibleForCoffers],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4233, 4238, 4246]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowFreeCompanyMessageBook",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.FreeCompanyMessageBook],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3087, 6065]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowPersonalMessageBook",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PersonalEstateMessageBook],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [6066]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "BetterCommendationMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.BetterPlayerCommendation],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTradeSent",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.TradeSent],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [33]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTradeCanceled",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.TradeCanceled],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [36]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAwaitingTradeConfirmation",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AwaitingTradeConfirmation],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [32]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowNowLeaderOf",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.NowLeaderOf],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [15, 16, 23, 24, 367, 383, 9284, 9285, 9289, 9290, 9291, 9298]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowFirstClearAward",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.FirstClearAward],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [4225]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowFirstClearAward",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.PartyMemberFirstClear],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSecondChanceAward",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SecondChanceAward],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [7975]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowSecondChanceAward",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.PartyMemberFirstClear],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTradeComplete",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.TradeComplete],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [38]
         },
 
         #region Error Messages
 
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideFateLevelSync",
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
-            StringChecks = [ChatStrings.FateLevelSyncWarning],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2735]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideFateLevelSync",
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
-            StringChecks = [ChatStrings.FateLevelSyncJoinPrompt],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2736]
         },
 
         #endregion
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOfferedTeleport",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.OfferedTeleport],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [440]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowGearsetEquipped",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.GearsetEquipped],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [700, 755]
         },
-        new LocalizedFilterRule
-        {
-            Name = "ShowGearsetEquipped",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.GearsetEquipped],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.OfferedTeleport],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
-        {
-            Name = "ShowGearsetEquipped",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.GearsetEquipped],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowMateriaRetrieved",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.MateriaRetrieved],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1954]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowMateriaShatters",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.MateriaShatters],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1955]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowVolumeControlMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.VolumeControls],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866]
         },
-        new LocalizedFilterRule
+        new()
+        {
+            // IDs 1049/1053 = "You obtain a handful of <collectable>" in the Gathering channel
+            // (gathering a collectable item with Collector's Glove before reducing it)
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1049, 1053]
+        },
+        new()
+        {
+            // ID 3553 = "You successfully reduce <item> (Collectability: N)." (reduction success)
+            // ID 3555 = "N <sands> are obtained." (the resulting aethersand)
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3553, 3555]
+        },
+        new()
+        {
+            // 5514 = "Your meticulous actions prove effective. Integrity is not reduced."
+            // 5516 = "Collectability can be raised no higher."
+            // 5573 = "Collector's high standard sharpens your focus. Brazen and meticulous actions are enhanced."
+            // All are fixed-text (0 params) GatheringSystem notifications unique to the collectable mini-game.
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [5514, 5516, 5573]
+        },
+        new()
         {
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.AetherialReductionSands],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSealedOff",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SealedOff],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [2012, 2013, 2014]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowSearchForItemResults",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.SearchForItemResults],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1630]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "Enabled",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ItemSearchCommand],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1631]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "Enabled",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.Playtime],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [859]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.AetheryteTicket],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [503, 535]
         },
+        // LogMessage 7025 = "You have joined the Novice Network." — a redundant single-line
+        // announcement that fires alongside 7027. Suppress it when the setting is on.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetwork,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7025]
+        },
+        // LogMessage 7027 = "You've joined the Novice Network." — fires via auto-join.
+        // LogMessage 7011 = "You've joined the Novice Network." — fires via "Change chat channel" button.
+        // Both are multi-line; suppressed in OnLogMessage with a compact replacement via ChatGui.Print.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetworkSystem,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7011, 7027]
+        },
+        // LogMessage 7030 = "You have left the Novice Network." — handled via OnLogMessage
+        // for consistency with 7025/7027, printing "You've left the Novice Network." as the replacement.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetworkSystem,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7030]
+        },
+        
         #endregion
 
         #region Emote
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "FilterEmoteChannel",
             SettingsTab = "Emotes",
             Channel = ChatType.StandardEmote,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.ContainsPlayerName],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOtherCustomEmotes",
             SettingsTab = "Emotes",
             Channel = ChatType.CustomEmote,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.PlayerTargetedEmote],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
+
         #endregion
 
         #region Crafting
-        new LocalizedFilterRule
-        {
-            Name = "FilterCraftingSpam",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
-            StringChecks = [ChatStrings.YouSynthesize],
-            Pattern = PatternKind.StringMatch,
-        },
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "ShowAttachedMateria",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.AttachedMateria],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1201]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOvermeldFailure",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            StringChecks = [ChatStrings.OvermeldFailure],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [1202]
         },
-
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowMateriaExtract",
-            SettingsTab = "SysCraftingtem",
+            SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            StringChecks = [ChatStrings.MateriaExtract],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [1200]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTrialMessages",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialSynthesis],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5902, 5904]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTrialMessages",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialQuality],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5906]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTrialMessages",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialHQ],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5907]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowTrialMessages",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.TrialCollectability],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5908]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOtherSynthesis",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.OtherSynthesis],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1156]
         },
+        new()
+        {
+            Name = "ShowCraftingSynthesisComplete",
+            SettingsTab = "Crafting",
+            Channel = ChatType.Crafting,
+            IsActive = true,
+            StringChecks = [ChatStrings.SynthesisComplete],
+            Pattern = PatternKind.StringMatch
+        },
+
         #endregion
 
         #region Gathering
-        new LocalizedFilterRule
+
+        new()
+        {
+            Name = "ShowGatheringYield",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3537]
+        },
+        new()
         {
             Name = "ShowGatheringYield",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatheringYield],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowGatheringAttempts",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatheringAttempts],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
+        {
+            Name = "ShowGatherersBoon",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1097]
+        },
+        new()
         {
             Name = "ShowGatherersBoon",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             StringChecks = [ChatStrings.LocationAffects, ChatStrings.GatherersBoon],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowGatheringStartEnd",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.GatheringStartEnd],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1063, 1064, 1065, 1066, 1067, 1068, 1069, 1070]
         },
-        new LocalizedFilterRule
+        new()
+        {
+            Name = "ShowGatheringSenses",
+            SettingsTab = "Gathering",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [1086, 3501]
+        },
+        new()
         {
             Name = "ShowGatheringSenses",
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.SpideySenses],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
+        {
+            Name = "ShowLocationAffects",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1098]
+        },
+        new()
         {
             Name = "ShowLocationAffects",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             StringChecks = [ChatStrings.LocationAffects],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCaughtFish",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            StringChecks = [ChatStrings.AddedToFishGuide],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [1114]
         },
-        new LocalizedFilterRule
+        new()
+        {
+            // 1116 = "Something bites!"
+            // 1117 = "You lose your bait..."
+            // 5584 = "You reel in your line."
+            Name = "ShowCaughtFish",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1116, 1117, 5584]
+        },
+        new()
         {
             Name = "ShowMooching",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.Mooching],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1121]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCurrentFishingHole",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.CurrentFishingHole],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1110]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDiscoveredFishingHole",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DiscoveredFishingHole],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [1130]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDiscoveredFishingHole",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DiscoveredFishingHoleARR],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3513]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDiscoveredFishingHole",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.DataOnFishinghole],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3579]
         },
-        new LocalizedFilterRule
+        new()
         {
+            // 3512 = measuring ilms message; 3559 = "You land N <fish> measuring M ilms!"
             Name = "ShowMeasuringIlms",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            StringChecks = [ChatStrings.MeasuringIlms],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3512, 3559]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowLureMessages",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.LureAttempt],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5566]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowLureMessages",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.LureBite],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [5565, 5569]
         },
+        new()
+        {
+            // 5570/5571/5572 = 1st/2nd/3rd attempt to lure small-jawed fish
+            Name = "ShowLureMessages",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5570, 5571, 5572]
+        },
+
         #endregion
 
         #region FreeCompany
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "ShowUserLogins",
             SettingsTab = "System",
             Channel = ChatType.FreeCompanyLoginLogout,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.HasLoggedIn],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3085]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowUserLogouts",
             SettingsTab = "System",
             Channel = ChatType.FreeCompanyLoginLogout,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.HasLoggedOut],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [3086]
         },
+
         #endregion
 
         #region Orchestrion
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "HideOrchestrionPlaying",
             SettingsTab = "System",
             Channel = ChatType.Orchestrion,
             IsActive = false,
-            RegexChecks = [ChatRegexStrings.OrchestrionPlaying],
-            Pattern = PatternKind.RegexMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [3433]
         },
+
         #endregion
 
         #region Loot
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "ShowLootRoll",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.RollsNeedOrGreed],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowCastLot",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.CastLot],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedShards",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedShards",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOthersLootRoll",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou,ChatRegexStrings.OthersRollNeedOrGreed],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OthersRollNeedOrGreed],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOthersCastLot",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou,ChatRegexStrings.OthersCastLot],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OthersCastLot],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideOthersObtain",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou,ChatRegexStrings.OtherObtains],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OtherObtains],
+            Pattern = PatternKind.RegexMatch
         },
+
         #endregion
 
         #region Obtain
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "HideRouletteBonus",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            StringChecks = [ChatStrings.RouletteBonus],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2246]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideAdventurerInNeedBonus",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            StringChecks = [ChatStrings.AdventurerInNeedBonus],
-            Pattern = PatternKind.StringMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [2244]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedGil",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedGil],
-            Pattern = PatternKind.RegexMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [657]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedMGP",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedMGP],
-            Pattern = PatternKind.RegexMatch,
+            BlockWhenActive = true,
+            LogMessageIds = [4765]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedWolfMarks",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedWolfMarks],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedWolfMarks],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedSeals],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedSeals],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedVenture",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedVenture],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedVenture],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedTribalCurrency",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedTribalCurrency],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedTribalCurrency],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
-        {
-            Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
-        },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedClusters",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedClusters],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedClusters],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedAlliedSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedAlliedSeals],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedAlliedSeals],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedCenturioSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedCenturioSeals],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedCenturioSeals],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedNuts",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedNuts],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedNuts],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "HideObtainedMaterials",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.ObtainedMaterials],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedMaterials],
+            Pattern = PatternKind.RegexMatch
         },
-        new LocalizedFilterRule
+        new()
         {
-            Name = "HideOthersObtain",
+            Name = "HideObtainedShardsFromLoot",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            RegexChecks= [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
-            Pattern = PatternKind.RegexMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedShards],
+            Pattern = PatternKind.RegexMatch
         },
+        new()
+        {
+            Name = "HideOthersObtainFromLoot",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
+            Pattern = PatternKind.RegexMatch
+        },
+
         #endregion
 
         #region Progress
-        new LocalizedFilterRule
+
+        new()
         {
             Name = "ShowCompletionTime",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.CompletionTime],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4679]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowGainExperience",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.GainExperiencePoints],
-            Pattern = PatternKind.RegexMatch,
+            LogMessageIds = [588, 589, 4466, 7300, 10953]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowGainPvpExp",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.GainPvpExp],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [659]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowEarnAchievement",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.EarnAchievement],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [952]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOtherEarnedAchievement",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
             StringChecks = [ChatStrings.OtherEarnAchievement],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowLevelUps",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.YouAttainLevel],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [590]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowOtherLevelUps",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.OtherAttainsLevel],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [3921, 9454]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowAbilityUnlocks",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.YouLearnAbility],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [552]
         },
-        new LocalizedFilterRule
+        new()
         {
             Name = "ShowDesynthesisLevel",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            StringChecks = [ChatStrings.DesynthesisLevel],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [4325]
         },
-        #endregion
 
+        #endregion
     ];
 
-    public static LocalizedFilterRule[] AllRules => [.. _rules];
+    private static readonly LocalizedFilterRule[] _allRulesCache = [.. _rules];
+    public static LocalizedFilterRule[] AllRules => _allRulesCache;
+
+    /// <summary>
+    ///     Lookup from LogMessageId → list of rules that match that ID.
+    ///     Built once at static init from rules that have LogMessageIds set.
+    /// </summary>
+    public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
+
+    private static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> BuildLogMessageIdLookup()
+    {
+        // Build with mutable inner lists, then expose as read-only.
+        var mutable = new Dictionary<uint, List<LocalizedFilterRule>>();
+        foreach(LocalizedFilterRule rule in _rules)
+        {
+            if (rule.LogMessageIds is null) continue;
+            foreach(uint id in rule.LogMessageIds)
+            {
+                if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
+                {
+                    list = [];
+                    mutable[id] = list;
+                }
+                list.Add(rule);
+            }
+        }
+        var result = new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>(mutable.Count);
+        foreach(KeyValuePair<uint, List<LocalizedFilterRule>> kvp in mutable)
+            result[kvp.Key] = kvp.Value;
+        return result;
+    }
+
     public static void UpdateIsActiveStates(Configuration config)
     {
-        foreach (var rule in _rules)
+        foreach(LocalizedFilterRule rule in _rules)
         {
             try
             {
-                rule.IsActive = config.GetPropertyValue<Boolean>(config, rule.Name);
+                rule.IsActive = config.GetPropertyValue<bool>(config, rule.Name);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 // If we don't know if a rule is True or False assume it is True
                 rule.IsActive = true;

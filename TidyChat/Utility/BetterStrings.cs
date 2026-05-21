@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Timers;
 using ChatTwo.Code;
@@ -18,10 +19,10 @@ internal static class BetterStrings
     {
         // With the chat mode in Say, enter a phrase containing "Capture this"
 
-        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
-        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
-        var lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
-        var containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
+        int containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
+        int containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
+        int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
+        string containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
         if (configuration.CopyBetterSayReminder)
         {
             var stringBuilder = new SeStringBuilder();
@@ -34,13 +35,18 @@ internal static class BetterStrings
         return $"/say {containingPhrase}";
     }
 
-    unsafe public static SeString Instances(SeString message, Configuration configuration)
+    public unsafe static SeString Instances(SeString message, Configuration configuration)
     {
         try
         {
+            // Null-guard the native pointer: dereferencing a null UIState in unsafe code throws
+            // AccessViolationException, which a normal catch cannot reliably handle.
+            UIState* uiState = UIState.Instance();
+            if (uiState == null) return "";
+
             // This will return the instance value: 0,1,2,3,4,5,6
-            int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
-            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
+            int InstanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
+            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
             stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceCharacter}");
@@ -53,51 +59,52 @@ internal static class BetterStrings
         return "";
     }
 
-    /// <see href="https://xivapi.com/LogMessage/7027?pretty=true">You've joined the Novice Network</see>
-    /// <see href="https://xivapi.com/LogMessage/7030?pretty=true">You have left the Novice Network</see>
-    public static SeString NoviceNetwork(SeString originalMessage, string normalizedInput, Configuration configuration)
+    /// <summary>
+    ///     Builds the compact "You've joined the Novice Network." replacement message.
+    ///     Used by <c>OnLogMessage</c> after suppressing the original multi-line join LogMessage (ID 7027).
+    /// </summary>
+    public static SeString NoviceNetworkJoinMessage(Configuration configuration)
     {
-        if (L10N.Get(ChatStrings.NoviceNetworkJoin).All(normalizedInput.Contains))
+        SeString newMessage = L10N.Language switch
         {
-            SeString newMessage = L10N.Language switch
-            {
-                ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
-                ClientLanguage.English => "You've joined the Novice Network.",
-                ClientLanguage.German => "Du bist dem Neulings-Chat beigetreten.",
-                ClientLanguage.French => "Vous avez rejoint le réseau des novices.",
-                _ => "You've joined the Novice Network."
-            };
-            var stringBuilder = new SeStringBuilder();
-            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-            stringBuilder.AddText($"{newMessage}");
-            return stringBuilder.BuiltString;
-        }
+            ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
+            ClientLanguage.English => "You've joined the Novice Network.",
+            ClientLanguage.German => "Du bist dem Neulings-Chat beigetreten.",
+            ClientLanguage.French => "Vous avez rejoint le réseau des novices.",
+            _ => "You've joined the Novice Network."
+        };
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        stringBuilder.AddText($"{newMessage}");
+        return stringBuilder.BuiltString;
+    }
 
-        if (L10N.Get(ChatStrings.NoviceNetworkLeft).All(normalizedInput.Contains))
+    /// <summary>
+    ///     Builds the compact "You've left the Novice Network." replacement message.
+    ///     Used by <c>OnLogMessage</c> after suppressing the original leave LogMessage (ID 7030).
+    /// </summary>
+    public static SeString NoviceNetworkLeaveMessage(Configuration configuration)
+    {
+        SeString newMessage = L10N.Language switch
         {
-            SeString newMessage = L10N.Language switch
-            {
-                ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
-                ClientLanguage.English => "You've left the Novice Network.",
-                ClientLanguage.German => "Du hast den Neulings-Chat verlassen.",
-                ClientLanguage.French => "Vous avez quitté le réseau des novices.",
-                _ => "You've left the Novice Network."
-            };
-            var stringBuilder = new SeStringBuilder();
-            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-            stringBuilder.AddText($"{newMessage}");
-            return stringBuilder.BuiltString;
-        }
-
-        return originalMessage;
+            ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
+            ClientLanguage.English => "You've left the Novice Network.",
+            ClientLanguage.German => "Du hast den Neulings-Chat verlassen.",
+            ClientLanguage.French => "Vous avez quitté le réseau des novices.",
+            _ => "You've left the Novice Network."
+        };
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        stringBuilder.AddText($"{newMessage}");
+        return stringBuilder.BuiltString;
     }
 
     public static SeString TreasureDungeon(Configuration configuration)
     {
-        var chamber = TidyStrings.LastTreasureDungeonChamber;
+        string chamber = TidyStrings.LastTreasureDungeonChamber;
         var stringBuilder = new SeStringBuilder();
         if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-        stringBuilder.AddText(string.Format(System.Globalization.CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
+        stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
         return stringBuilder.BuiltString;
     }
 
@@ -107,7 +114,7 @@ internal static class BetterStrings
         var t = new Timer
         {
             Interval = 1000,
-            AutoReset = false,
+            AutoReset = false
         };
         t.Elapsed += delegate
         {
@@ -152,7 +159,7 @@ internal static class BetterStrings
     public static SeStringBuilder AddRuleTag(SeStringBuilder sestring, List<string> rulesMatched)
     {
         sestring.AddUiForeground(9);
-        sestring.AddText($"[{String.Join(", ", rulesMatched)}] ");
+        sestring.AddText($"[{string.Join(", ", rulesMatched)}] ");
         sestring.AddUiForegroundOff();
         return sestring;
     }
@@ -178,7 +185,7 @@ internal static class BetterStrings
     public static SeStringBuilder AddAllowedTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(9);
-        sestring.AddText($"[Allowed] ");
+        sestring.AddText("[Allowed] ");
         sestring.AddUiForegroundOff();
         return sestring;
     }

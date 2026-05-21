@@ -5,7 +5,6 @@
  */
 
 using System.Diagnostics.CodeAnalysis;
-
 namespace ChatTwo.Code;
 
 [SuppressMessage("Design", "CA1028:Enum Storage should be Int32")]
@@ -92,5 +91,5 @@ public enum ChatType : ushort
     CrossLinkshell5 = 104,
     CrossLinkshell6 = 105,
     CrossLinkshell7 = 106,
-    CrossLinkshell8 = 107,
+    CrossLinkshell8 = 107
 }

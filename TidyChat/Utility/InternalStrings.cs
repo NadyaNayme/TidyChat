@@ -1,6 +1,5 @@
 ﻿using System.Reflection;
 using TidyChat.Translation.Data;
-
 namespace TidyChat.Utility;
 
 internal static class InternalStrings
@@ -22,88 +21,88 @@ internal static class InternalStrings
 
     public static readonly LocalizedTidyStrings InstanceText = new()
     {
-        Jpn = new string("インスタンスエリア"),
-        Eng = new string("You are now in instance:"),
-        Deu = new string("Du bist jetzt in Instanz:"),
-        Fra = new string("La zone instanciée:"),
+        Jpn = new("インスタンスエリア"),
+        Eng = new("You are now in instance:"),
+        Deu = new("Du bist jetzt in Instanz:"),
+        Fra = new("La zone instanciée:")
     };
 
     public static readonly LocalizedTidyStrings InstanceWord = new()
     {
-        Jpn = new string("インスタンスエリア"),
-        Eng = new string("Instance"),
-        Deu = new string("Instanz"),
-        Fra = new string("Instanciée"),
+        Jpn = new("インスタンスエリア"),
+        Eng = new("Instance"),
+        Deu = new("Instanz"),
+        Fra = new("Instanciée")
     };
 
     public static readonly LocalizedTidyStrings CopiedToClipboard = new()
     {
-        Jpn = new string("クリップボードにコピーされました"),
-        Eng = new string("has been copied to clipboard"),
-        Deu = new string("wurde in die Zwischenablage kopiert"),
-        Fra = new string("a été copié"),
+        Jpn = new("クリップボードにコピーされました"),
+        Eng = new("has been copied to clipboard"),
+        Deu = new("wurde in die Zwischenablage kopiert"),
+        Fra = new("a été copié")
     };
 
     public static readonly LocalizedTidyStrings Guildhest = new()
     {
-        Jpn = new string("ギルドヘストから入手"),
-        Eng = new string("a Guildhest"),
-        Deu = new string("ein Gildengeheiß"),
-        Fra = new string("une opération de guilde"),
+        Jpn = new("ギルドヘストから入手"),
+        Eng = new("a Guildhest"),
+        Deu = new("ein Gildengeheiß"),
+        Fra = new("une opération de guilde")
     };
 
     public static readonly LocalizedTidyStrings PvPDuty = new()
     {
-        Jpn = new string("NeedsLocalization"),
-        Eng = new string("a PvP duty"),
-        Deu = new string("aus einer PVP"),
-        Fra = new string("une mission JcJ"),
+        Jpn = new("NeedsLocalization"),
+        Eng = new("a PvP duty"),
+        Deu = new("aus einer PVP"),
+        Fra = new("une mission JcJ")
     };
 
     /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
     public static readonly LocalizedTidyStrings POTD = new()
     {
-        Jpn = new string("NeedsLocalization"),
-        Eng = new string("Palace of the Dead"),
-        Deu = new string("Palast der Toten"),
-        Fra = new string("Palais des morts"),
+        Jpn = new("NeedsLocalization"),
+        Eng = new("Palace of the Dead"),
+        Deu = new("Palast der Toten"),
+        Fra = new("Palais des morts")
     };
 
     /// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
     public static readonly LocalizedTidyStrings HOH = new()
     {
-        Jpn = new string("NeedsLocalization"),
-        Eng = new string("Heaven-on-High"),
-        Deu = new string("Himmelssäule"),
-        Fra = new string("Pilier des Cieux"),
+        Jpn = new("NeedsLocalization"),
+        Eng = new("Heaven-on-High"),
+        Deu = new("Himmelssäule"),
+        Fra = new("Pilier des Cieux")
     };
 
     public static readonly LocalizedTidyStrings StartQuotation = new()
     {
-        Jpn = new string("『"),
-        Eng = new string("“"),
-        Deu = new string("„"),
-        Fra = new string("“"),
+        Jpn = new("『"),
+        Eng = new("“"),
+        Deu = new("„"),
+        Fra = new("“")
     };
 
     public static readonly LocalizedTidyStrings EndQuotation = new()
     {
-        Jpn = new string("』"),
-        Eng = new string("”"),
-        Deu = new string("“"),
-        Fra = new string("”"),
+        Jpn = new("』"),
+        Eng = new("”"),
+        Deu = new("“"),
+        Fra = new("”")
+    };
+
+    public static readonly LocalizedTidyStrings KickedOutMessage = new()
+    {
+        Jpn = new("第{0}区画で追い出された。"),
+        Eng = new("Kicked out on {0} floor."),
+        Deu = new("Bei der {0}. Kammer rausgeworfen."),
+        Fra = new("Expulsé à la {0} salle.")
     };
 
     public static string LastDuty { get; set; } = "";
     public static short CommendationsEarned { get; set; } = 0;
     public static short LastCommendations { get; set; } = 0;
     public static string LastTreasureDungeonChamber { get; set; } = "";
-
-    public static readonly LocalizedTidyStrings KickedOutMessage = new()
-    {
-        Jpn = new string("第{0}区画で追い出された。"),
-        Eng = new string("Kicked out on {0} floor."),
-        Deu = new string("Bei der {0}. Kammer rausgeworfen."),
-        Fra = new string("Expulsé à la {0} salle."),
-    };
 }

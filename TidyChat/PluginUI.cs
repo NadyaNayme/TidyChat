@@ -1,7 +1,7 @@
-﻿using Dalamud.Interface.Utility;
-using Dalamud.Interface.Windowing;
-using System;
+﻿using System;
 using System.Numerics;
+using Dalamud.Interface.Utility;
+using Dalamud.Interface.Windowing;
 using TidyChat.Localization.Resources;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
