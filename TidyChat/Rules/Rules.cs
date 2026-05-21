@@ -684,6 +684,11 @@ public static class Rules
             BlockWhenActive = true,
             LogMessageIds = [7030]
         },
+        // NOTE(#122): The server-announcement filter is intentionally NOT a rule here.
+        // The OnChat rule engine can only un-block messages on spammy channels, so it cannot
+        // express an unconditional "hide". The feature is implemented as a direct suppression
+        // check in TidyChatPlugin.OnChat instead (see the #122 block there, driven by
+        // Configuration.ServerAnnouncementMode).
 
         #endregion
 

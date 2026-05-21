@@ -55,6 +55,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private int _setPlayerNameRetries;
     private const int MaxSetPlayerNameRetries = 10;
 
+    // #122: announcements inside this window after a Login event are treated as a real login
+    // (full block shown in "Login only" mode); announcements outside it are world-hops.
+    private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
+    private const int ServerAnnouncementLoginGraceSeconds = 20;
+
     #region Setup
 
     public TidyChatPlugin()
@@ -154,6 +159,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
         _setPlayerNameRetries = 0; // each login gets a fresh retry budget
+        // #122: open the grace window so "Login only" mode shows the post-login announcement burst.
+        _serverAnnouncementLoginGraceEnd = DateTime.UtcNow.AddSeconds(ServerAnnouncementLoginGraceSeconds);
         SetPlayerName();
     }
 
@@ -340,6 +347,40 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
+
+        // #122: Login / world-travel server announcement handling. These are server-direct
+        // messages with no LogMessageId, so they are matched by text rather than the rule
+        // engine. Scoped to the System channel — that channel is server-generated only, so the
+        // patterns cannot false-positive on player chat. See ServerAnnouncementMode for the
+        // four behaviours.
+        // NOTE: if Debug Mode reveals these arrive on a different channel, adjust the chatType
+        // check (and, if it is a channel ChannelCanBeFiltered() rejects, move this whole block
+        // above that early-return near the top of OnChat).
+        if (chatType is ChatType.System && Configuration.ServerAnnouncementMode != ServerAnnouncementMode.ShowAll)
+        {
+            bool isWorldGreeting = L10N.Get(ChatRegexStrings.ServerWorldGreeting).IsMatch(normalizedText);
+            bool isAnnouncement = L10N.Get(ChatRegexStrings.ServerAnnouncement).IsMatch(normalizedText);
+            if (isWorldGreeting || isAnnouncement)
+            {
+                bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
+                bool suppress = Configuration.ServerAnnouncementMode switch
+                {
+                    ServerAnnouncementMode.HideAll => true,
+                    ServerAnnouncementMode.Condensed => !isWorldGreeting,        // keep only the greeting
+                    ServerAnnouncementMode.LoginOnly => !withinLoginWindow,      // full on login, nothing on hop
+                    ServerAnnouncementMode.LoginThenCondensed =>
+                        !withinLoginWindow && !isWorldGreeting,                  // full on login, condensed on hop
+                    _ => false
+                };
+                if (suppress)
+                {
+                    if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
+                    message.PreventOriginal();
+                    _sessionBlockedMessages += 1;
+                    return;
+                }
+            }
+        }
 
         #region Better Messages
 
