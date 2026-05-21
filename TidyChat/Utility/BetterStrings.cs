@@ -39,8 +39,13 @@ internal static class BetterStrings
     {
         try
         {
+            // Null-guard the native pointer: dereferencing a null UIState in unsafe code throws
+            // AccessViolationException, which a normal catch cannot reliably handle.
+            UIState* uiState = UIState.Instance();
+            if (uiState == null) return "";
+
             // This will return the instance value: 0,1,2,3,4,5,6
-            int InstanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            int InstanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
             string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);

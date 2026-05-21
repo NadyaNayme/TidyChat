@@ -947,8 +947,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (_setPlayerNamePending) return;
         try
         {
-            // Single cast — avoids a race where ObjectTable[0] could change between checks.
-            IPlayerCharacter? player = ObjectTable[0] as IPlayerCharacter;
+            // ObjectTable.LocalPlayer is Dalamud's documented accessor for the local character
+            // (IClientState.LocalPlayer was deprecated and moved here). Clearer and correctly
+            // typed vs. the old "ObjectTable[0] as IPlayerCharacter" cast.
+            IPlayerCharacter? player = ObjectTable.LocalPlayer;
             if (player is null) return;
 
             Configuration.PlayerName = $"{player.Name}";
@@ -1276,8 +1278,18 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
         try
         {
+            // Null-guard the native pointer: dereferencing a null UIState in unsafe code throws
+            // AccessViolationException, which a normal catch cannot reliably handle.
+            UIState* uiState = UIState.Instance();
+            if (uiState == null)
+            {
+                DtrEntry.Shown = false;
+                DtrEntry.Text = string.Empty;
+                return;
+            }
+
             // This will return the instance value: 0,1,2,3,4,5,6
-            int instanceNumberFromSignature = (int)UIState.Instance()->PublicInstance.InstanceId;
+            int instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
             string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
             DtrEntry.Text = instanceNumberFromSignature switch
