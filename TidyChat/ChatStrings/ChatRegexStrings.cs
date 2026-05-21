@@ -228,27 +228,7 @@ public static class ChatRegexStrings
         Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
     };
-
-    // Login / world-travel server announcements (#122). Server-direct messages with no
-    // LogMessageId, matched as text via the direct check in TidyChatPlugin.OnChat. That check
-    // is scoped to the System channel, which is server-generated only — so these patterns
-    // cannot false-positive on player-typed chat.
-    //
-    // Split in two so the "Condensed" mode can keep the world greeting while hiding the rest:
-    //   ServerWorldGreeting = just the "Welcome to <World>!" line.
-    //   ServerAnnouncement  = everything else (FFXIV welcome, event/congestion/incentive
-    //                         promos, phishing warning).
-    //
-    // Observed English block (normal + congested world), each line a separate message:
-    //   "Welcome to <World>!"                                         -> ServerWorldGreeting
-    //   "Welcome to FINAL FANTASY XIV!"                                -> ServerAnnouncement
-    //   "* <World> is categorized as a Congested World: <link>"        -> ServerAnnouncement
-    //   "* Bonus incentives are in place ... Home World Transfer ..."  -> ServerAnnouncement
-    //   "* Incentives include FREE Home World Transfer ... <link>"     -> ServerAnnouncement
-    //   "* <event> is underway until <date>! Details: <link>"          -> ServerAnnouncement
-    //   "** Be Wary of Phishing Attempts via Tell **"                  -> ServerAnnouncement
-    //   "If you receive a Tell containing a URL ... <link>"            -> ServerAnnouncement
-    //
+    
     // English patterns cover all of those. Jpn/Deu/Fra match only the lines carrying an
     // sqex.to link (that domain is identical in every client). TODO: add localized welcome /
     // congestion / phishing header text for full non-English coverage.
