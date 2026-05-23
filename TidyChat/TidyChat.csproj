@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
-        <Version>3.0.0.0</Version>
+        <Version>3.0.0.1</Version>
         <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
 
             Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
