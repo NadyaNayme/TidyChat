@@ -216,6 +216,48 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (!Configuration.Enabled || message.IsHandled) return;
 
+        // Check custom filters (whitelist) that use #LogMessageId syntax.
+        // Block entries suppress the message here; Allow entries add it to _allowedByLogMessage.
+        if (Configuration.Whitelist.Count > 0)
+        {
+            foreach(PlayerName entry in Configuration.Whitelist)
+            {
+                if (!entry.IsLogMessageId) continue;
+                uint[] ids = entry.GetLogMessageIds();
+                if (ids.Length == 0) continue;
+                bool idMatches = false;
+                foreach(uint id in ids)
+                {
+                    if (id == message.LogMessageId) { idMatches = true; break; }
+                }
+                if (!idMatches) continue;
+
+                if (!entry.AllowMessage)
+                {
+                    if (Configuration.EnableDebugMode)
+                        Log.Debug($"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+                    message.PreventOriginal();
+                    Interlocked.Increment(ref _sessionBlockedMessages);
+                    return;
+                }
+                // Allow entry — track it so OnChat doesn't re-block.
+                try
+                {
+                    string text = message.FormatLogMessageForDebugging().ExtractText();
+                    if (!string.IsNullOrEmpty(text))
+                        lock (_logMessageLock)
+                        {
+                            if (_allowedByLogMessage.Count >= MaxLogMessageSetSize) _allowedByLogMessage.Clear();
+                            _allowedByLogMessage.Add(text);
+                        }
+                }
+                catch { /* non-critical */ }
+                if (Configuration.EnableDebugMode)
+                    Log.Debug($"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+                return;
+            }
+        }
+
         if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out IReadOnlyList<LocalizedFilterRule>? matchingRules))
         {
             // No rules registered for this ID — log it in debug mode for ID discovery.
@@ -889,6 +931,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType)
     {
         if (string.IsNullOrWhiteSpace(entry.FirstName)) return false; // empty name would Contains-match everything
+
+        // LogMessageId entries are handled in OnLogMessage, not here.
+        if (entry.IsLogMessageId) return false;
 
         var channels = (ChatFlags.Channels)entry.WhitelistedChannels;
         if (channels == ChatFlags.Channels.None) return false;

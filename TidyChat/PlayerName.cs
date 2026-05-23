@@ -31,9 +31,14 @@ public class PlayerName
 
     [NonSerialized] private Regex? _compiledPattern;
     [NonSerialized] private string? _compiledPatternSource;
+    [NonSerialized] private uint[]? _parsedLogMessageIds;
+    [NonSerialized] private string? _parsedLogMessageIdSource;
 
     /// <summary>True if <see cref="FirstName"/> is in the <c>/pattern/</c> regex form.</summary>
     public bool IsRegex => IsRegexShape(FirstName);
+
+    /// <summary>True if <see cref="FirstName"/> is in the <c>#ID</c> or <c>#ID1,ID2</c> LogMessageId form.</summary>
+    public bool IsLogMessageId => IsLogMessageIdShape(FirstName);
 
     /// <summary>
     ///     Returns the cached compiled <see cref="Regex"/> for this entry when <see cref="FirstName"/> is a
@@ -63,6 +68,35 @@ public class PlayerName
         return _compiledPattern;
     }
 
+    /// <summary>
+    ///     Returns the parsed LogMessageIds for this entry when <see cref="FirstName"/> is a
+    ///     <c>#ID</c> or <c>#ID1,ID2,ID3</c> form. Returns an empty array if parsing fails.
+    /// </summary>
+    public uint[] GetLogMessageIds()
+    {
+        if (string.IsNullOrEmpty(FirstName) || !IsLogMessageIdShape(FirstName)) return [];
+
+        if (string.Equals(_parsedLogMessageIdSource, FirstName, StringComparison.Ordinal))
+            return _parsedLogMessageIds ?? [];
+
+        _parsedLogMessageIdSource = FirstName;
+        try
+        {
+            string[] parts = FirstName[1..].Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            _parsedLogMessageIds = new uint[parts.Length];
+            for (int j = 0; j < parts.Length; j++)
+                _parsedLogMessageIds[j] = uint.Parse(parts[j], System.Globalization.CultureInfo.InvariantCulture);
+        }
+        catch
+        {
+            _parsedLogMessageIds = [];
+        }
+        return _parsedLogMessageIds ?? [];
+    }
+
     private static bool IsRegexShape(string s)
         => s.Length >= 2 && s.StartsWith('/') && s.EndsWith('/');
+
+    private static bool IsLogMessageIdShape(string s)
+        => s.Length >= 2 && s.StartsWith('#') && s.Length > 1 && char.IsAsciiDigit(s[1]);
 }

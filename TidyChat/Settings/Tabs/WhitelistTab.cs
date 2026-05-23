@@ -195,6 +195,7 @@ internal static class WhitelistTab
         ImGui.NewLine();
         ImGui.Spacing();
         ImGui.TextUnformatted(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
+        ImGui.TextUnformatted("Use #ID (e.g. #588 or #588,589) to match by LogMessage ID.");
         ImGui.EndTabItem();
     }
 }
