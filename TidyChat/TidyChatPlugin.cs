@@ -334,96 +334,97 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void OnChat(IHandleableChatMessage message)
     {
-        if (!Configuration.Enabled)
-        {
-            Log.Verbose("Tidy Chat is not enabled");
-            return;
-        }
-
-        // Ignore already filtered messages by other plugins such as NoSol.
-        // IHandleableChatMessage only exposes a one-way PreventOriginal(); there is no
-        // corresponding "AllowOriginal", so TidyChat cannot un-block messages that another
-        // plugin has already suppressed. Custom Allow-list entries therefore cannot override
-        // blocks imposed by other plugins (e.g. NoSol).
+        if (!Configuration.Enabled) { Log.Verbose("Tidy Chat is not enabled"); return; }
         if (message.IsHandled) return;
 
         ChatType chatType = FromDalamud(message.LogKind);
-        bool isHandled;
-
-        // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
         string normalizedText = NormalizeInput.ToLowercase(message.Message);
-
-        // Save original text before Better Messages may modify message.Message.
-        // Use ExtractText() to match how OnLogMessage stores allowed/blocked text —
-        // TextValue only includes TextPayload content, while ExtractText() also captures
-        // text inside expression payloads (e.g. bonus XP "(+80%)" suffixes).
         string rawTextValue = message.Message.TextValue;
         string extractedTextValue;
         try { extractedTextValue = new ReadOnlySeString(message.Message.Encode()).ExtractText(); }
         catch { extractedTextValue = rawTextValue; }
-
-        // If we have the player's name, normalize any messages containing the player's name
-        // or initials to read "you" instead of the player's name.
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
-        // #122: Server announcement check runs BEFORE ChannelCanBeFiltered so it can
-        // intercept announcements regardless of which chat type the game sends them on.
-        // No channel guard — the regex patterns themselves are specific enough.
-        if (Configuration.ServerAnnouncementMode != ServerAnnouncementMode.ShowAll)
-        {
-            bool isWorldGreeting = L10N.Get(ChatRegexStrings.ServerWorldGreeting).IsMatch(normalizedText);
-            bool isAnnouncement = L10N.Get(ChatRegexStrings.ServerAnnouncement).IsMatch(normalizedText);
-            if (isWorldGreeting || isAnnouncement)
-            {
-                bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
-                bool isPhishing = L10N.Get(ChatRegexStrings.ServerPhishingWarning).IsMatch(normalizedText);
-                bool suppress = Configuration.ServerAnnouncementMode switch
-                {
-                    ServerAnnouncementMode.HideAll => true,
-                    ServerAnnouncementMode.Condensed => !isWorldGreeting,
-                    ServerAnnouncementMode.LoginOnly => !withinLoginWindow,
-                    ServerAnnouncementMode.LoginThenCondensed =>
-                        !withinLoginWindow && !isWorldGreeting,
-                    ServerAnnouncementMode.HidePhishing => isPhishing,
-                    _ => false
-                };
-                if (suppress)
-                {
-                    if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
-                    message.PreventOriginal();
-                    Interlocked.Increment(ref _sessionBlockedMessages);
-                    return;
-                }
+        // Each handler returns true if OnChat should stop processing.
+        if (HandleServerAnnouncements(message, normalizedText)) return;
+        if (!ChannelCanBeFiltered(chatType)) return;
+        if (HandleEmoteFilters(message, chatType)) return;
+        if (HandleTemporaryFilterDisables(normalizedText)) return;
+        if (HandleBetterMessages(message, chatType, normalizedText)) return;
+        if (CheckLogMessageDecision(message, chatType, rawTextValue, extractedTextValue)) return;
 
-                // Tag surviving lines when TidyChat is actively condensing
-                // (suppressing some lines but keeping others), so users know
-                // the full block was trimmed.
-                bool isCondensing = Configuration.ServerAnnouncementMode switch
-                {
-                    ServerAnnouncementMode.Condensed => true,
-                    ServerAnnouncementMode.LoginThenCondensed => !withinLoginWindow,
-                    ServerAnnouncementMode.HidePhishing => true,
-                    _ => false
-                };
-                if (isCondensing && Configuration.IncludeChatTag)
-                {
-                    SeStringBuilder tagBuilder = new();
-                    Better.AddTidyChatTag(tagBuilder);
-                    tagBuilder.AddText(message.Message.TextValue);
-                    message.Message = tagBuilder.BuiltString;
-                }
-                return;
-            }
+        bool? channelResult = EvaluateChannelRules(message, chatType, normalizedText, out List<string> rulesMatched);
+        if (channelResult is null) return; // null sentinel: EvaluateChannelRules handled the early-return internally
+        bool isHandled = channelResult.Value;
+        ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled);
+        ApplyWhitelist(message, chatType, ref isHandled);
+        if (CheckChatHistory(message, chatType, ref isHandled)) return;
+
+        if (chatType is ChatType.Echo) isHandled = false;
+
+        if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+        {
+            if (Configuration.DebugIncludeChannel || isHandled)
+                message.Message = BuildDebugString(chatType, message.Message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+            isHandled = false;
         }
 
-        // If the channel is not one that Tidy Chat filters - don't bother running any rules
-        // This includes all Battle-related channels, GM-related channels, NPC Dialogue, 
-        // and a few other channels
-        if (!ChannelCanBeFiltered((chatType))) return;
+        if (isHandled)
+        {
+            Interlocked.Increment(ref _sessionBlockedMessages);
+            message.PreventOriginal();
+        }
+    }
 
-        // This logic exists elsewhere but I don't care to find/clean it up so I'll be redundant and check here too.
-        // Whitelist Block rules are still honoured here so users can suppress one specific spammer
-        // in an otherwise-unfiltered emote channel.
+    /// <summary>Handles server announcement filtering (#122). Returns true if message was fully handled.</summary>
+    private bool HandleServerAnnouncements(IHandleableChatMessage message, string normalizedText)
+    {
+        if (Configuration.ServerAnnouncementMode == ServerAnnouncementMode.ShowAll) return false;
+
+        bool isWorldGreeting = L10N.Get(ChatRegexStrings.ServerWorldGreeting).IsMatch(normalizedText);
+        bool isAnnouncement = L10N.Get(ChatRegexStrings.ServerAnnouncement).IsMatch(normalizedText);
+        if (!isWorldGreeting && !isAnnouncement) return false;
+
+        bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
+        bool isPhishing = L10N.Get(ChatRegexStrings.ServerPhishingWarning).IsMatch(normalizedText);
+        bool suppress = Configuration.ServerAnnouncementMode switch
+        {
+            ServerAnnouncementMode.HideAll => true,
+            ServerAnnouncementMode.Condensed => !isWorldGreeting,
+            ServerAnnouncementMode.LoginOnly => !withinLoginWindow,
+            ServerAnnouncementMode.LoginThenCondensed => !withinLoginWindow && !isWorldGreeting,
+            ServerAnnouncementMode.HidePhishing => isPhishing,
+            _ => false
+        };
+        if (suppress)
+        {
+            if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
+            message.PreventOriginal();
+            Interlocked.Increment(ref _sessionBlockedMessages);
+            return true;
+        }
+
+        bool isCondensing = Configuration.ServerAnnouncementMode switch
+        {
+            ServerAnnouncementMode.Condensed => true,
+            ServerAnnouncementMode.LoginThenCondensed => !withinLoginWindow,
+            ServerAnnouncementMode.HidePhishing => true,
+            _ => false
+        };
+        if (isCondensing && Configuration.IncludeChatTag)
+        {
+            SeStringBuilder tagBuilder = new();
+            Better.AddTidyChatTag(tagBuilder);
+            tagBuilder.AddText(message.Message.TextValue);
+            message.Message = tagBuilder.BuiltString;
+        }
+        return true;
+    }
+
+    /// <summary>Handles emote channel early-outs. Returns true if message was fully handled.</summary>
+    private bool HandleEmoteFilters(IHandleableChatMessage message, ChatType chatType)
+    {
+        // Unfiltered emote channels — only whitelist Block rules apply.
         if ((chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) ||
             (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel))
         {
@@ -432,12 +433,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
-            return;
+            return true;
         }
 
-        // Check if emotes from other players should be filtered or not.
-        // Whitelist Allow rules override this so favourited players' custom emotes still come through.
-        if (!Configuration.ShowOtherCustomEmotes && !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) && chatType is ChatType.CustomEmote)
+        // Block other players' custom emotes unless whitelisted.
+        if (!Configuration.ShowOtherCustomEmotes &&
+            !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) &&
+            chatType is ChatType.CustomEmote)
         {
             if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType))
             {
@@ -445,56 +447,55 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
-            return;
+            return true;
         }
 
-        // If the message is a /? command - temporarily disable the filters to allow the command text through
-        // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
+        return false;
+    }
+
+    /// <summary>Temporarily disables system filters for /? help and party-join messages. Returns true if filters were disabled.</summary>
+    private bool HandleTemporaryFilterDisables(string normalizedText)
+    {
         if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
-            return;
+            return true;
         }
 
-
-        // If we join a party - temporarily disable the filters to allow the Party Information messages through
-        // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
         if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty &&
             Configuration is { ShowPartyInformation: true, FilterSystemMessages: true })
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
-            return;
+            return true;
         }
 
-        #region Better Messages
+        return false;
+    }
 
-        // Certain messages are improved with better messaging - these will change those messages to be Better Messages
-        // Better Messages must always Early Return to avoid being filtered and because if we bettered the message we aren't filtering it anyway
-
+    /// <summary>Applies Better Messages transformations. Returns true if message was fully handled (early return).</summary>
+    private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
+    {
         if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
             L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
         {
             message.Message = Better.Instances(message.Message, Configuration);
             if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
-            return;
+            return true;
         }
 
-        // When Better Commendations is enabled, suppress the original System message so only
-        // the synthesized better message (printed on territory change) is shown.
         if (Configuration.BetterCommendationMessage && chatType is ChatType.System &&
             L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
         {
             message.PreventOriginal();
             Interlocked.Increment(ref _sessionBlockedMessages);
-            return;
+            return true;
         }
 
         if (Configuration.BetterSayReminder &&
             chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
-
         {
             message.Message = Better.SayReminder(message.Message, Configuration);
-            return;
+            return true;
         }
 
         if (Configuration.BetterTreasureDungeonMessage && chatType is ChatType.System)
@@ -503,74 +504,65 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             {
                 Match match = L10N.Get(ChatRegexStrings.ChamberOpens).Match(normalizedText);
                 if (match.Groups["chamber"].Success)
-                {
                     TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
-                }
-                return;
+                return true;
             }
-
             if (L10N.Get(ChatRegexStrings.TrapTriggered).IsMatch(normalizedText))
             {
                 if (TidyStrings.LastTreasureDungeonChamber.Length > 0)
-                {
                     message.Message = Better.TreasureDungeon(Configuration);
-                }
-                return;
+                return true;
             }
         }
 
-        // No early returns in the following Better Message settings as the messages still need to be filtered - but have been modified
+        // Non-early-return transformations: deblock and smol still need filtering afterward.
         if (Configuration.NormalizeBlocks &&
             (Configuration.AlwaysNormalizeBlocks || chatType is not ChatType.Party and not ChatType.Alliance))
-        {
             message.Message = DeblockMessage(message.Message);
-        }
 
         if (Configuration.EnableSmolMode)
-        {
             message.Message = SmolMessage(message.Message);
-        }
 
-        #endregion
+        return false;
+    }
 
-        // If OnLogMessage already decided to block this message, show it with [Blocked] in debug.
+    /// <summary>Checks if OnLogMessage already decided to block or allow this message. Returns true if handled.</summary>
+    private bool CheckLogMessageDecision(IHandleableChatMessage message, ChatType chatType, string rawTextValue, string extractedTextValue)
+    {
         bool wasBlockedByLog;
         lock (_logMessageLock) { wasBlockedByLog = _blockedByLogMessage.Count > 0 && (_blockedByLogMessage.Remove(rawTextValue) || _blockedByLogMessage.Remove(extractedTextValue)); }
         if (wasBlockedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-            {
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
-            }
-            return;
+            return true;
         }
 
-        // If OnLogMessage already decided to allow this message via an ID-based rule,
-        // respect that decision and don't let OnChat's default-block logic override it.
         bool wasAllowedByLog;
         lock (_logMessageLock) { wasAllowedByLog = _allowedByLogMessage.Count > 0 && (_allowedByLogMessage.Remove(rawTextValue) || _allowedByLogMessage.Remove(extractedTextValue)); }
         if (wasAllowedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-            {
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
-            }
-            return;
+            return true;
         }
 
-        #region Channel Filters
+        return false;
+    }
 
+    /// <summary>
+    ///     Runs the channel filter rule engine. Returns isHandled, or null
+    ///     when the method handled the early-return internally (channel filter disabled).
+    /// </summary>
+    private bool? EvaluateChannelRules(IHandleableChatMessage message, ChatType chatType, string normalizedText, out List<string> rulesMatched)
+    {
+        rulesMatched = [];
         Rules.UpdateIsActiveStates(Configuration);
         LocalizedFilterRule[] rules = Rules.AllRules;
 
-
-        // Block any messages that come from a "spammy" channel
         bool isBlocked = ChannelIsSpammy(chatType);
 
-        // Skip filtering if channel filter is disabled — show all messages in that channel.
-        // This mirrors FilterSystemMessages and applies to the other filterable channels.
-        // Whitelist Block rules are still honoured here so users can suppress one specific
-        // spammer in an otherwise-unfiltered channel.
+        // Skip filtering if channel filter is disabled — only whitelist Block rules apply.
         if ((chatType is ChatType.System && !Configuration.FilterSystemMessages) ||
             (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
             (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) ||
@@ -583,7 +575,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
-            return;
+            return null; // sentinel: caller should return immediately
         }
 
         bool showEverythingElse = false;
@@ -596,34 +588,24 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
         bool defaultBlocked = isBlocked;
 
-        List<string> rulesMatched = [];
         List<string>? rulesSkipped = Configuration.EnableDebugMode ? [] : null;
         List<string>? rulesFailed = Configuration.EnableDebugMode ? [] : null;
         foreach(LocalizedFilterRule rule in rules)
         {
-            if (rule.Error is not null)
-            {
-                Log.Error($"Error: {rule.Error}");
-            }
+            if (rule.Error is not null) Log.Error($"Error: {rule.Error}");
 
-            // Skip rules already handled by OnLogMessage via LogMessageIds
             if (rule.LogMessageIds is not null)
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} handled by LogMessage ID");
                 rulesSkipped?.Add(rule.Name);
                 continue;
             }
-
-            // Skip rules that wouldn't change isBlocked away from defaultBlocked
             if (rule.IsActive == showEverythingElse)
             {
-                string activeOrInactive = showEverythingElse ? "active" : "inactive";
-                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
+                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {(showEverythingElse ? "active" : "inactive")}");
                 rulesSkipped?.Add(rule.Name);
                 continue;
             }
-
-            // Don't bother with checks for Channels other than the one the rule intends to filter
             if (chatType != rule.Channel && chatType is not ChatType.Echo)
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
@@ -633,8 +615,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
             if (rule.Channel == ChatType.Echo)
             {
-                // Echo rules use OR logic per check — each passing check is independently logged.
-                // They don't affect isBlocked; they only record matches for debug display.
                 if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
                     rulesMatched.Add(rule.Name);
                 else if (Configuration.EnableDebugMode)
@@ -660,18 +640,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Log.Debug($"{rulesFailed!.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
         }
 
-        // LootNotice uses inverted logic: the channel is Allow-By-Default and rules block,
-        // whereas other spammy channels are Block-By-Default and rules allow.
-        isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
-
+        bool isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
         if (Configuration.EnableDebugMode)
             Log.Debug($"{(isHandled ? "BLOCKED" : "ALLOWED")}: {message.Message}");
 
-        #endregion
+        return isHandled;
+    }
 
-        #region Configuration Filter Overrides
-
-        // If the text is a Custom Emote and it comes from the player it should not be blocked
+    /// <summary>Applies post-rule overrides: player emotes, party-only loot rolls, fishing flavor, tomestones.</summary>
+    private void ApplyFilterOverrides(IHandleableChatMessage message, ChatType chatType, string normalizedText, ref bool isHandled)
+    {
         if (chatType is ChatType.CustomEmote &&
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
         {
@@ -679,19 +657,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isHandled = false;
         }
 
-        // If the message is an emote used by the player and we are filtering used emotes - it should be blocked
         if (!Configuration.ShowSelfUsedEmotes &&
-            (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote) &&
+            chatType is ChatType.StandardEmote or ChatType.CustomEmote &&
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             isHandled = true;
 
-        // Filter loot roll messages from non-party members (alliance/raid) when ShowOnlyPartyMemberRolls is on.
-        // Applies to any LootRoll message that was unblocked (ShowOthersLootRoll, ShowOthersCastLot, etc.)
-        // Only active when actually in a party (PartyList.Length > 0).
         if (chatType is ChatType.LootRoll && !isHandled &&
             Configuration.ShowOnlyPartyMemberRolls && PartyList.Length > 0)
         {
-            // Player's own messages start with "you" after name normalization — always allow those.
             bool isPlayerMessage = normalizedText.StartsWith("you ", StringComparison.Ordinal);
             bool isPartyMember = isPlayerMessage || PartyList.Any(member =>
                 normalizedText.StartsWith(
@@ -704,8 +677,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
         }
 
-        // Fishing flavor text whitelisting using Lumina-loaded game data.
-        // Covers Fisher's Intuition (FishingSpot) and per-fish lure flavor text (FishParameter).
         if (chatType is ChatType.Gathering && isHandled && Configuration.ShowFishingFlavorText &&
             FishingFlavorMessages.Count > 0 && FishingFlavorMessages.Contains(normalizedText))
         {
@@ -713,7 +684,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             isHandled = false;
         }
 
-        // Per-type tomestone filtering using Lumina-loaded game data.
         if (chatType is ChatType.LootNotice && !isHandled &&
             L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
         {
@@ -733,125 +703,86 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 }
             }
         }
+    }
 
-        #endregion Channel Filters
-
-        #region Whitelist
-
-        // Two-pass so Allow rules always win regardless of where they appear in the list:
-        // pass 1 applies all Block rules, pass 2 lets any matching Allow rule unblock them.
-        if (Configuration.Whitelist.Count > 0)
+    /// <summary>Applies custom filter (whitelist) Allow/Block rules. Two-pass so Allow always wins.</summary>
+    private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
+    {
+        if (Configuration.Whitelist.Count == 0) return;
+        try
         {
-            try
-            {
-                foreach(PlayerName p in Configuration.Whitelist)
-                    if (!p.AllowMessage)
-                        CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
-                foreach(PlayerName p in Configuration.Whitelist)
-                    if (p.AllowMessage)
-                        CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
-            }
-            catch(Exception ex)
-            {
-                Log.Error("Error: Failed to evaluate Whitelist - " + ex);
-            }
+            foreach(PlayerName p in Configuration.Whitelist)
+                if (!p.AllowMessage)
+                    CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+            foreach(PlayerName p in Configuration.Whitelist)
+                if (p.AllowMessage)
+                    CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
         }
+        catch(Exception ex)
+        {
+            Log.Error("Error: Failed to evaluate Whitelist - " + ex);
+        }
+    }
 
-        #endregion Whitelist
+    /// <summary>Checks chat history for duplicate messages. Returns true if OnChat should return early.</summary>
+    private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
+    {
+        if (!Configuration.ChatHistoryFilter || isHandled) return false;
+        try
+        {
+            if (Configuration.DisableSelfChatHistory &&
+                string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
+                return true;
 
-        #region Duplicate Message Spam Filter
+            var historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
+            if (historyChannels.Equals(ChatFlags.Channels.None)) return false;
+            if (!Flags.CheckFlags(Configuration, chatType)) return false;
 
-        if (Configuration.ChatHistoryFilter && !isHandled)
-            try
+            string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
+            lock (_chatHistoryLock)
             {
-                /* Disable Chat History for self-sent messages by default */
-                if (Configuration.DisableSelfChatHistory && string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal)) return;
-
-                var historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
-                if (!historyChannels.Equals(ChatFlags.Channels.None))
+                if (Configuration.ChatHistoryTimer > 0)
                 {
-                    if (Flags.CheckFlags(Configuration, chatType))
+                    long now = Environment.TickCount64;
+                    while (_chatHistory.Count > 0 && _chatHistory.Peek().ExpiresAtTicks <= now)
+                        _chatHistory.Dequeue();
+                }
+
+                bool isDuplicate = false;
+                foreach(var entry in _chatHistory)
+                {
+                    if (string.Equals(entry.Message, currentMessage, StringComparison.Ordinal))
+                    { isDuplicate = true; break; }
+                }
+
+                if (isDuplicate)
+                {
+                    Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
+                    isHandled = true;
+                }
+                else
+                {
+                    if (_chatHistory.Count >= Configuration.ChatHistoryLength)
                     {
-                        string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
-                        lock (_chatHistoryLock)
-                        {
-                            // Evict expired entries from the front of the queue.
-                            if (Configuration.ChatHistoryTimer > 0)
-                            {
-                                long now = Environment.TickCount64;
-                                while (_chatHistory.Count > 0 && _chatHistory.Peek().ExpiresAtTicks <= now)
-                                    _chatHistory.Dequeue();
-                            }
-
-                            // Check for duplicate.
-                            bool isDuplicate = false;
-                            foreach(var entry in _chatHistory)
-                            {
-                                if (string.Equals(entry.Message, currentMessage, StringComparison.Ordinal))
-                                {
-                                    isDuplicate = true;
-                                    break;
-                                }
-                            }
-
-                            if (isDuplicate)
-                            {
-                                Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
-                                isHandled = true;
-                            }
-                            else
-                            {
-                                if (_chatHistory.Count >= Configuration.ChatHistoryLength)
-                                {
-                                    Log.Verbose("Chat history reached limit. Removed oldest message and added:" +
-                                                currentMessage);
-                                    _chatHistory.Dequeue();
-                                }
-                                else
-                                {
-                                    Log.Verbose("Added:" + currentMessage);
-                                }
-
-                                long expiresAt = Configuration.ChatHistoryTimer > 0
-                                    ? Environment.TickCount64 + (Configuration.ChatHistoryTimer * 1000L)
-                                    : long.MaxValue;
-                                _chatHistory.Enqueue((currentMessage, expiresAt));
-                            }
-                        }
+                        Log.Verbose("Chat history reached limit. Removed oldest message and added:" + currentMessage);
+                        _chatHistory.Dequeue();
                     }
-
-                    return;
+                    else
+                    {
+                        Log.Verbose("Added:" + currentMessage);
+                    }
+                    long expiresAt = Configuration.ChatHistoryTimer > 0
+                        ? Environment.TickCount64 + (Configuration.ChatHistoryTimer * 1000L)
+                        : long.MaxValue;
+                    _chatHistory.Enqueue((currentMessage, expiresAt));
                 }
             }
-            catch(Exception ex)
-            {
-                Log.Error("Error: Failed to handle Chat History - " + ex);
-            }
-
-        #endregion Duplicate Message Spam Filter
-
-        // Although Echo can be used for /xllog debugging make sure it never ends up filtered
-        if (chatType is ChatType.Echo)
-        {
-            isHandled = false;
+            return true; // chat history always returns after processing
         }
-
-        #region Debug Mode Enabled
-
-        if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+        catch(Exception ex)
         {
-            if (Configuration.DebugIncludeChannel || isHandled)
-            {
-                message.Message = BuildDebugString(chatType, message.Message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
-            }
-            isHandled = false;
-        }
-
-        #endregion Debug Mode Enabled
-        if (isHandled)
-        {
-            Interlocked.Increment(ref _sessionBlockedMessages);
-            message.PreventOriginal();
+            Log.Error("Error: Failed to handle Chat History - " + ex);
+            return false;
         }
     }
 
