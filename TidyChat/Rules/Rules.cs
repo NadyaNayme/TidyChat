@@ -1232,6 +1232,17 @@ public static class Rules
             IsActive = true,
             LogMessageIds = [588, 589, 4466, 7300, 10953]
         },
+        // Text-based fallback: catches XP messages whose LogMessageId isn't registered above
+        // (e.g. bonus-XP variants with (+N%) suffix added in newer patches).
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.GainExperience],
+            Pattern = PatternKind.RegexMatch
+        },
         new()
         {
             Name = "ShowGainPvpExp",

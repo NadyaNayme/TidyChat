@@ -19,5 +19,8 @@ public enum ServerAnnouncementMode
     LoginOnly = 3,
 
     /// <summary>Show the full block on login, but only "Welcome to &lt;world&gt;!" on world-hops.</summary>
-    LoginThenCondensed = 4
+    LoginThenCondensed = 4,
+
+    /// <summary>Show greeting and event text, but suppress the phishing/congestion warning lines.</summary>
+    HidePhishing = 5
 }

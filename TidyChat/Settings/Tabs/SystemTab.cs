@@ -175,7 +175,8 @@ internal static class SystemTab
                 "Hide all",
                 "Condensed (keep \"Welcome to <world>\")",
                 "Login only (hide on world-hop)",
-                "Login full, condensed on world-hop"
+                "Login full, condensed on world-hop",
+                "Hide phishing warning only"
             ];
             int serverAnnouncementMode =
                 Math.Clamp((int)configuration.ServerAnnouncementMode, 0, serverAnnouncementModes.Length - 1);
@@ -203,7 +204,9 @@ internal static class SystemTab
                 "Condensed - keep only the \"Welcome to <world>!\" line.\n" +
                 "Login only - full block on login, nothing on world-hops.\n" +
                 "Login full, condensed on world-hop - full block on login, only the " +
-                "\"Welcome to <world>!\" line on world-hops.\n\n" +
+                "\"Welcome to <world>!\" line on world-hops.\n" +
+                "Hide phishing warning only - keeps greeting + event text, removes the " +
+                "phishing/congestion warning and its URL.\n\n" +
                 "Fully supported on English clients; on JP/DE/FR only the sqex.to link lines are affected.");
         }
 

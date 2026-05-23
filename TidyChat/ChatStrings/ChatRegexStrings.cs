@@ -147,6 +147,19 @@ public static class ChatRegexStrings
         Fra = new("(vous|you) (percevez|ressentez)", regexOptions, regexTimeout)
     };
 
+    /// <summary>
+    ///     Text-based fallback for XP gain messages whose LogMessageId isn't registered.
+    ///     Covers "You gain N experience points." and "You gain N(+M%) job experience points."
+    ///     as well as other-player variants ("Name gains N experience points.").
+    /// </summary>
+    public static readonly LocalizedRegex GainExperience = new()
+    {
+        Jpn = new(@"経験値", regexOptions, regexTimeout),
+        Eng = new(@"\d[\d,]*(\(\+\d+%\))?\s+\w*\s*experience points", regexOptions, regexTimeout),
+        Deu = new(@"\d[\d,]* erfahrungspunkte", regexOptions, regexTimeout),
+        Fra = new(@"\d[\d,]* points? d'expérience", regexOptions, regexTimeout)
+    };
+
     public static readonly LocalizedRegex CastLot = new()
     {
         Jpn = new(@"^youは.*にロットした。$", regexOptions, regexTimeout),
@@ -235,7 +248,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex ServerWorldGreeting = new()
     {
         Jpn = new(@"(?!)", regexOptions, regexTimeout),  // TODO(#122): localized "Welcome to <World>!"
-        Eng = new(@"^welcome to \w+!$", regexOptions, regexTimeout),
+        Eng = new(@"^welcome to \w+!\s*$", regexOptions, regexTimeout),
         Deu = new(@"(?!)", regexOptions, regexTimeout),  // TODO(#122): localized greeting
         Fra = new(@"(?!)", regexOptions, regexTimeout)   // TODO(#122): localized greeting
     };
@@ -244,6 +257,18 @@ public static class ChatRegexStrings
     {
         Jpn = new(@"sqex\.to/", regexOptions, regexTimeout),
         Eng = new(@"welcome to final fantasy xiv|be wary of phishing|if you receive a tell containing a url|is underway until|home world transfer|sqex\.to/", regexOptions, regexTimeout),
+        Deu = new(@"sqex\.to/", regexOptions, regexTimeout),
+        Fra = new(@"sqex\.to/", regexOptions, regexTimeout)
+    };
+
+    /// <summary>
+    ///     Matches the phishing/congestion warning lines in the server announcement block.
+    ///     Used by <see cref="ServerAnnouncementMode.HidePhishing"/> to suppress only these lines.
+    /// </summary>
+    public static readonly LocalizedRegex ServerPhishingWarning = new()
+    {
+        Jpn = new(@"sqex\.to/", regexOptions, regexTimeout),
+        Eng = new(@"be wary of phishing|if you receive a tell containing a url|home world transfer", regexOptions, regexTimeout),
         Deu = new(@"sqex\.to/", regexOptions, regexTimeout),
         Fra = new(@"sqex\.to/", regexOptions, regexTimeout)
     };

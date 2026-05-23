@@ -174,7 +174,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private void OnTerritoryChanged(uint e)
     {
         BlockedCountUpdate();
-        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
+        // Look up the new territory to determine if we're entering a duty instance.
+        byte newExclusiveType = 0;
+        try
+        {
+            newExclusiveType = DataManager.GetExcelSheet<TerritoryType>().GetRow(e).ExclusiveType;
+        }
+        catch { /* non-critical — default 0 means "not a duty" */ }
+
+        // Only print the better commendation summary when leaving a duty (arriving at
+        // a non-instanced zone), not when entering the next one.
+        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate(printMessage: newExclusiveType != 2);
         if (Configuration.InstanceInDtrBar) DelayedInstanceDtrBarUpdate(Configuration);
         if (Configuration.IncludeDutyNameInComms)
             try
@@ -298,6 +308,72 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         ChatType chatType = FromDalamud(message.LogKind);
         bool isHandled;
 
+        // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
+        string normalizedText = NormalizeInput.ToLowercase(message.Message);
+
+        // Save original text before Better Messages may modify message.Message.
+        // Use ExtractText() to match how OnLogMessage stores allowed/blocked text —
+        // TextValue only includes TextPayload content, while ExtractText() also captures
+        // text inside expression payloads (e.g. bonus XP "(+80%)" suffixes).
+        string rawTextValue = message.Message.TextValue;
+        string extractedTextValue;
+        try { extractedTextValue = new ReadOnlySeString(message.Message.Encode()).ExtractText(); }
+        catch { extractedTextValue = rawTextValue; }
+
+        // If we have the player's name, normalize any messages containing the player's name
+        // or initials to read "you" instead of the player's name.
+        if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
+
+        // #122: Server announcement check runs BEFORE ChannelCanBeFiltered so it can
+        // intercept announcements regardless of which chat type the game sends them on.
+        // No channel guard — the regex patterns themselves are specific enough.
+        if (Configuration.ServerAnnouncementMode != ServerAnnouncementMode.ShowAll)
+        {
+            bool isWorldGreeting = L10N.Get(ChatRegexStrings.ServerWorldGreeting).IsMatch(normalizedText);
+            bool isAnnouncement = L10N.Get(ChatRegexStrings.ServerAnnouncement).IsMatch(normalizedText);
+            if (isWorldGreeting || isAnnouncement)
+            {
+                bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
+                bool isPhishing = L10N.Get(ChatRegexStrings.ServerPhishingWarning).IsMatch(normalizedText);
+                bool suppress = Configuration.ServerAnnouncementMode switch
+                {
+                    ServerAnnouncementMode.HideAll => true,
+                    ServerAnnouncementMode.Condensed => !isWorldGreeting,
+                    ServerAnnouncementMode.LoginOnly => !withinLoginWindow,
+                    ServerAnnouncementMode.LoginThenCondensed =>
+                        !withinLoginWindow && !isWorldGreeting,
+                    ServerAnnouncementMode.HidePhishing => isPhishing,
+                    _ => false
+                };
+                if (suppress)
+                {
+                    if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
+                    message.PreventOriginal();
+                    Interlocked.Increment(ref _sessionBlockedMessages);
+                    return;
+                }
+
+                // Tag surviving lines when TidyChat is actively condensing
+                // (suppressing some lines but keeping others), so users know
+                // the full block was trimmed.
+                bool isCondensing = Configuration.ServerAnnouncementMode switch
+                {
+                    ServerAnnouncementMode.Condensed => true,
+                    ServerAnnouncementMode.LoginThenCondensed => !withinLoginWindow,
+                    ServerAnnouncementMode.HidePhishing => true,
+                    _ => false
+                };
+                if (isCondensing && Configuration.IncludeChatTag)
+                {
+                    SeStringBuilder tagBuilder = new();
+                    Better.AddTidyChatTag(tagBuilder);
+                    tagBuilder.AddText(message.Message.TextValue);
+                    message.Message = tagBuilder.BuiltString;
+                }
+                return;
+            }
+        }
+
         // If the channel is not one that Tidy Chat filters - don't bother running any rules
         // This includes all Battle-related channels, GM-related channels, NPC Dialogue, 
         // and a few other channels
@@ -330,12 +406,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
-        // Normalize all messages to lowercase so that we don't have to worry about case sensitivity in the filters
-        string normalizedText = NormalizeInput.ToLowercase(message.Message);
-
-        // Save original text before Better Messages may modify message.Message
-        string rawTextValue = message.Message.TextValue;
-
         // If the message is a /? command - temporarily disable the filters to allow the command text through
         // We check if FilterSystemMessages is on because we forcefully toggle it on once the timer expires and disabling it is only necessary if it is enabled
         if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
@@ -352,44 +422,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
             return;
-        }
-
-
-        // If we have the player's name, normalize any messages containing the player's name or initials to read "you" instead of the player's name
-        if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
-
-        // #122: Login / world-travel server announcement handling. These are server-direct
-        // messages with no LogMessageId, so they are matched by text rather than the rule
-        // engine. Scoped to the System channel — that channel is server-generated only, so the
-        // patterns cannot false-positive on player chat. See ServerAnnouncementMode for the
-        // four behaviours.
-        // NOTE: if Debug Mode reveals these arrive on a different channel, adjust the chatType
-        // check (and, if it is a channel ChannelCanBeFiltered() rejects, move this whole block
-        // above that early-return near the top of OnChat).
-        if (chatType is ChatType.System && Configuration.ServerAnnouncementMode != ServerAnnouncementMode.ShowAll)
-        {
-            bool isWorldGreeting = L10N.Get(ChatRegexStrings.ServerWorldGreeting).IsMatch(normalizedText);
-            bool isAnnouncement = L10N.Get(ChatRegexStrings.ServerAnnouncement).IsMatch(normalizedText);
-            if (isWorldGreeting || isAnnouncement)
-            {
-                bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
-                bool suppress = Configuration.ServerAnnouncementMode switch
-                {
-                    ServerAnnouncementMode.HideAll => true,
-                    ServerAnnouncementMode.Condensed => !isWorldGreeting,        // keep only the greeting
-                    ServerAnnouncementMode.LoginOnly => !withinLoginWindow,      // full on login, nothing on hop
-                    ServerAnnouncementMode.LoginThenCondensed =>
-                        !withinLoginWindow && !isWorldGreeting,                  // full on login, condensed on hop
-                    _ => false
-                };
-                if (suppress)
-                {
-                    if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
-                    message.PreventOriginal();
-                    Interlocked.Increment(ref _sessionBlockedMessages);
-                    return;
-                }
-            }
         }
 
         #region Better Messages
@@ -461,7 +493,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // If OnLogMessage already decided to block this message, show it with [Blocked] in debug.
         bool wasBlockedByLog;
-        lock (_logMessageLock) { wasBlockedByLog = _blockedByLogMessage.Count > 0 && _blockedByLogMessage.Remove(rawTextValue); }
+        lock (_logMessageLock) { wasBlockedByLog = _blockedByLogMessage.Count > 0 && (_blockedByLogMessage.Remove(rawTextValue) || _blockedByLogMessage.Remove(extractedTextValue)); }
         if (wasBlockedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
@@ -474,7 +506,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // If OnLogMessage already decided to allow this message via an ID-based rule,
         // respect that decision and don't let OnChat's default-block logic override it.
         bool wasAllowedByLog;
-        lock (_logMessageLock) { wasAllowedByLog = _allowedByLogMessage.Count > 0 && _allowedByLogMessage.Remove(rawTextValue); }
+        lock (_logMessageLock) { wasAllowedByLog = _allowedByLogMessage.Count > 0 && (_allowedByLogMessage.Remove(rawTextValue) || _allowedByLogMessage.Remove(extractedTextValue)); }
         if (wasAllowedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
@@ -978,7 +1010,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         Configuration.Save();
     }
 
-    private unsafe void BetterCommendationsUpdate()
+    private unsafe void BetterCommendationsUpdate(bool printMessage = true)
     {
         try
         {
@@ -999,7 +1031,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         int commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
 
-        if (commendationChange is >= 1 and <= 7)
+        if (printMessage && commendationChange is >= 1 and <= 7)
         {
             SeStringBuilder stringBuilder = new();
             if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
