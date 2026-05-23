@@ -18,7 +18,6 @@ public class Configuration : IPluginConfiguration
     public bool EnableSmolMode { get; set; } = false;
     public bool NormalizeBlocks { get; set; } = false;
     public bool AlwaysNormalizeBlocks { get; set; } = false;
-    public bool EnableInverseMode { get; set; } = false;
     public bool IncludeChatTag { get; set; } = true;
     public string PlayerName { get; set; } = "";
     public IList<PlayerName> Whitelist { get; set; } = [];

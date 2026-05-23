@@ -7,18 +7,6 @@ internal static class SystemTab
 {
     public static void Draw(Configuration configuration)
     {
-        bool enableInverseMode = configuration.EnableInverseMode;
-        if (ImGui.Checkbox(Languages.SystemTab_ExperimentalFeatureInverseMode, ref enableInverseMode))
-        {
-            configuration.EnableInverseMode = enableInverseMode;
-            configuration.Save();
-        }
-
-        ImGuiComponents.HelpMarker(Languages.SystemTab_ExperimentalFeatureInverseModeHelpMarker);
-
-        if (configuration.EnableInverseMode)
-            ImGui.TextUnformatted(Languages.SystemTab_ExperimentalFeatureInverseModeWarningText);
-
         if (ImGui.CollapsingHeader(Languages.SystemTab_HideShownDefaultDropdownHeader))
         {
             bool instanceMessage = configuration.ShowInstanceMessage;

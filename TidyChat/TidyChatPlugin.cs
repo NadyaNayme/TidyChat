@@ -586,13 +586,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             return;
         }
 
-        // If Inverse Mode is enabled System Channel messages should not be blocked by default - but all other spammy channels should be blocked
-        if (chatType is ChatType.System && Configuration.EnableInverseMode)
-        {
-            if (Configuration.EnableDebugMode) Log.Information("Inverse Mode Active");
-            isBlocked = false;
-        }
-
         bool showEverythingElse = false;
         if ((chatType is ChatType.System && Configuration.ShowEverythingElse) ||
             (chatType is ChatType.Crafting && Configuration.ShowAllOtherCrafting) ||
