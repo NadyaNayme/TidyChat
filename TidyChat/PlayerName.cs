@@ -98,5 +98,5 @@ public class PlayerName
         => s.Length >= 2 && s.StartsWith('/') && s.EndsWith('/');
 
     private static bool IsLogMessageIdShape(string s)
-        => s.Length >= 2 && s.StartsWith('#') && s.Length > 1 && char.IsAsciiDigit(s[1]);
+        => s.Length >= 2 && s[0] == '#' && char.IsAsciiDigit(s[1]);
 }

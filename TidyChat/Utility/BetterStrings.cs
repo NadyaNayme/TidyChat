@@ -1,7 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Timers;
 using ChatTwo.Code;
 using Dalamud.Game;
@@ -43,8 +42,8 @@ internal static class BetterStrings
             if (uiState == null) return "";
 
             // This will return the instance value: 0,1,2,3,4,5,6
-            int InstanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
-            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(InstanceNumberFromSignature - 1))).ToString();
+            int instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
+            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
             if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
             stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceCharacter}");

@@ -53,7 +53,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private const int MaxLogMessageSetSize = 1000;
     private readonly Lock _logMessageLock = new();
     private readonly Lock _chatHistoryLock = new();
-    private volatile bool _setPlayerNamePending;
+    volatile private bool _setPlayerNamePending;
     private int _setPlayerNameRetries;
     private const int MaxSetPlayerNameRetries = 10;
 

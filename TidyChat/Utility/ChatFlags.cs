@@ -23,12 +23,12 @@ public static class ChatFlags
     }
 
     public static bool CheckFlags(PlayerName player, ChatType chatType)
-        => CheckChannelFlags((Channels)player.WhitelistedChannels, chatType, includeFreeCompanyChat: true);
+        => CheckChannelFlags((Channels)player.WhitelistedChannels, chatType);
 
     public static bool CheckFlags(Configuration configuration, ChatType chatType)
-        => CheckChannelFlags((Channels)configuration.ChatHistoryChannels, chatType, includeFreeCompanyChat: true);
+        => CheckChannelFlags((Channels)configuration.ChatHistoryChannels, chatType);
 
-    private static bool CheckChannelFlags(Channels channels, ChatType chatType, bool includeFreeCompanyChat)
+    private static bool CheckChannelFlags(Channels channels, ChatType chatType)
     {
         if (channels.HasFlag(Channels.Debug) && chatType is ChatType.Debug) return true;
         if (channels.HasFlag(Channels.Emotes) &&
