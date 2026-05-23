@@ -21,7 +21,6 @@ internal class PluginUI : Window, IDisposable
 
     public void Dispose()
     {
-        // Have around in case we need it
     }
 
     public override void Draw()

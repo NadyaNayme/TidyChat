@@ -23,93 +23,36 @@ public static class ChatFlags
     }
 
     public static bool CheckFlags(PlayerName player, ChatType chatType)
-    {
-        var whitelistedPlayerChannels = (Channels)player.whitelistedChannels;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Debug) && chatType is ChatType.Debug) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Emotes) &&
-            (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote)) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.PlayerChannels) &&
-            (chatType is ChatType.Say ||
-             chatType is ChatType.Shout ||
-             chatType is ChatType.Yell ||
-             chatType is ChatType.Echo ||
-             chatType is ChatType.TellIncoming ||
-             chatType is ChatType.TellOutgoing ||
-             chatType is ChatType.Linkshell1 ||
-             chatType is ChatType.Linkshell2 ||
-             chatType is ChatType.Linkshell3 ||
-             chatType is ChatType.Linkshell4 ||
-             chatType is ChatType.Linkshell5 ||
-             chatType is ChatType.Linkshell6 ||
-             chatType is ChatType.Linkshell7 ||
-             chatType is ChatType.Linkshell8 ||
-             chatType is ChatType.CrossLinkshell1 ||
-             chatType is ChatType.CrossLinkshell2 ||
-             chatType is ChatType.CrossLinkshell3 ||
-             chatType is ChatType.CrossLinkshell4 ||
-             chatType is ChatType.CrossLinkshell5 ||
-             chatType is ChatType.CrossLinkshell6 ||
-             chatType is ChatType.CrossLinkshell7 ||
-             chatType is ChatType.CrossLinkshell8 ||
-             chatType is ChatType.Party ||
-             chatType is ChatType.CrossParty
-            )
-           )
-            return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.System) && chatType is ChatType.System) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Progress) && chatType is ChatType.Progress) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.FreeCompany) &&
-            (chatType is ChatType.FreeCompany || chatType is ChatType.FreeCompanyLoginLogout)) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting) return true;
-        if (whitelistedPlayerChannels.HasFlag(Channels.Gathering) && (chatType is ChatType.GatheringSystem || chatType is ChatType.Gathering)) return true;
-        return false;
-    }
+        => CheckChannelFlags((Channels)player.WhitelistedChannels, chatType, includeFreeCompanyChat: true);
 
     public static bool CheckFlags(Configuration configuration, ChatType chatType)
+        => CheckChannelFlags((Channels)configuration.ChatHistoryChannels, chatType, includeFreeCompanyChat: true);
+
+    private static bool CheckChannelFlags(Channels channels, ChatType chatType, bool includeFreeCompanyChat)
     {
-        var whitelistedHistoryChannels = (Channels)configuration.ChatHistoryChannels;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Debug) && chatType is ChatType.Debug) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Emotes) &&
-            (chatType is ChatType.StandardEmote || chatType is ChatType.CustomEmote)) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.PlayerChannels) &&
-            (chatType is ChatType.Say ||
-             chatType is ChatType.Shout ||
-             chatType is ChatType.Yell ||
-             chatType is ChatType.Echo ||
-             chatType is ChatType.TellIncoming ||
-             chatType is ChatType.TellOutgoing ||
-             chatType is ChatType.Linkshell1 ||
-             chatType is ChatType.Linkshell2 ||
-             chatType is ChatType.Linkshell3 ||
-             chatType is ChatType.Linkshell4 ||
-             chatType is ChatType.Linkshell5 ||
-             chatType is ChatType.Linkshell6 ||
-             chatType is ChatType.Linkshell7 ||
-             chatType is ChatType.Linkshell8 ||
-             chatType is ChatType.CrossLinkshell1 ||
-             chatType is ChatType.CrossLinkshell2 ||
-             chatType is ChatType.CrossLinkshell3 ||
-             chatType is ChatType.CrossLinkshell4 ||
-             chatType is ChatType.CrossLinkshell5 ||
-             chatType is ChatType.CrossLinkshell6 ||
-             chatType is ChatType.CrossLinkshell7 ||
-             chatType is ChatType.CrossLinkshell8 ||
-             chatType is ChatType.Party ||
-             chatType is ChatType.CrossParty ||
-             chatType is ChatType.FreeCompany
-            )
-           )
+        if (channels.HasFlag(Channels.Debug) && chatType is ChatType.Debug) return true;
+        if (channels.HasFlag(Channels.Emotes) &&
+            chatType is ChatType.StandardEmote or ChatType.CustomEmote) return true;
+        if (channels.HasFlag(Channels.PlayerChannels) &&
+            chatType is ChatType.Say or ChatType.Shout or ChatType.Yell or
+                        ChatType.Echo or ChatType.TellIncoming or ChatType.TellOutgoing or
+                        ChatType.Linkshell1 or ChatType.Linkshell2 or ChatType.Linkshell3 or
+                        ChatType.Linkshell4 or ChatType.Linkshell5 or ChatType.Linkshell6 or
+                        ChatType.Linkshell7 or ChatType.Linkshell8 or
+                        ChatType.CrossLinkshell1 or ChatType.CrossLinkshell2 or ChatType.CrossLinkshell3 or
+                        ChatType.CrossLinkshell4 or ChatType.CrossLinkshell5 or ChatType.CrossLinkshell6 or
+                        ChatType.CrossLinkshell7 or ChatType.CrossLinkshell8 or
+                        ChatType.Party or ChatType.CrossParty or ChatType.FreeCompany)
             return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.System) && chatType is ChatType.System) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Progress) && chatType is ChatType.Progress) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.FreeCompany) &&
-            chatType is ChatType.FreeCompanyLoginLogout) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting) return true;
-        if (whitelistedHistoryChannels.HasFlag(Channels.Gathering) && chatType is ChatType.GatheringSystem) return true;
+        if (channels.HasFlag(Channels.System) && chatType is ChatType.System) return true;
+        if (channels.HasFlag(Channels.Progress) && chatType is ChatType.Progress) return true;
+        if (channels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice) return true;
+        if (channels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll) return true;
+        if (channels.HasFlag(Channels.FreeCompany) &&
+            chatType is ChatType.FreeCompany or ChatType.FreeCompanyLoginLogout) return true;
+        if (channels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting) return true;
+        if (channels.HasFlag(Channels.Gathering) &&
+            chatType is ChatType.GatheringSystem or ChatType.Gathering) return true;
         return false;
     }
 }

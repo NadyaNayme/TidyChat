@@ -55,33 +55,33 @@ internal static class WhitelistTab
             {
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
-                        ref alias.whitelistedChannels,
+                        ref alias.WhitelistedChannels,
                         1 << 3)) configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
-                        ref alias.whitelistedChannels,
+                        ref alias.WhitelistedChannels,
                         1 << 2)) configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
-                        ref alias.whitelistedChannels, 1 << 1))
+                        ref alias.WhitelistedChannels, 1 << 1))
                     configuration.Save();
                 if (ImGui.CheckboxFlags($"{Languages.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
-                        ref alias.whitelistedChannels, 1 << 5))
+                        ref alias.WhitelistedChannels, 1 << 5))
                     configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
-                        ref alias.whitelistedChannels,
+                        ref alias.WhitelistedChannels,
                         1 << 8)) configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
-                        ref alias.whitelistedChannels,
+                        ref alias.WhitelistedChannels,
                         1 << 9)) configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
-                        ref alias.whitelistedChannels, 1 << 7)) configuration.Save();
+                        ref alias.WhitelistedChannels, 1 << 7)) configuration.Save();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
-                        ref alias.whitelistedChannels,
+                        ref alias.WhitelistedChannels,
                         1 << 4)) configuration.Save();
             }
 

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using ChatTwo.Code;
@@ -35,7 +36,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
-    private ulong _sessionBlockedMessages;
+    private long _sessionBlockedMessages;
 
     /// <summary>
     ///     Texts of messages that OnLogMessage explicitly allowed via ID-based rules.
@@ -49,9 +50,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     ///     instead of silently suppressing them via PreventOriginal.
     /// </summary>
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
+    private const int MaxLogMessageSetSize = 1000;
     private readonly Lock _logMessageLock = new();
     private readonly Lock _chatHistoryLock = new();
-    volatile private bool _setPlayerNamePending;
+    private volatile bool _setPlayerNamePending;
     private int _setPlayerNameRetries;
     private const int MaxSetPlayerNameRetries = 10;
 
@@ -125,7 +127,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
 
-    private Queue<string> ChatHistory { get; } = new();
+    private readonly Queue<(string Message, long ExpiresAtTicks)> _chatHistory = new();
 
     public void Dispose()
     {
@@ -238,7 +240,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     {
                         string text = message.FormatLogMessageForDebugging().ExtractText();
                         if (!string.IsNullOrEmpty(text))
-                            lock (_logMessageLock) { _blockedByLogMessage.Add(text); }
+                            lock (_logMessageLock)
+                            {
+                                if (_blockedByLogMessage.Count >= MaxLogMessageSetSize) _blockedByLogMessage.Clear();
+                                _blockedByLogMessage.Add(text);
+                            }
                     }
                     catch
                     {
@@ -247,7 +253,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     return;
                 }
                 message.PreventOriginal();
-                _sessionBlockedMessages += 1;
+                Interlocked.Increment(ref _sessionBlockedMessages);
                 // Print a compact replacement for the suppressed NN join/leave messages.
                 if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
                     ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
@@ -262,7 +268,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             string text = message.FormatLogMessageForDebugging().ExtractText();
             if (!string.IsNullOrEmpty(text))
-                lock (_logMessageLock) { _allowedByLogMessage.Add(text); }
+                lock (_logMessageLock)
+                {
+                    if (_allowedByLogMessage.Count >= MaxLogMessageSetSize) _allowedByLogMessage.Clear();
+                    _allowedByLogMessage.Add(text);
+                }
         }
         catch { /* Safe to ignore — worst case OnChat re-evaluates the message */ }
 
@@ -302,7 +312,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (IsWhitelistedBlocked(message.Sender, message.Message, chatType))
             {
                 message.PreventOriginal();
-                _sessionBlockedMessages += 1;
+                Interlocked.Increment(ref _sessionBlockedMessages);
             }
             return;
         }
@@ -315,7 +325,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message.Message}");
                 message.PreventOriginal();
-                _sessionBlockedMessages += 1;
+                Interlocked.Increment(ref _sessionBlockedMessages);
             }
             return;
         }
@@ -376,7 +386,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 {
                     if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
                     message.PreventOriginal();
-                    _sessionBlockedMessages += 1;
+                    Interlocked.Increment(ref _sessionBlockedMessages);
                     return;
                 }
             }
@@ -401,7 +411,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
         {
             message.PreventOriginal();
-            _sessionBlockedMessages += 1;
+            Interlocked.Increment(ref _sessionBlockedMessages);
             return;
         }
 
@@ -436,20 +446,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         // No early returns in the following Better Message settings as the messages still need to be filtered - but have been modified
-        if (Configuration.NormalizeBlocks)
+        if (Configuration.NormalizeBlocks &&
+            (Configuration.AlwaysNormalizeBlocks || chatType is not ChatType.Party and not ChatType.Alliance))
         {
-            if (Configuration.AlwaysNormalizeBlocks)
-            {
-                message.Message = DeblockMessage(message.Message);
-            }
-            else if (chatType is ChatType.Party || chatType is ChatType.Alliance)
-            {
-                // Do nothing if the message is to Party or Alliance
-            }
-            else
-            {
-                message.Message = DeblockMessage(message.Message);
-            }
+            message.Message = DeblockMessage(message.Message);
         }
 
         if (Configuration.EnableSmolMode)
@@ -507,7 +507,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (IsWhitelistedBlocked(message.Sender, message.Message, chatType))
             {
                 message.PreventOriginal();
-                _sessionBlockedMessages += 1;
+                Interlocked.Increment(ref _sessionBlockedMessages);
             }
             return;
         }
@@ -530,8 +530,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         bool defaultBlocked = isBlocked;
 
         List<string> rulesMatched = [];
-        List<string> rulesSkipped = [];
-        List<string> rulesFailed = [];
+        List<string>? rulesSkipped = Configuration.EnableDebugMode ? [] : null;
+        List<string>? rulesFailed = Configuration.EnableDebugMode ? [] : null;
         foreach(LocalizedFilterRule rule in rules)
         {
             if (rule.Error is not null)
@@ -543,7 +543,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (rule.LogMessageIds is not null)
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} handled by LogMessage ID");
-                rulesSkipped.Add(rule.Name);
+                rulesSkipped?.Add(rule.Name);
                 continue;
             }
 
@@ -552,7 +552,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             {
                 string activeOrInactive = showEverythingElse ? "active" : "inactive";
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {activeOrInactive}");
-                rulesSkipped.Add(rule.Name);
+                rulesSkipped?.Add(rule.Name);
                 continue;
             }
 
@@ -560,145 +560,45 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (chatType != rule.Channel && chatType is not ChatType.Echo)
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
-                rulesSkipped.Add(rule.Name);
+                rulesSkipped?.Add(rule.Name);
                 continue;
             }
 
             if (rule.Channel == ChatType.Echo)
             {
-                List<bool> fakeChecksMatched = [];
-                switch (rule.Pattern)
-                {
-                    case PatternKind.RegexMatch:
-                        if (rule.RegexChecks is null) continue;
-                        foreach(LocalizedRegex check in rule.RegexChecks)
-                        {
-                            if (!L10N.Get(check).IsMatch(normalizedText)) continue;
-                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
-                            fakeChecksMatched.Add(true);
-                            rulesMatched.Add(rule.Name);
-                        }
-                        break;
-                    case PatternKind.StringMatch:
-                        if (rule.StringChecks is null) continue;
-                        foreach(LocalizedStrings check in rule.StringChecks)
-                        {
-                            if (!L10N.Get(check).All(normalizedText.Contains)) continue;
-                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
-                            fakeChecksMatched.Add(true);
-                            rulesMatched.Add(rule.Name);
-                        }
-                        break;
-                }
-                if (fakeChecksMatched.Count == 0)
-                {
-                    if (Configuration.EnableDebugMode) Log.Debug("/echo message failed to match any rules");
-                }
+                // Echo rules use OR logic per check — each passing check is independently logged.
+                // They don't affect isBlocked; they only record matches for debug display.
+                if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+                    rulesMatched.Add(rule.Name);
+                else if (Configuration.EnableDebugMode)
+                    Log.Debug("/echo message failed to match any rules");
                 continue;
             }
 
-            // Forgive me Father for I have sinned by writing this code
-            switch (rule.Pattern)
+            if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
             {
-                case PatternKind.RegexMatch:
-                    if (rule.RegexChecks is null) continue;
-
-                    if (Configuration.EnableDebugMode)
-                    {
-                        Log.Verbose($"START REGEX CHECK FOR: {rule.Name}");
-                        Log.Verbose($"Number of Checks: {rule.RegexChecks.Count}");
-                    }
-
-                    List<bool> regexChecksMatched = [];
-                    foreach(LocalizedRegex check in rule.RegexChecks)
-                    {
-                        if (L10N.Get(check).IsMatch(normalizedText))
-                        {
-                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | REGEX: {L10N.Get(check)}");
-                            regexChecksMatched.Add(true);
-                        }
-                        else
-                        {
-                            if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
-                            regexChecksMatched.Add(false);
-                        }
-                    }
-                    // All checks must pass (AND logic)
-                    if (!regexChecksMatched.Contains(false))
-                    {
-                        if (Configuration.EnableDebugMode) Log.Verbose("Passed all checks!");
-                        rulesMatched.Add(rule.Name);
-                        isBlocked = !defaultBlocked;
-                    }
-                    else
-                    {
-                        rulesFailed.Add(rule.Name);
-                    }
-                    break;
-                case PatternKind.StringMatch:
-                    if (rule.StringChecks is null) continue;
-
-                    if (Configuration.EnableDebugMode)
-                    {
-                        Log.Verbose($"START STRING CHECK FOR: {rule.Name}");
-                        Log.Verbose($"Number of Checks: {rule.StringChecks.Count}");
-                    }
-
-                    List<bool> stringChecksMatched = [];
-                    foreach(LocalizedStrings check in rule.StringChecks)
-                    {
-                        if (L10N.Get(check).All(normalizedText.Contains))
-                        {
-                            if (Configuration.EnableDebugMode) Log.Debug($"MATCHED RULE: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
-                            stringChecksMatched.Add(true);
-                        }
-                        else
-                        {
-                            if (Configuration.EnableDebugMode) Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
-                            stringChecksMatched.Add(false);
-                        }
-                    }
-                    // All checks must pass (AND logic)
-                    if (!stringChecksMatched.Contains(false))
-                    {
-                        if (Configuration.EnableDebugMode) Log.Verbose("Passed all checks!");
-                        rulesMatched.Add(rule.Name);
-                        isBlocked = !defaultBlocked;
-                    }
-                    else
-                    {
-                        rulesFailed.Add(rule.Name);
-                    }
-                    break;
+                rulesMatched.Add(rule.Name);
+                isBlocked = !defaultBlocked;
+            }
+            else
+            {
+                rulesFailed?.Add(rule.Name);
             }
         }
 
         if (Configuration.EnableDebugMode)
         {
             Log.Debug($"{rulesMatched.Count} Rules Matched: {string.Join(", ", rulesMatched)}");
-            Log.Debug($"{rulesSkipped.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
-            Log.Debug($"{rulesFailed.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
+            Log.Debug($"{rulesSkipped!.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
+            Log.Debug($"{rulesFailed!.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
         }
 
-        // Sigh... previously LootNotice was Allow-By-Default and the filters Blocked
-        // so we have to do some inversion here to restore previous behavior since
-        // Tidy Chat 2.0 only runs Checks with True Configuration values
-        if (chatType is not ChatType.LootNotice)
-        {
-            isHandled = isBlocked;
-        }
-        else
-        {
-            isHandled = !isBlocked;
-        }
-        if (isHandled && Configuration.EnableDebugMode)
-        {
-            Log.Debug($"BLOCKED: {message.Message}");
-        }
-        else
-        {
-            Log.Debug($"ALLOWED: {message.Message}");
-        }
+        // LootNotice uses inverted logic: the channel is Allow-By-Default and rules block,
+        // whereas other spammy channels are Block-By-Default and rules allow.
+        isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
+
+        if (Configuration.EnableDebugMode)
+            Log.Debug($"{(isHandled ? "BLOCKED" : "ALLOWED")}: {message.Message}");
 
         #endregion
 
@@ -808,41 +708,47 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
                         lock (_chatHistoryLock)
                         {
-                            if (ChatHistory.Contains(currentMessage))
+                            // Evict expired entries from the front of the queue.
+                            if (Configuration.ChatHistoryTimer > 0)
+                            {
+                                long now = Environment.TickCount64;
+                                while (_chatHistory.Count > 0 && _chatHistory.Peek().ExpiresAtTicks <= now)
+                                    _chatHistory.Dequeue();
+                            }
+
+                            // Check for duplicate.
+                            bool isDuplicate = false;
+                            foreach(var entry in _chatHistory)
+                            {
+                                if (string.Equals(entry.Message, currentMessage, StringComparison.Ordinal))
+                                {
+                                    isDuplicate = true;
+                                    break;
+                                }
+                            }
+
+                            if (isDuplicate)
                             {
                                 Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
                                 isHandled = true;
                             }
-                            else if (ChatHistory.Count >= Configuration.ChatHistoryLength)
-                            {
-                                Log.Verbose("Chat history reached limit. Removed oldest message and added:" +
-                                            currentMessage);
-                                ChatHistory.Dequeue(); // removes oldest (FIFO)
-                                ChatHistory.Enqueue(currentMessage);
-                            }
                             else
                             {
-                                Log.Verbose("Added:" + currentMessage);
-                                ChatHistory.Enqueue(currentMessage);
-                                if (Configuration.ChatHistoryTimer > 0)
+                                if (_chatHistory.Count >= Configuration.ChatHistoryLength)
                                 {
-                                    Timer t = new()
-                                    {
-                                        Interval = Configuration.ChatHistoryTimer * 1000,
-                                        AutoReset = false
-                                    };
-                                    t.Elapsed += delegate
-                                    {
-                                        t.Enabled = false;
-                                        t.Dispose();
-                                        lock (_chatHistoryLock)
-                                        {
-                                            if (ChatHistory.Count > 0)
-                                                ChatHistory.Dequeue();
-                                        }
-                                    };
-                                    t.Enabled = true;
+                                    Log.Verbose("Chat history reached limit. Removed oldest message and added:" +
+                                                currentMessage);
+                                    _chatHistory.Dequeue();
                                 }
+                                else
+                                {
+                                    Log.Verbose("Added:" + currentMessage);
+                                }
+
+                                long expiresAt = Configuration.ChatHistoryTimer > 0
+                                    ? Environment.TickCount64 + (Configuration.ChatHistoryTimer * 1000L)
+                                    : long.MaxValue;
+                                _chatHistory.Enqueue((currentMessage, expiresAt));
                             }
                         }
                     }
@@ -877,8 +783,51 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         #endregion Debug Mode Enabled
         if (isHandled)
         {
-            _sessionBlockedMessages += 1;
+            Interlocked.Increment(ref _sessionBlockedMessages);
             message.PreventOriginal();
+        }
+    }
+
+    /// <summary>
+    ///     Tests whether the rule's regex or string checks all match the normalized text.
+    ///     Returns false if the rule has no checks or any check fails (AND logic).
+    /// </summary>
+    private static bool RuleMatchesText(LocalizedFilterRule rule, string normalizedText, bool debugMode)
+    {
+        switch (rule.Pattern)
+        {
+            case PatternKind.RegexMatch:
+                if (rule.RegexChecks is null) return false;
+                foreach(LocalizedRegex check in rule.RegexChecks)
+                {
+                    if (L10N.Get(check).IsMatch(normalizedText))
+                    {
+                        if (debugMode) Log.Debug($"MATCHED: {rule.Name} | REGEX: {L10N.Get(check)}");
+                    }
+                    else
+                    {
+                        if (debugMode) Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
+                        return false;
+                    }
+                }
+                return true;
+            case PatternKind.StringMatch:
+                if (rule.StringChecks is null) return false;
+                foreach(LocalizedStrings check in rule.StringChecks)
+                {
+                    if (L10N.Get(check).All(normalizedText.Contains))
+                    {
+                        if (debugMode) Log.Debug($"MATCHED: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
+                    }
+                    else
+                    {
+                        if (debugMode) Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
+                        return false;
+                    }
+                }
+                return true;
+            default:
+                return false;
         }
     }
 
@@ -909,7 +858,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (string.IsNullOrWhiteSpace(entry.FirstName)) return false; // empty name would Contains-match everything
 
-        var channels = (ChatFlags.Channels)entry.whitelistedChannels;
+        var channels = (ChatFlags.Channels)entry.WhitelistedChannels;
         if (channels == ChatFlags.Channels.None) return false;
         if (!Flags.CheckFlags(entry, chatType)) return false;
 
@@ -1025,8 +974,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void BlockedCountUpdate()
     {
-        Configuration.TtlMessagesBlocked += _sessionBlockedMessages;
-        _sessionBlockedMessages = 0;
+        Configuration.TtlMessagesBlocked += (ulong)Interlocked.Exchange(ref _sessionBlockedMessages, 0);
         Configuration.Save();
     }
 
@@ -1170,49 +1118,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private static bool ChannelCanBeFiltered(ChatType chatType)
     {
+        // Every spammy channel is filterable, plus player/social/error channels.
+        if (ChannelIsSpammy(chatType)) return true;
         return chatType switch
         {
             ChatType.Error or
-                ChatType.Say or
-                ChatType.Shout or
-                ChatType.Yell or
-                ChatType.TellIncoming or
-                ChatType.PvpTeam or
-            ChatType.NoviceNetwork or
-                ChatType.NoviceNetworkSystem or
-                ChatType.FreeCompany or
-                ChatType.PeriodicRecruitmentNotification or
-                ChatType.Party or
-                ChatType.CrossParty or
-                ChatType.Alliance or
-                ChatType.Linkshell1 or
-                ChatType.Linkshell2 or
-                ChatType.Linkshell3 or
-                ChatType.Linkshell4 or
-                ChatType.Linkshell5 or
-                ChatType.Linkshell6 or
-                ChatType.Linkshell7 or
-                ChatType.Linkshell8 or
-                ChatType.CrossLinkshell1 or
-                ChatType.CrossLinkshell2 or
-                ChatType.CrossLinkshell3 or
-                ChatType.CrossLinkshell4 or
-                ChatType.CrossLinkshell5 or
-                ChatType.CrossLinkshell6 or
-                ChatType.CrossLinkshell7 or
-                ChatType.CrossLinkshell8 or
-                ChatType.System or
-                ChatType.StandardEmote or
-                ChatType.CustomEmote or
-                ChatType.Crafting or
-                ChatType.Gathering or
-                ChatType.GatheringSystem or
-                ChatType.LootNotice or
-                ChatType.LootRoll or
-                ChatType.Progress or
-                ChatType.FreeCompanyLoginLogout or
-                ChatType.Orchestrion or
-                ChatType.Echo => true,
+                ChatType.Say or ChatType.Shout or ChatType.Yell or
+                ChatType.TellIncoming or ChatType.PvpTeam or
+                ChatType.NoviceNetwork or ChatType.NoviceNetworkSystem or
+                ChatType.FreeCompany or ChatType.PeriodicRecruitmentNotification or
+                ChatType.Party or ChatType.CrossParty or ChatType.Alliance or
+                ChatType.Linkshell1 or ChatType.Linkshell2 or ChatType.Linkshell3 or
+                ChatType.Linkshell4 or ChatType.Linkshell5 or ChatType.Linkshell6 or
+                ChatType.Linkshell7 or ChatType.Linkshell8 or
+                ChatType.CrossLinkshell1 or ChatType.CrossLinkshell2 or ChatType.CrossLinkshell3 or
+                ChatType.CrossLinkshell4 or ChatType.CrossLinkshell5 or ChatType.CrossLinkshell6 or
+                ChatType.CrossLinkshell7 or ChatType.CrossLinkshell8 or
+                ChatType.Orchestrion => true,
             _ => false
         };
     }
@@ -1229,13 +1151,14 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
             else if (payload is TextPayload { Text: not null } textPayload)
             {
-                string smolMessage = "";
+                var sb = new StringBuilder(textPayload.Text.Length);
                 foreach(int i in textPayload.Text)
                 {
-                    if (i is >= 65 and <= 90) smolMessage += (char)(i + 32); // 65='A', 90='Z' (91='[', not a letter)
-                    else smolMessage += (char)i;
+                    sb.Append(i is >= 65 and <= 90
+                        ? (char)(i + 32)  // 65='A', 90='Z' (91='[', not a letter)
+                        : (char)i);
                 }
-                stringBuilder.AddText(smolMessage);
+                stringBuilder.AddText(sb.ToString());
             }
         });
         msg = stringBuilder.Build();
@@ -1255,29 +1178,20 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
             else if (payload is TextPayload { Text: not null } textPayload)
             {
-                string deblockedMessage = "";
+                var sb = new StringBuilder(textPayload.Text.Length);
                 foreach(int i in textPayload.Text)
                 {
-                    switch (i)
+                    char c = i switch
                     {
-                        case >= 57457 and <= 57483:
-                            deblockedMessage += (char)(i - 57392); // A-Z Blocks
-                            break;
-                        case >= 57487 and <= 57496:
-                            deblockedMessage += (char)(i - 57439); // Number Blocks
-                            break;
-                        case >= 57521 and <= 57529:
-                            deblockedMessage += (char)(i - 57472); // Hexgonical Numbers
-                            break;
-                        case >= 57440 and <= 57449:
-                            deblockedMessage += (char)(i - 57392); // Monospace Numbers
-                            break;
-                        default:
-                            deblockedMessage += (char)i;
-                            break;
-                    }
+                        >= 57457 and <= 57483 => (char)(i - 57392), // A-Z Blocks
+                        >= 57487 and <= 57496 => (char)(i - 57439), // Number Blocks
+                        >= 57521 and <= 57529 => (char)(i - 57472), // Hexgonical Numbers
+                        >= 57440 and <= 57449 => (char)(i - 57392), // Monospace Numbers
+                        _ => (char)i
+                    };
+                    sb.Append(c);
                 }
-                stringBuilder.AddText(deblockedMessage);
+                stringBuilder.AddText(sb.ToString());
             }
         });
         msg = stringBuilder.Build();

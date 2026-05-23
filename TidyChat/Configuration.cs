@@ -1,6 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Reflection;
 using Dalamud.Configuration;
 using Dalamud.Plugin;
 namespace TidyChat;
@@ -44,12 +43,6 @@ public class Configuration : IPluginConfiguration
         this.pluginInterface = pluginInterface;
     }
 
-    public T? GetPropertyValue<T>(object obj, string propName)
-    {
-        PropertyInfo? prop = obj.GetType().GetProperty(propName);
-        if (prop == null) return default;
-        return (T?)prop.GetValue(obj, null);
-    }
 
     public void Save()
     {

@@ -21,7 +21,7 @@ public class PlayerName
 {
     public bool AllowMessage = true;
     public string FirstName = string.Empty;
-    public int whitelistedChannels = 2;
+    public int WhitelistedChannels = 2;
 
     /// <summary>
     ///     Selects how non-regex entries are compared. Defaults to MessageContains for backward compatibility
