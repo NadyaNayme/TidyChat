@@ -516,8 +516,9 @@ public static class Rules
             Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
-            LogMessageIds = [2735]
+            LogMessageIds = [2070]
         },
+        // Text-based fallback when LogMessage ID handling is unavailable.
         new()
         {
             Name = "HideFateLevelSync",
@@ -525,7 +526,8 @@ public static class Rules
             Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
-            LogMessageIds = [2736]
+            StringChecks = [ChatStrings.FateLevelSyncWarning],
+            Pattern = PatternKind.StringMatch,
         },
 
         #endregion

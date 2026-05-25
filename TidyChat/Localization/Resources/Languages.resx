@@ -823,7 +823,7 @@ Filters now Hide messages instead of Show them</value>
     <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You are 5 or more levels above the recommended level for this FATE.</value>
+    <value>eg. You are 6 or more levels above the recommended level for this FATE.</value>
   </data>
   <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
     <value>Show Free Company message book new entry messages</value>

@@ -161,4 +161,15 @@ public static class ChatStrings
         Deu = ["himmelssäule"],
         Fra = ["pilier", "des", "cieux"]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/2070?pretty=true">
+    ///     You are X or more levels above the recommended level for this FATE.
+    ///     To join, use the level sync function located in the duty list.</see>
+    public static readonly LocalizedStrings FateLevelSyncWarning = new()
+    {
+        Jpn = ["比推荐等级高出", "等级同步"],
+        Eng = ["recommended level for this fate", "level sync"],
+        Deu = ["empfohlenen", "stufenanpassung"],
+        Fra = ["synchronisation de niveau", "aléa"],
+    };
 }
