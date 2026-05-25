@@ -632,6 +632,25 @@ public static class Rules
                 1450, 1451, 1452, 1453
             ]
         },
+        // OnChat fallback for /isearch output when LogMessage allow-text does not match chat payloads (e.g. item icons on >> lines).
+        new()
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.ItemSearchCommand],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.SearchForItemResults],
+            Pattern = PatternKind.RegexMatch
+        },
         new()
         {
             // Prevents "Total Play Time" from being swallowed by the system spam filter.

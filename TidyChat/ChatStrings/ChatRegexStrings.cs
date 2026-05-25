@@ -201,6 +201,32 @@ public static class ChatRegexStrings
         Fra = new(@"(.*) obtient (un|une|\d{1,3}) .+", regexOptions, regexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/1631?pretty=true">/isearch item link lines (>> …)</see>
+    /// <see href="https://xivapi.com/LogMessage/1629?pretty=true">/isearch match summary</see>
+    public static readonly LocalizedRegex ItemSearchCommand = new()
+    {
+        Jpn = new(@"^\s{1,3}>>|を含む所持アイテムは(\d{1,4}種類見つかりました|ありませんでした)。$", regexOptions, regexTimeout),
+        Eng = new(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)", regexOptions, regexTimeout),
+        Deu = new(@"\s{1,3}>>", regexOptions, regexTimeout),
+        Fra = new(@"\s{1,3}>>|(Il n\'y a aucun objet contenant|Il y a \d{1,4} type)", regexOptions, regexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1438?pretty=true">/isearch location result lines</see>
+    public static readonly LocalizedRegex SearchForItemResults = new()
+    {
+        // TODO: items found in the armory chest, items in second tab of saddlebag
+        Jpn = new(
+            @"^ミラージュドレッサーに\d個あります。$|^愛蔵品キャビネット「.+」に\d個あります。$|に装備中です。$|合計\d{1,9}個見つかりました。|^所持品ブロック[1234]に\d{1,9}個あります。$|^チョコボかばんのかばんタブ[12]に\d{1,9}個あります。$",
+            regexOptions, regexTimeout),
+        Eng = new(
+            @"(^\d (item|items) found in glamour dresser\.)|(^\d (item|items) found in the .* section of the armoire\.)|(^currently equipped to .* slot)|(^total: \d{1,9} (item|items) found)|(^\d{1,9} (item|items) found in the (1st|2nd|3rd|4th) tab of (your|.+'s) inventory)|^\d{1,9} (item|items) found in saddlebag",
+            regexOptions, regexTimeout),
+        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new(
+            @"((possède|possédez) \d{1,3} (cristal|cristaux)\.$|^recherche de l\'objet|^\d{1,4} (exemplaire|exemplaires) de l\'objet se (trouve|trouvent) dans|^total\ \: \d{1,6} (résultat|résultats)\.$|^l\'objet est équipé dans la case|^aucun résultat trouvé\.$)",
+            regexOptions, regexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain N gil.</see>
     public static readonly LocalizedRegex ObtainedGil = new()
     {
