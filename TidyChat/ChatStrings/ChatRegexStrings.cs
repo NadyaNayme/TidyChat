@@ -201,6 +201,15 @@ public static class ChatRegexStrings
         Fra = new(@"(.*) obtient (un|une|\d{1,3}) .+", regexOptions, regexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain N gil.</see>
+    public static readonly LocalizedRegex ObtainedGil = new()
+    {
+        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.$", regexOptions, regexTimeout),
+        Deu = new(@"^du hast (\d{1,3},)?\d{1,3} gil erhalten\.$", regexOptions, regexTimeout),
+        Fra = new(@"^(vous )?obtenez (\d{1,3},)?\d{1,3} gils?\.$", regexOptions, regexTimeout)
+    };
+
     public static readonly LocalizedRegex ObtainedTomestones = new()
     {
         Jpn = new(@"^アラガントームストーン:([^を]+)を(\d{1,3}個手に入れた|入手した)。$", regexOptions, regexTimeout),

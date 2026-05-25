@@ -57,6 +57,8 @@ public class LocalizedFilterRule
     /// <summary>
     ///     When true, the rule blocks messages when IsActive is true ("Hide*" semantics).
     ///     When false (default), the rule blocks when IsActive is false ("Show*" semantics).
+    ///     When <see cref="LogMessageIds"/> is also set, a non-<see cref="PatternKind.None"/> pattern
+    ///     requires the formatted LogMessage text to match (for shared templates like 657 "You obtain .").
     /// </summary>
     public bool BlockWhenActive { get; set; }
 
@@ -92,6 +94,14 @@ public static class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4341]
+        },
+        new()
+        {
+            Name = "ShowCommendations",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [926]
         },
         new()
         {
@@ -518,17 +528,6 @@ public static class Rules
             BlockWhenActive = true,
             LogMessageIds = [2070]
         },
-        // Text-based fallback when LogMessage ID handling is unavailable.
-        new()
-        {
-            Name = "HideFateLevelSync",
-            SettingsTab = "System",
-            Channel = ChatType.Error,
-            IsActive = true,
-            BlockWhenActive = true,
-            StringChecks = [ChatStrings.FateLevelSyncWarning],
-            Pattern = PatternKind.StringMatch,
-        },
 
         #endregion
         new()
@@ -626,19 +625,17 @@ public static class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [1630]
+            LogMessageIds =
+            [
+                1629, 1630, 1631,
+                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
+                1450, 1451, 1452, 1453
+            ]
         },
         new()
         {
-            Name = "Enabled",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [1631]
-        },
-        new()
-        {
-            Name = "Enabled",
+            // Prevents "Total Play Time" from being swallowed by the system spam filter.
+            Name = "ShowTotalPlayTime",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1034,6 +1031,7 @@ public static class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedShards],
             Pattern = PatternKind.RegexMatch
         },
@@ -1043,6 +1041,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedShards],
             Pattern = PatternKind.RegexMatch
         },
@@ -1070,6 +1069,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OtherObtains],
             Pattern = PatternKind.RegexMatch
         },
@@ -1096,6 +1096,7 @@ public static class Rules
             BlockWhenActive = true,
             LogMessageIds = [2244]
         },
+        // Gil-specific LogMessage templates.
         new()
         {
             Name = "HideObtainedGil",
@@ -1103,7 +1104,30 @@ public static class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
-            LogMessageIds = [657]
+            LogMessageIds = [1258, 1417, 1605]
+        },
+        // Shared "You obtain ." templates — ID plus text check so items are not blocked.
+        new()
+        {
+            Name = "HideObtainedGil",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [657, 1259, 1606],
+            StringChecks = [ChatStrings.ObtainedGilMarker],
+            Pattern = PatternKind.StringMatch,
+        },
+        // OnChat fallback when LogMessage handling did not run for this message.
+        new()
+        {
+            Name = "HideObtainedGil",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            RegexChecks = [ChatRegexStrings.ObtainedGil],
+            Pattern = PatternKind.RegexMatch,
         },
         new()
         {
@@ -1116,10 +1140,22 @@ public static class Rules
         },
         new()
         {
+            Name = "HideObtainedMGP",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [657, 1259, 1606],
+            StringChecks = [ChatStrings.ObtainedMgpMarker],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
             Name = "HideObtainedWolfMarks",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedWolfMarks],
             Pattern = PatternKind.RegexMatch
         },
@@ -1129,6 +1165,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedSeals],
             Pattern = PatternKind.RegexMatch
         },
@@ -1138,6 +1175,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedVenture],
             Pattern = PatternKind.RegexMatch
         },
@@ -1147,6 +1185,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedTribalCurrency],
             Pattern = PatternKind.RegexMatch
         },
@@ -1156,6 +1195,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedClusters],
             Pattern = PatternKind.RegexMatch
         },
@@ -1165,6 +1205,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedAlliedSeals],
             Pattern = PatternKind.RegexMatch
         },
@@ -1174,6 +1215,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedCenturioSeals],
             Pattern = PatternKind.RegexMatch
         },
@@ -1183,6 +1225,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedNuts],
             Pattern = PatternKind.RegexMatch
         },
@@ -1192,6 +1235,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedMaterials],
             Pattern = PatternKind.RegexMatch
         },
@@ -1201,6 +1245,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedShards],
             Pattern = PatternKind.RegexMatch
         },
@@ -1210,6 +1255,7 @@ public static class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
             Pattern = PatternKind.RegexMatch
         },
@@ -1340,7 +1386,7 @@ public static class Rules
 
     private static readonly Dictionary<string, Func<Configuration, bool>> ConfigAccessors = new(StringComparer.Ordinal)
     {
-        ["Enabled"] = c => c.Enabled,
+        ["ShowTotalPlayTime"] = static _ => true,
         ["ShowSRankHunt"] = c => c.ShowSRankHunt,
         ["ShowSSRankHunt"] = c => c.ShowSSRankHunt,
         ["ShowCompletedVenture"] = c => c.ShowCompletedVenture,

@@ -282,37 +282,46 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             // ShouldBlock respects both "Show*" semantics (block when !IsActive)
             // and "Hide*" semantics (block when IsActive) via BlockWhenActive.
-            if (rule.ShouldBlock)
+            if (!rule.ShouldBlock) continue;
+
+            // Shared LogMessage templates may need a text check (e.g. 657 "You obtain .").
+            if (rule.Pattern != PatternKind.None &&
+                (!TryGetNormalizedLogMessageText(message, out string normalizedText) ||
+                 !RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode)))
             {
                 if (Configuration.EnableDebugMode)
+                    Log.Debug($"[LogMessage] ID {message.LogMessageId} matched {rule.Name} but text check failed");
+                continue;
+            }
+
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug($"[LogMessage] BLOCKED by {rule.Name} (ID: {message.LogMessageId})");
+                // In debug mode, don't suppress — let OnChat display it with [Blocked] prefix.
+                try
                 {
-                    Log.Debug($"[LogMessage] BLOCKED by {rule.Name} (ID: {message.LogMessageId})");
-                    // In debug mode, don't suppress — let OnChat display it with [Blocked] prefix.
-                    try
-                    {
-                        string text = message.FormatLogMessageForDebugging().ExtractText();
-                        if (!string.IsNullOrEmpty(text))
-                            lock (_logMessageLock)
-                            {
-                                if (_blockedByLogMessage.Count >= MaxLogMessageSetSize) _blockedByLogMessage.Clear();
-                                _blockedByLogMessage.Add(text);
-                            }
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
-                    return;
+                    string text = message.FormatLogMessageForDebugging().ExtractText();
+                    if (!string.IsNullOrEmpty(text))
+                        lock (_logMessageLock)
+                        {
+                            if (_blockedByLogMessage.Count >= MaxLogMessageSetSize) _blockedByLogMessage.Clear();
+                            _blockedByLogMessage.Add(text);
+                        }
                 }
-                message.PreventOriginal();
-                Interlocked.Increment(ref _sessionBlockedMessages);
-                // Print a compact replacement for the suppressed NN join/leave messages.
-                if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
-                    ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
-                else if (message.LogMessageId == 7030)
-                    ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
+                catch
+                {
+                    // ignored
+                }
                 return;
             }
+            message.PreventOriginal();
+            Interlocked.Increment(ref _sessionBlockedMessages);
+            // Print a compact replacement for the suppressed NN join/leave messages.
+            if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
+                ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
+            else if (message.LogMessageId == 7030)
+                ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
+            return;
         }
 
         // Track the allowed text so OnChat doesn't re-block this message.
@@ -594,7 +603,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             if (rule.Error is not null) Log.Error($"Error: {rule.Error}");
 
-            if (rule.LogMessageIds is not null)
+            if (rule.LogMessageIds is not null && rule.Pattern == PatternKind.None)
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} handled by LogMessage ID");
                 rulesSkipped?.Add(rule.Name);
@@ -625,7 +634,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
             {
                 rulesMatched.Add(rule.Name);
-                isBlocked = !defaultBlocked;
+                isBlocked = rule.BlockWhenActive
+                    ? chatType is ChatType.LootNotice || !defaultBlocked
+                        ? !defaultBlocked
+                        : defaultBlocked
+                    : !defaultBlocked;
             }
             else
             {
@@ -782,6 +795,21 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         catch(Exception ex)
         {
             Log.Error("Error: Failed to handle Chat History - " + ex);
+            return false;
+        }
+    }
+
+    private static bool TryGetNormalizedLogMessageText(ILogMessage message, out string normalizedText)
+    {
+        normalizedText = string.Empty;
+        try
+        {
+            normalizedText = message.FormatLogMessageForDebugging().ExtractText()
+                .ToLower(CultureInfo.CurrentCulture);
+            return normalizedText.Length > 0;
+        }
+        catch
+        {
             return false;
         }
     }

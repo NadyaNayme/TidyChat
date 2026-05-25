@@ -162,14 +162,25 @@ public static class ChatStrings
         Fra = ["pilier", "des", "cieux"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/2070?pretty=true">
-    ///     You are X or more levels above the recommended level for this FATE.
-    ///     To join, use the level sync function located in the duty list.</see>
-    public static readonly LocalizedStrings FateLevelSyncWarning = new()
+    /// <summary>
+    ///     Marker text for gil inserted into shared obtain LogMessage templates (e.g. 657).
+    /// </summary>
+    public static readonly LocalizedStrings ObtainedGilMarker = new()
     {
-        Jpn = ["比推荐等级高出", "等级同步"],
-        Eng = ["recommended level for this fate", "level sync"],
-        Deu = ["empfohlenen", "stufenanpassung"],
-        Fra = ["synchronisation de niveau", "aléa"],
+        Jpn = ["NeedsLocalization"],
+        Eng = ["gil"],
+        Deu = ["gil"],
+        Fra = ["gil"],
+    };
+
+    /// <summary>
+    ///     Marker text for MGP inserted into shared obtain LogMessage templates (e.g. 657).
+    /// </summary>
+    public static readonly LocalizedStrings ObtainedMgpMarker = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["mgp"],
+        Deu = ["mgp"],
+        Fra = ["mgp"],
     };
 }
