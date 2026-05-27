@@ -783,9 +783,9 @@
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Þàŕţý ⅋ Îñṽîţé Ṁéššàĝéš</value>
   </data>
-  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-    <value>ÞÔŢÐ ⅋ ĤôĤ</value>
-        <comment>Abbreviated or shorthands preferred - please try to avoid using the full "Palace of the Dead" or "Heaven on High" translations unless that is all your language uses to refer to these as.</comment>
+  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+    <value>Ðééþ Ðûñĝéôñš</value>
+        <comment>Deep Dungeons — covers Palace of the Dead, Heaven-on-High, Eureka Orthos, and Pilgrim's Traverse.</comment>
   </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš ðîšçôṽéŕéð</value>
@@ -880,31 +880,31 @@
   </data>
   <data name="SystemTab_ShowPomanderOfAffluenceUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Àƒƒļûéñçé îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that adds more treasure chests to the next floor.</comment>
+        <comment>This is the deep dungeon pomander that adds more treasure chests to the next floor.</comment>
   </data>
   <data name="SystemTab_ShowPomanderOfAlterationUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Àļţéŕàţîôñ îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that transforms a room of mobs in the next floor into mimics or that other mob.</comment>
+        <comment>This is the deep dungeon pomander that transforms a room of mobs in the next floor into mimics or that other mob.</comment>
   </data>
   <data name="SystemTab_ShowPomanderOfFlightUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Ƒļîĝĥţ îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that reduces mob spawns for the next floor.</comment>
+        <comment>This is the deep dungeon pomander that reduces mob spawns for the next floor.</comment>
   </data>
   <data name="SystemTab_ShowPomanderOfSafetyUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Šàƒéţý îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that reveals traps on the current floor.</comment>
+        <comment>This is the deep dungeon pomander that reveals traps on the current floor.</comment>
   </data>
   <data name="SystemTab_ShowPomanderOfSerenityUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Šéŕéñîţý îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that removes all enchantments from the current floor.</comment>
+        <comment>This is the deep dungeon pomander that removes all enchantments from the current floor.</comment>
   </data>
   <data name="SystemTab_ShowPomanderOfSightUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Šîĝĥţ îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that reveals the map for the current floor.</comment>
+        <comment>This is the deep dungeon pomander that reveals the map for the current floor.</comment>
   </data>
   <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Ŵîţçĥîñĝ îš ûšéð</value>
-        <comment>This is the POTD/HOH pomander that transforms nearby enemies into mostly harmless mobs.</comment>
+        <comment>This is the deep dungeon pomander that transforms nearby enemies into mostly harmless mobs.</comment>
   </data>
   <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Šĥôŵ ŕéçéîṽéð þàŕţý îñṽîţàţîôñš</value>

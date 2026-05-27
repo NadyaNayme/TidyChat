@@ -38,7 +38,7 @@ internal static class GeneralTab
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterLootSpamHelpMarker);
 
         bool filterObtainedSpam = configuration.FilterObtainedSpam;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterObtianedSpam, ref filterObtainedSpam))
+        if (ImGui.Checkbox(Languages.GeneralTab_FilterObtainedSpam, ref filterObtainedSpam))
         {
             configuration.FilterObtainedSpam = filterObtainedSpam;
             configuration.Save();

@@ -3,7 +3,9 @@
     <PropertyGroup>
         <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
-        <Version>3.0.0.2</Version>
+        <Version>3.0.0.3</Version>
+        <Platforms>AnyCPU</Platforms>
+        <PlatformTarget>x64</PlatformTarget>
         <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
 
             Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
@@ -38,7 +40,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Meziantou.Analyzer" Version="3.0.85">
+        <PackageReference Include="Meziantou.Analyzer" Version="3.0.96">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -96,7 +98,7 @@
     </ItemGroup>
 
     <PropertyGroup>
-        <NoWarn>$(NoWarn);MA0051;MA0026</NoWarn>
+        <NoWarn>$(NoWarn);MA0051;MA0026;MA0195</NoWarn>
     </PropertyGroup>
 </Project>
 

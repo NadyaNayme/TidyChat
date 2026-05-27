@@ -817,8 +817,8 @@ Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
         <value>Gruppen-/Einladungs- Benachrichtigungen</value>
     </data>
-  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-        <value>POTD &amp; HH</value>
+  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+        <value>Tiefenkämpfe</value>
     </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
         <value>Anzeigen, wenn ein Verborgener Schatz aufgedeckt worden ist</value>

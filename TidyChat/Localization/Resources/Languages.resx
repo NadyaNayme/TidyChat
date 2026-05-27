@@ -223,7 +223,7 @@
     <value>Custom Filters</value>
   </data>
   <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
-    <value>Enable Dry Run Mode - See filtered messages without blocking them</value>
+    <value>Enable debug mode (preview filtered messages without blocking them)</value>
   </data>
   <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
     <value>Loot/Obtain</value>
@@ -480,7 +480,7 @@ eg. Another Player leans over and gives you a big bear hug.</value>
   <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
     <value>This filter includes items obtained as monster drops, quest rewards, and roulette rewards</value>
   </data>
-  <data name="GeneralTab_FilterObtianedSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterObtainedSpam" xml:space="preserve">
     <value>Filter Obtained channel</value>
   </data>
   <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
@@ -493,7 +493,7 @@ eg. Another Player leans over and gives you a big bear hug.</value>
     <value>Show emotes used by yourself</value>
   </data>
   <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-    <value>This will hide the message that occurs when you use an emote or custom emote.
+    <value>When emote filtering is enabled, keep messages for emotes you use yourself.
 eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
@@ -552,7 +552,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
   </data>
   <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
-    <value>Include [Channel] Tag in Dry Run Mode</value>
+    <value>Include [Channel] tag in debug mode</value>
   </data>
   <data name="NormalizeSpecialCharactersExceptInPartyOrAllianceChannels" xml:space="preserve">
     <value>Normalize special characters - except in Party or Alliance channels</value>
@@ -599,10 +599,10 @@ eg. You cast your lot for the &lt;item&gt;</value>
 eg. Some player casts her lot for &lt;item&gt;.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Show "Another Player obtains &lt;item&gt;" messages</value>
+    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when another player in the party obtains a loot drop.
+    <value>Hides loot obtain messages for other players in your party.
 eg. Some player obtains an &lt;item&gt;!</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
@@ -612,14 +612,14 @@ eg. Some player obtains an &lt;item&gt;!</value>
     <value>Hide Beast Tribe crafting materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.
+    <value>Hides Beast Tribe crafting material obtain messages.
 eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
     <value>Hide Beast Tribe Currencies</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.</value>
+    <value>Hides Beast Tribe currency obtain messages from quest rewards.</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
     <value>Hide Centurio Seals</value>
@@ -631,15 +631,15 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Hide cracked clusters</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
-    <value>This will show cracked clusters such as Dendroclusters and Anthoclusters.
-For hiding elemental clusters see the hide elemental clusters option down below.
+    <value>Hides cracked cluster obtain messages such as Dendroclusters and Anthoclusters.
+For elemental shards from loot rolls, see the option below.
 eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
-    <value>Show elemental shards, crystals, and clusters</value>
+    <value>Hide elemental shards, crystals, and clusters</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters
+    <value>Hides obtain messages for elemental shards, crystals, and clusters from gathering and other sources.
 eg. You obtain 30 ice shards</value>
   </data>
   <data name="ObtainTab_ShowGil" xml:space="preserve">
@@ -736,14 +736,14 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
   </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you learn a new ability.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
     <value>Show level up messages</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you level up.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when others level up.
@@ -825,6 +825,51 @@ Filters now Hide messages instead of Show them</value>
   <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>eg. You are 6 or more levels above the recommended level for this FATE.</value>
   </data>
+  <data name="SystemTab_HideCannotExecuteMessages" xml:space="preserve">
+    <value>Hide "Cannot execute at this time." messages</value>
+  </data>
+  <data name="SystemTab_HideCannotExecuteMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Cannot execute at this time., Invalid target., Unable to use., Unable to obtain.</value>
+  </data>
+  <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
+    <value>Show FATE discovered messages</value>
+  </data>
+  <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementsLabel" xml:space="preserve">
+    <value>Server announcements (login / world travel)</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementMode_ShowAll" xml:space="preserve">
+    <value>Show all</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementMode_HideAll" xml:space="preserve">
+    <value>Hide all</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
+    <value>Condensed (keep "Welcome to &lt;world&gt;")</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementMode_LoginOnly" xml:space="preserve">
+    <value>Login only (hide on world-hop)</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementMode_LoginThenCondensed" xml:space="preserve">
+    <value>Login full, condensed on world-hop</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementMode_HidePhishing" xml:space="preserve">
+    <value>Hide phishing warning only</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementsHelpMarker" xml:space="preserve">
+    <value>How to handle the server message block shown on login or world travel (welcome headers, in-game event promos, congestion notices, phishing warning).
+
+Show all — unchanged.
+Hide all — suppress the whole block.
+Condensed — keep only the "Welcome to &lt;world&gt;!" line.
+Login only — full block on login, nothing on world-hops.
+Login full, condensed on world-hop — full block on login, only the welcome line on world-hops.
+Hide phishing warning only — keeps greeting and event text, removes the phishing/congestion warning and its URL.
+
+Uses localized matching for all supported client languages (EN/DE/FR/JP).</value>
+  </data>
   <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
     <value>Show Free Company message book new entry messages</value>
   </data>
@@ -834,6 +879,18 @@ Filters now Hide messages instead of Show them</value>
   <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
     <value>eg. You are now in the instanced area Old Sharlayan .
 Current instance can be confirmed at any time using the / instance text command.</value>
+  </data>
+  <data name="SystemTab_HideSanctuaryMessage" xml:space="preserve">
+    <value>Show sanctuary enter/leave messages</value>
+  </data>
+  <data name="SystemTab_HideSanctuaryMessageHelpMarker" xml:space="preserve">
+    <value>eg. You have entered a sanctuary. / You have left the sanctuary.</value>
+  </data>
+  <data name="SystemTab_HideHousingWardMessage" xml:space="preserve">
+    <value>Show housing ward messages</value>
+  </data>
+  <data name="SystemTab_HideHousingWardMessageHelpMarker" xml:space="preserve">
+    <value>eg. Shirogane, Ward 15</value>
   </data>
   <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
     <value>Show "Search for items" results message</value>
@@ -878,7 +935,7 @@ Current instance can be confirmed at any time using the / instance text command.
     <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
   </data>
   <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-    <value>Show System messages Tidy Chat shows by default</value>
+    <value>Shown by default (uncheck to hide)</value>
   </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
     <value>Show gear reaching 100% spiritbound messages</value>
@@ -932,8 +989,8 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Party &amp; Invite Messages</value>
   </data>
-  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-    <value>POTD &amp; HoH</value>
+  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+    <value>Deep Dungeons</value>
   </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
     <value>Show when Accursed Hoard is discovered</value>
@@ -989,11 +1046,17 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
     <value>Show party disbands and dissolves</value>
   </data>
+  <data name="SystemTab_ShowDutyFinderMessages" xml:space="preserve">
+    <value>Show duty finder messages</value>
+  </data>
+  <data name="SystemTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Duty registration complete., Participation requirements are as follows:, Unrestricted Party messages</value>
+  </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
     <value>Show all other System messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
-    <value>All system messages that aren't controlled by a different checkbox</value>
+    <value>Catch-all for System channel messages not covered by another option. When System filtering is enabled, checking this shows any remaining system messages TidyChat would otherwise block.</value>
   </data>
   <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
     <value>Show bonus award for a party member's first clear</value>
@@ -1009,7 +1072,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
 eg. “Red Mage” equipped.</value>
   </data>
   <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
-    <value>Show System messages Tidy Chat hides by default</value>
+    <value>Hidden by default (check to show)</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
     <value>Show hunt mark slain messages</value>

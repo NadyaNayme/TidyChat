@@ -1827,9 +1827,9 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to ÞÔŢÐ ⅋ ĤôĤ.
         /// </summary>
-        internal static string SystemTab_POTDHoHDropdownHeader {
+        internal static string SystemTab_DeepDungeonsDropdownHeader {
             get {
-                return ResourceManager.GetString("SystemTab_POTDHoHDropdownHeader", resourceCulture);
+                return ResourceManager.GetString("SystemTab_DeepDungeonsDropdownHeader", resourceCulture);
             }
         }
         

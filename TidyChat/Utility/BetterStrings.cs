@@ -8,6 +8,7 @@ using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TextCopy;
+using TidyChat.Data;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat.Utility;
@@ -56,23 +57,16 @@ internal static class BetterStrings
         return "";
     }
 
-    /// <summary>
-    ///     Builds the compact "You've joined the Novice Network." replacement message.
-    ///     Used by <c>OnLogMessage</c> after suppressing the original multi-line join LogMessage (ID 7027).
-    /// </summary>
     public static SeString NoviceNetworkJoinMessage(Configuration configuration)
     {
-        SeString newMessage = L10N.Language switch
-        {
-            ClientLanguage.Japanese => "ビギナーチャンネルに参加しました。",
-            ClientLanguage.English => "You've joined the Novice Network.",
-            ClientLanguage.German => "Du bist dem Neulings-Chat beigetreten.",
-            ClientLanguage.French => "Vous avez rejoint le réseau des novices.",
-            _ => "You've joined the Novice Network."
-        };
+        string newMessage = ResolveNoviceNetworkCompactText(7025, 7027, 7011,
+            "You've joined the Novice Network.",
+            "Du bist dem Neulings-Chat beigetreten.",
+            "Vous avez rejoint le réseau des novices.",
+            "ビギナーチャンネルに参加しました。");
         var stringBuilder = new SeStringBuilder();
         if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-        stringBuilder.AddText($"{newMessage}");
+        stringBuilder.AddText(newMessage);
         return stringBuilder.BuiltString;
     }
 
@@ -82,18 +76,32 @@ internal static class BetterStrings
     /// </summary>
     public static SeString NoviceNetworkLeaveMessage(Configuration configuration)
     {
-        SeString newMessage = L10N.Language switch
-        {
-            ClientLanguage.Japanese => "ビギナーチャンネルから退出しました。",
-            ClientLanguage.English => "You've left the Novice Network.",
-            ClientLanguage.German => "Du hast den Neulings-Chat verlassen.",
-            ClientLanguage.French => "Vous avez quitté le réseau des novices.",
-            _ => "You've left the Novice Network."
-        };
+        string newMessage = ResolveNoviceNetworkCompactText(7030, 0, 0,
+            "You've left the Novice Network.",
+            "Du hast den Neulings-Chat verlassen.",
+            "Vous avez quitté le réseau des novices.",
+            "ビギナーチャンネルから退出しました。");
         var stringBuilder = new SeStringBuilder();
         if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
-        stringBuilder.AddText($"{newMessage}");
+        stringBuilder.AddText(newMessage);
         return stringBuilder.BuiltString;
+    }
+
+    private static string ResolveNoviceNetworkCompactText(
+        uint primaryId, uint secondaryId, uint tertiaryId,
+        string engFallback, string deuFallback, string fraFallback, string jpnFallback)
+    {
+        if (LogMessageCatalog.TryGetCompactLine(primaryId, out string line)) return line;
+        if (secondaryId != 0 && LogMessageCatalog.TryGetCompactLine(secondaryId, out line)) return line;
+        if (tertiaryId != 0 && LogMessageCatalog.TryGetCompactLine(tertiaryId, out line)) return line;
+
+        return L10N.Language switch
+        {
+            ClientLanguage.Japanese => jpnFallback,
+            ClientLanguage.German => deuFallback,
+            ClientLanguage.French => fraFallback,
+            _ => engFallback
+        };
     }
 
     public static SeString TreasureDungeon(Configuration configuration)

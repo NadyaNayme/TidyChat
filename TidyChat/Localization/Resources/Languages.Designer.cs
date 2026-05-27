@@ -847,9 +847,9 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Filter Obtained channel.
         /// </summary>
-        internal static string GeneralTab_FilterObtianedSpam {
+        internal static string GeneralTab_FilterObtainedSpam {
             get {
-                return ResourceManager.GetString("GeneralTab_FilterObtianedSpam", resourceCulture);
+                return ResourceManager.GetString("GeneralTab_FilterObtainedSpam", resourceCulture);
             }
         }
         
@@ -1585,7 +1585,7 @@ namespace TidyChat.Localization.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to This will show the message that occurs when you learn a new ability.
-        ///It can be considered spammy in Palace of the Dead and Heaven On High..
+        ///It can be considered spammy in deep dungeons..
         /// </summary>
         internal static string ProgressTab_ShowLearnedAbilityMessagesHelpMarker {
             get {
@@ -1604,7 +1604,7 @@ namespace TidyChat.Localization.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to This will show the message that occurs when you level up.
-        ///It can be considered spammy in Palace of the Dead and Heaven On High..
+        ///It can be considered spammy in deep dungeons..
         /// </summary>
         internal static string ProgressTab_ShowLevelUpMessagesHelpMarker {
             get {
@@ -1849,6 +1849,84 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide &quot;Cannot execute at this time.&quot; messages.
+        /// </summary>
+        internal static string SystemTab_HideCannotExecuteMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideCannotExecuteMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Cannot execute at this time..
+        /// </summary>
+        internal static string SystemTab_HideCannotExecuteMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideCannotExecuteMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ShowFateDiscoveryMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowFateDiscoveryMessages", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ShowFateDiscoveryMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowFateDiscoveryMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementsLabel {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementsLabel", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementMode_ShowAll {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementMode_ShowAll", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementMode_HideAll {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementMode_HideAll", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementMode_Condensed {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementMode_Condensed", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementMode_LoginOnly {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementMode_LoginOnly", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementMode_LoginThenCondensed {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementMode_LoginThenCondensed", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementMode_HidePhishing {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementMode_HidePhishing", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementsHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show Free Company message book new entry messages.
         /// </summary>
         internal static string SystemTab_HideFreeCompanyMessageBookMessages {
@@ -1873,6 +1951,42 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideInstanceMessageHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideInstanceMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show sanctuary enter/leave messages.
+        /// </summary>
+        internal static string SystemTab_HideSanctuaryMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_HideSanctuaryMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You have entered a sanctuary. / You have left the sanctuary..
+        /// </summary>
+        internal static string SystemTab_HideSanctuaryMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideSanctuaryMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show housing ward messages.
+        /// </summary>
+        internal static string SystemTab_HideHousingWardMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_HideHousingWardMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Shirogane, Ward 15.
+        /// </summary>
+        internal static string SystemTab_HideHousingWardMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideHousingWardMessageHelpMarker", resourceCulture);
             }
         }
         
@@ -2166,11 +2280,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to POTD &amp; HoH.
+        ///   Looks up a localized string similar to Deep Dungeons.
         /// </summary>
-        internal static string SystemTab_POTDHoHDropdownHeader {
+        internal static string SystemTab_DeepDungeonsDropdownHeader {
             get {
-                return ResourceManager.GetString("SystemTab_POTDHoHDropdownHeader", resourceCulture);
+                return ResourceManager.GetString("SystemTab_DeepDungeonsDropdownHeader", resourceCulture);
             }
         }
         
@@ -2335,7 +2449,25 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("SystemTab_ShowDisbandAndDissolveMessages", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show duty finder messages.
+        /// </summary>
+        internal static string SystemTab_ShowDutyFinderMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowDutyFinderMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Duty registration complete., Participation requirements are as follows:, Unrestricted Party messages.
+        /// </summary>
+        internal static string SystemTab_ShowDutyFinderMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowDutyFinderMessagesHelpMarker", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Show all other System messages.
         /// </summary>

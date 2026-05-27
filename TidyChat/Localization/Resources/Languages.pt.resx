@@ -636,14 +636,14 @@ por exemplo. Você joga Need/Greed no &lt;item&gt;. 63!</value>
     </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when you learn a new ability.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+It can be considered spammy in deep dungeons.</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
         <value>Show level up messages</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when you level up.
-It can be considered spammy in Palace of the Dead and Heaven On High.</value>
+It can be considered spammy in deep dungeons.</value>
     </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>This will show the message that occurs when others level up.
@@ -818,8 +818,8 @@ Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
         <value>Mensagens de Party e Convite</value>
     </data>
-  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-        <value>POTD &amp; HoH</value>
+  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+        <value>Masmorras profundas</value>
     </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
         <value>Mostrar quando Accursed Hoard é descoberto</value>

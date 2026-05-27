@@ -636,14 +636,14 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
         <value>Questo visualizza il messaggio che si attiva quando apprendi una nuova abilità.
-Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
+Può essere considerato spam nei dungeon profondi.</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
         <value>Visualizza i messaggi di level up</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>Questo visualizza i messaggi che si attivano quando sali di livello.
-Può essere considerato spam in Palace of the Dead e Heaven On High.</value>
+Può essere considerato spam nei dungeon profondi.</value>
     </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>Questo visualizza il messaggio che si attiva quando gli altri salgono di livello.
@@ -818,8 +818,8 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
         <value>Messaggi di invito e party</value>
     </data>
-  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-        <value>POTD &amp; HoH</value>
+  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+        <value>Dungeon profondi</value>
     </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
         <value>Visualizza quando viene scoperto un Accursed Hoard</value>

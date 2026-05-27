@@ -21,6 +21,7 @@ using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
 using Lumina.Text.ReadOnly;
 using TidyChat.Localization.Resources;
+using TidyChat.Data;
 using TidyChat.Translation.Data;
 using TidyChat.Utility;
 using Better = TidyChat.Utility.BetterStrings;
@@ -50,6 +51,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     ///     instead of silently suppressing them via PreventOriginal.
     /// </summary>
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
+
+    /// <summary>
+    ///     LogMessage IDs recently allowed on the log path, consumed on chat path via catalog match.
+    ///     Covers event-order races where <see cref="OnChat"/> runs before <see cref="OnLogMessage"/>.
+    /// </summary>
+    private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
+
+    /// <summary>LogMessage IDs already logged as unmatched this session (debug discovery).</summary>
+    private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = new();
+
     private const int MaxLogMessageSetSize = 1000;
     private readonly Lock _logMessageLock = new();
     private readonly Lock _chatHistoryLock = new();
@@ -68,15 +79,21 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         // Player cannot change this without restarting the game so should be safe to grab here
         L10N.Language = ClientState.ClientLanguage;
-        LoadTomestones();
         LoadFishingFlavorMessages();
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
 
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
+        Rules.UpdateIsActiveStates(Configuration);
+
+        ReloadGameDataCaches(validateRuleIds: true);
 
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+
+        // Sync commendation baseline without printing (plugin reload mid-session).
+        if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
+            BetterCommendationsUpdate(printMessage: false);
 
         ChatGui.CheckMessageHandled += OnChat;
         ChatGui.LogMessage += OnLogMessage;
@@ -158,7 +175,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
     private void OnLogin()
     {
-        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate();
+        L10N.Language = ClientState.ClientLanguage;
+        ReloadGameDataCaches(validateRuleIds: false);
+        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate(printMessage: false);
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
         _setPlayerNameRetries = 0; // each login gets a fresh retry budget
         // #122: open the grace window so "Login only" mode shows the post-login announcement burst.
@@ -215,6 +234,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private void OnLogMessage(ILogMessage message)
     {
         if (!Configuration.Enabled || message.IsHandled) return;
+        Rules.UpdateIsActiveStates(Configuration);
 
         // Check custom filters (whitelist) that use #LogMessageId syntax.
         // Block entries suppress the message here; Allow entries add it to _allowedByLogMessage.
@@ -244,12 +264,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 try
                 {
                     string text = message.FormatLogMessageForDebugging().ExtractText();
-                    if (!string.IsNullOrEmpty(text))
-                        lock (_logMessageLock)
-                        {
-                            if (_allowedByLogMessage.Count >= MaxLogMessageSetSize) _allowedByLogMessage.Clear();
-                            _allowedByLogMessage.Add(text);
-                        }
+                    RememberLogMessageTexts(_allowedByLogMessage, text);
+                    RememberLogMessageAllow(message.LogMessageId);
                 }
                 catch { /* non-critical */ }
                 if (Configuration.EnableDebugMode)
@@ -260,10 +276,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out IReadOnlyList<LocalizedFilterRule>? matchingRules))
         {
-            // No rules registered for this ID — log it in debug mode for ID discovery.
-            // Includes the formatted message text so you can correlate the ID with
-            // what appeared in chat, making it easy to map unknown messages to IDs in-game.
-            if (Configuration.EnableDebugMode)
+            if (Configuration.EnableDebugMode && _loggedUnmatchedLogMessageIds.Add(message.LogMessageId))
             {
                 try
                 {
@@ -275,6 +288,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     Log.Debug($"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount}");
                 }
             }
+
             return;
         }
 
@@ -301,12 +315,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 try
                 {
                     string text = message.FormatLogMessageForDebugging().ExtractText();
-                    if (!string.IsNullOrEmpty(text))
-                        lock (_logMessageLock)
-                        {
-                            if (_blockedByLogMessage.Count >= MaxLogMessageSetSize) _blockedByLogMessage.Clear();
-                            _blockedByLogMessage.Add(text);
-                        }
+                    RememberLogMessageTexts(_blockedByLogMessage, text);
                 }
                 catch
                 {
@@ -328,17 +337,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         try
         {
             string text = message.FormatLogMessageForDebugging().ExtractText();
-            if (!string.IsNullOrEmpty(text))
-                lock (_logMessageLock)
-                {
-                    if (_allowedByLogMessage.Count >= MaxLogMessageSetSize) _allowedByLogMessage.Clear();
-                    _allowedByLogMessage.Add(text);
-                }
+            RememberLogMessageTexts(_allowedByLogMessage, text);
+            RememberLogMessageAllow(message.LogMessageId);
         }
         catch { /* Safe to ignore — worst case OnChat re-evaluates the message */ }
 
         if (Configuration.EnableDebugMode)
-            Log.Debug($"[LogMessage] ALLOWED (ID: {message.LogMessageId}, Rules: {string.Join(", ", matchingRules.Select(r => r.Name))})");
+        {
+            string ruleNames = string.Join(", ", matchingRules.Select(r => r.Name).Distinct(StringComparer.Ordinal));
+            Log.Debug($"[LogMessage] ALLOWED (ID: {message.LogMessageId}, Rules: {ruleNames})");
+        }
     }
 
     private void OnChat(IHandleableChatMessage message)
@@ -355,12 +363,19 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
         // Each handler returns true if OnChat should stop processing.
-        if (HandleServerAnnouncements(message, normalizedText)) return;
+        // Respect OnLogMessage allow/block before server-announcement filtering (#122 / open issue #1).
+        if (CheckLogMessageDecision(message, chatType, rawTextValue, extractedTextValue, normalizedText)) return;
+        if (IsProtectedByActiveShowRule(chatType, normalizedText, out List<string> protectingRules))
+        {
+            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                message.Message = BuildDebugString(chatType, message.Message, protectingRules, Configuration.DebugIncludeChannel, false);
+            return;
+        }
+        if (HandleServerAnnouncements(message, chatType, normalizedText)) return;
         if (!ChannelCanBeFiltered(chatType)) return;
         if (HandleEmoteFilters(message, chatType)) return;
         if (HandleTemporaryFilterDisables(normalizedText)) return;
         if (HandleBetterMessages(message, chatType, normalizedText)) return;
-        if (CheckLogMessageDecision(message, chatType, rawTextValue, extractedTextValue)) return;
 
         bool? channelResult = EvaluateChannelRules(message, chatType, normalizedText, out List<string> rulesMatched);
         if (channelResult is null) return; // null sentinel: EvaluateChannelRules handled the early-return internally
@@ -386,16 +401,20 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     /// <summary>Handles server announcement filtering (#122). Returns true if message was fully handled.</summary>
-    private bool HandleServerAnnouncements(IHandleableChatMessage message, string normalizedText)
+    private bool HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
         if (Configuration.ServerAnnouncementMode == ServerAnnouncementMode.ShowAll) return false;
 
-        bool isWorldGreeting = L10N.Get(ChatRegexStrings.ServerWorldGreeting).IsMatch(normalizedText);
-        bool isAnnouncement = L10N.Get(ChatRegexStrings.ServerAnnouncement).IsMatch(normalizedText);
+        bool isWorldGreeting = ServerAnnouncementCatalog.IsWorldGreeting(normalizedText);
+        bool isAnnouncement = ServerAnnouncementCatalog.IsAnnouncement(normalizedText);
         if (!isWorldGreeting && !isAnnouncement) return false;
 
+        bool isPhishing = ServerAnnouncementCatalog.IsPhishingWarning(normalizedText);
+        // Login announcements usually use System; some clients also deliver them on Notice/Urgent (#24).
+        if (chatType is not ChatType.System && chatType is not ChatType.Notice and not ChatType.Urgent)
+            return false;
+
         bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
-        bool isPhishing = L10N.Get(ChatRegexStrings.ServerPhishingWarning).IsMatch(normalizedText);
         bool suppress = Configuration.ServerAnnouncementMode switch
         {
             ServerAnnouncementMode.HideAll => true,
@@ -407,9 +426,22 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         };
         if (suppress)
         {
-            if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (server announcement): {message.Message}");
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug($"BLOCKED (server announcement): {message.Message}");
+                if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                    message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, true);
+                return true;
+            }
             message.PreventOriginal();
             Interlocked.Increment(ref _sessionBlockedMessages);
+            return true;
+        }
+
+        if (Configuration.EnableDebugMode)
+        {
+            if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, false);
             return true;
         }
 
@@ -485,7 +517,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
         if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
-            L10N.Get(ChatStrings.InstancedArea).All(normalizedText.Contains))
+            LogMessageCatalog.MatchesWithFallback(1350, normalizedText, ChatStrings.InstancedArea))
         {
             message.Message = Better.Instances(message.Message, Configuration);
             if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
@@ -493,7 +525,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         if (Configuration.BetterCommendationMessage && chatType is ChatType.System &&
-            L10N.Get(ChatStrings.PlayerCommendation).All(normalizedText.Contains))
+            LogMessageCatalog.MatchesWithFallback(926, normalizedText, ChatStrings.PlayerCommendation))
         {
             message.PreventOriginal();
             Interlocked.Increment(ref _sessionBlockedMessages);
@@ -501,7 +533,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         if (Configuration.BetterSayReminder &&
-            chatType is ChatType.System && L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
+            chatType is ChatType.System &&
+            L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
         {
             message.Message = Better.SayReminder(message.Message, Configuration);
             return true;
@@ -536,10 +569,16 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     /// <summary>Checks if OnLogMessage already decided to block or allow this message. Returns true if handled.</summary>
-    private bool CheckLogMessageDecision(IHandleableChatMessage message, ChatType chatType, string rawTextValue, string extractedTextValue)
+    private bool CheckLogMessageDecision(IHandleableChatMessage message, ChatType chatType, string rawTextValue, string extractedTextValue, string normalizedText)
     {
+        string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
+
         bool wasBlockedByLog;
-        lock (_logMessageLock) { wasBlockedByLog = _blockedByLogMessage.Count > 0 && (_blockedByLogMessage.Remove(rawTextValue) || _blockedByLogMessage.Remove(extractedTextValue)); }
+        lock (_logMessageLock)
+        {
+            wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
+                              TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
+        }
         if (wasBlockedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
@@ -548,12 +587,124 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         bool wasAllowedByLog;
-        lock (_logMessageLock) { wasAllowedByLog = _allowedByLogMessage.Count > 0 && (_allowedByLogMessage.Remove(rawTextValue) || _allowedByLogMessage.Remove(extractedTextValue)); }
+        lock (_logMessageLock)
+        {
+            wasAllowedByLog = _allowedByLogMessage.Count > 0 &&
+                              TryRemoveFromLogMessageSet(_allowedByLogMessage, textCandidates);
+        }
         if (wasAllowedByLog)
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
             return true;
+        }
+
+        if (TryConsumePendingLogMessageAllow(normalizedText))
+        {
+            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    ///     True when an enabled Show rule's chat companion matches this text, so announcement filtering must not re-block it.
+    /// </summary>
+    private bool IsProtectedByActiveShowRule(ChatType chatType, string normalizedText, out List<string> protectingRules)
+    {
+        protectingRules = [];
+        Rules.UpdateIsActiveStates(Configuration);
+        foreach(LocalizedFilterRule rule in Rules.AllRules)
+        {
+            if (rule.ShouldBlock) continue;
+            if (chatType != rule.Channel && chatType is not ChatType.Echo) continue;
+            if (rule.Pattern == PatternKind.None) continue;
+            if (RuleMatchesText(rule, normalizedText, false))
+                protectingRules.Add(rule.Name);
+        }
+
+        return protectingRules.Count > 0;
+    }
+
+    private void RememberLogMessageTexts(HashSet<string> target, string text)
+    {
+        if (string.IsNullOrWhiteSpace(text)) return;
+
+        lock (_logMessageLock)
+        {
+            if (target.Count >= MaxLogMessageSetSize) target.Clear();
+            target.Add(text);
+            string trimmed = text.Trim();
+            if (trimmed.Length > 0) target.Add(trimmed);
+            string lower = trimmed.ToLower(CultureInfo.CurrentCulture);
+            if (lower.Length > 0) target.Add(lower);
+        }
+    }
+
+    private void RememberLogMessageAllow(uint logMessageId)
+    {
+        lock (_logMessageLock)
+        {
+            _pendingAllowedLogMessageIds.TryGetValue(logMessageId, out int count);
+            _pendingAllowedLogMessageIds[logMessageId] = count + 1;
+        }
+    }
+
+    private bool TryConsumePendingLogMessageAllow(string normalizedText)
+    {
+        if (string.IsNullOrWhiteSpace(normalizedText)) return false;
+
+        lock (_logMessageLock)
+        {
+            if (_pendingAllowedLogMessageIds.Count == 0) return false;
+
+            uint[] pendingIds = _pendingAllowedLogMessageIds.Keys.ToArray();
+            foreach(uint id in pendingIds)
+            {
+                if (!_pendingAllowedLogMessageIds.TryGetValue(id, out int count) || count <= 0) continue;
+                if (!PendingLogMessageTextMatches(id, normalizedText)) continue;
+
+                if (count == 1) _pendingAllowedLogMessageIds.Remove(id);
+                else _pendingAllowedLogMessageIds[id] = count - 1;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private static bool PendingLogMessageTextMatches(uint logMessageId, string normalizedText)
+    {
+        if (LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId) &&
+            LogMessageCatalog.Matches(logMessageId, normalizedText))
+            return true;
+
+        if (!Rules.LogMessageIdToRules.TryGetValue(logMessageId, out IReadOnlyList<LocalizedFilterRule>? matchingRules))
+            return false;
+
+        foreach(LocalizedFilterRule rule in matchingRules)
+        {
+            if (rule.Pattern == PatternKind.None) continue;
+            if (RuleMatchesText(rule, normalizedText, false)) return true;
+        }
+
+        return false;
+    }
+
+    private static bool TryRemoveFromLogMessageSet(HashSet<string> target, IReadOnlyList<string> candidates)
+    {
+        foreach(string candidate in candidates)
+        {
+            if (string.IsNullOrWhiteSpace(candidate)) continue;
+            if (target.Remove(candidate)) return true;
+
+            string trimmed = candidate.Trim();
+            if (trimmed.Length > 0 && target.Remove(trimmed)) return true;
+
+            string lower = trimmed.ToLower(CultureInfo.CurrentCulture);
+            if (lower.Length > 0 && target.Remove(lower)) return true;
         }
 
         return false;
@@ -646,16 +797,17 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
         }
 
-        if (Configuration.EnableDebugMode)
+        bool isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
+
+        if (Configuration.EnableDebugMode && (rulesMatched.Count > 0 || isHandled))
         {
             Log.Debug($"{rulesMatched.Count} Rules Matched: {string.Join(", ", rulesMatched)}");
-            Log.Debug($"{rulesSkipped!.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
-            Log.Debug($"{rulesFailed!.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
-        }
-
-        bool isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
-        if (Configuration.EnableDebugMode)
+            if (rulesSkipped!.Count > 0)
+                Log.Debug($"{rulesSkipped.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
+            if (rulesFailed!.Count > 0)
+                Log.Debug($"{rulesFailed.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
             Log.Debug($"{(isHandled ? "BLOCKED" : "ALLOWED")}: {message.Message}");
+        }
 
         return isHandled;
     }
@@ -814,16 +966,54 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
+    private static bool RequiresLogMessageCatalog(LocalizedFilterRule rule) =>
+        rule.PreferLogMessageCatalog && rule.LogMessageIds is { Length: > 0 };
+
+    private static bool LogMessageCatalogMatches(LocalizedFilterRule rule, string normalizedText) =>
+        RequiresLogMessageCatalog(rule) &&
+        LogMessageCatalog.IsLoaded &&
+        LogMessageCatalog.MatchesAny(rule.LogMessageIds!, normalizedText);
+
+    private static bool RuleHasTextChecks(LocalizedFilterRule rule) =>
+        rule.Pattern switch
+        {
+            PatternKind.StringMatch => rule.StringChecks is not null,
+            PatternKind.RegexMatch => rule.RegexChecks is not null,
+            _ => false
+        };
+
+    /// <summary>
+    ///     When PreferLogMessageCatalog is set but the Lumina template does not match the formatted text,
+    ///     fall back to StringChecks/RegexChecks (catalog is preferred, not exclusive).
+    /// </summary>
+    private static bool ShouldFallbackToTextChecksWhenCatalogMisses(LocalizedFilterRule rule) =>
+        RuleHasTextChecks(rule);
+
     /// <summary>
     ///     Tests whether the rule's regex or string checks all match the normalized text.
     ///     Returns false if the rule has no checks or any check fails (AND logic).
     /// </summary>
     private static bool RuleMatchesText(LocalizedFilterRule rule, string normalizedText, bool debugMode)
     {
+        if (TryMatchObtainMarkerRule(rule, normalizedText, debugMode, out bool obtainMatched))
+            return obtainMatched;
+
+        bool requiresCatalog = RequiresLogMessageCatalog(rule);
+        bool catalogMatched = LogMessageCatalogMatches(rule, normalizedText);
+        bool allowTextFallback = requiresCatalog && !catalogMatched &&
+                                 ShouldFallbackToTextChecksWhenCatalogMisses(rule);
+
         switch (rule.Pattern)
         {
             case PatternKind.RegexMatch:
                 if (rule.RegexChecks is null) return false;
+
+                if (requiresCatalog && !catalogMatched && !allowTextFallback)
+                {
+                    if (debugMode) Log.Verbose($"FAILED: {rule.Name} | LUMINA LogMessage catalog");
+                    return false;
+                }
+
                 foreach(LocalizedRegex check in rule.RegexChecks)
                 {
                     if (L10N.Get(check).IsMatch(normalizedText))
@@ -836,9 +1026,19 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         return false;
                     }
                 }
+
+                if (catalogMatched && debugMode)
+                    Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
                 return true;
             case PatternKind.StringMatch:
                 if (rule.StringChecks is null) return false;
+
+                if (requiresCatalog && !catalogMatched && !allowTextFallback)
+                {
+                    if (debugMode) Log.Verbose($"FAILED: {rule.Name} | LUMINA LogMessage catalog");
+                    return false;
+                }
+
                 foreach(LocalizedStrings check in rule.StringChecks)
                 {
                     if (L10N.Get(check).All(normalizedText.Contains))
@@ -851,10 +1051,101 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                         return false;
                     }
                 }
+
+                if (catalogMatched && debugMode)
+                    Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
                 return true;
             default:
                 return false;
         }
+    }
+
+    private static bool TryMatchObtainMarkerRule(LocalizedFilterRule rule, string normalizedText, bool debugMode, out bool matched)
+    {
+        matched = false;
+        if (!rule.PreferLogMessageCatalog) return false;
+
+        bool isObtainMarkerRule = rule.ObtainMarkerAnySeal ||
+                                  rule.ObtainMarkerAnyElemental ||
+                                  rule.ObtainMarkerAnyTribal ||
+                                  rule.ObtainMarkerMaterials ||
+                                  rule.ObtainMarkerOtherPlayer ||
+                                  rule.ObtainMarkerGil ||
+                                  rule.ObtainMarkerMgp ||
+                                  rule.ObtainMarkerItemId is not null;
+        if (!isObtainMarkerRule) return false;
+
+        if (rule.ExcludePlayerObtain && LogMessageCatalog.IsPlayerObtainMessage(normalizedText))
+        {
+            matched = false;
+            return true;
+        }
+
+        LocalizedStrings? markerFallback = rule.StringChecks is { Count: > 0 } ? rule.StringChecks[0] : null;
+        if (markerFallback is null && rule.ObtainMarkerAnySeal)
+            markerFallback = ChatStrings.ObtainSealsMarker;
+        else if (markerFallback is null && rule.ObtainMarkerClustersOnly)
+            markerFallback = ChatStrings.ObtainClusterMarker;
+        else if (markerFallback is null && rule.ObtainMarkerMaterials)
+            markerFallback = ChatStrings.ObtainMaterialsMarker;
+        else if (markerFallback is null && rule.ObtainMarkerOtherPlayer)
+            markerFallback = ChatStrings.OtherObtainMarker;
+
+        if (rule.ObtainMarkerOtherPlayer)
+        {
+            matched = LogMessageCatalog.MatchesOtherPlayerObtain(normalizedText, markerFallback);
+            if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA other-player obtain marker");
+            return true;
+        }
+
+        if (rule.ObtainMarkerMaterials)
+        {
+            matched = LogMessageCatalog.MatchesMaterialsObtain(
+                normalizedText, markerFallback, rule.ObtainMarkerRequireSharedTemplate);
+            if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA materials obtain marker");
+            return true;
+        }
+
+        if (rule.ObtainMarkerAnyElemental)
+        {
+            matched = LogMessageCatalog.MatchesSharedObtainElemental(
+                normalizedText, rule.ObtainMarkerClustersOnly, markerFallback, rule.ObtainMarkerRequireSharedTemplate);
+            if (debugMode && matched)
+                Log.Debug($"MATCHED: {rule.Name} | LUMINA {(rule.ObtainMarkerClustersOnly ? "cluster" : "elemental")} obtain marker");
+            return true;
+        }
+
+        if (rule.ObtainMarkerAnyTribal)
+        {
+            matched = LogMessageCatalog.MatchesSharedObtainTribal(normalizedText, markerFallback);
+            if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA tribal currency obtain marker");
+            return true;
+        }
+
+        if (rule.ObtainMarkerAnySeal)
+        {
+            matched = LogMessageCatalog.MatchesSharedObtainSeal(normalizedText, markerFallback);
+            if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + GC seal marker");
+            return true;
+        }
+
+        if (rule.ObtainMarkerGil)
+        {
+            matched = LogMessageCatalog.MatchesSharedObtainGil(normalizedText, markerFallback);
+            if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + gil marker");
+            return true;
+        }
+
+        if (rule.ObtainMarkerMgp)
+        {
+            matched = LogMessageCatalog.MatchesSharedObtainMgp(normalizedText, markerFallback);
+            if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + MGP marker");
+            return true;
+        }
+
+        matched = LogMessageCatalog.MatchesSharedObtain(normalizedText, rule.ObtainMarkerItemId!.Value, markerFallback);
+        if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + item marker");
+        return true;
     }
 
     private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel, bool isBlocked)
@@ -1030,9 +1321,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         if (printMessage && commendationChange is >= 1 and <= 7)
         {
-            SeStringBuilder stringBuilder = new();
-            if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
-
             string? commendations = commendationChange == 1
                 ? Languages.BetterStrings_CommendationSingular
                 : Languages.BetterStrings_CommendationsPlural;
@@ -1040,10 +1328,34 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             string dutyName =
                 $"{(Configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + Languages.BetterStrings_CommendationsFromCompletingDuty + " " + TidyStrings.LastDuty + "." : ".")}";
 
-            stringBuilder.AddText(
-                string.Format(CultureInfo.CurrentCulture, Languages.BetterStrings_ReceivedCommendationsMessages, commendationChange.ToString(CultureInfo.CurrentCulture), commendations, dutyName));
+            string summaryText = string.Format(
+                CultureInfo.CurrentCulture,
+                Languages.BetterStrings_ReceivedCommendationsMessages,
+                commendationChange.ToString(CultureInfo.CurrentCulture),
+                commendations,
+                dutyName);
 
-            ChatGui.Print(stringBuilder.BuiltString);
+            SeString output;
+            if (Configuration.EnableDebugMode)
+            {
+                SeStringBuilder debugBuilder = new();
+                Better.AddTidyChatTag(debugBuilder);
+                if (Configuration.DebugIncludeChannel)
+                    Better.AddChannelTag(debugBuilder, ChatType.System);
+                Better.AddAllowedTag(debugBuilder);
+                Better.AddRuleTag(debugBuilder, ["BetterCommendationMessage"]);
+                debugBuilder.AddText(summaryText);
+                output = debugBuilder.BuiltString;
+            }
+            else
+            {
+                SeStringBuilder stringBuilder = new();
+                if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
+                stringBuilder.AddText(summaryText);
+                output = stringBuilder.BuiltString;
+            }
+
+            ChatGui.Print(output);
         }
     }
 
@@ -1096,6 +1408,19 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         FishingFlavorMessages = messages;
         Log.Information($"Loaded {FishingFlavorMessages.Count} fishing flavor messages.");
+    }
+
+    private void ReloadGameDataCaches(bool validateRuleIds)
+    {
+        LoadTomestones();
+        LoadFishingFlavorMessages();
+        LogMessageCatalog.Load(DataManager, Log);
+        ItemMarkerCatalog.Load(DataManager, Log);
+        ServerAnnouncementCatalog.Load(DataManager, Log);
+        LogMessageCatalog.ApplyDiscoveries(Log);
+        Rules.RebuildLogMessageIdLookup();
+        if (validateRuleIds)
+            LogMessageCatalog.ValidateRuleIds(Rules.EnumerateReferencedLogMessageIds(), Log);
     }
 
     private static void LoadTomestones()

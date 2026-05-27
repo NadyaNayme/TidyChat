@@ -637,14 +637,14 @@ Exemple : Vous jetez les dés (Cupidité) pour la  paire de hanzkar du Cheval
     </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
         <value>Activer l'affichage du message d'apprentissage d'une nouvelle action.
-Ce type de message peut être trop récurrent dans le Palais des Morts ou le Pilier des Cieux.</value>
+Ce type de message peut être trop récurrent dans les donjons profonds.</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
         <value>Activer l'affichage du message notifiant d'une montée de niveau</value>
     </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>Activer l'affichage du message notifiant d'une montée de niveau.
-Ce type de message peut être trop récurrent dans le Palais des Morts ou le Pilier des Cieux.</value>
+Ce type de message peut être trop récurrent dans les donjons profonds.</value>
     </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
         <value>Activer l'affichage du message notifiant de la montée de niveau d'un autre joueur.
@@ -819,8 +819,8 @@ Les sous-fifres du monstre d'élite se sont retirés...</value>
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
         <value>Messages d'Équipe et d'Invitation</value>
     </data>
-  <data name="SystemTab_POTDHoHDropdownHeader" xml:space="preserve">
-        <value>Palais des Morts &amp; Palais des Cieux</value>
+  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+        <value>Donjons profonds</value>
     </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
         <value>Afficher la notification lorsqu'un trésor caché a été découvert</value>

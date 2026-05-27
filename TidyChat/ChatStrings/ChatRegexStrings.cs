@@ -10,14 +10,6 @@ public static class ChatRegexStrings
 
     private static readonly TimeSpan regexTimeout = TimeSpan.FromSeconds(1);
 
-    public static readonly LocalizedRegex BetterPlayerCommendation = new()
-    {
-        Jpn = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Eng = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Deu = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout),
-        Fra = new(@"you received \d{1} (commendation|commendations)", regexOptions, regexTimeout)
-    };
-
     /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
     public static readonly LocalizedRegex ObtainedWolfMarks = new()
     {
@@ -277,38 +269,7 @@ public static class ChatRegexStrings
         Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
     };
     
-    // English patterns cover all of those. Jpn/Deu/Fra match only the lines carrying an
-    // sqex.to link (that domain is identical in every client). TODO: add localized welcome /
-    // congestion / phishing header text for full non-English coverage.
-    public static readonly LocalizedRegex ServerWorldGreeting = new()
-    {
-        Jpn = new(@"(?!)", regexOptions, regexTimeout),  // TODO(#122): localized "Welcome to <World>!"
-        Eng = new(@"^welcome to \w+!\s*$", regexOptions, regexTimeout),
-        Deu = new(@"(?!)", regexOptions, regexTimeout),  // TODO(#122): localized greeting
-        Fra = new(@"(?!)", regexOptions, regexTimeout)   // TODO(#122): localized greeting
-    };
-
-    public static readonly LocalizedRegex ServerAnnouncement = new()
-    {
-        Jpn = new(@"sqex\.to/", regexOptions, regexTimeout),
-        Eng = new(@"welcome to final fantasy xiv|be wary of phishing|if you receive a tell containing a url|is underway until|home world transfer|sqex\.to/", regexOptions, regexTimeout),
-        Deu = new(@"sqex\.to/", regexOptions, regexTimeout),
-        Fra = new(@"sqex\.to/", regexOptions, regexTimeout)
-    };
-
-    /// <summary>
-    ///     Matches the phishing/congestion warning lines in the server announcement block.
-    ///     Used by <see cref="ServerAnnouncementMode.HidePhishing"/> to suppress only these lines.
-    /// </summary>
-    public static readonly LocalizedRegex ServerPhishingWarning = new()
-    {
-        Jpn = new(@"sqex\.to/", regexOptions, regexTimeout),
-        Eng = new(@"be wary of phishing|if you receive a tell containing a url|home world transfer", regexOptions, regexTimeout),
-        Deu = new(@"sqex\.to/", regexOptions, regexTimeout),
-        Fra = new(@"sqex\.to/", regexOptions, regexTimeout)
-    };
-
-#region PotD & HoH
+#region Deep Dungeons
 
     /// <see href="https://xivapi.com/LogMessage/7245?pretty=true">
     ///     Aetherpool item flickers/brightens/flares. Its strength is
@@ -330,7 +291,7 @@ public static class ChatRegexStrings
         Fra = new(@"^sous-sol (\d|\d\d|\d\d\d)", regexOptions, regexTimeout)
     };
 
-#endregion PotD & HoH
+#endregion Deep Dungeons
 
 
     #region Treasure Dungeons

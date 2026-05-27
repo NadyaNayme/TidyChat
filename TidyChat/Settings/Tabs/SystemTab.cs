@@ -18,6 +18,24 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideInstanceMessageHelpMarker);
 
+            bool sanctuaryMessage = configuration.ShowSanctuaryMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSanctuaryMessage, ref sanctuaryMessage))
+            {
+                configuration.ShowSanctuaryMessage = sanctuaryMessage;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideSanctuaryMessageHelpMarker);
+
+            bool housingWardMessage = configuration.ShowHousingWardMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideHousingWardMessage, ref housingWardMessage))
+            {
+                configuration.ShowHousingWardMessage = housingWardMessage;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideHousingWardMessageHelpMarker);
+
             bool sRankHunt = configuration.ShowSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
             {
@@ -156,19 +174,19 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
 
-            // TODO(#122): hardcoded English labels — move to Languages resources once finalized.
+            // TODO(#122): localize combo labels in satellite language resx files.
             string[] serverAnnouncementModes =
             [
-                "Show all",
-                "Hide all",
-                "Condensed (keep \"Welcome to <world>\")",
-                "Login only (hide on world-hop)",
-                "Login full, condensed on world-hop",
-                "Hide phishing warning only"
+                Languages.SystemTab_ServerAnnouncementMode_ShowAll,
+                Languages.SystemTab_ServerAnnouncementMode_HideAll,
+                Languages.SystemTab_ServerAnnouncementMode_Condensed,
+                Languages.SystemTab_ServerAnnouncementMode_LoginOnly,
+                Languages.SystemTab_ServerAnnouncementMode_LoginThenCondensed,
+                Languages.SystemTab_ServerAnnouncementMode_HidePhishing
             ];
             int serverAnnouncementMode =
                 Math.Clamp((int)configuration.ServerAnnouncementMode, 0, serverAnnouncementModes.Length - 1);
-            ImGui.TextUnformatted("Server announcements (login / world-travel)");
+            ImGui.TextUnformatted(Languages.SystemTab_ServerAnnouncementsLabel);
             ImGui.SetNextItemWidth(320f);
             if (ImGui.BeginCombo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
             {
@@ -184,18 +202,7 @@ internal static class SystemTab
                 ImGui.EndCombo();
             }
 
-            ImGuiComponents.HelpMarker(
-                "How to handle the server message block shown on login / world travel " +
-                "(welcome headers, in-game event promos, congestion notices, phishing warning).\n\n" +
-                "Show all - unchanged.\n" +
-                "Hide all - suppress the whole block.\n" +
-                "Condensed - keep only the \"Welcome to <world>!\" line.\n" +
-                "Login only - full block on login, nothing on world-hops.\n" +
-                "Login full, condensed on world-hop - full block on login, only the " +
-                "\"Welcome to <world>!\" line on world-hops.\n" +
-                "Hide phishing warning only - keeps greeting + event text, removes the " +
-                "phishing/congestion warning and its URL.\n\n" +
-                "Fully supported on English clients; on JP/DE/FR only the sqex.to link lines are affected.");
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ServerAnnouncementsHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ShowHiddenMessagesDropdownHeader))
@@ -343,7 +350,7 @@ internal static class SystemTab
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSubmarineVoyageMessagesHelpMarker);
         }
 
-        if (ImGui.CollapsingHeader(Languages.SystemTab_POTDHoHDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.SystemTab_DeepDungeonsDropdownHeader))
         {
             bool showCairnGlows = configuration.ShowCairnGlows;
             if (ImGui.Checkbox(Languages.SystemTab_ShowCairnOfPassageGlowsMessages, ref showCairnGlows))
@@ -477,6 +484,15 @@ internal static class SystemTab
                 configuration.Save();
             }
 
+            bool showDutyFinder = configuration.ShowDutyFinder;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowDutyFinderMessages, ref showDutyFinder))
+            {
+                configuration.ShowDutyFinder = showDutyFinder;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowDutyFinderMessagesHelpMarker);
+
             bool showPartyInformation = configuration.ShowPartyInformation;
             if (ImGui.Checkbox(Languages.ShowPartyObjectiveAndPartyCommentWhenJoiningAParty, ref showPartyInformation))
             {
@@ -547,6 +563,24 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideFateLevelSyncMessagesHelpMarker);
+
+            bool hideCannotExecute = configuration.HideCannotExecute;
+            if (ImGui.Checkbox(Languages.SystemTab_HideCannotExecuteMessages, ref hideCannotExecute))
+            {
+                configuration.HideCannotExecute = hideCannotExecute;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideCannotExecuteMessagesHelpMarker);
+
+            bool showFateDiscovery = configuration.ShowFateDiscovery;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowFateDiscoveryMessages, ref showFateDiscovery))
+            {
+                configuration.ShowFateDiscovery = showFateDiscovery;
+                configuration.Save();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowFateDiscoveryMessagesHelpMarker);
         }
 
         ImGui.EndTabItem();

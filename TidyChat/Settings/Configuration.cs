@@ -33,6 +33,8 @@ public class Configuration : IPluginConfiguration
     #region Error Messages
 
     public bool HideFateLevelSync { get; set; } = false;
+    public bool HideCannotExecute { get; set; } = true;
+    public bool ShowFateDiscovery { get; set; } = true;
 
     #endregion
     public int Version { get; set; } = 0;
@@ -82,13 +84,18 @@ public class Configuration : IPluginConfiguration
     public bool ShowCommendations { get; set; } = true;
     public bool ShowCompletedVenture { get; set; } = true;
     public bool ShowInstanceMessage { get; set; } = true;
+    public bool ShowSanctuaryMessage { get; set; } = true;
+    public bool ShowHousingWardMessage { get; set; } = true;
     public bool ShowQuestReminder { get; set; } = true;
+    public bool ShowQuestProgress { get; set; } = true;
+    public bool ShowMountMessages { get; set; } = true;
     public bool ShowSelfUsedEmotes { get; set; } = true;
     public bool ShowOtherCustomEmotes { get; set; } = true;
     public bool ShowReadyChecks { get; set; } = true;
     public bool ShowCountdownTime { get; set; } = true;
     public bool ShowUserLogins { get; set; } = true;
     public bool ShowUserLogouts { get; set; } = true;
+    public bool ShowFriendList { get; set; } = true;
     public bool ShowSpiritboundGear { get; set; } = true;
     public bool ShowSpideySenses { get; set; } = true;
     public bool ShowAetherCompass { get; set; } = true;
@@ -115,6 +122,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowInvitedBy { get; set; } = false;
     public bool ShowJoinParty { get; set; } = false;
     public bool ShowPartyInformation { get; set; } = true;
+    public bool ShowDutyFinder { get; set; } = true;
     public bool ShowOfferedTeleport { get; set; } = false;
     public bool ShowSealedOff { get; set; } = false;
     public bool ShowHuntSlain { get; set; } = false;
@@ -127,13 +135,14 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = true;
+    public bool ShowActiveHelpEntry { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
     public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
 
     #endregion
 
-    #region PotD & HoH
+    #region Deep Dungeons
 
     public bool ShowObtainedPomander { get; set; } = true;
     public bool ShowCairnGlows { get; set; } = true;
@@ -148,10 +157,11 @@ public class Configuration : IPluginConfiguration
     public bool ShowDoNotSenseAccursedHoard { get; set; } = false;
     public bool ShowDiscoverAccursedHoard { get; set; } = true;
 
-    #endregion PotD & HoH
+    #endregion Deep Dungeons
 
     #region Obtained Items
 
+    public bool ShowObtainedItems { get; set; } = true;
     public bool HideObtainedGil { get; set; } = false;
     public bool HideObtainedMGP { get; set; } = false;
     public bool HideObtainedClusters { get; set; } = false;
@@ -165,7 +175,7 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedTribalCurrency { get; set; } = false;
     public bool HideObtainedShards { get; set; } = false;
     public bool HideObtainedShardsFromLoot { get; set; } = false;
-    public bool ShowGainExperience { get; set; } = false;
+    public bool ShowGainExperience { get; set; } = true;
     public bool HideRouletteBonus { get; set; } = false;
     public bool HideAdventurerInNeedBonus { get; set; } = false;
     public bool ShowGainPvpExp { get; set; } = false;
@@ -229,6 +239,22 @@ public class Configuration : IPluginConfiguration
     public bool ShowLureMessages { get; set; } = true;
     public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
+
+    #endregion
+
+    #region Combat
+
+    public bool ShowCombatCasting { get; set; } = true;
+    public bool ShowCombatAbilities { get; set; } = true;
+    public bool ShowCombatDamage { get; set; } = true;
+    public bool ShowCombatMisses { get; set; } = true;
+    public bool ShowCombatHealing { get; set; } = true;
+    public bool ShowCombatEffects { get; set; } = true;
+    public bool ShowCombatDefeat { get; set; } = true;
+    public bool ShowCombatEnemyReady { get; set; } = true;
+    public bool ShowCombatAdds { get; set; } = true;
+    public bool ShowCombatEnmity { get; set; } = true;
+    public bool ShowObtainedQuestItems { get; set; } = true;
 
     #endregion
 }
