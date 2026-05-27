@@ -5,23 +5,27 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    private static readonly List<LocalizedFilterRule> _rules =
-    [
-        .. SystemRules,
-        .. ErrorMessageRules,
-        .. EmoteRules,
-        .. CraftingRules,
-        .. GatheringRules,
-        .. CombatRules,
-        .. FreeCompanyRules,
-        .. OrchestrionRules,
-        .. LootRules,
-        .. ObtainRules,
-        .. ProgressRules,
-    ];
+    private static List<LocalizedFilterRule> CreateRules()
+    {
+        var rules = new List<LocalizedFilterRule>(400);
+        rules.AddRange(SystemRules);
+        rules.AddRange(ErrorMessageRules);
+        rules.AddRange(EmoteRules);
+        rules.AddRange(CraftingRules);
+        rules.AddRange(GatheringRules);
+        rules.AddRange(CombatRules);
+        rules.AddRange(FreeCompanyRules);
+        rules.AddRange(OrchestrionRules);
+        rules.AddRange(LootRules);
+        rules.AddRange(ObtainRules);
+        rules.AddRange(ProgressRules);
+        return rules;
+    }
 
-    private static readonly LocalizedFilterRule[] _allRulesCache = [.. _rules];
-    public static LocalizedFilterRule[] AllRules => _allRulesCache;
+    private static readonly List<LocalizedFilterRule> _rules = CreateRules();
+
+    public static LocalizedFilterRule[] AllRules { get; } =
+        [.. _rules];
 
     /// <summary>
     ///     Lookup from LogMessageId → list of rules that match that ID.
