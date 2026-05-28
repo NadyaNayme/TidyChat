@@ -1479,6 +1479,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ðééþ Ðûñĝéôñš.
+        /// </summary>
+        internal static string SystemTab_DeepDungeonsDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_DeepDungeonsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Éŕŕôŕ Ṁéššàĝéš.
         /// </summary>
         internal static string SystemTab_ErrorMessagesDropdownHeader {
@@ -1821,15 +1830,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_PartyAndInviteDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_PartyAndInviteDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ÞÔŢÐ ⅋ ĤôĤ.
-        /// </summary>
-        internal static string SystemTab_DeepDungeonsDropdownHeader {
-            get {
-                return ResourceManager.GetString("SystemTab_DeepDungeonsDropdownHeader", resourceCulture);
             }
         }
         
