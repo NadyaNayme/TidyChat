@@ -26,7 +26,7 @@ public static class LogMessageCatalog
     /// <summary>LogMessage IDs that fire in-game but are absent from the Lumina sheet.</summary>
     private static readonly HashSet<uint> RuntimeOnlyIds =
     [
-        94, 549,
+        94, 549, 1168,
         4671,
         10766, 10769, 10770, 10771, 10779, 10815, 10822, 10872, 10873, 10874, 10875, 10877, 10878, 10879, 10883,
         10830, 10946, 11156, 11175, 11197, 11331, 11379, 11383
