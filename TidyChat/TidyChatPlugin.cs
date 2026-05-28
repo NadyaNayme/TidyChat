@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using ChatTwo.Code;
 using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Game.Gui.Dtr;
@@ -21,7 +20,6 @@ using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
 using Lumina.Text.ReadOnly;
 using TidyChat.Localization.Resources;
-using TidyChat.Data;
 using TidyChat.Translation.Data;
 using TidyChat.Utility;
 using Better = TidyChat.Utility.BetterStrings;
@@ -35,9 +33,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 {
     private const string SettingsCommand = TidyStrings.SettingsCommand;
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
-    private readonly WindowSystem _windowSystem = new("TidyChat");
 
-    private long _sessionBlockedMessages;
+    private const int MaxLogMessageSetSize = 1000;
+    private const int MaxSetPlayerNameRetries = 10;
+    private const int ServerAnnouncementLoginGraceSeconds = 20;
 
     /// <summary>
     ///     Messages OnLogMessage already allowed. OnChat checks this set so it will not block them again.
@@ -46,30 +45,31 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     /// <summary>
     ///     In debug mode, messages OnLogMessage would have blocked. OnChat shows them with a [Blocked] prefix
-    ///     instead of calling <see cref="IHandleableChatMessage.PreventOriginal"/>.
+    ///     instead of calling <see cref="IHandleableChatMessage.PreventOriginal" />.
     /// </summary>
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 
-    /// <summary>
-    ///     LogMessage IDs allowed on the log path and consumed on the chat path when
-    ///     <see cref="OnChat"/> runs before <see cref="OnLogMessage"/>.
-    /// </summary>
-    private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
+    private readonly Queue<(string Message, long ExpiresAtTicks)> _chatHistory = new();
+    private readonly Lock _chatHistoryLock = new();
 
     /// <summary>LogMessage IDs logged as unmatched at most once per session (debug).</summary>
     private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = new();
-
-    private const int MaxLogMessageSetSize = 1000;
     private readonly Lock _logMessageLock = new();
-    private readonly Lock _chatHistoryLock = new();
-    volatile private bool _setPlayerNamePending;
-    private int _setPlayerNameRetries;
-    private const int MaxSetPlayerNameRetries = 10;
+
+    /// <summary>
+    ///     LogMessage IDs allowed on the log path and consumed on the chat path when
+    ///     <see cref="OnChat" /> runs before <see cref="OnLogMessage" />.
+    /// </summary>
+    private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
+    private readonly WindowSystem _windowSystem = new("TidyChat");
 
     // #122: announcements inside this window after a Login event are treated as a real login
     // (full block shown in "Login only" mode); announcements outside it are world-hops.
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
-    private const int ServerAnnouncementLoginGraceSeconds = 20;
+
+    private long _sessionBlockedMessages;
+    volatile private bool _setPlayerNamePending;
+    private int _setPlayerNameRetries;
 
     #region Setup
 
@@ -140,8 +140,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private Configuration Configuration { get; }
     private PluginUI PluginUi { get; }
 
-    private readonly Queue<(string Message, long ExpiresAtTicks)> _chatHistory = new();
-
     public void Dispose()
     {
         // UI: tear down the window system and the three UiBuilder subscriptions so the host
@@ -195,7 +193,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         {
             newExclusiveType = DataManager.GetExcelSheet<TerritoryType>().GetRow(e).ExclusiveType;
         }
-        catch { /* non-critical — default 0 means "not a duty" */ }
+        catch
+        {
+            /* non-critical — default 0 means "not a duty" */
+        }
 
         // Only print the better commendation summary when leaving a duty (arriving at
         // a non-instanced zone), not when entering the next one.
@@ -244,7 +245,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 bool idMatches = false;
                 foreach(uint id in ids)
                 {
-                    if (id == message.LogMessageId) { idMatches = true; break; }
+                    if (id == message.LogMessageId)
+                    {
+                        idMatches = true;
+                        break;
+                    }
                 }
                 if (!idMatches) continue;
 
@@ -263,7 +268,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                     RememberLogMessageTexts(_allowedByLogMessage, text);
                     RememberLogMessageAllow(message.LogMessageId);
                 }
-                catch { /* non-critical */ }
+                catch
+                {
+                    /* non-critical */
+                }
                 if (Configuration.EnableDebugMode)
                     Log.Debug($"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
                 return;
@@ -336,7 +344,10 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             RememberLogMessageTexts(_allowedByLogMessage, text);
             RememberLogMessageAllow(message.LogMessageId);
         }
-        catch { /* Safe to ignore — worst case OnChat re-evaluates the message */ }
+        catch
+        {
+            /* Safe to ignore — worst case OnChat re-evaluates the message */
+        }
 
         if (Configuration.EnableDebugMode)
         {
@@ -347,7 +358,11 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void OnChat(IHandleableChatMessage message)
     {
-        if (!Configuration.Enabled) { Log.Verbose("Tidy Chat is not enabled"); return; }
+        if (!Configuration.Enabled)
+        {
+            Log.Verbose("Tidy Chat is not enabled");
+            return;
+        }
         if (message.IsHandled) return;
 
         ChatType chatType = FromDalamud(message.LogKind);
@@ -570,7 +585,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
 
         bool wasBlockedByLog;
-        lock (_logMessageLock)
+        lock(_logMessageLock)
         {
             wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
@@ -583,7 +598,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         bool wasAllowedByLog;
-        lock (_logMessageLock)
+        lock(_logMessageLock)
         {
             wasAllowedByLog = _allowedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_allowedByLogMessage, textCandidates);
@@ -628,7 +643,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (string.IsNullOrWhiteSpace(text)) return;
 
-        lock (_logMessageLock)
+        lock(_logMessageLock)
         {
             if (target.Count >= MaxLogMessageSetSize) target.Clear();
             target.Add(text);
@@ -641,7 +656,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     private void RememberLogMessageAllow(uint logMessageId)
     {
-        lock (_logMessageLock)
+        lock(_logMessageLock)
         {
             _pendingAllowedLogMessageIds.TryGetValue(logMessageId, out int count);
             _pendingAllowedLogMessageIds[logMessageId] = count + 1;
@@ -652,7 +667,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     {
         if (string.IsNullOrWhiteSpace(normalizedText)) return false;
 
-        lock (_logMessageLock)
+        lock(_logMessageLock)
         {
             if (_pendingAllowedLogMessageIds.Count == 0) return false;
 
@@ -873,11 +888,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         try
         {
             foreach(PlayerName p in Configuration.Whitelist)
+            {
                 if (!p.AllowMessage)
                     CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+            }
             foreach(PlayerName p in Configuration.Whitelist)
+            {
                 if (p.AllowMessage)
                     CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+            }
         }
         catch(Exception ex)
         {
@@ -900,20 +919,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             if (!Flags.CheckFlags(Configuration, chatType)) return false;
 
             string currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
-            lock (_chatHistoryLock)
+            lock(_chatHistoryLock)
             {
                 if (Configuration.ChatHistoryTimer > 0)
                 {
                     long now = Environment.TickCount64;
-                    while (_chatHistory.Count > 0 && _chatHistory.Peek().ExpiresAtTicks <= now)
+                    while(_chatHistory.Count > 0 && _chatHistory.Peek().ExpiresAtTicks <= now)
                         _chatHistory.Dequeue();
                 }
 
                 bool isDuplicate = false;
-                foreach(var entry in _chatHistory)
+                foreach((string Message, long ExpiresAtTicks) entry in _chatHistory)
                 {
                     if (string.Equals(entry.Message, currentMessage, StringComparison.Ordinal))
-                    { isDuplicate = true; break; }
+                    {
+                        isDuplicate = true;
+                        break;
+                    }
                 }
 
                 if (isDuplicate)
@@ -980,13 +1002,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     /// <summary>
     ///     When PreferLogMessageCatalog is set but the Lumina template misses, fall back to
-    ///     <see cref="LocalizedFilterRule.StringChecks"/> or <see cref="LocalizedFilterRule.RegexChecks"/>.
+    ///     <see cref="LocalizedFilterRule.StringChecks" /> or <see cref="LocalizedFilterRule.RegexChecks" />.
     /// </summary>
     private static bool ShouldFallbackToTextChecksWhenCatalogMisses(LocalizedFilterRule rule) =>
         RuleHasTextChecks(rule);
 
     /// <summary>
-    ///     True when every regex or string check on the rule matches <paramref name="normalizedText"/> (AND logic).
+    ///     True when every regex or string check on the rule matches <paramref name="normalizedText" /> (AND logic).
     ///     False when the rule has no checks or any check fails.
     /// </summary>
     private static bool RuleMatchesText(LocalizedFilterRule rule, string normalizedText, bool debugMode)
@@ -1164,7 +1186,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
     /// <summary>
     ///     True when the whitelist entry matches sender, message text, and channel.
-    ///     Handles empty-name guard, channel scoping, cached regex, and <see cref="PlayerNameMatchMode"/>.
+    ///     Handles empty-name guard, channel scoping, cached regex, and <see cref="PlayerNameMatchMode" />.
     /// </summary>
     private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType)
     {
@@ -1198,7 +1220,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // MessageContains (backward-compatible default): sender match OR substring match
         return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal)
-            || message.TextValue.Contains(entry.FirstName, StringComparison.Ordinal);
+               || message.TextValue.Contains(entry.FirstName, StringComparison.Ordinal);
     }
 
     /// <summary>True when a whitelist Allow entry would let this message through.</summary>
@@ -1412,7 +1434,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         LogMessageCatalog.Load(DataManager, Log);
         ItemMarkerCatalog.Load(DataManager, Log);
         ServerAnnouncementCatalog.Load(DataManager, Log);
-        LogMessageCatalog.ApplyDiscoveries(Log);
+        LogMessageCatalog.ApplyDiscoveries();
         Rules.RebuildLogMessageIdLookup();
         if (validateRuleIds)
             LogMessageCatalog.ValidateRuleIds(Rules.EnumerateReferencedLogMessageIds(), Log);
@@ -1472,17 +1494,34 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return chatType switch
         {
             ChatType.Error or
-                ChatType.Say or ChatType.Shout or ChatType.Yell or
-                ChatType.TellIncoming or ChatType.PvpTeam or
-                ChatType.NoviceNetwork or ChatType.NoviceNetworkSystem or
-                ChatType.FreeCompany or ChatType.PeriodicRecruitmentNotification or
-                ChatType.Party or ChatType.CrossParty or ChatType.Alliance or
-                ChatType.Linkshell1 or ChatType.Linkshell2 or ChatType.Linkshell3 or
-                ChatType.Linkshell4 or ChatType.Linkshell5 or ChatType.Linkshell6 or
-                ChatType.Linkshell7 or ChatType.Linkshell8 or
-                ChatType.CrossLinkshell1 or ChatType.CrossLinkshell2 or ChatType.CrossLinkshell3 or
-                ChatType.CrossLinkshell4 or ChatType.CrossLinkshell5 or ChatType.CrossLinkshell6 or
-                ChatType.CrossLinkshell7 or ChatType.CrossLinkshell8 or
+                ChatType.Say or
+                ChatType.Shout or
+                ChatType.Yell or
+                ChatType.TellIncoming or
+                ChatType.PvpTeam or
+                ChatType.NoviceNetwork or
+                ChatType.NoviceNetworkSystem or
+                ChatType.FreeCompany or
+                ChatType.PeriodicRecruitmentNotification or
+                ChatType.Party or
+                ChatType.CrossParty or
+                ChatType.Alliance or
+                ChatType.Linkshell1 or
+                ChatType.Linkshell2 or
+                ChatType.Linkshell3 or
+                ChatType.Linkshell4 or
+                ChatType.Linkshell5 or
+                ChatType.Linkshell6 or
+                ChatType.Linkshell7 or
+                ChatType.Linkshell8 or
+                ChatType.CrossLinkshell1 or
+                ChatType.CrossLinkshell2 or
+                ChatType.CrossLinkshell3 or
+                ChatType.CrossLinkshell4 or
+                ChatType.CrossLinkshell5 or
+                ChatType.CrossLinkshell6 or
+                ChatType.CrossLinkshell7 or
+                ChatType.CrossLinkshell8 or
                 ChatType.Orchestrion => true,
             _ => false
         };
@@ -1504,7 +1543,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 foreach(int i in textPayload.Text)
                 {
                     sb.Append(i is >= 65 and <= 90
-                        ? (char)(i + 32)  // 65='A', 90='Z' (91='[', not a letter)
+                        ? (char)(i + 32) // 65='A', 90='Z' (91='[', not a letter)
                         : (char)i);
                 }
                 stringBuilder.AddText(sb.ToString());

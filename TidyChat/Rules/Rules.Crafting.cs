@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] CraftingRules =
     [
-
         new()
         {
             Name = "ShowAttachedMateria",
@@ -90,7 +89,7 @@ public static partial class Rules
             Channel = ChatType.Crafting,
             IsActive = true,
             StringChecks = [ChatStrings.AbilityUseMessage],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -99,7 +98,7 @@ public static partial class Rules
             Channel = ChatType.Crafting,
             IsActive = true,
             StringChecks = [ChatStrings.BuffGainEffect],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -108,7 +107,7 @@ public static partial class Rules
             Channel = ChatType.Crafting,
             IsActive = true,
             StringChecks = [ChatStrings.BuffLossEffect],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -172,7 +171,7 @@ public static partial class Rules
             Channel = ChatType.Crafting,
             IsActive = true,
             StringChecks = [ChatStrings.CraftingMaterialRemoved],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -192,7 +191,7 @@ public static partial class Rules
             Channel = ChatType.Crafting,
             IsActive = true,
             StringChecks = [ChatStrings.CraftingRemoveFromBagHeader],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -201,7 +200,7 @@ public static partial class Rules
             Channel = ChatType.Crafting,
             IsActive = true,
             StringChecks = [ChatStrings.UnableToCraft],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -235,6 +234,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.AbleToExecute],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 }

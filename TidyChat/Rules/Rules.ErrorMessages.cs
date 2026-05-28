@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] ErrorMessageRules =
     [
-
         new()
         {
             Name = "HideFateLevelSync",
@@ -259,7 +258,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.FriendRequestSent],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -268,7 +267,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.FriendAddedToList],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -289,8 +288,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ActiveHelpEntryAdded],
-            Pattern = PatternKind.StringMatch,
-        },
-
+            Pattern = PatternKind.StringMatch
+        }
     ];
 }

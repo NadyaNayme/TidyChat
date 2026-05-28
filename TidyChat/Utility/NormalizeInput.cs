@@ -3,7 +3,6 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 using Dalamud.Game.Text.SeStringHandling;
 using Lumina.Text.ReadOnly;
-
 namespace TidyChat.Utility;
 
 internal static class NormalizeInput
@@ -81,7 +80,7 @@ internal static class NormalizeInput
 
     /// <summary>
     ///     Rebuild cached initial-name regexes when the player name changes.
-    ///     Names are <see cref="Regex.Escape"/>d so dots in "Mat M." do not match "MatMx".
+    ///     Names are <see cref="Regex.Escape" />d so dots in "Mat M." do not match "MatMx".
     /// </summary>
     private static void EnsureCacheFor(string playerName, string[] parts)
     {
@@ -94,11 +93,11 @@ internal static class NormalizeInput
 
         _firstNameLastInitialLower = $"{firstName} {lastInitial}.".ToLower(CultureInfo.CurrentCulture);
         _firstInitialLastNameLower = $"{firstInitial}. {lastName}".ToLower(CultureInfo.CurrentCulture);
-        _initialsOnlyLower         = $"{firstInitial}. {lastInitial}.".ToLower(CultureInfo.CurrentCulture);
+        _initialsOnlyLower = $"{firstInitial}. {lastInitial}.".ToLower(CultureInfo.CurrentCulture);
 
         _firstNameLastInitial = BuildSafeRegex(_firstNameLastInitialLower);
         _firstInitialLastName = BuildSafeRegex(_firstInitialLastNameLower);
-        _initialsOnly         = BuildSafeRegex(_initialsOnlyLower);
+        _initialsOnly = BuildSafeRegex(_initialsOnlyLower);
 
         _cachedPlayerName = playerName;
     }
@@ -107,7 +106,7 @@ internal static class NormalizeInput
     {
         try
         {
-            return new Regex(@"(^|\s)" + Regex.Escape(lowerToken) + @"(\s|$)",
+            return new(@"(^|\s)" + Regex.Escape(lowerToken) + @"(\s|$)",
                 DefaultRegexOptions, RegexTimeout);
         }
         catch

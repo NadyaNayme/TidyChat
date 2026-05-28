@@ -1,10 +1,9 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-public static readonly LocalizedStrings LocationAffects = new()
+    public static readonly LocalizedStrings LocationAffects = new()
     {
         Jpn = ["採集場所", "特徴"],
         Eng = ["the", "location", "affects", "your"],
@@ -30,7 +29,10 @@ public static readonly LocalizedStrings LocationAffects = new()
         Fra = ["augmenté"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1097?pretty=true">The location affects your chance of receiving the Gatherer's Boon!</see>
+    /// <see href="https://xivapi.com/LogMessage/1097?pretty=true">
+    ///     The location affects your chance of receiving the Gatherer's
+    ///     Boon!
+    /// </see>
     public static readonly LocalizedStrings GatherersBoon = new()
     {
         Jpn = ["ボーナス"],
@@ -39,7 +41,10 @@ public static readonly LocalizedStrings LocationAffects = new()
         Fra = ["plus", "grandes", "chances"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1098?pretty=true">The location has increased integrity, and affects the number of your gathering attempts!</see>
+    /// <see href="https://xivapi.com/LogMessage/1098?pretty=true">
+    ///     The location has increased integrity, and affects the number
+    ///     of your gathering attempts!
+    /// </see>
     public static readonly LocalizedStrings GatheringAttempts = new()
     {
         Jpn = ["耐久", "採集回数"],
@@ -75,7 +80,10 @@ public static readonly LocalizedStrings LocationAffects = new()
         Fra = ["grade"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/3518?pretty=true">You were unable to locate any unspoiled mining points using Truth of Mountains.</see>
+    /// <see href="https://xivapi.com/LogMessage/3518?pretty=true">
+    ///     You were unable to locate any unspoiled mining points using
+    ///     Truth of Mountains.
+    /// </see>
     public static readonly LocalizedStrings GatheringUnspoiledLocateFail = new()
     {
         Jpn = ["感知", "しなかった"],
@@ -102,7 +110,10 @@ public static readonly LocalizedStrings LocationAffects = new()
         Fra = ["disparu"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1103?pretty=true">You have been granted an additional gathering attempt at this rocky outcropping.</see>
+    /// <see href="https://xivapi.com/LogMessage/1103?pretty=true">
+    ///     You have been granted an additional gathering attempt at
+    ///     this rocky outcropping.
+    /// </see>
     public static readonly LocalizedStrings GatheringAttemptGranted = new()
     {
         Jpn = ["採集回数", "復し"],
@@ -145,7 +156,7 @@ public static readonly LocalizedStrings LocationAffects = new()
         Jpn = ["NeedsLocalization"],
         Eng = ["put", "away", "rod"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10784?pretty=true">You apply a saltwater arthrolure to your line.</see>
@@ -154,7 +165,7 @@ public static readonly LocalizedStrings LocationAffects = new()
         Jpn = ["NeedsLocalization"],
         Eng = ["apply", "arthrolure"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11333?pretty=true">The multihook has reeled in additional fish!</see>
@@ -163,7 +174,7 @@ public static readonly LocalizedStrings LocationAffects = new()
         Jpn = ["NeedsLocalization"],
         Eng = ["multihook", "reeled", "additional", "fish"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11154?pretty=true">The stellar mission … is now underway.</see>
@@ -172,7 +183,7 @@ public static readonly LocalizedStrings LocationAffects = new()
         Jpn = ["NeedsLocalization"],
         Eng = ["stellar", "mission", "underway"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10764?pretty=true">You can now use the special action …!</see>
@@ -181,7 +192,7 @@ public static readonly LocalizedStrings LocationAffects = new()
         Jpn = ["NeedsLocalization"],
         Eng = ["special", "action"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10804?pretty=true">You earn a score of N.</see>
@@ -190,7 +201,7 @@ public static readonly LocalizedStrings LocationAffects = new()
         Jpn = ["NeedsLocalization"],
         Eng = ["earn", "score"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1121?pretty=true">You recast your line with the fish still hooked.</see>

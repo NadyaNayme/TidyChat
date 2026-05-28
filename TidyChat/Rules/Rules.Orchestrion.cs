@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] OrchestrionRules =
     [
-
         new()
         {
             Name = "HideOrchestrionPlaying",
@@ -13,7 +12,6 @@ public static partial class Rules
             IsActive = false,
             BlockWhenActive = true,
             LogMessageIds = [3433]
-        },
-
+        }
     ];
 }

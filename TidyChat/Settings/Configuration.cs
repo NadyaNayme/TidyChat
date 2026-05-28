@@ -29,14 +29,6 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
-
-    #region Error Messages
-
-    public bool HideFateLevelSync { get; set; } = false;
-    public bool HideCannotExecute { get; set; } = true;
-    public bool ShowFateDiscovery { get; set; } = true;
-
-    #endregion
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
@@ -51,6 +43,14 @@ public class Configuration : IPluginConfiguration
         Rules.UpdateIsActiveStates(this);
         TidyChatPlugin.InstanceDtrBarUpdate(this);
     }
+
+    #region Error Messages
+
+    public bool HideFateLevelSync { get; set; } = false;
+    public bool HideCannotExecute { get; set; } = true;
+    public bool ShowFateDiscovery { get; set; } = true;
+
+    #endregion
 
     #region Chat Filters
 

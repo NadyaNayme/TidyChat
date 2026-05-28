@@ -1,10 +1,9 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/1350?pretty=true">/instance text</see>
+    /// <see href="https://xivapi.com/LogMessage/1350?pretty=true">/instance text</see>
     public static readonly LocalizedStrings InstancedArea = new()
     {
         Jpn = ["で現在のインスタンスを再確認できます。"],
@@ -37,7 +36,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["no", "longer", "synced"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/2163?pretty=true">Duty objectives completion bonus.</see>
@@ -46,7 +45,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["objectives", "bonus"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/88?pretty=true">Location discovered.</see>
@@ -55,7 +54,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["discovered"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1341?pretty=true">You attune to the aetheryte.</see>
@@ -64,7 +63,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["attune", "aetheryte"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/94?pretty=true">Of the N parties currently recruiting…</see>
@@ -73,7 +72,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["parties", "recruiting"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/979?pretty=true">Party recruitment commenced.</see>
@@ -82,7 +81,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["party", "recruitment", "commenced"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/981?pretty=true">Party recruitment ended.</see>
@@ -91,7 +90,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["party", "recruitment", "ended"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1885?pretty=true">You have received a free company invite from …</see>
@@ -100,7 +99,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["free", "company", "invite", "received"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1895?pretty=true">Free company invite from … canceled.</see>
@@ -109,7 +108,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["free", "company", "invite", "canceled"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/5865?pretty=true">Portrait set as instant portrait.</see>
@@ -145,7 +144,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["equipped", "glamours", "could", "not", "restored"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4309?pretty=true">You cast a glamour …</see>
@@ -265,7 +264,10 @@ public static partial class ChatStrings
         Fra = ["en", "mode", "de", "discussion"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">Your meticulous actions prove effective. Integrity is not reduced.</see>
+    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
+    ///     Your meticulous actions prove effective. Integrity is not
+    ///     reduced.
+    /// </see>
     public static readonly LocalizedStrings AetherialReductionIntegrity = new()
     {
         Jpn = ["耐久", "減少"],
@@ -306,7 +308,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["cross-world", "party", "formed"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4670?pretty=true">Participation requirements are as follows:</see>
@@ -315,7 +317,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["participation", "requirements"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4671?pretty=true">Join Party in Progress / Unrestricted Party</see>
@@ -324,7 +326,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["party", "progress", "unrestricted"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/897?pretty=true">Duty registration complete.</see>
@@ -333,7 +335,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["duty", "registration", "complete"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/890?pretty=true">Your registration is withdrawn.</see>
@@ -351,7 +353,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["commencing", "unrestricted", "party"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4218?pretty=true">Echo strength after defeats…</see>
@@ -360,7 +362,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["echo", "strength"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4248?pretty=true">Entered duty with Unrestricted Party option…</see>
@@ -369,7 +371,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["entered", "unrestricted", "party"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4321?pretty=true">You desynthesize …</see>
@@ -634,7 +636,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["hostile", "presence"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/3712?pretty=true">The compass detects a current …</see>
@@ -701,7 +703,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["shattered"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1629?pretty=true">/isearch match summary.</see>

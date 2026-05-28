@@ -20,8 +20,7 @@ internal class PluginUI : Window, IDisposable
     }
 
     public void Dispose()
-    {
-    }
+    { }
 
     public override void Draw()
     {

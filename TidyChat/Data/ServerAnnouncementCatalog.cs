@@ -5,7 +5,6 @@ using Dalamud.Game;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
 using Lumina.Text.ReadOnly;
-
 namespace TidyChat.Data;
 
 /// <summary>
@@ -178,7 +177,7 @@ public static class ServerAnnouncementCatalog
         if (string.IsNullOrEmpty(token)) return false;
 
         int index = 0;
-        while ((index = normalizedText.IndexOf(token, index, StringComparison.OrdinalIgnoreCase)) >= 0)
+        while((index = normalizedText.IndexOf(token, index, StringComparison.OrdinalIgnoreCase)) >= 0)
         {
             bool startOk = index == 0 || !IsWordChar(normalizedText[index - 1]);
             int endIndex = index + token.Length;

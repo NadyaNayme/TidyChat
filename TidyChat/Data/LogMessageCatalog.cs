@@ -6,28 +6,31 @@ using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
 using Lumina.Text.ReadOnly;
 using TidyChat.Translation.Data;
-
 namespace TidyChat.Data;
 
 /// <summary>
 ///     Loads the LogMessage sheet from Lumina and builds match tokens for chat filtering.
-///     Templates follow the active client language; pair with <see cref="ChatStrings"/> fallbacks when needed.
+///     Templates follow the active client language; pair with <see cref="ChatStrings" /> fallbacks when needed.
 /// </summary>
 public static class LogMessageCatalog
 {
-    private static readonly Dictionary<uint, string[]> WordTokensById = new();
-    private static readonly Dictionary<uint, string> TemplateTextById = new();
 
     /// <summary>Shared "You obtain …" template used by many loot notices (LogMessage 657).</summary>
     public const uint SharedObtainTemplateId = 657;
-
-    public static bool IsLoaded { get; private set; }
-
-    public static int Count => TemplateTextById.Count;
-
-    public static int TokenizedCount => WordTokensById.Count;
+    private static readonly Dictionary<uint, string[]> WordTokensById = new();
+    private static readonly Dictionary<uint, string> TemplateTextById = new();
 
     public static readonly uint[] SharedObtainTemplateIds = [657, 1259, 1606];
+
+    private static readonly string[] CompactLinePrefixes =
+    [
+        "Novice - ",
+        "Beginner - ",
+        "(NEULINGE) ",
+        "(RdN) "
+    ];
+
+    public static bool IsLoaded { get; private set; }
 
     public static void Load(IDataManager dataManager, IPluginLog log)
     {
@@ -62,7 +65,7 @@ public static class LogMessageCatalog
     }
 
     /// <summary>Placeholder for future runtime ID discovery. Not used yet.</summary>
-    public static void ApplyDiscoveries(IPluginLog log)
+    public static void ApplyDiscoveries()
     {
         if (!IsLoaded) return;
         // Quest /say reminders are not stored as LogMessage rows — ShowQuestReminder matches formatted chat text instead.
@@ -102,14 +105,6 @@ public static class LogMessageCatalog
         return true;
     }
 
-    private static readonly string[] CompactLinePrefixes =
-    [
-        "Novice - ",
-        "Beginner - ",
-        "(NEULINGE) ",
-        "(RdN) "
-    ];
-
     /// <summary>Shortest LogMessage row whose template contains every required token.</summary>
     public static bool TryFindIdContainingAllTokens(IReadOnlyList<string> requiredTokens, out uint logMessageId)
     {
@@ -134,7 +129,7 @@ public static class LogMessageCatalog
         return true;
     }
 
-    /// <summary>True when every derived token appears in <paramref name="normalizedText"/>.</summary>
+    /// <summary>True when every derived token appears in <paramref name="normalizedText" />.</summary>
     public static bool Matches(uint logMessageId, string normalizedText)
     {
         if (!WordTokensById.TryGetValue(logMessageId, out string[]? tokens) &&

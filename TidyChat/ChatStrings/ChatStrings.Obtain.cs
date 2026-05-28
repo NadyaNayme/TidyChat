@@ -1,10 +1,9 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/10750?pretty=true">You obtain … cosmic containers.</see>
+    /// <see href="https://xivapi.com/LogMessage/10750?pretty=true">You obtain … cosmic containers.</see>
     public static readonly LocalizedStrings CosmicContainerObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -56,7 +55,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">Gil earned from market sales has been entrusted to your retainer.</see>
+    /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">
+    ///     Gil earned from market sales has been entrusted to your
+    ///     retainer.
+    /// </see>
     public static readonly LocalizedStrings MarketGilEntrustedToRetainer = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -137,7 +139,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["gil"],
         Deu = ["gil"],
-        Fra = ["gil"],
+        Fra = ["gil"]
     };
 
     /// <summary>MGP marker text for shared obtain LogMessage templates (e.g. 657).</summary>
@@ -146,7 +148,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["mgp"],
         Deu = ["mgp"],
-        Fra = ["mgp"],
+        Fra = ["mgp"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1232?pretty=true">You obtain … (quest loot).</see>
@@ -155,7 +157,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["you", "obtain"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1607?pretty=true">You obtain N [item].</see>
@@ -164,7 +166,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["you", "obtain"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/750?pretty=true">You obtain an [item].</see>
@@ -173,7 +175,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["you", "obtain"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/789?pretty=true">The [item] is added to your inventory.</see>
@@ -182,7 +184,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["added", "inventory"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/720?pretty=true">You throw away an [item].</see>
@@ -191,7 +193,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["throw", "away"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/743?pretty=true">… is bound to you.</see>
@@ -200,7 +202,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["bound", "you"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/2012?pretty=true">… will be sealed off in …</see>

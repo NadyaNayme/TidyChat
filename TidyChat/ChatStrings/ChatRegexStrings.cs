@@ -267,7 +267,7 @@ public static class ChatRegexStrings
         Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
     };
-    
+
 #region Deep Dungeons
 
     /// <see href="https://xivapi.com/LogMessage/7245?pretty=true">

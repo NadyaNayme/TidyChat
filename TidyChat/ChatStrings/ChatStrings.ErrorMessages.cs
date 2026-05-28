@@ -1,16 +1,15 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/579?pretty=true">Cannot execute at this time.</see>
+    /// <see href="https://xivapi.com/LogMessage/579?pretty=true">Cannot execute at this time.</see>
     public static readonly LocalizedStrings CannotExecute = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["cannot", "execute"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/7727?pretty=true">Unable to execute command while casting.</see>
@@ -37,7 +36,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["invalid", "target"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/574?pretty=true">Cannot use as current class.</see>
@@ -46,7 +45,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["cannot", "use", "current", "class"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1262?pretty=true">Unable to use. You are currently using another item.</see>
@@ -55,7 +54,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unable", "use", "currently", "using", "another", "item"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1236?pretty=true">Unable to obtain the …</see>
@@ -64,7 +63,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unable", "obtain"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1268?pretty=true">Unable to obtain … You already possess one.</see>
@@ -73,7 +72,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unable", "obtain", "already", "possess"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1950?pretty=true">Unable to use. You cannot carry more than one.</see>
@@ -82,7 +81,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unable", "use", "cannot", "carry", "more", "than", "one"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/582?pretty=true">Not yet ready.</see>
@@ -91,7 +90,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["not", "yet", "ready"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/598?pretty=true">Target out of range.</see>
@@ -100,7 +99,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["target", "out", "range"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/566?pretty=true">Target is not in range.</see>
@@ -109,7 +108,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["target", "not", "range"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1310?pretty=true">Too far away.</see>
@@ -118,7 +117,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["too", "far", "away"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/562?pretty=true">Target not in line of sight.</see>
@@ -127,7 +126,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["target", "not", "line", "sight"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4316?pretty=true">Unable to apply glamour plates here.</see>
@@ -136,7 +135,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unable", "apply", "glamour", "plates"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/2166?pretty=true">Unable to attack FATE target. Your level is too high.</see>
@@ -145,7 +144,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unable", "attack", "fate", "target", "level", "high"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/7487?pretty=true">You send a friend request.</see>
@@ -181,6 +180,6 @@ public static partial class ChatStrings
         Jpn = ["howto"],
         Eng = ["active", "help", "entry", "added"],
         Deu = ["tutorial-hilfstext"],
-        Fra = ["tutoriel"],
+        Fra = ["tutoriel"]
     };
 }

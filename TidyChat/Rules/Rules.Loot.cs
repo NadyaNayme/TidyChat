@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] LootRules =
     [
-
         new()
         {
             Name = "ShowLootRoll",
@@ -51,7 +50,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false,
+            ObtainMarkerRequireSharedTemplate = false
         },
         new()
         {
@@ -64,7 +63,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false,
+            ObtainMarkerRequireSharedTemplate = false
         },
         new()
         {
@@ -76,7 +75,7 @@ public static partial class Rules
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerAnyElemental = true,
+            ObtainMarkerAnyElemental = true
         },
         new()
         {
@@ -89,7 +88,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerAnyElemental = true,
+            ObtainMarkerAnyElemental = true
         },
         new()
         {
@@ -102,7 +101,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false,
+            ObtainMarkerRequireSharedTemplate = false
         },
         new()
         {
@@ -116,7 +115,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false,
+            ObtainMarkerRequireSharedTemplate = false
         },
         new()
         {
@@ -147,7 +146,7 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerOtherPlayer = true,
             ExcludePlayerObtain = true,
-            StringChecks = [ChatStrings.OtherObtainMarker],
+            StringChecks = [ChatStrings.OtherObtainMarker]
         },
         new()
         {
@@ -161,8 +160,7 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerOtherPlayer = true,
             ExcludePlayerObtain = true,
-            StringChecks = [ChatStrings.OtherObtainMarker],
-        },
-
+            StringChecks = [ChatStrings.OtherObtainMarker]
+        }
     ];
 }

@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Timers;
-using ChatTwo.Code;
 using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TextCopy;
-using TidyChat.Data;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat.Utility;
@@ -71,7 +69,7 @@ internal static class BetterStrings
     }
 
     /// <summary>
-    ///     Compact Novice Network leave text. Used by <see cref="TidyChatPlugin.OnLogMessage"/>
+    ///     Compact Novice Network leave text. Used by <see cref="TidyChatPlugin.OnLogMessage" />
     ///     after suppressing LogMessage 7030.
     /// </summary>
     public static SeString NoviceNetworkLeaveMessage(Configuration configuration)

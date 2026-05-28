@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] SystemRules =
     [
-
         new()
         {
             Name = "ShowSRankHunt",
@@ -139,7 +138,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.InstancedArea],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -148,7 +147,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DutyEnded],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -157,7 +156,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GuildhestEnded],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -211,7 +210,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.SanctuaryMessage],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -361,7 +360,7 @@ public static partial class Rules
             Channel = ChatType.PeriodicRecruitmentNotification,
             IsActive = true,
             StringChecks = [ChatStrings.DutyFinderRecruitment],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -381,7 +380,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DutyFinderPartyType],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -413,7 +412,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -568,7 +567,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.CairnGlows],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -633,7 +632,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.AetherpoolIncrease],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -753,7 +752,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ReadyCheck],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -762,7 +761,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ReadyCheckInitiated],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -772,7 +771,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [3240],
             StringChecks = [ChatStrings.HostilePresence],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -837,7 +836,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.CountdownTime],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -896,7 +895,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.SubaquaticVoyageFinalized],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -966,7 +965,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.TryOnGlamourCast],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -975,7 +974,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GlamourPlateProjected],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1012,7 +1011,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.CompanyActionExpired],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1105,7 +1104,6 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [38]
-        },
-
+        }
     ];
 }

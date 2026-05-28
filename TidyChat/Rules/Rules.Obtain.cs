@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] ObtainRules =
     [
-
         new()
         {
             Name = "ShowObtainedQuestItems",
@@ -24,7 +23,7 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.QuestItemObtain],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // Dedicated obtain/inventory templates (1607/750/751/789/720); not part of SharedObtainTemplateIds or HideObtainedGil (1605).
         new()
@@ -46,7 +45,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [743],
             StringChecks = [ChatStrings.ItemBoundToYou],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // OnChat fallback when LogMessage handling did not run.
         new()
@@ -56,7 +55,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ItemBoundToYou],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -155,7 +154,7 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.CosmicContainerObtain],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -164,7 +163,7 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.CosmicFortuneObtain],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -173,7 +172,7 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.ObtainedSingleItem],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -182,7 +181,7 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.ObtainedItemQuantity],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -191,7 +190,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.InventoryItemAdded],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -222,7 +221,7 @@ public static partial class Rules
             LogMessageIds = [1605, 1258, 1417],
             StringChecks = [ChatStrings.ObtainedGilMarker],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true,
+            PreferLogMessageCatalog = true
         },
         // Shared "You obtain ." templates — require gil marker so items are not blocked.
         new()
@@ -236,7 +235,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainedGilMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerGil = true,
+            ObtainMarkerGil = true
         },
         // OnChat fallback when LogMessage handling did not run for this message.
         new()
@@ -247,7 +246,7 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             RegexChecks = [ChatRegexStrings.ObtainedGil],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
         new()
         {
@@ -259,7 +258,7 @@ public static partial class Rules
             LogMessageIds = [4765],
             StringChecks = [ChatStrings.ObtainedMgpMarker],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -272,7 +271,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainedMgpMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerMgp = true,
+            ObtainMarkerMgp = true
         },
         // Shared obtain template + Lumina item marker (657 family).
         new()
@@ -286,7 +285,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainWolfMarks],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.WolfMarks,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.WolfMarks
         },
         new()
         {
@@ -299,7 +298,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.WolfMarks,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.WolfMarks
         },
         new()
         {
@@ -312,7 +311,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainSealsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerAnySeal = true,
+            ObtainMarkerAnySeal = true
         },
         new()
         {
@@ -325,7 +324,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerAnySeal = true,
+            ObtainMarkerAnySeal = true
         },
         new()
         {
@@ -338,7 +337,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainVentureMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.Venture,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.Venture
         },
         new()
         {
@@ -351,7 +350,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.Venture,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.Venture
         },
         new()
         {
@@ -363,7 +362,7 @@ public static partial class Rules
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerAnyTribal = true,
+            ObtainMarkerAnyTribal = true
         },
         new()
         {
@@ -376,7 +375,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerAnyTribal = true,
+            ObtainMarkerAnyTribal = true
         },
         new()
         {
@@ -390,7 +389,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerClustersOnly = true,
+            ObtainMarkerClustersOnly = true
         },
         new()
         {
@@ -404,7 +403,7 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerClustersOnly = true,
+            ObtainMarkerClustersOnly = true
         },
         new()
         {
@@ -417,7 +416,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainAlliedSealsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.AlliedSeals,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.AlliedSeals
         },
         new()
         {
@@ -430,7 +429,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.AlliedSeals,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.AlliedSeals
         },
         new()
         {
@@ -443,7 +442,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainCenturioSealsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.CenturioSeals,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.CenturioSeals
         },
         new()
         {
@@ -456,7 +455,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.CenturioSeals,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.CenturioSeals
         },
         new()
         {
@@ -469,7 +468,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainNutsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts
         },
         new()
         {
@@ -482,7 +481,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts,
+            ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts
         },
         new()
         {
@@ -495,7 +494,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainMaterialsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerMaterials = true,
+            ObtainMarkerMaterials = true
         },
         new()
         {
@@ -507,7 +506,7 @@ public static partial class Rules
             RegexChecks = [ChatRegexStrings.ObtainedMaterials],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerMaterials = true,
+            ObtainMarkerMaterials = true
         },
         new()
         {
@@ -519,7 +518,7 @@ public static partial class Rules
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerAnyElemental = true,
+            ObtainMarkerAnyElemental = true
         },
         new()
         {
@@ -532,7 +531,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerAnyElemental = true,
+            ObtainMarkerAnyElemental = true
         },
         new()
         {
@@ -545,7 +544,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false,
+            ObtainMarkerRequireSharedTemplate = false
         },
         new()
         {
@@ -559,7 +558,7 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false,
+            ObtainMarkerRequireSharedTemplate = false
         },
         new()
         {
@@ -573,7 +572,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerMaterials = true,
-            ExcludePlayerObtain = true,
+            ExcludePlayerObtain = true
         },
         new()
         {
@@ -587,8 +586,7 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerMaterials = true,
             ExcludePlayerObtain = true,
-            StringChecks = [ChatStrings.ObtainMaterialsMarker],
-        },
-
+            StringChecks = [ChatStrings.ObtainMaterialsMarker]
+        }
     ];
 }

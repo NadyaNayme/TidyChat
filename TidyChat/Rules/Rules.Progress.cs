@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] ProgressRules =
     [
-
         new()
         {
             Name = "ShowCompletionTime",
@@ -24,7 +23,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [588, 589, 4466, 7300, 10953],
             StringChecks = [ChatStrings.GainExperience],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // Regex fallback: catches XP messages whose LogMessageId isn't registered above
         // (e.g. bonus-XP variants with (+N%) suffix added in newer patches).
@@ -36,7 +35,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [588, 589, 4466, 7300, 10953],
             RegexChecks = [ChatRegexStrings.GainExperience],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
         // OnChat fallback when LogMessage handling did not run (no LogMessageIds — avoids Lumina catalog gate).
         new()
@@ -46,7 +45,7 @@ public static partial class Rules
             Channel = ChatType.Progress,
             IsActive = true,
             StringChecks = [ChatStrings.GainExperience],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -55,7 +54,7 @@ public static partial class Rules
             Channel = ChatType.Progress,
             IsActive = true,
             RegexChecks = [ChatRegexStrings.GainExperience],
-            Pattern = PatternKind.RegexMatch,
+            Pattern = PatternKind.RegexMatch
         },
         new()
         {
@@ -98,7 +97,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [590],
             StringChecks = [ChatStrings.LevelUp],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // OnChat fallback when LogMessage handling did not run.
         new()
@@ -108,7 +107,7 @@ public static partial class Rules
             Channel = ChatType.Progress,
             IsActive = true,
             StringChecks = [ChatStrings.LevelUp],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -129,7 +128,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [552],
             StringChecks = [ChatStrings.AbilityUnlock],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -139,7 +138,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [609],
             StringChecks = [ChatStrings.MinionUnlock],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // OnChat fallback when LogMessage handling did not run.
         new()
@@ -149,7 +148,7 @@ public static partial class Rules
             Channel = ChatType.Progress,
             IsActive = true,
             StringChecks = [ChatStrings.AbilityUnlock],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -158,7 +157,7 @@ public static partial class Rules
             Channel = ChatType.Progress,
             IsActive = true,
             StringChecks = [ChatStrings.MinionUnlock],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -236,7 +235,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.DesynthesisLevel],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 }

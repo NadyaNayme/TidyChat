@@ -1,61 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
 namespace TidyChat;
 
 public static partial class Rules
 {
-    private static List<LocalizedFilterRule> CreateRules()
-    {
-        var rules = new List<LocalizedFilterRule>(400);
-        rules.AddRange(SystemRules);
-        rules.AddRange(ErrorMessageRules);
-        rules.AddRange(EmoteRules);
-        rules.AddRange(CraftingRules);
-        rules.AddRange(GatheringRules);
-        rules.AddRange(CombatRules);
-        rules.AddRange(FreeCompanyRules);
-        rules.AddRange(OrchestrionRules);
-        rules.AddRange(LootRules);
-        rules.AddRange(ObtainRules);
-        rules.AddRange(ProgressRules);
-        return rules;
-    }
 
     private static readonly List<LocalizedFilterRule> _rules = CreateRules();
-
-    public static LocalizedFilterRule[] AllRules { get; } =
-        [.. _rules];
-
-    /// <summary>
-    ///     Maps each LogMessage ID to filter rules that reference it. Built once at startup.
-    /// </summary>
-    public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
-
-    public static void RebuildLogMessageIdLookup() => LogMessageIdToRules = BuildLogMessageIdLookup();
-
-    private static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> BuildLogMessageIdLookup()
-    {
-        // Build with mutable inner lists, then expose as read-only.
-        var mutable = new Dictionary<uint, List<LocalizedFilterRule>>();
-        foreach(LocalizedFilterRule rule in _rules)
-        {
-            if (rule.LogMessageIds is null) continue;
-            foreach(uint id in rule.LogMessageIds)
-            {
-                if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
-                {
-                    list = [];
-                    mutable[id] = list;
-                }
-                list.Add(rule);
-            }
-        }
-        var result = new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>(mutable.Count);
-        foreach(KeyValuePair<uint, List<LocalizedFilterRule>> kvp in mutable)
-            result[kvp.Key] = kvp.Value;
-        return result;
-    }
 
     private static readonly Dictionary<string, Func<Configuration, bool>> ConfigAccessors = new(StringComparer.Ordinal)
     {
@@ -198,8 +148,58 @@ public static partial class Rules
         ["ShowLevelUps"] = c => c.ShowLevelUps,
         ["ShowOtherLevelUps"] = c => c.ShowOtherLevelUps,
         ["ShowAbilityUnlocks"] = c => c.ShowAbilityUnlocks,
-        ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel,
+        ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel
     };
+
+    public static LocalizedFilterRule[] AllRules { get; } =
+        [.. _rules];
+
+    /// <summary>
+    ///     Maps each LogMessage ID to filter rules that reference it. Built once at startup.
+    /// </summary>
+    public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
+
+    private static List<LocalizedFilterRule> CreateRules()
+    {
+        var rules = new List<LocalizedFilterRule>(400);
+        rules.AddRange(SystemRules);
+        rules.AddRange(ErrorMessageRules);
+        rules.AddRange(EmoteRules);
+        rules.AddRange(CraftingRules);
+        rules.AddRange(GatheringRules);
+        rules.AddRange(CombatRules);
+        rules.AddRange(FreeCompanyRules);
+        rules.AddRange(OrchestrionRules);
+        rules.AddRange(LootRules);
+        rules.AddRange(ObtainRules);
+        rules.AddRange(ProgressRules);
+        return rules;
+    }
+
+    public static void RebuildLogMessageIdLookup() => LogMessageIdToRules = BuildLogMessageIdLookup();
+
+    private static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> BuildLogMessageIdLookup()
+    {
+        // Build with mutable inner lists, then expose as read-only.
+        var mutable = new Dictionary<uint, List<LocalizedFilterRule>>();
+        foreach(LocalizedFilterRule rule in _rules)
+        {
+            if (rule.LogMessageIds is null) continue;
+            foreach(uint id in rule.LogMessageIds)
+            {
+                if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
+                {
+                    list = [];
+                    mutable[id] = list;
+                }
+                list.Add(rule);
+            }
+        }
+        var result = new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>(mutable.Count);
+        foreach(KeyValuePair<uint, List<LocalizedFilterRule>> kvp in mutable)
+            result[kvp.Key] = kvp.Value;
+        return result;
+    }
 
     public static void UpdateIsActiveStates(Configuration config)
     {

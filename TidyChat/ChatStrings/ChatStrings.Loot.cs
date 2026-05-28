@@ -1,10 +1,9 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <summary>Substring markers for another-player obtain lines (<see cref="LocalizedFilterRule.ExcludePlayerObtain"/>).</summary>
+    /// <summary>Substring markers for another-player obtain lines (<see cref="LocalizedFilterRule.ExcludePlayerObtain" />).</summary>
     public static readonly LocalizedStrings OtherObtainMarker = new()
     {
         Jpn = ["手に入れた"],

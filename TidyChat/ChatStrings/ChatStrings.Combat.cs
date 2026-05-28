@@ -1,16 +1,15 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/533?pretty=true">You use … / … uses …</see>
+    /// <see href="https://xivapi.com/LogMessage/533?pretty=true">You use … / … uses …</see>
     public static readonly LocalizedStrings AbilityUseMessage = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["you", "use"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/526?pretty=true">You gain the effect of …</see>
@@ -19,7 +18,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["gain", "effect"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/550?pretty=true">You lose the effect of …</see>
@@ -28,7 +27,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["lose", "effect"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10781?pretty=true">Stellar mission abandoned.</see>
@@ -37,7 +36,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["stellar", "mission", "abandoned"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/502?pretty=true">… begins casting …</see>
@@ -46,7 +45,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["begins", "casting"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/534?pretty=true">… casts …</see>
@@ -55,7 +54,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["casts"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/538?pretty=true">… cancels …</see>
@@ -65,7 +64,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["cancels"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/541?pretty=true">… is interrupted.</see>
@@ -75,7 +74,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["interrupted"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1472?pretty=true">Interrupted! You prevent … from performing …</see>
@@ -93,7 +92,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["unaffected"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/504?pretty=true">You hit … for N damage.</see>
@@ -102,7 +101,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["damage"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/518?pretty=true">Parried! You take N damage.</see>
@@ -111,7 +110,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["parried", "damage"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/617?pretty=true">The … is destroyed.</see>
@@ -120,7 +119,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["destroyed"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/523?pretty=true">The palace bat absorbs N HP.</see>
@@ -138,7 +137,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["direct", "hit"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/450?pretty=true">Critical direct hit! …</see>
@@ -148,7 +147,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["critical", "direct", "hit"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/528?pretty=true">… moves into … Form.</see>
@@ -157,7 +156,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["moves", "into", "form"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/640?pretty=true">The … withdraws from the battlefield.</see>
@@ -166,7 +165,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["withdraws", "battlefield"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/506?pretty=true">… misses you.</see>
@@ -175,7 +174,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["misses"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/600?pretty=true">The attack misses.</see>
@@ -184,7 +183,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["attack", "misses"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/519?pretty=true">You recover N HP.</see>
@@ -193,7 +192,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["recover", "hp"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/560?pretty=true">You are revived.</see>
@@ -202,7 +201,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["revived"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/527?pretty=true">… suffers the effect of …</see>
@@ -211,7 +210,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["suffers", "effect"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/532?pretty=true">You recover from the effect of …</see>
@@ -220,7 +219,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["recover", "effect"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/557?pretty=true">You defeat …</see>
@@ -229,7 +228,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["defeat"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/558?pretty=true">… is defeated by …</see>
@@ -238,7 +237,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["defeated"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/501?pretty=true">You ready … / … readies …</see>
@@ -247,7 +246,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["ready", "readies"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/555?pretty=true">… calls for help!</see>
@@ -256,7 +255,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["calls", "help"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/536?pretty=true">Your enmity increases.</see>
@@ -265,6 +264,6 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["enmity", "increases"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 }

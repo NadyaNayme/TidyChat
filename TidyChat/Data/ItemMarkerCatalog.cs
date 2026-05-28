@@ -4,66 +4,16 @@ using System.Linq;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
 using TidyChat.Translation.Data;
-
 namespace TidyChat.Data;
 
 /// <summary>
-///     Lowercase marker tokens from Lumina <see cref="Item"/> names for shared obtain templates (e.g. LogMessage 657).
+///     Lowercase marker tokens from Lumina <see cref="Item" /> names for shared obtain templates (e.g. LogMessage 657).
 /// </summary>
 public static class ItemMarkerCatalog
 {
     private static readonly Dictionary<uint, string[]> MarkersByItemId = new();
 
     public static bool IsLoaded { get; private set; }
-
-    /// <summary>Item row IDs referenced by obtain filter rules.</summary>
-    public static class Items
-    {
-        public const uint WolfMarks = 25;
-        public const uint StormSeal = 20;
-        public const uint SerpentSeal = 21;
-        public const uint FlameSeal = 22;
-        public const uint AlliedSeals = 27;
-        public const uint CenturioSeals = 10307;
-        public const uint Venture = 21072;
-        public const uint Nuts = 41784;
-
-        /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see> through
-        /// <see href="https://xivapi.com/Item/19?pretty=true">Water Cluster</see>
-        public static readonly uint[] ElementalAll =
-        [
-            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
-        ];
-
-        public static readonly uint[] ElementalClusters = [14, 15, 16, 17, 18, 19];
-
-        /// <summary>Beast tribe currencies matched by <see cref="ChatRegexStrings.ObtainedTribalCurrency"/>.</summary>
-        public static readonly uint[] TribalCurrency =
-        [
-            6567,  // Steel Amalj'ok
-            6582,  // Sylphic Goldleaf
-            8134,  // Titan Cobaltpiece
-            8864,  // Rainbowtide Psashp
-            12876, // Ixali Oaknot
-            15994, // Vanu Whitebone
-            20027, // Black Copper Gil
-            27907, // Carved Kupo Nut
-            28725, // Kojin Sango
-            33155, // Ananta Dreamstaff
-            36305, // Namazu Koban
-            41778, // Fae Fancy
-            44642, // Qitari Compliment
-            46970, // Hammered Frogment
-            50622  // Arkasodara Pana
-        ];
-
-        public static readonly uint[] AllTracked =
-        [
-            WolfMarks, StormSeal, SerpentSeal, FlameSeal, AlliedSeals, CenturioSeals, Venture, Nuts,
-            ..ElementalAll,
-            ..TribalCurrency
-        ];
-    }
 
     public static void Load(IDataManager dataManager, IPluginLog log)
     {
@@ -125,5 +75,55 @@ public static class ItemMarkerCatalog
 
         if (fallback is { } fb) return L10N.Get(fb).All(normalizedText.Contains);
         return false;
+    }
+
+    /// <summary>Item row IDs referenced by obtain filter rules.</summary>
+    public static class Items
+    {
+        public const uint WolfMarks = 25;
+        public const uint StormSeal = 20;
+        public const uint SerpentSeal = 21;
+        public const uint FlameSeal = 22;
+        public const uint AlliedSeals = 27;
+        public const uint CenturioSeals = 10307;
+        public const uint Venture = 21072;
+        public const uint Nuts = 41784;
+
+        /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
+        /// through
+        /// <see href="https://xivapi.com/Item/19?pretty=true">Water Cluster</see>
+        public static readonly uint[] ElementalAll =
+        [
+            2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
+        ];
+
+        public static readonly uint[] ElementalClusters = [14, 15, 16, 17, 18, 19];
+
+        /// <summary>Beast tribe currencies matched by <see cref="ChatRegexStrings.ObtainedTribalCurrency" />.</summary>
+        public static readonly uint[] TribalCurrency =
+        [
+            6567, // Steel Amalj'ok
+            6582, // Sylphic Goldleaf
+            8134, // Titan Cobaltpiece
+            8864, // Rainbowtide Psashp
+            12876, // Ixali Oaknot
+            15994, // Vanu Whitebone
+            20027, // Black Copper Gil
+            27907, // Carved Kupo Nut
+            28725, // Kojin Sango
+            33155, // Ananta Dreamstaff
+            36305, // Namazu Koban
+            41778, // Fae Fancy
+            44642, // Qitari Compliment
+            46970, // Hammered Frogment
+            50622 // Arkasodara Pana
+        ];
+
+        public static readonly uint[] AllTracked =
+        [
+            WolfMarks, StormSeal, SerpentSeal, FlameSeal, AlliedSeals, CenturioSeals, Venture, Nuts,
+            ..ElementalAll,
+            ..TribalCurrency
+        ];
     }
 }

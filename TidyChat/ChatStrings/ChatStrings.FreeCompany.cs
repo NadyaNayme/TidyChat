@@ -1,16 +1,15 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/1306?pretty=true">Mount speed increased.</see>
+    /// <see href="https://xivapi.com/LogMessage/1306?pretty=true">Mount speed increased.</see>
     public static readonly LocalizedStrings MountSpeedIncreased = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["mount", "speed", "increased"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/646?pretty=true">Mount messages.</see>
@@ -19,7 +18,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["mount"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/84?pretty=true">… has gone offline.</see>
@@ -29,6 +28,6 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["offline"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 }

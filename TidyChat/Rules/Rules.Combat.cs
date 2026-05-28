@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] CombatRules =
     [
-
         new()
         {
             Name = "ShowCombatCasting",
@@ -46,7 +45,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [540, 541, 542],
             StringChecks = [ChatStrings.CombatCastInterrupted],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -67,7 +66,7 @@ public static partial class Rules
             Channel = ChatType.Damage,
             IsActive = true,
             StringChecks = [ChatStrings.CombatInterruptPrevent],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // OnChat fallback when LogMessage handling did not run.
         new()
@@ -77,7 +76,7 @@ public static partial class Rules
             Channel = ChatType.Action,
             IsActive = true,
             StringChecks = [ChatStrings.CombatCastInterrupted],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -183,7 +182,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [612],
             StringChecks = [ChatStrings.CombatUnaffected],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         // OnChat fallback when LogMessage handling did not run.
         new()
@@ -193,7 +192,7 @@ public static partial class Rules
             Channel = ChatType.Miss,
             IsActive = true,
             StringChecks = [ChatStrings.CombatUnaffected],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -348,7 +347,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.CombatEnmity],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 }

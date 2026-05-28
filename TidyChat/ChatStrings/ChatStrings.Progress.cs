@@ -1,16 +1,15 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/1601?pretty=true">Quest accepted.</see>
+    /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">Quest accepted.</see>
     public static readonly LocalizedStrings QuestAccepted = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["accepted"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1602?pretty=true">Quest complete.</see>
@@ -19,7 +18,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["complete"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1603?pretty=true">Quest objective fulfilled.</see>
@@ -28,7 +27,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["objective", "fulfilled"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/659?pretty=true">You acquire \d PvP EXP.</see>
@@ -91,7 +90,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["summon", "minion"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/3612?pretty=true">Paladin wisdom bequeathed.</see>
@@ -100,7 +99,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["wisdom", "bequeathed"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/3613?pretty=true">Paladin memories awoken.</see>
@@ -109,7 +108,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["memories", "awoken"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1461?pretty=true">Oath gauge expanded.</see>
@@ -118,7 +117,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["oath", "gauge", "expanded"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4679?pretty=true">Completion time: …</see>

@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] GatheringRules =
     [
-
         new()
         {
             Name = "ShowGatheringYield",
@@ -172,7 +171,7 @@ public static partial class Rules
             Channel = ChatType.Gathering,
             IsActive = true,
             StringChecks = [ChatStrings.BuffGainEffect],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -294,7 +293,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.LureFish],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 }

@@ -1,48 +1,48 @@
 using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
-
 namespace TidyChat;
 
 #pragma warning disable MA0048
 public enum PlayerNameMatchMode
 {
     /// <summary>
-    ///     Default. Matches when the sender equals <see cref="FirstName"/> or the message contains it.
+    ///     Default. Matches when the sender equals <see cref="FirstName" /> or the message contains it.
     /// </summary>
     MessageContains = 0,
 
     /// <summary>
-    ///     Matches only when <c>sender.TextValue</c> equals <see cref="FirstName"/>.
+    ///     Matches only when <c>sender.TextValue</c> equals <see cref="FirstName" />.
     /// </summary>
     ExactSender = 1
 }
 
 public class PlayerName
 {
-    public bool AllowMessage = true;
-    public string FirstName = string.Empty;
-    public int WhitelistedChannels = 2;
-
-    /// <summary>
-    ///     How plain-text whitelist entries are compared. Defaults to <see cref="MessageContains"/>
-    ///     for configs saved before this field existed.
-    /// </summary>
-    public PlayerNameMatchMode MatchMode = PlayerNameMatchMode.MessageContains;
 
     [NonSerialized] private Regex? _compiledPattern;
     [NonSerialized] private string? _compiledPatternSource;
     [NonSerialized] private uint[]? _parsedLogMessageIds;
     [NonSerialized] private string? _parsedLogMessageIdSource;
+    public bool AllowMessage = true;
+    public string FirstName = string.Empty;
 
-    /// <summary>True if <see cref="FirstName"/> is in the <c>/pattern/</c> regex form.</summary>
+    /// <summary>
+    ///     How plain-text whitelist entries are compared. Defaults to <see cref="MessageContains" />
+    ///     for configs saved before this field existed.
+    /// </summary>
+    public PlayerNameMatchMode MatchMode = PlayerNameMatchMode.MessageContains;
+    public int WhitelistedChannels = 2;
+
+    /// <summary>True if <see cref="FirstName" /> is in the <c>/pattern/</c> regex form.</summary>
     public bool IsRegex => IsRegexShape(FirstName);
 
-    /// <summary>True if <see cref="FirstName"/> is in the <c>#ID</c> or <c>#ID1,ID2</c> LogMessageId form.</summary>
+    /// <summary>True if <see cref="FirstName" /> is in the <c>#ID</c> or <c>#ID1,ID2</c> LogMessageId form.</summary>
     public bool IsLogMessageId => IsLogMessageIdShape(FirstName);
 
     /// <summary>
-    ///     Compiled regex for a <c>/pattern/</c> entry. Rebuilt when <see cref="FirstName"/> changes.
-    ///     Returns null on an invalid pattern; <paramref name="onError"/> runs once per failed compile.
+    ///     Compiled regex for a <c>/pattern/</c> entry. Rebuilt when <see cref="FirstName" /> changes.
+    ///     Returns null on an invalid pattern; <paramref name="onError" /> runs once per failed compile.
     /// </summary>
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
     {
@@ -54,7 +54,7 @@ public class PlayerName
         _compiledPatternSource = FirstName;
         try
         {
-            _compiledPattern = new Regex(
+            _compiledPattern = new(
                 FirstName[1..^1],
                 RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture,
                 TimeSpan.FromSeconds(1));
@@ -83,7 +83,7 @@ public class PlayerName
             string[] parts = FirstName[1..].Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
             _parsedLogMessageIds = new uint[parts.Length];
             for (int j = 0; j < parts.Length; j++)
-                _parsedLogMessageIds[j] = uint.Parse(parts[j], System.Globalization.CultureInfo.InvariantCulture);
+                _parsedLogMessageIds[j] = uint.Parse(parts[j], CultureInfo.InvariantCulture);
         }
         catch
         {

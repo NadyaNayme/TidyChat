@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] EmoteRules =
     [
-
         new()
         {
             Name = "FilterEmoteChannel",
@@ -22,7 +21,6 @@ public static partial class Rules
             IsActive = true,
             RegexChecks = [ChatRegexStrings.PlayerTargetedEmote],
             Pattern = PatternKind.RegexMatch
-        },
-
+        }
     ];
 }

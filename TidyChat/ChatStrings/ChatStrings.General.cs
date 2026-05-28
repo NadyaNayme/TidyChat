@@ -1,16 +1,15 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/756?pretty=true">Job registered (e.g. Paladin registered.).</see>
+    /// <see href="https://xivapi.com/LogMessage/756?pretty=true">Job registered (e.g. Paladin registered.).</see>
     public static readonly LocalizedStrings JobRegistered = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["registered"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1281?pretty=true">You change to … (specialist).</see>
@@ -19,7 +18,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["change", "specialist"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/561?pretty=true">You change to … (job/class).</see>
@@ -116,7 +115,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/748?pretty=true">… you put up for sale in the markets has sold for … gil (after fees).</see>
+    /// <see href="https://xivapi.com/LogMessage/748?pretty=true">
+    ///     … you put up for sale in the markets has sold for … gil
+    ///     (after fees).
+    /// </see>
     public static readonly LocalizedStrings MarketItemSold = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -169,7 +171,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["recover", "gp"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11174?pretty=true">You consumed N GP.</see>
@@ -178,7 +180,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["consumed", "gp"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     public static readonly LocalizedStrings PalaceOfTheDead = new()
@@ -203,6 +205,6 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["armoury", "chest"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 }

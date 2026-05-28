@@ -4,7 +4,6 @@ public static partial class Rules
 {
     private static readonly LocalizedFilterRule[] FreeCompanyRules =
     [
-
         new()
         {
             Name = "ShowUserLogins",
@@ -32,7 +31,7 @@ public static partial class Rules
             Channel = ChatType.FreeCompanyLoginLogout,
             IsActive = true,
             StringChecks = [ChatStrings.UserLogout],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -55,7 +54,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.MountSpeedIncreased],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 }

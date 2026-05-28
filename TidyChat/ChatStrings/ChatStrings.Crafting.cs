@@ -1,10 +1,9 @@
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public static partial class ChatStrings
 {
-/// <see href="https://xivapi.com/LogMessage/1147?pretty=true">Unable to craft. You have not selected all of the materials.</see>
+    /// <see href="https://xivapi.com/LogMessage/1147?pretty=true">Unable to craft. You have not selected all of the materials.</see>
     public static readonly LocalizedStrings UnableToCraft = new()
     {
         Jpn = ["製作", "行えません"],
@@ -139,7 +138,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["effect"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1200?pretty=true">You successfully extract materia from …</see>

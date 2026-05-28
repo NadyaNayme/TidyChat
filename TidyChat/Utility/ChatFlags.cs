@@ -1,5 +1,4 @@
 ﻿using System;
-using ChatTwo.Code;
 namespace TidyChat.Utility;
 
 public static class ChatFlags
@@ -34,15 +33,31 @@ public static class ChatFlags
         if (channels.HasFlag(Channels.Emotes) &&
             chatType is ChatType.StandardEmote or ChatType.CustomEmote) return true;
         if (channels.HasFlag(Channels.PlayerChannels) &&
-            chatType is ChatType.Say or ChatType.Shout or ChatType.Yell or
-                        ChatType.Echo or ChatType.TellIncoming or ChatType.TellOutgoing or
-                        ChatType.Linkshell1 or ChatType.Linkshell2 or ChatType.Linkshell3 or
-                        ChatType.Linkshell4 or ChatType.Linkshell5 or ChatType.Linkshell6 or
-                        ChatType.Linkshell7 or ChatType.Linkshell8 or
-                        ChatType.CrossLinkshell1 or ChatType.CrossLinkshell2 or ChatType.CrossLinkshell3 or
-                        ChatType.CrossLinkshell4 or ChatType.CrossLinkshell5 or ChatType.CrossLinkshell6 or
-                        ChatType.CrossLinkshell7 or ChatType.CrossLinkshell8 or
-                        ChatType.Party or ChatType.CrossParty or ChatType.FreeCompany)
+            chatType is ChatType.Say or
+                ChatType.Shout or
+                ChatType.Yell or
+                ChatType.Echo or
+                ChatType.TellIncoming or
+                ChatType.TellOutgoing or
+                ChatType.Linkshell1 or
+                ChatType.Linkshell2 or
+                ChatType.Linkshell3 or
+                ChatType.Linkshell4 or
+                ChatType.Linkshell5 or
+                ChatType.Linkshell6 or
+                ChatType.Linkshell7 or
+                ChatType.Linkshell8 or
+                ChatType.CrossLinkshell1 or
+                ChatType.CrossLinkshell2 or
+                ChatType.CrossLinkshell3 or
+                ChatType.CrossLinkshell4 or
+                ChatType.CrossLinkshell5 or
+                ChatType.CrossLinkshell6 or
+                ChatType.CrossLinkshell7 or
+                ChatType.CrossLinkshell8 or
+                ChatType.Party or
+                ChatType.CrossParty or
+                ChatType.FreeCompany)
             return true;
         if (channels.HasFlag(Channels.System) && chatType is ChatType.System) return true;
         if (channels.HasFlag(Channels.Progress) && chatType is ChatType.Progress) return true;

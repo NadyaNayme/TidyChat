@@ -1,13 +1,13 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using Dalamud.Game;
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 internal static class L10N
 {
     public static ClientLanguage Language { get; set; }
-    
+
     public static string[] Get(string[] strings)
     {
 #if DEBUG
@@ -69,17 +69,17 @@ internal static class L10N
     }
 
     /// <summary>
-    ///     Returns <paramref name="primary"/> unless it is empty or still <c>NeedsLocalization</c>,
-    ///     in which case <paramref name="fallback"/> is used so placeholder text never reaches chat.
+    ///     Returns <paramref name="primary" /> unless it is empty or still <c>NeedsLocalization</c>,
+    ///     in which case <paramref name="fallback" /> is used so placeholder text never reaches chat.
     /// </summary>
     private static string FallbackIfMissing(string primary, string fallback)
-        => string.IsNullOrEmpty(primary) || string.Equals(primary, "NeedsLocalization", System.StringComparison.Ordinal)
+        => string.IsNullOrEmpty(primary) || string.Equals(primary, "NeedsLocalization", StringComparison.Ordinal)
             ? fallback
             : primary;
 
     private static string[] FallbackIfMissing(string[] primary, string[] fallback)
         => primary is null || primary.Length == 0 ||
-           (primary.Length == 1 && string.Equals(primary[0], "NeedsLocalization", System.StringComparison.Ordinal))
+           (primary.Length == 1 && string.Equals(primary[0], "NeedsLocalization", StringComparison.Ordinal))
             ? fallback
             : primary;
 }
