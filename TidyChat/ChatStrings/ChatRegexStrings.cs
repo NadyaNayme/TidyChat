@@ -140,9 +140,8 @@ public static class ChatRegexStrings
     };
 
     /// <summary>
-    ///     Text-based fallback for XP gain messages whose LogMessageId isn't registered.
-    ///     Covers "You gain N experience points." and "You gain N(+M%) job experience points."
-    ///     as well as other-player variants ("Name gains N experience points.").
+    ///     Text fallback for XP gain when no LogMessage ID is registered.
+    ///     Covers local and other-player "gain N experience points" variants, including job XP with a bonus percent.
     /// </summary>
     public static readonly LocalizedRegex GainExperience = new()
     {

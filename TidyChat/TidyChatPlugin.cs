@@ -40,25 +40,23 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     private long _sessionBlockedMessages;
 
     /// <summary>
-    ///     Texts of messages that OnLogMessage explicitly allowed via ID-based rules.
-    ///     OnChat checks this set so it doesn't re-block messages that OnLogMessage already approved.
+    ///     Messages OnLogMessage already allowed. OnChat checks this set so it will not block them again.
     /// </summary>
     private readonly HashSet<string> _allowedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
-    ///     Texts of messages that OnLogMessage would have blocked.
-    ///     Only populated in debug mode so OnChat can display them with the [Blocked] prefix
-    ///     instead of silently suppressing them via PreventOriginal.
+    ///     In debug mode, messages OnLogMessage would have blocked. OnChat shows them with a [Blocked] prefix
+    ///     instead of calling <see cref="IHandleableChatMessage.PreventOriginal"/>.
     /// </summary>
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
-    ///     LogMessage IDs recently allowed on the log path, consumed on chat path via catalog match.
-    ///     Covers event-order races where <see cref="OnChat"/> runs before <see cref="OnLogMessage"/>.
+    ///     LogMessage IDs allowed on the log path and consumed on the chat path when
+    ///     <see cref="OnChat"/> runs before <see cref="OnLogMessage"/>.
     /// </summary>
     private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
 
-    /// <summary>LogMessage IDs already logged as unmatched this session (debug discovery).</summary>
+    /// <summary>LogMessage IDs logged as unmatched at most once per session (debug).</summary>
     private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = new();
 
     private const int MaxLogMessageSetSize = 1000;
@@ -134,10 +132,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
 
     /// <summary>
-    ///     Fishing flavor text loaded from game data at startup.
-    ///     Covers Fisher's Intuition messages (FishingSpot.BigFishOnReach/End/Refresh per spot)
-    ///     and per-fish lure flavor text (FishParameter.Unknown_70_1/2/3, added in Dawntrail).
-    ///     Stored with OrdinalIgnoreCase for O(1) comparison against normalized incoming messages.
+    ///     Fishing flavor lines loaded from game data at startup (Fisher's Intuition, lure text, and similar).
+    ///     Stored in a case-insensitive set for lookup against normalized chat text.
     /// </summary>
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -400,7 +396,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
-    /// <summary>Handles server announcement filtering (#122). Returns true if message was fully handled.</summary>
+    /// <summary>Filters login and world-travel server announcements (#122). Returns true when fully handled.</summary>
     private bool HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
         if (Configuration.ServerAnnouncementMode == ServerAnnouncementMode.ShowAll) return false;
@@ -462,7 +458,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return true;
     }
 
-    /// <summary>Handles emote channel early-outs. Returns true if message was fully handled.</summary>
+    /// <summary>Handles emote channel filtering. Returns true when fully handled.</summary>
     private bool HandleEmoteFilters(IHandleableChatMessage message, ChatType chatType)
     {
         // Unfiltered emote channels — only whitelist Block rules apply.
@@ -494,7 +490,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return false;
     }
 
-    /// <summary>Temporarily disables system filters for /? help and party-join messages. Returns true if filters were disabled.</summary>
+    /// <summary>Turns off system filtering briefly for /? help and party-join messages. Returns true when disabled.</summary>
     private bool HandleTemporaryFilterDisables(string normalizedText)
     {
         if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
@@ -513,7 +509,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return false;
     }
 
-    /// <summary>Applies Better Messages transformations. Returns true if message was fully handled (early return).</summary>
+    /// <summary>Runs Better Messages rewrites. Returns true when the message is done and needs no further filtering.</summary>
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
         if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
@@ -568,7 +564,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return false;
     }
 
-    /// <summary>Checks if OnLogMessage already decided to block or allow this message. Returns true if handled.</summary>
+    /// <summary>Applies an earlier OnLogMessage allow/block decision. Returns true when handled.</summary>
     private bool CheckLogMessageDecision(IHandleableChatMessage message, ChatType chatType, string rawTextValue, string extractedTextValue, string normalizedText)
     {
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
@@ -610,7 +606,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     /// <summary>
-    ///     True when an enabled Show rule's chat companion matches this text, so announcement filtering must not re-block it.
+    ///     True when an enabled Show rule matches this text, so server announcement filtering must leave it alone.
     /// </summary>
     private bool IsProtectedByActiveShowRule(ChatType chatType, string normalizedText, out List<string> protectingRules)
     {
@@ -711,8 +707,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     /// <summary>
-    ///     Runs the channel filter rule engine. Returns isHandled, or null
-    ///     when the method handled the early-return internally (channel filter disabled).
+    ///     Runs channel filter rules. Returns <c>isHandled</c>, or null when channel filtering is off
+    ///     and the caller should return immediately.
     /// </summary>
     private bool? EvaluateChannelRules(IHandleableChatMessage message, ChatType chatType, string normalizedText, out List<string> rulesMatched)
     {
@@ -812,7 +808,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return isHandled;
     }
 
-    /// <summary>Applies post-rule overrides: player emotes, party-only loot rolls, fishing flavor, tomestones.</summary>
+    /// <summary>Post-rule overrides for self emotes, party-only loot rolls, fishing flavor, and tomestones.</summary>
     private void ApplyFilterOverrides(IHandleableChatMessage message, ChatType chatType, string normalizedText, ref bool isHandled)
     {
         if (chatType is ChatType.CustomEmote &&
@@ -870,7 +866,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
-    /// <summary>Applies custom filter (whitelist) Allow/Block rules. Two-pass so Allow always wins.</summary>
+    /// <summary>Runs whitelist Allow/Block rules. Allow pass runs after Block so Allow wins ties.</summary>
     private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
     {
         if (Configuration.Whitelist.Count == 0) return;
@@ -889,7 +885,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
     }
 
-    /// <summary>Checks chat history for duplicate messages. Returns true if OnChat should return early.</summary>
+    /// <summary>Suppresses duplicate chat lines. Returns true when OnChat should stop.</summary>
     private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
     {
         if (!Configuration.ChatHistoryFilter || isHandled) return false;
@@ -983,15 +979,15 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         };
 
     /// <summary>
-    ///     When PreferLogMessageCatalog is set but the Lumina template does not match the formatted text,
-    ///     fall back to StringChecks/RegexChecks (catalog is preferred, not exclusive).
+    ///     When PreferLogMessageCatalog is set but the Lumina template misses, fall back to
+    ///     <see cref="LocalizedFilterRule.StringChecks"/> or <see cref="LocalizedFilterRule.RegexChecks"/>.
     /// </summary>
     private static bool ShouldFallbackToTextChecksWhenCatalogMisses(LocalizedFilterRule rule) =>
         RuleHasTextChecks(rule);
 
     /// <summary>
-    ///     Tests whether the rule's regex or string checks all match the normalized text.
-    ///     Returns false if the rule has no checks or any check fails (AND logic).
+    ///     True when every regex or string check on the rule matches <paramref name="normalizedText"/> (AND logic).
+    ///     False when the rule has no checks or any check fails.
     /// </summary>
     private static bool RuleMatchesText(LocalizedFilterRule rule, string normalizedText, bool debugMode)
     {
@@ -1167,9 +1163,8 @@ public sealed class TidyChatPlugin : IDalamudPlugin
     }
 
     /// <summary>
-    ///     Returns true if <paramref name="entry"/> matches the message/sender/channel. Handles the empty-name guard,
-    ///     channel scoping, regex (cached + crash-safe via <see cref="PlayerName.GetCompiledRegex"/>), and the
-    ///     <see cref="PlayerNameMatchMode"/> selection for plain-text entries.
+    ///     True when the whitelist entry matches sender, message text, and channel.
+    ///     Handles empty-name guard, channel scoping, cached regex, and <see cref="PlayerNameMatchMode"/>.
     /// </summary>
     private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType)
     {
@@ -1206,7 +1201,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             || message.TextValue.Contains(entry.FirstName, StringComparison.Ordinal);
     }
 
-    /// <summary>True if any Allow rule in the whitelist would unblock this message.</summary>
+    /// <summary>True when a whitelist Allow entry would let this message through.</summary>
     private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType)
     {
         if (Configuration.Whitelist.Count == 0) return false;
@@ -1218,7 +1213,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         return false;
     }
 
-    /// <summary>True if any Block rule in the whitelist would suppress this message.</summary>
+    /// <summary>True when a whitelist Block entry would suppress this message.</summary>
     private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType)
     {
         if (Configuration.Whitelist.Count == 0) return false;

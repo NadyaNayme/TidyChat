@@ -56,53 +56,53 @@ public class LocalizedFilterRule
     public uint[]? LogMessageIds { get; set; }
 
     /// <summary>
-    ///     When true, the rule blocks messages when IsActive is true ("Hide*" semantics).
-    ///     When false (default), the rule blocks when IsActive is false ("Show*" semantics).
-    ///     When <see cref="LogMessageIds"/> is also set, a non-<see cref="PatternKind.None"/> pattern
-    ///     requires the formatted LogMessage text to match (for shared templates like 657 "You obtain .").
+    ///     When true, the rule blocks while <see cref="IsActive"/> is true ("Hide*" settings).
+    ///     When false, it blocks while inactive ("Show*" settings).
+    ///     With <see cref="LogMessageIds"/> set, non-<see cref="PatternKind.None"/> patterns also require
+    ///     the formatted LogMessage text to match (for shared templates such as 657 "You obtain .").
     /// </summary>
     public bool BlockWhenActive { get; set; }
 
     /// <summary>
-    ///     When true, string matching prefers tokens derived from the Lumina LogMessage sheet
-    ///     (using <see cref="LogMessageIds"/>) before falling back to <see cref="StringChecks"/>.
+    ///     Prefer Lumina LogMessage tokens from <see cref="LogMessageIds"/> before
+    ///     <see cref="StringChecks"/>.
     /// </summary>
     public bool PreferLogMessageCatalog { get; set; }
 
     /// <summary>
-    ///     When set, matches shared obtain LogMessage templates plus markers from this Lumina Item row.
-    ///     Uses <see cref="ItemMarkerCatalog"/> with <see cref="StringChecks"/> as fallback markers.
+    ///     Match shared obtain LogMessage templates plus markers from this Lumina Item row.
+    ///     Uses <see cref="ItemMarkerCatalog"/> with <see cref="StringChecks"/> as fallback.
     /// </summary>
     public uint? ObtainMarkerItemId { get; set; }
 
-    /// <summary>When true, <see cref="ObtainMarkerItemId"/> matches any GC seal item marker.</summary>
+    /// <summary>Match any GC seal item marker via <see cref="ObtainMarkerItemId"/>.</summary>
     public bool ObtainMarkerAnySeal { get; set; }
 
-    /// <summary>When true, matches any elemental shard/crystal/cluster item from Lumina (items 2–19).</summary>
+    /// <summary>Match elemental shard, crystal, or cluster items from Lumina (rows 2-19).</summary>
     public bool ObtainMarkerAnyElemental { get; set; }
 
-    /// <summary>When true with <see cref="ObtainMarkerAnyElemental"/>, limits matching to cluster items (14–19).</summary>
+    /// <summary>With <see cref="ObtainMarkerAnyElemental"/>, match cluster items only (rows 14-19).</summary>
     public bool ObtainMarkerClustersOnly { get; set; }
 
-    /// <summary>When true, matches any beast tribe currency item loaded from Lumina.</summary>
+    /// <summary>Match any beast tribe currency item loaded from Lumina.</summary>
     public bool ObtainMarkerAnyTribal { get; set; }
 
-    /// <summary>When true, matches obtain messages with a materials suffix.</summary>
+    /// <summary>Match obtain messages with a materials suffix.</summary>
     public bool ObtainMarkerMaterials { get; set; }
 
-    /// <summary>When true, matches another player's obtain message (excludes messages starting with "you ").</summary>
+    /// <summary>Match another player's obtain line (skip messages starting with "you ").</summary>
     public bool ObtainMarkerOtherPlayer { get; set; }
 
-    /// <summary>When true, only matches when the message is not from the local player ("you …").</summary>
+    /// <summary>Skip local-player obtain lines ("you …").</summary>
     public bool ExcludePlayerObtain { get; set; }
 
-    /// <summary>When false, elemental/materials markers skip the shared 657-template requirement (e.g. Gathering channel).</summary>
+    /// <summary>When false, skip the shared 657-template requirement (e.g. Gathering channel).</summary>
     public bool ObtainMarkerRequireSharedTemplate { get; set; } = true;
 
-    /// <summary>When true, matches shared obtain templates plus gil marker text (not a Lumina Item row).</summary>
+    /// <summary>Match shared obtain templates plus gil marker text (not a Lumina Item row).</summary>
     public bool ObtainMarkerGil { get; set; }
 
-    /// <summary>When true, matches shared obtain templates plus MGP marker text (not a Lumina Item row).</summary>
+    /// <summary>Match shared obtain templates plus MGP marker text (not a Lumina Item row).</summary>
     public bool ObtainMarkerMgp { get; set; }
 
     public bool ShouldBlock => BlockWhenActive ? IsActive : !IsActive;

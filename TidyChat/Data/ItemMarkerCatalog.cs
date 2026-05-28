@@ -8,7 +8,7 @@ using TidyChat.Translation.Data;
 namespace TidyChat.Data;
 
 /// <summary>
-///     Derives lowercase marker tokens from Lumina <see cref="Item"/> names for shared obtain templates (e.g. LogMessage 657).
+///     Lowercase marker tokens from Lumina <see cref="Item"/> names for shared obtain templates (e.g. LogMessage 657).
 /// </summary>
 public static class ItemMarkerCatalog
 {
@@ -16,7 +16,7 @@ public static class ItemMarkerCatalog
 
     public static bool IsLoaded { get; private set; }
 
-    /// <summary>Well-known item row IDs referenced by obtain filter rules.</summary>
+    /// <summary>Item row IDs referenced by obtain filter rules.</summary>
     public static class Items
     {
         public const uint WolfMarks = 25;
@@ -37,7 +37,7 @@ public static class ItemMarkerCatalog
 
         public static readonly uint[] ElementalClusters = [14, 15, 16, 17, 18, 19];
 
-        /// <summary>Beast tribe / tribal exchange currencies from <see cref="ChatRegexStrings.ObtainedTribalCurrency"/>.</summary>
+        /// <summary>Beast tribe currencies matched by <see cref="ChatRegexStrings.ObtainedTribalCurrency"/>.</summary>
         public static readonly uint[] TribalCurrency =
         [
             6567,  // Steel Amalj'ok
@@ -115,7 +115,7 @@ public static class ItemMarkerCatalog
         return false;
     }
 
-    /// <summary>True when any GC seal item marker matches.</summary>
+    /// <summary>True when any GC seal item marker matches the text.</summary>
     public static bool MatchesAnySeal(string normalizedText, LocalizedStrings? fallback = null)
     {
         if (Matches(Items.StormSeal, normalizedText) ||

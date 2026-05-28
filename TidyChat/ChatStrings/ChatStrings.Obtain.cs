@@ -131,9 +131,7 @@ public static partial class ChatStrings
         Fra = ["materials"]
     };
 
-    /// <summary>
-    ///     Marker text for gil inserted into shared obtain LogMessage templates (e.g. 657).
-    /// </summary>
+    /// <summary>Gil marker text for shared obtain LogMessage templates (e.g. 657).</summary>
     public static readonly LocalizedStrings ObtainedGilMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -142,9 +140,7 @@ public static partial class ChatStrings
         Fra = ["gil"],
     };
 
-    /// <summary>
-    ///     Marker text for MGP inserted into shared obtain LogMessage templates (e.g. 657).
-    /// </summary>
+    /// <summary>MGP marker text for shared obtain LogMessage templates (e.g. 657).</summary>
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {
         Jpn = ["NeedsLocalization"],

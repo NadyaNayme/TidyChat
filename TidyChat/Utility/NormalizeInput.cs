@@ -80,9 +80,8 @@ internal static class NormalizeInput
     }
 
     /// <summary>
-    ///     Rebuilds the cached initialled-name regexes if the player name has changed since the last call.
-    ///     Special characters in the name are <see cref="Regex.Escape"/>'d so dots in "Mat M." don't match
-    ///     "MatMx" the way the old un-escaped pattern did.
+    ///     Rebuild cached initial-name regexes when the player name changes.
+    ///     Names are <see cref="Regex.Escape"/>d so dots in "Mat M." do not match "MatMx".
     /// </summary>
     private static void EnsureCacheFor(string playerName, string[] parts)
     {

@@ -1,9 +1,8 @@
 ﻿namespace TidyChat;
 
 /// <summary>
-///     Localized chat message markers for filter rules and better messages.
-///     Fields are split across partial source files in this folder — use Go to Definition
-///     on any member, or open the file for the domain you need.
+///     Localized chat markers for filter rules and Better Messages.
+///     Split across partial files in this folder; use Go to Definition on any member.
 /// </summary>
 public static partial class ChatStrings
 {

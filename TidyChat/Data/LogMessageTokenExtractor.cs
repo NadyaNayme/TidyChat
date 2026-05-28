@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 namespace TidyChat.Data;
 
 /// <summary>
-///     Derives lowercase word tokens from LogMessage template text for substring matching in chat filters.
+///     Builds lowercase word tokens from LogMessage template text for substring matching in filters.
 /// </summary>
 internal static class LogMessageTokenExtractor
 {
@@ -26,8 +26,8 @@ internal static class LogMessageTokenExtractor
     private static readonly Regex WordRegex = new(@"[\p{L}\p{N}]+", Options, RegexTimeout);
 
     /// <summary>
-    ///     Splits template text into tokens suitable for <c>normalizedText.Contains</c> checks.
-    ///     Strips FFXIV macro placeholders, XML-like tags, format placeholders, and icon chars first.
+    ///     Tokenize template text for <c>normalizedText.Contains</c> checks.
+    ///     Strips FFXIV placeholders, XML-like tags, format codes, and icon characters first.
     /// </summary>
     public static string[] Extract(string templateText)
     {

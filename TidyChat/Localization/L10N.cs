@@ -69,9 +69,8 @@ internal static class L10N
     }
 
     /// <summary>
-    ///     Returns <paramref name="primary"/> unless it is missing or is still the literal
-    ///     <c>"NeedsLocalization"</c> placeholder, in which case <paramref name="fallback"/> is returned.
-    ///     Prevents the literal placeholder text from leaking into chat for partially-localized strings.
+    ///     Returns <paramref name="primary"/> unless it is empty or still <c>NeedsLocalization</c>,
+    ///     in which case <paramref name="fallback"/> is used so placeholder text never reaches chat.
     /// </summary>
     private static string FallbackIfMissing(string primary, string fallback)
         => string.IsNullOrEmpty(primary) || string.Equals(primary, "NeedsLocalization", System.StringComparison.Ordinal)

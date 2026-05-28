@@ -7,12 +7,12 @@ namespace TidyChat;
 public enum PlayerNameMatchMode
 {
     /// <summary>
-    ///     Backward-compatible default. Matches when sender == FirstName OR when message contains FirstName as a substring.
+    ///     Default. Matches when the sender equals <see cref="FirstName"/> or the message contains it.
     /// </summary>
     MessageContains = 0,
 
     /// <summary>
-    ///     Strict. Matches only when sender.TextValue == FirstName.
+    ///     Matches only when <c>sender.TextValue</c> equals <see cref="FirstName"/>.
     /// </summary>
     ExactSender = 1
 }
@@ -24,8 +24,8 @@ public class PlayerName
     public int WhitelistedChannels = 2;
 
     /// <summary>
-    ///     Selects how non-regex entries are compared. Defaults to MessageContains for backward compatibility
-    ///     with configs created before this field existed.
+    ///     How plain-text whitelist entries are compared. Defaults to <see cref="MessageContains"/>
+    ///     for configs saved before this field existed.
     /// </summary>
     public PlayerNameMatchMode MatchMode = PlayerNameMatchMode.MessageContains;
 
@@ -41,9 +41,8 @@ public class PlayerName
     public bool IsLogMessageId => IsLogMessageIdShape(FirstName);
 
     /// <summary>
-    ///     Returns the cached compiled <see cref="Regex"/> for this entry when <see cref="FirstName"/> is a
-    ///     <c>/pattern/</c> form. Recompiles only when the source text changes. Returns <c>null</c> if the
-    ///     pattern is invalid; <paramref name="onError"/> is invoked once per recompile failure.
+    ///     Compiled regex for a <c>/pattern/</c> entry. Rebuilt when <see cref="FirstName"/> changes.
+    ///     Returns null on an invalid pattern; <paramref name="onError"/> runs once per failed compile.
     /// </summary>
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
     {
@@ -69,8 +68,7 @@ public class PlayerName
     }
 
     /// <summary>
-    ///     Returns the parsed LogMessageIds for this entry when <see cref="FirstName"/> is a
-    ///     <c>#ID</c> or <c>#ID1,ID2,ID3</c> form. Returns an empty array if parsing fails.
+    ///     Parsed LogMessage IDs from a <c>#ID</c> or <c>#ID1,ID2</c> entry. Returns an empty array on parse failure.
     /// </summary>
     public uint[] GetLogMessageIds()
     {

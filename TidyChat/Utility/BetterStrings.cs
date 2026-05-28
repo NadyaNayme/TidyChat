@@ -71,8 +71,8 @@ internal static class BetterStrings
     }
 
     /// <summary>
-    ///     Builds the compact "You've left the Novice Network." replacement message.
-    ///     Used by <c>OnLogMessage</c> after suppressing the original leave LogMessage (ID 7030).
+    ///     Compact Novice Network leave text. Used by <see cref="TidyChatPlugin.OnLogMessage"/>
+    ///     after suppressing LogMessage 7030.
     /// </summary>
     public static SeString NoviceNetworkLeaveMessage(Configuration configuration)
     {
@@ -130,11 +130,9 @@ internal static class BetterStrings
         t.Enabled = true;
     }
 
-    /// <summary>
-    ///     This method takes <paramref name="sestring" /> and adds a red "[TidyChat] " tag text to it
-    /// </summary>
-    /// <param name="sestring">An empty SeStringBuilder()</param>
-    /// <returns>SeString with text: "[TidyChat] "</returns>
+    /// <summary>Prepends a red "[TidyChat] " tag to the builder.</summary>
+    /// <param name="sestring">Target builder.</param>
+    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddTidyChatTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(14);
@@ -143,11 +141,9 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>
-    ///     This method takes <paramref name="sestring" /> and adds a yellow "[Channel] " tag text to it
-    /// </summary>
-    /// <param name="sestring">An empty SeStringBuilder()</param>
-    /// <returns>SeString with text: "[Channel] "</returns>
+    /// <summary>Prepends a yellow "[Channel] " tag to the builder.</summary>
+    /// <param name="sestring">Target builder.</param>
+    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddChannelTag(SeStringBuilder sestring, ChatType channel)
     {
         sestring.AddUiForeground(8);
@@ -156,11 +152,9 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>
-    ///     This method takes <paramref name="sestring" /> and adds a purple "[Rule] " tag text to it
-    /// </summary>
-    /// <param name="sestring">An empty SeStringBuilder()</param>
-    /// <returns>SeString with text: "[Rule] "</returns>
+    /// <summary>Prepends a purple rule-name tag to the builder.</summary>
+    /// <param name="sestring">Target builder.</param>
+    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddRuleTag(SeStringBuilder sestring, List<string> rulesMatched)
     {
         sestring.AddUiForeground(9);
@@ -169,11 +163,9 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>
-    ///     This method takes <paramref name="sestring" /> and adds a red "[BLOCKED] " tag text to it
-    /// </summary>
-    /// <param name="sestring">An empty SeStringBuilder()</param>
-    /// <returns>SeString with text: "[Rule] "</returns>
+    /// <summary>Prepends a red "[Blocked] " tag to the builder.</summary>
+    /// <param name="sestring">Target builder.</param>
+    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddBlockedTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(8);
@@ -182,11 +174,9 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>
-    ///     This method takes <paramref name="sestring" /> and adds a purple "[ALLOWED] " tag text to it
-    /// </summary>
-    /// <param name="sestring">An empty SeStringBuilder()</param>
-    /// <returns>SeString with text: "[Rule] "</returns>
+    /// <summary>Prepends a purple "[Allowed] " tag to the builder.</summary>
+    /// <param name="sestring">Target builder.</param>
+    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddAllowedTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(9);

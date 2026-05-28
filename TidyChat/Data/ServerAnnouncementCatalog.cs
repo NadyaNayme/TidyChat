@@ -9,9 +9,9 @@ using Lumina.Text.ReadOnly;
 namespace TidyChat.Data;
 
 /// <summary>
-///     Matches login / world-travel server announcement chat (issue #122).
-///     Text is server-pushed and mostly absent from LogMessage; we combine curated
-///     per-language markers with fragments discovered from Lumina Lobby/Addon rows.
+///     Matches login and world-travel server announcement chat (#122).
+///     Text is server-pushed and mostly absent from LogMessage; uses curated per-language markers
+///     plus fragments from Lumina Lobby and Addon rows.
 /// </summary>
 public static class ServerAnnouncementCatalog
 {
@@ -26,7 +26,7 @@ public static class ServerAnnouncementCatalog
     private static readonly HashSet<string> DiscoveredPhishingTokens = new(StringComparer.OrdinalIgnoreCase);
 
     /// <summary>
-    ///     Gameplay vocabulary often scraped from sqex.to announcement templates; substring hits caused false blocks.
+    ///     Common gameplay words scraped from sqex.to templates; substring hits here caused false blocks.
     /// </summary>
     private static readonly HashSet<string> DiscoveredTokenDenylist = new(StringComparer.OrdinalIgnoreCase)
     {
@@ -60,7 +60,7 @@ public static class ServerAnnouncementCatalog
         new(@"\breceive\s+a\s+tell\s+containing\s+a\s+url\b", CompiledRegexOptions, RegexTimeout);
 
     /// <summary>
-    ///     Known login phishing-warning vocabulary when Lumina Lobby/Addon rows omit the strings (#24).
+    ///     Phishing-warning vocabulary when Lumina Lobby or Addon rows omit the strings (#24).
     /// </summary>
     private static readonly string[] HardcodedPhishingTokens =
     [

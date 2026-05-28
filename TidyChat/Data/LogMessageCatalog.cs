@@ -10,15 +10,15 @@ using TidyChat.Translation.Data;
 namespace TidyChat.Data;
 
 /// <summary>
-///     Loads the game LogMessage sheet via Lumina and exposes derived match tokens for chat filtering.
-///     Templates are in the active client language; use alongside hardcoded <see cref="ChatStrings"/> fallbacks.
+///     Loads the LogMessage sheet from Lumina and builds match tokens for chat filtering.
+///     Templates follow the active client language; pair with <see cref="ChatStrings"/> fallbacks when needed.
 /// </summary>
 public static class LogMessageCatalog
 {
     private static readonly Dictionary<uint, string[]> WordTokensById = new();
     private static readonly Dictionary<uint, string> TemplateTextById = new();
 
-    /// <summary>Shared "You obtain …" template used by many loot notices.</summary>
+    /// <summary>Shared "You obtain …" template used by many loot notices (LogMessage 657).</summary>
     public const uint SharedObtainTemplateId = 657;
 
     public static bool IsLoaded { get; private set; }
@@ -61,7 +61,7 @@ public static class LogMessageCatalog
         }
     }
 
-    /// <summary>Reserved for future runtime ID resolution. Currently unused.</summary>
+    /// <summary>Placeholder for future runtime ID discovery. Not used yet.</summary>
     public static void ApplyDiscoveries(IPluginLog log)
     {
         if (!IsLoaded) return;
@@ -81,7 +81,7 @@ public static class LogMessageCatalog
     public static bool TryGetWordTokens(uint logMessageId, out string[] tokens)
         => WordTokensById.TryGetValue(logMessageId, out tokens!);
 
-    /// <summary>First line of the template with common channel prefixes stripped.</summary>
+    /// <summary>First template line with common Novice Network prefixes stripped.</summary>
     public static bool TryGetCompactLine(uint logMessageId, out string line)
     {
         line = string.Empty;
@@ -110,7 +110,7 @@ public static class LogMessageCatalog
         "(RdN) "
     ];
 
-    /// <summary>Finds a LogMessage row whose template contains every token.</summary>
+    /// <summary>Shortest LogMessage row whose template contains every required token.</summary>
     public static bool TryFindIdContainingAllTokens(IReadOnlyList<string> requiredTokens, out uint logMessageId)
     {
         logMessageId = 0;
@@ -157,7 +157,7 @@ public static class LogMessageCatalog
     }
 
     /// <summary>
-    ///     Matches shared obtain templates (657 family) requiring both the template and an item/currency marker.
+    ///     Match shared obtain templates (657 family) plus an item or currency marker.
     /// </summary>
     public static bool MatchesSharedObtain(string normalizedText, uint markerItemId, LocalizedStrings? markerFallback = null)
     {
@@ -165,7 +165,7 @@ public static class LogMessageCatalog
         return ItemMarkerCatalog.Matches(markerItemId, normalizedText, markerFallback);
     }
 
-    /// <summary>Matches GC seal obtains via any of the three seal item markers.</summary>
+    /// <summary>GC seal obtain on a shared template, via any of the three seal item markers.</summary>
     public static bool MatchesSharedObtainSeal(string normalizedText, LocalizedStrings? markerFallback = null)
     {
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
@@ -188,7 +188,7 @@ public static class LogMessageCatalog
         return normalizedText.Contains("mgp", StringComparison.Ordinal);
     }
 
-    /// <summary>Shared obtain template plus any elemental shard/crystal/cluster item marker.</summary>
+    /// <summary>Shared obtain template plus an elemental shard, crystal, or cluster marker.</summary>
     public static bool MatchesSharedObtainElemental(string normalizedText, bool clustersOnly, LocalizedStrings? markerFallback = null,
         bool requireSharedTemplate = true)
     {
@@ -197,14 +197,14 @@ public static class LogMessageCatalog
         return ItemMarkerCatalog.MatchesAny(itemIds, normalizedText, markerFallback);
     }
 
-    /// <summary>Shared obtain template plus any beast tribe currency item marker.</summary>
+    /// <summary>Shared obtain template plus a beast tribe currency marker.</summary>
     public static bool MatchesSharedObtainTribal(string normalizedText, LocalizedStrings? markerFallback = null)
     {
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
         return ItemMarkerCatalog.MatchesAny(ItemMarkerCatalog.Items.TribalCurrency, normalizedText, markerFallback);
     }
 
-    /// <summary>Obtain messages ending with a materials suffix (e.g. "You obtain 5 foo materials.").</summary>
+    /// <summary>Obtain line ending in a materials suffix (e.g. "You obtain 5 foo materials.").</summary>
     public static bool MatchesMaterialsObtain(string normalizedText, LocalizedStrings? markerFallback = null,
         bool requireSharedTemplate = true)
     {
@@ -222,11 +222,11 @@ public static class LogMessageCatalog
                normalizedText.Contains("you obtains", StringComparison.Ordinal);
     }
 
-    /// <summary>True when the normalized message is a local-player obtain (after name replacement).</summary>
+    /// <summary>Local-player obtain after name normalization ("you …").</summary>
     public static bool IsPlayerObtainMessage(string normalizedText) =>
         normalizedText.StartsWith("you ", StringComparison.Ordinal);
 
-    /// <summary>Another player's obtain message — excludes local player, matches obtain verb markers.</summary>
+    /// <summary>Another player's obtain line; skips local player and checks obtain verb markers.</summary>
     public static bool MatchesOtherPlayerObtain(string normalizedText, LocalizedStrings? markerFallback = null)
     {
         if (IsPlayerObtainMessage(normalizedText)) return false;
@@ -243,14 +243,14 @@ public static class LogMessageCatalog
         return normalizedText.Contains(" obtains ", StringComparison.Ordinal);
     }
 
-    /// <summary>Catalog match when tokens exist; otherwise falls back to hardcoded localized fragments.</summary>
+    /// <summary>Try Lumina tokens first; fall back to hardcoded localized fragments.</summary>
     public static bool MatchesWithFallback(uint logMessageId, string normalizedText, LocalizedStrings fallback)
     {
         if (HasTokens(logMessageId) && Matches(logMessageId, normalizedText)) return true;
         return L10N.Get(fallback).All(normalizedText.Contains);
     }
 
-    /// <summary>Logs warnings for rule IDs that are absent from the loaded sheet (patch drift detection).</summary>
+    /// <summary>Warn when rule IDs are missing from the loaded sheet (patch drift).</summary>
     public static void ValidateRuleIds(IEnumerable<uint> referencedIds, IPluginLog log)
     {
         if (!IsLoaded) return;

@@ -28,8 +28,7 @@ public static partial class Rules
         [.. _rules];
 
     /// <summary>
-    ///     Lookup from LogMessageId → list of rules that match that ID.
-    ///     Built once at static init from rules that have LogMessageIds set.
+    ///     Maps each LogMessage ID to filter rules that reference it. Built once at startup.
     /// </summary>
     public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
 
@@ -221,7 +220,7 @@ public static partial class Rules
         }
     }
 
-    /// <summary>All LogMessage IDs referenced by filter rules and custom-filter documentation.</summary>
+    /// <summary>Every LogMessage ID used by filter rules or whitelist documentation.</summary>
     public static IEnumerable<uint> EnumerateReferencedLogMessageIds()
     {
         var seen = new HashSet<uint>();
