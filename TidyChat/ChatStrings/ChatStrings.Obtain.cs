@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 24 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 /// <see href="https://xivapi.com/LogMessage/10750?pretty=true">You obtain … cosmic containers.</see>

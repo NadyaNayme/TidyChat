@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 20 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 /// <see href="https://xivapi.com/LogMessage/579?pretty=true">Cannot execute at this time.</see>

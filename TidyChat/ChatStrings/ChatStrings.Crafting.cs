@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 21 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 /// <see href="https://xivapi.com/LogMessage/1147?pretty=true">Unable to craft. You have not selected all of the materials.</see>

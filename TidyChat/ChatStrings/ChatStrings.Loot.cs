@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 3 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 /// <summary>Marker for another player's obtain verb (used with <see cref="LocalizedFilterRule.ExcludePlayerObtain"/>).</summary>

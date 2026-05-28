@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 3 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 /// <see href="https://xivapi.com/LogMessage/1306?pretty=true">Mount speed increased.</see>

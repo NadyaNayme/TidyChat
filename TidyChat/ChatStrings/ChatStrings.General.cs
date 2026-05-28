@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 17 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 /// <see href="https://xivapi.com/LogMessage/756?pretty=true">Job registered (e.g. Paladin registered.).</see>

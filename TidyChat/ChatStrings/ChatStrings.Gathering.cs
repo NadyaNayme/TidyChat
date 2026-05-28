@@ -2,7 +2,6 @@ using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
-// 26 localized string markers — see ChatStrings.cs for the full index.
 public static partial class ChatStrings
 {
 public static readonly LocalizedStrings LocationAffects = new()
