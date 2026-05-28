@@ -195,6 +195,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/596?pretty=true">… fully resists …</see>
+    public static readonly LocalizedStrings CombatStatusResist = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["fully", "resist"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/527?pretty=true">… suffers the effect of …</see>
     public static readonly LocalizedStrings CombatDebuffApplied = new()
     {

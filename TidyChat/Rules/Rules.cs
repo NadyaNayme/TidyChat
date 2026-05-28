@@ -35,6 +35,7 @@ public static partial class Rules
         ["ShowDesynthedItem"] = c => c.ShowDesynthedItem,
         ["ShowDesynthesisObtains"] = c => c.ShowDesynthesisObtains,
         ["ShowObtainedPomander"] = c => c.ShowObtainedPomander,
+        ["ShowTrapTriggered"] = c => c.ShowTrapTriggered,
         ["ShowCairnGlows"] = c => c.ShowCairnGlows,
         ["ShowRestoresLifeToFallen"] = c => c.ShowRestoresLifeToFallen,
         ["ShowCairnActivates"] = c => c.ShowCairnActivates,
@@ -102,6 +103,10 @@ public static partial class Rules
         ["ShowMeasuringIlms"] = c => c.ShowMeasuringIlms,
         ["ShowLureMessages"] = c => c.ShowLureMessages,
         ["ShowAllOtherGathering"] = c => c.ShowAllOtherGathering,
+        ["ShowStellarMissionMessages"] = c => c.ShowStellarMissionMessages,
+        ["ShowCosmicExplorationMessages"] = c => c.ShowCosmicExplorationMessages,
+        ["ShowCosmicRewards"] = c => c.ShowCosmicRewards,
+        ["ShowCosmicDailyProgress"] = c => c.ShowCosmicDailyProgress,
         ["ShowCombatCasting"] = c => c.ShowCombatCasting,
         ["ShowCombatAbilities"] = c => c.ShowCombatAbilities,
         ["ShowCombatDamage"] = c => c.ShowCombatDamage,
@@ -147,7 +152,8 @@ public static partial class Rules
         ["ShowLevelUps"] = c => c.ShowLevelUps,
         ["ShowOtherLevelUps"] = c => c.ShowOtherLevelUps,
         ["ShowAbilityUnlocks"] = c => c.ShowAbilityUnlocks,
-        ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel
+        ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel,
+        ["ShowEverythingElse"] = c => c.ShowEverythingElse
     };
 
     public static LocalizedFilterRule[] AllRules => [.. _rules];
@@ -172,6 +178,7 @@ public static partial class Rules
         rules.AddRange(EmoteRules);
         rules.AddRange(CraftingRules);
         rules.AddRange(GatheringRules);
+        rules.AddRange(StellarRules);
         rules.AddRange(CombatRules);
         rules.AddRange(FreeCompanyRules);
         rules.AddRange(OrchestrionRules);

@@ -56,6 +56,18 @@ public static partial class Rules
             Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
+            LogMessageIds = [586],
+            StringChecks = [ChatStrings.OnlyAvailableWhileCrafting],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideCannotExecute",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            BlockWhenActive = true,
             LogMessageIds = [563],
             StringChecks = [ChatStrings.InvalidTarget],
             Pattern = PatternKind.StringMatch,
@@ -140,6 +152,18 @@ public static partial class Rules
             Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
+            LogMessageIds = [599],
+            StringChecks = [ChatStrings.CannotSeeTarget],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideCannotExecute",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            BlockWhenActive = true,
             LogMessageIds = [566],
             StringChecks = [ChatStrings.TargetNotInRange],
             Pattern = PatternKind.StringMatch,
@@ -188,6 +212,18 @@ public static partial class Rules
             Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
+            LogMessageIds = [1314],
+            StringChecks = [ChatStrings.ActionCanceledUnderAttack],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideCannotExecute",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            BlockWhenActive = true,
             LogMessageIds = [1950],
             StringChecks = [ChatStrings.UnableToUseUniqueItem],
             Pattern = PatternKind.StringMatch,
@@ -212,8 +248,44 @@ public static partial class Rules
             Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
+            LogMessageIds = [7704],
+            StringChecks = [ChatStrings.UnableToExecuteWhileMounted],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideCannotExecute",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            BlockWhenActive = true,
             LogMessageIds = [7122],
             StringChecks = [ChatStrings.UnableToConvertPartySave],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideCannotExecute",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [726],
+            StringChecks = [ChatStrings.CommandUnavailable],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideCannotExecute",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [899],
+            StringChecks = [ChatStrings.PartyLeaderDutyRegister],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -223,7 +295,7 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [2001],
+            LogMessageIds = [2001, 2026],
             StringChecks = [ChatStrings.FateDiscovered],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
@@ -245,8 +317,30 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [7488],
+            StringChecks = [ChatStrings.FriendRequestReceived],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowFriendList",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
             LogMessageIds = [78],
             StringChecks = [ChatStrings.FriendAddedToList],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowFriendList",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [81],
+            StringChecks = [ChatStrings.FriendListUpdated],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -266,7 +360,25 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
+            StringChecks = [ChatStrings.FriendRequestReceived],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowFriendList",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
             StringChecks = [ChatStrings.FriendAddedToList],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowFriendList",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.FriendListUpdated],
             Pattern = PatternKind.StringMatch
         },
         new()

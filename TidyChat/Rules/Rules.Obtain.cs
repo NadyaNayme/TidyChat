@@ -74,6 +74,17 @@ public static partial class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
+            LogMessageIds = [3617],
+            StringChecks = [ChatStrings.ObtainedGearPiece],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowObtainedItems",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
             LogMessageIds = [750, 3208],
             StringChecks = [ChatStrings.ObtainedSingleItem],
             Pattern = PatternKind.StringMatch,
@@ -123,47 +134,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.DiscardedItem],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            LogMessageIds = [10800],
-            StringChecks = [ChatStrings.CosmicFortuneObtain],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            LogMessageIds = [10750],
-            StringChecks = [ChatStrings.CosmicContainerObtain],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        // OnChat fallback when LogMessage handling did not run.
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmicContainerObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmicFortuneObtain],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -299,6 +269,18 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             ObtainMarkerItemId = ItemMarkerCatalog.Items.WolfMarks
+        },
+        new()
+        {
+            Name = "HideObtainedSeals",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [1300],
+            StringChecks = [ChatStrings.ObtainSealsMarker],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {

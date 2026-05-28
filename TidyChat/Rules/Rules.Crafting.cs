@@ -318,12 +318,15 @@ new()
             // 5514 = "Your meticulous actions prove effective. Integrity is not reduced."
             // 5516 = "Collectability can be raised no higher."
             // 5573 = "Collector's high standard sharpens your focus. Brazen and meticulous actions are enhanced."
+            // 5574 = "The effect of Revisit has restored … GP and granted … integrity to the gathering point."
+            // 5550 = "This location grants an increase to item collectability!"
+            // 3549/3569 = Brazen / Meticulous Woodsman collectability actions.
             // All are fixed-text (0 params) GatheringSystem notifications unique to the collectable mini-game.
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [5514, 5516, 5573]
+            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569]
         },
         new()
         {
@@ -364,8 +367,41 @@ new()
             SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [5514, 5516, 5573],
+            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569],
             StringChecks = [ChatStrings.AetherialReductionIntegrity],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [5550],
+            StringChecks = [ChatStrings.CollectabilityLocationBonus],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [3549],
+            StringChecks = [ChatStrings.BrazenWoodsman],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [3569],
+            StringChecks = [ChatStrings.MeticulousWoodsman],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -378,7 +414,7 @@ new()
             RegexChecks = [ChatRegexStrings.AetherialReductionSands],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
-            LogMessageIds = [3553, 3555, 1049, 1050, 1053, 1054, 5514, 5516, 5573]
+            LogMessageIds = [3553, 3555, 1049, 1050, 1053, 1054, 5514, 5516, 5573, 5574, 5550, 3549, 3569]
         },
     ];
 }

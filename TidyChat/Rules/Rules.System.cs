@@ -186,6 +186,17 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [2119],
+            StringChecks = [ChatStrings.DutyMechanicCalmPocket],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowInstanceMessage",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
             LogMessageIds = [2163],
             StringChecks = [ChatStrings.DutyObjectiveBonus],
             Pattern = PatternKind.StringMatch,
@@ -359,6 +370,18 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.PeriodicRecruitmentNotification,
             IsActive = true,
+            LogMessageIds = [94],
+            StringChecks = [ChatStrings.DutyFinderRecruitment],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = false
+        },
+        // OnChat fallback when LogMessage handling did not run.
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "System",
+            Channel = ChatType.PeriodicRecruitmentNotification,
+            IsActive = true,
             StringChecks = [ChatStrings.DutyFinderRecruitment],
             Pattern = PatternKind.StringMatch
         },
@@ -379,8 +402,10 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [4671],
             StringChecks = [ChatStrings.DutyFinderPartyType],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = false
         },
         new()
         {
@@ -651,10 +676,48 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7264, 7265],
+            LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7263, 7264, 7265],
             StringChecks = [ChatStrings.PomanderEffect],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTrapTriggered",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [7224, 7225, 7226, 7227, 7228, 7229],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        // OnChat fallbacks when LogMessage handling did not run.
+        new()
+        {
+            Name = "ShowTrapTriggered",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.DeepDungeonLandmineTriggered],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTrapTriggered",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.DeepDungeonTrapTriggered],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTrapTriggered",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.DeepDungeonDetonatorTriggered],
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -863,7 +926,7 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [6061, 6057, 6059, 4168]
+            LogMessageIds = [6061, 6057, 6059, 6060, 6062, 6092, 4168]
         },
         new()
         {
@@ -910,6 +973,28 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowSubaquaticVoyage",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [6062],
+            StringChecks = [ChatStrings.SubmarineAttainsRank],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSubaquaticVoyage",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [6092],
+            StringChecks = [ChatStrings.SubmarineRetrievalLevelsIncreased],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowVistaMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -922,7 +1007,18 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [3911, 4309, 4364, 4378]
+            LogMessageIds = [3911, 4309, 4364, 4378, 10508]
+        },
+        new()
+        {
+            Name = "ShowTryOnGlamour",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10508],
+            StringChecks = [ChatStrings.GearDyeApplied],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -974,6 +1070,15 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GlamourPlateProjected],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTryOnGlamour",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GearDyeApplied],
             Pattern = PatternKind.StringMatch
         },
         new()
@@ -1240,7 +1345,7 @@ new()
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [700, 755, 788, 756, 1900, 1281, 561, 5865]
+            LogMessageIds = [700, 755, 788, 756, 1900, 1281, 561, 5865, 5874, 5886]
         },
         new()
         {
@@ -1279,6 +1384,28 @@ new()
         {
             Name = "ShowGearsetEquipped",
             SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            LogMessageIds = [5874],
+            StringChecks = [ChatStrings.PortraitExpired],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            LogMessageIds = [5886],
+            StringChecks = [ChatStrings.PortraitUpdateIncompatible],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GearsetEquipped],
@@ -1300,6 +1427,24 @@ new()
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.PortraitSetInstant],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            StringChecks = [ChatStrings.PortraitExpired],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            StringChecks = [ChatStrings.PortraitUpdateIncompatible],
             Pattern = PatternKind.StringMatch,
         },
         new()
@@ -1463,6 +1608,67 @@ new()
             StringChecks = [ChatStrings.AttuneAetheryte],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowEverythingElse",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4242, 802, 4763, 4764]
+        },
+        new()
+        {
+            Name = "ShowEverythingElse",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4242],
+            StringChecks = [ChatStrings.ChangesDiscarded],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowEverythingElse",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [802],
+            StringChecks = [ChatStrings.ChangesLost],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowEverythingElse",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4763],
+            StringChecks = [ChatStrings.TripleTriadAllowed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowEverythingElse",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4764],
+            StringChecks = [ChatStrings.TripleTriadNotAllowed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowEverythingElse",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.ChangesDiscarded, ChatStrings.ChangesLost, ChatStrings.TripleTriadAllowed, ChatStrings.TripleTriadNotAllowed],
+            Pattern = PatternKind.StringMatch,
         },
     ];
 }

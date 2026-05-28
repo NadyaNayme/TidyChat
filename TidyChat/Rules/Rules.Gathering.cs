@@ -32,7 +32,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [1103],
+            LogMessageIds = [1103, 1105],
             StringChecks = [ChatStrings.GatheringAttemptGranted],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
@@ -45,6 +45,17 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [1097],
             StringChecks = [ChatStrings.GatherersBoon],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGatherersBoon",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [11172],
+            StringChecks = [ChatStrings.GatherersBoonScore],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -113,6 +124,50 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowLocationAffects",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5550],
+            StringChecks = [ChatStrings.LocationCollectabilityIncrease],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLocationAffects",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5551],
+            StringChecks = [ChatStrings.LocationMeticulousIntegrity],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAllOtherGathering",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3549],
+            StringChecks = [ChatStrings.CollectabilityIncreases],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAllOtherGathering",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3569],
+            StringChecks = [ChatStrings.CollectabilityMeticulousIntuition],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             // 1116 = "Something bites!"
             // 1117 = "You lose your bait..."
             // 3511/5584 = "You reel in your line."
@@ -162,7 +217,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [603, 631, 11154, 10781, 10764, 11174, 10804, 5533]
+            LogMessageIds = [603, 1111, 3549, 3569]
         },
         new()
         {
@@ -192,50 +247,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [1111],
             StringChecks = [ChatStrings.PutAwayRod],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAllOtherGathering",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            LogMessageIds = [11154],
-            StringChecks = [ChatStrings.StellarMissionUnderway],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAllOtherGathering",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            LogMessageIds = [10764],
-            StringChecks = [ChatStrings.StellarSpecialActionUnlock],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAllOtherGathering",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            LogMessageIds = [10804],
-            StringChecks = [ChatStrings.StellarMissionScore],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAllOtherGathering",
-            SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
-            IsActive = true,
-            LogMessageIds = [5533],
-            StringChecks = [ChatStrings.AbleToExecute],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

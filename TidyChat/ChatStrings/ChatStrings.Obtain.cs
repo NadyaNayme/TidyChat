@@ -37,6 +37,33 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/10872?pretty=true">You obtain N cosmocredits.</see>
+    public static readonly LocalizedStrings CosmocreditObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "cosmocredit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10873?pretty=true">You obtain N Oizys credits.</see>
+    public static readonly LocalizedStrings OizysCreditObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "oizys", "credit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11331?pretty=true">You obtain N Oizys dronebits.</see>
+    public static readonly LocalizedStrings OizysDronebitsObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "oizys", "dronebit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     public static readonly LocalizedStrings ObtainAlliedSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -119,6 +146,15 @@ public static partial class ChatStrings
         Eng = ["you", "obtain"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3617?pretty=true">You obtain a piece of gallant armor.</see>
+    public static readonly LocalizedStrings ObtainedGearPiece = new()
+    {
+        Jpn = ["手に入れた"],
+        Eng = ["obtain", "piece"],
+        Deu = ["teil", "erhalten"],
+        Fra = ["obtenez", "pièce"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/750?pretty=true">You obtain an [item].</see>

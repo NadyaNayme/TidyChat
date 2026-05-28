@@ -231,6 +231,17 @@ public static partial class Rules
         {
             Name = "ShowCombatEffects",
             SettingsTab = "System",
+            Channel = ChatType.Miss,
+            IsActive = true,
+            LogMessageIds = [596],
+            StringChecks = [ChatStrings.CombatStatusResist],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCombatEffects",
+            SettingsTab = "System",
             Channel = ChatType.LoseDebuff,
             IsActive = true,
             LogMessageIds = [532, 551],

@@ -14,11 +14,20 @@ namespace TidyChat.Data;
 public static class LogMessageCatalog
 {
 
-    /// <summary>Shared "You obtain …" template used by many loot notices (LogMessage 657).</summary>
-    public static readonly uint[] SharedObtainTemplateIds = [657, 1259, 1606];
+    /// <summary>Shared "You obtain …" templates for currency marker hide rules (657 family). Excludes 1606 (dedicated item obtain).</summary>
+    public static readonly uint[] SharedObtainTemplateIds = [657, 1259];
 
     private static readonly Dictionary<uint, string[]> WordTokensById = new();
     private static readonly Dictionary<uint, string> TemplateTextById = new();
+
+    /// <summary>LogMessage IDs that fire in-game but are absent from the Lumina sheet.</summary>
+    private static readonly HashSet<uint> RuntimeOnlyIds =
+    [
+        94, 549,
+        4671,
+        10766, 10769, 10770, 10771, 10779, 10815, 10822, 10872, 10873, 10874, 10875, 10877, 10878, 10879, 10883,
+        10830, 10946, 11156, 11175, 11197, 11331, 11379, 11383
+    ];
     private static readonly string[] CompactLinePrefixes =
     [
         "Novice - ",
@@ -215,7 +224,7 @@ public static class LogMessageCatalog
         foreach(uint id in referencedIds)
         {
             if (!seen.Add(id)) continue;
-            if (!TemplateTextById.ContainsKey(id)) missing.Add(id);
+            if (!TemplateTextById.ContainsKey(id) && !RuntimeOnlyIds.Contains(id)) missing.Add(id);
         }
 
         if (missing.Count == 0) return;

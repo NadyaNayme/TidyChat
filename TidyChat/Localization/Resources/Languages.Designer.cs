@@ -446,6 +446,51 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowAllOtherGathering", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Stellar Missions / Cosmic Exploration.
+        /// </summary>
+        internal static string CraftingGatheringTab_StellarMissionsDropdownHeader {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_StellarMissionsDropdownHeader", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show stellar mission messages.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowStellarMissionMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowStellarMissionMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show cosmic exploration messages.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowCosmicExplorationMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCosmicExplorationMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show cosmic currency and container obtains.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowCosmicRewards {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCosmicRewards", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show cosmic class points and daily progress.
+        /// </summary>
+        internal static string CraftingGatheringTab_ShowCosmicDailyProgress {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCosmicDailyProgress", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Show synthesis complete message.
@@ -2683,6 +2728,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowPomanderEffectsMessages {
             get {
                 return ResourceManager.GetString("SystemTab_ShowPomanderEffectsMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show trap triggered messages.
+        /// </summary>
+        internal static string SystemTab_ShowTrapTriggeredMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowTrapTriggeredMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!.
+        /// </summary>
+        internal static string SystemTab_ShowTrapTriggeredMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowTrapTriggeredMessagesHelpMarker", resourceCulture);
             }
         }
         

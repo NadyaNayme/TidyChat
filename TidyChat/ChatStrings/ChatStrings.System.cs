@@ -120,6 +120,15 @@ public static partial class ChatStrings
         Fra = ["appel", "préparation"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/10508?pretty=true">You use a pot of … dye to change Dye N of … to …</see>
+    public static readonly LocalizedStrings GearDyeApplied = new()
+    {
+        Jpn = ["染め"],
+        Eng = ["use", "dye", "change"],
+        Deu = ["farbe", "benutzt"],
+        Fra = ["teignez", "teinture"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/4309?pretty=true">You cast a glamour …</see>
     public static readonly LocalizedStrings TryOnGlamourCast = new()
     {
@@ -202,10 +211,11 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/6059?pretty=true">Submersible subaquatic voyage finalized.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/6060?pretty=true">Other player finalizes subaquatic voyage.</seealso>
     public static readonly LocalizedStrings SubaquaticVoyageFinalized = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["subaquatic", "voyage", "finalized"],
+        Eng = ["subaquatic", "voyage", "finaliz"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -217,6 +227,24 @@ public static partial class ChatStrings
         Eng = ["repaired"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/6062?pretty=true">Submersible attains rank N!</see>
+    public static readonly LocalizedStrings SubmarineAttainsRank = new()
+    {
+        Jpn = ["ランク", "潜水艦"],
+        Eng = ["attains", "rank"],
+        Deu = ["rang", "tauchboot"],
+        Fra = ["sous-marin", "rang"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/6092?pretty=true">Submersible's retrieval levels increased by N.</see>
+    public static readonly LocalizedStrings SubmarineRetrievalLevelsIncreased = new()
+    {
+        Jpn = ["潜水艦", "上昇"],
+        Eng = ["retrieval", "levels"],
+        Deu = ["tauchboot", "gestiegen"],
+        Fra = ["sous-marin", "augmenté"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4335?pretty=true">Retainer has reached maximum level.</see>
@@ -434,6 +462,33 @@ public static partial class ChatStrings
         Fra = ["pomander"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/7224?pretty=true">The landmine is triggered...</see>
+    public static readonly LocalizedStrings DeepDungeonLandmineTriggered = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["landmine", "triggered"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7225?pretty=true">The luring trap is triggered...</see>
+    public static readonly LocalizedStrings DeepDungeonTrapTriggered = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["trap", "triggered"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7229?pretty=true">The detonator is triggered! The treasure coffer is no more...</see>
+    public static readonly LocalizedStrings DeepDungeonDetonatorTriggered = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["detonator", "triggered"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/9218?pretty=true">Floor N</see>
     public static readonly LocalizedStrings FloorNumber = new()
     {
@@ -630,6 +685,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/2119?pretty=true">Garuda generates a pocket of calm within the storm!</see>
+    public static readonly LocalizedStrings DutyMechanicCalmPocket = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["generates", "pocket", "calm"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/440?pretty=true">You have been offered a Teleport …</see>
     public static readonly LocalizedStrings OfferedTeleport = new()
     {
@@ -656,6 +720,24 @@ public static partial class ChatStrings
         Eng = ["portrait", "instant"],
         Deu = ["portrait", "schnellportrait"],
         Fra = ["portrait", "instantané"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/5874?pretty=true">Portrait has expired. Please readjust its settings and try again.</see>
+    public static readonly LocalizedStrings PortraitExpired = new()
+    {
+        Jpn = ["ポートレート", "期限"],
+        Eng = ["portrait", "expired"],
+        Deu = ["portrait", "abgelaufen"],
+        Fra = ["portrait", "expiré"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/5886?pretty=true">Unable to update portrait due to incompatible settings.</see>
+    public static readonly LocalizedStrings PortraitUpdateIncompatible = new()
+    {
+        Jpn = ["ポートレート", "更新"],
+        Eng = ["update", "portrait", "incompatible"],
+        Deu = ["portrait", "aktualisieren", "inkompatibel"],
+        Fra = ["portrait", "incompatible"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1900?pretty=true">… equipped, but glamours could not be restored.</see>
@@ -685,11 +767,48 @@ public static partial class ChatStrings
         Fra = ["éthérolysez"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/5550?pretty=true">This location grants an increase to item collectability!</see>
+    public static readonly LocalizedStrings CollectabilityLocationBonus = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["location", "collectability", "increase"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3549?pretty=true">You use Brazen Woodsman. Collectability increases by N.</see>
+    public static readonly LocalizedStrings BrazenWoodsman = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["brazen", "woodsman", "collectability"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3569?pretty=true">You use Meticulous Woodsman. Collector's intuition guides your hand.</see>
+    public static readonly LocalizedStrings MeticulousWoodsman = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["meticulous", "woodsman", "collectability"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10830?pretty=true">A new mech op directive has been issued.</see>
+    public static readonly LocalizedStrings MechOpDirective = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["mech", "directive", "pilots", "application"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">Your meticulous actions prove effective. Integrity is not reduced.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/5574?pretty=true">Revisit restored GP and granted integrity.</seealso>
     public static readonly LocalizedStrings AetherialReductionIntegrity = new()
     {
         Jpn = ["耐久", "減少"],
-        Eng = ["integrity", "not", "reduced"],
+        Eng = ["integrity", "not", "reduced", "revisit", "gathering point"],
         Deu = ["belastbarkeit"],
         Fra = ["diminué"]
     };
@@ -721,5 +840,41 @@ public static partial class ChatStrings
         Eng = ["attune", "aetheryte"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"],
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4242?pretty=true">Changes discarded.</see>
+    public static readonly LocalizedStrings ChangesDiscarded = new()
+    {
+        Jpn = ["破棄"],
+        Eng = ["changes", "discarded"],
+        Deu = ["verworfen"],
+        Fra = ["annulés"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/802?pretty=true">Changes lost.</see>
+    public static readonly LocalizedStrings ChangesLost = new()
+    {
+        Jpn = ["失わ"],
+        Eng = ["changes", "lost"],
+        Deu = ["verloren"],
+        Fra = ["perdues"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4763?pretty=true">Triple Triad matches allowed in current area.</see>
+    public static readonly LocalizedStrings TripleTriadAllowed = new()
+    {
+        Jpn = ["トリプルトライアド"],
+        Eng = ["triple", "triad", "allowed"],
+        Deu = ["triple", "triad", "erlaubt"],
+        Fra = ["triple", "triad", "autorisées"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4764?pretty=true">Triple Triad matches not allowed in current area.</see>
+    public static readonly LocalizedStrings TripleTriadNotAllowed = new()
+    {
+        Jpn = ["トリプルトライアド"],
+        Eng = ["triple", "triad", "not", "allowed"],
+        Deu = ["triple", "triad", "nicht", "erlaubt"],
+        Fra = ["triple", "triad", "interdites"]
     };
 }

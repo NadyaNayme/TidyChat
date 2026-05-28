@@ -21,9 +21,20 @@ public static partial class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            LogMessageIds = [588, 589, 4466, 7300, 10953],
+            LogMessageIds = [549, 588, 589, 4466, 7300, 10953],
             StringChecks = [ChatStrings.GainExperience],
             Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [549],
+            StringChecks = [ChatStrings.ExpChainBonus],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = false
         },
         // Regex fallback: catches XP messages whose LogMessageId isn't registered above
         // (e.g. bonus-XP variants with (+N%) suffix added in newer patches).
@@ -33,7 +44,7 @@ public static partial class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            LogMessageIds = [588, 589, 4466, 7300, 10953],
+            LogMessageIds = [549, 588, 589, 4466, 7300, 10953],
             RegexChecks = [ChatRegexStrings.GainExperience],
             Pattern = PatternKind.RegexMatch
         },
@@ -189,6 +200,39 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [1461],
             StringChecks = [ChatStrings.OathGaugeExpanded],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [410],
+            StringChecks = [ChatStrings.ClassJobQuestAvailable],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [3780],
+            StringChecks = [ChatStrings.ChallengeLogComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [3783],
+            StringChecks = [ChatStrings.ChallengeLogAlmostComplete],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

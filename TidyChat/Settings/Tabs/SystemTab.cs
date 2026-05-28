@@ -402,6 +402,14 @@ internal static class SystemTab
                 configuration.Save();
             }
 
+            bool showTrapTriggered = configuration.ShowTrapTriggered;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowTrapTriggeredMessages, ref showTrapTriggered))
+            {
+                configuration.ShowTrapTriggered = showTrapTriggered;
+                configuration.Save();
+            }
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowTrapTriggeredMessagesHelpMarker);
+
             bool showPomanderEffects = configuration.ShowPomanderEffects;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderEffectsMessages, ref showPomanderEffects))
             {

@@ -232,6 +232,40 @@ internal static class CraftingGatheringTab
             ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowFishingFlavorTextHelpMarker);
         }
 
+        if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_StellarMissionsDropdownHeader))
+        {
+            bool showStellarMissionMessages = configuration.ShowStellarMissionMessages;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowStellarMissionMessages,
+                    ref showStellarMissionMessages))
+            {
+                configuration.ShowStellarMissionMessages = showStellarMissionMessages;
+                configuration.Save();
+            }
+
+            bool showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicExplorationMessages,
+                    ref showCosmicExplorationMessages))
+            {
+                configuration.ShowCosmicExplorationMessages = showCosmicExplorationMessages;
+                configuration.Save();
+            }
+
+            bool showCosmicRewards = configuration.ShowCosmicRewards;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicRewards, ref showCosmicRewards))
+            {
+                configuration.ShowCosmicRewards = showCosmicRewards;
+                configuration.Save();
+            }
+
+            bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
+                    ref showCosmicDailyProgress))
+            {
+                configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
+                configuration.Save();
+            }
+        }
+
 
         ImGui.EndTabItem();
     }

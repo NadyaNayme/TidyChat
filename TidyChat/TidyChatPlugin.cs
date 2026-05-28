@@ -83,6 +83,25 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
         Configuration.Initialize(PluginInterface);
+        if (Configuration.Version < 1)
+        {
+            Configuration.ShowStellarMissionMessages =
+                Configuration.ShowAllOtherGathering || Configuration.ShowEverythingElse;
+            Configuration.ShowCosmicRewards = Configuration.ShowObtainedItems;
+            Configuration.ShowCosmicDailyProgress =
+                Configuration.ShowGainExperience && Configuration.ShowQuestProgress;
+            Configuration.Version = 1;
+            Configuration.Save();
+        }
+
+        if (Configuration.Version < 2)
+        {
+            Configuration.ShowCosmicExplorationMessages =
+                Configuration.ShowStellarMissionMessages || Configuration.ShowAllOtherGathering;
+            Configuration.Version = 2;
+            Configuration.Save();
+        }
+
         Rules.UpdateIsActiveStates(Configuration);
 
         ReloadGameDataCaches(validateRuleIds: true);

@@ -3,11 +3,38 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
+    /// <see href="https://xivapi.com/LogMessage/586?pretty=true">Only available while crafting.</see>
+    public static readonly LocalizedStrings OnlyAvailableWhileCrafting = new()
+    {
+        Jpn = ["製作", "製作練習", "のみ"],
+        Eng = ["only", "available", "while", "crafting"],
+        Deu = ["synthese", "testsynthese", "verwendbar"],
+        Fra = ["synthèse", "réservée"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/579?pretty=true">Cannot execute at this time.</see>
     public static readonly LocalizedStrings CannotExecute = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["cannot", "execute"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/726?pretty=true">The command "…" is unavailable at this time.</see>
+    public static readonly LocalizedStrings CommandUnavailable = new()
+    {
+        Jpn = ["コマンド", "使用"],
+        Eng = ["command", "unavailable"],
+        Deu = ["befehl", "nicht", "verfügbar"],
+        Fra = ["commande", "indisponible"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/899?pretty=true">Only a party leader may register for duty.</see>
+    public static readonly LocalizedStrings PartyLeaderDutyRegister = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["party", "leader", "register", "duty"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -19,6 +46,15 @@ public static partial class ChatStrings
         Eng = ["unable", "execute", "command", "casting"],
         Deu = ["aktion", "aus"],
         Fra = ["impossible", "exécuter", "commande", "lancer"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7704?pretty=true">Unable to execute command while mounted.</see>
+    public static readonly LocalizedStrings UnableToExecuteWhileMounted = new()
+    {
+        Jpn = ["騎乗中"],
+        Eng = ["unable", "execute", "command", "mounted"],
+        Deu = ["reitens", "ausgeführt"],
+        Fra = ["impossible", "exécuter", "commande", "monture"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/7122?pretty=true">Unable to convert matched party save data.</see>
@@ -102,6 +138,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/599?pretty=true">Cannot see target.</see>
+    public static readonly LocalizedStrings CannotSeeTarget = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["cannot", "see", "target"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/566?pretty=true">Target is not in range.</see>
     public static readonly LocalizedStrings TargetNotInRange = new()
     {
@@ -116,6 +161,15 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["too", "far", "away"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1314?pretty=true">Action canceled. You are under attack.</see>
+    public static readonly LocalizedStrings ActionCanceledUnderAttack = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["action", "canceled", "under", "attack"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -156,11 +210,29 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/7488?pretty=true">Player has sent you a friend request.</see>
+    public static readonly LocalizedStrings FriendRequestReceived = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["sent", "you", "friend", "request"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/78?pretty=true">Player is now on your friend list.</see>
     public static readonly LocalizedStrings FriendAddedToList = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["friend", "list"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/81?pretty=true">List updated.</see>
+    public static readonly LocalizedStrings FriendListUpdated = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["list", "updated"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

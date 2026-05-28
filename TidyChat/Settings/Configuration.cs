@@ -145,6 +145,7 @@ public class Configuration : IPluginConfiguration
     #region Deep Dungeons
 
     public bool ShowObtainedPomander { get; set; } = true;
+    public bool ShowTrapTriggered { get; set; } = true;
     public bool ShowCairnGlows { get; set; } = true;
     public bool ShowRestoresLifeToFallen { get; set; } = false;
     public bool ShowCairnActivates { get; set; } = true;
@@ -239,6 +240,10 @@ public class Configuration : IPluginConfiguration
     public bool ShowLureMessages { get; set; } = true;
     public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
+    public bool ShowStellarMissionMessages { get; set; } = false;
+    public bool ShowCosmicExplorationMessages { get; set; } = true;
+    public bool ShowCosmicRewards { get; set; } = true;
+    public bool ShowCosmicDailyProgress { get; set; } = true;
 
     #endregion
 

@@ -392,6 +392,21 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CraftingGatheringTab_ShowAllOtherGathering" xml:space="preserve">
     <value>Show all other Gathering messages</value>
   </data>
+  <data name="CraftingGatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
+    <value>Stellar Missions / Cosmic Exploration</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowStellarMissionMessages" xml:space="preserve">
+    <value>Show stellar mission messages</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
+    <value>Show cosmic exploration messages</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
+    <value>Show cosmic currency and container obtains</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
+    <value>Show cosmic class points and daily progress</value>
+  </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
     <value>Show synthesis complete message</value>
   </data>
@@ -1158,6 +1173,12 @@ eg. “Red Mage” equipped.</value>
   </data>
   <data name="SystemTab_ShowPomanderEffectsMessages" xml:space="preserve">
     <value>Show pomander effect messages</value>
+  </data>
+  <data name="SystemTab_ShowTrapTriggeredMessages" xml:space="preserve">
+    <value>Show trap triggered messages</value>
+  </data>
+  <data name="SystemTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
   </data>
   <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Show received party invitations</value>

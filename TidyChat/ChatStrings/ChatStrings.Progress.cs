@@ -3,6 +3,15 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
+    /// <see href="https://xivapi.com/LogMessage/410?pretty=true">You can now accept the next class/job quest.</see>
+    public static readonly LocalizedStrings ClassJobQuestAvailable = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["accept", "next", "class", "job", "quest"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">Quest accepted.</see>
     public static readonly LocalizedStrings QuestAccepted = new()
     {
@@ -17,6 +26,24 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["complete"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3780?pretty=true">Challenge log entry "…" complete!</see>
+    public static readonly LocalizedStrings ChallengeLogComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["challenge", "log", "entry", "complete"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3783?pretty=true">Challenge log entry "…" is almost complete!</see>
+    public static readonly LocalizedStrings ChallengeLogAlmostComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["challenge", "log", "entry", "almost", "complete"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -39,6 +66,15 @@ public static partial class ChatStrings
         Fra = ["vous", "jcj"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/549?pretty=true">EXP chain #N! Chain expires in N seconds.</see>
+    public static readonly LocalizedStrings ExpChainBonus = new()
+    {
+        Jpn = ["チェーン"],
+        Eng = ["exp", "chain"],
+        Deu = ["erfolgssträhne"],
+        Fra = ["chaîne"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/588?pretty=true">You gain N experience points.</see>
     public static readonly LocalizedStrings GainExperience = new()
     {
@@ -46,6 +82,42 @@ public static partial class ChatStrings
         Eng = ["gain", "experience", "point"],
         Deu = ["routine", "erfahrung"],
         Fra = ["expérience", "point"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10874?pretty=true">You earn N cosmic class points for …</see>
+    public static readonly LocalizedStrings CosmicClassPoints = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["earn", "cosmic", "class", "point"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10875?pretty=true">You earn N daily points.</see>
+    public static readonly LocalizedStrings DailyPointsEarned = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["earn", "daily", "point"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11156?pretty=true">You achieved the "…" daily success!</see>
+    public static readonly LocalizedStrings DailySuccessAchieved = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["achieved", "daily", "success"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10877?pretty=true">Daily success goal achieved!</see>
+    public static readonly LocalizedStrings DailySuccessGoalAchieved = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["daily", "success", "goal", "achieved"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">You earn the achievement "…"!</see>
