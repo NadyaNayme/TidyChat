@@ -142,6 +142,34 @@ public static partial class Rules
             ObtainMarkerAnyElemental = true,
             ObtainMarkerRequireSharedTemplate = false
         },
+        // Dedicated obtain templates (1606/1607/750/751); not part of SharedObtainTemplateIds.
+        new()
+        {
+            Name = "HideObtainedShards",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [1606, 1607, 750, 751],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerAnyElemental = true,
+            ObtainMarkerRequireSharedTemplate = false
+        },
+        new()
+        {
+            Name = "HideObtainedShards",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [1606, 1607, 750, 751],
+            RegexChecks = [ChatRegexStrings.ObtainedShards],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerAnyElemental = true,
+            ObtainMarkerRequireSharedTemplate = false
+        },
         new()
         {
             Name = "ShowOthersLootRoll",
