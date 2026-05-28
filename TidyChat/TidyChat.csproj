@@ -6,17 +6,14 @@
         <Version>3.1.0.0</Version>
         <Platforms>AnyCPU</Platforms>
         <PlatformTarget>x64</PlatformTarget>
-        <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
+        <Description>Trim the messages FFXIV dumps into your chat log.
 
-            Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
-
-            - Filters most spammy game messages
-            - Blocks emote spam from other players
-            - Condenses earned commendations into a single line
-            - Shortens lengthy messages such as joining Novice Network or entering an instanced zone
-            - Blocks repeated messages from appearing for a period of time
-            - Automatically copies most 'with your chat mode in /say' quest dialogue to your clipboard
-            - And more!
+            - Master filters for System, Progress, Loot, Obtained, Crafting, and Gathering
+            - Toggles for currencies, FC and retainer messages, level-ups, mount unlocks, orchestrion lines, deep dungeon pomanders, combat log categories, and more
+            - Balanced, Minimal, and Vanilla+ presets. Apply one, then change whatever you want
+            - Shorter rewrites for instance entry, commendations, Novice Network, and treasure dungeon text
+            - Copies /say quest dialogue to your clipboard; can block emote spam from others
+            - Player whitelist, chat history deduplication, per-tomestone hides, and debug logging
         </Description>
         <Copyright></Copyright>
         <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>

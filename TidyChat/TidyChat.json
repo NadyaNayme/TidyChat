@@ -2,8 +2,8 @@
   "Author": "Nadya, Kagekazu",
   "Name": "Tidy Chat",
   "InternalName": "TidyChat",
-  "Punchline": "Better game messages and in-depth chat filters to keep a tidy chat.",
-  "Description": "It is highly recommended to edit the default settings as you may disagree on which messages should be considered \"spam\"!\n\nProvides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.\n\n  - Filters most spammy game messages\n  - Blocks emote spam from other players\n  - Condenses earned commendations into a single line\n  - Shortens lengthy messages such as joining Novice Network or entering an instanced zone\n  - Blocks repeated messages from appearing for a period of time\n  - Automatically copies most 'with your chat mode in /say' quest dialogue to your clipboard\n  - Write custom filters to Allow/Block messages!\n  - And more!",
+  "Punchline": "Cut down FFXIV chat spam with filter presets, per-message toggles, and shorter system lines.",
+  "Description": "Trim the messages FFXIV dumps into your chat log.\n\n  - Master filters for System, Progress, Loot, Obtained, Crafting, and Gathering\n  - Toggles for currencies, FC and retainer messages, level-ups, mount unlocks, orchestrion lines, deep dungeon pomanders, combat log categories, and more\n  - Balanced, Minimal, and Vanilla+ presets. Apply one, then change whatever you want\n  - Shorter rewrites for instance entry, commendations, Novice Network, and treasure dungeon text\n  - Copies /say quest dialogue to your clipboard; can block emote spam from others\n  - Player whitelist, chat history deduplication, per-tomestone hides, and debug logging",
   "ApplicableVersion": "any",
   "RepoUrl": "https://github.com/NadyaNayme/TidyChat",
   "Tags": [
