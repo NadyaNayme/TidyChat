@@ -170,6 +170,18 @@ public static partial class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
+            LogMessageIds = [1168],
+            StringChecks = [ChatStrings.CraftingMaterialRemoved],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        // OnChat fallback when LogMessage handling did not run.
+        new()
+        {
+            Name = "ShowAllOtherCrafting",
+            SettingsTab = "Crafting",
+            Channel = ChatType.Crafting,
+            IsActive = true,
             StringChecks = [ChatStrings.CraftingMaterialRemoved],
             Pattern = PatternKind.StringMatch
         },
