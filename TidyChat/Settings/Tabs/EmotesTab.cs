@@ -6,29 +6,34 @@ internal static class EmotesTab
 {
     public static void Draw(Configuration configuration)
     {
-        bool filterEmoteSpam = configuration.FilterEmoteChannel;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
+        if (ImGui.TreeNode(Languages.GeneralTab_FilterEmoteChannelsHeader))
         {
-            configuration.FilterEmoteChannel = filterEmoteSpam;
-            configuration.Save();
+            bool filterEmoteSpam = configuration.FilterEmoteChannel;
+            if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
+            {
+                configuration.FilterEmoteChannel = filterEmoteSpam;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
+
+            bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
+            if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
+            {
+                configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
+
+            ImGui.TreePop();
         }
-
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
-
-        bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
-        if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
-        {
-            configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
-            configuration.Save();
-        }
-
-        ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
         bool showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))
         {
             configuration.ShowSelfUsedEmotes = showSelfUsedEmotes;
-            configuration.Save();
+            configuration.OnSettingChanged();
         }
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterSelfEmotesHelpMarker);

@@ -97,6 +97,31 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
+            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerAnyElemental = true
+        },
+        new()
+        {
+            Name = "HideObtainedShards",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            RegexChecks = [ChatRegexStrings.ObtainedShards],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true,
+            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
+            ObtainMarkerAnyElemental = true
+        },
+        new()
+        {
+            Name = "HideObtainedShards",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
             LogMessageIds = [1233],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
@@ -161,6 +186,34 @@ public static partial class Rules
             ObtainMarkerOtherPlayer = true,
             ExcludePlayerObtain = true,
             StringChecks = [ChatStrings.OtherObtainMarker]
+        },
+        new()
+        {
+            Name = "HideOthersObtain",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
+            StringChecks = [ChatStrings.ObtainMaterialsMarker],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerMaterials = true,
+            ExcludePlayerObtain = true
+        },
+        new()
+        {
+            Name = "HideOthersObtain",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerMaterials = true,
+            ExcludePlayerObtain = true,
+            StringChecks = [ChatStrings.ObtainMaterialsMarker]
         }
     ];
 }

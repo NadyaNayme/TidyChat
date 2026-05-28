@@ -7,7 +7,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [502],
@@ -18,7 +18,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [534],
@@ -29,7 +29,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [537, 538],
@@ -40,7 +40,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [540, 541, 542],
@@ -50,7 +50,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [1472],
@@ -62,7 +62,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             StringChecks = [ChatStrings.CombatInterruptPrevent],
@@ -72,7 +72,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatCasting",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             StringChecks = [ChatStrings.CombatCastInterrupted],
@@ -81,7 +81,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatAbilities",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [533],
@@ -92,7 +92,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDamage",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [523],
@@ -103,7 +103,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDamage",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [504, 505, 508, 509, 510, 511, 517],
@@ -114,7 +114,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDamage",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [447, 448],
@@ -125,7 +125,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDamage",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [450, 451],
@@ -136,7 +136,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDamage",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [518],
@@ -147,7 +147,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatMisses",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
             LogMessageIds = [506, 600, 515, 612]
@@ -155,7 +155,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatMisses",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
             LogMessageIds = [506],
@@ -166,7 +166,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatMisses",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
             LogMessageIds = [600],
@@ -177,7 +177,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatMisses",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
             LogMessageIds = [612],
@@ -188,7 +188,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatMisses",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
             StringChecks = [ChatStrings.CombatUnaffected],
@@ -197,7 +197,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatHealing",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Healing,
             IsActive = true,
             LogMessageIds = [519, 520],
@@ -208,7 +208,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatHealing",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Healing,
             IsActive = true,
             LogMessageIds = [560],
@@ -219,7 +219,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.GainDebuff,
             IsActive = true,
             LogMessageIds = [527, 604],
@@ -230,7 +230,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
             LogMessageIds = [596],
@@ -241,7 +241,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.LoseDebuff,
             IsActive = true,
             LogMessageIds = [532, 551],
@@ -252,7 +252,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.GainBuff,
             IsActive = true,
             LogMessageIds = [526],
@@ -263,7 +263,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.LoseBuff,
             IsActive = true,
             LogMessageIds = [531, 550],
@@ -274,7 +274,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.GainBuff,
             IsActive = true,
             LogMessageIds = [528],
@@ -285,7 +285,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [640],
@@ -296,7 +296,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEffects",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [617],
@@ -307,7 +307,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDefeat",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [557],
@@ -318,7 +318,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatDefeat",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [558],
@@ -329,7 +329,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEnemyReady",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [501],
@@ -340,7 +340,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatAdds",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [555],
@@ -351,7 +351,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCombatEnmity",
-            SettingsTab = "System",
+            SettingsTab = "Combat",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [536],

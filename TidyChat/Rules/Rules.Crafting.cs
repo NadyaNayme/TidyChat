@@ -247,7 +247,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-new()
+        new()
         {
             Name = "ShowMateriaRetrieved",
             SettingsTab = "System",
@@ -273,7 +273,7 @@ new()
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.MateriaAttemptRemove],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -427,6 +427,6 @@ new()
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             LogMessageIds = [3553, 3555, 1049, 1050, 1053, 1054, 5514, 5516, 5573, 5574, 5550, 3549, 3569]
-        },
+        }
     ];
 }

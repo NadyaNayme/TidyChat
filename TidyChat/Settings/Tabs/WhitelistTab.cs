@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Numerics;
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
@@ -16,7 +16,7 @@ internal static class WhitelistTab
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
         {
             configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
-            configuration.Save();
+            configuration.OnSettingChanged();
         }
 
         bool targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
@@ -24,7 +24,7 @@ internal static class WhitelistTab
                 ref targetingWhitelistPlayer))
         {
             configuration.TargetingWhitelistPlayer = targetingWhitelistPlayer;
-            configuration.Save();
+            configuration.OnSettingChanged();
         }
 
         ImGui.TextUnformatted(Languages.WhitelistTab_ExplanationMessage);
@@ -56,33 +56,33 @@ internal static class WhitelistTab
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 3)) configuration.Save();
+                        1 << 3)) configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 2)) configuration.Save();
+                        1 << 2)) configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
                         ref alias.WhitelistedChannels, 1 << 1))
-                    configuration.Save();
+                    configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags($"{Languages.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
                         ref alias.WhitelistedChannels, 1 << 5))
-                    configuration.Save();
+                    configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 8)) configuration.Save();
+                        1 << 8)) configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 9)) configuration.Save();
+                        1 << 9)) configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
-                        ref alias.WhitelistedChannels, 1 << 7)) configuration.Save();
+                        ref alias.WhitelistedChannels, 1 << 7)) configuration.OnSettingChanged();
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 4)) configuration.Save();
+                        1 << 4)) configuration.OnSettingChanged();
             }
 
             ImGui.Spacing();
@@ -105,7 +105,7 @@ internal static class WhitelistTab
                     m_placeholder = new();
                 }
 
-                configuration.Save();
+                configuration.OnSettingChanged();
             }
 
             // Match-mode selector for existing entries. Hidden for regex entries (the regex itself controls matching)
@@ -122,13 +122,13 @@ internal static class WhitelistTab
                             alias.MatchMode == PlayerNameMatchMode.MessageContains))
                     {
                         alias.MatchMode = PlayerNameMatchMode.MessageContains;
-                        configuration.Save();
+                        configuration.OnSettingChanged();
                     }
                     if (ImGui.Selectable("Exact sender only",
                             alias.MatchMode == PlayerNameMatchMode.ExactSender))
                     {
                         alias.MatchMode = PlayerNameMatchMode.ExactSender;
-                        configuration.Save();
+                        configuration.OnSettingChanged();
                     }
                     ImGui.EndCombo();
                 }
@@ -159,13 +159,13 @@ internal static class WhitelistTab
                     if (ImGui.Selectable($"{Languages.WhitelistTab_Allow}##{i}", alias.AllowMessage))
                     {
                         alias.AllowMessage = true;
-                        configuration.Save();
+                        configuration.OnSettingChanged();
                     }
 
                     if (ImGui.Selectable($"{Languages.WhitelistTab_Block}##{i}", !alias.AllowMessage))
                     {
                         alias.AllowMessage = false;
-                        configuration.Save();
+                        configuration.OnSettingChanged();
                     }
 
                     ImGui.EndCombo();
@@ -183,7 +183,7 @@ internal static class WhitelistTab
             if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
             {
                 configuration.Whitelist.Remove(list[i]);
-                configuration.Save();
+                configuration.OnSettingChanged();
             }
 
             ImGui.PopID();

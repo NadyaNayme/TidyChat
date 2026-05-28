@@ -9,22 +9,22 @@ public static partial class Rules
 
     private static readonly Dictionary<string, Func<Configuration, bool>> ConfigAccessors = new(StringComparer.Ordinal)
     {
-        ["ShowSRankHunt"] = c => c.ShowSRankHunt,
-        ["ShowSSRankHunt"] = c => c.ShowSSRankHunt,
+        ["ShowSRankHunt"] = _ => true,
+        ["ShowSSRankHunt"] = _ => true,
         ["ShowCompletedVenture"] = c => c.ShowCompletedVenture,
         ["ShowCommendations"] = c => c.ShowCommendations,
-        ["ShowInstanceMessage"] = c => c.ShowInstanceMessage,
-        ["ShowSanctuaryMessage"] = c => c.ShowSanctuaryMessage,
+        ["ShowInstanceMessage"] = _ => true,
+        ["ShowSanctuaryMessage"] = _ => true,
         ["ShowHousingWardMessage"] = c => c.ShowHousingWardMessage,
         ["ShowQuestReminder"] = c => c.ShowQuestReminder,
-        ["ShowQuestProgress"] = c => c.ShowQuestProgress,
+        ["ShowQuestProgress"] = _ => true,
         ["ShowMountMessages"] = c => c.ShowMountMessages,
         ["ShowInviteSent"] = c => c.ShowInviteSent,
         ["ShowInviteeJoins"] = c => c.ShowInviteeJoins,
         ["ShowLeftParty"] = c => c.ShowLeftParty,
         ["ShowPartyDisband"] = c => c.ShowPartyDisband,
         ["ShowPartyDissolved"] = c => c.ShowPartyDissolved,
-        ["ShowInvitedBy"] = c => c.ShowInvitedBy,
+        ["ShowInvitedBy"] = _ => true,
         ["ShowJoinParty"] = c => c.ShowJoinParty,
         ["ShowDutyFinder"] = c => c.ShowDutyFinder,
         ["ShowHuntSlain"] = c => c.ShowHuntSlain,
@@ -35,7 +35,7 @@ public static partial class Rules
         ["ShowDesynthedItem"] = c => c.ShowDesynthedItem,
         ["ShowDesynthesisObtains"] = c => c.ShowDesynthesisObtains,
         ["ShowObtainedPomander"] = c => c.ShowObtainedPomander,
-        ["ShowTrapTriggered"] = c => c.ShowTrapTriggered,
+        ["ShowTrapTriggered"] = _ => true,
         ["ShowCairnGlows"] = c => c.ShowCairnGlows,
         ["ShowRestoresLifeToFallen"] = c => c.ShowRestoresLifeToFallen,
         ["ShowCairnActivates"] = c => c.ShowCairnActivates,
@@ -47,10 +47,10 @@ public static partial class Rules
         ["ShowSenseAccursedHoard"] = c => c.ShowSenseAccursedHoard,
         ["ShowDoNotSenseAccursedHoard"] = c => c.ShowDoNotSenseAccursedHoard,
         ["ShowDiscoverAccursedHoard"] = c => c.ShowDiscoverAccursedHoard,
-        ["ShowReadyChecks"] = c => c.ShowReadyChecks,
-        ["ShowSpideySenses"] = c => c.ShowSpideySenses,
+        ["ShowReadyChecks"] = _ => true,
+        ["ShowSpideySenses"] = _ => true,
         ["ShowAetherCompass"] = c => c.ShowAetherCompass,
-        ["ShowCountdownTime"] = c => c.ShowCountdownTime,
+        ["ShowCountdownTime"] = _ => true,
         ["ShowSpiritboundGear"] = c => c.ShowSpiritboundGear,
         ["ShowExploratoryVoyage"] = c => c.ShowExploratoryVoyage,
         ["ShowSubaquaticVoyage"] = c => c.ShowSubaquaticVoyage,
@@ -68,23 +68,22 @@ public static partial class Rules
         ["ShowFirstClearAward"] = c => c.ShowFirstClearAward,
         ["ShowSecondChanceAward"] = c => c.ShowSecondChanceAward,
         ["HideFateLevelSync"] = c => c.HideFateLevelSync,
-        ["HideCannotExecute"] = c => c.HideCannotExecute,
-        ["ShowFateDiscovery"] = c => c.ShowFateDiscovery,
+        ["ShowFateDiscovery"] = _ => true,
         ["ShowActiveHelpEntry"] = c => c.ShowActiveHelpEntry,
         ["ShowOfferedTeleport"] = c => c.ShowOfferedTeleport,
         ["ShowGearsetEquipped"] = c => c.ShowGearsetEquipped,
         ["ShowMateriaRetrieved"] = c => c.ShowMateriaRetrieved,
-        ["ShowMateriaShatters"] = c => c.ShowMateriaShatters,
-        ["ShowVolumeControlMessage"] = c => c.ShowVolumeControlMessage,
+        ["ShowMateriaShatters"] = _ => true,
+        ["ShowVolumeControlMessage"] = _ => true,
         ["ShowAetherialReductionSands"] = c => c.ShowAetherialReductionSands,
-        ["ShowSealedOff"] = c => c.ShowSealedOff,
+        ["ShowSealedOff"] = _ => true,
         ["ShowSearchForItemResults"] = c => c.ShowSearchForItemResults,
         ["ShowAetheryteTicket"] = c => c.ShowAetheryteTicket,
         ["BetterNoviceNetworkMessage"] = c => c.BetterNoviceNetworkMessage,
         ["FilterEmoteChannel"] = c => c.FilterEmoteChannel,
         ["ShowOtherCustomEmotes"] = c => c.ShowOtherCustomEmotes,
         ["ShowAttachedMateria"] = c => c.ShowAttachedMateria,
-        ["ShowOvermeldFailure"] = c => c.ShowOvermeldFailure,
+        ["ShowOvermeldFailure"] = _ => true,
         ["ShowMateriaExtract"] = c => c.ShowMateriaExtract,
         ["ShowTrialMessages"] = c => c.ShowTrialMessages,
         ["ShowOtherSynthesis"] = c => c.ShowOtherSynthesis,
@@ -104,7 +103,7 @@ public static partial class Rules
         ["ShowLureMessages"] = c => c.ShowLureMessages,
         ["ShowAllOtherGathering"] = c => c.ShowAllOtherGathering,
         ["ShowStellarMissionMessages"] = c => c.ShowStellarMissionMessages,
-        ["ShowCosmicExplorationMessages"] = c => c.ShowCosmicExplorationMessages,
+        ["ShowCosmicExplorationMessages"] = _ => true,
         ["ShowCosmicRewards"] = c => c.ShowCosmicRewards,
         ["ShowCosmicDailyProgress"] = c => c.ShowCosmicDailyProgress,
         ["ShowCombatCasting"] = c => c.ShowCombatCasting,
@@ -115,13 +114,13 @@ public static partial class Rules
         ["ShowCombatEffects"] = c => c.ShowCombatEffects,
         ["ShowCombatDefeat"] = c => c.ShowCombatDefeat,
         ["ShowCombatEnemyReady"] = c => c.ShowCombatEnemyReady,
-        ["ShowCombatAdds"] = c => c.ShowCombatAdds,
+        ["ShowCombatAdds"] = _ => true,
         ["ShowCombatEnmity"] = c => c.ShowCombatEnmity,
-        ["ShowObtainedQuestItems"] = c => c.ShowObtainedQuestItems,
+        ["ShowObtainedQuestItems"] = _ => true,
         ["ShowObtainedItems"] = c => c.ShowObtainedItems,
         ["ShowUserLogins"] = c => c.ShowUserLogins,
         ["ShowUserLogouts"] = c => c.ShowUserLogouts,
-        ["ShowFriendList"] = c => c.ShowFriendList,
+        ["ShowFriendList"] = _ => true,
         ["HideOrchestrionPlaying"] = c => c.HideOrchestrionPlaying,
         ["ShowLootRoll"] = c => c.ShowLootRoll,
         ["ShowCastLot"] = c => c.ShowCastLot,
@@ -142,8 +141,6 @@ public static partial class Rules
         ["HideObtainedCenturioSeals"] = c => c.HideObtainedCenturioSeals,
         ["HideObtainedNuts"] = c => c.HideObtainedNuts,
         ["HideObtainedMaterials"] = c => c.HideObtainedMaterials,
-        ["HideObtainedShardsFromLoot"] = c => c.HideObtainedShardsFromLoot,
-        ["HideOthersObtainFromLoot"] = c => c.HideOthersObtainFromLoot,
         ["ShowCompletionTime"] = c => c.ShowCompletionTime,
         ["ShowGainExperience"] = c => c.ShowGainExperience,
         ["ShowGainPvpExp"] = c => c.ShowGainPvpExp,
@@ -151,10 +148,16 @@ public static partial class Rules
         ["ShowOtherEarnedAchievement"] = c => c.ShowOtherEarnedAchievement,
         ["ShowLevelUps"] = c => c.ShowLevelUps,
         ["ShowOtherLevelUps"] = c => c.ShowOtherLevelUps,
-        ["ShowAbilityUnlocks"] = c => c.ShowAbilityUnlocks,
+        ["ShowAbilityUnlocks"] = _ => true,
         ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel,
         ["ShowEverythingElse"] = c => c.ShowEverythingElse
     };
+
+    static Rules()
+    {
+        _rules = CreateRules();
+        LogMessageIdToRules = BuildLogMessageIdLookup();
+    }
 
     public static LocalizedFilterRule[] AllRules => [.. _rules];
 
@@ -163,12 +166,6 @@ public static partial class Rules
     /// </summary>
     public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } =
         new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>();
-
-    static Rules()
-    {
-        _rules = CreateRules();
-        LogMessageIdToRules = BuildLogMessageIdLookup();
-    }
 
     private static List<LocalizedFilterRule> CreateRules()
     {

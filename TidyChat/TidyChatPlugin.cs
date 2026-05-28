@@ -81,7 +81,9 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         PluginInterface.LanguageChanged += UpdateLang;
         UpdateLang(PluginInterface.UiLanguage);
 
-        Configuration = PluginInterface.GetPluginConfig() as Configuration ?? new Configuration();
+        var loaded = PluginInterface.GetPluginConfig() as Configuration;
+        bool isNewConfig = loaded is null;
+        Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
         if (Configuration.Version < 1)
         {
@@ -99,6 +101,47 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             Configuration.ShowCosmicExplorationMessages =
                 Configuration.ShowStellarMissionMessages || Configuration.ShowAllOtherGathering;
             Configuration.Version = 2;
+            Configuration.Save();
+        }
+
+        if (Configuration.Version < 3)
+        {
+            if (Configuration.HideObtainedShardsFromLoot)
+                Configuration.HideObtainedShards = true;
+            Configuration.Version = 3;
+            Configuration.Save();
+        }
+
+        if (Configuration.Version < 4)
+        {
+            if (Configuration.HideOthersObtainFromLoot)
+                Configuration.HideOthersObtain = true;
+            Configuration.ShowSSRankHunt = Configuration.ShowSRankHunt || Configuration.ShowSSRankHunt;
+            Configuration.ShowUserLogouts = Configuration.ShowUserLogins || Configuration.ShowUserLogouts;
+            Configuration.ShowSubaquaticVoyage = Configuration.ShowExploratoryVoyage || Configuration.ShowSubaquaticVoyage;
+            Configuration.ShowTradeCanceled = Configuration.ShowTradeSent || Configuration.ShowTradeCanceled;
+            Configuration.ShowAwaitingTradeConfirmation = Configuration.ShowTradeSent || Configuration.ShowAwaitingTradeConfirmation;
+            Configuration.ShowTradeComplete = Configuration.ShowTradeSent || Configuration.ShowTradeComplete;
+            Configuration.ShowRelicBookComplete = Configuration.ShowRelicBookStep || Configuration.ShowRelicBookComplete;
+            Configuration.ShowDesynthedItem = Configuration.ShowDesynthesisLevel || Configuration.ShowDesynthedItem;
+            Configuration.ShowDesynthesisObtains = Configuration.ShowDesynthesisLevel || Configuration.ShowDesynthesisObtains;
+            Configuration.HideAdventurerInNeedBonus = Configuration.HideRouletteBonus || Configuration.HideAdventurerInNeedBonus;
+            Configuration.ShowLootRoll = Configuration.ShowCastLot || Configuration.ShowLootRoll;
+            Configuration.ShowOthersLootRoll = Configuration.ShowOthersCastLot || Configuration.ShowOthersLootRoll;
+            Configuration.ShowOtherEarnedAchievement = Configuration.ShowEarnAchievement || Configuration.ShowOtherEarnedAchievement;
+            Configuration.FilterCustomEmoteChannel = Configuration.FilterEmoteChannel || Configuration.FilterCustomEmoteChannel;
+            Configuration.Version = 4;
+            Configuration.Save();
+        }
+
+        // TODO(next release): Config migration v5 — remove deprecated Configuration properties listed in
+        // docs/rules-review-checklist.md (always-on toggles, HideObtainedShardsFromLoot, HideOthersObtainFromLoot).
+        // Decouple always-on rule Name fields from removed config keys; stop reading legacy keys in ObtainTab.
+        // Bump Configuration.Version to 5 after v1–v4 migrations remain for upgrade path.
+
+        if (isNewConfig)
+        {
+            Configuration.FilterProfile = FilterProfile.Balanced;
             Configuration.Save();
         }
 
@@ -534,7 +577,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty &&
-            Configuration is { ShowPartyInformation: true, FilterSystemMessages: true })
+            Configuration.FilterSystemMessages)
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
             return true;

@@ -14,7 +14,10 @@ namespace TidyChat.Data;
 public static class LogMessageCatalog
 {
 
-    /// <summary>Shared "You obtain …" templates for currency marker hide rules (657 family). Excludes 1606 (dedicated item obtain).</summary>
+    /// <summary>
+    ///     Shared "You obtain …" templates for currency marker hide rules (657 family). Excludes 1606 (dedicated item
+    ///     obtain).
+    /// </summary>
     public static readonly uint[] SharedObtainTemplateIds = [657, 1259];
 
     private static readonly Dictionary<uint, string[]> WordTokensById = new();

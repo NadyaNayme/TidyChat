@@ -7,6 +7,7 @@ namespace TidyChat;
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
+    [NonSerialized] private bool _pendingPersist;
     // the below exist just to make saving less cumbersome
 
     [NonSerialized] private IDalamudPluginInterface? pluginInterface;
@@ -29,6 +30,7 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
+    public FilterProfile FilterProfile { get; set; } = FilterProfile.Balanced;
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
@@ -42,12 +44,37 @@ public class Configuration : IPluginConfiguration
         pluginInterface!.SavePluginConfig(this);
         Rules.UpdateIsActiveStates(this);
         TidyChatPlugin.InstanceDtrBarUpdate(this);
+        _pendingPersist = false;
+    }
+
+    /// <summary>Apply a settings change in-session; persisted when the config window closes.</summary>
+    public void OnSettingChanged()
+    {
+        if (FilterProfile != FilterProfile.Custom)
+        {
+            FilterProfile = FilterProfile.Custom;
+            FilterProfiles.SyncProfileSelector((int)FilterProfile.Custom);
+        }
+
+        Rules.UpdateIsActiveStates(this);
+        TidyChatPlugin.InstanceDtrBarUpdate(this);
+        _pendingPersist = true;
+    }
+
+    public void PersistIfDirty()
+    {
+        if (!_pendingPersist)
+            return;
+
+        pluginInterface!.SavePluginConfig(this);
+        _pendingPersist = false;
     }
 
     #region Error Messages
 
-    public bool HideFateLevelSync { get; set; } = false;
-    public bool HideCannotExecute { get; set; } = true;
+    public bool HideFateLevelSync { get; set; } = true;
+
+    /// <summary>Deprecated: FATE discovery is always shown; retained for config deserialization.</summary>
     public bool ShowFateDiscovery { get; set; } = true;
 
     #endregion
@@ -79,37 +106,63 @@ public class Configuration : IPluginConfiguration
 
     #region Whitelisted System Messages
 
+    /// <summary>Deprecated: S-rank hunt spawns are always shown; retained for config deserialization.</summary>
     public bool ShowSRankHunt { get; set; } = true;
+
+    /// <summary>Deprecated: SS-rank hunt spawns are always shown; retained for config deserialization.</summary>
     public bool ShowSSRankHunt { get; set; } = true;
+
     public bool ShowCommendations { get; set; } = true;
-    public bool ShowCompletedVenture { get; set; } = true;
+    public bool ShowCompletedVenture { get; set; } = false;
+
+    /// <summary>Deprecated: instance messages are always shown; retained for config deserialization.</summary>
     public bool ShowInstanceMessage { get; set; } = true;
+
+    /// <summary>Deprecated: sanctuary messages are always shown; retained for config deserialization.</summary>
     public bool ShowSanctuaryMessage { get; set; } = true;
+
     public bool ShowHousingWardMessage { get; set; } = true;
     public bool ShowQuestReminder { get; set; } = true;
+
+    /// <summary>Deprecated: quest progress is always shown; retained for config deserialization.</summary>
     public bool ShowQuestProgress { get; set; } = true;
+
     public bool ShowMountMessages { get; set; } = true;
     public bool ShowSelfUsedEmotes { get; set; } = true;
     public bool ShowOtherCustomEmotes { get; set; } = true;
+
+    /// <summary>Deprecated: ready checks are always shown; retained for config deserialization.</summary>
     public bool ShowReadyChecks { get; set; } = true;
+
+    /// <summary>Deprecated: countdown timers are always shown; retained for config deserialization.</summary>
     public bool ShowCountdownTime { get; set; } = true;
-    public bool ShowUserLogins { get; set; } = true;
-    public bool ShowUserLogouts { get; set; } = true;
+
+    public bool ShowUserLogins { get; set; } = false;
+    public bool ShowUserLogouts { get; set; } = false;
+
+    /// <summary>Deprecated: friend list changes are always shown; retained for config deserialization.</summary>
     public bool ShowFriendList { get; set; } = true;
-    public bool ShowSpiritboundGear { get; set; } = true;
+
+    public bool ShowSpiritboundGear { get; set; } = false;
+
+    /// <summary>Deprecated: treasure sense messages are always shown; retained for config deserialization.</summary>
     public bool ShowSpideySenses { get; set; } = true;
+
     public bool ShowAetherCompass { get; set; } = true;
     public bool ShowSearchForItemResults { get; set; } = true;
-    public bool ShowExploratoryVoyage { get; set; } = true;
-    public bool ShowSubaquaticVoyage { get; set; } = true;
+    public bool ShowExploratoryVoyage { get; set; } = false;
+    public bool ShowSubaquaticVoyage { get; set; } = false;
     public bool ShowFreeCompanyMessageBook { get; set; } = true;
     public bool ShowPersonalMessageBook { get; set; } = true;
     public bool ShowVistaMessages { get; set; } = true;
     public bool ShowTryOnGlamour { get; set; } = true;
-    public bool ShowEligibleForCoffers { get; set; } = true;
+    public bool ShowEligibleForCoffers { get; set; } = false;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
+
+    /// <summary>Deprecated: BGM/volume change messages are always shown; retained for config deserialization.</summary>
     public bool ShowVolumeControlMessage { get; set; } = false;
+
     public bool ShowTradeSent { get; set; } = false;
     public bool ShowTradeCanceled { get; set; } = false;
     public bool ShowAwaitingTradeConfirmation { get; set; } = false;
@@ -119,12 +172,21 @@ public class Configuration : IPluginConfiguration
     public bool ShowLeftParty { get; set; } = false;
     public bool ShowPartyDisband { get; set; } = false;
     public bool ShowPartyDissolved { get; set; } = false;
+
+    /// <summary>Deprecated: party invites received are always shown; retained for config deserialization.</summary>
     public bool ShowInvitedBy { get; set; } = false;
+
     public bool ShowJoinParty { get; set; } = false;
+
+    /// <summary>Deprecated: party objective on join is always shown; retained for config deserialization.</summary>
     public bool ShowPartyInformation { get; set; } = true;
+
     public bool ShowDutyFinder { get; set; } = true;
     public bool ShowOfferedTeleport { get; set; } = false;
+
+    /// <summary>Deprecated: sealed-off notifications are always shown; retained for config deserialization.</summary>
     public bool ShowSealedOff { get; set; } = false;
+
     public bool ShowHuntSlain { get; set; } = false;
     public bool ShowCompletionTime { get; set; } = false;
     public bool ShowRelicBookStep { get; set; } = false;
@@ -135,8 +197,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = true;
-    public bool ShowActiveHelpEntry { get; set; } = true;
-    public bool HideOrchestrionPlaying { get; set; } = false;
+    public bool ShowActiveHelpEntry { get; set; } = false;
+    public bool HideOrchestrionPlaying { get; set; } = true;
     public bool ShowEverythingElse { get; set; } = false;
     public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
 
@@ -145,7 +207,10 @@ public class Configuration : IPluginConfiguration
     #region Deep Dungeons
 
     public bool ShowObtainedPomander { get; set; } = true;
+
+    /// <summary>Deprecated: deep dungeon trap messages are always shown; retained for config deserialization.</summary>
     public bool ShowTrapTriggered { get; set; } = true;
+
     public bool ShowCairnGlows { get; set; } = true;
     public bool ShowRestoresLifeToFallen { get; set; } = false;
     public bool ShowCairnActivates { get; set; } = true;
@@ -163,7 +228,7 @@ public class Configuration : IPluginConfiguration
     #region Obtained Items
 
     public bool ShowObtainedItems { get; set; } = true;
-    public bool HideObtainedGil { get; set; } = false;
+    public bool HideObtainedGil { get; set; } = true;
     public bool HideObtainedMGP { get; set; } = false;
     public bool HideObtainedClusters { get; set; } = false;
     public bool HideObtainedWolfMarks { get; set; } = false;
@@ -174,11 +239,14 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedVenture { get; set; } = false;
     public bool HideObtainedMaterials { get; set; } = false;
     public bool HideObtainedTribalCurrency { get; set; } = false;
-    public bool HideObtainedShards { get; set; } = false;
+    public bool HideObtainedShards { get; set; } = true;
+
+    /// <summary>Deprecated v3: merged into <see cref="HideObtainedShards" />; retained for config deserialization.</summary>
     public bool HideObtainedShardsFromLoot { get; set; } = false;
-    public bool ShowGainExperience { get; set; } = true;
-    public bool HideRouletteBonus { get; set; } = false;
-    public bool HideAdventurerInNeedBonus { get; set; } = false;
+
+    public bool ShowGainExperience { get; set; } = false;
+    public bool HideRouletteBonus { get; set; } = true;
+    public bool HideAdventurerInNeedBonus { get; set; } = true;
     public bool ShowGainPvpExp { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
@@ -194,6 +262,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowOnlyPartyMemberRolls { get; set; } = false;
     public bool ShowOthersCastLot { get; set; } = false;
     public bool HideOthersObtain { get; set; } = false;
+
+    /// <summary>Deprecated v4: merged into <see cref="HideOthersObtain" />; retained for config deserialization.</summary>
     public bool HideOthersObtainFromLoot { get; set; } = false;
 
     #endregion
@@ -202,6 +272,8 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowLevelUps { get; set; } = true;
     public bool ShowOtherLevelUps { get; set; } = false;
+
+    /// <summary>Deprecated: ability unlock messages are always shown; retained for config deserialization.</summary>
     public bool ShowAbilityUnlocks { get; set; } = true;
 
     #endregion
@@ -209,8 +281,13 @@ public class Configuration : IPluginConfiguration
     #region Crafting
 
     public bool ShowAttachedMateria { get; set; } = true;
+
+    /// <summary>Deprecated: overmeld failure messages are always shown; retained for config deserialization.</summary>
     public bool ShowOvermeldFailure { get; set; } = true;
+
+    /// <summary>Deprecated: materia shatter messages are always shown; retained for config deserialization.</summary>
     public bool ShowMateriaShatters { get; set; } = true;
+
     public bool ShowMateriaExtract { get; set; } = true;
     public bool ShowDesynthesisLevel { get; set; } = false;
     public bool ShowDesynthedItem { get; set; } = false;
@@ -226,39 +303,47 @@ public class Configuration : IPluginConfiguration
 
     public bool FilterGatheringSpam { get; set; } = true;
     public bool ShowGatheringSenses { get; set; } = true;
-    public bool ShowAetherialReductionSands { get; set; } = true;
+    public bool ShowAetherialReductionSands { get; set; } = false;
     public bool ShowLocationAffects { get; set; } = true;
-    public bool ShowGatheringStartEnd { get; set; } = true;
-    public bool ShowGatheringYield { get; set; } = true;
-    public bool ShowGatherersBoon { get; set; } = true;
-    public bool ShowGatheringAttempts { get; set; } = true;
+    public bool ShowGatheringStartEnd { get; set; } = false;
+    public bool ShowGatheringYield { get; set; } = false;
+    public bool ShowGatherersBoon { get; set; } = false;
+    public bool ShowGatheringAttempts { get; set; } = false;
     public bool ShowCaughtFish { get; set; } = true;
-    public bool ShowMooching { get; set; } = true;
-    public bool ShowCurrentFishingHole { get; set; } = true;
+    public bool ShowMooching { get; set; } = false;
+    public bool ShowCurrentFishingHole { get; set; } = false;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
-    public bool ShowMeasuringIlms { get; set; } = true;
-    public bool ShowLureMessages { get; set; } = true;
+    public bool ShowMeasuringIlms { get; set; } = false;
+    public bool ShowLureMessages { get; set; } = false;
     public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
     public bool ShowStellarMissionMessages { get; set; } = false;
+
+    /// <summary>Deprecated: cosmic exploration directives are always shown; retained for config deserialization.</summary>
     public bool ShowCosmicExplorationMessages { get; set; } = true;
-    public bool ShowCosmicRewards { get; set; } = true;
-    public bool ShowCosmicDailyProgress { get; set; } = true;
+
+    public bool ShowCosmicRewards { get; set; } = false;
+    public bool ShowCosmicDailyProgress { get; set; } = false;
 
     #endregion
 
     #region Combat
 
     public bool ShowCombatCasting { get; set; } = true;
-    public bool ShowCombatAbilities { get; set; } = true;
-    public bool ShowCombatDamage { get; set; } = true;
-    public bool ShowCombatMisses { get; set; } = true;
-    public bool ShowCombatHealing { get; set; } = true;
-    public bool ShowCombatEffects { get; set; } = true;
+    public bool ShowCombatAbilities { get; set; } = false;
+    public bool ShowCombatDamage { get; set; } = false;
+    public bool ShowCombatMisses { get; set; } = false;
+    public bool ShowCombatHealing { get; set; } = false;
+    public bool ShowCombatEffects { get; set; } = false;
     public bool ShowCombatDefeat { get; set; } = true;
     public bool ShowCombatEnemyReady { get; set; } = true;
+
+    /// <summary>Deprecated: combat adds messages are always shown; retained for config deserialization.</summary>
     public bool ShowCombatAdds { get; set; } = true;
-    public bool ShowCombatEnmity { get; set; } = true;
+
+    public bool ShowCombatEnmity { get; set; } = false;
+
+    /// <summary>Deprecated: quest item obtains are always shown; retained for config deserialization.</summary>
     public bool ShowObtainedQuestItems { get; set; } = true;
 
     #endregion

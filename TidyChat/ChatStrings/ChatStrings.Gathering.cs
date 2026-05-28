@@ -20,7 +20,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5551?pretty=true">This location affects the chance your meticulous actions do not reduce integrity!</see>
+    /// <see href="https://xivapi.com/LogMessage/5551?pretty=true">
+    ///     This location affects the chance your meticulous actions do
+    ///     not reduce integrity!
+    /// </see>
     public static readonly LocalizedStrings LocationMeticulousIntegrity = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -228,7 +231,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/10769?pretty=true">From the Mission in Progress window, press the Report button to complete the mission.</see>
+    /// <see href="https://xivapi.com/LogMessage/10769?pretty=true">
+    ///     From the Mission in Progress window, press the Report
+    ///     button to complete the mission.
+    /// </see>
     public static readonly LocalizedStrings StellarReportMission = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -237,7 +243,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/10815?pretty=true">Sequential missions are now available via the Stellar Missions interface.</see>
+    /// <see href="https://xivapi.com/LogMessage/10815?pretty=true">
+    ///     Sequential missions are now available via the Stellar
+    ///     Missions interface.
+    /// </see>
     public static readonly LocalizedStrings StellarSequentialMissions = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -246,7 +255,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/10779?pretty=true">You completed the stellar mission "…" with a Gold Star rating.</see>
+    /// <see href="https://xivapi.com/LogMessage/10779?pretty=true">
+    ///     You completed the stellar mission "…" with a Gold Star
+    ///     rating.
+    /// </see>
     public static readonly LocalizedStrings StellarMissionCompleted = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -273,7 +285,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/10879?pretty=true">Completion of "…" has been committed to your mission log with a Gold Star rating.</see>
+    /// <see href="https://xivapi.com/LogMessage/10879?pretty=true">
+    ///     Completion of "…" has been committed to your mission log
+    ///     with a Gold Star rating.
+    /// </see>
     public static readonly LocalizedStrings StellarMissionLogCommitted = new()
     {
         Jpn = ["NeedsLocalization"],

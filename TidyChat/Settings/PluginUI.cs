@@ -22,6 +22,12 @@ internal class PluginUI : Window, IDisposable
     public void Dispose()
     { }
 
+    public override void OnClose()
+    {
+        configuration.PersistIfDirty();
+        base.OnClose();
+    }
+
     public override void Draw()
     {
         if (!ImGui.BeginTabBar("##tidychatConfigTabs"))
@@ -34,19 +40,13 @@ internal class PluginUI : Window, IDisposable
         if (ImGui.BeginTabItem(Languages.ConfigWindow_SettingsTabHeader))
         {
             GeneralTab.Draw(configuration);
-            if (TabFooter.Display(configuration))
-            {
-                IsOpen = false;
-            }
+            TabFooter.Display(configuration);
         }
 
         if (ImGui.BeginTabItem(Languages.ConfigWindow_AdvancedSettingsTabHeader))
         {
             AdvancedTab.Draw(configuration);
-            if (TabFooter.Display(configuration))
-            {
-                IsOpen = false;
-            }
+            TabFooter.Display(configuration);
         }
 
         ImGui.EndTabBar();

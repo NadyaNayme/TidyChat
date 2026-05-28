@@ -480,7 +480,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/7229?pretty=true">The detonator is triggered! The treasure coffer is no more...</see>
+    /// <see href="https://xivapi.com/LogMessage/7229?pretty=true">
+    ///     The detonator is triggered! The treasure coffer is no
+    ///     more...
+    /// </see>
     public static readonly LocalizedStrings DeepDungeonDetonatorTriggered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -722,7 +725,10 @@ public static partial class ChatStrings
         Fra = ["portrait", "instantané"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5874?pretty=true">Portrait has expired. Please readjust its settings and try again.</see>
+    /// <see href="https://xivapi.com/LogMessage/5874?pretty=true">
+    ///     Portrait has expired. Please readjust its settings and try
+    ///     again.
+    /// </see>
     public static readonly LocalizedStrings PortraitExpired = new()
     {
         Jpn = ["ポートレート", "期限"],
@@ -746,7 +752,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["equipped", "glamours", "could", "not", "restored"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">N … sands are obtained.</see>
@@ -785,7 +791,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/3569?pretty=true">You use Meticulous Woodsman. Collector's intuition guides your hand.</see>
+    /// <see href="https://xivapi.com/LogMessage/3569?pretty=true">
+    ///     You use Meticulous Woodsman. Collector's intuition guides
+    ///     your hand.
+    /// </see>
     public static readonly LocalizedStrings MeticulousWoodsman = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -803,7 +812,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">Your meticulous actions prove effective. Integrity is not reduced.</see>
+    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
+    ///     Your meticulous actions prove effective. Integrity is not
+    ///     reduced.
+    /// </see>
     /// <seealso href="https://xivapi.com/LogMessage/5574?pretty=true">Revisit restored GP and granted integrity.</seealso>
     public static readonly LocalizedStrings AetherialReductionIntegrity = new()
     {
@@ -839,7 +851,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["attune", "aetheryte"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4242?pretty=true">Changes discarded.</see>

@@ -220,7 +220,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">Gil earned from market sales has been entrusted to your retainer.</see>
+    /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">
+    ///     Gil earned from market sales has been entrusted to your
+    ///     retainer.
+    /// </see>
     public static readonly LocalizedStrings MarketGilEntrustedToRetainer = new()
     {
         Jpn = ["NeedsLocalization"],

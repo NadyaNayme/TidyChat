@@ -1210,7 +1210,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [38]
         },
-new()
+        new()
         {
             Name = "ShowOfferedTeleport",
             SettingsTab = "System",
@@ -1409,7 +1409,7 @@ new()
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GearsetEquipped],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1418,7 +1418,7 @@ new()
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.JobChange],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1427,7 +1427,7 @@ new()
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.PortraitSetInstant],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1436,7 +1436,7 @@ new()
             Channel = ChatType.Error,
             IsActive = true,
             StringChecks = [ChatStrings.PortraitExpired],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1445,7 +1445,7 @@ new()
             Channel = ChatType.Error,
             IsActive = true,
             StringChecks = [ChatStrings.PortraitUpdateIncompatible],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1668,7 +1668,7 @@ new()
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ChangesDiscarded, ChatStrings.ChangesLost, ChatStrings.TripleTriadAllowed, ChatStrings.TripleTriadNotAllowed],
-            Pattern = PatternKind.StringMatch,
-        },
+            Pattern = PatternKind.StringMatch
+        }
     ];
 }

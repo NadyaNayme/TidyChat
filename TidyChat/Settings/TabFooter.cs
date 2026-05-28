@@ -4,22 +4,14 @@ namespace TidyChat;
 
 public static class TabFooter
 {
-    public static bool Display(Configuration configuration)
+    public static void Display(Configuration configuration)
     {
         ImGui.Spacing();
         ImGui.Separator();
         ImGui.Spacing();
-        if (ImGui.Button(Languages.SettingsTabFooter_SaveButtonText)) configuration.Save();
-        ImGui.SameLine();
-        if (ImGui.Button(Languages.SettingsTabFooter_SaveAndCloseButtonText))
-        {
-            configuration.Save();
-            return true;
-        }
 
         if (!configuration.NoCoffee)
         {
-            ImGui.SameLine();
             ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
             ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
             ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
@@ -45,7 +37,5 @@ public static class TabFooter
                 UseShellExecute = true
             });
         ImGui.PopStyleColor(3);
-
-        return false;
     }
 }
