@@ -234,6 +234,151 @@ public static partial class Rules
             StringChecks = [ChatStrings.AbleToExecute],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        }
+        },
+new()
+        {
+            Name = "ShowMateriaRetrieved",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1953, 1954]
+        },
+        new()
+        {
+            Name = "ShowMateriaRetrieved",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1953],
+            StringChecks = [ChatStrings.MateriaAttemptRemove],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMateriaRetrieved",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.MateriaAttemptRemove],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
+            Name = "ShowMateriaRetrieved",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1954],
+            StringChecks = [ChatStrings.MateriaRetrieved],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMateriaShatters",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1955]
+        },
+        new()
+        {
+            Name = "ShowMateriaShatters",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1955],
+            StringChecks = [ChatStrings.MateriaShatters],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            // IDs 1049/1053/1050/1054 = crystal/shard/collectable obtain in the Gathering channel
+            // (gathering a collectable item with Collector's Glove before reducing it)
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1049, 1050, 1053, 1054]
+        },
+        new()
+        {
+            // ID 3553 = "You successfully reduce <item> (Collectability: N)." (reduction success)
+            // ID 3555 = "N <sands> are obtained." (the resulting aethersand)
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3553, 3555]
+        },
+        new()
+        {
+            // 5514 = "Your meticulous actions prove effective. Integrity is not reduced."
+            // 5516 = "Collectability can be raised no higher."
+            // 5573 = "Collector's high standard sharpens your focus. Brazen and meticulous actions are enhanced."
+            // All are fixed-text (0 params) GatheringSystem notifications unique to the collectable mini-game.
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [5514, 5516, 5573]
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1049, 1050, 1053, 1054],
+            StringChecks = [ChatStrings.AetherialReductionSands],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3553],
+            StringChecks = [ChatStrings.AetherialReductionSuccess],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3555],
+            StringChecks = [ChatStrings.AetherialReductionSands],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [5514, 5516, 5573],
+            StringChecks = [ChatStrings.AetherialReductionIntegrity],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionSands",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.AetherialReductionSands],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true,
+            LogMessageIds = [3553, 3555, 1049, 1050, 1053, 1054, 5514, 5516, 5573]
+        },
     ];
 }

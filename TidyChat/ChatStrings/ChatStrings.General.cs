@@ -70,4 +70,85 @@ public static partial class ChatStrings
             "url"
         ]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/398?pretty=true">You are now selling items in … markets.</see>
+    public static readonly LocalizedStrings MarketBoardStartSelling = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["selling", "items", "markets"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/399?pretty=true">You are no longer selling items in … markets.</see>
+    public static readonly LocalizedStrings MarketBoardStopSelling = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["no", "longer", "selling"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/748?pretty=true">… you put up for sale in the markets has sold for … gil (after fees).</see>
+    public static readonly LocalizedStrings MarketItemSold = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["put", "up", "for", "sale", "markets", "sold", "after", "fees"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/384?pretty=true">All your items up for sale in the … markets have sold.</see>
+    public static readonly LocalizedStrings MarketAllItemsSold = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["all", "items", "sale", "markets", "sold"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/734?pretty=true">You purchase …</see>
+    public static readonly LocalizedStrings VendorPurchase = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["you", "purchase"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/561?pretty=true">You change to … (job/class).</see>
+    public static readonly LocalizedStrings JobChange = new()
+    {
+        Jpn = ["チェンジ"],
+        Eng = ["change", "to"],
+        Deu = ["bist", "nun"],
+        Fra = ["maintenant"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/788?pretty=true">… placed in your Armoury Chest.</see>
+    public static readonly LocalizedStrings ArmouryChestPlacement = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["armoury", "chest"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
+
+/// <see href="https://xivapi.com/LogMessage/756?pretty=true">Job registered (e.g. Paladin registered.).</see>
+    public static readonly LocalizedStrings JobRegistered = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["registered"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1281?pretty=true">You change to … (specialist).</see>
+    public static readonly LocalizedStrings JobSpecialistChange = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["change", "specialist"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"],
+    };
 }

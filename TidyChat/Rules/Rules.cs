@@ -4,8 +4,8 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-
-    private static readonly List<LocalizedFilterRule> _rules = CreateRules();
+    // Rule arrays live in Rules.*.cs partials; _rules must be built after they initialize.
+    private static readonly List<LocalizedFilterRule> _rules;
 
     private static readonly Dictionary<string, Func<Configuration, bool>> ConfigAccessors = new(StringComparer.Ordinal)
     {
@@ -150,13 +150,19 @@ public static partial class Rules
         ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel
     };
 
-    public static LocalizedFilterRule[] AllRules { get; } =
-        [.. _rules];
+    public static LocalizedFilterRule[] AllRules => [.. _rules];
 
     /// <summary>
     ///     Maps each LogMessage ID to filter rules that reference it. Built once at startup.
     /// </summary>
-    public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } = BuildLogMessageIdLookup();
+    public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } =
+        new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>();
+
+    static Rules()
+    {
+        _rules = CreateRules();
+        LogMessageIdToRules = BuildLogMessageIdLookup();
+    }
 
     private static List<LocalizedFilterRule> CreateRules()
     {

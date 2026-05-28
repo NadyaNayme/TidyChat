@@ -1104,6 +1104,365 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [38]
-        }
+        },
+new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [440, 398, 399, 384, 734, 736, 748, 1687, 1688, 4578, 4590]
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [440],
+            StringChecks = [ChatStrings.OfferedTeleport],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [398],
+            StringChecks = [ChatStrings.MarketBoardStartSelling],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [399],
+            StringChecks = [ChatStrings.MarketBoardStopSelling],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [748],
+            StringChecks = [ChatStrings.MarketItemSold],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [384],
+            StringChecks = [ChatStrings.MarketAllItemsSold],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1688],
+            StringChecks = [ChatStrings.VendorSellForGil],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [734],
+            StringChecks = [ChatStrings.VendorPurchase],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1687],
+            StringChecks = [ChatStrings.VendorPurchaseForGil],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4590],
+            StringChecks = [ChatStrings.GilSpent],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4578],
+            StringChecks = [ChatStrings.MarketGilEntrustedToRetainer],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOfferedTeleport",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [736],
+            StringChecks = [ChatStrings.GilSafelyWithdrawn],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [700, 755, 788, 756, 1900, 1281, 561, 5865]
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [700, 755],
+            StringChecks = [ChatStrings.GearsetEquipped],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [561],
+            StringChecks = [ChatStrings.JobChange],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [5865],
+            StringChecks = [ChatStrings.PortraitSetInstant],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GearsetEquipped],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.JobChange],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.PortraitSetInstant],
+            Pattern = PatternKind.StringMatch,
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [788],
+            StringChecks = [ChatStrings.ArmouryChestPlacement],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [756],
+            StringChecks = [ChatStrings.JobRegistered],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1900],
+            StringChecks = [ChatStrings.GearsetGlamourRestoreFailed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetEquipped",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1281],
+            StringChecks = [ChatStrings.JobSpecialistChange],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowVolumeControlMessage",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866]
+        },
+        new()
+        {
+            Name = "ShowSealedOff",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [2012, 2013, 2014]
+        },
+        new()
+        {
+            Name = "ShowSealedOff",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [2012, 2013, 2014],
+            StringChecks = [ChatStrings.SealedOff],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds =
+            [
+                1629, 1630, 1631,
+                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
+                1450, 1451, 1452, 1453
+            ]
+        },
+        new()
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds =
+            [
+                1629, 1630, 1631,
+                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
+                1450, 1451, 1452, 1453
+            ],
+            StringChecks = [ChatStrings.ItemSearchResults],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds =
+            [
+                1629, 1630, 1631,
+                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
+                1450, 1451, 1452, 1453
+            ],
+            RegexChecks = [ChatRegexStrings.ItemSearchCommand],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSearchForItemResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds =
+            [
+                1629, 1630, 1631,
+                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
+                1450, 1451, 1452, 1453
+            ],
+            RegexChecks = [ChatRegexStrings.SearchForItemResults],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [503, 535, 1341]
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [503, 535],
+            StringChecks = [ChatStrings.AetheryteTicket],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1341],
+            StringChecks = [ChatStrings.AttuneAetheryte],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
     ];
 }
