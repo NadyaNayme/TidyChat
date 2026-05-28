@@ -30,15 +30,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/10781?pretty=true">Stellar mission abandoned.</see>
-    public static readonly LocalizedStrings StellarMissionAbandoned = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["stellar", "mission", "abandoned"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/502?pretty=true">… begins casting …</see>
     public static readonly LocalizedStrings CombatCastBegin = new()
     {

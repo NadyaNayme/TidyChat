@@ -1434,7 +1434,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         LogMessageCatalog.Load(DataManager, Log);
         ItemMarkerCatalog.Load(DataManager, Log);
         ServerAnnouncementCatalog.Load(DataManager, Log);
-        LogMessageCatalog.ApplyDiscoveries();
         Rules.RebuildLogMessageIdLookup();
         if (validateRuleIds)
             LogMessageCatalog.ValidateRuleIds(Rules.EnumerateReferencedLogMessageIds(), Log);

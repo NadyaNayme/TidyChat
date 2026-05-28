@@ -8,14 +8,6 @@ internal static class L10N
 {
     public static ClientLanguage Language { get; set; }
 
-    public static string[] Get(string[] strings)
-    {
-#if DEBUG
-        TidyChatPlugin.Log?.Debug("Strings not localized: {0}", string.Join(",", strings));
-#endif
-        return strings;
-    }
-
     public static string[] Get(LocalizedStrings strings)
     {
         return Language switch
@@ -28,14 +20,6 @@ internal static class L10N
         };
     }
 
-    public static Regex Get(Regex regex)
-    {
-#if DEBUG
-        TidyChatPlugin.Log?.Debug("Regex not localized: {0}", regex.ToString());
-#endif
-        return regex;
-    }
-
     public static Regex Get(LocalizedRegex regex)
     {
         return Language switch
@@ -46,14 +30,6 @@ internal static class L10N
             ClientLanguage.French => regex.Fra,
             _ => regex.Eng // Won't work for J/F/D but at least it's not a crash
         };
-    }
-
-    public static string GetTidy(string strings)
-    {
-#if DEBUG
-        TidyChatPlugin.Log?.Debug("Internal strings not localized: {0}", strings);
-#endif
-        return strings;
     }
 
     public static string GetTidy(LocalizedTidyStrings strings)

@@ -28,54 +28,6 @@ public static partial class ChatStrings
         Fra = ["venture"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1688?pretty=true">You sell … for N gil.</see>
-    public static readonly LocalizedStrings VendorSellForGil = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "sell", "for", "gil"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1687?pretty=true">You purchase … for gil.</see>
-    public static readonly LocalizedStrings VendorPurchaseForGil = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "purchase", "for", "gil"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/4590?pretty=true">You spent N gil.</see>
-    public static readonly LocalizedStrings GilSpent = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["spent", "gil"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">
-    ///     Gil earned from market sales has been entrusted to your
-    ///     retainer.
-    /// </see>
-    public static readonly LocalizedStrings MarketGilEntrustedToRetainer = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["gil", "earned", "market", "sales", "entrusted", "retainer"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/736?pretty=true">Your gil has been safely withdrawn.</see>
-    public static readonly LocalizedStrings GilSafelyWithdrawn = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["gil", "safely", "withdrawn"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/10800?pretty=true">You obtain … from your cosmic fortune.</see>
     public static readonly LocalizedStrings CosmicFortuneObtain = new()
     {
@@ -203,14 +155,5 @@ public static partial class ChatStrings
         Eng = ["bound", "you"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/2012?pretty=true">… will be sealed off in …</see>
-    public static readonly LocalizedStrings SealedOff = new()
-    {
-        Jpn = ["封印"],
-        Eng = ["sealed", "off"],
-        Deu = ["schließt"],
-        Fra = ["fermeture"]
     };
 }

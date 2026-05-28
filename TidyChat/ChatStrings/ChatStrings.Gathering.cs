@@ -20,15 +20,6 @@ public static partial class ChatStrings
         Fra = ["plus", "importantes", "récoltes"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/3537?pretty=true">The yield for … has increased by N!</see>
-    public static readonly LocalizedStrings GatheringYieldIncreased = new()
-    {
-        Jpn = ["獲得数", "上昇"],
-        Eng = ["yield", "increased"],
-        Deu = ["ertrag", "gestiegen"],
-        Fra = ["augmenté"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/1097?pretty=true">
     ///     The location affects your chance of receiving the Gatherer's
     ///     Boon!
@@ -62,15 +53,6 @@ public static partial class ChatStrings
         Fra = ["commencez"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1067?pretty=true">You finish mining.</see>
-    public static readonly LocalizedStrings GatheringFinish = new()
-    {
-        Jpn = ["終え"],
-        Eng = ["you", "finish"],
-        Deu = ["fertig"],
-        Fra = ["arrêtez"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/1086?pretty=true">You sense a grade … node …</see>
     public static readonly LocalizedStrings GatheringSenses = new()
     {
@@ -80,18 +62,6 @@ public static partial class ChatStrings
         Fra = ["grade"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/3518?pretty=true">
-    ///     You were unable to locate any unspoiled mining points using
-    ///     Truth of Mountains.
-    /// </see>
-    public static readonly LocalizedStrings GatheringUnspoiledLocateFail = new()
-    {
-        Jpn = ["感知", "しなかった"],
-        Eng = ["unable", "to", "locate", "unspoiled"],
-        Deu = ["konntest", "keine", "unbekannten"],
-        Fra = ["ne", "détectez", "aucune"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/3502?pretty=true">You no longer sense any unspoiled mineral deposits…</see>
     public static readonly LocalizedStrings GatheringNoLongerSense = new()
     {
@@ -99,15 +69,6 @@ public static partial class ChatStrings
         Eng = ["no", "longer", "sense"],
         Deu = ["kannst", "mehr", "wahrnehmen"],
         Fra = ["perdu", "la", "trace"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3507?pretty=true">The unspoiled mineral deposit vanishes from sight…</see>
-    public static readonly LocalizedStrings GatheringUnspoiledVanish = new()
-    {
-        Jpn = ["消え失せ"],
-        Eng = ["vanish", "from", "sight"],
-        Deu = ["verschwunden"],
-        Fra = ["disparu"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1103?pretty=true">
@@ -120,15 +81,6 @@ public static partial class ChatStrings
         Eng = ["granted", "an", "additional", "gathering", "attempt"],
         Deu = ["weiteren", "sammelversuch"],
         Fra = ["une", "fois", "supplémentaire"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1114?pretty=true">Data on … is added to your fish guide.</see>
-    public static readonly LocalizedStrings FishGuideEntry = new()
-    {
-        Jpn = ["魚類図鑑"],
-        Eng = ["fish", "guide"],
-        Deu = ["fischverzeichnis"],
-        Fra = ["nomenclature"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1116?pretty=true">Something bites!</see>
@@ -155,15 +107,6 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["put", "away", "rod"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/10784?pretty=true">You apply a saltwater arthrolure to your line.</see>
-    public static readonly LocalizedStrings ApplyArthrolure = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["apply", "arthrolure"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

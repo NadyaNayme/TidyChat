@@ -9,7 +9,6 @@ public static partial class Rules
 
     private static readonly Dictionary<string, Func<Configuration, bool>> ConfigAccessors = new(StringComparer.Ordinal)
     {
-        ["ShowTotalPlayTime"] = static _ => true,
         ["ShowSRankHunt"] = c => c.ShowSRankHunt,
         ["ShowSSRankHunt"] = c => c.ShowSSRankHunt,
         ["ShowCompletedVenture"] = c => c.ShowCompletedVenture,

@@ -17,7 +17,6 @@ internal static class InternalStrings
 
     // The space at the end is intentional
     public static readonly string Tag = "[TidyChat] ";
-    public static readonly string DebugTag = "[Debug] ";
 
     public static readonly LocalizedTidyStrings InstanceText = new()
     {
@@ -43,38 +42,12 @@ internal static class InternalStrings
         Fra = new("a été copié")
     };
 
-    public static readonly LocalizedTidyStrings Guildhest = new()
-    {
-        Jpn = new("ギルドヘストから入手"),
-        Eng = new("a Guildhest"),
-        Deu = new("ein Gildengeheiß"),
-        Fra = new("une opération de guilde")
-    };
-
     public static readonly LocalizedTidyStrings PvPDuty = new()
     {
         Jpn = new("NeedsLocalization"),
         Eng = new("a PvP duty"),
         Deu = new("aus einer PVP"),
         Fra = new("une mission JcJ")
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Palace of the Dead</see>
-    public static readonly LocalizedTidyStrings POTD = new()
-    {
-        Jpn = new("NeedsLocalization"),
-        Eng = new("Palace of the Dead"),
-        Deu = new("Palast der Toten"),
-        Fra = new("Palais des morts")
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/2775?pretty=true">Heaven-on-High</see>
-    public static readonly LocalizedTidyStrings HOH = new()
-    {
-        Jpn = new("NeedsLocalization"),
-        Eng = new("Heaven-on-High"),
-        Deu = new("Himmelssäule"),
-        Fra = new("Pilier des Cieux")
     };
 
     public static readonly LocalizedTidyStrings StartQuotation = new()

@@ -43,8 +43,6 @@ public static class ItemMarkerCatalog
         }
     }
 
-    public static bool HasMarkers(uint itemId) => MarkersByItemId.ContainsKey(itemId);
-
     public static bool Matches(uint itemId, string normalizedText, LocalizedStrings? fallback = null)
     {
         if (MarkersByItemId.TryGetValue(itemId, out string[]? tokens) && tokens.All(normalizedText.Contains))

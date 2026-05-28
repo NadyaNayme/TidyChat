@@ -10,36 +10,6 @@ public enum PatternKind
     RegexMatch
 }
 
-public enum SettingTab
-{
-    Basic,
-    System,
-    LootObtain,
-    Progress,
-    CraftingGathering
-}
-
-public enum SettingCategory
-{
-    None,
-    EmoteFilters,
-    ImprovedMessages,
-    FreeCompany,
-    DeepDungeon,
-    Party,
-    Trading,
-    Looting,
-    CommonCurrency,
-    BattleCurrency,
-    BeastTribe,
-    OtherObtain,
-    Desynthesis,
-    Materia,
-    Crafting,
-    Gathering,
-    Fishing
-}
-
 public class LocalizedFilterRule
 {
     public required string Name { get; set; }

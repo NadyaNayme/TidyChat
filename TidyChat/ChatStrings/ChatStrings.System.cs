@@ -57,15 +57,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1341?pretty=true">You attune to the aetheryte.</see>
-    public static readonly LocalizedStrings AttuneAetheryte = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["attune", "aetheryte"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/94?pretty=true">Of the N parties currently recruiting…</see>
     public static readonly LocalizedStrings DutyFinderRecruitment = new()
     {
@@ -111,15 +102,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5865?pretty=true">Portrait set as instant portrait.</see>
-    public static readonly LocalizedStrings PortraitSetInstant = new()
-    {
-        Jpn = ["ポートレート"],
-        Eng = ["portrait", "instant"],
-        Deu = ["portrait", "schnellportrait"],
-        Fra = ["portrait", "instantané"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/3127?pretty=true">Company action "…" is no longer active.</see>
     public static readonly LocalizedStrings CompanyActionExpired = new()
     {
@@ -136,15 +118,6 @@ public static partial class ChatStrings
         Eng = ["initiated", "ready", "check"],
         Deu = ["bereitschaftsanfrage", "gestellt"],
         Fra = ["appel", "préparation"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1900?pretty=true">… equipped, but glamours could not be restored.</see>
-    public static readonly LocalizedStrings GearsetGlamourRestoreFailed = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["equipped", "glamours", "could", "not", "restored"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4309?pretty=true">You cast a glamour …</see>
@@ -262,36 +235,6 @@ public static partial class ChatStrings
         Eng = ["with", "the", "chat", "mode", "in", "enter", "phrase", "containing"],
         Deu = ["gib", "im", "virtuelle", "tastatur"],
         Fra = ["en", "mode", "de", "discussion"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
-    ///     Your meticulous actions prove effective. Integrity is not
-    ///     reduced.
-    /// </see>
-    public static readonly LocalizedStrings AetherialReductionIntegrity = new()
-    {
-        Jpn = ["耐久", "減少"],
-        Eng = ["integrity", "not", "reduced"],
-        Deu = ["belastbarkeit"],
-        Fra = ["diminué"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3553?pretty=true">You successfully reduce … (Collectability: N).</see>
-    public static readonly LocalizedStrings AetherialReductionSuccess = new()
-    {
-        Jpn = ["精選"],
-        Eng = ["successfully", "reduce"],
-        Deu = ["raffiniert"],
-        Fra = ["éthérolysez"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">N … sands are obtained.</see>
-    public static readonly LocalizedStrings AetherialReductionSands = new()
-    {
-        Jpn = ["手に入れ"],
-        Eng = ["obtained"],
-        Deu = ["erhalten"],
-        Fra = ["obtenez"]
     };
 
     public static readonly LocalizedStrings JoinParty = new()
@@ -678,25 +621,6 @@ public static partial class ChatStrings
         Fra = ["points", "chance"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/440?pretty=true">You have been offered a Teleport …</see>
-    public static readonly LocalizedStrings OfferedTeleport = new()
-    {
-        Jpn = ["テレポ"],
-        Eng = ["teleport"],
-        Deu = ["teleport"],
-        Fra = ["téléporter"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/755?pretty=true">"…" equipped.</seealso>
-    public static readonly LocalizedStrings GearsetEquipped = new()
-    {
-        Jpn = ["装備"],
-        Eng = ["equipped"],
-        Deu = ["angelegt"],
-        Fra = ["équipez"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/605?pretty=true">Boss mechanic event (e.g. Titan's heart is shattered!).</see>
     public static readonly LocalizedStrings DutyMechanicEvent = new()
     {
@@ -704,25 +628,5 @@ public static partial class ChatStrings
         Eng = ["shattered"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1629?pretty=true">/isearch match summary.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/1438?pretty=true">/isearch location result lines.</seealso>
-    public static readonly LocalizedStrings ItemSearchResults = new()
-    {
-        Jpn = ["含む", "所持"],
-        Eng = ["containing", "found"],
-        Deu = ["treffer", "inventar"],
-        Fra = ["contenant", "inventaire"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/503?pretty=true">Aetheryte ticket ready message.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/535?pretty=true">Aetheryte ticket use message.</seealso>
-    public static readonly LocalizedStrings AetheryteTicket = new()
-    {
-        Jpn = ["使用"],
-        Eng = ["ready", "use"],
-        Deu = ["bereit", "verwendet"],
-        Fra = ["préparez", "utilise"]
     };
 }

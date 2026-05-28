@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
@@ -16,12 +15,10 @@ public static class LogMessageCatalog
 {
 
     /// <summary>Shared "You obtain …" template used by many loot notices (LogMessage 657).</summary>
-    public const uint SharedObtainTemplateId = 657;
-    private static readonly Dictionary<uint, string[]> WordTokensById = new();
-    private static readonly Dictionary<uint, string> TemplateTextById = new();
-
     public static readonly uint[] SharedObtainTemplateIds = [657, 1259, 1606];
 
+    private static readonly Dictionary<uint, string[]> WordTokensById = new();
+    private static readonly Dictionary<uint, string> TemplateTextById = new();
     private static readonly string[] CompactLinePrefixes =
     [
         "Novice - ",
@@ -64,25 +61,12 @@ public static class LogMessageCatalog
         }
     }
 
-    /// <summary>Placeholder for future runtime ID discovery. Not used yet.</summary>
-    public static void ApplyDiscoveries()
-    {
-        if (!IsLoaded) return;
-        // Quest /say reminders are not stored as LogMessage rows — ShowQuestReminder matches formatted chat text instead.
-    }
-
     public static bool HasTokens(uint logMessageId) =>
         WordTokensById.ContainsKey(logMessageId) ||
         (TemplateTextById.TryGetValue(logMessageId, out string? template) &&
          LogMessageTokenExtractor.Extract(template).Length > 0);
 
     public static bool HasTemplate(uint logMessageId) => TemplateTextById.ContainsKey(logMessageId);
-
-    public static bool TryGetTemplateText(uint logMessageId, out string templateText)
-        => TemplateTextById.TryGetValue(logMessageId, out templateText!);
-
-    public static bool TryGetWordTokens(uint logMessageId, out string[] tokens)
-        => WordTokensById.TryGetValue(logMessageId, out tokens!);
 
     /// <summary>First template line with common Novice Network prefixes stripped.</summary>
     public static bool TryGetCompactLine(uint logMessageId, out string line)
@@ -102,30 +86,6 @@ public static class LogMessageCatalog
 
         if (string.IsNullOrWhiteSpace(firstLine)) return false;
         line = firstLine;
-        return true;
-    }
-
-    /// <summary>Shortest LogMessage row whose template contains every required token.</summary>
-    public static bool TryFindIdContainingAllTokens(IReadOnlyList<string> requiredTokens, out uint logMessageId)
-    {
-        logMessageId = 0;
-        if (requiredTokens.Count == 0) return false;
-
-        uint? bestId = null;
-        int bestLength = int.MaxValue;
-
-        foreach((uint id, string template) in TemplateTextById)
-        {
-            string lower = template.ToLower(CultureInfo.CurrentCulture);
-            if (!requiredTokens.All(token => lower.Contains(token, StringComparison.Ordinal))) continue;
-
-            if (template.Length >= bestLength) continue;
-            bestId = id;
-            bestLength = template.Length;
-        }
-
-        if (bestId is null) return false;
-        logMessageId = bestId.Value;
         return true;
     }
 
