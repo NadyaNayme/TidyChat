@@ -8,13 +8,27 @@ internal static class CraftingGatheringTab
     {
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_DesynthesisDropdownHeader))
         {
-            bool showDesynthesisMessages = configuration.ShowDesynthesisLevel || configuration.ShowDesynthedItem
-                                                                              || configuration.ShowDesynthesisObtains;
-            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowDesynthesisMessages, ref showDesynthesisMessages))
+            bool showDesynthesisLevel = configuration.ShowDesynthesisLevel;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages,
+                    ref showDesynthesisLevel))
             {
-                configuration.ShowDesynthesisLevel = showDesynthesisMessages;
-                configuration.ShowDesynthedItem = showDesynthesisMessages;
-                configuration.ShowDesynthesisObtains = showDesynthesisMessages;
+                configuration.ShowDesynthesisLevel = showDesynthesisLevel;
+                configuration.OnSettingChanged();
+            }
+
+            bool showDesynthedItem = configuration.ShowDesynthedItem;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowItemBeingDesynthesized,
+                    ref showDesynthedItem))
+            {
+                configuration.ShowDesynthedItem = showDesynthedItem;
+                configuration.OnSettingChanged();
+            }
+
+            bool showDesynthesisObtains = configuration.ShowDesynthesisObtains;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages,
+                    ref showDesynthesisObtains))
+            {
+                configuration.ShowDesynthesisObtains = showDesynthesisObtains;
                 configuration.OnSettingChanged();
             }
         }
@@ -213,24 +227,27 @@ internal static class CraftingGatheringTab
                 configuration.OnSettingChanged();
             }
 
-            if (ImGui.TreeNode(Languages.CraftingGatheringTab_CosmicExplorationHeader))
+            bool showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicExplorationMessages,
+                    ref showCosmicExplorationMessages))
             {
-                bool showCosmicRewards = configuration.ShowCosmicRewards;
-                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicRewards, ref showCosmicRewards))
-                {
-                    configuration.ShowCosmicRewards = showCosmicRewards;
-                    configuration.OnSettingChanged();
-                }
+                configuration.ShowCosmicExplorationMessages = showCosmicExplorationMessages;
+                configuration.OnSettingChanged();
+            }
 
-                bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
-                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
-                        ref showCosmicDailyProgress))
-                {
-                    configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
-                    configuration.OnSettingChanged();
-                }
+            bool showCosmicRewards = configuration.ShowCosmicRewards;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicRewards, ref showCosmicRewards))
+            {
+                configuration.ShowCosmicRewards = showCosmicRewards;
+                configuration.OnSettingChanged();
+            }
 
-                ImGui.TreePop();
+            bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
+                    ref showCosmicDailyProgress))
+            {
+                configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
+                configuration.OnSettingChanged();
             }
         }
 

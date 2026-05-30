@@ -30,7 +30,6 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
-    public FilterProfile FilterProfile { get; set; } = FilterProfile.Balanced;
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
@@ -50,12 +49,6 @@ public class Configuration : IPluginConfiguration
     /// <summary>Apply a settings change in-session; persisted when the config window closes.</summary>
     public void OnSettingChanged()
     {
-        if (FilterProfile != FilterProfile.Custom)
-        {
-            FilterProfile = FilterProfile.Custom;
-            FilterProfiles.SyncProfileSelector((int)FilterProfile.Custom);
-        }
-
         Rules.UpdateIsActiveStates(this);
         TidyChatPlugin.InstanceDtrBarUpdate(this);
         _pendingPersist = true;
@@ -118,7 +111,6 @@ public class Configuration : IPluginConfiguration
     /// <summary>Deprecated: instance messages are always shown; retained for config deserialization.</summary>
     public bool ShowInstanceMessage { get; set; } = true;
 
-    /// <summary>Deprecated: sanctuary messages are always shown; retained for config deserialization.</summary>
     public bool ShowSanctuaryMessage { get; set; } = true;
 
     public bool ShowHousingWardMessage { get; set; } = true;

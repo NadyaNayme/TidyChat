@@ -82,7 +82,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         UpdateLang(PluginInterface.UiLanguage);
 
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
-        bool isNewConfig = loaded is null;
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
         if (Configuration.Version < 1)
@@ -138,12 +137,6 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         // docs/rules-review-checklist.md (always-on toggles, HideObtainedShardsFromLoot, HideOthersObtainFromLoot).
         // Decouple always-on rule Name fields from removed config keys; stop reading legacy keys in ObtainTab.
         // Bump Configuration.Version to 5 after v1–v4 migrations remain for upgrade path.
-
-        if (isNewConfig)
-        {
-            Configuration.FilterProfile = FilterProfile.Balanced;
-            Configuration.Save();
-        }
 
         Rules.UpdateIsActiveStates(Configuration);
 

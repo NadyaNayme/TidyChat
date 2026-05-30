@@ -29,15 +29,24 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        bool hideRouletteBonus = configuration.HideRouletteBonus || configuration.HideAdventurerInNeedBonus;
-        if (ImGui.Checkbox(Languages.ProgressTab_HideDutyRouletteBonusMessages, ref hideRouletteBonus))
+        bool hideRouletteBonus = configuration.HideRouletteBonus;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
+                ref hideRouletteBonus))
         {
             configuration.HideRouletteBonus = hideRouletteBonus;
-            configuration.HideAdventurerInNeedBonus = hideRouletteBonus;
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_HideDutyRouletteBonusMessagesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
+
+        bool hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
+        {
+            configuration.HideAdventurerInNeedBonus = hideAdventurerInNeedBonus;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
 
         bool showGainPvpExp = configuration.ShowGainPvpExp;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowPVPExpGainMessages, ref showGainPvpExp))
@@ -48,43 +57,19 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
 
-        bool showAchievementMessages = configuration.ShowEarnAchievement || configuration.ShowOtherEarnedAchievement;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowAchievementMessages, ref showAchievementMessages))
+        bool showEarnAchievement = configuration.ShowEarnAchievement;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
         {
-            if (!showAchievementMessages)
-            {
-                configuration.ShowEarnAchievement = false;
-                configuration.ShowOtherEarnedAchievement = false;
-            }
-            else
-            {
-                configuration.ShowEarnAchievement = true;
-                configuration.ShowOtherEarnedAchievement = true;
-            }
-
+            configuration.ShowEarnAchievement = showEarnAchievement;
             configuration.OnSettingChanged();
         }
 
-        if (showAchievementMessages)
+        bool showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
+                ref showOtherEarnedAchievement))
         {
-            ImGui.Indent();
-
-            bool showEarnAchievement = configuration.ShowEarnAchievement;
-            if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
-            {
-                configuration.ShowEarnAchievement = showEarnAchievement;
-                configuration.OnSettingChanged();
-            }
-
-            bool showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
-            if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
-                    ref showOtherEarnedAchievement))
-            {
-                configuration.ShowOtherEarnedAchievement = showOtherEarnedAchievement;
-                configuration.OnSettingChanged();
-            }
-
-            ImGui.Unindent();
+            configuration.ShowOtherEarnedAchievement = showOtherEarnedAchievement;
+            configuration.OnSettingChanged();
         }
 
         bool showLevelUps = configuration.ShowLevelUps;

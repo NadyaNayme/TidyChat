@@ -10,7 +10,6 @@
 
             - Master filters for System, Progress, Loot, Obtained, Crafting, and Gathering
             - Toggles for currencies, FC and retainer messages, level-ups, mount unlocks, orchestrion lines, deep dungeon pomanders, combat log categories, and more
-            - Balanced, Minimal, and Vanilla+ presets. Apply one, then change whatever you want
             - Shorter rewrites for instance entry, commendations, Novice Network, and treasure dungeon text
             - Copies /say quest dialogue to your clipboard; can block emote spam from others
             - Player whitelist, chat history deduplication, per-tomestone hides, and debug logging

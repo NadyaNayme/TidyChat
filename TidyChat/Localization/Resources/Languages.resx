@@ -504,6 +504,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CraftingGatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
     <value>Show cosmic class points and daily progress</value>
   </data>
+  <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
+    <value>Show cosmic exploration messages</value>
+  </data>
   <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency and container obtains</value>
   </data>
@@ -773,6 +776,12 @@ eg. You cast your lot for the &lt;item&gt;</value>
   <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
     <value>Common Currencies</value>
   </data>
+  <data name="ObtainTab_HideObtainedShardsFromLoot" xml:space="preserve">
+    <value>Hide elemental shards, crystals, and clusters (from loot)</value>
+  </data>
+  <data name="ObtainTab_HideOthersObtainFromLoot" xml:space="preserve">
+    <value>Hide "Another player obtains" messages (from loot)</value>
+  </data>
   <data name="ObtainTab_HideOthersObtainMessages" xml:space="preserve">
     <value>Hide other players' obtain messages</value>
   </data>
@@ -1033,6 +1042,12 @@ It can be considered spammy in deep dungeons.</value>
   <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
     <value>Show Free Company message book new entry messages</value>
   </data>
+  <data name="SystemTab_HideSanctuaryMessage" xml:space="preserve">
+    <value>Show sanctuary enter/leave messages</value>
+  </data>
+  <data name="SystemTab_HideSanctuaryMessageHelpMarker" xml:space="preserve">
+    <value>eg. You have entered a sanctuary. / You have left the sanctuary.</value>
+  </data>
   <data name="SystemTab_HideHousingWardMessage" xml:space="preserve">
     <value>Show housing ward messages</value>
   </data>
@@ -1284,11 +1299,20 @@ eg. Your submersible has returned from its voyage.</value>
   <data name="SystemTab_ShowPomanderEffectsMessages" xml:space="preserve">
     <value>Show pomander effect messages</value>
   </data>
-  <data name="SystemTab_ShowRelicBookMessages" xml:space="preserve">
-    <value>Show ARR relic book messages</value>
+  <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
+    <value>Show ARR Relic book step completed messages</value>
   </data>
-  <data name="SystemTab_ShowRelicBookMessagesHelpMarker" xml:space="preserve">
-    <value>Shows ARR relic book step progress and completion messages.</value>
+  <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
+    <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
+  </data>
+  <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
+    <value>Show ARR Relic book step progress messages</value>
+  </data>
+  <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
+  </data>
+  <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
+    <value>Show "Awaiting trade confirmation" message</value>
   </data>
   <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show when Second Chance points will be awarded for duty clear</value>
@@ -1298,6 +1322,15 @@ eg. Your submersible has returned from its voyage.</value>
   </data>
   <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
     <value>Show teleport offers from party members</value>
+  </data>
+  <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
+    <value>Show "Trade canceled." message</value>
+  </data>
+  <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
+    <value>Show "Trade complete." message</value>
+  </data>
+  <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
+    <value>Show "Trade request sent to" message</value>
   </data>
   <data name="SystemTab_ShowTradeMessages" xml:space="preserve">
     <value>Show trade messages</value>

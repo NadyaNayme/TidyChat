@@ -9,6 +9,15 @@ internal static class SystemTab
     {
         if (ImGui.CollapsingHeader(Languages.SystemTab_HideShownDefaultDropdownHeader))
         {
+            bool sanctuaryMessage = configuration.ShowSanctuaryMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSanctuaryMessage, ref sanctuaryMessage))
+            {
+                configuration.ShowSanctuaryMessage = sanctuaryMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideSanctuaryMessageHelpMarker);
+
             bool housingWardMessage = configuration.ShowHousingWardMessage;
             if (ImGui.Checkbox(Languages.SystemTab_HideHousingWardMessage, ref housingWardMessage))
             {
@@ -18,6 +27,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideHousingWardMessageHelpMarker);
 
+            bool commendations = configuration.ShowCommendations;
+            if (ImGui.Checkbox(Languages.SystemTab_HideReceivedCommendations, ref commendations))
+            {
+                configuration.ShowCommendations = commendations;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideReceivedCommendationsHelpMarker);
+
             bool completedVenture = configuration.ShowCompletedVenture;
             if (ImGui.Checkbox(Languages.SystemTab_HideCompletedVenture, ref completedVenture))
             {
@@ -26,6 +44,15 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideCompletedVentureHelpMarker);
+
+            bool showQuestReminder = configuration.ShowQuestReminder;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSayReminder, ref showQuestReminder))
+            {
+                configuration.ShowQuestReminder = showQuestReminder;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideSayReminderHelpMarker);
 
             bool showAetherCompass = configuration.ShowAetherCompass;
             if (ImGui.Checkbox(Languages.SystemTab_HideAetherCompassMessages, ref showAetherCompass))
@@ -144,15 +171,23 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
 
-            bool showRelicBookMessages = configuration.ShowRelicBookStep || configuration.ShowRelicBookComplete;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowRelicBookMessages, ref showRelicBookMessages))
+            bool showRelicBookStep = configuration.ShowRelicBookStep;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
             {
-                configuration.ShowRelicBookStep = showRelicBookMessages;
-                configuration.ShowRelicBookComplete = showRelicBookMessages;
+                configuration.ShowRelicBookStep = showRelicBookStep;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowRelicBookMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowARRRelicProgressMessagesHelpMarker);
+
+            bool showRelicBookComplete = configuration.ShowRelicBookComplete;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
+            {
+                configuration.ShowRelicBookComplete = showRelicBookComplete;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowARRRelicBookStepMessagesHelpMarker);
 
             bool showHuntSlain = configuration.ShowHuntSlain;
             if (ImGui.Checkbox(Languages.SystemTab_ShowHuntMarkSlainMessages, ref showHuntSlain))
@@ -202,11 +237,17 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_FreeCompanyDropdownHeader))
         {
-            bool showFcLoginLogout = configuration.ShowUserLogins || configuration.ShowUserLogouts;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowFcLoginLogoutMessages, ref showFcLoginLogout))
+            bool showUserLogins = configuration.ShowUserLogins;
+            if (ImGui.Checkbox(Languages.SystemTab_HideLoginMessages, ref showUserLogins))
             {
-                configuration.ShowUserLogins = showFcLoginLogout;
-                configuration.ShowUserLogouts = showFcLoginLogout;
+                configuration.ShowUserLogins = showUserLogins;
+                configuration.OnSettingChanged();
+            }
+
+            bool showUserLogouts = configuration.ShowUserLogouts;
+            if (ImGui.Checkbox(Languages.SystemTab_HideLogoutMessages, ref showUserLogouts))
+            {
+                configuration.ShowUserLogouts = showUserLogouts;
                 configuration.OnSettingChanged();
             }
 
@@ -218,15 +259,23 @@ internal static class SystemTab
                 configuration.OnSettingChanged();
             }
 
-            bool showFcVoyageMessages = configuration.ShowExploratoryVoyage || configuration.ShowSubaquaticVoyage;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowFcVoyageMessages, ref showFcVoyageMessages))
+            bool showExploratoryVoyage = configuration.ShowExploratoryVoyage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideAirshipVoyageMessages, ref showExploratoryVoyage))
             {
-                configuration.ShowExploratoryVoyage = showFcVoyageMessages;
-                configuration.ShowSubaquaticVoyage = showFcVoyageMessages;
+                configuration.ShowExploratoryVoyage = showExploratoryVoyage;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowFcVoyageMessagesHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideAirshipVoyageMessagesHelpMarker);
+
+            bool showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSubmarineVoyageMessages, ref showSubaquaticVoyage))
+            {
+                configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideSubmarineVoyageMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_DeepDungeonsDropdownHeader))
@@ -375,14 +424,32 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_TradingDropdownHeader))
         {
-            bool showTradeMessages = configuration.ShowTradeSent || configuration.ShowTradeCanceled
-                                                                 || configuration.ShowAwaitingTradeConfirmation || configuration.ShowTradeComplete;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowTradeMessages, ref showTradeMessages))
+            bool showTradeSent = configuration.ShowTradeSent;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowTradeRequestSentMessages, ref showTradeSent))
             {
-                configuration.ShowTradeSent = showTradeMessages;
-                configuration.ShowTradeCanceled = showTradeMessages;
-                configuration.ShowAwaitingTradeConfirmation = showTradeMessages;
-                configuration.ShowTradeComplete = showTradeMessages;
+                configuration.ShowTradeSent = showTradeSent;
+                configuration.OnSettingChanged();
+            }
+
+            bool showTradeCanceled = configuration.ShowTradeCanceled;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowTradeCanceledMessages, ref showTradeCanceled))
+            {
+                configuration.ShowTradeCanceled = showTradeCanceled;
+                configuration.OnSettingChanged();
+            }
+
+            bool showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowAwaitingTradeConfirmationMessages,
+                    ref showAwaitingTradeConfirmation))
+            {
+                configuration.ShowAwaitingTradeConfirmation = showAwaitingTradeConfirmation;
+                configuration.OnSettingChanged();
+            }
+
+            bool showTradeComplete = configuration.ShowTradeComplete;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowTradeCompleteMessages, ref showTradeComplete))
+            {
+                configuration.ShowTradeComplete = showTradeComplete;
                 configuration.OnSettingChanged();
             }
         }

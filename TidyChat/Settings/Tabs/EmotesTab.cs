@@ -6,28 +6,23 @@ internal static class EmotesTab
 {
     public static void Draw(Configuration configuration)
     {
-        if (ImGui.TreeNode(Languages.GeneralTab_FilterEmoteChannelsHeader))
+        bool filterEmoteSpam = configuration.FilterEmoteChannel;
+        if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
         {
-            bool filterEmoteSpam = configuration.FilterEmoteChannel;
-            if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
-            {
-                configuration.FilterEmoteChannel = filterEmoteSpam;
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
-
-            bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
-            if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
-            {
-                configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
-
-            ImGui.TreePop();
+            configuration.FilterEmoteChannel = filterEmoteSpam;
+            configuration.OnSettingChanged();
         }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
+
+        bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
+        if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
+        {
+            configuration.FilterCustomEmoteChannel = filterCustomEmoteSpam;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
         bool showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))

@@ -7,10 +7,6 @@ internal static class GeneralTab
 {
     public static void Draw(Configuration configuration)
     {
-        FilterProfiles.DrawProfileSelector(configuration);
-
-        ImGui.Separator();
-
         bool filterSystemMessages = configuration.FilterSystemMessages;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSystemSpam, ref filterSystemMessages))
         {
@@ -85,117 +81,79 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.AllMessagesWillBeLowercased);
 
-            if (ImGui.TreeNode(Languages.GeneralTab_NormalizeSpecialCharactersHeader))
+            bool normalizeBlocks = configuration.NormalizeBlocks;
+            if (ImGui.Checkbox(Languages.NormalizeSpecialCharactersExceptInPartyOrAllianceChannels, ref normalizeBlocks))
             {
-                bool normalizeBlocks = configuration.NormalizeBlocks;
-                if (ImGui.Checkbox(Languages.NormalizeSpecialCharactersExceptInPartyOrAllianceChannels, ref normalizeBlocks))
-                {
-                    configuration.NormalizeBlocks = normalizeBlocks;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.ReplacesSpecialCharactersSuchAsWithA);
-
-                bool alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
-                if (ImGui.Checkbox(Languages.AlwaysNormalizeSpecialCharacters, ref alwaysNormalizeBlocks))
-                {
-                    configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGui.TreePop();
+                configuration.NormalizeBlocks = normalizeBlocks;
+                configuration.OnSettingChanged();
             }
 
-            if (ImGui.TreeNode(Languages.GeneralTab_InstanceMessagesGroup))
+            ImGuiComponents.HelpMarker(Languages.ReplacesSpecialCharactersSuchAsWithA);
+
+            bool alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
+            if (ImGui.Checkbox(Languages.AlwaysNormalizeSpecialCharacters, ref alwaysNormalizeBlocks))
             {
-                bool betterInstanceMessage = configuration.BetterInstanceMessage;
-                if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
-                {
-                    configuration.BetterInstanceMessage = betterInstanceMessage;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
-
-                bool instanceInDtrBar = configuration.InstanceInDtrBar;
-                if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
-                {
-                    configuration.InstanceInDtrBar = instanceInDtrBar;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGui.TreePop();
+                configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
+                configuration.OnSettingChanged();
             }
 
-            if (ImGui.TreeNode(Languages.GeneralTab_CommendationsGroup))
+            bool betterInstanceMessage = configuration.BetterInstanceMessage;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
             {
-                bool betterCommendationMessage = configuration.BetterCommendationMessage;
-                if (ImGui.Checkbox(Languages.GeneralTab_ImprovedPlayerCommendations, ref betterCommendationMessage))
-                {
-                    configuration.BetterCommendationMessage = betterCommendationMessage;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedPlayerCommendationsHelpMarker);
-
-                bool includeDutyNameInComms = configuration.IncludeDutyNameInComms;
-                if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
-                {
-                    configuration.IncludeDutyNameInComms = includeDutyNameInComms;
-                    if (!configuration.BetterCommendationMessage && configuration.IncludeDutyNameInComms)
-                        configuration.BetterCommendationMessage = true;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
-
-                bool commendations = configuration.ShowCommendations;
-                if (ImGui.Checkbox(Languages.SystemTab_HideReceivedCommendations, ref commendations))
-                {
-                    configuration.ShowCommendations = commendations;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.SystemTab_HideReceivedCommendationsHelpMarker);
-
-                ImGui.TreePop();
+                configuration.BetterInstanceMessage = betterInstanceMessage;
+                configuration.OnSettingChanged();
             }
 
-            if (ImGui.TreeNode(Languages.GeneralTab_SayRemindersGroup))
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
+
+            bool instanceInDtrBar = configuration.InstanceInDtrBar;
+            if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
             {
-                bool betterSayReminder = configuration.BetterSayReminder;
-                if (ImGui.Checkbox(Languages.GeneralTab_ImprovedSayMessages, ref betterSayReminder))
-                {
-                    configuration.BetterSayReminder = betterSayReminder;
-                    if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
-                        configuration.CopyBetterSayReminder = false;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedSayMessagesHelpMarker);
-
-                bool copyBetterSayReminder = configuration.CopyBetterSayReminder;
-                if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
-                {
-                    configuration.CopyBetterSayReminder = copyBetterSayReminder;
-                    if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
-                        configuration.BetterSayReminder = true;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
-
-                bool showQuestReminder = configuration.ShowQuestReminder;
-                if (ImGui.Checkbox(Languages.SystemTab_HideSayReminder, ref showQuestReminder))
-                {
-                    configuration.ShowQuestReminder = showQuestReminder;
-                    configuration.OnSettingChanged();
-                }
-
-                ImGuiComponents.HelpMarker(Languages.SystemTab_HideSayReminderHelpMarker);
-
-                ImGui.TreePop();
+                configuration.InstanceInDtrBar = instanceInDtrBar;
+                configuration.OnSettingChanged();
             }
+
+            bool betterCommendationMessage = configuration.BetterCommendationMessage;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedPlayerCommendations, ref betterCommendationMessage))
+            {
+                configuration.BetterCommendationMessage = betterCommendationMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedPlayerCommendationsHelpMarker);
+
+            bool includeDutyNameInComms = configuration.IncludeDutyNameInComms;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
+            {
+                configuration.IncludeDutyNameInComms = includeDutyNameInComms;
+                if (!configuration.BetterCommendationMessage && configuration.IncludeDutyNameInComms)
+                    configuration.BetterCommendationMessage = true;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
+
+            bool betterSayReminder = configuration.BetterSayReminder;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedSayMessages, ref betterSayReminder))
+            {
+                configuration.BetterSayReminder = betterSayReminder;
+                if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
+                    configuration.CopyBetterSayReminder = false;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedSayMessagesHelpMarker);
+
+            bool copyBetterSayReminder = configuration.CopyBetterSayReminder;
+            if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
+            {
+                configuration.CopyBetterSayReminder = copyBetterSayReminder;
+                if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
+                    configuration.BetterSayReminder = true;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
 
             bool betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedNoviceNetworkMessages, ref betterNoviceNetworkMessage))

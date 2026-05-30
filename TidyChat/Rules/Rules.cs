@@ -14,7 +14,7 @@ public static partial class Rules
         ["ShowCompletedVenture"] = c => c.ShowCompletedVenture,
         ["ShowCommendations"] = c => c.ShowCommendations,
         ["ShowInstanceMessage"] = _ => true,
-        ["ShowSanctuaryMessage"] = _ => true,
+        ["ShowSanctuaryMessage"] = c => c.ShowSanctuaryMessage,
         ["ShowHousingWardMessage"] = c => c.ShowHousingWardMessage,
         ["ShowQuestReminder"] = c => c.ShowQuestReminder,
         ["ShowQuestProgress"] = _ => true,
