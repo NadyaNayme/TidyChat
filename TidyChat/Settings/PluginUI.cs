@@ -3,6 +3,7 @@ using System.Numerics;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using TidyChat.Localization.Resources;
+using TidyChat.Settings;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
@@ -30,6 +31,16 @@ internal class PluginUI : Window, IDisposable
 
     public override void Draw()
     {
+        SettingsSearch.DrawSearchBar();
+        ImGui.Spacing();
+
+        if (SettingsSearch.IsActive)
+        {
+            SettingsSearchIndex.DrawResults(configuration);
+            TabFooter.Display(configuration);
+            return;
+        }
+
         if (!ImGui.BeginTabBar("##tidychatConfigTabs"))
             return;
 

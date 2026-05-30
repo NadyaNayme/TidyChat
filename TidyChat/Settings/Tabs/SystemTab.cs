@@ -18,6 +18,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSanctuaryMessageHelpMarker);
 
+            bool instanceMessage = configuration.ShowInstanceMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_HideInstanceMessage, ref instanceMessage))
+            {
+                configuration.ShowInstanceMessage = instanceMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideInstanceMessageHelpMarker);
+
             bool housingWardMessage = configuration.ShowHousingWardMessage;
             if (ImGui.Checkbox(Languages.SystemTab_HideHousingWardMessage, ref housingWardMessage))
             {

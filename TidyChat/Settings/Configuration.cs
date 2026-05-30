@@ -108,7 +108,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowCommendations { get; set; } = true;
     public bool ShowCompletedVenture { get; set; } = false;
 
-    /// <summary>Deprecated: instance messages are always shown; retained for config deserialization.</summary>
     public bool ShowInstanceMessage { get; set; } = true;
 
     public bool ShowSanctuaryMessage { get; set; } = true;
@@ -116,7 +115,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowHousingWardMessage { get; set; } = true;
     public bool ShowQuestReminder { get; set; } = true;
 
-    /// <summary>Deprecated: quest progress is always shown; retained for config deserialization.</summary>
     public bool ShowQuestProgress { get; set; } = true;
 
     public bool ShowMountMessages { get; set; } = true;

@@ -538,6 +538,87 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        internal static string ConfigWindow_SearchClear {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchClear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Matches.
+        /// </summary>
+        internal static string ConfigWindow_SearchExamplesLabel {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchExamplesLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide {0}.
+        /// </summary>
+        internal static string ConfigWindow_SearchHideTomestone {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchHideTomestone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage IDs.
+        /// </summary>
+        internal static string ConfigWindow_SearchLogMessageIdsLabel {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchLogMessageIdsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No matching settings or rules..
+        /// </summary>
+        internal static string ConfigWindow_SearchNoResults {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchNoResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search settings and rules....
+        /// </summary>
+        internal static string ConfigWindow_SearchPlaceholder {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchPlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} result(s).
+        /// </summary>
+        internal static string ConfigWindow_SearchResultCount {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchResultCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rule.
+        /// </summary>
+        internal static string ConfigWindow_SearchRuleLabel {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchRuleLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This message type is always shown and cannot be toggled..
+        /// </summary>
+        internal static string ConfigWindow_SettingAlwaysOn {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SettingAlwaysOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cosmic Exploration.
         /// </summary>
         internal static string CraftingGatheringTab_CosmicExplorationHeader {
@@ -2091,6 +2172,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show quest progress messages.
+        /// </summary>
+        internal static string ProgressTab_ShowQuestProgressMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowQuestProgressMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. &quot;Starting from Scrap&quot; accepted. / &quot;Starting from Scrap&quot; complete! / &quot;Starting from Scrap&quot; objective fulfilled!.
+        /// </summary>
+        internal static string ProgressTab_ShowQuestProgressMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowQuestProgressMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Replaces special characters such as \&quot;\&quot; with \&quot;A\.
         /// </summary>
         internal static string ReplacesSpecialCharactersSuchAsWithA {
@@ -2240,6 +2339,25 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideSanctuaryMessageHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideSanctuaryMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show /instance message.
+        /// </summary>
+        internal static string SystemTab_HideInstanceMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_HideInstanceMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You are now in the instanced area Old Sharlayan ❷.
+        ///Current instance can be confirmed at any time using the /instance text command..
+        /// </summary>
+        internal static string SystemTab_HideInstanceMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideInstanceMessageHelpMarker", resourceCulture);
             }
         }
         

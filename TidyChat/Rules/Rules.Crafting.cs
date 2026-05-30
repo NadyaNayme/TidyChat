@@ -170,6 +170,14 @@ public static partial class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
+            LogMessageIds = [1168, 1169]
+        },
+        new()
+        {
+            Name = "ShowAllOtherCrafting",
+            SettingsTab = "Crafting",
+            Channel = ChatType.Crafting,
+            IsActive = true,
             LogMessageIds = [1168],
             StringChecks = [ChatStrings.CraftingMaterialRemoved],
             Pattern = PatternKind.StringMatch,

@@ -57,6 +57,15 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
 
+        bool showQuestProgress = configuration.ShowQuestProgress;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowQuestProgressMessages, ref showQuestProgress))
+        {
+            configuration.ShowQuestProgress = showQuestProgress;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowQuestProgressMessagesHelpMarker);
+
         bool showEarnAchievement = configuration.ShowEarnAchievement;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
         {

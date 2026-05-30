@@ -468,6 +468,33 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="ConfigWindow_SearchClear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ConfigWindow_SearchExamplesLabel" xml:space="preserve">
+    <value>Matches</value>
+  </data>
+  <data name="ConfigWindow_SearchHideTomestone" xml:space="preserve">
+    <value>Hide {0}</value>
+  </data>
+  <data name="ConfigWindow_SearchLogMessageIdsLabel" xml:space="preserve">
+    <value>LogMessage IDs</value>
+  </data>
+  <data name="ConfigWindow_SearchNoResults" xml:space="preserve">
+    <value>No matching settings or rules.</value>
+  </data>
+  <data name="ConfigWindow_SearchPlaceholder" xml:space="preserve">
+    <value>Search settings and rules...</value>
+  </data>
+  <data name="ConfigWindow_SearchResultCount" xml:space="preserve">
+    <value>{0} result(s)</value>
+  </data>
+  <data name="ConfigWindow_SearchRuleLabel" xml:space="preserve">
+    <value>Rule</value>
+  </data>
+  <data name="ConfigWindow_SettingAlwaysOn" xml:space="preserve">
+    <value>This message type is always shown and cannot be toggled.</value>
+  </data>
   <data name="CraftingGatheringTab_CosmicExplorationHeader" xml:space="preserve">
     <value>Cosmic Exploration</value>
   </data>
@@ -997,6 +1024,12 @@ It can be considered spammy in deep dungeons.</value>
   <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
     <value>eg. You acquire 500 PvP EXP.</value>
   </data>
+  <data name="ProgressTab_ShowQuestProgressMessages" xml:space="preserve">
+    <value>Show quest progress messages</value>
+  </data>
+  <data name="ProgressTab_ShowQuestProgressMessagesHelpMarker" xml:space="preserve">
+    <value>eg. "Starting from Scrap" accepted. / "Starting from Scrap" complete! / "Starting from Scrap" objective fulfilled!</value>
+  </data>
   <data name="ReplacesSpecialCharactersSuchAsWithA" xml:space="preserve">
     <value>Replaces special characters such as \"\" with \"A\</value>
   </data>
@@ -1047,6 +1080,13 @@ It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="SystemTab_HideSanctuaryMessageHelpMarker" xml:space="preserve">
     <value>eg. You have entered a sanctuary. / You have left the sanctuary.</value>
+  </data>
+  <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
+    <value>Show /instance message</value>
+  </data>
+  <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
+    <value>eg. You are now in the instanced area Old Sharlayan ❷.
+Current instance can be confirmed at any time using the /instance text command.</value>
   </data>
   <data name="SystemTab_HideHousingWardMessage" xml:space="preserve">
     <value>Show housing ward messages</value>
