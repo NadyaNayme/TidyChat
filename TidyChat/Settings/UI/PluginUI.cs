@@ -3,11 +3,11 @@ using System.Numerics;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using TidyChat.Localization.Resources;
-using TidyChat.Settings;
+using TidyChat.Settings.Search;
 using TidyChat.Settings.Tabs;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
-namespace TidyChat;
+namespace TidyChat.Settings.UI;
 
 internal class PluginUI : Window, IDisposable
 {

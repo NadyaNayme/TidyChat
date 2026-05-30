@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
 using Dalamud.Plugin;
-namespace TidyChat;
+namespace TidyChat.Settings;
 
 [Serializable]
 public class Configuration : IPluginConfiguration

@@ -1,4 +1,4 @@
-namespace TidyChat;
+namespace TidyChat.Settings;
 
 /// <summary>
 ///     How login and world-travel server announcements are filtered (welcome line, event promos, congestion, phishing).

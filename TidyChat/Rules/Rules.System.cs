@@ -1669,6 +1669,36 @@ public static partial class Rules
             IsActive = true,
             StringChecks = [ChatStrings.ChangesDiscarded, ChatStrings.ChangesLost, ChatStrings.TripleTriadAllowed, ChatStrings.TripleTriadNotAllowed],
             Pattern = PatternKind.StringMatch
+        },
+        // LogMessage 7025 = redundant single-line join announcement alongside 7027.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetwork,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7025]
+        },
+        // LogMessage 7027 / 7011 = multi-line join; compact replacement printed in OnLogMessage.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetworkSystem,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7011, 7027]
+        },
+        // LogMessage 7030 = leave; compact replacement printed in OnLogMessage.
+        new()
+        {
+            Name = "BetterNoviceNetworkMessage",
+            SettingsTab = "System",
+            Channel = ChatType.NoviceNetworkSystem,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [7030]
         }
     ];
 }

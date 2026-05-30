@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using TidyChat.Localization.Resources;
-namespace TidyChat;
+namespace TidyChat.Settings.UI;
 
 public static class TabFooter
 {

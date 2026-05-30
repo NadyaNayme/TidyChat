@@ -24,6 +24,15 @@ internal static class EmotesTab
 
         ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
+        bool showOtherCustomEmotes = configuration.ShowOtherCustomEmotes;
+        if (ImGui.Checkbox(Languages.GeneralTab_FilterCustomEmotes, ref showOtherCustomEmotes))
+        {
+            configuration.ShowOtherCustomEmotes = showOtherCustomEmotes;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterCustomEmotesHelpMarker);
+
         bool showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))
         {

@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
-namespace TidyChat;
+namespace TidyChat.Settings;
 
 #pragma warning disable MA0048
 public enum PlayerNameMatchMode

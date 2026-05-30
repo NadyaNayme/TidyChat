@@ -80,6 +80,15 @@ internal static class CombatTab
 
             ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatEnemyReadyMessagesHelpMarker);
 
+            bool showCombatAdds = configuration.ShowCombatAdds;
+            if (ImGui.Checkbox(Languages.CombatTab_ShowCombatAddsMessages, ref showCombatAdds))
+            {
+                configuration.ShowCombatAdds = showCombatAdds;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatAddsMessagesHelpMarker);
+
             bool showCombatEnmity = configuration.ShowCombatEnmity;
             if (ImGui.Checkbox(Languages.CombatTab_ShowCombatEnmityMessages, ref showCombatEnmity))
             {

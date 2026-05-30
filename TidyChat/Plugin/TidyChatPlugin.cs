@@ -134,8 +134,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         // TODO(next release): Config migration v5 — remove deprecated Configuration properties listed in
-        // docs/rules-review-checklist.md (always-on toggles, HideObtainedShardsFromLoot, HideOthersObtainFromLoot).
-        // Decouple always-on rule Name fields from removed config keys.
+        // docs/rules-review-checklist.md (HideObtainedShardsFromLoot, HideOthersObtainFromLoot).
         // Bump Configuration.Version to 5 after v1–v4 migrations remain for upgrade path.
 
         Rules.UpdateIsActiveStates(Configuration);
@@ -384,11 +383,13 @@ public sealed class TidyChatPlugin : IDalamudPlugin
             }
             message.PreventOriginal();
             Interlocked.Increment(ref _sessionBlockedMessages);
-            // Print a compact replacement for the suppressed NN join/leave messages.
-            if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
-                ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
-            else if (message.LogMessageId == 7030)
-                ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
+            if (Configuration.BetterNoviceNetworkMessage)
+            {
+                if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
+                    ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
+                else if (message.LogMessageId == 7030)
+                    ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
+            }
             return;
         }
 
@@ -952,11 +953,65 @@ public sealed class TidyChatPlugin : IDalamudPlugin
                 if (p.AllowMessage)
                     CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
             }
+
+            ApplyGlobalWhitelistOverrides(message, ref isHandled);
         }
         catch(Exception ex)
         {
             Log.Error("Error: Failed to evaluate Whitelist - " + ex);
         }
+    }
+
+    /// <summary>
+    ///     When enabled, allows all messages sent by or targeting any whitelist entry regardless of per-entry Allow/Block.
+    /// </summary>
+    private void ApplyGlobalWhitelistOverrides(IHandleableChatMessage message, ref bool isHandled)
+    {
+        if (!Configuration.SentByWhitelistPlayer && !Configuration.TargetingWhitelistPlayer)
+            return;
+
+        string senderText = message.Sender.TextValue;
+        string messageText = message.Message.TextValue;
+
+        foreach(PlayerName entry in Configuration.Whitelist)
+        {
+            if (string.IsNullOrWhiteSpace(entry.FirstName) || entry.IsLogMessageId)
+                continue;
+
+            if (Configuration.SentByWhitelistPlayer && IsSentByWhitelistEntry(senderText, entry))
+            {
+                isHandled = false;
+                return;
+            }
+
+            if (Configuration.TargetingWhitelistPlayer && TargetsWhitelistEntry(messageText, entry))
+            {
+                isHandled = false;
+                return;
+            }
+        }
+    }
+
+    private static bool IsSentByWhitelistEntry(string senderText, PlayerName entry)
+    {
+        if (entry.IsRegex)
+        {
+            Regex? regex = entry.GetCompiledRegex();
+            return regex != null && regex.IsMatch(senderText);
+        }
+
+        return string.Equals(senderText, entry.FirstName, StringComparison.Ordinal);
+    }
+
+    private static bool TargetsWhitelistEntry(string messageText, PlayerName entry)
+    {
+        if (entry.IsRegex)
+        {
+            Regex? regex = entry.GetCompiledRegex();
+            return regex != null && regex.IsMatch(messageText);
+        }
+
+        return messageText.Contains(entry.FirstName, StringComparison.Ordinal);
     }
 
     /// <summary>Suppresses duplicate chat lines. Returns true when OnChat should stop.</summary>

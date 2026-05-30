@@ -77,6 +77,15 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGeneralItemObtainsHelpMarker);
 
+            bool showObtainedQuestItems = configuration.ShowObtainedQuestItems;
+            if (ImGui.Checkbox(Languages.ObtainTab_ShowObtainedQuestItems, ref showObtainedQuestItems))
+            {
+                configuration.ShowObtainedQuestItems = showObtainedQuestItems;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowObtainedQuestItemsHelpMarker);
+
             bool hideObtainedgil = configuration.HideObtainedGil;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowGil, ref hideObtainedgil))
             {

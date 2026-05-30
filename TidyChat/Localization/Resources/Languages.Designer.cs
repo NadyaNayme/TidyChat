@@ -376,6 +376,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show adds calling for help messages.
+        /// </summary>
+        internal static string CombatTab_ShowCombatAddsMessages {
+            get {
+                return ResourceManager.GetString("CombatTab_ShowCombatAddsMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. The goblin calls for help!.
+        /// </summary>
+        internal static string CombatTab_ShowCombatAddsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CombatTab_ShowCombatAddsMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show combat casting messages.
         /// </summary>
         internal static string CombatTab_ShowCombatCastingMessages {
@@ -529,15 +547,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Settings.
-        /// </summary>
-        internal static string ConfigWindow_SettingsTabHeader {
-            get {
-                return ResourceManager.GetString("ConfigWindow_SettingsTabHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
         internal static string ConfigWindow_SearchClear {
@@ -615,6 +624,15 @@ namespace TidyChat.Localization.Resources {
         internal static string ConfigWindow_SettingAlwaysOn {
             get {
                 return ResourceManager.GetString("ConfigWindow_SettingAlwaysOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string ConfigWindow_SettingsTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SettingsTabHeader", resourceCulture);
             }
         }
         
@@ -1870,6 +1888,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show quest item obtain messages.
+        /// </summary>
+        internal static string ObtainTab_ShowObtainedQuestItems {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowObtainedQuestItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You obtain the mysterious artifact..
+        /// </summary>
+        internal static string ObtainTab_ShowObtainedQuestItemsHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowObtainedQuestItemsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show only rolls from party members.
         /// </summary>
         internal static string ObtainTab_ShowOnlyPartyMemberRolls {
@@ -2107,25 +2143,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show level up messages.
-        /// </summary>
-        internal static string ProgressTab_ShowLevelUpMessages {
-            get {
-                return ResourceManager.GetString("ProgressTab_ShowLevelUpMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This will show the message that occurs when you level up.
-        ///It can be considered spammy in deep dungeons..
-        /// </summary>
-        internal static string ProgressTab_ShowLevelUpMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("ProgressTab_ShowLevelUpMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show learned ability messages.
         /// </summary>
         internal static string ProgressTab_ShowLearnedAbilityMessages {
@@ -2141,6 +2158,25 @@ namespace TidyChat.Localization.Resources {
         internal static string ProgressTab_ShowLearnedAbilityMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("ProgressTab_ShowLearnedAbilityMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show level up messages.
+        /// </summary>
+        internal static string ProgressTab_ShowLevelUpMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowLevelUpMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will show the message that occurs when you level up.
+        ///It can be considered spammy in deep dungeons..
+        /// </summary>
+        internal static string ProgressTab_ShowLevelUpMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowLevelUpMessagesHelpMarker", resourceCulture);
             }
         }
         
@@ -2254,6 +2290,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show Party Objective and Party Comment when joining a party.
+        /// </summary>
+        internal static string ShowPartyObjectiveAndPartyCommentWhenJoiningAParty {
+            get {
+                return ResourceManager.GetString("ShowPartyObjectiveAndPartyCommentWhenJoiningAParty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deep Dungeons.
         /// </summary>
         internal static string SystemTab_DeepDungeonsDropdownHeader {
@@ -2317,24 +2362,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Completed Venture.
-        /// </summary>
-        internal static string SystemTab_HideCompletedVenture {
-            get {
-                return ResourceManager.GetString("SystemTab_HideCompletedVenture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. RetainerName has completed a venture!.
-        /// </summary>
-        internal static string SystemTab_HideCompletedVentureHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_HideCompletedVentureHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hide &quot;Cannot execute at this time.&quot; messages.
         /// </summary>
         internal static string SystemTab_HideCannotExecuteMessages {
@@ -2349,6 +2376,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideCannotExecuteMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideCannotExecuteMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Completed Venture.
+        /// </summary>
+        internal static string SystemTab_HideCompletedVenture {
+            get {
+                return ResourceManager.GetString("SystemTab_HideCompletedVenture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. RetainerName has completed a venture!.
+        /// </summary>
+        internal static string SystemTab_HideCompletedVentureHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideCompletedVentureHelpMarker", resourceCulture);
             }
         }
         
@@ -2398,20 +2443,20 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show sanctuary enter/leave messages.
+        ///   Looks up a localized string similar to Show housing ward messages.
         /// </summary>
-        internal static string SystemTab_HideSanctuaryMessage {
+        internal static string SystemTab_HideHousingWardMessage {
             get {
-                return ResourceManager.GetString("SystemTab_HideSanctuaryMessage", resourceCulture);
+                return ResourceManager.GetString("SystemTab_HideHousingWardMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eg. You have entered a sanctuary. / You have left the sanctuary..
+        ///   Looks up a localized string similar to eg. Shirogane, Ward 15.
         /// </summary>
-        internal static string SystemTab_HideSanctuaryMessageHelpMarker {
+        internal static string SystemTab_HideHousingWardMessageHelpMarker {
             get {
-                return ResourceManager.GetString("SystemTab_HideSanctuaryMessageHelpMarker", resourceCulture);
+                return ResourceManager.GetString("SystemTab_HideHousingWardMessageHelpMarker", resourceCulture);
             }
         }
         
@@ -2431,24 +2476,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideInstanceMessageHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideInstanceMessageHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show housing ward messages.
-        /// </summary>
-        internal static string SystemTab_HideHousingWardMessage {
-            get {
-                return ResourceManager.GetString("SystemTab_HideHousingWardMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. Shirogane, Ward 15.
-        /// </summary>
-        internal static string SystemTab_HideHousingWardMessageHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_HideHousingWardMessageHelpMarker", resourceCulture);
             }
         }
         
@@ -2557,6 +2584,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_HideReceivedCommendationsHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_HideReceivedCommendationsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show sanctuary enter/leave messages.
+        /// </summary>
+        internal static string SystemTab_HideSanctuaryMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_HideSanctuaryMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You have entered a sanctuary. / You have left the sanctuary..
+        /// </summary>
+        internal static string SystemTab_HideSanctuaryMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideSanctuaryMessageHelpMarker", resourceCulture);
             }
         }
         
@@ -2902,6 +2947,51 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show ARR Relic book step completed messages.
+        /// </summary>
+        internal static string SystemTab_ShowARRRelicBookStepMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowARRRelicBookStepMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!.
+        /// </summary>
+        internal static string SystemTab_ShowARRRelicBookStepMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowARRRelicBookStepMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show ARR Relic book step progress messages.
+        /// </summary>
+        internal static string SystemTab_ShowARRRelicProgressMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowARRRelicProgressMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2..
+        /// </summary>
+        internal static string SystemTab_ShowARRRelicProgressMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowARRRelicProgressMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show &quot;Awaiting trade confirmation&quot; message.
+        /// </summary>
+        internal static string SystemTab_ShowAwaitingTradeConfirmationMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowAwaitingTradeConfirmationMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show when the Cairn of Passage is activated.
         /// </summary>
         internal static string SystemTab_ShowCairnOfPassageActivatedMessages {
@@ -3056,6 +3146,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show friend list messages.
+        /// </summary>
+        internal static string SystemTab_ShowFriendListMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowFriendListMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated..
+        /// </summary>
+        internal static string SystemTab_ShowFriendListMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowFriendListMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show message when changing gearsets.
         /// </summary>
         internal static string SystemTab_ShowGearsetChangingMessages {
@@ -3191,51 +3299,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show ARR Relic book step completed messages.
-        /// </summary>
-        internal static string SystemTab_ShowARRRelicBookStepMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowARRRelicBookStepMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!.
-        /// </summary>
-        internal static string SystemTab_ShowARRRelicBookStepMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowARRRelicBookStepMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show ARR Relic book step progress messages.
-        /// </summary>
-        internal static string SystemTab_ShowARRRelicProgressMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowARRRelicProgressMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2..
-        /// </summary>
-        internal static string SystemTab_ShowARRRelicProgressMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowARRRelicProgressMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show &quot;Awaiting trade confirmation&quot; message.
-        /// </summary>
-        internal static string SystemTab_ShowAwaitingTradeConfirmationMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowAwaitingTradeConfirmationMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show pomander effect messages.
         /// </summary>
         internal static string SystemTab_ShowPomanderEffectsMessages {
@@ -3254,15 +3317,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show when Second Chance points will be awarded for duty clear.
-        /// </summary>
-        internal static string SystemTab_ShowSecondChanceAward {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowSecondChanceAward", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show area sealed/unsealed messages.
         /// </summary>
         internal static string SystemTab_ShowSealedOffMessages {
@@ -3277,6 +3331,15 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowSealedOffMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowSealedOffMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show when Second Chance points will be awarded for duty clear.
+        /// </summary>
+        internal static string SystemTab_ShowSecondChanceAward {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSecondChanceAward", resourceCulture);
             }
         }
         
@@ -3335,6 +3398,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show transference messages.
+        /// </summary>
+        internal static string SystemTab_ShowTransferenceMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowTransferenceMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show trap triggered messages.
         /// </summary>
         internal static string SystemTab_ShowTrapTriggeredMessages {
@@ -3349,15 +3421,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowTrapTriggeredMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowTrapTriggeredMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show transference messages.
-        /// </summary>
-        internal static string SystemTab_ShowTransferenceMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowTransferenceMessages", resourceCulture);
             }
         }
         
@@ -3385,15 +3448,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_TradingDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_TradingDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show Party Objective and Party Comment when joining a party.
-        /// </summary>
-        internal static string ShowPartyObjectiveAndPartyCommentWhenJoiningAParty {
-            get {
-                return ResourceManager.GetString("ShowPartyObjectiveAndPartyCommentWhenJoiningAParty", resourceCulture);
             }
         }
         

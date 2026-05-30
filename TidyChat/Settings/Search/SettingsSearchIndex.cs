@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Text;
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
-
-namespace TidyChat.Settings;
+using TidyChat.Translation.Data;
+namespace TidyChat.Settings.Search;
 
 internal static class SettingsSearchIndex
 {
@@ -15,7 +16,9 @@ internal static class SettingsSearchIndex
 
     private static readonly HashSet<string> SkippedProperties = new(StringComparer.Ordinal)
     {
-        "Enabled"
+        "Enabled",
+        "HideObtainedShardsFromLoot",
+        "HideOthersObtainFromLoot"
     };
 
     private static readonly PropertyInfo[] LanguageProperties =
@@ -35,7 +38,7 @@ internal static class SettingsSearchIndex
         string query = SettingsSearch.Query.Trim();
         Entry[] entries = s_entries ??= BuildEntries();
 
-        List<Entry> matches = entries.Where(e => e.Matches(query)).ToList();
+        var matches = entries.Where(e => e.Matches(query)).ToList();
         AppendTomestoneMatches(configuration, query, matches);
 
         ImGui.Spacing();
@@ -49,11 +52,11 @@ internal static class SettingsSearchIndex
             matches.Count.ToString(CultureInfo.CurrentCulture)));
         ImGui.Spacing();
 
-        if (!ImGui.BeginChild("##settingsSearchResults", new System.Numerics.Vector2(0, 0)))
+        if (!ImGui.BeginChild("##settingsSearchResults", new(0, 0)))
             return;
 
         foreach(Entry entry in matches.OrderBy(e => e.Location, StringComparer.OrdinalIgnoreCase)
-                     .ThenBy(e => e.Label, StringComparer.OrdinalIgnoreCase))
+                    .ThenBy(e => e.Label, StringComparer.OrdinalIgnoreCase))
             DrawEntry(configuration, entry);
 
         ImGui.EndChild();
@@ -91,7 +94,7 @@ internal static class SettingsSearchIndex
             ImGuiComponents.HelpMarker(entry.Help);
         }
 
-        ImGui.TextColored(new System.Numerics.Vector4(0.55f, 0.55f, 0.55f, 1f), entry.Location);
+        ImGui.TextColored(new Vector4(0.55f, 0.55f, 0.55f, 1f), entry.Location);
 
         if (!string.IsNullOrEmpty(entry.RuleName))
             ImGui.TextDisabled($"{Languages.ConfigWindow_SearchRuleLabel}: {entry.RuleName}");
@@ -125,18 +128,18 @@ internal static class SettingsSearchIndex
             configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out bool hide);
             string label = string.Format(CultureInfo.CurrentCulture, Languages.ConfigWindow_SearchHideTomestone,
                 tomestone.Name);
-            matches.Add(new Entry(
-                Id: $"tomestone-{tomestone.RowId}",
-                Label: label,
-                Help: null,
-                Location: $"Advanced > {Languages.AdvancedTab_LootObtainTabHeader}",
-                RuleName: null,
-                Examples: [],
-                LogMessageIds: [],
-                CanToggle: true,
-                AlwaysOn: false,
-                GetBool: _ => hide,
-                SetBool: (_, value) => configuration.HideTomestoneById[tomestone.RowId] = value));
+            matches.Add(new(
+                $"tomestone-{tomestone.RowId}",
+                label,
+                null,
+                $"Advanced > {Languages.AdvancedTab_LootObtainTabHeader}",
+                null,
+                [],
+                [],
+                true,
+                false,
+                _ => hide,
+                (_, value) => configuration.HideTomestoneById[tomestone.RowId] = value));
         }
     }
 
@@ -155,18 +158,18 @@ internal static class SettingsSearchIndex
                 ? FormatRuleLocation(ruleMeta.SettingsTab)
                 : InferLocation(property.Name);
 
-            entries.Add(new Entry(
-                Id: property.Name,
-                Label: label,
-                Help: help,
-                Location: location,
-                RuleName: ruleMeta is not null ? property.Name : null,
-                Examples: ruleMeta?.Examples ?? [],
-                LogMessageIds: ruleMeta?.LogMessageIds ?? [],
-                CanToggle: !AlwaysOnSettings.Contains(property.Name),
-                AlwaysOn: AlwaysOnSettings.Contains(property.Name),
-                GetBool: config => (bool)property.GetValue(config)!,
-                SetBool: (config, value) => property.SetValue(config, value)));
+            entries.Add(new(
+                property.Name,
+                label,
+                help,
+                location,
+                ruleMeta is not null ? property.Name : null,
+                ruleMeta?.Examples ?? [],
+                ruleMeta?.LogMessageIds ?? [],
+                !AlwaysOnSettings.Contains(property.Name),
+                AlwaysOnSettings.Contains(property.Name),
+                config => (bool)property.GetValue(config)!,
+                (config, value) => property.SetValue(config, value)));
         }
 
         return entries.ToArray();
@@ -185,7 +188,7 @@ internal static class SettingsSearchIndex
             {
                 if (rule.StringChecks is not null)
                 {
-                    foreach(Translation.Data.LocalizedStrings strings in rule.StringChecks)
+                    foreach(LocalizedStrings strings in rule.StringChecks)
                     {
                         foreach(string token in strings.Eng)
                         {
@@ -202,7 +205,7 @@ internal static class SettingsSearchIndex
                 }
             }
 
-            metadata[group.Key] = new RuleMetadata(
+            metadata[group.Key] = new(
                 group.First().SettingsTab,
                 examples.ToList(),
                 logIds.ToList());
@@ -213,7 +216,7 @@ internal static class SettingsSearchIndex
 
     private static (string Label, string? Help) ResolveLabelAndHelp(string propertyName)
     {
-        PropertyInfo? labelProperty = FindBestLanguageProperty(propertyName, helpMarker: false);
+        PropertyInfo? labelProperty = FindBestLanguageProperty(propertyName, false);
         if (labelProperty is null)
             return (FormatPropertyName(propertyName), null);
 
@@ -331,7 +334,10 @@ internal static class SettingsSearchIndex
         if (propertyName.StartsWith("Filter", StringComparison.Ordinal) ||
             propertyName.StartsWith("Better", StringComparison.Ordinal) ||
             propertyName.StartsWith("Include", StringComparison.Ordinal) ||
-            propertyName is "EnableSmolMode" or "NormalizeBlocks" or "AlwaysNormalizeBlocks" or "NoCoffee" or
+            propertyName is "EnableSmolMode" or
+                "NormalizeBlocks" or
+                "AlwaysNormalizeBlocks" or
+                "NoCoffee" or
                 "ShowSelfUsedEmotes")
             return Languages.ConfigWindow_SettingsTabHeader;
 
@@ -355,7 +361,8 @@ internal static class SettingsSearchIndex
 
     private sealed record RuleMetadata(string SettingsTab, List<string> Examples, List<uint> LogMessageIds);
 
-    private sealed record Entry(
+    private sealed record Entry
+    (
         string Id,
         string Label,
         string? Help,

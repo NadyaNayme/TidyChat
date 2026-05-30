@@ -1,4 +1,4 @@
-namespace TidyChat;
+namespace TidyChat.Data;
 
 /// <summary>
 ///     Tomestone names and row IDs from the TomestoneItem sheet, loaded at plugin startup.

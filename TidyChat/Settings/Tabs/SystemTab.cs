@@ -591,6 +591,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowFateDiscoveryMessagesHelpMarker);
 
+            bool showFriendList = configuration.ShowFriendList;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowFriendListMessages, ref showFriendList))
+            {
+                configuration.ShowFriendList = showFriendList;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowFriendListMessagesHelpMarker);
+
             bool showActiveHelpEntry = configuration.ShowActiveHelpEntry;
             if (ImGui.Checkbox(Languages.SystemTab_ShowActiveHelpEntryMessages, ref showActiveHelpEntry))
             {
