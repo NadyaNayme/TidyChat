@@ -66,8 +66,7 @@ public class Configuration : IPluginConfiguration
     #region Error Messages
 
     public bool HideFateLevelSync { get; set; } = true;
-
-    /// <summary>Deprecated: FATE discovery is always shown; retained for config deserialization.</summary>
+    public bool HideCannotExecute { get; set; } = true;
     public bool ShowFateDiscovery { get; set; } = true;
 
     #endregion
@@ -99,10 +98,7 @@ public class Configuration : IPluginConfiguration
 
     #region Whitelisted System Messages
 
-    /// <summary>Deprecated: S-rank hunt spawns are always shown; retained for config deserialization.</summary>
     public bool ShowSRankHunt { get; set; } = true;
-
-    /// <summary>Deprecated: SS-rank hunt spawns are always shown; retained for config deserialization.</summary>
     public bool ShowSSRankHunt { get; set; } = true;
 
     public bool ShowCommendations { get; set; } = true;
@@ -121,21 +117,16 @@ public class Configuration : IPluginConfiguration
     public bool ShowSelfUsedEmotes { get; set; } = true;
     public bool ShowOtherCustomEmotes { get; set; } = true;
 
-    /// <summary>Deprecated: ready checks are always shown; retained for config deserialization.</summary>
     public bool ShowReadyChecks { get; set; } = true;
-
-    /// <summary>Deprecated: countdown timers are always shown; retained for config deserialization.</summary>
     public bool ShowCountdownTime { get; set; } = true;
 
     public bool ShowUserLogins { get; set; } = false;
     public bool ShowUserLogouts { get; set; } = false;
 
-    /// <summary>Deprecated: friend list changes are always shown; retained for config deserialization.</summary>
     public bool ShowFriendList { get; set; } = true;
 
     public bool ShowSpiritboundGear { get; set; } = false;
 
-    /// <summary>Deprecated: treasure sense messages are always shown; retained for config deserialization.</summary>
     public bool ShowSpideySenses { get; set; } = true;
 
     public bool ShowAetherCompass { get; set; } = true;
@@ -150,7 +141,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
 
-    /// <summary>Deprecated: BGM/volume change messages are always shown; retained for config deserialization.</summary>
     public bool ShowVolumeControlMessage { get; set; } = false;
 
     public bool ShowTradeSent { get; set; } = false;
@@ -163,18 +153,15 @@ public class Configuration : IPluginConfiguration
     public bool ShowPartyDisband { get; set; } = false;
     public bool ShowPartyDissolved { get; set; } = false;
 
-    /// <summary>Deprecated: party invites received are always shown; retained for config deserialization.</summary>
     public bool ShowInvitedBy { get; set; } = false;
 
     public bool ShowJoinParty { get; set; } = false;
 
-    /// <summary>Deprecated: party objective on join is always shown; retained for config deserialization.</summary>
     public bool ShowPartyInformation { get; set; } = true;
 
     public bool ShowDutyFinder { get; set; } = true;
     public bool ShowOfferedTeleport { get; set; } = false;
 
-    /// <summary>Deprecated: sealed-off notifications are always shown; retained for config deserialization.</summary>
     public bool ShowSealedOff { get; set; } = false;
 
     public bool ShowHuntSlain { get; set; } = false;
@@ -198,7 +185,6 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowObtainedPomander { get; set; } = true;
 
-    /// <summary>Deprecated: deep dungeon trap messages are always shown; retained for config deserialization.</summary>
     public bool ShowTrapTriggered { get; set; } = true;
 
     public bool ShowCairnGlows { get; set; } = true;
@@ -263,7 +249,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowLevelUps { get; set; } = true;
     public bool ShowOtherLevelUps { get; set; } = false;
 
-    /// <summary>Deprecated: ability unlock messages are always shown; retained for config deserialization.</summary>
     public bool ShowAbilityUnlocks { get; set; } = true;
 
     #endregion
@@ -272,10 +257,7 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowAttachedMateria { get; set; } = true;
 
-    /// <summary>Deprecated: overmeld failure messages are always shown; retained for config deserialization.</summary>
     public bool ShowOvermeldFailure { get; set; } = true;
-
-    /// <summary>Deprecated: materia shatter messages are always shown; retained for config deserialization.</summary>
     public bool ShowMateriaShatters { get; set; } = true;
 
     public bool ShowMateriaExtract { get; set; } = true;
@@ -309,7 +291,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowAllOtherGathering { get; set; } = false;
     public bool ShowStellarMissionMessages { get; set; } = false;
 
-    /// <summary>Deprecated: cosmic exploration directives are always shown; retained for config deserialization.</summary>
     public bool ShowCosmicExplorationMessages { get; set; } = true;
 
     public bool ShowCosmicRewards { get; set; } = false;
@@ -328,12 +309,10 @@ public class Configuration : IPluginConfiguration
     public bool ShowCombatDefeat { get; set; } = true;
     public bool ShowCombatEnemyReady { get; set; } = true;
 
-    /// <summary>Deprecated: combat adds messages are always shown; retained for config deserialization.</summary>
     public bool ShowCombatAdds { get; set; } = true;
 
     public bool ShowCombatEnmity { get; set; } = false;
 
-    /// <summary>Deprecated: quest item obtains are always shown; retained for config deserialization.</summary>
     public bool ShowObtainedQuestItems { get; set; } = true;
 
     #endregion

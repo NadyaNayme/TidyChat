@@ -588,6 +588,12 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
     <value>Show message when materia is extracted from spiritbonded gear</value>
   </data>
+  <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
+    <value>Show message when materia fails to be overmelded onto gear</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
+    <value>Show message when materia shatters during retrieval</value>
+  </data>
   <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
     <value>Show message when materia is succesfully attached to gear</value>
   </data>
@@ -1002,6 +1008,13 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>This will show the message that occurs when you level up.
 It can be considered spammy in deep dungeons.</value>
   </data>
+  <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
+    <value>Show learned ability messages</value>
+  </data>
+  <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
+    <value>This will show the message that occurs when you learn a new ability.
+It can be considered spammy in deep dungeons.</value>
+  </data>
   <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
     <value>Show mount unlock messages</value>
   </data>
@@ -1066,6 +1079,18 @@ It can be considered spammy in deep dungeons.</value>
   <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
     <value>eg. RetainerName has completed a venture!</value>
   </data>
+  <data name="SystemTab_HideCannotExecuteMessages" xml:space="preserve">
+    <value>Hide "Cannot execute at this time." messages</value>
+  </data>
+  <data name="SystemTab_HideCannotExecuteMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Cannot execute at this time., Invalid target., Unable to use., Unable to obtain.</value>
+  </data>
+  <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
+    <value>Show /countdown messages</value>
+  </data>
+  <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Battle commencing in 18 seconds!</value>
+  </data>
   <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
     <value>Hide FATE level sync messages</value>
   </data>
@@ -1117,6 +1142,12 @@ Current instance can be confirmed at any time using the /instance text command.<
   </data>
   <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
     <value>Show personal message book new entry messages</value>
+  </data>
+  <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
+    <value>Show /readycheck message</value>
+  </data>
+  <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Ready check complete.</value>
   </data>
   <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
     <value>Show Received Commendations</value>
@@ -1275,6 +1306,12 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Catch-all for System channel messages not covered by another option. When System filtering is enabled, checking this shows any remaining system messages TidyChat would otherwise block.</value>
   </data>
+  <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
+    <value>Show FATE discovered messages</value>
+  </data>
+  <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
+  </data>
   <data name="SystemTab_ShowFcLoginLogoutMessages" xml:space="preserve">
     <value>Show Free Company member login/logout messages</value>
   </data>
@@ -1339,6 +1376,9 @@ eg. Your submersible has returned from its voyage.</value>
   <data name="SystemTab_ShowPomanderEffectsMessages" xml:space="preserve">
     <value>Show pomander effect messages</value>
   </data>
+  <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
+    <value>Show received party invitations</value>
+  </data>
   <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
     <value>Show ARR Relic book step completed messages</value>
   </data>
@@ -1357,6 +1397,12 @@ eg. Your submersible has returned from its voyage.</value>
   <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show when Second Chance points will be awarded for duty clear</value>
   </data>
+  <data name="SystemTab_ShowSealedOffMessages" xml:space="preserve">
+    <value>Show area sealed/unsealed messages</value>
+  </data>
+  <data name="SystemTab_ShowSealedOffMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The area has been sealed off! / The area is no longer sealed.</value>
+  </data>
   <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
     <value>Show sent party invites</value>
   </data>
@@ -1372,14 +1418,29 @@ eg. Your submersible has returned from its voyage.</value>
   <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
     <value>Show "Trade request sent to" message</value>
   </data>
+  <data name="SystemTab_ShowTrapTriggeredMessages" xml:space="preserve">
+    <value>Show trap triggered messages</value>
+  </data>
+  <data name="SystemTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
+  </data>
   <data name="SystemTab_ShowTradeMessages" xml:space="preserve">
     <value>Show trade messages</value>
   </data>
   <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
     <value>Show transference messages</value>
   </data>
+  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
+    <value>Show volume control messages</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Master Volume muted, BGM volume set to 50.</value>
+  </data>
   <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Trading Messages</value>
+  </data>
+  <data name="ShowPartyObjectiveAndPartyCommentWhenJoiningAParty" xml:space="preserve">
+    <value>Show Party Objective and Party Comment when joining a party</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
     <value>Allow</value>

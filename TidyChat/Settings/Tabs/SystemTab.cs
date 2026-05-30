@@ -36,6 +36,24 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideHousingWardMessageHelpMarker);
 
+            bool sRankHunt = configuration.ShowSRankHunt;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSRankSpawnAnnouncement, ref sRankHunt))
+            {
+                configuration.ShowSRankHunt = sRankHunt;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideSRankSpawnAnnouncementHelpMarker);
+
+            bool ssRankHunt = configuration.ShowSSRankHunt;
+            if (ImGui.Checkbox(Languages.SystemTab_HideSSRankMinionSpawnAnnouncement, ref ssRankHunt))
+            {
+                configuration.ShowSSRankHunt = ssRankHunt;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker);
+
             bool commendations = configuration.ShowCommendations;
             if (ImGui.Checkbox(Languages.SystemTab_HideReceivedCommendations, ref commendations))
             {
@@ -63,6 +81,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideSayReminderHelpMarker);
 
+            bool showSpideySenses = configuration.ShowSpideySenses;
+            if (ImGui.Checkbox(Languages.SystemTab_HideYouSenseSomethingMessages, ref showSpideySenses))
+            {
+                configuration.ShowSpideySenses = showSpideySenses;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideYouSenseSomethingMessagesHelpMarker);
+
             bool showAetherCompass = configuration.ShowAetherCompass;
             if (ImGui.Checkbox(Languages.SystemTab_HideAetherCompassMessages, ref showAetherCompass))
             {
@@ -71,6 +98,24 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideAetherCompassMessagesHelpMarker);
+
+            bool showCountdownTime = configuration.ShowCountdownTime;
+            if (ImGui.Checkbox(Languages.SystemTab_HideCountdownMessages, ref showCountdownTime))
+            {
+                configuration.ShowCountdownTime = showCountdownTime;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideCountdownMessagesHelpMarker);
+
+            bool showReadyChecks = configuration.ShowReadyChecks;
+            if (ImGui.Checkbox(Languages.SystemTab_HideReadycheckMessages, ref showReadyChecks))
+            {
+                configuration.ShowReadyChecks = showReadyChecks;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideReadycheckMessagesHelpMarker);
 
             bool showSearchForItemResults = configuration.ShowSearchForItemResults;
             if (ImGui.Checkbox(Languages.SystemTab_HideItemSearchResultsMessage, ref showSearchForItemResults))
@@ -216,6 +261,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker);
 
+            bool showVolumeControlMessage = configuration.ShowVolumeControlMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowVolumeControlMessages, ref showVolumeControlMessage))
+            {
+                configuration.ShowVolumeControlMessage = showVolumeControlMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowVolumeControlMessagesHelpMarker);
+
             bool showGearsetEquipped = configuration.ShowGearsetEquipped;
             if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
             {
@@ -233,6 +287,15 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowNowALeaderHelpMarker);
+
+            bool showSealedOff = configuration.ShowSealedOff;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowSealedOffMessages, ref showSealedOff))
+            {
+                configuration.ShowSealedOff = showSealedOff;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowSealedOffMessagesHelpMarker);
 
             bool showEverythingElse = configuration.ShowEverythingElse;
             if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
@@ -339,6 +402,15 @@ internal static class SystemTab
                 configuration.OnSettingChanged();
             }
 
+            bool showTrapTriggered = configuration.ShowTrapTriggered;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowTrapTriggeredMessages, ref showTrapTriggered))
+            {
+                configuration.ShowTrapTriggered = showTrapTriggered;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowTrapTriggeredMessagesHelpMarker);
+
             bool showPomanderEffects = configuration.ShowPomanderEffects;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPomanderEffectsMessages, ref showPomanderEffects))
             {
@@ -407,6 +479,13 @@ internal static class SystemTab
                 configuration.OnSettingChanged();
             }
 
+            bool showInvitedBy = configuration.ShowInvitedBy;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowReceivedPartyInvitationMessages, ref showInvitedBy))
+            {
+                configuration.ShowInvitedBy = showInvitedBy;
+                configuration.OnSettingChanged();
+            }
+
             bool showJoinParty = configuration.ShowJoinParty;
             if (ImGui.Checkbox(Languages.SystemTab_ShowJoinedCrossworldPartyMessages, ref showJoinParty))
             {
@@ -422,6 +501,13 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowDutyFinderMessagesHelpMarker);
+
+            bool showPartyInformation = configuration.ShowPartyInformation;
+            if (ImGui.Checkbox(Languages.ShowPartyObjectiveAndPartyCommentWhenJoiningAParty, ref showPartyInformation))
+            {
+                configuration.ShowPartyInformation = showPartyInformation;
+                configuration.OnSettingChanged();
+            }
 
             bool showOfferedTeleport = configuration.ShowOfferedTeleport;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTeleportOfferFromPartyMessages, ref showOfferedTeleport))
@@ -486,6 +572,24 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideFateLevelSyncMessagesHelpMarker);
+
+            bool hideCannotExecute = configuration.HideCannotExecute;
+            if (ImGui.Checkbox(Languages.SystemTab_HideCannotExecuteMessages, ref hideCannotExecute))
+            {
+                configuration.HideCannotExecute = hideCannotExecute;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_HideCannotExecuteMessagesHelpMarker);
+
+            bool showFateDiscovery = configuration.ShowFateDiscovery;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowFateDiscoveryMessages, ref showFateDiscovery))
+            {
+                configuration.ShowFateDiscovery = showFateDiscovery;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowFateDiscoveryMessagesHelpMarker);
 
             bool showActiveHelpEntry = configuration.ShowActiveHelpEntry;
             if (ImGui.Checkbox(Languages.SystemTab_ShowActiveHelpEntryMessages, ref showActiveHelpEntry))

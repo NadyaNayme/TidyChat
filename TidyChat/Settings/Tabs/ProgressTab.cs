@@ -99,6 +99,15 @@ internal static class ProgressTab
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
 
+        bool showAbilityUnlocks = configuration.ShowAbilityUnlocks;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
+        {
+            configuration.ShowAbilityUnlocks = showAbilityUnlocks;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
+
         bool showMountMessages = configuration.ShowMountMessages;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowMountMessages, ref showMountMessages))
         {

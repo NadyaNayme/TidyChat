@@ -11,26 +11,7 @@ namespace TidyChat.Settings;
 
 internal static class SettingsSearchIndex
 {
-    private static readonly HashSet<string> AlwaysOnSettings = new(StringComparer.Ordinal)
-    {
-        "ShowSRankHunt",
-        "ShowSSRankHunt",
-        "ShowInvitedBy",
-        "ShowReadyChecks",
-        "ShowCountdownTime",
-        "ShowFriendList",
-        "ShowTrapTriggered",
-        "ShowSpideySenses",
-        "ShowMateriaShatters",
-        "ShowVolumeControlMessage",
-        "ShowSealedOff",
-        "ShowOvermeldFailure",
-        "ShowFateDiscovery",
-        "ShowCosmicExplorationMessages",
-        "ShowCombatAdds",
-        "ShowObtainedQuestItems",
-        "ShowAbilityUnlocks"
-    };
+    private static readonly HashSet<string> AlwaysOnSettings = new(StringComparer.Ordinal);
 
     private static readonly HashSet<string> SkippedProperties = new(StringComparer.Ordinal)
     {

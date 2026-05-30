@@ -43,11 +43,26 @@ internal static class CraftingGatheringTab
                 configuration.OnSettingChanged();
             }
 
+            bool showOvermeldFailure = configuration.ShowOvermeldFailure;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages,
+                    ref showOvermeldFailure))
+            {
+                configuration.ShowOvermeldFailure = showOvermeldFailure;
+                configuration.OnSettingChanged();
+            }
+
             bool showMateriaRetrieved = configuration.ShowMateriaRetrieved;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages,
                     ref showMateriaRetrieved))
             {
                 configuration.ShowMateriaRetrieved = showMateriaRetrieved;
+                configuration.OnSettingChanged();
+            }
+
+            bool showMateriaShatters = configuration.ShowMateriaShatters;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaShattersMessages, ref showMateriaShatters))
+            {
+                configuration.ShowMateriaShatters = showMateriaShatters;
                 configuration.OnSettingChanged();
             }
 

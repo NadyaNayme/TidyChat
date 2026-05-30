@@ -135,7 +135,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
 
         // TODO(next release): Config migration v5 — remove deprecated Configuration properties listed in
         // docs/rules-review-checklist.md (always-on toggles, HideObtainedShardsFromLoot, HideOthersObtainFromLoot).
-        // Decouple always-on rule Name fields from removed config keys; stop reading legacy keys in ObtainTab.
+        // Decouple always-on rule Name fields from removed config keys.
         // Bump Configuration.Version to 5 after v1–v4 migrations remain for upgrade path.
 
         Rules.UpdateIsActiveStates(Configuration);
@@ -570,7 +570,7 @@ public sealed class TidyChatPlugin : IDalamudPlugin
         }
 
         if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty &&
-            Configuration.FilterSystemMessages)
+            Configuration is { ShowPartyInformation: true, FilterSystemMessages: true })
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
             return true;
