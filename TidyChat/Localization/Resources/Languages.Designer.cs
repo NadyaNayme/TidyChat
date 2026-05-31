@@ -2398,6 +2398,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show retainer venture assignment messages.
+        /// </summary>
+        internal static string SystemTab_ShowRetainerVentureMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowRetainerVentureMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You assign your retainer "Quick Exploration.", You pay RetainerName 2 ventures..
+        /// </summary>
+        internal static string SystemTab_ShowRetainerVentureMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowRetainerVentureMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show /countdown messages.
         /// </summary>
         internal static string SystemTab_HideCountdownMessages {
@@ -3178,6 +3196,42 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowGearsetChangingMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowGearsetChangingMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show job change messages.
+        /// </summary>
+        internal static string SystemTab_ShowJobChangeMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowJobChangeMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. You change to Scholar., Paladin registered..
+        /// </summary>
+        internal static string SystemTab_ShowJobChangeMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowJobChangeMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show portrait messages.
+        /// </summary>
+        internal static string SystemTab_ShowPortraitMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowPortraitMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. Portrait set as instant portrait., Portrait has expired..
+        /// </summary>
+        internal static string SystemTab_ShowPortraitMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowPortraitMessagesHelpMarker", resourceCulture);
             }
         }
         

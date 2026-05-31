@@ -103,6 +103,7 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowCommendations { get; set; } = true;
     public bool ShowCompletedVenture { get; set; } = false;
+    public bool ShowRetainerVentureMessages { get; set; } = false;
 
     public bool ShowInstanceMessage { get; set; } = true;
 
@@ -136,9 +137,11 @@ public class Configuration : IPluginConfiguration
     public bool ShowFreeCompanyMessageBook { get; set; } = true;
     public bool ShowPersonalMessageBook { get; set; } = true;
     public bool ShowVistaMessages { get; set; } = true;
-    public bool ShowTryOnGlamour { get; set; } = true;
+    public bool ShowTryOnGlamour { get; set; } = false;
     public bool ShowEligibleForCoffers { get; set; } = false;
     public bool ShowGearsetEquipped { get; set; } = false;
+    public bool ShowJobChange { get; set; } = true;
+    public bool ShowPortraitMessages { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
 
     public bool ShowVolumeControlMessage { get; set; } = false;

@@ -72,6 +72,15 @@ internal static class SystemTab
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_HideCompletedVentureHelpMarker);
 
+            bool retainerVentureMessages = configuration.ShowRetainerVentureMessages;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
+            {
+                configuration.ShowRetainerVentureMessages = retainerVentureMessages;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowRetainerVentureMessagesHelpMarker);
+
             bool showQuestReminder = configuration.ShowQuestReminder;
             if (ImGui.Checkbox(Languages.SystemTab_HideSayReminder, ref showQuestReminder))
             {
@@ -278,6 +287,24 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
+
+            bool showJobChange = configuration.ShowJobChange;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowJobChangeMessages, ref showJobChange))
+            {
+                configuration.ShowJobChange = showJobChange;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowJobChangeMessagesHelpMarker);
+
+            bool showPortraitMessages = configuration.ShowPortraitMessages;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowPortraitMessages, ref showPortraitMessages))
+            {
+                configuration.ShowPortraitMessages = showPortraitMessages;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowPortraitMessagesHelpMarker);
 
             bool showNowLeaderOf = configuration.ShowNowLeaderOf;
             if (ImGui.Checkbox(Languages.SystemTab_ShowNowALeader, ref showNowLeaderOf))

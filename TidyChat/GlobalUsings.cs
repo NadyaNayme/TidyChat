@@ -1,4 +1,13 @@
+global using System;
+global using System.Globalization;
+global using System.Linq;
 global using ChatTwo.Code;
+global using Dalamud.Game.Chat;
+global using Dalamud.Game.Text;
+global using Dalamud.Game.Text.SeStringHandling;
 global using TidyChat.Data;
+global using TidyChat.Localization.Resources;
 global using TidyChat.Settings;
 global using TidyChat.Settings.UI;
+global using TidyChat.Utility;
+global using Better = TidyChat.Utility.BetterStrings;

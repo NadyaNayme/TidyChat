@@ -33,7 +33,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCompletedVenture",
+            Name = "ShowRetainerVentureMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -44,12 +44,23 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCompletedVenture",
+            Name = "ShowRetainerVentureMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4330],
             StringChecks = [ChatStrings.RetainerVentureAssign],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowRetainerVentureMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4334],
+            StringChecks = [ChatStrings.RetainerVenturePayment],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -61,17 +72,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [4332],
             StringChecks = [ChatStrings.RetainerVentureItemComplete],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCompletedVenture",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4334],
-            StringChecks = [ChatStrings.RetainerVenturePayment],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -1007,7 +1007,7 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [3911, 4309, 4364, 4378, 10508]
+            LogMessageIds = [3911, 4309, 4364, 4378, 10508, 1900]
         },
         new()
         {
@@ -1053,6 +1053,17 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
+        new()
+        {
+            Name = "ShowTryOnGlamour",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1900],
+            StringChecks = [ChatStrings.GearsetGlamourRestoreFailed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
         // OnChat fallback when LogMessage handling did not run.
         new()
         {
@@ -1070,6 +1081,15 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GlamourPlateProjected],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTryOnGlamour",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GearsetGlamourRestoreFailed],
             Pattern = PatternKind.StringMatch
         },
         new()
@@ -1345,7 +1365,7 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [700, 755, 788, 756, 1900, 1281, 561, 5865, 5874, 5886]
+            LogMessageIds = [700, 755, 788]
         },
         new()
         {
@@ -1360,7 +1380,15 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowJobChange",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [561, 756, 1281]
+        },
+        new()
+        {
+            Name = "ShowJobChange",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1371,7 +1399,15 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowPortraitMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [5865, 5874, 5886]
+        },
+        new()
+        {
+            Name = "ShowPortraitMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1382,7 +1418,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowPortraitMessages",
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
@@ -1393,7 +1429,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowPortraitMessages",
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
@@ -1413,7 +1449,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowJobChange",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1422,7 +1458,25 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowJobChange",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.JobRegistered],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowJobChange",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.JobSpecialistChange],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowPortraitMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1431,7 +1485,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowPortraitMessages",
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
@@ -1440,7 +1494,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowPortraitMessages",
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
@@ -1460,7 +1514,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowJobChange",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1471,18 +1525,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGearsetEquipped",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [1900],
-            StringChecks = [ChatStrings.GearsetGlamourRestoreFailed],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowGearsetEquipped",
+            Name = "ShowJobChange",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,

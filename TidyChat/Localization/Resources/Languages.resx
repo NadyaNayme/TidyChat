@@ -1192,6 +1192,12 @@ It can be considered spammy in deep dungeons.</value>
   <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
     <value>eg. RetainerName has completed a venture!</value>
   </data>
+  <data name="SystemTab_ShowRetainerVentureMessages" xml:space="preserve">
+    <value>Show retainer venture assignment messages</value>
+  </data>
+  <data name="SystemTab_ShowRetainerVentureMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You assign your retainer "Quick Exploration.", You pay RetainerName 2 ventures.</value>
+  </data>
   <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
     <value>Show /countdown messages</value>
   </data>
@@ -1457,10 +1463,22 @@ eg. Your submersible has returned from its voyage.</value>
     <value>eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated.</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
-    <value>Show message when changing gearsets</value>
+    <value>Show gearset equipped messages</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
     <value>eg. “Red Mage” equipped.</value>
+  </data>
+  <data name="SystemTab_ShowJobChangeMessages" xml:space="preserve">
+    <value>Show job change messages</value>
+  </data>
+  <data name="SystemTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You change to Scholar., Paladin registered.</value>
+  </data>
+  <data name="SystemTab_ShowPortraitMessages" xml:space="preserve">
+    <value>Show portrait messages</value>
+  </data>
+  <data name="SystemTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Portrait set as instant portrait., Portrait has expired.</value>
   </data>
   <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
     <value>Hidden by default (check to show)</value>
