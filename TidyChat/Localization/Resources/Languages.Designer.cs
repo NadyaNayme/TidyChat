@@ -569,7 +569,341 @@ namespace TidyChat.Localization.Resources {
         internal static string ConfigWindow_EconomyTabHeader {
             get { return ResourceManager.GetString("ConfigWindow_EconomyTabHeader", resourceCulture); }
         }
+
+        internal static string EconomyTab_TradingSectionHeader {
+            get { return ResourceManager.GetString("EconomyTab_TradingSectionHeader", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowTradeRequestSent {
+            get { return ResourceManager.GetString("EconomyTab_ShowTradeRequestSent", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowTradeAwaitingConfirmation {
+            get { return ResourceManager.GetString("EconomyTab_ShowTradeAwaitingConfirmation", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowTradeCanceled {
+            get { return ResourceManager.GetString("EconomyTab_ShowTradeCanceled", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowTradeComplete {
+            get { return ResourceManager.GetString("EconomyTab_ShowTradeComplete", resourceCulture); }
+        }
+
+        internal static string EconomyTab_VendorSectionHeader {
+            get { return ResourceManager.GetString("EconomyTab_VendorSectionHeader", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowVendorSellMessages {
+            get { return ResourceManager.GetString("EconomyTab_ShowVendorSellMessages", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowVendorSellMessagesHelpMarker {
+            get { return ResourceManager.GetString("EconomyTab_ShowVendorSellMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowVendorPurchaseMessages {
+            get { return ResourceManager.GetString("EconomyTab_ShowVendorPurchaseMessages", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowVendorPurchaseMessagesHelpMarker {
+            get { return ResourceManager.GetString("EconomyTab_ShowVendorPurchaseMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowGilWithdrawnMessage {
+            get { return ResourceManager.GetString("EconomyTab_ShowGilWithdrawnMessage", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowGilWithdrawnMessageHelpMarker {
+            get { return ResourceManager.GetString("EconomyTab_ShowGilWithdrawnMessageHelpMarker", resourceCulture); }
+        }
+
+        internal static string EconomyTab_MarketBoardSectionHeader {
+            get { return ResourceManager.GetString("EconomyTab_MarketBoardSectionHeader", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowMarketBoardMessages {
+            get { return ResourceManager.GetString("EconomyTab_ShowMarketBoardMessages", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowMarketBoardMessagesHelpMarker {
+            get { return ResourceManager.GetString("EconomyTab_ShowMarketBoardMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShortenMarketBoardSale {
+            get { return ResourceManager.GetString("EconomyTab_ShortenMarketBoardSale", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShortenMarketBoardSaleHelpMarker {
+            get { return ResourceManager.GetString("EconomyTab_ShortenMarketBoardSaleHelpMarker", resourceCulture); }
+        }
+
+        internal static string EconomyTab_GilSectionHeader {
+            get { return ResourceManager.GetString("EconomyTab_GilSectionHeader", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowGilSpentMessage {
+            get { return ResourceManager.GetString("EconomyTab_ShowGilSpentMessage", resourceCulture); }
+        }
+
+        internal static string EconomyTab_ShowGilSpentMessageHelpMarker {
+            get { return ResourceManager.GetString("EconomyTab_ShowGilSpentMessageHelpMarker", resourceCulture); }
+        }
         
+        
+        internal static string PartyDutyTab_ShowPartyObjectiveOnJoin {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowPartyObjectiveOnJoin", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_DeepDungeonsDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_DeepDungeonsDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_DutyCompletionDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_DutyCompletionDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_DutyFinderDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_DutyFinderDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_FreeCompanyDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_FreeCompanyDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideAirshipVoyageMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideAirshipVoyageMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideAirshipVoyageMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_HideAirshipVoyageMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideCompletedVenture {
+            get { return ResourceManager.GetString("PartyDutyTab_HideCompletedVenture", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideCompletedVentureHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_HideCompletedVentureHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideCountdownMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideCountdownMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideCountdownMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_HideCountdownMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideFreeCompanyMessageBookMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideFreeCompanyMessageBookMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideLoginMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideLoginMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideLogoutMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideLogoutMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideReadycheckMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideReadycheckMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideReadycheckMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_HideReadycheckMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideSubmarineVoyageMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_HideSubmarineVoyageMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_HideSubmarineVoyageMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_HideSubmarineVoyageMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_PartyAndInviteDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_PartyAndInviteDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_PartyLeadershipDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_PartyLeadershipDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_PartyToolsDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_PartyToolsDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_RetainerAndVentureDropdownHeader {
+            get { return ResourceManager.GetString("PartyDutyTab_RetainerAndVentureDropdownHeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowAccursedHoardDiscoveredMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowAccursedHoardDiscoveredMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowAccursedHoardNotSensedMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowAccursedHoardNotSensedMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowAccursedHoardSensedMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowAccursedHoardSensedMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowAetherpoolIncreasesMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowAetherpoolIncreasesMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowAetherpoolRemainsUnchangedMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowAetherpoolRemainsUnchangedMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowCairnOfPassageActivatedMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowCairnOfPassageActivatedMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowCairnOfPassageGlowsMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowCairnOfPassageGlowsMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowCairnOfReturnUsedMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowCairnOfReturnUsedMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowCompletionTimeForUnrestrictedParty {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowCompletionTimeForUnrestrictedParty", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowDisbandAndDissolveMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowDisbandAndDissolveMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowDutyFinderMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowDutyFinderMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowDutyFinderMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowDutyFinderMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowFloorNumberMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowFloorNumberMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowJoinedCrossworldPartyMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowJoinedCrossworldPartyMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowJoiningPartyMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowJoiningPartyMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowLeftPartyMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowLeftPartyMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowNowALeader {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowNowALeader", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowNowALeaderHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowNowALeaderHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowObtainedPomanderMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowObtainedPomanderMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowPomanderEffectsMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowPomanderEffectsMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowReceivedPartyInvitationMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowReceivedPartyInvitationMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowRetainerVentureMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowRetainerVentureMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowRetainerVentureMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowRetainerVentureMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowSealedOffMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowSealedOffMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowSealedOffMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowSealedOffMessagesHelpMarker", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowSentPartyInviteMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowSentPartyInviteMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowTeleportOfferFromPartyMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowTeleportOfferFromPartyMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowTransferenceMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowTransferenceMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowTrapTriggeredMessages {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowTrapTriggeredMessages", resourceCulture); }
+        }
+
+        internal static string PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker {
+            get { return ResourceManager.GetString("PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker", resourceCulture); }
+        }
+
+        
+        internal static string EmotesTab_FilterStandardEmotes {
+            get { return ResourceManager.GetString("EmotesTab_FilterStandardEmotes", resourceCulture); }
+        }
+
+        internal static string EmotesTab_FilterStandardEmotesHelpMarker {
+            get { return ResourceManager.GetString("EmotesTab_FilterStandardEmotesHelpMarker", resourceCulture); }
+        }
+
+        internal static string EmotesTab_ShowOtherCustomEmotes {
+            get { return ResourceManager.GetString("EmotesTab_ShowOtherCustomEmotes", resourceCulture); }
+        }
+
+        internal static string EmotesTab_ShowOtherCustomEmotesHelpMarker {
+            get { return ResourceManager.GetString("EmotesTab_ShowOtherCustomEmotesHelpMarker", resourceCulture); }
+        }
+
+        internal static string EmotesTab_ShowSelfCustomEmotes {
+            get { return ResourceManager.GetString("EmotesTab_ShowSelfCustomEmotes", resourceCulture); }
+        }
+
+        internal static string EmotesTab_ShowSelfCustomEmotesHelpMarker {
+            get { return ResourceManager.GetString("EmotesTab_ShowSelfCustomEmotesHelpMarker", resourceCulture); }
+        }
+
+        internal static string ToolsTab_EnableDebugMode {
+            get { return ResourceManager.GetString("ToolsTab_EnableDebugMode", resourceCulture); }
+        }
+
+        internal static string ToolsTab_DebugIncludeChannel {
+            get { return ResourceManager.GetString("ToolsTab_DebugIncludeChannel", resourceCulture); }
+        }
+
+        internal static string ProgressTab_ShowFirstClearAward {
+            get { return ResourceManager.GetString("ProgressTab_ShowFirstClearAward", resourceCulture); }
+        }
+
+        internal static string ProgressTab_ShowSecondChanceAward {
+            get { return ResourceManager.GetString("ProgressTab_ShowSecondChanceAward", resourceCulture); }
+        }
+
         internal static string ConfigWindow_EmotesTabHeader {
             get { return ResourceManager.GetString("ConfigWindow_EmotesTabHeader", resourceCulture); }
         }
@@ -3647,78 +3981,6 @@ namespace TidyChat.Localization.Resources {
             }
         }
 
-        internal static string SystemTab_ShowVendorSellMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowVendorSellMessages", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowVendorSellMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowVendorSellMessagesHelpMarker", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowVendorPurchaseMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowVendorPurchaseMessages", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowVendorPurchaseMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowVendorPurchaseMessagesHelpMarker", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowMarketBoardMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowMarketBoardMessages", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowMarketBoardMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowMarketBoardMessagesHelpMarker", resourceCulture);
-            }
-        }
-
-        internal static string EconomyTab_BetterMarketBoardSaleMessage {
-            get {
-                return ResourceManager.GetString("EconomyTab_BetterMarketBoardSaleMessage", resourceCulture);
-            }
-        }
-
-        internal static string EconomyTab_BetterMarketBoardSaleMessageHelpMarker {
-            get {
-                return ResourceManager.GetString("EconomyTab_BetterMarketBoardSaleMessageHelpMarker", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowGilWithdrawnMessage {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGilWithdrawnMessage", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowGilWithdrawnMessageHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGilWithdrawnMessageHelpMarker", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowGilSpentMessage {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGilSpentMessage", resourceCulture);
-            }
-        }
-
-        internal static string SystemTab_ShowGilSpentMessageHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowGilSpentMessageHelpMarker", resourceCulture);
-            }
-        }
-
         /// <summary>
         ///   Looks up a localized string similar to Show &quot;Trade canceled.&quot; message.
         /// </summary>
@@ -3734,15 +3996,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowTradeCompleteMessages {
             get {
                 return ResourceManager.GetString("SystemTab_ShowTradeCompleteMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show trade messages.
-        /// </summary>
-        internal static string SystemTab_ShowTradeMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowTradeMessages", resourceCulture);
             }
         }
         
@@ -3981,3 +4234,5 @@ namespace TidyChat.Localization.Resources {
         }
     }
 }
+
+

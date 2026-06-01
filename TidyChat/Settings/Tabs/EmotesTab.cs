@@ -1,4 +1,4 @@
-using Dalamud.Interface.Components;
+﻿using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
 namespace TidyChat.Settings.Tabs;
 
@@ -7,13 +7,13 @@ internal static class EmotesTab
     public static void Draw(Configuration configuration)
     {
         bool filterEmoteSpam = configuration.FilterEmoteChannel;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterEmotes, ref filterEmoteSpam))
+        if (ImGui.Checkbox(Languages.EmotesTab_FilterStandardEmotes, ref filterEmoteSpam))
         {
             configuration.FilterEmoteChannel = filterEmoteSpam;
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterEmotesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterStandardEmotesHelpMarker);
 
         bool filterCustomEmoteSpam = configuration.FilterCustomEmoteChannel;
         if (ImGui.Checkbox(Languages.EmotesTab_FilterCustomEmoteChannel, ref filterCustomEmoteSpam))
@@ -25,21 +25,22 @@ internal static class EmotesTab
         ImGuiComponents.HelpMarker(Languages.EmotesTab_FilterCustomEmoteChannelHelpMarker);
 
         bool showOtherCustomEmotes = configuration.ShowOtherCustomEmotes;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterCustomEmotes, ref showOtherCustomEmotes))
+        if (ImGui.Checkbox(Languages.EmotesTab_ShowOtherCustomEmotes, ref showOtherCustomEmotes))
         {
             configuration.ShowOtherCustomEmotes = showOtherCustomEmotes;
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterCustomEmotesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.EmotesTab_ShowOtherCustomEmotesHelpMarker);
 
         bool showSelfUsedEmotes = configuration.ShowSelfUsedEmotes;
-        if (ImGui.Checkbox(Languages.GeneralTab_FilterSelfEmotes, ref showSelfUsedEmotes))
+        if (ImGui.Checkbox(Languages.EmotesTab_ShowSelfCustomEmotes, ref showSelfUsedEmotes))
         {
             configuration.ShowSelfUsedEmotes = showSelfUsedEmotes;
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterSelfEmotesHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.EmotesTab_ShowSelfCustomEmotesHelpMarker);
     }
 }
+

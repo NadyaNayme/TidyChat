@@ -529,11 +529,17 @@
   <data name="SystemTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
     <value>éĝ. Ýôû þûŕçĥàšé àñ îţéɱ ƒŕôɱ à véñðôŕ.</value>
   </data>
-  <data name="SystemTab_ShowMarketBoardMessages" xml:space="preserve">
-    <value>Šĥôŵ ɱàŕķéţ ƀôàŕð ļîšţîñĝ àñð šàļé ɱéššàĝéš</value>
+  <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱàŕķéţ ƀôàŕð &amp; ŕéţàîñéŕ ļîšţîñĝš</value>
   </data>
-  <data name="SystemTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ. Ýôû àŕé ñôŵ šéļļîñĝ îţéɱš îñ ţĥé ɱàŕķéţš.</value>
+  <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
+    <value>Łîšţîñĝ šţàŕţ/šţôþ, îţéɱ šôļð, àļļ šôļð, ĝîļ ţô ŕéţàîñéŕ. Ñééðš Šýšţéɱ ƒîļţéŕ ôñ Ĝéñéŕàļ.</value>
+  </data>
+  <data name="EconomyTab_ShortenMarketBoardSale" xml:space="preserve">
+    <value>Çôɱþàçţ îţéɱ šôļð ļîñéš</value>
+  </data>
+  <data name="EconomyTab_ShortenMarketBoardSaleHelpMarker" xml:space="preserve">
+    <value>éĝ. Îţéɱ šôļð ƒôŕ 757 ĝîļ.</value>
   </data>
   <data name="SystemTab_ShowGilWithdrawnMessage" xml:space="preserve">
     <value>Šĥôŵ ŕéţàîñéŕ ĝîļ ŵîţĥðŕàŵàļ ɱéššàĝé</value>

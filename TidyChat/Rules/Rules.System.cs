@@ -1,4 +1,4 @@
-namespace TidyChat;
+﻿namespace TidyChat;
 
 public static partial class Rules
 {
@@ -89,7 +89,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCommendations",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [926],
@@ -100,7 +100,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInstanceMessage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1350, 2055, 2056, 2059],
@@ -246,7 +246,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInviteSent",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1],
@@ -257,7 +257,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInviteeJoins",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [60],
@@ -268,7 +268,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowLeftParty",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4, 69],
@@ -279,7 +279,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowPartyDisband",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [73],
@@ -290,7 +290,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowPartyDissolved",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [72],
@@ -301,7 +301,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowPartyDissolved",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7447],
@@ -312,7 +312,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInvitedBy",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3],
@@ -323,7 +323,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInvitedBy",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1885],
@@ -334,7 +334,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInvitedBy",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1895],
@@ -345,7 +345,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowJoinParty",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [61],
@@ -356,7 +356,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowJoinParty",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7444],
@@ -367,7 +367,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.PeriodicRecruitmentNotification,
             IsActive = true,
             LogMessageIds = [94],
@@ -379,7 +379,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.PeriodicRecruitmentNotification,
             IsActive = true,
             StringChecks = [ChatStrings.DutyFinderRecruitment],
@@ -388,7 +388,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4670],
@@ -399,7 +399,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4671],
@@ -410,7 +410,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [897],
@@ -421,7 +421,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [890],
@@ -433,7 +433,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
@@ -442,7 +442,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4676],
@@ -453,7 +453,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4218],
@@ -464,7 +464,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4248],
@@ -475,7 +475,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [979],
@@ -486,7 +486,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [981],
@@ -565,7 +565,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedPomander",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7220, 7221, 7222],
@@ -576,7 +576,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCairnGlows",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7242],
@@ -588,7 +588,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCairnGlows",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.CairnGlows],
@@ -597,7 +597,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRestoresLifeToFallen",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7243],
@@ -608,7 +608,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCairnActivates",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7245],
@@ -619,7 +619,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTransference",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7246, 7247, 7248],
@@ -630,7 +630,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherpoolIncrease",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7250],
@@ -641,7 +641,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherpoolIncrease",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7250],
@@ -653,7 +653,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherpoolIncrease",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.AetherpoolIncrease],
@@ -662,7 +662,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherpoolUnchanged",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7251],
@@ -673,7 +673,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowPomanderEffects",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7263, 7264, 7265],
@@ -684,7 +684,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7224, 7225, 7226, 7227, 7228, 7229],
@@ -695,7 +695,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DeepDungeonLandmineTriggered],
@@ -704,7 +704,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DeepDungeonTrapTriggered],
@@ -713,7 +713,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DeepDungeonDetonatorTriggered],
@@ -722,7 +722,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFloorNumber",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7249],
@@ -733,7 +733,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFloorNumber",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7270, 9218],
@@ -744,7 +744,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFloorNumber",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7249, 7270, 9218],
@@ -755,7 +755,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSenseAccursedHoard",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7272],
@@ -766,7 +766,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDoNotSenseAccursedHoard",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7273],
@@ -777,7 +777,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDiscoverAccursedHoard",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7274],
@@ -788,7 +788,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowReadyChecks",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3790, 3794],
@@ -799,7 +799,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowReadyChecks",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3791],
@@ -811,7 +811,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowReadyChecks",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ReadyCheck],
@@ -820,7 +820,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowReadyChecks",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.ReadyCheckInitiated],
@@ -883,7 +883,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCountdownTime",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [5260, 5264, 5255, 5256],
@@ -895,7 +895,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCountdownTime",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.CountdownTime],
@@ -915,7 +915,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowExploratoryVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4163]
@@ -923,7 +923,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [6061, 6057, 6059, 6060, 6062, 6092, 4168]
@@ -931,7 +931,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [6057],
@@ -942,7 +942,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [6059],
@@ -954,7 +954,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.SubaquaticVoyageFinalized],
@@ -963,7 +963,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4168],
@@ -974,7 +974,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [6062],
@@ -985,7 +985,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSubaquaticVoyage",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [6092],
@@ -1112,7 +1112,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFreeCompanyMessageBook",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3087, 6065, 3127]
@@ -1120,7 +1120,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFreeCompanyMessageBook",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3127],
@@ -1132,7 +1132,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFreeCompanyMessageBook",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.CompanyActionExpired],
@@ -1160,7 +1160,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTradeSent",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [33]
@@ -1168,7 +1168,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTradeCanceled",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [36]
@@ -1176,7 +1176,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAwaitingTradeConfirmation",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [32]
@@ -1184,7 +1184,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowNowLeaderOf",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [15, 16, 23, 24, 367, 383, 9284, 9285, 9289, 9290, 9291, 9298]
@@ -1192,7 +1192,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFirstClearAward",
-            SettingsTab = "System",
+            SettingsTab = "Progress",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4225],
@@ -1203,7 +1203,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFirstClearAward",
-            SettingsTab = "System",
+            SettingsTab = "Progress",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4225],
@@ -1214,7 +1214,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSecondChanceAward",
-            SettingsTab = "System",
+            SettingsTab = "Progress",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7975],
@@ -1225,7 +1225,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTradeComplete",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [38]
@@ -1233,7 +1233,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [440],
@@ -1244,7 +1244,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMarketBoardMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [398],
@@ -1255,7 +1255,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMarketBoardMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [399],
@@ -1266,7 +1266,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMarketBoardMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.RetainerSale,
             IsActive = true,
             LogMessageIds = [748],
@@ -1277,7 +1277,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMarketBoardMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.RetainerSale,
             IsActive = true,
             LogMessageIds = [384],
@@ -1288,7 +1288,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMarketBoardMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4578],
@@ -1299,7 +1299,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowVendorSellMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1688],
@@ -1310,7 +1310,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowVendorPurchaseMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [734],
@@ -1321,7 +1321,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowVendorPurchaseMessages",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1687],
@@ -1332,7 +1332,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowGilSpentMessage",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4590],
@@ -1343,7 +1343,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowGilWithdrawnMessage",
-            SettingsTab = "System",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [736],
@@ -1537,7 +1537,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSealedOff",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [2012, 2013, 2014]
@@ -1545,7 +1545,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSealedOff",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [2012, 2013, 2014],
@@ -1737,3 +1737,4 @@ public static partial class Rules
         }
     ];
 }
+

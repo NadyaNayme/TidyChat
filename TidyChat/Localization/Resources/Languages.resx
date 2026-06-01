@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <!--
         Microsoft ResX Schema 
@@ -501,70 +501,70 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Combat log</value>
   </data>
   <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
-    <value>Casting &amp; Abilities</value>
+    <value>Casting &amp; abilities</value>
   </data>
   <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
-    <value>Damage, Healing &amp; Effects</value>
+    <value>Damage, healing &amp; effects</value>
   </data>
   <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
-    <value>Defeat, Adds &amp; Enmity</value>
+    <value>Defeat &amp; adds</value>
   </data>
   <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
-    <value>Show combat ability usage messages</value>
+    <value>combat ability usage messages</value>
   </data>
   <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy uses Attack.</value>
   </data>
   <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
-    <value>Show adds calling for help messages</value>
+    <value>adds calling for help messages</value>
   </data>
   <data name="CombatTab_ShowCombatAddsMessagesHelpMarker" xml:space="preserve">
     <value>eg. The goblin calls for help!</value>
   </data>
   <data name="CombatTab_ShowCombatCastingMessages" xml:space="preserve">
-    <value>Show combat casting messages</value>
+    <value>Combat casting</value>
   </data>
   <data name="CombatTab_ShowCombatCastingMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy begins casting Fire.</value>
   </data>
   <data name="CombatTab_ShowCombatDamageMessages" xml:space="preserve">
-    <value>Show combat damage messages</value>
+    <value>combat damage messages</value>
   </data>
   <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy takes 1,234 damage.</value>
   </data>
   <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
-    <value>Show enemy defeated messages</value>
+    <value>enemy defeated messages</value>
   </data>
   <data name="CombatTab_ShowCombatDefeatMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy is defeated.</value>
   </data>
   <data name="CombatTab_ShowCombatEffectsMessages" xml:space="preserve">
-    <value>Show combat status effect messages</value>
+    <value>combat status effect messages</value>
   </data>
   <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy suffers the effect of Poison.</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
-    <value>Show enemy ready messages</value>
+    <value>enemy ready messages</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy is ready to act!</value>
   </data>
   <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
-    <value>Show combat enmity messages</value>
+    <value>combat enmity messages</value>
   </data>
   <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy's enmity toward you increases!</value>
   </data>
   <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
-    <value>Show combat healing messages</value>
+    <value>combat healing messages</value>
   </data>
   <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy recovers 500 HP.</value>
   </data>
   <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
-    <value>Show combat miss and evade messages</value>
+    <value>combat miss and evade messages</value>
   </data>
   <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy evades your attack.</value>
@@ -580,6 +580,257 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
     <value>Economy</value>
+  </data>
+  <data name="EconomyTab_TradingSectionHeader" xml:space="preserve">
+    <value>Player trade</value>
+  </data>
+  <data name="EconomyTab_ShowTradeRequestSent" xml:space="preserve">
+    <value>Trade request sent</value>
+  </data>
+  <data name="EconomyTab_ShowTradeAwaitingConfirmation" xml:space="preserve">
+    <value>Awaiting trade confirmation</value>
+  </data>
+  <data name="EconomyTab_ShowTradeCanceled" xml:space="preserve">
+    <value>Trade canceled</value>
+  </data>
+  <data name="EconomyTab_ShowTradeComplete" xml:space="preserve">
+    <value>Trade complete</value>
+  </data>
+  <data name="EconomyTab_VendorSectionHeader" xml:space="preserve">
+    <value>Vendor &amp; retainer (NPC)</value>
+  </data>
+  <data name="EconomyTab_ShowVendorSellMessages" xml:space="preserve">
+    <value>Items sold to vendor or retainer</value>
+  </data>
+  <data name="EconomyTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You sell 3 Shisui gobies for 6 gil.</value>
+  </data>
+  <data name="EconomyTab_ShowVendorPurchaseMessages" xml:space="preserve">
+    <value>Items bought from vendor</value>
+  </data>
+  <data name="EconomyTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You purchase an item from a vendor.</value>
+  </data>
+  <data name="EconomyTab_ShowGilWithdrawnMessage" xml:space="preserve">
+    <value>Gil withdrawn from retainer</value>
+  </data>
+  <data name="EconomyTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
+    <value>eg. Your gil has been safely withdrawn.</value>
+  </data>
+  <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
+    <value>Market board</value>
+  </data>
+  <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
+    <value>Market board &amp; retainer listings</value>
+  </data>
+  <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
+    <value>Listing started or stopped, item sold (after fees), all listings sold, and sale gil entrusted to retainer. Applies when System message filtering is enabled on General.</value>
+  </data>
+  <data name="EconomyTab_ShortenMarketBoardSale" xml:space="preserve">
+    <value>Compact item sold lines</value>
+  </data>
+  <data name="EconomyTab_ShortenMarketBoardSaleHelpMarker" xml:space="preserve">
+    <value>eg. Pair of titanium gold saberfangs sold for 757 gil. (Replaces the long “put up for sale in … markets” line.)</value>
+  </data>
+  <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
+    <value>Gil</value>
+  </data>
+  <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
+    <value>Gil spent confirmation</value>
+  </data>
+  <data name="EconomyTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
+    <value>eg. You spend gil on a purchase.</value>
+  </data>
+  <data name="PartyDutyTab_ShowPartyObjectiveOnJoin" xml:space="preserve">
+    <value>Party objective &amp; comment on join</value>
+  </data>
+  <data name="PartyDutyTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+    <value>Deep dungeons</value>
+  </data>
+  <data name="PartyDutyTab_DutyCompletionDropdownHeader" xml:space="preserve">
+    <value>Duty completion</value>
+  </data>
+  <data name="PartyDutyTab_DutyFinderDropdownHeader" xml:space="preserve">
+    <value>Duty Finder</value>
+  </data>
+  <data name="PartyDutyTab_FreeCompanyDropdownHeader" xml:space="preserve">
+    <value>Free Company</value>
+  </data>
+  <data name="PartyDutyTab_HideAirshipVoyageMessages" xml:space="preserve">
+    <value>Airship expedition</value>
+  </data>
+  <data name="PartyDutyTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
+    <value>eg. A new exploratory voyage destination...has been discovered!</value>
+  </data>
+  <data name="PartyDutyTab_HideCompletedVenture" xml:space="preserve">
+    <value>Venture complete</value>
+  </data>
+  <data name="PartyDutyTab_HideCompletedVentureHelpMarker" xml:space="preserve">
+    <value>eg. RetainerName has completed a venture!</value>
+  </data>
+  <data name="PartyDutyTab_HideCountdownMessages" xml:space="preserve">
+    <value>/countdown</value>
+  </data>
+  <data name="PartyDutyTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Battle commencing in 18 seconds!</value>
+  </data>
+  <data name="PartyDutyTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
+    <value>Message book entries</value>
+  </data>
+  <data name="PartyDutyTab_HideLoginMessages" xml:space="preserve">
+    <value>FC member login</value>
+  </data>
+  <data name="PartyDutyTab_HideLogoutMessages" xml:space="preserve">
+    <value>FC member logout</value>
+  </data>
+  <data name="PartyDutyTab_HideReadycheckMessages" xml:space="preserve">
+    <value>/readycheck</value>
+  </data>
+  <data name="PartyDutyTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Ready check complete.</value>
+  </data>
+  <data name="PartyDutyTab_HideSubmarineVoyageMessages" xml:space="preserve">
+    <value>Submarine voyage</value>
+  </data>
+  <data name="PartyDutyTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
+    <value>eg. A new subaquatic voyage destination...has been discovered!</value>
+  </data>
+  <data name="PartyDutyTab_PartyAndInviteDropdownHeader" xml:space="preserve">
+    <value>Party &amp; invites</value>
+  </data>
+  <data name="PartyDutyTab_PartyLeadershipDropdownHeader" xml:space="preserve">
+    <value>Leadership &amp; lockouts</value>
+  </data>
+  <data name="PartyDutyTab_PartyToolsDropdownHeader" xml:space="preserve">
+    <value>Party tools</value>
+  </data>
+  <data name="PartyDutyTab_RetainerAndVentureDropdownHeader" xml:space="preserve">
+    <value>Retainer ventures</value>
+  </data>
+  <data name="PartyDutyTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
+    <value>when Accursed Hoard is discovered</value>
+  </data>
+  <data name="PartyDutyTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
+    <value>when Accursed Hoard is not sensed on the current floor</value>
+  </data>
+  <data name="PartyDutyTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
+    <value>when Accursed Hoard is sensed</value>
+  </data>
+  <data name="PartyDutyTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
+    <value>Aetherpool increases</value>
+  </data>
+  <data name="PartyDutyTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
+    <value>Aetherpool remains unchanged...</value>
+  </data>
+  <data name="PartyDutyTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
+    <value>when the Cairn of Passage is activated</value>
+  </data>
+  <data name="PartyDutyTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
+    <value>when the Cairn of Passage begins to glow</value>
+  </data>
+  <data name="PartyDutyTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
+    <value>when Cairn of Return is used</value>
+  </data>
+  <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
+    <value>Unrestricted clear time</value>
+  </data>
+  <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
+    <value>eg. &lt;Duty&gt; completion time: 00:30</value>
+  </data>
+  <data name="PartyDutyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
+    <value>Disband &amp; dissolve</value>
+  </data>
+  <data name="PartyDutyTab_ShowDutyFinderMessages" xml:space="preserve">
+    <value>Duty Finder notifications</value>
+  </data>
+  <data name="PartyDutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Duty registration complete., Participation requirements are as follows:, Unrestricted Party messages</value>
+  </data>
+  <data name="PartyDutyTab_ShowFloorNumberMessages" xml:space="preserve">
+    <value>floor number when entering a new floor</value>
+  </data>
+  <data name="PartyDutyTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
+    <value>Joined party (incl. cross-world)</value>
+  </data>
+  <data name="PartyDutyTab_ShowJoiningPartyMessages" xml:space="preserve">
+    <value>Players joining</value>
+  </data>
+  <data name="PartyDutyTab_ShowLeftPartyMessages" xml:space="preserve">
+    <value>Players leaving</value>
+  </data>
+  <data name="PartyDutyTab_ShowNowALeader" xml:space="preserve">
+    <value>Leader promoted or demoted</value>
+  </data>
+  <data name="PartyDutyTab_ShowNowALeaderHelpMarker" xml:space="preserve">
+    <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
+  </data>
+  <data name="PartyDutyTab_ShowObtainedPomanderMessages" xml:space="preserve">
+    <value>when the party obtains a pomander</value>
+  </data>
+  <data name="PartyDutyTab_ShowPomanderEffectsMessages" xml:space="preserve">
+    <value>pomander effect messages</value>
+  </data>
+  <data name="PartyDutyTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
+    <value>Received invitations</value>
+  </data>
+  <data name="PartyDutyTab_ShowRetainerVentureMessages" xml:space="preserve">
+    <value>Venture assignment &amp; payment</value>
+  </data>
+  <data name="PartyDutyTab_ShowRetainerVentureMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You assign your retainer "Quick Exploration.", You pay RetainerName 2 ventures.</value>
+  </data>
+  <data name="PartyDutyTab_ShowSealedOffMessages" xml:space="preserve">
+    <value>area sealed/unsealed messages</value>
+  </data>
+  <data name="PartyDutyTab_ShowSealedOffMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The area has been sealed off! / The area is no longer sealed.</value>
+  </data>
+  <data name="PartyDutyTab_ShowSentPartyInviteMessages" xml:space="preserve">
+    <value>Sent party invites</value>
+  </data>
+  <data name="PartyDutyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
+    <value>Teleport offers from party</value>
+  </data>
+  <data name="PartyDutyTab_ShowTransferenceMessages" xml:space="preserve">
+    <value>transference messages</value>
+  </data>
+  <data name="PartyDutyTab_ShowTrapTriggeredMessages" xml:space="preserve">
+    <value>trap triggered messages</value>
+  </data>
+  <data name="PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
+  </data>
+  <data name="EmotesTab_FilterStandardEmotes" xml:space="preserve">
+    <value>Filter standard emote channel</value>
+  </data>
+  <data name="EmotesTab_FilterStandardEmotesHelpMarker" xml:space="preserve">
+    <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
+  </data>
+  <data name="EmotesTab_ShowOtherCustomEmotes" xml:space="preserve">
+    <value>Other players' custom emotes</value>
+  </data>
+  <data name="EmotesTab_ShowOtherCustomEmotesHelpMarker" xml:space="preserve">
+    <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
+eg. Another Player leans over and gives you a big bear hug.</value>
+  </data>
+  <data name="EmotesTab_ShowSelfCustomEmotes" xml:space="preserve">
+    <value>Your own custom emotes</value>
+  </data>
+  <data name="EmotesTab_ShowSelfCustomEmotesHelpMarker" xml:space="preserve">
+    <value>When emote filtering is enabled, keep messages for emotes you use yourself.
+eg. You gently pat &amp;lt;user&amp;gt;</value>
+  </data>
+  <data name="ToolsTab_EnableDebugMode" xml:space="preserve">
+    <value>Debug mode (dry-run filtering)</value>
+  </data>
+  <data name="ToolsTab_DebugIncludeChannel" xml:space="preserve">
+    <value>channel in debug lines</value>
+  </data>
+  <data name="ProgressTab_ShowFirstClearAward" xml:space="preserve">
+    <value>First-time duty clear reward</value>
+  </data>
+  <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
+    <value>Second Chance reward</value>
   </data>
   <data name="ConfigWindow_EmotesTabHeader" xml:space="preserve">
     <value>Emotes</value>
@@ -651,121 +902,121 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Gathering</value>
   </data>
   <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
-    <value>Show only locations that affect gathering attempts</value>
+    <value>only locations that affect gathering attempts</value>
   </data>
   <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-    <value>Show only locations that affect Gatherer's Boon</value>
+    <value>only locations that affect Gatherer's Boon</value>
   </data>
   <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
-    <value>Show only locations that affect gathering yield</value>
+    <value>only locations that affect gathering yield</value>
   </data>
   <data name="CraftingGatheringTab_MateriaDropdownHeader" xml:space="preserve">
     <value>Materia</value>
   </data>
   <data name="CraftingGatheringTab_ShowAllOtherCrafting" xml:space="preserve">
-    <value>Show all other Crafting messages</value>
+    <value>All other crafting (catch-all)</value>
   </data>
   <data name="CraftingGatheringTab_ShowAllOtherGathering" xml:space="preserve">
-    <value>Show all other Gathering messages</value>
+    <value>All other gathering (catch-all)</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
-    <value>Show cosmic class points and daily progress</value>
+    <value>cosmic class points and daily progress</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
-    <value>Show cosmic exploration messages</value>
+    <value>cosmic exploration messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
-    <value>Show cosmic currency and container obtains</value>
+    <value>cosmic currency and container obtains</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
-    <value>Show synthesis complete message</value>
+    <value>synthesis complete message</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker" xml:space="preserve">
     <value>eg. You synthesize a Linen Bandana. (English only; other languages need localization)</value>
   </data>
   <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
-    <value>Show desynthesis level increases messages</value>
+    <value>desynthesis level increases messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowDesynthesisMessages" xml:space="preserve">
-    <value>Show desynthesis messages</value>
+    <value>desynthesis messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
-    <value>Show message when a fish is added to the fish guide</value>
+    <value>message when a fish is added to the fish guide</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingFlavorText" xml:space="preserve">
-    <value>Show Fisher's Intuition flavor text</value>
+    <value>Fisher's Intuition flavor text</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
     <value>Shows Fisher's Intuition messages ("the scent of baitfish...") and per-fish lure flavor text (loaded from game data at startup).</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
-    <value>Show message when a fishing location is discovered</value>
+    <value>message when a fishing location is discovered</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
-    <value>Show name of fishing hole when line is cast</value>
+    <value>name of fishing hole when line is cast</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
-    <value>Show caught fish measuring [size] ilms</value>
+    <value>caught fish measuring [size] ilms</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
-    <value>Show "You sense..." messages for gathering locations</value>
+    <value>"You sense..." messages for gathering locations</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringStartEnd" xml:space="preserve">
-    <value>Show the begin/end gathering messages</value>
+    <value>the begin/end gathering messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
-    <value>Show item being desynthesized</value>
+    <value>item being desynthesized</value>
   </data>
   <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
-    <value>Show message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts</value>
+    <value>message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts</value>
   </data>
   <data name="CraftingGatheringTab_ShowLureMessages" xml:space="preserve">
-    <value>Show Modest/Ambitious Lure and bite feeling messages</value>
+    <value>Modest/Ambitious Lure and bite feeling messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
     <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
-    <value>Show message when materia is extracted from spiritbonded gear</value>
+    <value>message when materia is extracted from spiritbonded gear</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
-    <value>Show message when materia fails to be overmelded onto gear</value>
+    <value>message when materia fails to be overmelded onto gear</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
-    <value>Show message when materia shatters during retrieval</value>
+    <value>message when materia shatters during retrieval</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
-    <value>Show message when materia is succesfully attached to gear</value>
+    <value>message when materia is succesfully attached to gear</value>
   </data>
   <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
-    <value>Show message after recasting with a moochable fish</value>
+    <value>message after recasting with a moochable fish</value>
   </data>
   <data name="CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
-    <value>Show obtained items from desynthesis</value>
+    <value>obtained items from desynthesis</value>
   </data>
   <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
-    <value>Show the number of obtained sands after using aetherial reduction</value>
+    <value>the number of obtained sands after using aetherial reduction</value>
   </data>
   <data name="CraftingGatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
-    <value>Show message when you successfully reduce a collectable item</value>
+    <value>message when you successfully reduce a collectable item</value>
   </data>
   <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
-    <value>Show collectable reduction minigame messages (integrity, woodsman actions, etc.)</value>
+    <value>collectable reduction minigame messages (integrity, woodsman actions, etc.)</value>
   </data>
   <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
     <value>eg. Your meticulous actions prove effective. Integrity is not reduced.</value>
   </data>
   <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
-    <value>Show synthesis message when other players complete a craft.</value>
+    <value>synthesis message when other players complete a craft.</value>
   </data>
   <data name="CraftingGatheringTab_ShowStellarMissionMessages" xml:space="preserve">
-    <value>Show stellar mission messages</value>
+    <value>stellar mission messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
-    <value>Show message when you succesfully retrieve materia from gear</value>
+    <value>message when you succesfully retrieve materia from gear</value>
   </data>
   <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
-    <value>Show final status messages upon finishing a Trial synthesis</value>
+    <value>final status messages upon finishing a Trial synthesis</value>
   </data>
   <data name="CraftingGatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
     <value>Cosmic &amp; Stellar Exploration</value>
@@ -786,7 +1037,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
   </data>
   <data name="EnableTinyChat" xml:space="preserve">
-    <value>enable tiny chat</value>
+    <value>Tiny chat (lowercase)</value>
   </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
@@ -814,7 +1065,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>When enabled, crafting messages are hidden unless a specific option below allows them. When disabled, all crafting messages are shown regardless of the options below.</value>
   </data>
   <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-    <value>Show custom emote spam</value>
+    <value>custom emote spam</value>
   </data>
   <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
     <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
@@ -875,14 +1126,14 @@ eg. Another Player leans over and gives you a big bear hug.</value>
     <value>These filters include messages like earned achievements or experience points</value>
   </data>
   <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-    <value>Show emotes used by yourself</value>
+    <value>emotes used by yourself</value>
   </data>
   <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
     <value>When emote filtering is enabled, keep messages for emotes you use yourself.
 eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-    <value>Filter System channel</value>
+    <value>System message filtering</value>
   </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
     <value>Hide ko-fi button</value>
@@ -906,10 +1157,10 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Replaces duty entry spam with a single line: Duty Name has begun. Hides level sync, item level sync, alliance reform, and Echo briefing lines.</value>
   </data>
   <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
-    <value>Display Options</value>
+    <value>Display</value>
   </data>
   <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
-    <value>Improved Messages</value>
+    <value>Message rewrites</value>
         <comment>Dropdown header for Improved Messages</comment>
   </data>
   <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
@@ -961,20 +1212,20 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Normalize special characters - except in Party or Alliance channels</value>
   </data>
   <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
-    <value>Battle Currencies</value>
+    <value>Battle currencies</value>
   </data>
   <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-    <value>Beast Tribe Quests</value>
+    <value>Beast Tribe</value>
   </data>
   <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you roll on loot.
 eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
-    <value>Show "You cast your lot" messages</value>
+    <value>"You cast your lot" messages</value>
   </data>
   <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
-    <value>Items &amp; Currency</value>
+    <value>Common currencies</value>
   </data>
   <data name="ObtainTab_HideObtainedShardsFromLoot" xml:space="preserve">
     <value>Hide elemental shards, crystals, and clusters (from loot)</value>
@@ -990,10 +1241,10 @@ eg. You cast your lot for the &lt;item&gt;</value>
 eg. Some player obtains an &lt;item&gt;!</value>
   </data>
   <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
-    <value>Looting &amp; Rolling</value>
+    <value>Loot rolls</value>
   </data>
   <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
-    <value>Other Obtain Messages</value>
+    <value>Other obtain</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
     <value>Hide Allied Seals</value>
@@ -1002,7 +1253,7 @@ eg. Some player obtains an &lt;item&gt;!</value>
     <value>eg. You obtain 100 Allied Seals.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
-    <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
+    <value>"Another Player casts his/her lot &lt;item&gt;" messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when another player in the party rolls for a loot drop.
@@ -1016,7 +1267,7 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
 eg. Some player obtains an &lt;item&gt;!</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
-    <value>Show "Another Player rolls Greed..." messages</value>
+    <value>"Another Player rolls Greed..." messages</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
     <value>Hide Beast Tribe crafting materials</value>
@@ -1052,7 +1303,7 @@ eg. You obtain a cracked dendrocluster</value>
 eg. You obtain 30 ice shards</value>
   </data>
   <data name="ObtainTab_ShowGeneralItemObtains" xml:space="preserve">
-    <value>Show general item obtain messages</value>
+    <value>General item obtains</value>
   </data>
   <data name="ObtainTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
     <value>Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
@@ -1094,20 +1345,20 @@ eg. You obtain 30 ice shards</value>
     <value>eg. You obtain 20 Allagan tomestones of Mnemonics.</value>
   </data>
   <data name="ObtainTab_ShowObtainedQuestItems" xml:space="preserve">
-    <value>Show quest item obtain messages</value>
+    <value>quest item obtain messages</value>
   </data>
   <data name="ObtainTab_ShowObtainedQuestItemsHelpMarker" xml:space="preserve">
     <value>eg. You obtain the mysterious artifact.</value>
   </data>
   <data name="ObtainTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
-    <value>Show only rolls from party members</value>
+    <value>only rolls from party members</value>
   </data>
   <data name="ObtainTab_ShowOnlyPartyMemberRollsHelpMarker" xml:space="preserve">
     <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
 Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
   </data>
   <data name="ObtainTab_ShowOtherPlayersLootRolls" xml:space="preserve">
-    <value>Show other players' loot rolls</value>
+    <value>other players' loot rolls</value>
   </data>
   <data name="ObtainTab_ShowOtherPlayersLootRollsHelpMarker" xml:space="preserve">
     <value>Shows when other players cast lot or roll on loot.</value>
@@ -1137,27 +1388,27 @@ Requires "Show Another Player rolls" to be enabled and only takes effect while i
     <value>eg. You obtain 1,000 Wolf Marks.</value>
   </data>
   <data name="ObtainTab_ShowYourLootRolls" xml:space="preserve">
-    <value>Show your loot rolls</value>
+    <value>your loot rolls</value>
   </data>
   <data name="ObtainTab_ShowYourLootRollsHelpMarker" xml:space="preserve">
     <value>Shows your "cast lot" and loot roll result messages.
 eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-    <value>Show "You rolled..." messages</value>
+    <value>"You rolled..." messages</value>
   </data>
   <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
 eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
   </data>
   <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
-    <value>Duty Rewards</value>
+    <value>Duty rewards</value>
   </data>
   <data name="ProgressTab_ExperienceAndLevelsDropdownHeader" xml:space="preserve">
-    <value>Experience &amp; Levels</value>
+    <value>Experience &amp; levels</value>
   </data>
   <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
-    <value>Quests &amp; Achievements</value>
+    <value>Quests &amp; achievements</value>
   </data>
   <data name="ProgressTab_UnlocksDropdownHeader" xml:space="preserve">
     <value>Unlocks</value>
@@ -1169,7 +1420,7 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>Hides bonus awards for using duty roulette and for being an adventurer in need.</value>
   </data>
   <data name="ProgressTab_ShowAchievementMessages" xml:space="preserve">
-    <value>Show achievement messages</value>
+    <value>achievement messages</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
     <value>Hide bonus awarded for being an adventurer in need</value>
@@ -1184,30 +1435,30 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
   </data>
   <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
-    <value>Show earned achievement messages</value>
+    <value>earned achievement messages</value>
   </data>
   <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
-    <value>Show experience gain messages</value>
+    <value>experience gain messages</value>
   </data>
   <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
     <value>eg. You gain 2,388 Experience Points.</value>
   </data>
   <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
-    <value>Show learned ability messages</value>
+    <value>learned ability messages</value>
   </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you learn a new ability.
 It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
-    <value>Show level up messages</value>
+    <value>Your level-ups</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you level up.
 It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
-    <value>Show mount unlock messages</value>
+    <value>mount unlock messages</value>
   </data>
   <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
     <value>eg. You have unlocked the ability to summon this mount.</value>
@@ -1217,19 +1468,19 @@ It can be considered spammy in deep dungeons.</value>
  eg. Player attains level 33!</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
-    <value>Show other player's earned achievement messages</value>
+    <value>other player's earned achievement messages</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
-    <value>Show other player's level up messages</value>
+    <value>other player's level up messages</value>
   </data>
   <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-    <value>Show PVP EXP gain messages</value>
+    <value>PVP EXP gain messages</value>
   </data>
   <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
     <value>eg. You acquire 500 PvP EXP.</value>
   </data>
   <data name="ProgressTab_ShowQuestProgressMessages" xml:space="preserve">
-    <value>Show quest progress messages</value>
+    <value>quest progress messages</value>
   </data>
   <data name="ProgressTab_ShowQuestProgressMessagesHelpMarker" xml:space="preserve">
     <value>eg. "Starting from Scrap" accepted. / "Starting from Scrap" complete! / "Starting from Scrap" objective fulfilled!</value>
@@ -1250,19 +1501,19 @@ It can be considered spammy in deep dungeons.</value>
     <value>Deep Dungeons</value>
   </data>
   <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
-    <value>Error Messages</value>
+    <value>Error messages</value>
   </data>
   <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
     <value>Free Company</value>
   </data>
   <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
-    <value>Show Aether Compass message</value>
+    <value>Aether Compass message</value>
   </data>
   <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
     <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
   </data>
   <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-    <value>Show Airship voyage messages</value>
+    <value>Airship voyage messages</value>
   </data>
   <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
     <value>eg. A new exploratory voyage destination...has been discovered!</value>
@@ -1274,19 +1525,19 @@ It can be considered spammy in deep dungeons.</value>
     <value>eg. Cannot execute at this time., Invalid target., Unable to use., Unable to obtain.</value>
   </data>
   <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-    <value>Show Completed Venture</value>
+    <value>Completed Venture</value>
   </data>
   <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
     <value>eg. RetainerName has completed a venture!</value>
   </data>
   <data name="SystemTab_ShowRetainerVentureMessages" xml:space="preserve">
-    <value>Show retainer venture assignment messages</value>
+    <value>retainer venture assignment messages</value>
   </data>
   <data name="SystemTab_ShowRetainerVentureMessagesHelpMarker" xml:space="preserve">
     <value>eg. You assign your retainer "Quick Exploration.", You pay RetainerName 2 ventures.</value>
   </data>
   <data name="SystemTab_HideCountdownMessages" xml:space="preserve">
-    <value>Show /countdown messages</value>
+    <value>/countdown messages</value>
   </data>
   <data name="SystemTab_HideCountdownMessagesHelpMarker" xml:space="preserve">
     <value>eg. Battle commencing in 18 seconds!</value>
@@ -1298,35 +1549,35 @@ It can be considered spammy in deep dungeons.</value>
     <value>eg. You are 6 or more levels above the recommended level for this FATE.</value>
   </data>
   <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
-    <value>Show Free Company message book new entry messages</value>
+    <value>Free Company message book new entry messages</value>
   </data>
   <data name="SystemTab_HideHousingWardMessage" xml:space="preserve">
-    <value>Show housing ward messages</value>
+    <value>housing ward messages</value>
   </data>
   <data name="SystemTab_HideHousingWardMessageHelpMarker" xml:space="preserve">
     <value>eg. Shirogane, Ward 15</value>
   </data>
   <data name="SystemTab_HideInstanceMessage" xml:space="preserve">
-    <value>Show /instance message</value>
+    <value>/instance message</value>
   </data>
   <data name="SystemTab_HideInstanceMessageHelpMarker" xml:space="preserve">
     <value>eg. You are now in the instanced area Old Sharlayan ❷.
 Current instance can be confirmed at any time using the /instance text command.</value>
   </data>
   <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
-    <value>Show "Search for items" results message</value>
+    <value>"Search for items" results message</value>
   </data>
   <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>eg. 1 item found in the 4th tab of your inventory.</value>
   </data>
   <data name="SystemTab_HideLoginMessages" xml:space="preserve">
-    <value>Show Free Company member login messages</value>
+    <value>Free Company member login messages</value>
   </data>
   <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
-    <value>Show Free Company member logout messages</value>
+    <value>Free Company member logout messages</value>
   </data>
   <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
-    <value>Show number of available coffers messages</value>
+    <value>number of available coffers messages</value>
   </data>
   <data name="SystemTab_HideOrchestrionPlaying" xml:space="preserve">
     <value>Hide "Orchestrion now plays" messages</value>
@@ -1335,37 +1586,37 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>eg. Orchestrion now plays &lt;song&gt;.</value>
   </data>
   <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
-    <value>Show personal message book new entry messages</value>
+    <value>personal message book new entry messages</value>
   </data>
   <data name="SystemTab_HideReadycheckMessages" xml:space="preserve">
-    <value>Show /readycheck message</value>
+    <value>/readycheck message</value>
   </data>
   <data name="SystemTab_HideReadycheckMessagesHelpMarker" xml:space="preserve">
     <value>eg. Ready check complete.</value>
   </data>
   <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
-    <value>Show Received Commendations</value>
+    <value>Received Commendations</value>
   </data>
   <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
     <value>eg. You received a player commendation!</value>
   </data>
   <data name="SystemTab_HideSanctuaryMessage" xml:space="preserve">
-    <value>Show sanctuary enter/leave messages</value>
+    <value>sanctuary enter/leave messages</value>
   </data>
   <data name="SystemTab_HideSanctuaryMessageHelpMarker" xml:space="preserve">
     <value>eg. You have entered a sanctuary. / You have left the sanctuary.</value>
   </data>
   <data name="SystemTab_HideSayReminder" xml:space="preserve">
-    <value>Show reminders of what to /say in chat during quests</value>
+    <value>reminders of what to /say in chat during quests</value>
   </data>
   <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
     <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
   </data>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
-    <value>Other System Messages</value>
+    <value>Catch-all</value>
   </data>
   <data name="SystemTab_CharacterAndGearDropdownHeader" xml:space="preserve">
-    <value>Character &amp; Gear</value>
+    <value>Character &amp; gearsets</value>
   </data>
   <data name="SystemTab_DutyCompletionDropdownHeader" xml:space="preserve">
     <value>Duty Completion</value>
@@ -1374,16 +1625,16 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>Duty Finder</value>
   </data>
   <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
-    <value>Exploration &amp; Compass</value>
+    <value>Exploration</value>
   </data>
   <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
-    <value>Glamour &amp; Spiritbound</value>
+    <value>Glamour &amp; gear</value>
   </data>
   <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
     <value>Shown by default (uncheck to hide)</value>
   </data>
   <data name="SystemTab_HuntMessagesDropdownHeader" xml:space="preserve">
-    <value>Hunt Messages</value>
+    <value>Hunt marks</value>
   </data>
   <data name="SystemTab_PartyLeadershipDropdownHeader" xml:space="preserve">
     <value>Party Leadership</value>
@@ -1392,71 +1643,71 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>Party Tools</value>
   </data>
   <data name="SystemTab_RelicAndMailDropdownHeader" xml:space="preserve">
-    <value>Relic &amp; Mail</value>
+    <value>Relic &amp; mail</value>
   </data>
   <data name="SystemTab_RetainerAndVentureDropdownHeader" xml:space="preserve">
     <value>Retainer &amp; Venture Messages</value>
   </data>
   <data name="SystemTab_ServerAnnouncementsDropdownHeader" xml:space="preserve">
-    <value>Server Announcements</value>
+    <value>Server announcements</value>
   </data>
   <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
-    <value>Social &amp; Misc</value>
+    <value>Social &amp; misc</value>
   </data>
   <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
-    <value>Status &amp; Audio</value>
+    <value>Social status</value>
   </data>
   <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
-    <value>World &amp; Instance Messages</value>
+    <value>World &amp; instances</value>
   </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
-    <value>Show gear reaching 100% spiritbound messages</value>
+    <value>gear reaching 100% spiritbound messages</value>
   </data>
   <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
-    <value>Show S Rank Hunt spawn announcement</value>
+    <value>S Rank Hunt spawn announcement</value>
   </data>
   <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>eg. You sense the presence of a powerful mark...</value>
   </data>
   <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
-    <value>Show SS Rank Minion announcements</value>
+    <value>SS Rank Minion announcements</value>
   </data>
   <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
 The minions of an extraordinarily powerful mark have withdrawn...</value>
   </data>
   <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-    <value>Show Submarine voyage messages</value>
+    <value>Submarine voyage messages</value>
   </data>
   <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
     <value>eg. A new subaquatic voyage destination...has been discovered!</value>
   </data>
   <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
-    <value>Show "Teleporting to..." messages</value>
+    <value>"Teleporting to..." messages</value>
   </data>
   <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
-    <value>Show try on glamour messages</value>
+    <value>try on glamour messages</value>
   </data>
   <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
     <value>eg. You try on item.</value>
   </data>
   <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
-    <value>Show unable to join full Novice Network.</value>
+    <value>unable to join full Novice Network.</value>
   </data>
   <data name="SystemTab_HideVistaMessages" xml:space="preserve">
-    <value>Show vista arrival and stray messages</value>
+    <value>vista arrival and stray messages</value>
   </data>
   <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
     <value>eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
   </data>
   <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
-    <value>Show "You sense something..." messages</value>
+    <value>"You sense something..." messages</value>
   </data>
   <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>eg. You sense something to the far, far southwest...</value>
   </data>
   <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
-    <value>Orchestrion &amp; BGM</value>
+    <value>Orchestrion</value>
   </data>
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Party &amp; Invite Messages</value>
@@ -1477,7 +1728,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Login full, condensed on world-hop</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_ShowAll" xml:space="preserve">
-    <value>Show all</value>
+    <value>all</value>
   </data>
   <data name="SystemTab_ServerAnnouncementsHelpMarker" xml:space="preserve">
     <value>How to handle the server message block shown on login or world travel (welcome headers, in-game event promos, congestion notices, phishing warning).
@@ -1495,119 +1746,119 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Server announcements (login / world travel)</value>
   </data>
   <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-    <value>Show when Accursed Hoard is discovered</value>
+    <value>when Accursed Hoard is discovered</value>
   </data>
   <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-    <value>Show when Accursed Hoard is not sensed on the current floor</value>
+    <value>when Accursed Hoard is not sensed on the current floor</value>
   </data>
   <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-    <value>Show when Accursed Hoard is sensed</value>
+    <value>when Accursed Hoard is sensed</value>
   </data>
   <data name="SystemTab_ShowActiveHelpEntryMessages" xml:space="preserve">
-    <value>Show Active Help entry messages</value>
+    <value>Active Help entry messages</value>
   </data>
   <data name="SystemTab_ShowActiveHelpEntryMessagesHelpMarker" xml:space="preserve">
     <value>eg. Active Help entry added. Tutorial pop-ups for new content and UI features.</value>
   </data>
   <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-    <value>Show Aetherpool increases</value>
+    <value>Aetherpool increases</value>
   </data>
   <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-    <value>Show Aetherpool remains unchanged...</value>
+    <value>Aetherpool remains unchanged...</value>
   </data>
   <data name="SystemTab_ShowAetheryteTicketMessage" xml:space="preserve">
-    <value>Show Aetheryte Ticket usage message</value>
+    <value>Aetheryte Ticket usage message</value>
   </data>
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
     <value>eg. You used Aetheryte Ticket (Remaining: 5).</value>
   </data>
   <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
-    <value>Show ARR Relic book step completed messages</value>
+    <value>ARR Relic book step completed messages</value>
   </data>
   <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
     <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
   </data>
   <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
-    <value>Show ARR Relic book step progress messages</value>
+    <value>ARR Relic book step progress messages</value>
   </data>
   <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
     <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
   </data>
   <data name="SystemTab_ShowAwaitingTradeConfirmationMessages" xml:space="preserve">
-    <value>Show "Awaiting trade confirmation" message</value>
+    <value>"Awaiting trade confirmation" message</value>
   </data>
   <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-    <value>Show when the Cairn of Passage is activated</value>
+    <value>when the Cairn of Passage is activated</value>
   </data>
   <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-    <value>Show when the Cairn of Passage begins to glow</value>
+    <value>when the Cairn of Passage begins to glow</value>
   </data>
   <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-    <value>Show when Cairn of Return is used</value>
+    <value>when Cairn of Return is used</value>
   </data>
   <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-    <value>Show completion time when unrestricted party is active</value>
+    <value>completion time when unrestricted party is active</value>
   </data>
   <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
     <value>eg. &lt;Duty&gt; completion time: 00:30</value>
   </data>
   <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-    <value>Show party disbands and dissolves</value>
+    <value>party disbands and dissolves</value>
   </data>
   <data name="SystemTab_ShowDutyFinderMessages" xml:space="preserve">
-    <value>Show duty finder messages</value>
+    <value>duty finder messages</value>
   </data>
   <data name="SystemTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
     <value>eg. Duty registration complete., Participation requirements are as follows:, Unrestricted Party messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
-    <value>Show all other System messages</value>
+    <value>all other System messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Catch-all for System channel messages not covered by another option. When System filtering is enabled, checking this shows any remaining system messages TidyChat would otherwise block.</value>
   </data>
   <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
-    <value>Show FATE discovered messages</value>
+    <value>FATE discovered messages</value>
   </data>
   <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
     <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
   </data>
   <data name="SystemTab_ShowFcLoginLogoutMessages" xml:space="preserve">
-    <value>Show Free Company member login/logout messages</value>
+    <value>Free Company member login/logout messages</value>
   </data>
   <data name="SystemTab_ShowFcVoyageMessages" xml:space="preserve">
-    <value>Show Free Company airship and submarine voyage messages</value>
+    <value>Free Company airship and submarine voyage messages</value>
   </data>
   <data name="SystemTab_ShowFcVoyageMessagesHelpMarker" xml:space="preserve">
     <value>eg. A new exploratory voyage destination...has been discovered!
 eg. Your submersible has returned from its voyage.</value>
   </data>
   <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
-    <value>Show bonus award for a party member's first clear</value>
+    <value>bonus award for a party member's first clear</value>
   </data>
   <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-    <value>Show floor number when entering a new floor</value>
+    <value>floor number when entering a new floor</value>
   </data>
   <data name="SystemTab_ShowFriendListMessages" xml:space="preserve">
-    <value>Show friend list messages</value>
+    <value>friend list messages</value>
   </data>
   <data name="SystemTab_ShowFriendListMessagesHelpMarker" xml:space="preserve">
     <value>eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated.</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
-    <value>Show gearset equipped messages</value>
+    <value>gearset equipped messages</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
     <value>eg. “Red Mage” equipped.</value>
   </data>
   <data name="SystemTab_ShowJobChangeMessages" xml:space="preserve">
-    <value>Show job change messages</value>
+    <value>job change messages</value>
   </data>
   <data name="SystemTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
     <value>eg. You change to Scholar., Paladin registered.</value>
   </data>
   <data name="SystemTab_ShowPortraitMessages" xml:space="preserve">
-    <value>Show portrait messages</value>
+    <value>portrait messages</value>
   </data>
   <data name="SystemTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
     <value>eg. Portrait set as instant portrait., Portrait has expired.</value>
@@ -1616,136 +1867,85 @@ eg. Your submersible has returned from its voyage.</value>
     <value>Hidden by default (check to show)</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
-    <value>Show hunt mark slain messages</value>
+    <value>hunt mark slain messages</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
     <value>eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
   </data>
   <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-    <value>Show joined party/cross-party message</value>
+    <value>joined party/cross-party message</value>
   </data>
   <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-    <value>Show players joining party</value>
+    <value>players joining party</value>
   </data>
   <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-    <value>Show players leaving party</value>
+    <value>players leaving party</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
-    <value>Show items attached to sent mail</value>
+    <value>items attached to sent mail</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
     <value>eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
   </data>
   <data name="SystemTab_ShowNowALeader" xml:space="preserve">
-    <value>Show you are now/no longer a leader messages</value>
+    <value>you are now/no longer a leader messages</value>
   </data>
   <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
     <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
   </data>
   <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-    <value>Show when the party obtains a pomander</value>
+    <value>when the party obtains a pomander</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
-    <value>Show online status updates</value>
+    <value>online status updates</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
     <value>eg. Updating online status to Away from Keyboard.</value>
   </data>
   <data name="SystemTab_ShowPomanderEffectsMessages" xml:space="preserve">
-    <value>Show pomander effect messages</value>
+    <value>pomander effect messages</value>
   </data>
   <data name="SystemTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
-    <value>Show received party invitations</value>
+    <value>received party invitations</value>
   </data>
   <data name="SystemTab_ShowSealedOffMessages" xml:space="preserve">
-    <value>Show area sealed/unsealed messages</value>
+    <value>area sealed/unsealed messages</value>
   </data>
   <data name="SystemTab_ShowSealedOffMessagesHelpMarker" xml:space="preserve">
     <value>eg. The area has been sealed off! / The area is no longer sealed.</value>
   </data>
   <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
-    <value>Show when Second Chance points will be awarded for duty clear</value>
+    <value>when Second Chance points will be awarded for duty clear</value>
   </data>
   <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-    <value>Show sent party invites</value>
+    <value>sent party invites</value>
   </data>
   <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-    <value>Show teleport offers from party members</value>
+    <value>teleport offers from party members</value>
   </data>
   <data name="SystemTab_ShowTradeCanceledMessages" xml:space="preserve">
-    <value>Show "Trade canceled." message</value>
+    <value>"Trade canceled." message</value>
   </data>
   <data name="SystemTab_ShowTradeCompleteMessages" xml:space="preserve">
-    <value>Show "Trade complete." message</value>
-  </data>
-  <data name="SystemTab_ShowTradeMessages" xml:space="preserve">
-    <value>Show trade messages</value>
+    <value>"Trade complete." message</value>
   </data>
   <data name="SystemTab_ShowTradeRequestSentMessages" xml:space="preserve">
-    <value>Show "Trade request sent to" message</value>
+    <value>"Trade request sent to" message</value>
   </data>
   <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-    <value>Show transference messages</value>
+    <value>transference messages</value>
   </data>
   <data name="SystemTab_ShowTrapTriggeredMessages" xml:space="preserve">
-    <value>Show trap triggered messages</value>
+    <value>trap triggered messages</value>
   </data>
   <data name="SystemTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
     <value>eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
   </data>
   <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
-    <value>Show volume control messages</value>
+    <value>volume control messages</value>
   </data>
   <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
     <value>eg. Master Volume muted, BGM volume set to 50.</value>
-  </data>
-  <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
-    <value>Trading Messages</value>
-  </data>
-  <data name="SystemTab_VendorAndRetainerDropdownHeader" xml:space="preserve">
-    <value>Vendor &amp; Retainer Messages</value>
-  </data>
-  <data name="SystemTab_MarketBoardDropdownHeader" xml:space="preserve">
-    <value>Market Board Messages</value>
-  </data>
-  <data name="SystemTab_GilMessagesDropdownHeader" xml:space="preserve">
-    <value>Gil Messages</value>
-  </data>
-  <data name="SystemTab_ShowVendorSellMessages" xml:space="preserve">
-    <value>Show vendor and retainer item sell messages</value>
-  </data>
-  <data name="SystemTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You sell 3 Shisui gobies for 6 gil.</value>
-  </data>
-  <data name="SystemTab_ShowVendorPurchaseMessages" xml:space="preserve">
-    <value>Show vendor purchase messages</value>
-  </data>
-  <data name="SystemTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You purchase an item from a vendor.</value>
-  </data>
-  <data name="SystemTab_ShowMarketBoardMessages" xml:space="preserve">
-    <value>Show market board messages</value>
-  </data>
-  <data name="SystemTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You are now selling items in the markets. / The item you listed has sold for 75,660 gil (after fees). / Gil entrusted to retainer.</value>
-  </data>
-  <data name="EconomyTab_BetterMarketBoardSaleMessage" xml:space="preserve">
-    <value>Shorten item sold lines</value>
-  </data>
-  <data name="EconomyTab_BetterMarketBoardSaleMessageHelpMarker" xml:space="preserve">
-    <value>eg. O'Ghomoro berries sold for 75,660 gil. (Instead of the long "put up for sale in … markets" line.)</value>
-  </data>
-  <data name="SystemTab_ShowGilWithdrawnMessage" xml:space="preserve">
-    <value>Show retainer gil withdrawal message</value>
-  </data>
-  <data name="SystemTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
-    <value>eg. Your gil has been safely withdrawn.</value>
-  </data>
-  <data name="SystemTab_ShowGilSpentMessage" xml:space="preserve">
-    <value>Show gil spent confirmation messages</value>
-  </data>
-  <data name="SystemTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
-    <value>eg. You spend gil on a purchase.</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
     <value>Allow</value>
@@ -1781,10 +1981,10 @@ Enter a player's first and last name and then press &lt;Enter&gt; to add them to
     <value>Select Channels</value>
   </data>
   <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
-    <value>Show all messages sent by whitelisted player</value>
+    <value>all messages sent by whitelisted player</value>
   </data>
   <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
-    <value>Show all messages targeting a whitelisted player</value>
+    <value>all messages targeting a whitelisted player</value>
   </data>
   <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
     <value>First Name: </value>
@@ -1796,3 +1996,5 @@ Enter a player's first and last name and then press &lt;Enter&gt; to add them to
     <value>Server Name: </value>
   </data>
 </root>
+
+

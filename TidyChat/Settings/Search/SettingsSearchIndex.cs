@@ -360,6 +360,9 @@ internal static class SettingsSearchIndex
             propertyName is "DebugIncludeChannel")
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_DebugDropdownHeader}";
 
+        if (propertyName is "ShowFirstClearAward" or "ShowSecondChanceAward")
+            return Languages.ConfigWindow_ProgressTabHeader;
+
         if (propertyName.StartsWith("ChatHistory", StringComparison.Ordinal) ||
             propertyName is "DisableSelfChatHistory")
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_ChatHistoryDropdownHeader}";

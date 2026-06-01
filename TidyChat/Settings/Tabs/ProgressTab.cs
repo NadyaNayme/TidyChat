@@ -1,4 +1,4 @@
-using Dalamud.Interface.Components;
+﻿using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
 namespace TidyChat.Settings.Tabs;
 
@@ -49,14 +49,14 @@ internal static class ProgressTab
         if (ImGui.CollapsingHeader(Languages.ProgressTab_DutyRewardsDropdownHeader))
         {
             bool showFirstClearAward = configuration.ShowFirstClearAward;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowFirstClearAward, ref showFirstClearAward))
+            if (ImGui.Checkbox(Languages.ProgressTab_ShowFirstClearAward, ref showFirstClearAward))
             {
                 configuration.ShowFirstClearAward = showFirstClearAward;
                 configuration.OnSettingChanged();
             }
 
             bool showSecondChanceAward = configuration.ShowSecondChanceAward;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowSecondChanceAward, ref showSecondChanceAward))
+            if (ImGui.Checkbox(Languages.ProgressTab_ShowSecondChanceAward, ref showSecondChanceAward))
             {
                 configuration.ShowSecondChanceAward = showSecondChanceAward;
                 configuration.OnSettingChanged();
@@ -131,3 +131,4 @@ internal static class ProgressTab
         }
     }
 }
+

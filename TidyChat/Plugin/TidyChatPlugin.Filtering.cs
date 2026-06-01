@@ -142,8 +142,6 @@ public sealed partial class TidyChatPlugin
     /// <summary>Runs Better Messages rewrites. Returns true when the message is done and needs no further filtering.</summary>
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
-        TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
-
         if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&
             LogMessageCatalog.MatchesWithFallback(1531, normalizedText, ChatStrings.DutyHasBegun))
         {
@@ -229,8 +227,6 @@ public sealed partial class TidyChatPlugin
         }
         if (wasAllowedByLog)
         {
-            // OnLogMessage already allowed this line; rewrite before we short-circuit OnChat filtering.
-            TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
             return true;
@@ -238,7 +234,6 @@ public sealed partial class TidyChatPlugin
 
         if (TryConsumePendingLogMessageAllow(normalizedText))
         {
-            TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
             return true;

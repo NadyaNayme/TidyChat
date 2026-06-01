@@ -1,4 +1,4 @@
-using TidyChat.Localization.Resources;
+﻿using TidyChat.Localization.Resources;
 namespace TidyChat.Settings.Tabs;
 
 internal static class ToolsTab
@@ -8,14 +8,14 @@ internal static class ToolsTab
         if (ImGui.CollapsingHeader(Languages.ToolsTab_DebugDropdownHeader, ImGuiTreeNodeFlags.DefaultOpen))
         {
             bool enableDebugMode = configuration.EnableDebugMode;
-            if (ImGui.Checkbox(Languages.AdvancedTab_EnableDebugMode, ref enableDebugMode))
+            if (ImGui.Checkbox(Languages.ToolsTab_EnableDebugMode, ref enableDebugMode))
             {
                 configuration.EnableDebugMode = enableDebugMode;
                 configuration.OnSettingChanged();
             }
 
             bool debugIncludeChannel = configuration.DebugIncludeChannel;
-            if (ImGui.Checkbox(Languages.IncludeChannelTagInDryRunMode, ref debugIncludeChannel))
+            if (ImGui.Checkbox(Languages.ToolsTab_DebugIncludeChannel, ref debugIncludeChannel))
             {
                 configuration.DebugIncludeChannel = debugIncludeChannel;
                 configuration.OnSettingChanged();
@@ -29,3 +29,4 @@ internal static class ToolsTab
             WhitelistTab.DrawContent(configuration);
     }
 }
+
