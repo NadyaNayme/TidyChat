@@ -46,9 +46,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/Item/41784?pretty=true">Sacks of Nuts</see>
     public static readonly LocalizedRegex ObtainedNuts = new()
     {
@@ -57,9 +54,6 @@ public static class ChatRegexStrings
         Deu = new(@"(\d{1,3},)?\d{1,3} kupo-trophaë\.", regexOptions, regexTimeout),
         Fra = new(@"^(vous|you) obtenez \d{1,6} insignes de chasse\.$", regexOptions, regexTimeout)
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">Storm Seals</see>
@@ -82,9 +76,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
     /// ...
     /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
@@ -101,9 +92,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Obtain template + materials suffix</see>
     public static readonly LocalizedRegex ObtainedMaterials = new()
     {
@@ -112,9 +100,6 @@ public static class ChatRegexStrings
         Deu = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
         Fra = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout)
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental shards/crystals/clusters (Item/2–19)</see>
@@ -172,9 +157,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/588?pretty=true">Gain experience (588, 589, 4466, …)</see>
     /// <seealso href="https://xivapi.com/LogMessage/549?pretty=true">BattleSystem XP / chain bonus</see>
     public static readonly LocalizedRegex GainExperience = new()
@@ -218,9 +200,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/1259?pretty=true">Other-player obtain template</see>
     public static readonly LocalizedRegex OtherObtains = new()
     {
@@ -240,9 +219,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Shared obtain template (tomestone lines)</see>
     public static readonly LocalizedRegex ObtainedTomestones = new()
     {
@@ -253,9 +229,6 @@ public static class ChatRegexStrings
             regexOptions, regexTimeout),
         Fra = new(@"(vous|you) obtenez \d{1,3} Mémoquartz allagois (\w+)", regexOptions, regexTimeout)
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/4225?pretty=true">
@@ -335,9 +308,6 @@ public static class ChatRegexStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">Aetherial reduction sands obtained</see>
     public static readonly LocalizedRegex AetherialReductionSands = new()
     {
@@ -394,9 +364,6 @@ public static class ChatRegexStrings
         Deu = new(@"^der zugang zur (?<chamber>1|2|3|4|5|6)\. kammer öffnet sich\.$", regexOptions, regexTimeout),
         Fra = new(@"^la porte de la (?<chamber>1|2|3|4|5|6)(?:re|e) salle s'ouvre\.$", regexOptions, regexTimeout)
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/7224?pretty=true">Deep dungeon trap (7224–7229)</see>

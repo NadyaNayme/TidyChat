@@ -526,7 +526,6 @@ public static partial class ChatStrings
     };
 
 
-
     /// <see href="https://xivapi.com/LogMessage/7229?pretty=true">
     ///     The detonator is triggered! The treasure coffer is no
     ///     more...
@@ -773,7 +772,6 @@ public static partial class ChatStrings
     };
 
 
-
     /// <see href="https://xivapi.com/LogMessage/5874?pretty=true">
     ///     Portrait has expired. Please readjust its settings and try
     ///     again.
@@ -841,7 +839,6 @@ public static partial class ChatStrings
     };
 
 
-
     /// <see href="https://xivapi.com/LogMessage/3569?pretty=true">
     ///     You use Meticulous Woodsman. Collector's intuition guides
     ///     your hand.
@@ -862,7 +859,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
 
     /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">

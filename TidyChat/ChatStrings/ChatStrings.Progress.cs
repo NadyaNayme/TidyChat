@@ -211,9 +211,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">
     ///     Someone earns the achievement " Blah blah blah, Tidal
     ///     Wave!"

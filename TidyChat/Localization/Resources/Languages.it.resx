@@ -1,110 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-    
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -112,14 +7,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
-            PublicKeyToken=b77a5c561934e089
-        </value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
-            PublicKeyToken=b77a5c561934e089
-        </value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
     <value>Cronologia chat</value>
@@ -198,7 +89,7 @@
   </data>
   <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
     <value>ATTENZIONE: Esagerare con la lunghezza della cronologia della chat potrebbe influire sulle performance del gioco.
-E' consigliabile tenerla a 50 o meno.</value>
+E&apos; consigliabile tenerla a 50 o meno.</value>
   </data>
   <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
     <value>Login e Logout</value>
@@ -276,7 +167,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>combat enmity messages</value>
   </data>
   <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy's enmity toward you increases!</value>
+    <value>eg. The enemy&apos;s enmity toward you increases!</value>
   </data>
   <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
     <value>combat healing messages</value>
@@ -375,7 +266,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Nascondi solo le zone che influiscono sul numero di tentativi di gathering</value>
   </data>
   <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-    <value>Nascondi solo le zone che influsicono sul Gatherer's Boon</value>
+    <value>Nascondi solo le zone che influsicono sul Gatherer&apos;s Boon</value>
   </data>
   <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
     <value>Nascondi solo le zone che influenzano il numero di oggetti raccolti</value>
@@ -423,7 +314,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>eg. You synthesize a Linen Bandana. (English only; other languages need localization)</value>
   </data>
   <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
-    <value>Visualizza l'incremento di livello desintesi</value>
+    <value>Visualizza l&apos;incremento di livello desintesi</value>
   </data>
   <data name="CraftingGatheringTab_ShowDesynthesisMessages" xml:space="preserve">
     <value>desynthesis messages</value>
@@ -432,37 +323,37 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Visualizza un messaggio quando un pesce viene aggiunto alla fish guide</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingFlavorText" xml:space="preserve">
-    <value>Fisher's Intuition flavor text</value>
+    <value>Fisher&apos;s Intuition flavor text</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
-    <value>Shows Fisher's Intuition messages ("the scent of baitfish...") and per-fish lure flavor text (loaded from game data at startup).</value>
+    <value>Shows Fisher&apos;s Intuition messages (&quot;the scent of baitfish...&quot;) and per-fish lure flavor text (loaded from game data at startup).</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
     <value>Visualizza un messaggio quando viene scoperto un punto per pescare</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
-    <value>Visualizza il nome della fishing hole quando viene lanciata l'esca</value>
+    <value>Visualizza il nome della fishing hole quando viene lanciata l&apos;esca</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
     <value>Visualizza i pesci catturati che misurano [size] ilms</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
-    <value>Visualizza il messaggio "Avverti..." per i nodi di gathering</value>
+    <value>Visualizza il messaggio &quot;Avverti...&quot; per i nodi di gathering</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringStartEnd" xml:space="preserve">
     <value>the begin/end gathering messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
-    <value>Visualizza l'oggetto in fase di desintesi</value>
+    <value>Visualizza l&apos;oggetto in fase di desintesi</value>
   </data>
   <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
-    <value>Visualizza un messaggio quando la zona influsice sul numero di oggetti raccolti, sul numero di tentativi di gathering e quando ricevi il Gatherer's Boon</value>
+    <value>Visualizza un messaggio quando la zona influsice sul numero di oggetti raccolti, sul numero di tentativi di gathering e quando ricevi il Gatherer&apos;s Boon</value>
   </data>
   <data name="CraftingGatheringTab_ShowLureMessages" xml:space="preserve">
     <value>Modest/Ambitious Lure and bite feeling messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!</value>
+    <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you&apos;ve attracted a fish with a weak bite!</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
     <value>Visualizza un messaggio quando la materia viene estratta da un equipaggiamento con spiritbond completo</value>
@@ -474,7 +365,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>message when materia shatters during retrieval</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
-    <value>Visualizza un messaggio quando la materia viene inserita con successo nell'equipaggiamento</value>
+    <value>Visualizza un messaggio quando la materia viene inserita con successo nell&apos;equipaggiamento</value>
   </data>
   <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
     <value>message after recasting with a moochable fish</value>
@@ -483,7 +374,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Visualizza gli oggetti ottenuti dalla desintesi</value>
   </data>
   <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
-    <value>Visualizza il numero di sabbie ottenute dopo aver eseguito l'aetherial reduction</value>
+    <value>Visualizza il numero di sabbie ottenute dopo aver eseguito l&apos;aetherial reduction</value>
   </data>
   <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
     <value>Visualizza i messaggi della sintesi quando un altro giocatore completa un craft.</value>
@@ -495,7 +386,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Stellar mission area and related system messages.</value>
   </data>
   <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
-    <value>Visualizza un messaggio quando recuperi con successo una materia dall'equipaggiamento</value>
+    <value>Visualizza un messaggio quando recuperi con successo una materia dall&apos;equipaggiamento</value>
   </data>
   <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
     <value>Visualizza il messaggio di stato finale al completamento di una Trial synthesis</value>
@@ -579,10 +470,10 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
   </data>
   <data name="EmotesTab_ShowOtherCustomEmotes" xml:space="preserve">
-    <value>Other players' custom emotes</value>
+    <value>Other players&apos; custom emotes</value>
   </data>
   <data name="EmotesTab_ShowOtherCustomEmotesHelpMarker" xml:space="preserve">
-    <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
+    <value>This will hide all &quot;/em&quot; messages unless it mentions you or is a custom emote you used.
 eg. Another Player leans over and gives you a big bear hug.</value>
   </data>
   <data name="EmotesTab_ShowSelfCustomEmotes" xml:space="preserve">
@@ -608,7 +499,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Copia automaticamente il messaggio /say nella clipboard</value>
   </data>
   <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-    <value>Richiede "Messaggio /say migliorato per le quest" per essere abilitato</value>
+    <value>Richiede &quot;Messaggio /say migliorato per le quest&quot; per essere abilitato</value>
   </data>
   <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
     <value>Display</value>
@@ -620,14 +511,14 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Filtra lo spam del crafting</value>
   </data>
   <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-    <value>Questo filtro include tutti i messaggi relativi al crafting ad eccezione di "Hai sintetizzato un &lt;item&gt;"
-Questo permette di usare ChatAlerts per creare un allarme per "Hai sintetizzato" anziché usare gli alert delle macro completate</value>
+    <value>Questo filtro include tutti i messaggi relativi al crafting ad eccezione di &quot;Hai sintetizzato un &lt;item&gt;&quot;
+Questo permette di usare ChatAlerts per creare un allarme per &quot;Hai sintetizzato&quot; anziché usare gli alert delle macro completate</value>
   </data>
   <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
     <value>Filtra lo spam di emote personalizzate</value>
   </data>
   <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-    <value>Questo nasconde tutti i messaggi "/em" a meno che non siano rivolti a te o siano una emote personalizzata usata da te.
+    <value>Questo nasconde tutti i messaggi &quot;/em&quot; a meno che non siano rivolti a te o siano una emote personalizzata usata da te.
 es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
   </data>
   <data name="GeneralTab_FilterEmoteChannelsHeader" xml:space="preserve">
@@ -643,28 +534,19 @@ es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
     <value>Filtra lo spam del Gathering</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-    <value>Queto filtro include i messaggi di gathering "inizi/finisci" così come gli effetti che influsicono sulla posizione</value>
+    <value>Queto filtro include i messaggi di gathering &quot;inizi/finisci&quot; così come gli effetti che influsicono sulla posizione</value>
   </data>
   <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
     <value>Filtra lo spam dei roll del Loot</value>
   </data>
   <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-    <value>Questi filtri includono messaggi come "giocatore ha rollato greed" o "giocatore ottiene pezzo di equipaggiamento"</value>
+    <value>Questi filtri includono messaggi come &quot;giocatore ha rollato greed&quot; o &quot;giocatore ottiene pezzo di equipaggiamento&quot;</value>
   </data>
   <data name="GeneralTab_FilterObtainedSpam" xml:space="preserve">
     <value>Filter Obtained channel</value>
   </data>
   <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
     <value>Questo filtro include oggetti ottenuti come drop dai nemici e ricompense dalle quest o dalle roulette</value>
-  </data>
-  <data name="GeneralTab_FilterProfileApply" xml:space="preserve">
-    <value>Apply profile</value>
-  </data>
-  <data name="GeneralTab_FilterProfileHelpMarker" xml:space="preserve">
-    <value>Resets filter toggles to built-in defaults for the selected profile. Any manual change switches to Custom. Settings save automatically when you close this window.</value>
-  </data>
-  <data name="GeneralTab_FilterProfileLabel" xml:space="preserve">
-    <value>Filter profile</value>
   </data>
   <data name="GeneralTab_FilterProfile_Balanced" xml:space="preserve">
     <value>Balanced (recommended)</value>
@@ -678,6 +560,15 @@ es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
   <data name="GeneralTab_FilterProfile_VanillaPlus" xml:space="preserve">
     <value>Vanilla+</value>
   </data>
+  <data name="GeneralTab_FilterProfileApply" xml:space="preserve">
+    <value>Apply profile</value>
+  </data>
+  <data name="GeneralTab_FilterProfileHelpMarker" xml:space="preserve">
+    <value>Resets filter toggles to built-in defaults for the selected profile. Any manual change switches to Custom. Settings save automatically when you close this window.</value>
+  </data>
+  <data name="GeneralTab_FilterProfileLabel" xml:space="preserve">
+    <value>Filter profile</value>
+  </data>
   <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
     <value>Filtro spam di progresso</value>
   </data>
@@ -688,7 +579,7 @@ es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
     <value>Filtra le emote usate da te</value>
   </data>
   <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-    <value>Nasconde il messaggio visualizzato quando usi un'emote o un'emote personalizzata.
+    <value>Nasconde il messaggio visualizzato quando usi un&apos;emote o un&apos;emote personalizzata.
 es. Accarezzi delicatamente &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
@@ -704,7 +595,7 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Unisce la duty completata al messaggio delle commendation</value>
   </data>
   <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
-    <value>Richiede "Commendation dei giocatori migliorate" per essere abilitata</value>
+    <value>Richiede &quot;Commendation dei giocatori migliorate&quot; per essere abilitata</value>
   </data>
   <data name="GeneralTab_ImprovedDutyCommenceMessaging" xml:space="preserve">
     <value>Improved duty commence messaging</value>
@@ -716,7 +607,7 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Migliorata la messaggistica di /instance</value>
   </data>
   <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-    <value>Cambia il testo dell'istanza in: Ti trovi nell'istanza: #</value>
+    <value>Cambia il testo dell&apos;istanza in: Ti trovi nell&apos;istanza: #</value>
   </data>
   <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
     <value>Messaggi migliorati</value>
@@ -746,7 +637,7 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.</value>
   </data>
   <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
-    <value>Visualizza l'istanza corrente nella barra DTR</value>
+    <value>Visualizza l&apos;istanza corrente nella barra DTR</value>
   </data>
   <data name="GeneralTab_InstanceMessagesGroup" xml:space="preserve">
     <value>Instance messages</value>
@@ -780,16 +671,16 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
 es. Tenti la fortuna su &lt;item&gt;</value>
   </data>
   <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
-    <value>Visualizza il messaggio "Hai tentato la fortuna"</value>
+    <value>Visualizza il messaggio &quot;Hai tentato la fortuna&quot;</value>
   </data>
   <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
     <value>Valute comuni</value>
   </data>
   <data name="ObtainTab_HideInventoryItemAddedMessages" xml:space="preserve">
-    <value>Hide "added to your inventory" messages</value>
+    <value>Hide &quot;added to your inventory&quot; messages</value>
   </data>
   <data name="ObtainTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates "You obtain …" on retainer ventures.)</value>
+    <value>eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates &quot;You obtain …&quot; on retainer ventures.)</value>
   </data>
   <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
     <value>Loot e Roll</value>
@@ -804,21 +695,21 @@ es. Tenti la fortuna su &lt;item&gt;</value>
     <value>es. Hai ottenuto 100 Allied Seal.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
-    <value>Visualizza il messaggio "Un altro giocatore tenta la fortuna su &lt;item&gt;"</value>
+    <value>Visualizza il messaggio &quot;Un altro giocatore tenta la fortuna su &lt;item&gt;&quot;</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
     <value>Questo visualizza il messaggio che si attiva quando un altro giocatore tenta la fortuna per su un drop.
 es. Un altro giocatore ha fatto la sua scelta per &lt;item&gt;,.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Visualizza i messaggi "Un altro giocatore ha ottenuto &lt;item&gt;"</value>
+    <value>Visualizza i messaggi &quot;Un altro giocatore ha ottenuto &lt;item&gt;&quot;</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
     <value>Questo visualizza il messaggio che si attiva quando un altro giocatore nel party ottiene un drop.
 es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
-    <value>Visualizza il messaggio "Un altro giocatore ha scelto Greed..."</value>
+    <value>Visualizza il messaggio &quot;Un altro giocatore ha scelto Greed...&quot;</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
     <value>Visualizza i materiali crafting delle Beast Tribe</value>
@@ -844,7 +735,7 @@ es. Hai ricevuto Starboard Hull Component Materials</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
     <value>Questo visualizza i cracked cluster come i Dendroclusters ed i Anthoclusters.
-Per nascondere gli elemental clusters consulta l'opzione per nascondere gli elemental cluster in basso.
+Per nascondere gli elemental clusters consulta l&apos;opzione per nascondere gli elemental cluster in basso.
 es. Hai ricevuto un craced dendrocluster</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
@@ -901,10 +792,10 @@ es. Hai ricevuto 30 ice shard</value>
   </data>
   <data name="ObtainTab_ShowOnlyPartyMemberRollsHelpMarker" xml:space="preserve">
     <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
-Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
+Requires &quot;Show Another Player rolls&quot; to be enabled and only takes effect while in a party.</value>
   </data>
   <data name="ObtainTab_ShowOtherPlayersLootRolls" xml:space="preserve">
-    <value>other players' loot rolls</value>
+    <value>other players&apos; loot rolls</value>
   </data>
   <data name="ObtainTab_ShowOtherPlayersLootRollsHelpMarker" xml:space="preserve">
     <value>Shows when other players cast lot or roll on loot.</value>
@@ -937,11 +828,11 @@ Requires "Show Another Player rolls" to be enabled and only takes effect while i
     <value>your loot rolls</value>
   </data>
   <data name="ObtainTab_ShowYourLootRollsHelpMarker" xml:space="preserve">
-    <value>Shows your "cast lot" and loot roll result messages.
+    <value>Shows your &quot;cast lot&quot; and loot roll result messages.
 eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-    <value>Visualizza il messaggio "Hai totalizzato..."</value>
+    <value>Visualizza il messaggio &quot;Hai totalizzato...&quot;</value>
   </data>
   <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
     <value>Qeusto visualizza il messaggio che si attiva quando tutti hanno scelto cosa fare con un oggetto e viene visualizzato il tuo numero.
@@ -1137,7 +1028,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>eg. You earn the achievement &lt;name&gt;! Uses the Progress channel.</value>
   </data>
   <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
-    <value>Visualizza i messaggi sull'esperienza guadagnata</value>
+    <value>Visualizza i messaggi sull&apos;esperienza guadagnata</value>
   </data>
   <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
     <value>es. Hai guadagnato 2338 Punti Esperienza.</value>
@@ -1187,7 +1078,7 @@ es. Giocatore sale al livello 33!</value>
     <value>quest progress messages</value>
   </data>
   <data name="ProgressTab_ShowQuestProgressMessagesHelpMarker" xml:space="preserve">
-    <value>eg. "Starting from Scrap" accepted. / "Starting from Scrap" complete! / "Starting from Scrap" objective fulfilled!</value>
+    <value>eg. &quot;Starting from Scrap&quot; accepted. / &quot;Starting from Scrap&quot; complete! / &quot;Starting from Scrap&quot; objective fulfilled!</value>
   </data>
   <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Second Chance reward</value>
@@ -1244,7 +1135,7 @@ es. Giocatore sale al livello 33!</value>
     <value>Solo accesso (nascondi al cambio mondo)</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_LoginThenCondensed" xml:space="preserve">
-    <value>Completo all'accesso, condensato in viaggio</value>
+    <value>Completo all&apos;accesso, condensato in viaggio</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_ShowAll" xml:space="preserve">
     <value>Tutto</value>
@@ -1257,7 +1148,7 @@ es. Giocatore sale al livello 33!</value>
 
 Show all — unchanged.
 Hide all — suppress the whole block.
-Condensed — keep only the "Welcome to &lt;world&gt;!" line.
+Condensed — keep only the &quot;Welcome to &lt;world&gt;!&quot; line.
 Login only — full block on login, nothing on world-hops.
 Login full, condensed on world-hop — full block on login, only the welcome line on world-hops.
 Hide phishing warning only — keeps greeting and event text, removes the phishing/congestion warning and its URL.
@@ -1274,7 +1165,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>eg. Active Help entry added. Tutorial pop-ups for new content and UI features.</value>
   </data>
   <data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
-    <value>Nascondi i messaggi dell'Aether Compass</value>
+    <value>Nascondi i messaggi dell&apos;Aether Compass</value>
   </data>
   <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
     <value>es. La bussola rileva una corrente approssimativamente a 143 yalm verso Ovest...</value>
@@ -1325,7 +1216,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Visualizza un messaggio quando si cambia gearset</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
-    <value>es. "Red Mage" equipaggiato.</value>
+    <value>es. &quot;Red Mage&quot; equipaggiato.</value>
   </data>
   <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
     <value>Visualizza i messaggi di sistema che Tidy Chat nasconde per impostazione predefinita</value>
@@ -1340,7 +1231,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Mostra i messaggi delle uccisioni delle hunt</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
-    <value>es. L'hunt &lt;mark&gt; è stata uccisa! 1/3</value>
+    <value>es. L&apos;hunt &lt;mark&gt; è stata uccisa! 1/3</value>
   </data>
   <data name="SystemTab_ShowInstanceMessage" xml:space="preserve">
     <value>/instance message</value>
@@ -1350,7 +1241,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
 Current instance can be confirmed at any time using the /instance text command.</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
-    <value>Nascondi i messaggi dei risultati di "Search for items"</value>
+    <value>Nascondi i messaggi dei risultati di &quot;Search for items&quot;</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>es. 1 elemento trovato nella quarta scheda del tuo inventario.</value>
@@ -1377,7 +1268,7 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>es. Cambiamento dello stato online su Away from Keyboard.</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlaying" xml:space="preserve">
-    <value>Hide "Orchestrion now plays" messages</value>
+    <value>Hide &quot;Orchestrion now plays&quot; messages</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
     <value>eg. Orchestrion now plays &lt;song&gt;.</value>
@@ -1410,10 +1301,10 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>Nascondi i promemoria di cosa dire in chat /say durante le quest.</value>
   </data>
   <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
-    <value>es. Con la chat in modalità /say, scrivi una frase contenente "Tataru" al punto di destinazione.</value>
+    <value>es. Con la chat in modalità /say, scrivi una frase contenente &quot;Tataru&quot; al punto di destinazione.</value>
   </data>
   <data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
-    <value>Nascondi i messaggi dell'equipaggiamento che raggiunge il 100% di spiritbond</value>
+    <value>Nascondi i messaggi dell&apos;equipaggiamento che raggiunge il 100% di spiritbond</value>
   </data>
   <data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Nasconde gli annunci riguardanti gli spawn delle hunt di rank S</value>
@@ -1435,7 +1326,7 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
     <value>es. Provi un oggetto.</value>
   </data>
   <data name="SystemTab_ShowVistaMessages" xml:space="preserve">
-    <value>Nascondi i messaggi dell'arrivo e dell'allontanamento da una vista</value>
+    <value>Nascondi i messaggi dell&apos;arrivo e dell&apos;allontanamento da una vista</value>
   </data>
   <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>es. Sei arrivato ad una vista! e Ti sei allontanato troppo da una vista.</value>
@@ -1447,7 +1338,7 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
     <value>eg. Master Volume muted, BGM volume set to 50.</value>
   </data>
   <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
-    <value>Nascondi i messaggi "Senti qualcosa..."</value>
+    <value>Nascondi i messaggi &quot;Senti qualcosa...&quot;</value>
   </data>
   <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>es. Senti qualcosa a sudovest, molto molto lontano...</value>

@@ -13,8 +13,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings LocationCollectabilityIncrease = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -22,9 +20,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/5551?pretty=true">
@@ -40,8 +35,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings CollectabilityIncreases = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -49,8 +42,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings CollectabilityMeticulousIntuition = new()
@@ -62,8 +53,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings GatheringYield = new()
     {
         Jpn = ["獲得数"],
@@ -71,9 +60,6 @@ public static partial class ChatStrings
         Deu = ["ertrag"],
         Fra = ["plus", "importantes", "récoltes"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/1097?pretty=true">
@@ -89,8 +75,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings GatherersBoonScore = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -98,9 +82,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/1098?pretty=true">
@@ -116,8 +97,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings GatheringBegin = new()
     {
         Jpn = ["開始"],
@@ -125,8 +104,6 @@ public static partial class ChatStrings
         Deu = ["beginnst"],
         Fra = ["commencez"]
     };
-
-
 
 
     public static readonly LocalizedStrings GatheringSenses = new()
@@ -138,8 +115,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings GatheringNoLongerSense = new()
     {
         Jpn = ["感じられなく"],
@@ -147,9 +122,6 @@ public static partial class ChatStrings
         Deu = ["kannst", "mehr", "wahrnehmen"],
         Fra = ["perdu", "la", "trace"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/1103?pretty=true">
@@ -165,8 +137,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings SomethingBites = new()
     {
         Jpn = ["フッキング"],
@@ -174,8 +144,6 @@ public static partial class ChatStrings
         Deu = ["angebissen"],
         Fra = ["touche"]
     };
-
-
 
 
     public static readonly LocalizedStrings ReelInLine = new()
@@ -187,8 +155,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings PutAwayRod = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -196,8 +162,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings MultihookBonusFish = new()
@@ -209,8 +173,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarMissionUnderway = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -218,8 +180,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings StellarSpecialActionUnlock = new()
@@ -231,8 +191,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarMissionScore = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -240,8 +198,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings StellarSilverStarRating = new()
@@ -253,8 +209,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarGoldStarRating = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -262,8 +216,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings StellarObjectivesComplete = new()
@@ -275,8 +227,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarTimeLimitExpired = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -284,9 +234,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/10769?pretty=true">
@@ -302,9 +249,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/10815?pretty=true">
     ///     Sequential missions are now available via the Stellar
     ///     Missions interface.
@@ -316,9 +260,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/10779?pretty=true">
@@ -334,8 +275,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarGoldCountStreak = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -345,8 +284,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarMissionLogCommittedPlain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -354,9 +291,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/10879?pretty=true">
@@ -372,8 +306,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings StellarGpRecovered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -381,8 +313,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings CordialRecastReset = new()
@@ -394,8 +324,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings ReconnaissanceDroneLocatedArtifact = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -403,8 +331,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings ArtifactAppraisalComplete = new()
@@ -416,8 +342,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings Mooching = new()
     {
         Jpn = ["泳がせ"],
@@ -425,8 +349,6 @@ public static partial class ChatStrings
         Deu = ["köder"],
         Fra = ["vif"]
     };
-
-
 
 
     public static readonly LocalizedStrings CurrentFishingHole = new()
@@ -438,8 +360,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings DiscoveredFishingHole = new()
     {
         Jpn = ["釣り場", "発見"],
@@ -449,8 +369,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings MeasuringIlms = new()
     {
         Jpn = ["イルム"],
@@ -458,8 +376,6 @@ public static partial class ChatStrings
         Deu = ["ilme"],
         Fra = ["ilm"]
     };
-
-
 
 
     public static readonly LocalizedStrings LureFish = new()

@@ -13,8 +13,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings CannotExecute = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -22,8 +20,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings CommandUnavailable = new()
@@ -35,8 +31,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings PartyLeaderDutyRegister = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -44,8 +38,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings UnableToExecuteWhileCasting = new()
@@ -57,8 +49,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings UnableToExecuteWhileMounted = new()
     {
         Jpn = ["騎乗中"],
@@ -66,8 +56,6 @@ public static partial class ChatStrings
         Deu = ["reitens", "ausgeführt"],
         Fra = ["impossible", "exécuter", "commande", "monture"]
     };
-
-
 
 
     public static readonly LocalizedStrings UnableToConvertPartySave = new()
@@ -79,8 +67,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings InvalidTarget = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -88,8 +74,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings CannotUseAsClass = new()
@@ -101,8 +85,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings UnableToUseItem = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -110,8 +92,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings UnableToObtain = new()
@@ -123,8 +103,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings UnableToObtainAlreadyPossess = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -132,8 +110,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings UnableToUseUniqueItem = new()
@@ -145,8 +121,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings NotYetReady = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -154,8 +128,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings TargetOutOfRange = new()
@@ -167,8 +139,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings CannotSeeTarget = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -176,8 +146,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings TargetNotInRange = new()
@@ -189,8 +157,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings TooFarAway = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -198,8 +164,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings ActionCanceledUnderAttack = new()
@@ -211,8 +175,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings TargetNotInLineOfSight = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -220,8 +182,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings UnableToApplyGlamourPlates = new()
@@ -233,8 +193,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings FateLevelTooHighToAttack = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -242,8 +200,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings FriendRequestSent = new()
@@ -255,8 +211,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings FriendRequestReceived = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -264,8 +218,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings FriendAddedToList = new()
@@ -277,8 +229,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings FriendListUpdated = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -288,8 +238,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings FateDiscovered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -297,8 +245,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings ActiveHelpEntryAdded = new()

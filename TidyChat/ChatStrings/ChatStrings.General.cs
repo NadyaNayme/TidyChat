@@ -42,9 +42,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://github.com/NadyaNayme/TidyChat/issues/122">Phishing warning lines in the login block</see>
     public static readonly LocalizedStrings ServerPhishingMarkers = new()
     {
@@ -76,8 +73,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings MarketBoardStartSelling = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -87,8 +82,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings MarketBoardStopSelling = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -96,9 +89,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/748?pretty=true">
@@ -114,8 +104,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings MarketAllItemsSold = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -123,8 +111,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings VendorPurchase = new()
@@ -136,8 +122,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings JobChange = new()
     {
         Jpn = ["チェンジ"],
@@ -145,8 +129,6 @@ public static partial class ChatStrings
         Deu = ["bist", "nun"],
         Fra = ["maintenant"]
     };
-
-
 
 
     public static readonly LocalizedStrings ArmouryChestPlacement = new()
@@ -158,8 +140,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings JobRegistered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -167,8 +147,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings JobSpecialistChange = new()

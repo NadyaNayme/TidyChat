@@ -33,7 +33,6 @@ public enum ChatType : ushort
     StandardEmote = 29,
     Yell = 30,
 
-    // 31 - also party?
     CrossParty = 32,
     PvpTeam = 36,
     CrossLinkshell1 = 37,

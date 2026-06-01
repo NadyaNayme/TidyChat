@@ -13,9 +13,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
     public static readonly LocalizedStrings ObtainWolfMarks = new()
     {
@@ -24,9 +21,6 @@ public static partial class ChatStrings
         Deu = ["erhalten", "wolfsmarken"],
         Fra = ["marques", "de", "loup"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
@@ -39,8 +33,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings CosmicFortuneObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -48,8 +40,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings CosmocreditObtain = new()
@@ -61,8 +51,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings OizysCreditObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -72,8 +60,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings OizysDronebitsObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -81,9 +67,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
@@ -96,9 +79,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/Item/10307?pretty=true">Centurio Seals</see>
     public static readonly LocalizedStrings ObtainCenturioSealsMarker = new()
     {
@@ -107,9 +87,6 @@ public static partial class ChatStrings
         Deu = ["centurio-abzeichen"],
         Fra = ["insignes", "centurio"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/Item/41784?pretty=true">Sacks of Nuts</see>
@@ -122,13 +99,9 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/Item/20?pretty=true">GC Seals (Storm)</see>
-    /// <seealso href="https://xivapi.com/Item/21?pretty=true">
-    ///     Serpent Seals</see>
-    ///     <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
+    /// <seealso href="https://xivapi.com/Item/21?pretty=true">Serpent Seals</see>
+    /// <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
     public static readonly LocalizedStrings ObtainSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -136,9 +109,6 @@ public static partial class ChatStrings
         Deu = ["talern"],
         Fra = ["sceaux"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental clusters (see Item/14–19)</see>
@@ -151,9 +121,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Obtain template + materials suffix</see>
     public static readonly LocalizedStrings ObtainMaterialsMarker = new()
     {
@@ -162,9 +129,6 @@ public static partial class ChatStrings
         Deu = ["materials"],
         Fra = ["materials"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain N gil (657 family)</see>
@@ -178,9 +142,6 @@ public static partial class ChatStrings
     };
 
 
-
-
-
     /// <see href="https://xivapi.com/LogMessage/4765?pretty=true">MGP obtain</see>
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {
@@ -189,8 +150,6 @@ public static partial class ChatStrings
         Deu = ["mgp"],
         Fra = ["mgp"]
     };
-
-
 
 
     public static readonly LocalizedStrings QuestItemObtain = new()
@@ -202,8 +161,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings ObtainedItemQuantity = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -211,8 +168,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings ObtainedGearPiece = new()
@@ -224,8 +179,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings ObtainedSingleItem = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -233,8 +186,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings InventoryItemAdded = new()
@@ -246,8 +197,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings DiscardedItem = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -255,8 +204,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings ItemBoundToYou = new()
@@ -268,8 +215,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings VendorSellForGil = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -277,8 +222,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings VendorPurchaseForGil = new()
@@ -290,8 +233,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings GilSpent = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -299,9 +240,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
 
     /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">
@@ -317,8 +255,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings GilSafelyWithdrawn = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -326,8 +262,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings SealedOff = new()

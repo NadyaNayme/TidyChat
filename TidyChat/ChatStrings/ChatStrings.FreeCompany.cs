@@ -13,8 +13,6 @@ public static partial class ChatStrings
     };
 
 
-
-
     public static readonly LocalizedStrings MountMessage = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -22,8 +20,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
 
 
     public static readonly LocalizedStrings UserLogout = new()
