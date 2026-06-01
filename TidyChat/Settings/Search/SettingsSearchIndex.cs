@@ -1,12 +1,8 @@
-using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
 using Dalamud.Interface.Components;
-using TidyChat.Localization.Resources;
 using TidyChat.Translation.Data;
 namespace TidyChat.Settings.Search;
 
@@ -16,7 +12,7 @@ internal static class SettingsSearchIndex
 
     private static readonly HashSet<string> SkippedProperties = new(StringComparer.Ordinal)
     {
-        "Enabled",
+        "Enabled"
     };
 
     private static readonly PropertyInfo[] LanguageProperties =
@@ -153,9 +149,9 @@ internal static class SettingsSearchIndex
             (string label, string? help) = ResolveLabelAndHelp(property.Name);
             RuleMetadata? ruleMeta = RuleMetadataByName.GetValueOrDefault(property.Name);
             string location = TryGetInferredLocation(property.Name)
-                ?? (ruleMeta is not null
-                    ? FormatRuleLocation(ruleMeta.SettingsTab)
-                    : Languages.ConfigWindow_GeneralTabHeader);
+                              ?? (ruleMeta is not null
+                                  ? FormatRuleLocation(ruleMeta.SettingsTab)
+                                  : Languages.ConfigWindow_GeneralTabHeader);
 
             entries.Add(new(
                 property.Name,
@@ -351,9 +347,12 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_ObtainTabHeader;
 
         if (propertyName.StartsWith("ShowGathering", StringComparison.Ordinal) ||
-            propertyName is "ShowCaughtFish" or "ShowMooching" or "ShowLocationAffects" or
-            "ShowAetherialReductionSands" or "ShowAetherialReductionSuccess" or
-            "ShowAetherialReductionMinigame")
+            propertyName is "ShowCaughtFish" or
+                "ShowMooching" or
+                "ShowLocationAffects" or
+                "ShowAetherialReductionSands" or
+                "ShowAetherialReductionSuccess" or
+                "ShowAetherialReductionMinigame")
             return Languages.ConfigWindow_CraftingGatheringTabHeader;
 
         if (propertyName.StartsWith("EnableDebug", StringComparison.Ordinal) ||
@@ -374,9 +373,15 @@ internal static class SettingsSearchIndex
             propertyName is "ShowOtherCustomEmotes" or "ShowSelfUsedEmotes")
             return Languages.ConfigWindow_EmotesTabHeader;
 
-        if (            propertyName is "ShowTradeSent" or "ShowTradeCanceled" or "ShowAwaitingTradeConfirmation" or
-            "ShowTradeComplete" or "ShowVendorSellMessages" or "ShowVendorPurchaseMessages" or
-            "ShowMarketBoardMessages" or "BetterMarketBoardSaleMessage" or "ShowGilWithdrawnMessage" or
+        if (propertyName is "ShowTradeSent" or
+            "ShowTradeCanceled" or
+            "ShowAwaitingTradeConfirmation" or
+            "ShowTradeComplete" or
+            "ShowVendorSellMessages" or
+            "ShowVendorPurchaseMessages" or
+            "ShowMarketBoardMessages" or
+            "BetterMarketBoardSaleMessage" or
+            "ShowGilWithdrawnMessage" or
             "ShowGilSpentMessage")
             return Languages.ConfigWindow_EconomyTabHeader;
 
@@ -384,14 +389,33 @@ internal static class SettingsSearchIndex
             propertyName.StartsWith("ShowJoin", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowLeft", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowParty", StringComparison.Ordinal) ||
-            propertyName is "ShowDutyFinder" or "ShowOfferedTeleport" or "ShowCompletedVenture" or
-            "ShowRetainerVentureMessages" or "ShowUserLogins" or "ShowUserLogouts" or
-            "ShowFreeCompanyMessageBook" or "ShowExploratoryVoyage" or "ShowSubaquaticVoyage" or
-            "ShowCountdownTime" or "ShowReadyChecks" or "ShowCompletionTime" or "ShowNowLeaderOf" or
-            "ShowSealedOff" or "ShowCairnGlows" or "ShowRestoresLifeToFallen" or "ShowCairnActivates" or
-            "ShowTransference" or "ShowAetherpoolIncrease" or "ShowAetherpoolUnchanged" or
-            "ShowObtainedPomander" or "ShowPomanderEffects" or "ShowFloorNumber" or "ShowTrapTriggered" or
-            "ShowSenseAccursedHoard" or "ShowDoNotSenseAccursedHoard" or "ShowDiscoverAccursedHoard")
+            propertyName is "ShowDutyFinder" or
+                "ShowOfferedTeleport" or
+                "ShowCompletedVenture" or
+                "ShowRetainerVentureMessages" or
+                "ShowUserLogins" or
+                "ShowUserLogouts" or
+                "ShowFreeCompanyMessageBook" or
+                "ShowExploratoryVoyage" or
+                "ShowSubaquaticVoyage" or
+                "ShowCountdownTime" or
+                "ShowReadyChecks" or
+                "ShowCompletionTime" or
+                "ShowNowLeaderOf" or
+                "ShowSealedOff" or
+                "ShowCairnGlows" or
+                "ShowRestoresLifeToFallen" or
+                "ShowCairnActivates" or
+                "ShowTransference" or
+                "ShowAetherpoolIncrease" or
+                "ShowAetherpoolUnchanged" or
+                "ShowObtainedPomander" or
+                "ShowPomanderEffects" or
+                "ShowFloorNumber" or
+                "ShowTrapTriggered" or
+                "ShowSenseAccursedHoard" or
+                "ShowDoNotSenseAccursedHoard" or
+                "ShowDiscoverAccursedHoard")
             return Languages.ConfigWindow_PartyDutyTabHeader;
 
         return null;

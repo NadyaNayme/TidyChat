@@ -1,6 +1,4 @@
 using Dalamud.Interface.Components;
-using TidyChat.Localization.Resources;
-using TidyChat.Settings;
 namespace TidyChat.Settings.Tabs;
 
 internal static class CraftingGatheringTab

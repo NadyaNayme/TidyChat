@@ -5,7 +5,6 @@ public static partial class ChatStrings
 {
 
     /// <see href="https://github.com/NadyaNayme/TidyChat/issues/122">Login / world-travel server announcements</see>
-
     public static readonly LocalizedStrings ServerAnnouncementMarkers = new()
     {
         Eng =
@@ -47,7 +46,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://github.com/NadyaNayme/TidyChat/issues/122">Phishing warning lines in the login block</see>
-
     public static readonly LocalizedStrings ServerPhishingMarkers = new()
     {
         Eng =
@@ -107,7 +105,6 @@ public static partial class ChatStrings
     ///     … you put up for sale in the markets has sold for … gil
     ///     (after fees).
     /// </see>
-
     public static readonly LocalizedStrings MarketItemSold = new()
     {
         Jpn = ["NeedsLocalization"],

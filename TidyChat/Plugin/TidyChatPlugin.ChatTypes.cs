@@ -1,5 +1,3 @@
-using Dalamud.Game.Text;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

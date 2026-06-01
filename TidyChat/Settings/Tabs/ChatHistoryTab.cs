@@ -1,7 +1,4 @@
-using System;
-using System.Globalization;
 using Dalamud.Interface.Components;
-using TidyChat.Localization.Resources;
 namespace TidyChat.Settings.Tabs;
 
 internal static class ChatHistoryTab

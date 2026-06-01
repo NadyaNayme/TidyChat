@@ -1,8 +1,6 @@
-using System;
 using System.IO;
 using System.Text.Json;
 using Dalamud.Plugin;
-
 namespace TidyChat.Settings;
 
 internal static class ConfigurationMigration
@@ -47,33 +45,32 @@ internal static class ConfigurationMigration
 
     private static void ApplyLegacyJsonFields(Configuration config, IDalamudPluginInterface pluginInterface)
     {
-        var path = Path.Combine(pluginInterface.ConfigDirectory.FullName, $"{pluginInterface.InternalName}.json");
+        string path = Path.Combine(pluginInterface.ConfigDirectory.FullName, $"{pluginInterface.InternalName}.json");
         if (!File.Exists(path))
             return;
 
         try
         {
             using var doc = JsonDocument.Parse(File.ReadAllText(path));
-            var root = doc.RootElement;
+            JsonElement root = doc.RootElement;
             if (TryGetBool(root, "HideObtainedShardsFromLoot") == true)
                 config.HideObtainedShards = true;
             if (TryGetBool(root, "HideOthersObtainFromLoot") == true)
                 config.HideOthersObtain = true;
         }
         catch
-        {
-        }
+        { }
     }
 
     private static bool? TryGetBool(JsonElement root, string name)
     {
-        if (!root.TryGetProperty(name, out var el))
+        if (!root.TryGetProperty(name, out JsonElement el))
             return null;
         return el.ValueKind switch
         {
             JsonValueKind.True => true,
             JsonValueKind.False => false,
-            _ => null,
+            _ => null
         };
     }
 }

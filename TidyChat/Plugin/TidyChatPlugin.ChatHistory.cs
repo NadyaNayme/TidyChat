@@ -1,5 +1,3 @@
-using System;
-using TidyChat.Utility;
 using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat;

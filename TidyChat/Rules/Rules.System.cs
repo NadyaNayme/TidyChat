@@ -1722,4 +1722,3 @@ public static partial class Rules
         }
     ];
 }
-

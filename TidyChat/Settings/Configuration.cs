@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Dalamud.Configuration;
 using Dalamud.Plugin;
@@ -29,6 +28,12 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
     public bool NoCoffee { get; set; } = false;
+
+    #region Error Messages
+
+    public bool HideFateLevelSync { get; set; } = false;
+
+    #endregion
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface)
@@ -71,12 +76,6 @@ public class Configuration : IPluginConfiguration
         Rules.UpdateIsActiveStates(this);
         TidyChatPlugin.InstanceDtrBarUpdate(this);
     }
-
-    #region Error Messages
-
-    public bool HideFateLevelSync { get; set; } = false;
-
-    #endregion
 
     #region Chat Filters
 

@@ -17,7 +17,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
-
     public static readonly LocalizedStrings ObtainWolfMarks = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -31,7 +30,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
-
     public static readonly LocalizedStrings ObtainVentureMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -89,7 +87,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
-
     public static readonly LocalizedStrings ObtainAlliedSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -103,7 +100,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/10307?pretty=true">Centurio Seals</see>
-
     public static readonly LocalizedStrings ObtainCenturioSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -117,7 +113,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/41784?pretty=true">Sacks of Nuts</see>
-
     public static readonly LocalizedStrings ObtainNutsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -131,9 +126,9 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">GC Seals (Storm)</see>
-    /// <seealso href="https://xivapi.com/Item/21?pretty=true">Serpent Seals</see>
-    /// <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
-
+    /// <seealso href="https://xivapi.com/Item/21?pretty=true">
+    ///     Serpent Seals</see>
+    ///     <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
     public static readonly LocalizedStrings ObtainSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -147,7 +142,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental clusters (see Item/14–19)</see>
-
     public static readonly LocalizedStrings ObtainClusterMarker = new()
     {
         Jpn = ["クラスター"],
@@ -161,7 +155,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Obtain template + materials suffix</see>
-
     public static readonly LocalizedStrings ObtainMaterialsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -176,7 +169,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain N gil (657 family)</see>
     /// <seealso href="https://xivapi.com/LogMessage/1259?pretty=true">Alternate obtain template</see>
-
     public static readonly LocalizedStrings ObtainedGilMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -190,7 +182,6 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/LogMessage/4765?pretty=true">MGP obtain</see>
-
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -317,7 +308,6 @@ public static partial class ChatStrings
     ///     Gil earned from market sales has been entrusted to your
     ///     retainer.
     /// </see>
-
     public static readonly LocalizedStrings MarketGilEntrustedToRetainer = new()
     {
         Jpn = ["NeedsLocalization"],

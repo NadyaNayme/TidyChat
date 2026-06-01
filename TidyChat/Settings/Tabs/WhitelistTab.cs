@@ -1,9 +1,7 @@
-using System.Linq;
 using System.Numerics;
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
-using TidyChat.Localization.Resources;
 namespace TidyChat.Settings.Tabs;
 
 internal static class WhitelistTab
@@ -141,8 +139,7 @@ internal static class WhitelistTab
             ImGui.TableNextColumn();
             ImGui.Spacing();
             if (i == -1)
-            {
-            }
+            { }
             else
             {
                 string? previewValue = "";

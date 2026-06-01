@@ -1,11 +1,8 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
-using TidyChat.Localization.Resources;
 using TidyChat.Settings.Search;
 using TidyChat.Settings.Tabs;
-
 namespace TidyChat.Settings.UI;
 
 internal class PluginUI : Window, IDisposable
@@ -31,11 +28,11 @@ internal class PluginUI : Window, IDisposable
     ];
 
     private readonly Configuration configuration;
+    private bool appliedDefaultWidth;
+    private string? cachedCultureName;
 
     private float cachedLayoutScale = -1f;
-    private string? cachedCultureName;
     private float? cachedMinWindowWidth;
-    private bool appliedDefaultWidth;
 
     public PluginUI(Configuration configuration) : base("Tidy Chat")
     {
@@ -64,13 +61,13 @@ internal class PluginUI : Window, IDisposable
 
         SizeConstraints = new WindowSizeConstraints
         {
-            MinimumSize = new Vector2(minWidth, MinWindowHeight),
-            MaximumSize = new Vector2(10000f, 10000f)
+            MinimumSize = new(minWidth, MinWindowHeight),
+            MaximumSize = new(10000f, 10000f)
         };
 
         ImGui.SetNextWindowSizeConstraints(
-            new Vector2(minWidth, MinWindowHeight),
-            new Vector2(10000f, 10000f));
+            new(minWidth, MinWindowHeight),
+            new(10000f, 10000f));
 
         if (!appliedDefaultWidth && SizeCondition == ImGuiCond.FirstUseEver)
         {
@@ -178,17 +175,17 @@ internal class PluginUI : Window, IDisposable
         if (cachedMinWindowWidth is float width)
             return width;
 
-        var style = ImGui.GetStyle();
+        ImGuiStylePtr style = ImGui.GetStyle();
         float scale = ImGuiHelpers.GlobalScale;
 
         float tabBarWidth = CalculateTabBarWidth(style);
         float searchWidth = ImGui.CalcTextSize(Languages.ConfigWindow_SearchPlaceholder).X
-            + style.FramePadding.X * 2f
-            + style.WindowPadding.X * 2f;
+                            + style.FramePadding.X * 2f
+                            + style.WindowPadding.X * 2f;
 
         width = Math.Max(tabBarWidth, searchWidth)
-            + style.WindowPadding.X * 2f
-            + WindowChromePadding * scale;
+                + style.WindowPadding.X * 2f
+                + WindowChromePadding * scale;
 
         cachedMinWindowWidth = width;
         return width;

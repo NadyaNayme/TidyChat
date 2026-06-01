@@ -1,11 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Threading;
-using Dalamud.Game.Text;
 using Lumina.Text.ReadOnly;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
@@ -88,8 +83,7 @@ public sealed partial class TidyChatPlugin
                     RememberLogMessageTexts(_blockedByLogMessage, text);
                 }
                 catch
-                {
-                }
+                { }
                 return;
             }
             message.PreventOriginal();

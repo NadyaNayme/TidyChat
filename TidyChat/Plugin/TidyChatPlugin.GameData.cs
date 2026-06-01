@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Lumina.Excel.Sheets;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

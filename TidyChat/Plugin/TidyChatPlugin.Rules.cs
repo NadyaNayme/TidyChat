@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using Dalamud.Game.Text;
-using Dalamud.Game.Text.SeStringHandling;
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

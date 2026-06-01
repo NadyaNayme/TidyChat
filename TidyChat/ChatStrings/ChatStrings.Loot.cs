@@ -4,7 +4,6 @@ namespace TidyChat;
 public static partial class ChatStrings
 {
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Other-player obtain (657 / 1259 templates)</see>
-
     public static readonly LocalizedStrings OtherObtainMarker = new()
     {
         Jpn = ["手に入れた"],

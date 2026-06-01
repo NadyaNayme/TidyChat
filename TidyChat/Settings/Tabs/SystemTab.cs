@@ -1,7 +1,4 @@
-﻿using System;
-using Dalamud.Interface.Components;
-using TidyChat.Localization.Resources;
-using TidyChat.Settings;
+﻿using Dalamud.Interface.Components;
 namespace TidyChat.Settings.Tabs;
 
 internal static class SystemTab

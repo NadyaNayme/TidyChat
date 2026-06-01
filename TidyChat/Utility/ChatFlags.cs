@@ -1,5 +1,4 @@
-﻿using System;
-namespace TidyChat.Utility;
+﻿namespace TidyChat.Utility;
 
 public static class ChatFlags
 {

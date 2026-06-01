@@ -1,8 +1,5 @@
-using System;
 using Dalamud.Game.Gui.Dtr;
-using Dalamud.Game.Text.SeStringHandling;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
-using TidyChat.Utility;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 using Timer = System.Timers.Timer;
 

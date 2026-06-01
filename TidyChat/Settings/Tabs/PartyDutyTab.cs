@@ -1,6 +1,4 @@
-﻿using TidyChat.Localization.Resources;
-using TidyChat.Settings;
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class PartyDutyTab
 {
@@ -296,4 +294,3 @@ internal static class PartyDutyTab
         }
     }
 }
-

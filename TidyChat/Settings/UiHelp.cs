@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
 using Dalamud.Interface.Components;
-using TidyChat.Localization.Resources;
-
 namespace TidyChat.Settings;
 
 internal static class UiHelp
@@ -13,7 +10,7 @@ internal static class UiHelp
         nameof(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker),
-        nameof(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker),
+        nameof(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker)
     };
 
     public static string WithSystemFilterNote(string help) =>
@@ -31,7 +28,7 @@ internal static class UiHelp
             _ when helpPropertyName.StartsWith("EconomyTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("CraftingGatheringTab_ShowCosmic", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("CraftingGatheringTab_ShowStellar", StringComparison.Ordinal) => true,
-            _ => ProgressSystemFilterHelpMarkers.Contains(helpPropertyName),
+            _ => ProgressSystemFilterHelpMarkers.Contains(helpPropertyName)
         };
 
     public static void SystemFilterMarker(string help) =>

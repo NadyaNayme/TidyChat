@@ -1,9 +1,6 @@
-using System;
-using System.Threading;
 using System.Collections.Generic;
-using Dalamud.Game.Text;
+using System.Threading;
 using Lumina.Text.ReadOnly;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

@@ -1,7 +1,4 @@
-using System;
 using System.Text.RegularExpressions;
-using Dalamud.Game.Text;
-using TidyChat.Utility;
 using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat;

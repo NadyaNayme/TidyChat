@@ -1,4 +1,3 @@
-using TidyChat.Localization.Resources;
 namespace TidyChat.Settings.Search;
 
 internal static class SettingsSearch

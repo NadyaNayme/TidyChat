@@ -1,5 +1,4 @@
-﻿using TidyChat.Localization.Resources;
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class ToolsTab
 {
@@ -29,4 +28,3 @@ internal static class ToolsTab
             WhitelistTab.DrawContent(configuration);
     }
 }
-

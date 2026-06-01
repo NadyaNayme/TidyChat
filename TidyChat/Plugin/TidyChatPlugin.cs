@@ -1,30 +1,12 @@
 ﻿global using Dalamud.Bindings.ImGui;
-using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using Dalamud.Game.Chat;
-using Dalamud.Game.ClientState.Objects.SubKinds;
 using Dalamud.Game.Gui.Dtr;
-using Dalamud.Game.Text;
-using Dalamud.Game.Text.SeStringHandling;
-using Dalamud.Game.Text.SeStringHandling.Payloads;
 using Dalamud.Interface.Windowing;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
-using FFXIVClientStructs.FFXIV.Client.Game.UI;
-using Lumina.Excel.Sheets;
-using Lumina.Text.ReadOnly;
-using TidyChat.Localization.Resources;
-using TidyChat.Settings;
-using TidyChat.Translation.Data;
-using Flags = TidyChat.Utility.ChatFlags;
 using TidyStrings = TidyChat.Utility.InternalStrings;
-using Timer = System.Timers.Timer;
 
 namespace TidyChat;
 
@@ -128,7 +110,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
     private Configuration Configuration { get; }
-    private PluginUI? PluginUi { get; set; }
+    private PluginUI? PluginUi { get; }
 
     public void Dispose()
     {

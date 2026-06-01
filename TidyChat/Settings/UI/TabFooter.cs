@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using System.Numerics;
-using TidyChat.Localization.Resources;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 namespace TidyChat.Settings.UI;
 

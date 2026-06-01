@@ -1,11 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Timers;
 using Dalamud.Game;
-using Dalamud.Game.Text;
-using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TextCopy;
@@ -17,7 +13,6 @@ internal static class BetterStrings
 {
     public static SeString SayReminder(SeString message, Configuration configuration)
     {
-
         int containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
         int containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
         int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
@@ -133,8 +128,7 @@ internal static class BetterStrings
             return stringBuilder.BuiltString;
         }
         catch
-        {
-        }
+        { }
         return "";
     }
 

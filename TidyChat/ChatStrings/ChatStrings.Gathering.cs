@@ -4,7 +4,6 @@ namespace TidyChat;
 public static partial class ChatStrings
 {
     /// <see href="https://xivapi.com/LogMessage/1096?pretty=true">Location gathering buffs (1096, 1098)</see>
-
     public static readonly LocalizedStrings LocationAffects = new()
     {
         Jpn = ["採集場所", "特徴"],
@@ -32,7 +31,6 @@ public static partial class ChatStrings
     ///     This location affects the chance your meticulous actions do
     ///     not reduce integrity!
     /// </see>
-
     public static readonly LocalizedStrings LocationMeticulousIntegrity = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -82,7 +80,6 @@ public static partial class ChatStrings
     ///     The location affects your chance of receiving the Gatherer's
     ///     Boon!
     /// </see>
-
     public static readonly LocalizedStrings GatherersBoon = new()
     {
         Jpn = ["ボーナス"],
@@ -110,7 +107,6 @@ public static partial class ChatStrings
     ///     The location has increased integrity, and affects the number
     ///     of your gathering attempts!
     /// </see>
-
     public static readonly LocalizedStrings GatheringAttempts = new()
     {
         Jpn = ["耐久", "採集回数"],
@@ -160,7 +156,6 @@ public static partial class ChatStrings
     ///     You have been granted an additional gathering attempt at
     ///     this rocky outcropping.
     /// </see>
-
     public static readonly LocalizedStrings GatheringAttemptGranted = new()
     {
         Jpn = ["採集回数", "復し"],
@@ -298,7 +293,6 @@ public static partial class ChatStrings
     ///     From the Mission in Progress window, press the Report
     ///     button to complete the mission.
     /// </see>
-
     public static readonly LocalizedStrings StellarReportMission = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -315,7 +309,6 @@ public static partial class ChatStrings
     ///     Sequential missions are now available via the Stellar
     ///     Missions interface.
     /// </see>
-
     public static readonly LocalizedStrings StellarSequentialMissions = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -332,7 +325,6 @@ public static partial class ChatStrings
     ///     You completed the stellar mission "…" with a Gold Star
     ///     rating.
     /// </see>
-
     public static readonly LocalizedStrings StellarMissionCompleted = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -371,7 +363,6 @@ public static partial class ChatStrings
     ///     Completion of "…" has been committed to your mission log
     ///     with a Gold Star rating.
     /// </see>
-
     public static readonly LocalizedStrings StellarMissionLogCommitted = new()
     {
         Jpn = ["NeedsLocalization"],

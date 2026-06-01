@@ -1,7 +1,4 @@
-using System;
-using System.Globalization;
 using System.Text.RegularExpressions;
-using Dalamud.Game.Text.SeStringHandling;
 using Lumina.Text.ReadOnly;
 namespace TidyChat.Utility;
 

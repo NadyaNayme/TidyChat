@@ -13,8 +13,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/926?pretty=true">Received Player Commendation</see>
-
-
     public static readonly LocalizedStrings PlayerCommendation = new()
     {
         Jpn = ["mip", "推薦を獲得しました"],
@@ -24,8 +22,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1534?pretty=true">Duty has ended</see>
-
-
     public static readonly LocalizedStrings DutyEnded = new()
     {
         Jpn = ["の攻略を終了した"],
@@ -35,8 +31,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
-
-
     public static readonly LocalizedStrings DutyHasBegun = new()
     {
         Jpn = ["開始"],
@@ -46,8 +40,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/9602?pretty=true">This duty is level synced…</see>
-
-
     public static readonly LocalizedStrings DutyLevelSyncedBriefing = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -57,8 +49,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/618?pretty=true">Your level has been synced to N.</see>
-
-
     public static readonly LocalizedStrings DutyPlayerLevelSynced = new()
     {
         Jpn = ["シンク"],
@@ -68,8 +58,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4224?pretty=true">Your item level has been synced…</see>
-
-
     public static readonly LocalizedStrings DutyItemLevelSynced = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -79,8 +67,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/9795?pretty=true">Alliance temporarily disbanded…</see>
-
-
     public static readonly LocalizedStrings DutyAllianceReformNotice = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -90,8 +76,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/619?pretty=true">Your level is no longer synced.</see>
-
-
     public static readonly LocalizedStrings LevelNoLongerSynced = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -101,8 +85,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/2163?pretty=true">Duty objectives completion bonus.</see>
-
-
     public static readonly LocalizedStrings DutyObjectiveBonus = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -112,8 +94,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/88?pretty=true">Location discovered.</see>
-
-
     public static readonly LocalizedStrings LocationDiscovered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -123,8 +103,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/94?pretty=true">Of the N parties currently recruiting…</see>
-
-
     public static readonly LocalizedStrings DutyFinderRecruitment = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -134,8 +112,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/979?pretty=true">Party recruitment commenced.</see>
-
-
     public static readonly LocalizedStrings PartyRecruitmentCommenced = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -145,8 +121,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/981?pretty=true">Party recruitment ended.</see>
-
-
     public static readonly LocalizedStrings PartyRecruitmentEnded = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -156,8 +130,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1885?pretty=true">You have received a free company invite from …</see>
-
-
     public static readonly LocalizedStrings FreeCompanyInviteReceived = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -167,8 +139,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1895?pretty=true">Free company invite from … canceled.</see>
-
-
     public static readonly LocalizedStrings FreeCompanyInviteCanceled = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -178,8 +148,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3127?pretty=true">Company action "…" is no longer active.</see>
-
-
     public static readonly LocalizedStrings CompanyActionExpired = new()
     {
         Jpn = ["カンパニーアクション", "終了"],
@@ -189,8 +157,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3791?pretty=true">… initiated a ready check.</see>
-
-
     public static readonly LocalizedStrings ReadyCheckInitiated = new()
     {
         Jpn = ["レディチェック", "開始"],
@@ -200,8 +166,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/10508?pretty=true">You use a pot of … dye to change Dye N of … to …</see>
-
-
     public static readonly LocalizedStrings GearDyeApplied = new()
     {
         Jpn = ["染め"],
@@ -211,8 +175,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4309?pretty=true">You cast a glamour …</see>
-
-
     public static readonly LocalizedStrings TryOnGlamourCast = new()
     {
         Jpn = ["武器投影"],
@@ -222,8 +184,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4364?pretty=true">Glamours projected from plate N.</see>
-
-
     public static readonly LocalizedStrings GlamourPlateProjected = new()
     {
         Jpn = ["ミラージュプレート"],
@@ -233,8 +193,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4378?pretty=true">Glamour plate partial apply error.</see>
-
-
     public static readonly LocalizedStrings TryOnGlamourPartialApply = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -244,8 +202,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1530?pretty=true">Guildhest will end soon</see>
-
-
     public static readonly LocalizedStrings GuildhestEnded = new()
     {
         Jpn = ["全員が特務隊長から報酬を受け取る"],
@@ -255,8 +211,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4341?pretty=true">RetainerName has completed a venture!</see>
-
-
     public static readonly LocalizedStrings RetainerVentureComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -266,8 +220,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4331?pretty=true">You assign your retainer "Quick Exploration."</see>
-
-
     public static readonly LocalizedStrings RetainerVentureAssign = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -277,8 +229,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4334?pretty=true">You pay RetainerName N ventures.</see>
-
-
     public static readonly LocalizedStrings RetainerVenturePayment = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -288,8 +238,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4332?pretty=true">"Lv. …" is now complete.</see>
-
-
     public static readonly LocalizedStrings RetainerVentureItemComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -299,8 +247,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/6057?pretty=true">Submersible has embarked on a subaquatic voyage.</see>
-
-
     public static readonly LocalizedStrings SubaquaticVoyageEmbarked = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -311,8 +257,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/6059?pretty=true">Submersible subaquatic voyage finalized.</see>
     /// <seealso href="https://xivapi.com/LogMessage/6060?pretty=true">Other player finalizes subaquatic voyage.</seealso>
-
-
     public static readonly LocalizedStrings SubaquaticVoyageFinalized = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -322,8 +266,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4168?pretty=true">Submarine part has been repaired.</see>
-
-
     public static readonly LocalizedStrings SubmarinePartRepaired = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -333,8 +275,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/6062?pretty=true">Submersible attains rank N!</see>
-
-
     public static readonly LocalizedStrings SubmarineAttainsRank = new()
     {
         Jpn = ["ランク", "潜水艦"],
@@ -344,8 +284,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/6092?pretty=true">Submersible's retrieval levels increased by N.</see>
-
-
     public static readonly LocalizedStrings SubmarineRetrievalLevelsIncreased = new()
     {
         Jpn = ["潜水艦", "上昇"],
@@ -355,8 +293,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4335?pretty=true">Retainer has reached maximum level.</see>
-
-
     public static readonly LocalizedStrings RetainerMaxLevel = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -366,8 +302,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage">Matched via formatted chat text (not a LogMessage row)</see>
-
-
     public static readonly LocalizedStrings SayQuestReminder = new()
     {
         Jpn = ["チャットの会話モードを"],
@@ -385,8 +319,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7444?pretty=true">Cross-world party formed.</see>
-
-
     public static readonly LocalizedStrings CrossWorldPartyFormed = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -396,8 +328,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4670?pretty=true">Participation requirements are as follows:</see>
-
-
     public static readonly LocalizedStrings DutyFinderParticipation = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -407,8 +337,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4671?pretty=true">Join Party in Progress / Unrestricted Party</see>
-
-
     public static readonly LocalizedStrings DutyFinderPartyType = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -418,8 +346,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/897?pretty=true">Duty registration complete.</see>
-
-
     public static readonly LocalizedStrings DutyRegistrationComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -429,8 +355,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/890?pretty=true">Your registration is withdrawn.</see>
-
-
     public static readonly LocalizedStrings DutyRegistrationWithdrawn = new()
     {
         Jpn = ["参加申請", "取り消し"],
@@ -440,8 +364,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4676?pretty=true">Commencing duty with an unrestricted party…</see>
-
-
     public static readonly LocalizedStrings DutyUnrestrictedCommence = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -451,8 +373,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4218?pretty=true">Echo strength after defeats…</see>
-
-
     public static readonly LocalizedStrings EchoStrength = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -462,8 +382,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4248?pretty=true">Entered duty with Unrestricted Party option…</see>
-
-
     public static readonly LocalizedStrings EnteredUnrestrictedDuty = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -473,8 +391,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4321?pretty=true">You desynthesize …</see>
-
-
     public static readonly LocalizedStrings DesynthedItem = new()
     {
         Jpn = ["分解"],
@@ -484,8 +400,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4322?pretty=true">You obtain … (desynthesis).</see>
-
-
     public static readonly LocalizedStrings DesynthesisObtain = new()
     {
         Jpn = ["手に入れ"],
@@ -495,8 +409,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4225?pretty=true">First-clear bonus duty message.</see>
-
-
     public static readonly LocalizedStrings FirstClearBonus = new()
     {
         Jpn = ["未制覇", "ボーナス"],
@@ -506,8 +418,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4402?pretty=true">Relic book step progress.</see>
-
-
     public static readonly LocalizedStrings RelicBookStep = new()
     {
         Jpn = ["黄道"],
@@ -517,8 +427,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4400?pretty=true">Relic book category complete.</see>
-
-
     public static readonly LocalizedStrings RelicBookComplete = new()
     {
         Jpn = ["コンプリート"],
@@ -528,8 +436,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7242?pretty=true">The Cairn of Passage begins to glow!</see>
-
-
     public static readonly LocalizedStrings CairnGlows = new()
     {
         Jpn = ["輝き"],
@@ -539,8 +445,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7243?pretty=true">The Cairn of Return restores life …</see>
-
-
     public static readonly LocalizedStrings CairnRestoresLife = new()
     {
         Jpn = ["生気"],
@@ -550,8 +454,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7245?pretty=true">The Cairn of Passage is activated!</see>
-
-
     public static readonly LocalizedStrings CairnActivates = new()
     {
         Jpn = ["起動"],
@@ -561,8 +463,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7246?pretty=true">Transference message.</see>
-
-
     public static readonly LocalizedStrings Transference = new()
     {
         Jpn = ["転移"],
@@ -572,8 +472,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7250?pretty=true">Aetherpool arm/armor strength increase.</see>
-
-
     public static readonly LocalizedStrings AetherpoolIncrease = new()
     {
         Jpn = ["強化値"],
@@ -583,8 +481,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7251?pretty=true">Aetherpool strength unchanged.</see>
-
-
     public static readonly LocalizedStrings AetherpoolUnchanged = new()
     {
         Jpn = ["変わら"],
@@ -594,8 +490,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7220?pretty=true">You obtain a pomander of …</see>
-
-
     public static readonly LocalizedStrings ObtainedPomander = new()
     {
         Jpn = ["ポマンダー"],
@@ -605,8 +499,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7254?pretty=true">Pomander effect message.</see>
-
-
     public static readonly LocalizedStrings PomanderEffect = new()
     {
         Jpn = ["ポマンダー"],
@@ -616,8 +508,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7224?pretty=true">The landmine is triggered...</see>
-
-
     public static readonly LocalizedStrings DeepDungeonLandmineTriggered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -627,8 +517,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7225?pretty=true">The luring trap is triggered...</see>
-
-
     public static readonly LocalizedStrings DeepDungeonTrapTriggered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -643,7 +531,6 @@ public static partial class ChatStrings
     ///     The detonator is triggered! The treasure coffer is no
     ///     more...
     /// </see>
-
     public static readonly LocalizedStrings DeepDungeonDetonatorTriggered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -653,8 +540,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/9218?pretty=true">Floor N</see>
-
-
     public static readonly LocalizedStrings FloorNumber = new()
     {
         Jpn = ["層"],
@@ -664,8 +549,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7249?pretty=true">The current duty uses an independent leveling system.</see>
-
-
     public static readonly LocalizedStrings DeepDungeonIndependentLeveling = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -675,8 +558,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7272?pretty=true">You sense the Accursed Hoard calling you…</see>
-
-
     public static readonly LocalizedStrings SenseAccursedHoard = new()
     {
         Jpn = ["財宝"],
@@ -686,8 +567,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7273?pretty=true">You do not sense the call of the Accursed Hoard …</see>
-
-
     public static readonly LocalizedStrings NoAccursedHoard = new()
     {
         Jpn = ["財宝", "なさ"],
@@ -697,8 +576,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7274?pretty=true">You discover a piece of the Accursed Hoard!</see>
-
-
     public static readonly LocalizedStrings DiscoverAccursedHoard = new()
     {
         Jpn = ["財宝", "発見"],
@@ -709,8 +586,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/732?pretty=true">You have entered a sanctuary.</see>
     /// <seealso href="https://xivapi.com/LogMessage/733?pretty=true">You have left the sanctuary.</seealso>
-
-
     public static readonly LocalizedStrings SanctuaryMessage = new()
     {
         Jpn = ["レストエリア"],
@@ -720,8 +595,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3379?pretty=true">Housing ward entry.</see>
-
-
     public static readonly LocalizedStrings HousingWardMessage = new()
     {
         Jpn = ["区"],
@@ -731,8 +604,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1?pretty=true">You invite … to a party.</see>
-
-
     public static readonly LocalizedStrings InviteSent = new()
     {
         Jpn = ["誘い"],
@@ -742,8 +613,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3?pretty=true">… invites you to a party.</see>
-
-
     public static readonly LocalizedStrings InvitedBy = new()
     {
         Jpn = ["誘われ"],
@@ -753,8 +622,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/60?pretty=true">… joins the party.</see>
-
-
     public static readonly LocalizedStrings InviteeJoins = new()
     {
         Jpn = ["参加"],
@@ -765,8 +632,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/4?pretty=true">You leave the party.</see>
     /// <seealso href="https://xivapi.com/LogMessage/69?pretty=true">… has left the party.</seealso>
-
-
     public static readonly LocalizedStrings LeftParty = new()
     {
         Jpn = ["離脱"],
@@ -776,8 +641,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/73?pretty=true">The party has been disbanded.</see>
-
-
     public static readonly LocalizedStrings PartyDisband = new()
     {
         Jpn = ["解散"],
@@ -787,8 +650,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/72?pretty=true">You dissolve the party.</see>
-
-
     public static readonly LocalizedStrings PartyDissolved = new()
     {
         Jpn = ["解散"],
@@ -799,8 +660,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/3790?pretty=true">You have commenced a ready check.</see>
     /// <seealso href="https://xivapi.com/LogMessage/3794?pretty=true">Ready check complete.</seealso>
-
-
     public static readonly LocalizedStrings ReadyCheck = new()
     {
         Jpn = ["レディチェック"],
@@ -811,8 +670,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul …</see>
     /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">You sense something close.</seealso>
-
-
     public static readonly LocalizedStrings SpideySenses = new()
     {
         Jpn = ["感じ"],
@@ -822,8 +679,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3240?pretty=true">You sense a hostile presence!</see>
-
-
     public static readonly LocalizedStrings HostilePresence = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -833,8 +688,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3712?pretty=true">The compass detects a current …</see>
-
-
     public static readonly LocalizedStrings AetherCompass = new()
     {
         Jpn = ["コンパス"],
@@ -847,8 +700,6 @@ public static partial class ChatStrings
     /// <seealso href="https://xivapi.com/LogMessage/5255?pretty=true">Battle commencing in … (party countdown)</seealso>
     /// <seealso href="https://xivapi.com/LogMessage/5256?pretty=true">Engage!</seealso>
     /// <seealso href="https://xivapi.com/LogMessage/5264?pretty=true">Engage!</seealso>
-
-
     public static readonly LocalizedStrings CountdownTime = new()
     {
         Jpn = ["戦闘"],
@@ -858,8 +709,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with … is complete!</see>
-
-
     public static readonly LocalizedStrings SpiritboundGear = new()
     {
         Jpn = ["錬精度"],
@@ -869,8 +718,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/7975?pretty=true">Second Chance points added …</see>
-
-
     public static readonly LocalizedStrings SecondChanceAward = new()
     {
         Jpn = ["チャンスポイント"],
@@ -880,8 +727,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/605?pretty=true">Boss mechanic event (e.g. Titan's heart is shattered!).</see>
-
-
     public static readonly LocalizedStrings DutyMechanicEvent = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -891,8 +736,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/2119?pretty=true">Garuda generates a pocket of calm within the storm!</see>
-
-
     public static readonly LocalizedStrings DutyMechanicCalmPocket = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -902,8 +745,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/440?pretty=true">You have been offered a Teleport …</see>
-
-
     public static readonly LocalizedStrings OfferedTeleport = new()
     {
         Jpn = ["テレポ"],
@@ -914,8 +755,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
     /// <seealso href="https://xivapi.com/LogMessage/755?pretty=true">"…" equipped.</seealso>
-
-
     public static readonly LocalizedStrings GearsetEquipped = new()
     {
         Jpn = ["装備"],
@@ -925,8 +764,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/5865?pretty=true">Portrait set as instant portrait.</see>
-
-
     public static readonly LocalizedStrings PortraitSetInstant = new()
     {
         Jpn = ["ポートレート"],
@@ -941,7 +778,6 @@ public static partial class ChatStrings
     ///     Portrait has expired. Please readjust its settings and try
     ///     again.
     /// </see>
-
     public static readonly LocalizedStrings PortraitExpired = new()
     {
         Jpn = ["ポートレート", "期限"],
@@ -951,8 +787,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/5886?pretty=true">Unable to update portrait due to incompatible settings.</see>
-
-
     public static readonly LocalizedStrings PortraitUpdateIncompatible = new()
     {
         Jpn = ["ポートレート", "更新"],
@@ -962,8 +796,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1900?pretty=true">… equipped, but glamours could not be restored.</see>
-
-
     public static readonly LocalizedStrings GearsetGlamourRestoreFailed = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -973,8 +805,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">N … sands are obtained.</see>
-
-
     public static readonly LocalizedStrings AetherialReductionSands = new()
     {
         Jpn = ["手に入れ"],
@@ -984,8 +814,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3553?pretty=true">You successfully reduce … (Collectability: N).</see>
-
-
     public static readonly LocalizedStrings AetherialReductionSuccess = new()
     {
         Jpn = ["精選"],
@@ -995,8 +823,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/5550?pretty=true">This location grants an increase to item collectability!</see>
-
-
     public static readonly LocalizedStrings CollectabilityLocationBonus = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -1006,8 +832,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3549?pretty=true">You use Brazen Woodsman. Collectability increases by N.</see>
-
-
     public static readonly LocalizedStrings BrazenWoodsman = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -1022,7 +846,6 @@ public static partial class ChatStrings
     ///     You use Meticulous Woodsman. Collector's intuition guides
     ///     your hand.
     /// </see>
-
     public static readonly LocalizedStrings MeticulousWoodsman = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -1032,8 +855,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/10830?pretty=true">A new mech op directive has been issued.</see>
-
-
     public static readonly LocalizedStrings MechOpDirective = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -1048,13 +869,11 @@ public static partial class ChatStrings
     ///     Your meticulous actions prove effective. Integrity is not
     ///     reduced.
     /// </see>
-
     /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
     ///     Your meticulous actions prove effective. Integrity is not
     ///     reduced.
     /// </see>
     /// <seealso href="https://xivapi.com/LogMessage/5574?pretty=true">Revisit restored GP and granted integrity.</seealso>
-
     public static readonly LocalizedStrings AetherialReductionIntegrity = new()
     {
         Jpn = ["耐久", "減少"],
@@ -1065,8 +884,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/1629?pretty=true">/isearch match summary.</see>
     /// <seealso href="https://xivapi.com/LogMessage/1438?pretty=true">/isearch location result lines.</seealso>
-
-
     public static readonly LocalizedStrings ItemSearchResults = new()
     {
         Jpn = ["含む", "所持"],
@@ -1077,8 +894,6 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/503?pretty=true">Aetheryte ticket ready message.</see>
     /// <seealso href="https://xivapi.com/LogMessage/535?pretty=true">Aetheryte ticket use message.</seealso>
-
-
     public static readonly LocalizedStrings AetheryteTicket = new()
     {
         Jpn = ["使用"],
@@ -1088,8 +903,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1341?pretty=true">You attune to the aetheryte.</see>
-
-
     public static readonly LocalizedStrings AttuneAetheryte = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -1099,8 +912,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4242?pretty=true">Changes discarded.</see>
-
-
     public static readonly LocalizedStrings ChangesDiscarded = new()
     {
         Jpn = ["破棄"],
@@ -1110,8 +921,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/802?pretty=true">Changes lost.</see>
-
-
     public static readonly LocalizedStrings ChangesLost = new()
     {
         Jpn = ["失わ"],
@@ -1121,8 +930,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4763?pretty=true">Triple Triad matches allowed in current area.</see>
-
-
     public static readonly LocalizedStrings TripleTriadAllowed = new()
     {
         Jpn = ["トリプルトライアド"],
@@ -1132,8 +939,6 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4764?pretty=true">Triple Triad matches not allowed in current area.</see>
-
-
     public static readonly LocalizedStrings TripleTriadNotAllowed = new()
     {
         Jpn = ["トリプルトライアド"],
