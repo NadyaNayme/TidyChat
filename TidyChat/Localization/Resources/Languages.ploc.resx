@@ -1,1422 +1,1527 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-    <resheader name="resmimetype">
-        <value>text/microsoft-resx</value>
-    </resheader>
-    <resheader name="version">
-        <value>2.0</value>
-    </resheader>
-    <resheader name="reader">
-        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+  <!--
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+    
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
         </value>
-    </resheader>
-    <resheader name="writer">
-        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral,
             PublicKeyToken=b77a5c561934e089
         </value>
-    </resheader>
-    <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
+  </resheader>
+  <data name="AdvancedTab_ChatHistoryTabHeader" xml:space="preserve">
     <value>Çĥàţ Ĥîšţôŕý</value>
   </data>
-    <data name="AdvancedTab_CombatTabHeader" xml:space="preserve">
+  <data name="AdvancedTab_CombatTabHeader" xml:space="preserve">
     <value>Combat</value>
   </data>
-    <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
+  <data name="AdvancedTab_CraftingGatheringTabHeader" xml:space="preserve">
     <value>Çŕàƒţîñĝ/Ĝàţĥéŕîñĝ</value>
   </data>
-    <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
+  <data name="AdvancedTab_CustomFiltersHeader" xml:space="preserve">
     <value>Custom Filters</value>
   </data>
-    <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
+  <data name="AdvancedTab_EnableDebugMode" xml:space="preserve">
     <value>Éñàƀļé ðéƀûĝ ɱôðé</value>
   </data>
-    <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
+  <data name="AdvancedTab_LootObtainTabHeader" xml:space="preserve">
     <value>Ļôôţ/Ôƀţàîñ</value>
   </data>
-    <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
+  <data name="AdvancedTab_ProgressTabHeader" xml:space="preserve">
     <value>Þŕôĝŕéšš</value>
   </data>
-    <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
+  <data name="AdvancedTab_SystemTabHeader" xml:space="preserve">
     <value>Šýšţéɱ</value>
   </data>
-    <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
+  <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
     <value>Ŵĥîţéļîšţ</value>
   </data>
-    <data name="AllMessagesWillBeLowercased" xml:space="preserve">
+  <data name="AllMessagesWillBeLowercased" xml:space="preserve">
     <value>all messages will be lowercased.</value>
   </data>
-    <data name="AlwaysNormalizeSpecialCharacters" xml:space="preserve">
+  <data name="AlwaysNormalizeSpecialCharacters" xml:space="preserve">
     <value>Always normalize special characters</value>
   </data>
-    <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
+  <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
     <value>ƒŕôɱ çôɱþļéţîñĝ</value>
   </data>
-    <data name="BetterStrings_CommendationSingular" xml:space="preserve">
+  <data name="BetterStrings_CommendationSingular" xml:space="preserve">
     <value>çôɱɱéñðàţîôñ</value>
   </data>
-    <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
+  <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
     <value>çôɱɱéñðàţîôñš</value>
   </data>
-    <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
+  <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
     <value>Ýôû ŕéçéîṽéð {0} {1}{2}</value>
   </data>
-    <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
+  <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
     <value>Ñûɱƀéŕ ôƒ šéçôñðš ţô ķééþ ɱéššàĝéš îñ çĥàţ ĥîšţôŕý</value>
   </data>
-    <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
+  <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
     <value>Šéţ ţô ⓞ ţô ðîšàƀļé</value>
   </data>
-    <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
     <value>Çŕàƒţîñĝ</value>
   </data>
-    <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
     <value>Éɱôţéš</value>
   </data>
-    <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
+  <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
     <value>Éñàƀļé Çĥàţ Ĥîšţôŕý Ƒîļţéŕ</value>
   </data>
-    <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
+  <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
     <value>Îƒ à ɱéššàĝé ŵàš šéñţ ŵîţĥîñ ţĥé ļàšţ {0} ɱéššàĝéš îţ ŵîļļ ƀé ƒîļţéŕéð</value>
   </data>
-    <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
     <value>Ĝàţĥéŕîñĝ</value>
   </data>
-    <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
+  <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
     <value>Îĝñôŕé ɱéššàĝéš šéñţ ƀý þļàýéŕ</value>
   </data>
-    <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
+  <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
     <value>Ƒîļţéŕš ðûþļîçàţé ɱéššàĝéš šéñţ ƀý ţĥé þļàýéŕ، éñàƀļé îƒ ýôû ŵàñţ ðûþļîçàţé ɱéššàĝéš ýôû šéñţ ţô ƀé ƒîļţéŕéð ƒŕôɱ ýôûŕ ṽîéŵ·</value>
   </data>
-    <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
+  <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
     <value>Ñûɱƀéŕ ôƒ ɱéššàĝéš ţô ķééþ îñ çĥàţ ĥîšţôŕý</value>
   </data>
-    <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
+  <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
     <value>ŴÀŔÑÎÑĜ∶ Ĥàṽîñĝ ţĥé ĥîšţôŕý ļéñĝţĥ šéţ ţôô ĥîĝĥ ɱàý îɱþàçţ ĝàɱé þéŕƒôŕɱàñçé·
-Îţ&apos;š ŕéçôɱɱéñðéð ţô ķééþ îţ àţ ⑤ⓞ ôŕ ļôŵéŕ·</value>
+Îţ'š ŕéçôɱɱéñðéð ţô ķééþ îţ àţ ⑤ⓞ ôŕ ļôŵéŕ·</value>
   </data>
-    <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
     <value>Ļôĝîñ/Ļôĝôûţ</value>
   </data>
-    <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
     <value>Ļôôţ</value>
   </data>
-    <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
     <value>Þŕôĝŕéšš</value>
   </data>
-    <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
+  <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
     <value>Šéļéçţ çĥàññéļš ƒôŕ Çĥàţ Ĥîšţôŕý ţô ƒîļţéŕ∶</value>
   </data>
-    <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
     <value>Šýšţéɱ</value>
   </data>
-    <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
+  <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
     <value>Ţàļķîñĝ</value>
   </data>
-    <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
+  <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
     <value>Casting &amp; abilities</value>
   </data>
-    <data name="CombatTab_CombatLogDropdownHeader" xml:space="preserve">
+  <data name="CombatTab_CombatLogDropdownHeader" xml:space="preserve">
     <value>Combat log</value>
   </data>
-    <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
+  <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
     <value>Damage, healing &amp; effects</value>
   </data>
-    <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
+  <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
     <value>Defeat &amp; adds</value>
   </data>
-    <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
     <value>combat ability usage messages</value>
   </data>
-    <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy uses Attack.</value>
   </data>
-    <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
     <value>adds calling for help messages</value>
   </data>
-    <data name="CombatTab_ShowCombatAddsMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatAddsMessagesHelpMarker" xml:space="preserve">
     <value>eg. The goblin calls for help!</value>
   </data>
-    <data name="CombatTab_ShowCombatCastingMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatCastingMessages" xml:space="preserve">
     <value>Combat casting</value>
   </data>
-    <data name="CombatTab_ShowCombatCastingMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatCastingMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy begins casting Fire.</value>
   </data>
-    <data name="CombatTab_ShowCombatDamageMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatDamageMessages" xml:space="preserve">
     <value>combat damage messages</value>
   </data>
-    <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy takes 1,234 damage.</value>
   </data>
-    <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
     <value>enemy defeated messages</value>
   </data>
-    <data name="CombatTab_ShowCombatDefeatMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatDefeatMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy is defeated.</value>
   </data>
-    <data name="CombatTab_ShowCombatEffectsMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatEffectsMessages" xml:space="preserve">
     <value>combat status effect messages</value>
   </data>
-    <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy suffers the effect of Poison.</value>
   </data>
-    <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
     <value>enemy ready messages</value>
   </data>
-    <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy is ready to act!</value>
   </data>
-    <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
     <value>combat enmity messages</value>
   </data>
-    <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy&apos;s enmity toward you increases!</value>
+  <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The enemy's enmity toward you increases!</value>
   </data>
-    <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
     <value>combat healing messages</value>
   </data>
-    <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy recovers 500 HP.</value>
   </data>
-    <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
+  <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
     <value>combat miss and evade messages</value>
   </data>
-    <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
+  <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
     <value>eg. The enemy evades your attack.</value>
   </data>
-    <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
     <value>Àðṽàñçéð</value>
   </data>
-    <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
     <value>Combat</value>
   </data>
-    <data name="ConfigWindow_CraftingGatheringTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_CraftingGatheringTabHeader" xml:space="preserve">
     <value>Crafting &amp; Gathering</value>
   </data>
-    <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
     <value>Economy</value>
   </data>
-    <data name="ConfigWindow_EmotesTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_EmotesTabHeader" xml:space="preserve">
     <value>Emotes</value>
   </data>
-    <data name="ConfigWindow_GeneralTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_GeneralTabHeader" xml:space="preserve">
     <value>General</value>
   </data>
-    <data name="ConfigWindow_ObtainTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_ObtainTabHeader" xml:space="preserve">
     <value>Obtain</value>
   </data>
-    <data name="ConfigWindow_PartyDutyTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_PartyDutyTabHeader" xml:space="preserve">
     <value>Party &amp; Duty</value>
   </data>
-    <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
     <value>Progress</value>
   </data>
-    <data name="ConfigWindow_SearchClear" xml:space="preserve">
+  <data name="ConfigWindow_SearchClear" xml:space="preserve">
     <value>Clear</value>
   </data>
-    <data name="ConfigWindow_SearchExamplesLabel" xml:space="preserve">
+  <data name="ConfigWindow_SearchExamplesLabel" xml:space="preserve">
     <value>Matches</value>
   </data>
-    <data name="ConfigWindow_SearchHideTomestone" xml:space="preserve">
+  <data name="ConfigWindow_SearchHideTomestone" xml:space="preserve">
     <value>Hide {0}</value>
   </data>
-    <data name="ConfigWindow_SearchLogMessageIdsLabel" xml:space="preserve">
+  <data name="ConfigWindow_SearchLogMessageIdsLabel" xml:space="preserve">
     <value>LogMessage IDs</value>
   </data>
-    <data name="ConfigWindow_SearchNoResults" xml:space="preserve">
+  <data name="ConfigWindow_SearchNoResults" xml:space="preserve">
     <value>No matching settings or rules.</value>
   </data>
-    <data name="ConfigWindow_SearchPlaceholder" xml:space="preserve">
+  <data name="ConfigWindow_SearchPlaceholder" xml:space="preserve">
     <value>Search settings and rules...</value>
   </data>
-    <data name="ConfigWindow_SearchResultCount" xml:space="preserve">
+  <data name="ConfigWindow_SearchResultCount" xml:space="preserve">
     <value>{0} result(s)</value>
   </data>
-    <data name="ConfigWindow_SearchRuleLabel" xml:space="preserve">
+  <data name="ConfigWindow_SearchRuleLabel" xml:space="preserve">
     <value>Rule</value>
   </data>
-    <data name="ConfigWindow_SettingAlwaysOn" xml:space="preserve">
+  <data name="ConfigWindow_SettingAlwaysOn" xml:space="preserve">
     <value>This message type is always shown and cannot be toggled.</value>
   </data>
-    <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
     <value>Šéţţîñĝš</value>
   </data>
-    <data name="ConfigWindow_SystemTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_SystemTabHeader" xml:space="preserve">
     <value>System</value>
   </data>
-    <data name="ConfigWindow_ToolsTabHeader" xml:space="preserve">
+  <data name="ConfigWindow_ToolsTabHeader" xml:space="preserve">
     <value>Tools</value>
   </data>
-    <data name="CraftingGatheringTab_AetherialReductionDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_AetherialReductionDropdownHeader" xml:space="preserve">
     <value>Aetherial Reduction</value>
   </data>
-    <data name="CraftingGatheringTab_CosmicExplorationHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_CosmicExplorationHeader" xml:space="preserve">
     <value>Cosmic Exploration</value>
   </data>
-    <data name="CraftingGatheringTab_CraftingDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_CraftingDropdownHeader" xml:space="preserve">
     <value>Çŕàƒţîñĝ</value>
   </data>
-    <data name="CraftingGatheringTab_DesynthesisDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_DesynthesisDropdownHeader" xml:space="preserve">
     <value>Ðéšýñţĥéšîš</value>
   </data>
-    <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
     <value>Ƒîšĥîñĝ</value>
   </data>
-    <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
     <value>Ĝàţĥéŕîñĝ Ļôçàţîôñš</value>
   </data>
-    <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
     <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ ĝàţĥéŕîñĝ àţţéɱþţš</value>
   </data>
-    <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-    <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ Ĝàţĥéŕéŕ&apos;š Ɓôôñ</value>
+  <data name="CraftingGatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
+    <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ Ĝàţĥéŕéŕ'š Ɓôôñ</value>
   </data>
-    <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
     <value>Ĥîðé ôñļý ļôçàţîôñš ţĥàţ àƒƒéçţ ĝàţĥéŕîñĝ ýîéļð</value>
   </data>
-    <data name="CraftingGatheringTab_MateriaDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_MateriaDropdownHeader" xml:space="preserve">
     <value>Ṁàţéŕîà</value>
   </data>
-    <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
     <value>Šĥôŵ çôļļéçţàƀļé ŕéðûçţîôñ ɱîñîĝàɱé ɱéššàĝéš</value>
   </data>
-    <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
     <value>éĝ. Ýôûŕ ɱéţîçûļôûš àçţîôñš ƥŕôvé éƒƒéçţîvé.</value>
   </data>
-    <data name="CraftingGatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ ýôû šûççéššƒûļļý ŕéðûçé à çôļļéçţàƀļé îţéɱ</value>
   </data>
-    <data name="CraftingGatheringTab_ShowAllOtherCrafting" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowAllOtherCrafting" xml:space="preserve">
     <value>All other crafting (catch-all)</value>
   </data>
-    <data name="CraftingGatheringTab_ShowAllOtherGathering" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowAllOtherGathering" xml:space="preserve">
     <value>All other gathering (catch-all)</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
     <value>Show cosmic class points and daily progress</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
     <value>Cosmic class points and daily progress lines.</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
     <value>cosmic exploration messages</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
     <value>Cosmic exploration progress and area messages.</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency and container obtains</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
     <value>Cosmic currency, containers, and reward obtains.</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
     <value>synthesis complete message</value>
   </data>
-    <data name="CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker" xml:space="preserve">
     <value>eg. You synthesize a Linen Bandana. (English only; other languages need localization)</value>
   </data>
-    <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
     <value>Šĥôŵ ðéšýñţĥéšîš ļéṽéļ îñçŕéàšéš ɱéššàĝéš</value>
   </data>
-    <data name="CraftingGatheringTab_ShowDesynthesisMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowDesynthesisMessages" xml:space="preserve">
     <value>desynthesis messages</value>
   </data>
-    <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ à ƒîšĥ îš àððéð ţô ţĥé ƒîšĥ ĝûîðé</value>
   </data>
-    <data name="CraftingGatheringTab_ShowFishingFlavorText" xml:space="preserve">
-    <value>Fisher&apos;s Intuition flavor text</value>
+  <data name="CraftingGatheringTab_ShowFishingFlavorText" xml:space="preserve">
+    <value>Fisher's Intuition flavor text</value>
   </data>
-    <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
-    <value>Shows Fisher&apos;s Intuition messages (&quot;the scent of baitfish...&quot;) and per-fish lure flavor text (loaded from game data at startup).</value>
+  <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
+    <value>Shows Fisher's Intuition messages ("the scent of baitfish...") and per-fish lure flavor text (loaded from game data at startup).</value>
   </data>
-    <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
     <value>message when a fishing location is discovered</value>
   </data>
-    <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowFishingHoleName" xml:space="preserve">
     <value>name of fishing hole when line is cast</value>
   </data>
-    <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowFishSizeMessages" xml:space="preserve">
     <value>Šĥôŵ çàûĝĥţ ƒîšĥ ɱéàšûŕîñĝ [size] îļɱš</value>
   </data>
-    <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
-    <value>&quot;You sense...&quot; messages for gathering locations</value>
+  <data name="CraftingGatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
+    <value>"You sense..." messages for gathering locations</value>
   </data>
-    <data name="CraftingGatheringTab_ShowGatheringStartEnd" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowGatheringStartEnd" xml:space="preserve">
     <value>the begin/end gathering messages</value>
   </data>
-    <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowItemBeingDesynthesized" xml:space="preserve">
     <value>item being desynthesized</value>
   </data>
-    <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
-    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ļôçàţîôñ àƒƒéçţš ĝàţĥéŕîñĝ ýîéļð، ŕéçéîṽîñĝ Ĝàţĥéŕéŕ&apos;š Ɓôôñ، ôŕ ĝàţĥéŕîñĝ àţţéɱþţš</value>
+  <data name="CraftingGatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ļôçàţîôñ àƒƒéçţš ĝàţĥéŕîñĝ ýîéļð، ŕéçéîṽîñĝ Ĝàţĥéŕéŕ'š Ɓôôñ، ôŕ ĝàţĥéŕîñĝ àţţéɱþţš</value>
   </data>
-    <data name="CraftingGatheringTab_ShowLureMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowLureMessages" xml:space="preserve">
     <value>Modest/Ambitious Lure and bite feeling messages</value>
   </data>
-    <data name="CraftingGatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you&apos;ve attracted a fish with a weak bite!</value>
+  <data name="CraftingGatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!</value>
   </data>
-    <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ ɱàţéŕîà îš éẋţŕàçţéð ƒŕôɱ šþîŕîţƀôñðéð ĝéàŕ</value>
   </data>
-    <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
     <value>message when materia fails to be overmelded onto gear</value>
   </data>
-    <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowMateriaShattersMessages" xml:space="preserve">
     <value>message when materia shatters during retrieval</value>
   </data>
-    <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ ɱàţéŕîà îš šûççéšƒûļļý àţţàçĥéð ţô ĝéàŕ</value>
   </data>
-    <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowMooching" xml:space="preserve">
     <value>message after recasting with a moochable fish</value>
   </data>
-    <data name="CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
     <value>Šĥôŵ ôƀţàîñéð îţéɱš ƒŕôɱ ðéšýñţĥéšîš</value>
   </data>
-    <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
     <value>Šĥôŵ ţĥé ñûɱƀéŕ ôƒ ôƀţàîñéð šàñðš àƒţéŕ ûšîñĝ àéţĥéŕîàļ ŕéðûçţîôñ</value>
   </data>
-    <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
     <value>Šĥôŵ šýñţĥéšîš ɱéššàĝé ŵĥéñ ôţĥéŕ þļàýéŕš çôɱþļéţé à çŕàƒţ·</value>
   </data>
-    <data name="CraftingGatheringTab_ShowStellarMissionMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowStellarMissionMessages" xml:space="preserve">
     <value>Show stellar mission messages</value>
   </data>
-    <data name="CraftingGatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
     <value>Stellar mission area and related system messages.</value>
   </data>
-    <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ ýôû šûççéšƒûļļý ŕéţŕîéṽé ɱàţéŕîà ƒŕôɱ ĝéàŕ</value>
   </data>
-    <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
+  <data name="CraftingGatheringTab_ShowTrialSynthesisMessages" xml:space="preserve">
     <value>Šĥôŵ ƒîñàļ šţàţûš ɱéššàĝéš ûþôñ ƒîñîšĥîñĝ à Ţŕîàļ šýñţĥéšîš</value>
   </data>
-    <data name="CraftingGatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
+  <data name="CraftingGatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
     <value>Stellar Missions / Cosmic Exploration</value>
   </data>
-    <data name="CraftingGatheringTab_StellarSectionFilteringNote" xml:space="preserve">
+  <data name="CraftingGatheringTab_StellarSectionFilteringNote" xml:space="preserve">
     <value>Stellar and cosmic options below use the system channel (each help includes the system-filter reminder). You still need Filter Gathering on General for gathering-channel lines.</value>
   </data>
-    <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
+  <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
   </data>
-    <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
+  <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
   </data>
-    <data name="EconomyTab_ShortenMarketBoardSale" xml:space="preserve">
+  <data name="EconomyTab_ShortenMarketBoardSale" xml:space="preserve">
     <value>Çôɱþàçţ îţéɱ šôļð ļîñéš</value>
   </data>
-    <data name="EconomyTab_ShortenMarketBoardSaleHelpMarker" xml:space="preserve">
+  <data name="EconomyTab_ShortenMarketBoardSaleHelpMarker" xml:space="preserve">
     <value>éĝ. Îţéɱ šôļð ƒôŕ 757 ĝîļ.</value>
   </data>
-    <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
+  <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
     <value>Gil spent confirmation</value>
   </data>
-    <data name="EconomyTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
+  <data name="EconomyTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
     <value>eg. You spend gil on a purchase.</value>
   </data>
-    <data name="EconomyTab_ShowGilWithdrawnMessage" xml:space="preserve">
+  <data name="EconomyTab_ShowGilWithdrawnMessage" xml:space="preserve">
     <value>Gil withdrawn from retainer</value>
   </data>
-    <data name="EconomyTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
+  <data name="EconomyTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
     <value>eg. Your gil has been safely withdrawn.</value>
   </data>
-    <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
+  <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
     <value>Šĥôŵ ɱàŕķéţ ƀôàŕð &amp; ŕéţàîñéŕ ļîšţîñĝš</value>
   </data>
-    <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
+  <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
     <value>Łîšţîñĝ šţàŕţ/šţôþ, îţéɱ šôļð, àļļ šôļð, ĝîļ ţô ŕéţàîñéŕ. Ñééðš Šýšţéɱ ƒîļţéŕ ôñ Ĝéñéŕàļ.</value>
   </data>
-    <data name="EconomyTab_ShowTradeAwaitingConfirmation" xml:space="preserve">
+  <data name="EconomyTab_ShowTradeAwaitingConfirmation" xml:space="preserve">
     <value>Awaiting trade confirmation</value>
   </data>
-    <data name="EconomyTab_ShowTradeCanceled" xml:space="preserve">
+  <data name="EconomyTab_ShowTradeCanceled" xml:space="preserve">
     <value>Trade canceled</value>
   </data>
-    <data name="EconomyTab_ShowTradeComplete" xml:space="preserve">
+  <data name="EconomyTab_ShowTradeComplete" xml:space="preserve">
     <value>Trade complete</value>
   </data>
-    <data name="EconomyTab_ShowTradeRequestSent" xml:space="preserve">
+  <data name="EconomyTab_ShowTradeRequestSent" xml:space="preserve">
     <value>Trade request sent</value>
   </data>
-    <data name="EconomyTab_ShowVendorPurchaseMessages" xml:space="preserve">
+  <data name="EconomyTab_ShowVendorPurchaseMessages" xml:space="preserve">
     <value>Items bought from vendor</value>
   </data>
-    <data name="EconomyTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
+  <data name="EconomyTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
     <value>eg. You purchase an item from a vendor.</value>
   </data>
-    <data name="EconomyTab_ShowVendorSellMessages" xml:space="preserve">
+  <data name="EconomyTab_ShowVendorSellMessages" xml:space="preserve">
     <value>Items sold to vendor or retainer</value>
   </data>
-    <data name="EconomyTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
+  <data name="EconomyTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
     <value>eg. You sell 3 Shisui gobies for 6 gil.</value>
   </data>
-    <data name="EconomyTab_TradingSectionHeader" xml:space="preserve">
+  <data name="EconomyTab_TradingSectionHeader" xml:space="preserve">
     <value>Player trade</value>
   </data>
-    <data name="EconomyTab_VendorSectionHeader" xml:space="preserve">
+  <data name="EconomyTab_VendorSectionHeader" xml:space="preserve">
     <value>Vendor &amp; retainer (NPC)</value>
   </data>
-    <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
+  <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
     <value>Filter Custom Emote Channel</value>
   </data>
-    <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
+  <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
     <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
   </data>
-    <data name="EmotesTab_FilterStandardEmotes" xml:space="preserve">
+  <data name="EmotesTab_FilterStandardEmotes" xml:space="preserve">
     <value>Filter standard emote channel</value>
   </data>
-    <data name="EmotesTab_FilterStandardEmotesHelpMarker" xml:space="preserve">
+  <data name="EmotesTab_FilterStandardEmotesHelpMarker" xml:space="preserve">
     <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
   </data>
-    <data name="EmotesTab_ShowOtherCustomEmotes" xml:space="preserve">
-    <value>Other players&apos; custom emotes</value>
+  <data name="EmotesTab_ShowOtherCustomEmotes" xml:space="preserve">
+    <value>Other players' custom emotes</value>
   </data>
-    <data name="EmotesTab_ShowOtherCustomEmotesHelpMarker" xml:space="preserve">
-    <value>This will hide all &quot;/em&quot; messages unless it mentions you or is a custom emote you used.
+  <data name="EmotesTab_ShowOtherCustomEmotesHelpMarker" xml:space="preserve">
+    <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
 eg. Another Player leans over and gives you a big bear hug.</value>
   </data>
-    <data name="EmotesTab_ShowSelfCustomEmotes" xml:space="preserve">
+  <data name="EmotesTab_ShowSelfCustomEmotes" xml:space="preserve">
     <value>Your own custom emotes</value>
   </data>
-    <data name="EmotesTab_ShowSelfCustomEmotesHelpMarker" xml:space="preserve">
+  <data name="EmotesTab_ShowSelfCustomEmotesHelpMarker" xml:space="preserve">
     <value>When emote filtering is enabled, keep messages for emotes you use yourself.
 eg. You gently pat &amp;lt;user&amp;gt;</value>
   </data>
-    <data name="EnableTinyChat" xml:space="preserve">
+  <data name="EnableTinyChat" xml:space="preserve">
     <value>Tiny chat (lowercase)</value>
   </data>
-    <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Çôûñţ îš ôñļý ûþðàţéð éṽéŕý ①ⓞⓞ ƀļôçķéð ɱéššàĝéš، ŵĥéñ çĥàñĝîñĝ žôñéš، ôŕ ŵĥéñ ļôĝĝîñĝ ôƒƒ·</value>
   </data>
-    <data name="GeneralTab_BlockedMessages" xml:space="preserve">
+  <data name="GeneralTab_BlockedMessages" xml:space="preserve">
     <value>Ţîðý Çĥàţ ĥàš ƀļôçķéð {0:n0} ɱéššàĝéš šô ƒàŕ·</value>
   </data>
-    <data name="GeneralTab_CommendationsGroup" xml:space="preserve">
+  <data name="GeneralTab_CommendationsGroup" xml:space="preserve">
     <value>Commendations</value>
   </data>
-    <data name="GeneralTab_CopySayMessage" xml:space="preserve">
+  <data name="GeneralTab_CopySayMessage" xml:space="preserve">
     <value>Àûţôɱàţîçàļļý çôþý îɱþŕôṽéð /šàý ɱéššàĝé ţô çļîþƀôàŕð</value>
   </data>
-    <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
     <value>Ŕéǫûîŕéš Îɱþŕôṽéð /Šàý ɱéššàĝé ƒôŕ ǫûéšţš ţô ƀé éñàƀļéð</value>
   </data>
-    <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
+  <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
     <value>Display</value>
   </data>
-    <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
+  <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
     <value>Éɱôţé Ƒîļţéŕš</value>
   </data>
-    <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
     <value>Ƒîļţéŕ Çŕàƒţîñĝ šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ƒîļţéŕ îñçļûðéš àļļ çŕàƒţîñĝ ɱéššàĝéš éẋçéþţ &quot;Ýôû šýñţĥéšîžé à/àñ &lt;item&gt;&quot;
-Ţĥîš àļļôŵš ýôû ţô ûšé ÇĥàţÀļéŕţš ţô çŕéàţé àñ àļéŕţ ƒôŕ &quot;Ýôû šýñţĥéšîžé&quot; îñšţéàð ôƒ ûšîñĝ ɱàçŕô‐ƒîñîšĥéð àļéŕţš</value>
+  <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ƒîļţéŕ îñçļûðéš àļļ çŕàƒţîñĝ ɱéššàĝéš éẋçéþţ "Ýôû šýñţĥéšîžé à/àñ &lt;item&gt;"
+Ţĥîš àļļôŵš ýôû ţô ûšé ÇĥàţÀļéŕţš ţô çŕéàţé àñ àļéŕţ ƒôŕ "Ýôû šýñţĥéšîžé" îñšţéàð ôƒ ûšîñĝ ɱàçŕô‐ƒîñîšĥéð àļéŕţš</value>
   </data>
-    <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
+  <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
     <value>Ƒîļţéŕ çûšţôɱ éɱôţé šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ŵîļļ ĥîðé àļļ &quot;/éɱ&quot; ɱéššàĝéš ûñļéšš îţ ɱéñţîôñš ýôû ôŕ îš à çûšţôɱ éɱôţé ýôû ûšéð·
+  <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ŵîļļ ĥîðé àļļ "/éɱ" ɱéššàĝéš ûñļéšš îţ ɱéñţîôñš ýôû ôŕ îš à çûšţôɱ éɱôţé ýôû ûšéð·
 éĝ· Àñôţĥéŕ Þļàýéŕ ļéàñš ôṽéŕ àñð ĝîṽéš ýôû à ƀîĝ ƀéàŕ ĥûĝ·</value>
   </data>
-    <data name="GeneralTab_FilterEmoteChannelsHeader" xml:space="preserve">
+  <data name="GeneralTab_FilterEmoteChannelsHeader" xml:space="preserve">
     <value>Filter emote channels</value>
   </data>
-    <data name="GeneralTab_FilterEmotes" xml:space="preserve">
+  <data name="GeneralTab_FilterEmotes" xml:space="preserve">
     <value>Ƒîļţéŕ éɱôţé šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ ĥîðé àļļ éɱôţé ţéẋţ ûñļéšš îţ îš àñ éɱôţé ţàŕĝéţîñĝ ýôû ôŕ àñ éɱôţé ýôû ûšéð·</value>
   </data>
-    <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
     <value>Ƒîļţéŕ Ĝàţĥéŕîñĝ šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ƒîļţéŕ îñçļûðéš &quot;ýôû ƀéĝîñ/ƒîñîšĥ&quot; ĝàţĥéŕîñĝ ɱéššàĝéš، àš ŵéļļ àš ļôçàţîôñ àƒƒéçţš</value>
+  <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
+    <value>Ţĥîš ƒîļţéŕ îñçļûðéš "ýôû ƀéĝîñ/ƒîñîšĥ" ĝàţĥéŕîñĝ ɱéššàĝéš، àš ŵéļļ àš ļôçàţîôñ àƒƒéçţš</value>
   </data>
-    <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
     <value>Ƒîļţéŕ Ļôôţ ŕôļļ šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
     <value>Ţĥîš ƒîļţéŕ îñçļûðéš ɱéššàĝéš ļîķé ŕôļļîñĝ ĝŕééð ôŕ þļàýéŕ ôƀţàîñéð à ĝéàŕ þîéçé</value>
   </data>
-    <data name="GeneralTab_FilterObtainedSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterObtainedSpam" xml:space="preserve">
     <value>Filter Obtained channel</value>
   </data>
-    <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
     <value>Ţĥîš ƒîļţéŕ îñçļûðéš îţéɱš ôƀţàîñéð àš ɱôñšţéŕ ðŕôþš، ǫûéšţ ŕéŵàŕðš، àñð ŕôûļéţţé ŕéŵàŕðš</value>
   </data>
-    <data name="GeneralTab_FilterProfile_Balanced" xml:space="preserve">
-    <value>Balanced (recommended)</value>
-  </data>
-    <data name="GeneralTab_FilterProfile_Custom" xml:space="preserve">
-    <value>Custom (current settings)</value>
-  </data>
-    <data name="GeneralTab_FilterProfile_Minimal" xml:space="preserve">
-    <value>Minimal</value>
-  </data>
-    <data name="GeneralTab_FilterProfile_VanillaPlus" xml:space="preserve">
-    <value>Vanilla+</value>
-  </data>
-    <data name="GeneralTab_FilterProfileApply" xml:space="preserve">
+  <data name="GeneralTab_FilterProfileApply" xml:space="preserve">
     <value>Apply profile</value>
   </data>
-    <data name="GeneralTab_FilterProfileHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterProfileHelpMarker" xml:space="preserve">
     <value>Resets filter toggles to built-in defaults for the selected profile. Any manual change switches to Custom. Settings save automatically when you close this window.</value>
   </data>
-    <data name="GeneralTab_FilterProfileLabel" xml:space="preserve">
+  <data name="GeneralTab_FilterProfileLabel" xml:space="preserve">
     <value>Filter profile</value>
   </data>
-    <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterProfile_Balanced" xml:space="preserve">
+    <value>Balanced (recommended)</value>
+  </data>
+  <data name="GeneralTab_FilterProfile_Custom" xml:space="preserve">
+    <value>Custom (current settings)</value>
+  </data>
+  <data name="GeneralTab_FilterProfile_Minimal" xml:space="preserve">
+    <value>Minimal</value>
+  </data>
+  <data name="GeneralTab_FilterProfile_VanillaPlus" xml:space="preserve">
+    <value>Vanilla+</value>
+  </data>
+  <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
     <value>Ƒîļţéŕ Þŕôĝŕéšš šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
     <value>Ţĥéšé ƒîļţéŕš îñçļûðé ɱéššàĝéš ļîķé éàŕñéð àçĥîéṽéɱéñţš ôŕ éẋþéŕîéñçé þôîñţš</value>
   </data>
-    <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
+  <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
     <value>Ƒîļţéŕ éɱôţéš ûšéð ƀý ýôûŕšéļƒ</value>
   </data>
-    <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ ĥîðé ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ûšé àñ éɱôţé ôŕ çûšţôɱ éɱôţé·
 éĝ· Ýôû ĝéñţļý þàţ &lt;user&gt;</value>
   </data>
-    <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
+  <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
     <value>Ƒîļţéŕ Šýšţéɱ šþàɱ</value>
   </data>
-    <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
     <value>Master switch for system-channel chat: quests, duties, market and retainer sales, ventures, System tab options, and several toggles on Progress and Crafting &amp; Gathering. When off, those lines are not filtered regardless of per-message options.</value>
   </data>
-    <data name="GeneralTab_HideKofiButton" xml:space="preserve">
+  <data name="GeneralTab_HideKofiButton" xml:space="preserve">
     <value>Ĥîðé ķô‐ƒî ƀûţţôñ</value>
   </data>
-    <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
+  <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
     <value>Îñçļûðé ðûţý ñàɱé ŵîţĥ çôɱɱéñðàţîôñ ɱéššàĝéš</value>
   </data>
-    <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
     <value>Ŕéǫûîŕéš Îɱþŕôṽéð Þļàýéŕ Çôɱɱéñðàţîôñš ţô ƀé éñàƀļéð</value>
   </data>
-    <data name="GeneralTab_ImprovedDutyCommenceMessaging" xml:space="preserve">
+  <data name="GeneralTab_ImprovedDutyCommenceMessaging" xml:space="preserve">
     <value>Îɱƥŕôvéð ðûţý çôɱɱéñçé ɱéššàĝîñĝ</value>
   </data>
-    <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
     <value>Ŕéþļàçéš ðûţý éñţŕý šþàɱ ŵîţĥ Ðûţý Ñàɱé ĥàš ƀéĝûñ.</value>
   </data>
-    <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
+  <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
     <value>Îɱþŕôṽéð /îñšţàñçé ɱéššàĝîñĝ</value>
   </data>
-    <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
     <value>Çĥàñĝéš ţĥé îñšţàñçé ţéẋţ ţô∶ Ýôû àŕé ñôŵ îñ îñšţàñçé∶ #</value>
   </data>
-    <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
+  <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
     <value>Îɱþŕôṽéð Ṁéššàĝéš</value>
   </data>
-    <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
+  <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
     <value>Îɱþŕôṽéð Ñôṽîçé Ñéţŵôŕķ ĵôîñ àñð ļéàṽé ɱéššàĝéš</value>
   </data>
-    <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
     <value>Ŕéðûçéš ţĥé àɱôûñţ ôƒ Ñôṽîçé Ñéţŵôŕķ ţéẋţ ŵĥéñ ţĥé Ñôṽîçé Ñéţŵôŕķ îš ĵôîñéð àñð çĥàñĝéš ţĥé ļéàṽé ɱéššàĝé ţô ƀé çôñšîšţéñţļý ŵôŕðéð·</value>
   </data>
-    <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
+  <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
     <value>Îɱþŕôṽéð Þļàýéŕ Çôɱɱéñðàţîôñš</value>
   </data>
-    <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
     <value>Ðîšàƀļéš Šýšţéɱ ɱéššàĝé ƒôŕ ŕéçéîṽéð çôɱɱéñðàţîôñš àñð îñšţéàð ļôĝš à šîñĝļé ɱéššàĝé ţô ýôûŕ Ðàļàɱûð Ĝéñéŕàļ Çĥàţ Çĥàññéļ (çĥéçķ ýôûŕ Ðàļàɱûð Ĝéñéŕàļ Šéţţîñĝš ƒôŕ ŵĥîçĥ çĥàññéļ ţĥàţ îš ‐ îţ îš Ðéƀûĝ ƀý ðéƒàûļţ)</value>
   </data>
-    <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
+  <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
     <value>Îɱþŕôṽéð /Šàý ɱéššàĝéš ƒôŕ ǫûéšţš</value>
   </data>
-    <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
     <value>Ŵĥéñ à ǫûéšţ ŕéǫûîŕéš ýôû ţô /Šàý šôɱéţĥîñĝ îñ çĥàţ، çĥàñĝé ţĥé ɱéššàĝé îñţô ôñé ţĥàţ çàñ ƀé çôþý àñð þàšţéð éàšîļý</value>
   </data>
-    <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
+  <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
     <value>Improved Treasure Dungeon Messages</value>
   </data>
-    <data name="GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker" xml:space="preserve">
     <value>When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.</value>
   </data>
-    <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
+  <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
     <value>Ðîšþļàý çûŕŕéñţ îñšţàñçé îñ ÐŢŔ Ɓàŕ</value>
   </data>
-    <data name="GeneralTab_InstanceMessagesGroup" xml:space="preserve">
+  <data name="GeneralTab_InstanceMessagesGroup" xml:space="preserve">
     <value>Instance messages</value>
   </data>
-    <data name="GeneralTab_NormalizeSpecialCharactersHeader" xml:space="preserve">
+  <data name="GeneralTab_NormalizeSpecialCharactersHeader" xml:space="preserve">
     <value>Normalize special characters</value>
   </data>
-    <data name="GeneralTab_SayRemindersGroup" xml:space="preserve">
+  <data name="GeneralTab_SayRemindersGroup" xml:space="preserve">
     <value>Say reminders</value>
   </data>
-    <data name="GeneralTab_TidyChatTag" xml:space="preserve">
+  <data name="GeneralTab_TidyChatTag" xml:space="preserve">
     <value>Àðð [TidyChat] ţàĝ ţô àñý ɱôðîƒîéð ɱéššàĝéš</value>
   </data>
-    <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
+  <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
     <value>Þŕéþéñðš ɱéššàĝéš šéñţ ôŕ ɱôðîƒîéð ƀý Ţîðý Çĥàţ ŵîţĥ [TidyChat]</value>
   </data>
-    <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
+  <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
     <value>Include [Channel] tag in debug mode</value>
   </data>
-    <data name="NormalizeSpecialCharactersExceptInPartyOrAllianceChannels" xml:space="preserve">
+  <data name="NormalizeSpecialCharactersExceptInPartyOrAllianceChannels" xml:space="preserve">
     <value>Normalize special characters - except in Party or Alliance channels</value>
   </data>
-    <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
+  <data name="ObtainTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
     <value>Ɓàţţļé Çûŕŕéñçîéš</value>
   </data>
-    <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
+  <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
     <value>Ɓéàšţ Ţŕîƀé Ǫûéšţš</value>
   </data>
-    <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕôļļ ôñ ļôôţ·
 éĝ· Ýôû çàšţ ýôûŕ ļôţ ƒôŕ ţĥé &lt;item&gt;</value>
   </data>
-    <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
-    <value>Šĥôŵ &quot;Ýôû çàšţ ýôûŕ ļôţ&quot; ɱéššàĝéš</value>
+  <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ýôû çàšţ ýôûŕ ļôţ" ɱéššàĝéš</value>
   </data>
-    <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
+  <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
     <value>Çôɱɱôñ Çûŕŕéñçîéš</value>
   </data>
-    <data name="ObtainTab_HideInventoryItemAddedMessages" xml:space="preserve">
-    <value>Hide &quot;added to your inventory&quot; messages</value>
+  <data name="ObtainTab_HideInventoryItemAddedMessages" xml:space="preserve">
+    <value>Hide "added to your inventory" messages</value>
   </data>
-    <data name="ObtainTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates &quot;You obtain …&quot; on retainer ventures.)</value>
+  <data name="ObtainTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates "You obtain …" on retainer ventures.)</value>
   </data>
-    <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
+  <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
     <value>Ļôôţîñĝ ⅋ Ŕôļļîñĝ</value>
   </data>
-    <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
+  <data name="ObtainTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
     <value>Ôţĥéŕ Ôƀţàîñ Ṁéššàĝéš</value>
   </data>
-    <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
     <value>Šĥôŵ Àļļîéð Šéàļš</value>
   </data>
-    <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļîéð Šéàļš·</value>
   </data>
-    <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
-    <value>Šĥôŵ &quot;Àñôţĥéŕ Þļàýéŕ çàšţš ţĥéîŕ ļôţ &lt;item&gt;&quot; ɱéššàĝéš</value>
+  <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àñôţĥéŕ Þļàýéŕ çàšţš ţĥéîŕ ļôţ &lt;item&gt;" ɱéššàĝéš</value>
   </data>
-    <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ àñôţĥéŕ þļàýéŕ îñ ţĥé þàŕţý ŕôļļš ƒôŕ à ļôôţ ðŕôþ·
 éĝ· Šôɱé þļàýéŕ çàšţš ĥéŕ ļôţ ƒôŕ &lt;item&gt;·</value>
   </data>
-    <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Šĥôŵ &quot;Àñôţĥéŕ Þļàýéŕ ôƀţàîñš &lt;item&gt;&quot; ɱéššàĝéš</value>
+  <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àñôţĥéŕ Þļàýéŕ ôƀţàîñš &lt;item&gt;" ɱéššàĝéš</value>
   </data>
-    <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ àñôţĥéŕ þļàýéŕ îñ ţĥé þàŕţý ôƀţàîñš à ļôôţ ðŕôþ·
 éĝ· Šôɱé þļàýéŕ ôƀţàîñš àñ &lt;item&gt;¡</value>
   </data>
-    <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
-    <value>Šĥôŵ &quot;Àñôţĥéŕ Þļàýéŕ ŕôļļš Ĝŕééð···&quot; ɱéššàĝéš</value>
+  <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
+    <value>Šĥôŵ "Àñôţĥéŕ Þļàýéŕ ŕôļļš Ĝŕééð···" ɱéššàĝéš</value>
   </data>
-    <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
     <value>Šĥôŵ Ɓéàšţ Ţŕîƀé çŕàƒţîñĝ ɱàţéŕîàļš</value>
   </data>
-    <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕéçéîṽé çŕàƒţîñĝ ɱàţéŕîàļš ţô ƀé ûšéð îñ Ɓéàšţ Ţŕîƀé çŕàƒţîñĝ ǫûéšţš·
 éĝ· Ýôû ôƀţàîñ Šţàŕƀôàŕð Ĥûļļ Çôɱþôñéñţ Ṁàţéŕîàļš</value>
   </data>
-    <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
     <value>Šĥôŵ Ɓéàšţ Ţŕîƀé Çûŕŕéñçîéš</value>
   </data>
-    <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕéçéîṽé Ɓéàšţ Ţŕîƀé çûŕŕéñçîéš ûþôñ çôɱþļéţîôñ ôƒ à Ɓéàšţ Ţŕîƀé ǫûéšţ·</value>
   </data>
-    <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
     <value>Šĥôŵ Çéñţûŕîô Šéàļš</value>
   </data>
-    <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ④ⓞ Çéñţûŕîô Šéàļš·</value>
   </data>
-    <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
     <value>Šĥôŵ çŕàçķéð çļûšţéŕš</value>
   </data>
-    <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ çŕàçķéð çļûšţéŕš šûçĥ àš Ðéñðŕôçļûšţéŕš àñð Àñţĥôçļûšţéŕš·
 Ƒôŕ ĥîðîñĝ éļéɱéñţàļ çļûšţéŕš šéé ţĥé ĥîðé éļéɱéñţàļ çļûšţéŕš ôþţîôñ ðôŵñ ƀéļôŵ·
 éĝ· Ýôû ôƀţàîñ à çŕàçķéð ðéñðŕôçļûšţéŕ</value>
   </data>
-    <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
     <value>Šĥôŵ éļéɱéñţàļ šĥàŕðš، çŕýšţàļš، àñð çļûšţéŕš</value>
   </data>
-    <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ĝàţĥéŕ ôŕ ŕéçéîṽé éļéɱéñţàļ šĥàŕðš، çŕýšţàļš، ôŕ çļûšţéŕš
 éĝ· Ýôû ôƀţàîñ ③ⓞ îçé šĥàŕðš</value>
   </data>
-    <data name="ObtainTab_ShowGeneralItemObtains" xml:space="preserve">
+  <data name="ObtainTab_ShowGeneralItemObtains" xml:space="preserve">
     <value>General item obtains</value>
   </data>
-    <data name="ObtainTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
     <value>Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
   </data>
-    <data name="ObtainTab_ShowGil" xml:space="preserve">
+  <data name="ObtainTab_ShowGil" xml:space="preserve">
     <value>Šĥôŵ Ĝîļ</value>
   </data>
-    <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ⑥⑨ ĝîļ·</value>
   </data>
-    <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
     <value>Šĥôŵ Ĝŕàñð Çôɱþàñý Šéàļš</value>
   </data>
-    <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ④②ⓞ Ƒļàɱé Šéàļš·</value>
   </data>
-    <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
     <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš</value>
   </data>
-    <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš·</value>
   </data>
-    <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
     <value>Šĥôŵ ṀĜÞ</value>
   </data>
-    <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①①⑦ ṀĜÞ·</value>
   </data>
-    <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
     <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš</value>
   </data>
-    <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš·</value>
   </data>
-    <data name="ObtainTab_ShowObtainedQuestItems" xml:space="preserve">
+  <data name="ObtainTab_ShowObtainedQuestItems" xml:space="preserve">
     <value>quest item obtain messages</value>
   </data>
-    <data name="ObtainTab_ShowObtainedQuestItemsHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowObtainedQuestItemsHelpMarker" xml:space="preserve">
     <value>eg. You obtain the mysterious artifact.</value>
   </data>
-    <data name="ObtainTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
+  <data name="ObtainTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
     <value>only rolls from party members</value>
   </data>
-    <data name="ObtainTab_ShowOnlyPartyMemberRollsHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowOnlyPartyMemberRollsHelpMarker" xml:space="preserve">
     <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
-Requires &quot;Show Another Player rolls&quot; to be enabled and only takes effect while in a party.</value>
+Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
   </data>
-    <data name="ObtainTab_ShowOtherPlayersLootRolls" xml:space="preserve">
-    <value>other players&apos; loot rolls</value>
+  <data name="ObtainTab_ShowOtherPlayersLootRolls" xml:space="preserve">
+    <value>other players' loot rolls</value>
   </data>
-    <data name="ObtainTab_ShowOtherPlayersLootRollsHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowOtherPlayersLootRollsHelpMarker" xml:space="preserve">
     <value>Shows when other players cast lot or roll on loot.</value>
   </data>
-    <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
     <value>Šĥôŵ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš</value>
   </data>
-    <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš·</value>
   </data>
-    <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
     <value>Šĥôŵ šàçķš ôƒ Ñûţš</value>
   </data>
-    <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ šàçķš ôƒ Ñûţš·</value>
   </data>
-    <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
     <value>Šĥôŵ Ṽéñţûŕéš</value>
   </data>
-    <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ à Ṽéñţûŕé·</value>
   </data>
-    <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
+  <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
     <value>Šĥôŵ Ŵôļƒ Ṁàŕķš</value>
   </data>
-    <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①،ⓞⓞⓞ Ŵôļƒ Ṁàŕķš·</value>
   </data>
-    <data name="ObtainTab_ShowYourLootRolls" xml:space="preserve">
+  <data name="ObtainTab_ShowYourLootRolls" xml:space="preserve">
     <value>your loot rolls</value>
   </data>
-    <data name="ObtainTab_ShowYourLootRollsHelpMarker" xml:space="preserve">
-    <value>Shows your &quot;cast lot&quot; and loot roll result messages.
+  <data name="ObtainTab_ShowYourLootRollsHelpMarker" xml:space="preserve">
+    <value>Shows your "cast lot" and loot roll result messages.
 eg. You cast your lot for the &lt;item&gt;</value>
   </data>
-    <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
-    <value>Šĥôŵ &quot;Ýôû ŕôļļéð···&quot; ɱéššàĝéš</value>
+  <data name="ObtainTab_ShowYouRolledMessages" xml:space="preserve">
+    <value>Šĥôŵ "Ýôû ŕôļļéð···" ɱéššàĝéš</value>
   </data>
-    <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
+  <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš àƒţéŕ éṽéŕýôñé ĥàš ŕôļļéð ôñ ļôôţ àñð ýôû àŕé ĝîṽéñ ţĥé ŕéšûļţ ôƒ ýôûŕ ŕôļļ·
 éĝ· Ýôû ŕôļļ Ñééð/Ĝŕééð ôñ ţĥé &lt;item&gt;· ⑥③¡</value>
   </data>
-    <data name="PartyDutyTab_DeepDungeonsDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_DeepDungeonsDropdownHeader" xml:space="preserve">
     <value>Deep dungeons</value>
   </data>
-    <data name="PartyDutyTab_DutyCompletionDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_DutyCompletionDropdownHeader" xml:space="preserve">
     <value>Duty completion</value>
   </data>
-    <data name="PartyDutyTab_DutyFinderDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_DutyFinderDropdownHeader" xml:space="preserve">
     <value>Duty Finder</value>
   </data>
-    <data name="PartyDutyTab_FreeCompanyDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_FreeCompanyDropdownHeader" xml:space="preserve">
     <value>Free Company</value>
   </data>
-    <data name="PartyDutyTab_PartyAndInviteDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Party &amp; invites</value>
   </data>
-    <data name="PartyDutyTab_PartyLeadershipDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_PartyLeadershipDropdownHeader" xml:space="preserve">
     <value>Leadership &amp; lockouts</value>
   </data>
-    <data name="PartyDutyTab_PartyToolsDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_PartyToolsDropdownHeader" xml:space="preserve">
     <value>Party tools</value>
   </data>
-    <data name="PartyDutyTab_RetainerAndVentureDropdownHeader" xml:space="preserve">
+  <data name="PartyDutyTab_RetainerAndVentureDropdownHeader" xml:space="preserve">
     <value>Retainer ventures</value>
   </data>
-    <data name="PartyDutyTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
     <value>when Accursed Hoard is discovered</value>
   </data>
-    <data name="PartyDutyTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
     <value>when Accursed Hoard is not sensed on the current floor</value>
   </data>
-    <data name="PartyDutyTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
     <value>when Accursed Hoard is sensed</value>
   </data>
-    <data name="PartyDutyTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
     <value>Aetherpool increases</value>
   </data>
-    <data name="PartyDutyTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
     <value>Aetherpool remains unchanged...</value>
   </data>
-    <data name="PartyDutyTab_ShowAirshipVoyageMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAirshipVoyageMessages" xml:space="preserve">
     <value>Airship expedition</value>
   </data>
-    <data name="PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker" xml:space="preserve">
     <value>eg. A new exploratory voyage destination...has been discovered!</value>
   </data>
-    <data name="PartyDutyTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
     <value>when the Cairn of Passage is activated</value>
   </data>
-    <data name="PartyDutyTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
     <value>when the Cairn of Passage begins to glow</value>
   </data>
-    <data name="PartyDutyTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
     <value>when Cairn of Return is used</value>
   </data>
-    <data name="PartyDutyTab_ShowCompletedVenture" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCompletedVenture" xml:space="preserve">
     <value>Venture complete</value>
   </data>
-    <data name="PartyDutyTab_ShowCompletedVentureHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCompletedVentureHelpMarker" xml:space="preserve">
     <value>eg. RetainerName has completed a venture!</value>
   </data>
-    <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
     <value>Unrestricted clear time</value>
   </data>
-    <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
     <value>eg. &lt;Duty&gt; completion time: 00:30</value>
   </data>
-    <data name="PartyDutyTab_ShowCountdownMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCountdownMessages" xml:space="preserve">
     <value>/countdown</value>
   </data>
-    <data name="PartyDutyTab_ShowCountdownMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowCountdownMessagesHelpMarker" xml:space="preserve">
     <value>eg. Battle commencing in 18 seconds!</value>
   </data>
-    <data name="PartyDutyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
     <value>Disband &amp; dissolve</value>
   </data>
-    <data name="PartyDutyTab_ShowDutyFinderMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowDutyFinderMessages" xml:space="preserve">
     <value>Duty Finder notifications</value>
   </data>
-    <data name="PartyDutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
     <value>eg. Duty registration complete. Participation requirements, unrestricted party notices. Mostly system channel; withdrawal notices use the error channel.</value>
   </data>
-    <data name="PartyDutyTab_ShowFloorNumberMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowFloorNumberMessages" xml:space="preserve">
     <value>floor number when entering a new floor</value>
   </data>
-    <data name="PartyDutyTab_ShowFreeCompanyMessageBookMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowFreeCompanyMessageBookMessages" xml:space="preserve">
     <value>Message book entries</value>
   </data>
-    <data name="PartyDutyTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
     <value>Joined party (incl. cross-world)</value>
   </data>
-    <data name="PartyDutyTab_ShowJoiningPartyMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowJoiningPartyMessages" xml:space="preserve">
     <value>Players joining</value>
   </data>
-    <data name="PartyDutyTab_ShowLeftPartyMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowLeftPartyMessages" xml:space="preserve">
     <value>Players leaving</value>
   </data>
-    <data name="PartyDutyTab_ShowLoginMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowLoginMessages" xml:space="preserve">
     <value>FC member login</value>
   </data>
-    <data name="PartyDutyTab_ShowLogoutMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowLogoutMessages" xml:space="preserve">
     <value>FC member logout</value>
   </data>
-    <data name="PartyDutyTab_ShowNowALeader" xml:space="preserve">
+  <data name="PartyDutyTab_ShowNowALeader" xml:space="preserve">
     <value>Leader promoted or demoted</value>
   </data>
-    <data name="PartyDutyTab_ShowNowALeaderHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowNowALeaderHelpMarker" xml:space="preserve">
     <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
   </data>
-    <data name="PartyDutyTab_ShowObtainedPomanderMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowObtainedPomanderMessages" xml:space="preserve">
     <value>when the party obtains a pomander</value>
   </data>
-    <data name="PartyDutyTab_ShowPartyObjectiveOnJoin" xml:space="preserve">
+  <data name="PartyDutyTab_ShowPartyObjectiveOnJoin" xml:space="preserve">
     <value>Party objective &amp; comment on join</value>
   </data>
-    <data name="PartyDutyTab_ShowPomanderEffectsMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowPomanderEffectsMessages" xml:space="preserve">
     <value>pomander effect messages</value>
   </data>
-    <data name="PartyDutyTab_ShowReadycheckMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowReadycheckMessages" xml:space="preserve">
     <value>/readycheck</value>
   </data>
-    <data name="PartyDutyTab_ShowReadycheckMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowReadycheckMessagesHelpMarker" xml:space="preserve">
     <value>eg. Ready check complete.</value>
   </data>
-    <data name="PartyDutyTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Received invitations</value>
   </data>
-    <data name="PartyDutyTab_ShowRetainerVentureMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowRetainerVentureMessages" xml:space="preserve">
     <value>Venture assignment &amp; payment</value>
   </data>
-    <data name="PartyDutyTab_ShowRetainerVentureMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowRetainerVentureMessagesHelpMarker" xml:space="preserve">
     <value>eg. You assign your retainer to Quick Exploration. You pay a retainer 2 ventures.</value>
   </data>
-    <data name="PartyDutyTab_ShowSealedOffMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowSealedOffMessages" xml:space="preserve">
     <value>area sealed/unsealed messages</value>
   </data>
-    <data name="PartyDutyTab_ShowSealedOffMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowSealedOffMessagesHelpMarker" xml:space="preserve">
     <value>eg. The area has been sealed off! / The area is no longer sealed.</value>
   </data>
-    <data name="PartyDutyTab_ShowSentPartyInviteMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowSentPartyInviteMessages" xml:space="preserve">
     <value>Sent party invites</value>
   </data>
-    <data name="PartyDutyTab_ShowSubmarineVoyageMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowSubmarineVoyageMessages" xml:space="preserve">
     <value>Submarine voyage</value>
   </data>
-    <data name="PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
     <value>eg. A new subaquatic voyage destination...has been discovered!</value>
   </data>
-    <data name="PartyDutyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
     <value>Teleport offers from party</value>
   </data>
-    <data name="PartyDutyTab_ShowTransferenceMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowTransferenceMessages" xml:space="preserve">
     <value>transference messages</value>
   </data>
-    <data name="PartyDutyTab_ShowTrapTriggeredMessages" xml:space="preserve">
+  <data name="PartyDutyTab_ShowTrapTriggeredMessages" xml:space="preserve">
     <value>trap triggered messages</value>
   </data>
-    <data name="PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
+  <data name="PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
     <value>eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
   </data>
-    <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
+  <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
     <value>Duty rewards</value>
   </data>
-    <data name="ProgressTab_ExperienceAndLevelsDropdownHeader" xml:space="preserve">
+  <data name="ProgressTab_ExperienceAndLevelsDropdownHeader" xml:space="preserve">
     <value>Experience &amp; levels</value>
   </data>
-    <data name="ProgressTab_FilteringNote" xml:space="preserve">
+  <data name="ProgressTab_FilteringNote" xml:space="preserve">
     <value>Quest &amp; achievements, duty bonuses, and most unlocks use the system channel (see each help). XP and PVP EXP use Filter Progress channel on General. Mount unlocks use the action channel.</value>
   </data>
-    <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
+  <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
     <value>Quests &amp; achievements</value>
   </data>
-    <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
     <value>Šĥôŵ ƀôñûš àŵàŕðéð ƒôŕ ƀéîñĝ àñ àðṽéñţûŕéŕ îñ ñééð</value>
   </data>
-    <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· À ƀôñûš ôƒ ⑦،②ⓞⓞ ĝîļ ĥàš ƀééñ àŵàŕðéð ƒôŕ ƀéîñĝ àñ àðṽéñţûŕéŕ îñ ñééð·</value>
   </data>
-    <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
     <value>Šĥôŵ ƀôñûš àŵàŕð ƒôŕ ûšîñĝ ðûţý ŕôûļéţţé</value>
   </data>
-    <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· À ƀôñûš ôƒ ④،②⑤②،④⑨⑧ éẋþéŕîéñçé þôîñţš àñð ①②،ⓞⓞⓞ ĝîļ ĥàš ƀééñ àŵàŕðéð ƒôŕ ûšîñĝ ţĥé ðûţý ŕôûļéţţé·</value>
   </data>
-    <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
     <value>Šĥôŵ éàŕñéð àçĥîéṽéɱéñţ ɱéššàĝéš</value>
   </data>
-    <data name="ProgressTab_ShowEarnedAchievementMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowEarnedAchievementMessagesHelpMarker" xml:space="preserve">
     <value>eg. You earn the achievement &lt;name&gt;! Uses the Progress channel.</value>
   </data>
-    <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
     <value>Šĥôŵ éẋþéŕîéñçé ĝàîñ ɱéššàĝéš</value>
   </data>
-    <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ĝàîñ ②،③⑧⑧ Éẋþéŕîéñçé Þôîñţš·</value>
   </data>
-    <data name="ProgressTab_ShowFirstClearAward" xml:space="preserve">
+  <data name="ProgressTab_ShowFirstClearAward" xml:space="preserve">
     <value>First-time duty clear reward</value>
   </data>
-    <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowLearnedAbilityMessages" xml:space="preserve">
     <value>learned ability messages</value>
   </data>
-    <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
     <value>When you learn an ability or minion. Most lines use the Progress channel; a few job quest lines use System.</value>
   </data>
-    <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
     <value>Šĥôŵ ļéṽéļ ûþ ɱéššàĝéš</value>
   </data>
-    <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ļéṽéļ ûþ·
 Îţ çàñ ƀé çôñšîðéŕéð šþàɱɱý îñ Þàļàçé ôƒ ţĥé Ðéàð àñð Ĥéàṽéñ Ôñ Ĥîĝĥ·</value>
   </data>
-    <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
     <value>mount unlock messages</value>
   </data>
-    <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
     <value>eg. You have unlocked the ability to summon this mount. Uses the action channel (not System filtering).</value>
   </data>
-    <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ôţĥéŕš ļéṽéļ ûþ·
  éĝ· Þļàýéŕ àţţàîñš ļéṽéļ ③③¡</value>
   </data>
-    <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
-    <value>Šĥôŵ ôţĥéŕ þļàýéŕ&apos;š éàŕñéð àçĥîéṽéɱéñţ ɱéššàĝéš</value>
+  <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
+    <value>Šĥôŵ ôţĥéŕ þļàýéŕ'š éàŕñéð àçĥîéṽéɱéñţ ɱéššàĝéš</value>
   </data>
-    <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker" xml:space="preserve">
     <value>eg. Player earns the achievement &lt;name&gt;! Uses the Progress channel.</value>
   </data>
-    <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
-    <value>Šĥôŵ ôţĥéŕ þļàýéŕ&apos;š ļéṽéļ ûþ ɱéššàĝéš</value>
+  <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
+    <value>Šĥôŵ ôţĥéŕ þļàýéŕ'š ļéṽéļ ûþ ɱéššàĝéš</value>
   </data>
-    <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
     <value>Šĥôŵ ÞṼÞ ÉẊÞ ĝàîñ ɱéššàĝéš</value>
   </data>
-    <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àçǫûîŕé ⑤ⓞⓞ ÞṽÞ ÉẊÞ·</value>
   </data>
-    <data name="ProgressTab_ShowQuestProgressMessages" xml:space="preserve">
+  <data name="ProgressTab_ShowQuestProgressMessages" xml:space="preserve">
     <value>quest progress messages</value>
   </data>
-    <data name="ProgressTab_ShowQuestProgressMessagesHelpMarker" xml:space="preserve">
-    <value>eg. &quot;Starting from Scrap&quot; accepted. / &quot;Starting from Scrap&quot; complete! / &quot;Starting from Scrap&quot; objective fulfilled!</value>
+  <data name="ProgressTab_ShowQuestProgressMessagesHelpMarker" xml:space="preserve">
+    <value>eg. "Starting from Scrap" accepted. / "Starting from Scrap" complete! / "Starting from Scrap" objective fulfilled!</value>
   </data>
-    <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
+  <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Second Chance reward</value>
   </data>
-    <data name="ProgressTab_UnlocksDropdownHeader" xml:space="preserve">
+  <data name="ProgressTab_UnlocksDropdownHeader" xml:space="preserve">
     <value>Unlocks</value>
   </data>
-    <data name="ReplacesSpecialCharactersSuchAsWithA" xml:space="preserve">
+  <data name="ReplacesSpecialCharactersSuchAsWithA" xml:space="preserve">
     <value>Replaces block-letter and special UI font characters with normal letters (A–Z, 0–9) in chat text.</value>
   </data>
-    <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
+  <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
     <value>Šûþþôŕţ ôñ Ķô‐Ƒî</value>
   </data>
-    <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
+  <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Ŵîķî Þàĝé</value>
   </data>
-    <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
+  <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
     <value>Ŕéqûîŕéš Šýšţéɱ ɱéššàĝé ƒîļţéŕîñĝ ôñ ţĥé Ĝéñéŕàļ ţàƀ.</value>
   </data>
-    <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>
   </data>
-    <data name="SystemTab_CharacterAndGearDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_CharacterAndGearDropdownHeader" xml:space="preserve">
     <value>Character &amp; gearsets</value>
   </data>
-    <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
     <value>Éŕŕôŕ Ṁéššàĝéš</value>
   </data>
-    <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
     <value>Exploration</value>
   </data>
-    <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
     <value>Glamour &amp; gear</value>
   </data>
-    <data name="SystemTab_HuntMessagesDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_HuntMessagesDropdownHeader" xml:space="preserve">
     <value>Hunt marks</value>
   </data>
-    <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
     <value>Orchestrion</value>
   </data>
-    <data name="SystemTab_RelicAndMailDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_RelicAndMailDropdownHeader" xml:space="preserve">
     <value>Relic &amp; mail</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
-    <value>Çôñðéñšéð (ķééþ &quot;Ŵéļçôɱé ţô &lt;ŵôŕļð&gt;&quot;)</value>
+  <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
+    <value>Çôñðéñšéð (ķééþ "Ŵéļçôɱé ţô &lt;ŵôŕļð&gt;")</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementMode_HideAll" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementMode_HideAll" xml:space="preserve">
     <value>Ĥîðé àļļ</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementMode_HidePhishing" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementMode_HidePhishing" xml:space="preserve">
     <value>Ĥîðé þĥîšĥîñĝ ŵàŕñîñĝ ôñļý</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementMode_LoginOnly" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementMode_LoginOnly" xml:space="preserve">
     <value>Ļôĝîñ ôñļý (ĥîðé ôñ ŵôŕļð-ĥôþ)</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementMode_LoginThenCondensed" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementMode_LoginThenCondensed" xml:space="preserve">
     <value>Ļôĝîñ ƒûļļ, çôñðéñšéð ôñ ŵôŕļð-ĥôþ</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementMode_ShowAll" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementMode_ShowAll" xml:space="preserve">
     <value>àļļ</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementsDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementsDropdownHeader" xml:space="preserve">
     <value>Server announcements</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementsHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementsHelpMarker" xml:space="preserve">
     <value>How to handle the server message block shown on login or world travel (welcome headers, in-game event promos, congestion notices, phishing warning).
 
 Show all — unchanged.
 Hide all — suppress the whole block.
-Condensed — keep only the &quot;Welcome to &lt;world&gt;!&quot; line.
+Condensed — keep only the "Welcome to &lt;world&gt;!" line.
 Login only — full block on login, nothing on world-hops.
 Login full, condensed on world-hop — full block on login, only the welcome line on world-hops.
 Hide phishing warning only — keeps greeting and event text, removes the phishing/congestion warning and its URL.
 
 Uses localized matching for all supported client languages (EN/DE/FR/JP).</value>
   </data>
-    <data name="SystemTab_ServerAnnouncementsLabel" xml:space="preserve">
+  <data name="SystemTab_ServerAnnouncementsLabel" xml:space="preserve">
     <value>Server announcements (login / world travel)</value>
   </data>
-    <data name="SystemTab_ShowActiveHelpEntryMessages" xml:space="preserve">
+  <data name="SystemTab_ShowActiveHelpEntryMessages" xml:space="preserve">
     <value>Active Help entry messages</value>
   </data>
-    <data name="SystemTab_ShowActiveHelpEntryMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowActiveHelpEntryMessagesHelpMarker" xml:space="preserve">
     <value>eg. Active Help entry added. Tutorial pop-ups for new content and UI features.</value>
   </data>
-    <data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
+  <data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
     <value>Ĥîðé Àéţĥéŕ Çôɱþàšš ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ţĥé çôɱþàšš ðéţéçţš à çûŕŕéñţ àþþŕôẋîɱàţéļý ①④③ ýàļɱš ţô ţĥé Ŵéšţ···</value>
   </data>
-    <data name="SystemTab_ShowAetheryteTicketMessage" xml:space="preserve">
+  <data name="SystemTab_ShowAetheryteTicketMessage" xml:space="preserve">
     <value>Aetheryte Ticket usage message</value>
   </data>
-    <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
     <value>eg. You used Aetheryte Ticket (Remaining: 5). Uses the item channel in the chat log.</value>
   </data>
-    <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
+  <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
     <value>ARR Relic book step completed messages</value>
   </data>
-    <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
     <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
   </data>
-    <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
+  <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
     <value>ARR Relic book step progress messages</value>
   </data>
-    <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
     <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
   </data>
-    <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
+  <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
     <value>all other System messages</value>
   </data>
-    <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Catch-all for System channel messages not covered by another option. When System filtering is enabled, checking this shows any remaining system messages TidyChat would otherwise block.</value>
   </data>
-    <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
+  <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
     <value>FATE discovered messages</value>
   </data>
-    <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
     <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
   </data>
-    <data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
+  <data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
     <value>Ĥîðé ƑÀŢÉ ļéṽéļ šýñç ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àŕé ⑤ ôŕ ɱôŕé ļéṽéļš àƀôṽé ţĥé ŕéçôɱɱéñðéð ļéṽéļ ƒôŕ ţĥîš ƑÀŢÉ·</value>
   </data>
-    <data name="SystemTab_ShowFriendListMessages" xml:space="preserve">
+  <data name="SystemTab_ShowFriendListMessages" xml:space="preserve">
     <value>friend list messages</value>
   </data>
-    <data name="SystemTab_ShowFriendListMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowFriendListMessagesHelpMarker" xml:space="preserve">
     <value>eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated.</value>
   </data>
-    <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš</value>
   </data>
-    <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· “Ŕéð Ṁàĝé” éǫûîþþéð·</value>
   </data>
-    <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
     <value>Šĥôŵ Šýšţéɱ ɱéššàĝéš Ţîðý Çĥàţ ĥîðéš ƀý ðéƒàûļţ</value>
   </data>
-    <data name="SystemTab_ShowHousingWardMessage" xml:space="preserve">
+  <data name="SystemTab_ShowHousingWardMessage" xml:space="preserve">
     <value>housing ward messages</value>
   </data>
-    <data name="SystemTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
     <value>eg. Shirogane, Ward 15</value>
   </data>
-    <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
+  <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
     <value>Šĥôŵ ĥûñţ ɱàŕķ šļàîñ ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ĥûñţ ɱàŕķ &lt;mark&gt; šļàîñ¡ ①/③</value>
   </data>
-    <data name="SystemTab_ShowInstanceMessage" xml:space="preserve">
+  <data name="SystemTab_ShowInstanceMessage" xml:space="preserve">
     <value>/instance message</value>
   </data>
-    <data name="SystemTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
     <value>eg. You are now in the instanced area Old Sharlayan ❷.
 Current instance can be confirmed at any time using the /instance text command.</value>
   </data>
-    <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
-    <value>Ĥîðé &quot;Šéàŕçĥ ƒôŕ îţéɱš&quot; ŕéšûļţš ɱéššàĝéš</value>
+  <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
+    <value>Ĥîðé "Šéàŕçĥ ƒôŕ îţéɱš" ŕéšûļţš ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>éĝ· ① îţéɱ ƒôûñð îñ ţĥé ④ţĥ ţàƀ ôƒ ýôûŕ îñṽéñţôŕý·</value>
   </data>
-    <data name="SystemTab_ShowJobChangeMessages" xml:space="preserve">
+  <data name="SystemTab_ShowJobChangeMessages" xml:space="preserve">
     <value>job change messages</value>
   </data>
-    <data name="SystemTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
     <value>eg. You change to Scholar., Paladin registered.</value>
   </data>
-    <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
+  <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
     <value>Šĥôŵ îţéɱš àţţàçĥéð ţô šéñţ ɱàîļ</value>
   </data>
-    <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àţţàçĥ ② þôţš ôƒ Ðàļàɱûð Ŕéð Ðýé ţô ţĥé ļéţţéŕ·</value>
   </data>
-    <data name="SystemTab_ShowNumberOfCoffers" xml:space="preserve">
+  <data name="SystemTab_ShowNumberOfCoffers" xml:space="preserve">
     <value>number of available coffers messages</value>
   </data>
-    <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
+  <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
     <value>Šĥôŵ ôñļîñé šţàţûš ûþðàţéš</value>
   </data>
-    <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ûþðàţîñĝ ôñļîñé šţàţûš ţô Àŵàý ƒŕôɱ Ķéýƀôàŕð·</value>
   </data>
-    <data name="SystemTab_ShowOrchestrionPlaying" xml:space="preserve">
-    <value>Hide &quot;Orchestrion now plays&quot; messages</value>
+  <data name="SystemTab_ShowOrchestrionPlaying" xml:space="preserve">
+    <value>Hide "Orchestrion now plays" messages</value>
   </data>
-    <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
     <value>eg. Orchestrion now plays &lt;song&gt;.</value>
   </data>
-    <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
+  <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
     <value>personal message book new entry messages</value>
   </data>
-    <data name="SystemTab_ShowPersonalMessageBookMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowPersonalMessageBookMessagesHelpMarker" xml:space="preserve">
     <value>eg. A new entry has been added to your message book. Uses the message-book channel.</value>
   </data>
-    <data name="SystemTab_ShowPortraitMessages" xml:space="preserve">
+  <data name="SystemTab_ShowPortraitMessages" xml:space="preserve">
     <value>portrait messages</value>
   </data>
-    <data name="SystemTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
     <value>eg. Portrait set as instant portrait., Portrait has expired.</value>
   </data>
-    <data name="SystemTab_ShowReceivedCommendations" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendations" xml:space="preserve">
     <value>Ĥîðé Ŕéçéîṽéð Çôɱɱéñðàţîôñš</value>
   </data>
-    <data name="SystemTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ŕéçéîṽéð à þļàýéŕ çôɱɱéñðàţîôñ¡</value>
   </data>
-    <data name="SystemTab_ShowSanctuaryMessage" xml:space="preserve">
+  <data name="SystemTab_ShowSanctuaryMessage" xml:space="preserve">
     <value>sanctuary enter/leave messages</value>
   </data>
-    <data name="SystemTab_ShowSanctuaryMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSanctuaryMessageHelpMarker" xml:space="preserve">
     <value>eg. You have entered a sanctuary. / You have left the sanctuary.</value>
   </data>
-    <data name="SystemTab_ShowSayReminder" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminder" xml:space="preserve">
     <value>Ĥîðé ŕéɱîñðéŕš ôƒ ŵĥàţ ţô /šàý îñ çĥàţ ðûŕîñĝ ǫûéšţš·</value>
   </data>
-    <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
     <value>éĝ· Ŵîţĥ ţĥé çĥàţ ɱôðé îñ Šàý، éñţéŕ à þĥŕàšé çôñţàîñîñĝ “Ţàţàŕû” àţ ţĥé ðéšţîñàţîôñ þôîñţ·</value>
   </data>
-    <data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
+  <data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
     <value>gear reaching 100% spiritbound messages</value>
   </data>
-    <data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Ĥîðé Š Ŕàñķ Ĥûñţ šþàŵñ àññôûñçéɱéñţ</value>
   </data>
-    <data name="SystemTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû šéñšé ţĥé þŕéšéñçé ôƒ à þôŵéŕƒûļ ɱàŕķ···</value>
   </data>
-    <data name="SystemTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
     <value>Ĥîðé ŠŠ Ŕàñķ Ṁîñîôñ àññôûñçéɱéñţš</value>
   </data>
-    <data name="SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>éĝ· Ţĥé ɱîñîôñš ôƒ àñ éẋţŕàôŕðîñàŕîļý þôŵéŕƒûļ ɱàŕķ àŕé ôñ ţĥé ĥûñţ ƒôŕ þŕéý···
 Ţĥé ɱîñîôñš ôƒ àñ éẋţŕàôŕðîñàŕîļý þôŵéŕƒûļ ɱàŕķ ĥàṽé ŵîţĥðŕàŵñ···</value>
   </data>
-    <data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
+  <data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
     <value>Ĥîðé ţŕý ôñ ĝļàɱôûŕ ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ţŕý ôñ îţéɱ·</value>
   </data>
-    <data name="SystemTab_ShowVistaMessages" xml:space="preserve">
+  <data name="SystemTab_ShowVistaMessages" xml:space="preserve">
     <value>Ĥîðé ṽîšţà àŕŕîṽàļ àñð šţŕàý ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ĥàṽé àŕŕîṽéð àţ à ṽîšţà¡ àñð Ýôû ĥàṽé šţŕàýéð ţôô ƒàŕ ƒŕôɱ ţĥé ṽîšţà·</value>
   </data>
-    <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
+  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
     <value>volume control messages</value>
   </data>
-    <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
     <value>eg. Master Volume muted, BGM volume set to 50.</value>
   </data>
-    <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
-    <value>Ĥîðé &quot;Ýôû šéñšé šôɱéţĥîñĝ···&quot; ɱéššàĝéš</value>
+  <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
+    <value>Ĥîðé "Ýôû šéñšé šôɱéţĥîñĝ···" ɱéššàĝéš</value>
   </data>
-    <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû šéñšé šôɱéţĥîñĝ ţô ţĥé ƒàŕ، ƒàŕ šôûţĥŵéšţ···</value>
   </data>
-    <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
     <value>Social &amp; misc</value>
   </data>
-    <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
     <value>Social status</value>
   </data>
-    <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
     <value>World &amp; instances</value>
   </data>
-    <data name="ToolsTab_ChatHistoryDropdownHeader" xml:space="preserve">
+  <data name="ToolsTab_ChatHistoryDropdownHeader" xml:space="preserve">
     <value>Chat History</value>
   </data>
-    <data name="ToolsTab_CustomFiltersDropdownHeader" xml:space="preserve">
+  <data name="ToolsTab_CustomFiltersDropdownHeader" xml:space="preserve">
     <value>Custom Filters</value>
   </data>
-    <data name="ToolsTab_DebugDropdownHeader" xml:space="preserve">
+  <data name="ToolsTab_DebugDropdownHeader" xml:space="preserve">
     <value>Debug</value>
   </data>
-    <data name="ToolsTab_DebugIncludeChannel" xml:space="preserve">
+  <data name="ToolsTab_DebugIncludeChannel" xml:space="preserve">
     <value>channel in debug lines</value>
   </data>
-    <data name="ToolsTab_EnableDebugMode" xml:space="preserve">
+  <data name="ToolsTab_EnableDebugMode" xml:space="preserve">
     <value>Debug mode (dry-run filtering)</value>
   </data>
-    <data name="WhitelistTab_Allow" xml:space="preserve">
+  <data name="WhitelistTab_Allow" xml:space="preserve">
     <value>Allow</value>
   </data>
-    <data name="WhitelistTab_Block" xml:space="preserve">
+  <data name="WhitelistTab_Block" xml:space="preserve">
     <value>Block</value>
   </data>
-    <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
+  <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
     <value>Channels</value>
   </data>
-    <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
-    <value>Ýôû ɱûšţ éñţéŕ ţĥé þļàýéŕ&apos;š ñàɱé àš îţ ŵôûļð ƀé šééñ îñ çĥàţ ‐ îñçļûðîñĝ àñý þéŕîôðš·
+  <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
+    <value>Ýôû ɱûšţ éñţéŕ ţĥé þļàýéŕ'š ñàɱé àš îţ ŵôûļð ƀé šééñ îñ çĥàţ ‐ îñçļûðîñĝ àñý þéŕîôðš·
 
 éĝ·
 Šûŕñàɱé Àƀƀŕéṽîàţéð∶ Éẋàɱþļé Ñ·
 Ƒôŕéñàɱé Àƀƀŕéṽîàţéð∶ É· Ñàɱé
 Îñîţîàļš∶ É· Ñ·</value>
   </data>
-    <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
+  <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
     <value>Ûšéŕš àððéð ţô ţĥé ŵĥîţéļîšţ ŵîļļ ƀé ţŕéàţéð àš îƒ ţĥéý ŵéŕé ýôû ƒôŕ àļļ ƒîļţéŕ šéţţîñĝš·
-Éñţéŕ à þļàýéŕ&apos;š ƒîŕšţ àñð ļàšţ ñàɱé àñð ţĥéñ þŕéšš &lt;Enter&gt; ţô àðð ţĥéɱ ţô ţĥé ŵĥîţéļîšţ·</value>
+Éñţéŕ à þļàýéŕ'š ƒîŕšţ àñð ļàšţ ñàɱé àñð ţĥéñ þŕéšš &lt;Enter&gt; ţô àðð ţĥéɱ ţô ţĥé ŵĥîţéļîšţ·</value>
   </data>
-    <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
+  <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
     <value>Filters</value>
   </data>
-    <data name="WhitelistTab_MessageContains" xml:space="preserve">
+  <data name="WhitelistTab_MessageContains" xml:space="preserve">
     <value>Message contains:</value>
   </data>
-    <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
+  <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
     <value>Þļàýéŕ Îñƒôŕɱàţîôñ</value>
   </data>
-    <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
+  <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
     <value>Šéļéçţ Çĥàññéļš</value>
   </data>
-    <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
+  <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
     <value>Šĥôŵ àļļ ɱéššàĝéš šéñţ ƀý ŵĥîţéļîšţéð þļàýéŕ</value>
   </data>
-    <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
+  <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
     <value>Šĥôŵ àļļ ɱéššàĝéš ţàŕĝéţîñĝ à ŵĥîţéļîšţéð þļàýéŕ</value>
   </data>
-    <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
+  <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
     <value>Ƒîŕšţ Ñàɱé∶ </value>
   </data>
-    <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
+  <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
     <value>Ļàšţ Ñàɱé∶ </value>
   </data>
-    <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
+  <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
     <value>Šéŕṽéŕ Ñàɱé∶ </value>
   </data>
 </root>
