@@ -403,12 +403,25 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
   <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
   </data>
+  <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
+    <value>Market board &amp; retainer listings</value>
+  </data>
+  <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
+    <value>Item sold (after fees), all listings sold, and sale gil entrusted to your retainer. Use the options below to shorten sold lines or show when listings start or stop in the markets. Sold lines use the retainer-sale channel; other lines use System.</value>
+  </data>
   <data name="EconomyTab_ShortenMarketBoardSale" xml:space="preserve">
     <value>Compact item sold lines</value>
   </data>
   <data name="EconomyTab_ShortenMarketBoardSaleHelpMarker" xml:space="preserve">
-    <value>eg. Pair of titanium gold saberfangs sold for 757 gil. (Replaces the long “put up for sale in … markets” line.)</value>
+    <value>eg. Pair of titanium gold saberfangs sold for 757 gil. Replaces the long “put up for sale in … markets” line.</value>
   </data>
+  <data name="EconomyTab_ShowMarketBoardSellingStatus" xml:space="preserve">
+    <value>Listing started and stopped</value>
+  </data>
+  <data name="EconomyTab_ShowMarketBoardSellingStatusHelpMarker" xml:space="preserve">
+    <value>eg. You are now selling items in the Limsa Lominsa markets. / You are no longer selling items in the Limsa Lominsa markets.</value>
+  </data>
+
   <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
     <value>Gil spent confirmation</value>
   </data>
@@ -420,12 +433,6 @@ Es wird empfohlen, diese bei 50 oder niedriger zu halten.</value>
   </data>
   <data name="EconomyTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
     <value>eg. Your gil has been safely withdrawn.</value>
-  </data>
-  <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
-    <value>Market board &amp; retainer listings</value>
-  </data>
-  <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>Listing started or stopped, item sold (after fees), all listings sold, and sale gil entrusted to retainer. Sold lines use the retainer-sale channel; other lines use System.</value>
   </data>
   <data name="EconomyTab_ShowTradeAwaitingConfirmation" xml:space="preserve">
     <value>Awaiting trade confirmation</value>

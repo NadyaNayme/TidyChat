@@ -833,6 +833,18 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string EconomyTab_ShowMarketBoardSellingStatus {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowMarketBoardSellingStatus", resourceCulture);
+            }
+        }
+        
+        internal static string EconomyTab_ShowMarketBoardSellingStatusHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowMarketBoardSellingStatusHelpMarker", resourceCulture);
+            }
+        }
+        
         internal static string EconomyTab_ShowGilSpentMessage {
             get {
                 return ResourceManager.GetString("EconomyTab_ShowGilSpentMessage", resourceCulture);

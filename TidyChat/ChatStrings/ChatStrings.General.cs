@@ -73,6 +73,7 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/398?pretty=true">You are now selling items in the … markets.</see>
     public static readonly LocalizedStrings MarketBoardStartSelling = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -82,6 +83,7 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/399?pretty=true">You are no longer selling items in the … markets.</see>
     public static readonly LocalizedStrings MarketBoardStopSelling = new()
     {
         Jpn = ["NeedsLocalization"],

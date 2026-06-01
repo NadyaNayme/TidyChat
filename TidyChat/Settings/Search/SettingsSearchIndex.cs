@@ -373,14 +373,17 @@ internal static class SettingsSearchIndex
             propertyName is "ShowOtherCustomEmotes" or "ShowSelfUsedEmotes")
             return Languages.ConfigWindow_EmotesTabHeader;
 
+        if (propertyName is "ShowMarketBoardMessages" or
+            "ShowMarketBoardSellingStatus" or
+            "BetterMarketBoardSaleMessage")
+            return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_MarketBoardSectionHeader}";
+
         if (propertyName is "ShowTradeSent" or
             "ShowTradeCanceled" or
             "ShowAwaitingTradeConfirmation" or
             "ShowTradeComplete" or
             "ShowVendorSellMessages" or
             "ShowVendorPurchaseMessages" or
-            "ShowMarketBoardMessages" or
-            "BetterMarketBoardSaleMessage" or
             "ShowGilWithdrawnMessage" or
             "ShowGilSpentMessage")
             return Languages.ConfigWindow_EconomyTabHeader;

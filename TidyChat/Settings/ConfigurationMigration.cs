@@ -41,6 +41,9 @@ internal static class ConfigurationMigration
             config.ShowJobChange = true;
             config.ShowPortraitMessages = true;
         }
+
+        if (config.ShowMarketBoardMessages)
+            config.ShowMarketBoardSellingStatus = true;
     }
 
     private static void ApplyLegacyJsonFields(Configuration config, IDalamudPluginInterface pluginInterface)

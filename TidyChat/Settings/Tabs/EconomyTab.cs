@@ -87,6 +87,15 @@ internal static class EconomyTab
                 }
 
                 UiHelp.SystemFilterMarker(Languages.EconomyTab_ShortenMarketBoardSaleHelpMarker);
+
+                bool showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
+                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardSellingStatus, ref showMarketBoardSellingStatus))
+                {
+                    configuration.ShowMarketBoardSellingStatus = showMarketBoardSellingStatus;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardSellingStatusHelpMarker);
                 ImGui.Unindent();
             }
         }

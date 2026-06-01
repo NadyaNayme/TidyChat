@@ -75,6 +75,7 @@ public static partial class Rules
         ["ShowVendorSellMessages"] = c => c.ShowVendorSellMessages,
         ["ShowVendorPurchaseMessages"] = c => c.ShowVendorPurchaseMessages,
         ["ShowMarketBoardMessages"] = c => c.ShowMarketBoardMessages,
+        ["ShowMarketBoardSellingStatus"] = c => c.ShowMarketBoardSellingStatus,
         ["ShowGilWithdrawnMessage"] = c => c.ShowGilWithdrawnMessage,
         ["ShowGilSpentMessage"] = c => c.ShowGilSpentMessage,
         ["HideDutyCommenceBriefing"] = c => c.BetterDutyCommenceMessage,

@@ -173,6 +173,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowVendorSellMessages { get; set; } = false;
     public bool ShowVendorPurchaseMessages { get; set; } = false;
     public bool ShowMarketBoardMessages { get; set; } = false;
+    public bool ShowMarketBoardSellingStatus { get; set; } = false;
     public bool BetterMarketBoardSaleMessage { get; set; } = true;
     public bool ShowGilWithdrawnMessage { get; set; } = false;
     public bool ShowGilSpentMessage { get; set; } = false;

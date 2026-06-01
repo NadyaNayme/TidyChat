@@ -1231,7 +1231,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowMarketBoardMessages",
+            Name = "ShowMarketBoardSellingStatus",
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
@@ -1242,7 +1242,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowMarketBoardMessages",
+            Name = "ShowMarketBoardSellingStatus",
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
