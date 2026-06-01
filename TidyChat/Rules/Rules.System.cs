@@ -747,7 +747,7 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [1531, 7249, 7270, 9218],
+            LogMessageIds = [7249, 7270, 9218],
             RegexChecks = [ChatRegexStrings.FloorNumber],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
@@ -1236,14 +1236,6 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [440, 398, 399, 384, 734, 736, 748, 1687, 1688, 4578, 4590]
-        },
-        new()
-        {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
             LogMessageIds = [440],
             StringChecks = [ChatStrings.OfferedTeleport],
             Pattern = PatternKind.StringMatch,
@@ -1251,7 +1243,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowOfferedTeleport",
+            Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1262,7 +1254,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowOfferedTeleport",
+            Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1273,7 +1265,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowOfferedTeleport",
+            Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1284,7 +1276,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowOfferedTeleport",
+            Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1295,51 +1287,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [1688],
-            StringChecks = [ChatStrings.VendorSellForGil],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [734],
-            StringChecks = [ChatStrings.VendorPurchase],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [1687],
-            StringChecks = [ChatStrings.VendorPurchaseForGil],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowOfferedTeleport",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4590],
-            StringChecks = [ChatStrings.GilSpent],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowOfferedTeleport",
+            Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1350,7 +1298,51 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowOfferedTeleport",
+            Name = "ShowVendorSellMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1688],
+            StringChecks = [ChatStrings.VendorSellForGil],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowVendorPurchaseMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [734],
+            StringChecks = [ChatStrings.VendorPurchase],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowVendorPurchaseMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1687],
+            StringChecks = [ChatStrings.VendorPurchaseForGil],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGilSpentMessage",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4590],
+            StringChecks = [ChatStrings.GilSpent],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGilWithdrawnMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,

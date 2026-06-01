@@ -75,11 +75,19 @@ public static partial class Rules
         ["ShowFateDiscovery"] = c => c.ShowFateDiscovery,
         ["ShowActiveHelpEntry"] = c => c.ShowActiveHelpEntry,
         ["ShowOfferedTeleport"] = c => c.ShowOfferedTeleport,
+        ["ShowVendorSellMessages"] = c => c.ShowVendorSellMessages,
+        ["ShowVendorPurchaseMessages"] = c => c.ShowVendorPurchaseMessages,
+        ["ShowMarketBoardMessages"] = c => c.ShowMarketBoardMessages,
+        ["ShowGilWithdrawnMessage"] = c => c.ShowGilWithdrawnMessage,
+        ["ShowGilSpentMessage"] = c => c.ShowGilSpentMessage,
+        ["HideDutyCommenceBriefing"] = c => c.BetterDutyCommenceMessage,
         ["ShowGearsetEquipped"] = c => c.ShowGearsetEquipped,
         ["ShowMateriaRetrieved"] = c => c.ShowMateriaRetrieved,
         ["ShowMateriaShatters"] = c => c.ShowMateriaShatters,
         ["ShowVolumeControlMessage"] = c => c.ShowVolumeControlMessage,
         ["ShowAetherialReductionSands"] = c => c.ShowAetherialReductionSands,
+        ["ShowAetherialReductionSuccess"] = c => c.ShowAetherialReductionSuccess,
+        ["ShowAetherialReductionMinigame"] = c => c.ShowAetherialReductionMinigame,
         ["ShowSealedOff"] = c => c.ShowSealedOff,
         ["ShowSearchForItemResults"] = c => c.ShowSearchForItemResults,
         ["ShowAetheryteTicket"] = c => c.ShowAetheryteTicket,
@@ -175,6 +183,7 @@ public static partial class Rules
     {
         var rules = new List<LocalizedFilterRule>(400);
         rules.AddRange(SystemRules);
+        rules.AddRange(DutyCommenceRules);
         rules.AddRange(ErrorMessageRules);
         rules.AddRange(EmoteRules);
         rules.AddRange(CraftingRules);

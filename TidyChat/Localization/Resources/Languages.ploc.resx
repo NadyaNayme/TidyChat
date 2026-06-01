@@ -502,6 +502,51 @@
   <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
     <value>Šĥôŵ ţĥé ñûɱƀéŕ ôƒ ôƀţàîñéð šàñðš àƒţéŕ ûšîñĝ àéţĥéŕîàļ ŕéðûçţîôñ</value>
   </data>
+  <data name="CraftingGatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱéššàĝé ŵĥéñ ýôû šûççéššƒûļļý ŕéðûçé à çôļļéçţàƀļé îţéɱ</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
+    <value>Šĥôŵ çôļļéçţàƀļé ŕéðûçţîôñ ɱîñîĝàɱé ɱéššàĝéš</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ. Ýôûŕ ɱéţîçûļôûš àçţîôñš ƥŕôvé éƒƒéçţîvé.</value>
+  </data>
+  <data name="GeneralTab_ImprovedDutyCommenceMessaging" xml:space="preserve">
+    <value>Îɱƥŕôvéð ðûţý çôɱɱéñçé ɱéššàĝîñĝ</value>
+  </data>
+  <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
+    <value>Ŕéþļàçéš ðûţý éñţŕý šþàɱ ŵîţĥ Ðûţý Ñàɱé ĥàš ƀéĝûñ.</value>
+  </data>
+  <data name="SystemTab_ShowVendorSellMessages" xml:space="preserve">
+    <value>Šĥôŵ véñðôŕ àñð ŕéţàîñéŕ šéļļ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ. Ýôû šéļļ 3 Šĥîšûî ĝôƀîéš ƒôŕ 6 ĝîļ.</value>
+  </data>
+  <data name="SystemTab_ShowVendorPurchaseMessages" xml:space="preserve">
+    <value>Šĥôŵ véñðôŕ þûŕçĥàšé ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ. Ýôû þûŕçĥàšé àñ îţéɱ ƒŕôɱ à véñðôŕ.</value>
+  </data>
+  <data name="SystemTab_ShowMarketBoardMessages" xml:space="preserve">
+    <value>Šĥôŵ ɱàŕķéţ ƀôàŕð ļîšţîñĝ àñð šàļé ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
+    <value>éĝ. Ýôû àŕé ñôŵ šéļļîñĝ îţéɱš îñ ţĥé ɱàŕķéţš.</value>
+  </data>
+  <data name="SystemTab_ShowGilWithdrawnMessage" xml:space="preserve">
+    <value>Šĥôŵ ŕéţàîñéŕ ĝîļ ŵîţĥðŕàŵàļ ɱéššàĝé</value>
+  </data>
+  <data name="SystemTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
+    <value>éĝ. Ýôûŕ ĝîļ ĥàš ƀééñ šàƒéļý ŵîţĥðŕàŵñ.</value>
+  </data>
+  <data name="SystemTab_ShowGilSpentMessage" xml:space="preserve">
+    <value>Šĥôŵ ĝîļ šþéñţ çôñƒîŕɱàţîôñ ɱéššàĝéš</value>
+  </data>
+  <data name="SystemTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
+    <value>éĝ. Ýôû šþéñð ĝîļ ôñ à þûŕçĥàšé.</value>
+  </data>
   <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
     <value>Šĥôŵ šýñţĥéšîš ɱéššàĝé ŵĥéñ ôţĥéŕ þļàýéŕš çôɱþļéţé à çŕàƒţ·</value>
   </data>

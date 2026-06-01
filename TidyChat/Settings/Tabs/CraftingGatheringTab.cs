@@ -126,6 +126,24 @@ internal static class CraftingGatheringTab
                 configuration.OnSettingChanged();
             }
 
+            bool showAetherialReductionSuccess = configuration.ShowAetherialReductionSuccess;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAetherialReductionSuccessMessages,
+                    ref showAetherialReductionSuccess))
+            {
+                configuration.ShowAetherialReductionSuccess = showAetherialReductionSuccess;
+                configuration.OnSettingChanged();
+            }
+
+            bool showAetherialReductionMinigame = configuration.ShowAetherialReductionMinigame;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAetherialReductionMinigameMessages,
+                    ref showAetherialReductionMinigame))
+            {
+                configuration.ShowAetherialReductionMinigame = showAetherialReductionMinigame;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker);
+
             bool showGatheringStartEnd = configuration.ShowGatheringStartEnd;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringStartEnd,
                     ref showGatheringStartEnd))

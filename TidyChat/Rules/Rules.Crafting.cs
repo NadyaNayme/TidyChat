@@ -315,63 +315,7 @@ public static partial class Rules
         },
         new()
         {
-            // IDs 1049/1053/1050/1054 = crystal/shard/collectable obtain in the Gathering channel
-            // (gathering a collectable item with Collector's Glove before reducing it)
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            LogMessageIds = [1049, 1050, 1053, 1054]
-        },
-        new()
-        {
-            // ID 3553 = "You successfully reduce <item> (Collectability: N)." (reduction success)
             // ID 3555 = "N <sands> are obtained." (the resulting aethersand)
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3553, 3555]
-        },
-        new()
-        {
-            // 5514 = "Your meticulous actions prove effective. Integrity is not reduced."
-            // 5516 = "Collectability can be raised no higher."
-            // 5573 = "Collector's high standard sharpens your focus. Brazen and meticulous actions are enhanced."
-            // 5574 = "The effect of Revisit has restored … GP and granted … integrity to the gathering point."
-            // 5550 = "This location grants an increase to item collectability!"
-            // 3549/3569 = Brazen / Meticulous Woodsman collectability actions.
-            // All are fixed-text (0 params) GatheringSystem notifications unique to the collectable mini-game.
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.GatheringSystem,
-            IsActive = true,
-            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569]
-        },
-        new()
-        {
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            LogMessageIds = [1049, 1050, 1053, 1054],
-            StringChecks = [ChatStrings.AetherialReductionSands],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3553],
-            StringChecks = [ChatStrings.AetherialReductionSuccess],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -385,6 +329,38 @@ public static partial class Rules
         {
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatRegexStrings.AetherialReductionSands],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true,
+            LogMessageIds = [3555]
+        },
+        new()
+        {
+            // ID 3553 = "You successfully reduce <item> (Collectability: N)."
+            Name = "ShowAetherialReductionSuccess",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3553],
+            StringChecks = [ChatStrings.AetherialReductionSuccess],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            // Collectable reduction minigame (GatheringSystem channel).
+            Name = "ShowAetherialReductionMinigame",
+            SettingsTab = "System",
+            Channel = ChatType.GatheringSystem,
+            IsActive = true,
+            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569]
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionMinigame",
+            SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569],
@@ -394,7 +370,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAetherialReductionSands",
+            Name = "ShowAetherialReductionMinigame",
             SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
@@ -405,7 +381,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAetherialReductionSands",
+            Name = "ShowAetherialReductionMinigame",
             SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
@@ -416,7 +392,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAetherialReductionSands",
+            Name = "ShowAetherialReductionMinigame",
             SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
@@ -424,17 +400,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.MeticulousWoodsman],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.AetherialReductionSands],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = [3553, 3555, 1049, 1050, 1053, 1054, 5514, 5516, 5573, 5574, 5550, 3549, 3569]
         }
     ];
 }

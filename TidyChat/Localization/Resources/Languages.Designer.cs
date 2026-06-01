@@ -968,6 +968,24 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages", resourceCulture);
             }
         }
+
+        internal static string CraftingGatheringTab_ShowAetherialReductionSuccessMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowAetherialReductionSuccessMessages", resourceCulture);
+            }
+        }
+
+        internal static string CraftingGatheringTab_ShowAetherialReductionMinigameMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowAetherialReductionMinigameMessages", resourceCulture);
+            }
+        }
+
+        internal static string CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Show synthesis message when other players complete a craft..
@@ -1366,7 +1384,19 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("GeneralTab_ImprovedInstanceMessagingHelpMarker", resourceCulture);
             }
         }
-        
+
+        internal static string GeneralTab_ImprovedDutyCommenceMessaging {
+            get {
+                return ResourceManager.GetString("GeneralTab_ImprovedDutyCommenceMessaging", resourceCulture);
+            }
+        }
+
+        internal static string GeneralTab_ImprovedDutyCommenceMessagingHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_ImprovedDutyCommenceMessagingHelpMarker", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Improved Messages.
         /// </summary>
@@ -3414,7 +3444,67 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("SystemTab_ShowTeleportOfferFromPartyMessages", resourceCulture);
             }
         }
-        
+
+        internal static string SystemTab_ShowVendorSellMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowVendorSellMessages", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowVendorSellMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowVendorSellMessagesHelpMarker", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowVendorPurchaseMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowVendorPurchaseMessages", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowVendorPurchaseMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowVendorPurchaseMessagesHelpMarker", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowMarketBoardMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowMarketBoardMessages", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowMarketBoardMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowMarketBoardMessagesHelpMarker", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowGilWithdrawnMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowGilWithdrawnMessage", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowGilWithdrawnMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowGilWithdrawnMessageHelpMarker", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowGilSpentMessage {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowGilSpentMessage", resourceCulture);
+            }
+        }
+
+        internal static string SystemTab_ShowGilSpentMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowGilSpentMessageHelpMarker", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Show &quot;Trade canceled.&quot; message.
         /// </summary>

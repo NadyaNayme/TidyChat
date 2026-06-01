@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Timers;
 using Dalamud.Game;
 using Dalamud.Game.Text;
@@ -31,6 +32,47 @@ internal static class BetterStrings
         }
 
         return $"/say {containingPhrase}";
+    }
+
+    public static SeString DutyCommence(SeString message, Configuration configuration, string normalizedText)
+    {
+        string dutyName = ExtractDutyNameFromCommence(normalizedText, message.TextValue);
+        if (string.IsNullOrWhiteSpace(dutyName) && TidyStrings.LastDuty.Length > 0)
+            dutyName = TidyStrings.LastDuty;
+
+        if (!string.IsNullOrWhiteSpace(dutyName))
+            TidyStrings.LastDuty = dutyName;
+
+        if (string.IsNullOrWhiteSpace(dutyName))
+            dutyName = L10N.GetTidy(TidyStrings.InstanceWord);
+
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.DutyHasBegunFormat), dutyName));
+        return stringBuilder.BuiltString;
+    }
+
+    private static string ExtractDutyNameFromCommence(string normalizedText, string rawText)
+    {
+        foreach(string candidate in new[] { normalizedText, StripItemLinkNoise(rawText).ToLower(CultureInfo.InvariantCulture) })
+        {
+            if (string.IsNullOrWhiteSpace(candidate)) continue;
+            Match match = L10N.Get(ChatRegexStrings.DutyHasBegun).Match(candidate);
+            if (match.Success && match.Groups["duty"].Success)
+            {
+                string duty = match.Groups["duty"].Value.Trim();
+                if (duty.Length > 0) return duty;
+            }
+        }
+
+        return string.Empty;
+    }
+
+    private static string StripItemLinkNoise(string text)
+    {
+        if (string.IsNullOrEmpty(text)) return text;
+        return Regex.Replace(text, @"\uE0BB|\uE0BC|\uE0BD|\uE0BE|\uE0BF|", string.Empty, RegexOptions.None, TimeSpan.FromSeconds(1))
+            .Trim();
     }
 
     public unsafe static SeString Instances(SeString message, Configuration configuration)

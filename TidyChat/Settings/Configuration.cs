@@ -65,9 +65,9 @@ public class Configuration : IPluginConfiguration
 
     #region Error Messages
 
-    public bool HideFateLevelSync { get; set; } = true;
-    public bool HideCannotExecute { get; set; } = true;
-    public bool ShowFateDiscovery { get; set; } = true;
+    public bool HideFateLevelSync { get; set; } = false;
+    public bool HideCannotExecute { get; set; } = false;
+    public bool ShowFateDiscovery { get; set; } = false;
 
     #endregion
 
@@ -93,6 +93,7 @@ public class Configuration : IPluginConfiguration
     public bool IncludeDutyNameInComms { get; set; } = true;
     public bool BetterNoviceNetworkMessage { get; set; } = true;
     public bool BetterTreasureDungeonMessage { get; set; } = true;
+    public bool BetterDutyCommenceMessage { get; set; } = false;
 
     #endregion
 
@@ -102,45 +103,45 @@ public class Configuration : IPluginConfiguration
     public bool ShowSSRankHunt { get; set; } = true;
 
     public bool ShowCommendations { get; set; } = true;
-    public bool ShowCompletedVenture { get; set; } = false;
+    public bool ShowCompletedVenture { get; set; } = true;
     public bool ShowRetainerVentureMessages { get; set; } = false;
 
     public bool ShowInstanceMessage { get; set; } = true;
 
-    public bool ShowSanctuaryMessage { get; set; } = true;
+    public bool ShowSanctuaryMessage { get; set; } = false;
 
-    public bool ShowHousingWardMessage { get; set; } = true;
+    public bool ShowHousingWardMessage { get; set; } = false;
     public bool ShowQuestReminder { get; set; } = true;
 
-    public bool ShowQuestProgress { get; set; } = true;
+    public bool ShowQuestProgress { get; set; } = false;
 
-    public bool ShowMountMessages { get; set; } = true;
+    public bool ShowMountMessages { get; set; } = false;
     public bool ShowSelfUsedEmotes { get; set; } = true;
     public bool ShowOtherCustomEmotes { get; set; } = true;
 
     public bool ShowReadyChecks { get; set; } = true;
     public bool ShowCountdownTime { get; set; } = true;
 
-    public bool ShowUserLogins { get; set; } = false;
-    public bool ShowUserLogouts { get; set; } = false;
+    public bool ShowUserLogins { get; set; } = true;
+    public bool ShowUserLogouts { get; set; } = true;
 
-    public bool ShowFriendList { get; set; } = true;
+    public bool ShowFriendList { get; set; } = false;
 
-    public bool ShowSpiritboundGear { get; set; } = false;
+    public bool ShowSpiritboundGear { get; set; } = true;
 
     public bool ShowSpideySenses { get; set; } = true;
 
     public bool ShowAetherCompass { get; set; } = true;
     public bool ShowSearchForItemResults { get; set; } = true;
-    public bool ShowExploratoryVoyage { get; set; } = false;
-    public bool ShowSubaquaticVoyage { get; set; } = false;
+    public bool ShowExploratoryVoyage { get; set; } = true;
+    public bool ShowSubaquaticVoyage { get; set; } = true;
     public bool ShowFreeCompanyMessageBook { get; set; } = true;
     public bool ShowPersonalMessageBook { get; set; } = true;
     public bool ShowVistaMessages { get; set; } = true;
-    public bool ShowTryOnGlamour { get; set; } = false;
-    public bool ShowEligibleForCoffers { get; set; } = false;
+    public bool ShowTryOnGlamour { get; set; } = true;
+    public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGearsetEquipped { get; set; } = false;
-    public bool ShowJobChange { get; set; } = true;
+    public bool ShowJobChange { get; set; } = false;
     public bool ShowPortraitMessages { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
 
@@ -162,8 +163,13 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowPartyInformation { get; set; } = true;
 
-    public bool ShowDutyFinder { get; set; } = true;
+    public bool ShowDutyFinder { get; set; } = false;
     public bool ShowOfferedTeleport { get; set; } = false;
+    public bool ShowVendorSellMessages { get; set; } = false;
+    public bool ShowVendorPurchaseMessages { get; set; } = false;
+    public bool ShowMarketBoardMessages { get; set; } = false;
+    public bool ShowGilWithdrawnMessage { get; set; } = false;
+    public bool ShowGilSpentMessage { get; set; } = false;
 
     public bool ShowSealedOff { get; set; } = false;
 
@@ -178,7 +184,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = true;
     public bool ShowActiveHelpEntry { get; set; } = false;
-    public bool HideOrchestrionPlaying { get; set; } = true;
+    public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
     public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
 
@@ -188,7 +194,7 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowObtainedPomander { get; set; } = true;
 
-    public bool ShowTrapTriggered { get; set; } = true;
+    public bool ShowTrapTriggered { get; set; } = false;
 
     public bool ShowCairnGlows { get; set; } = true;
     public bool ShowRestoresLifeToFallen { get; set; } = false;
@@ -207,7 +213,7 @@ public class Configuration : IPluginConfiguration
     #region Obtained Items
 
     public bool ShowObtainedItems { get; set; } = true;
-    public bool HideObtainedGil { get; set; } = true;
+    public bool HideObtainedGil { get; set; } = false;
     public bool HideObtainedMGP { get; set; } = false;
     public bool HideObtainedClusters { get; set; } = false;
     public bool HideObtainedWolfMarks { get; set; } = false;
@@ -218,14 +224,14 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedVenture { get; set; } = false;
     public bool HideObtainedMaterials { get; set; } = false;
     public bool HideObtainedTribalCurrency { get; set; } = false;
-    public bool HideObtainedShards { get; set; } = true;
+    public bool HideObtainedShards { get; set; } = false;
 
     /// <summary>Deprecated v3: merged into <see cref="HideObtainedShards" />; retained for config deserialization.</summary>
     public bool HideObtainedShardsFromLoot { get; set; } = false;
 
     public bool ShowGainExperience { get; set; } = false;
-    public bool HideRouletteBonus { get; set; } = true;
-    public bool HideAdventurerInNeedBonus { get; set; } = true;
+    public bool HideRouletteBonus { get; set; } = false;
+    public bool HideAdventurerInNeedBonus { get; set; } = false;
     public bool ShowGainPvpExp { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
@@ -278,23 +284,25 @@ public class Configuration : IPluginConfiguration
 
     public bool FilterGatheringSpam { get; set; } = true;
     public bool ShowGatheringSenses { get; set; } = true;
-    public bool ShowAetherialReductionSands { get; set; } = false;
+    public bool ShowAetherialReductionSands { get; set; } = true;
+    public bool ShowAetherialReductionSuccess { get; set; } = true;
+    public bool ShowAetherialReductionMinigame { get; set; } = true;
     public bool ShowLocationAffects { get; set; } = true;
-    public bool ShowGatheringStartEnd { get; set; } = false;
-    public bool ShowGatheringYield { get; set; } = false;
-    public bool ShowGatherersBoon { get; set; } = false;
-    public bool ShowGatheringAttempts { get; set; } = false;
+    public bool ShowGatheringStartEnd { get; set; } = true;
+    public bool ShowGatheringYield { get; set; } = true;
+    public bool ShowGatherersBoon { get; set; } = true;
+    public bool ShowGatheringAttempts { get; set; } = true;
     public bool ShowCaughtFish { get; set; } = true;
-    public bool ShowMooching { get; set; } = false;
-    public bool ShowCurrentFishingHole { get; set; } = false;
+    public bool ShowMooching { get; set; } = true;
+    public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
-    public bool ShowMeasuringIlms { get; set; } = false;
-    public bool ShowLureMessages { get; set; } = false;
+    public bool ShowMeasuringIlms { get; set; } = true;
+    public bool ShowLureMessages { get; set; } = true;
     public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
     public bool ShowStellarMissionMessages { get; set; } = false;
 
-    public bool ShowCosmicExplorationMessages { get; set; } = true;
+    public bool ShowCosmicExplorationMessages { get; set; } = false;
 
     public bool ShowCosmicRewards { get; set; } = false;
     public bool ShowCosmicDailyProgress { get; set; } = false;
@@ -303,20 +311,20 @@ public class Configuration : IPluginConfiguration
 
     #region Combat
 
-    public bool ShowCombatCasting { get; set; } = true;
+    public bool ShowCombatCasting { get; set; } = false;
     public bool ShowCombatAbilities { get; set; } = false;
     public bool ShowCombatDamage { get; set; } = false;
     public bool ShowCombatMisses { get; set; } = false;
     public bool ShowCombatHealing { get; set; } = false;
     public bool ShowCombatEffects { get; set; } = false;
-    public bool ShowCombatDefeat { get; set; } = true;
-    public bool ShowCombatEnemyReady { get; set; } = true;
+    public bool ShowCombatDefeat { get; set; } = false;
+    public bool ShowCombatEnemyReady { get; set; } = false;
 
-    public bool ShowCombatAdds { get; set; } = true;
+    public bool ShowCombatAdds { get; set; } = false;
 
     public bool ShowCombatEnmity { get; set; } = false;
 
-    public bool ShowObtainedQuestItems { get; set; } = true;
+    public bool ShowObtainedQuestItems { get; set; } = false;
 
     #endregion
 }

@@ -30,6 +30,51 @@ public static partial class ChatStrings
         Fra = ["prend", "fin"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
+    public static readonly LocalizedStrings DutyHasBegun = new()
+    {
+        Jpn = ["開始"],
+        Eng = ["has", "begun"],
+        Deu = ["hat", "begonnen"],
+        Fra = ["commencé"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/9602?pretty=true">This duty is level synced…</see>
+    public static readonly LocalizedStrings DutyLevelSyncedBriefing = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["duty", "level", "synced", "participants", "adjusted"],
+        Deu = ["stufe", "synchronisiert", "teilnehmer"],
+        Fra = ["mission", "niveau", "synchronisé", "participants"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/618?pretty=true">Your level has been synced to N.</see>
+    public static readonly LocalizedStrings DutyPlayerLevelSynced = new()
+    {
+        Jpn = ["シンク"],
+        Eng = ["level", "synced"],
+        Deu = ["stufe", "herabgesetzt"],
+        Fra = ["niveau", "synchronisé"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4224?pretty=true">Your item level has been synced…</see>
+    public static readonly LocalizedStrings DutyItemLevelSynced = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["item", "level", "synced", "stats", "adjusted"],
+        Deu = ["gegenstandsstufe", "synchronisiert"],
+        Fra = ["niveau", "objets", "synchronisé"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/9795?pretty=true">Alliance temporarily disbanded…</see>
+    public static readonly LocalizedStrings DutyAllianceReformNotice = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["reform", "parties", "alliance", "temporarily"],
+        Deu = ["gruppen", "allianz", "vorübergehend"],
+        Fra = ["groupes", "alliance", "temporairement"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/619?pretty=true">Your level is no longer synced.</see>
     public static readonly LocalizedStrings LevelNoLongerSynced = new()
     {

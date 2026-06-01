@@ -129,6 +129,13 @@ public sealed partial class TidyChatPlugin
     /// <summary>Runs Better Messages rewrites. Returns true when the message is done and needs no further filtering.</summary>
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
+        if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&
+            LogMessageCatalog.MatchesWithFallback(1531, normalizedText, ChatStrings.DutyHasBegun))
+        {
+            message.Message = Better.DutyCommence(message.Message, Configuration, normalizedText);
+            return true;
+        }
+
         if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
             LogMessageCatalog.MatchesWithFallback(1350, normalizedText, ChatStrings.InstancedArea))
         {

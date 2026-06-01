@@ -106,6 +106,15 @@ internal static class GeneralTab
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
 
+            bool betterDutyCommenceMessage = configuration.BetterDutyCommenceMessage;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedDutyCommenceMessaging, ref betterDutyCommenceMessage))
+            {
+                configuration.BetterDutyCommenceMessage = betterDutyCommenceMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedDutyCommenceMessagingHelpMarker);
+
             bool instanceInDtrBar = configuration.InstanceInDtrBar;
             if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
             {

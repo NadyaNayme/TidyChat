@@ -704,6 +704,15 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
     <value>Show the number of obtained sands after using aetherial reduction</value>
   </data>
+  <data name="CraftingGatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
+    <value>Show message when you successfully reduce a collectable item</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
+    <value>Show collectable reduction minigame messages (integrity, woodsman actions, etc.)</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
+    <value>eg. Your meticulous actions prove effective. Integrity is not reduced.</value>
+  </data>
   <data name="CraftingGatheringTab_ShowOtherPlayerCompletedSynthesisMessages" xml:space="preserve">
     <value>Show synthesis message when other players complete a craft.</value>
   </data>
@@ -838,6 +847,12 @@ eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
     <value>Changes the instance text to: You are now in instance: #</value>
+  </data>
+  <data name="GeneralTab_ImprovedDutyCommenceMessaging" xml:space="preserve">
+    <value>Improved duty commence messaging</value>
+  </data>
+  <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
+    <value>Replaces duty entry spam with a single line: Duty Name has begun. Hides level sync, item level sync, alliance reform, and Echo briefing lines.</value>
   </data>
   <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
     <value>Improved Messages</value>
@@ -1569,6 +1584,36 @@ eg. Your submersible has returned from its voyage.</value>
   </data>
   <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Trading Messages</value>
+  </data>
+  <data name="SystemTab_ShowVendorSellMessages" xml:space="preserve">
+    <value>Show vendor and retainer sell messages</value>
+  </data>
+  <data name="SystemTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You sell 3 Shisui gobies for 6 gil.</value>
+  </data>
+  <data name="SystemTab_ShowVendorPurchaseMessages" xml:space="preserve">
+    <value>Show vendor purchase messages</value>
+  </data>
+  <data name="SystemTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You purchase an item from a vendor.</value>
+  </data>
+  <data name="SystemTab_ShowMarketBoardMessages" xml:space="preserve">
+    <value>Show market board listing and sale messages</value>
+  </data>
+  <data name="SystemTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
+    <value>eg. You are now selling items in the markets. / An item sold on the market board.</value>
+  </data>
+  <data name="SystemTab_ShowGilWithdrawnMessage" xml:space="preserve">
+    <value>Show retainer gil withdrawal message</value>
+  </data>
+  <data name="SystemTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
+    <value>eg. Your gil has been safely withdrawn.</value>
+  </data>
+  <data name="SystemTab_ShowGilSpentMessage" xml:space="preserve">
+    <value>Show gil spent confirmation messages</value>
+  </data>
+  <data name="SystemTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
+    <value>eg. You spend gil on a purchase.</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
     <value>Allow</value>

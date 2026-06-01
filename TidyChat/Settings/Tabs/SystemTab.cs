@@ -546,6 +546,51 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_TradingDropdownHeader))
         {
+            bool showVendorSellMessages = configuration.ShowVendorSellMessages;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowVendorSellMessages, ref showVendorSellMessages))
+            {
+                configuration.ShowVendorSellMessages = showVendorSellMessages;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowVendorSellMessagesHelpMarker);
+
+            bool showVendorPurchaseMessages = configuration.ShowVendorPurchaseMessages;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowVendorPurchaseMessages, ref showVendorPurchaseMessages))
+            {
+                configuration.ShowVendorPurchaseMessages = showVendorPurchaseMessages;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowVendorPurchaseMessagesHelpMarker);
+
+            bool showMarketBoardMessages = configuration.ShowMarketBoardMessages;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowMarketBoardMessages, ref showMarketBoardMessages))
+            {
+                configuration.ShowMarketBoardMessages = showMarketBoardMessages;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowMarketBoardMessagesHelpMarker);
+
+            bool showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
+            {
+                configuration.ShowGilWithdrawnMessage = showGilWithdrawnMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowGilWithdrawnMessageHelpMarker);
+
+            bool showGilSpentMessage = configuration.ShowGilSpentMessage;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowGilSpentMessage, ref showGilSpentMessage))
+            {
+                configuration.ShowGilSpentMessage = showGilSpentMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.SystemTab_ShowGilSpentMessageHelpMarker);
+
             bool showTradeSent = configuration.ShowTradeSent;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTradeRequestSentMessages, ref showTradeSent))
             {

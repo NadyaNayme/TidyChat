@@ -74,6 +74,14 @@ internal static class InternalStrings
         Fra = new("Expulsé à la {0} salle.")
     };
 
+    public static readonly LocalizedTidyStrings DutyHasBegunFormat = new()
+    {
+        Jpn = new("{0}が開始されました。"),
+        Eng = new("{0} has begun."),
+        Deu = new("{0} hat begonnen."),
+        Fra = new("{0} a commencé.")
+    };
+
     public static string LastDuty { get; set; } = "";
     public static short CommendationsEarned { get; set; } = 0;
     public static short LastCommendations { get; set; } = 0;

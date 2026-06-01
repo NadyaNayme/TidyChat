@@ -281,6 +281,15 @@ public static class ChatRegexStrings
         Deu = new(@"steigt auf \+([0-9]|[1-8][0-9]|9[0-8])", regexOptions, regexTimeout),
         Fra = new(@"passe à \+([0-9]|[1-8][0-9]|9[0-8])", regexOptions, regexTimeout)
     };
+    /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
+    public static readonly LocalizedRegex DutyHasBegun = new()
+    {
+        Jpn = new(@"^(?<duty>.+?)が開始", regexOptions, regexTimeout),
+        Eng = new(@"^(?<duty>.+?)\s+has\s+begun\.?$", regexOptions, regexTimeout),
+        Deu = new(@"^(?<duty>.+?)\s+hat\s+begonnen\.?$", regexOptions, regexTimeout),
+        Fra = new(@"^(?<duty>.+?)\s+a\s+commencé\.?$", regexOptions, regexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/7265?pretty=true">Floor Number"</see>
     public static readonly LocalizedRegex FloorNumber = new()
     {
