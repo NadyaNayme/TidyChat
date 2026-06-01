@@ -1,11 +1,15 @@
 ﻿using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
+using TidyChat.Settings;
 namespace TidyChat.Settings.Tabs;
 
 internal static class ProgressTab
 {
     public static void Draw(Configuration configuration)
     {
+        ImGui.TextWrapped(Languages.ProgressTab_FilteringNote);
+        ImGui.Spacing();
+
         if (ImGui.CollapsingHeader(Languages.ProgressTab_ExperienceAndLevelsDropdownHeader,
                 ImGuiTreeNodeFlags.DefaultOpen))
         {
@@ -43,7 +47,7 @@ internal static class ProgressTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ProgressTab_DutyRewardsDropdownHeader))
@@ -70,7 +74,7 @@ internal static class ProgressTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
 
             bool hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
@@ -79,7 +83,7 @@ internal static class ProgressTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ProgressTab_QuestAndAchievementsDropdownHeader))
@@ -91,7 +95,7 @@ internal static class ProgressTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowQuestProgressMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowQuestProgressMessagesHelpMarker);
 
             bool showEarnAchievement = configuration.ShowEarnAchievement;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
@@ -118,7 +122,7 @@ internal static class ProgressTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
 
             bool showMountMessages = configuration.ShowMountMessages;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowMountMessages, ref showMountMessages))

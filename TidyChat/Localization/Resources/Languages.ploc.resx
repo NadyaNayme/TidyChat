@@ -885,143 +885,81 @@
   <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àçǫûîŕé ⑤ⓞⓞ ÞṽÞ ÉẊÞ·</value>
   </data>
-  <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
+  <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
+    <value>Requires System message filtering on the General tab.</value>
+  </data>  <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
     <value>Šûþþôŕţ ôñ Ķô‐Ƒî</value>
   </data>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Ŵîķî Þàĝé</value>
   </data>
-  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
-    <value>Ðééþ Ðûñĝéôñš</value>
-        <comment>Deep Dungeons — covers Palace of the Dead, Heaven-on-High, Eureka Orthos, and Pilgrim's Traverse.</comment>
-  </data>
-  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+<data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
     <value>Éŕŕôŕ Ṁéššàĝéš</value>
   </data>
-  <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
+  <data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
     <value>Ĥîðé Àéţĥéŕ Çôɱþàšš ɱéššàĝéš</value>
   </data>
-  <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ţĥé çôɱþàšš ðéţéçţš à çûŕŕéñţ àþþŕôẋîɱàţéļý ①④③ ýàļɱš ţô ţĥé Ŵéšţ···</value>
   </data>
-  <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-    <value>Ĥîðé Àîŕšĥîþ ṽôýàĝé ɱéššàĝéš</value>
-  </data>
-  <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ· À ñéŵ éẋþļôŕàţôŕý ṽôýàĝé ðéšţîñàţîôñ···ĥàš ƀééñ ðîšçôṽéŕéð¡</value>
-  </data>
-  <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-    <value>Ĥîðé Çôɱþļéţéð Ṽéñţûŕé</value>
-  </data>
-  <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-    <value>éĝ· ŔéţàîñéŕÑàɱé ĥàš çôɱþļéţéð à ṽéñţûŕé¡</value>
-  </data>
-  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+<data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
     <value>Ĥîðé ƑÀŢÉ ļéṽéļ šýñç ɱéššàĝéš</value>
   </data>
-  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àŕé ⑤ ôŕ ɱôŕé ļéṽéļš àƀôṽé ţĥé ŕéçôɱɱéñðéð ļéṽéļ ƒôŕ ţĥîš ƑÀŢÉ·</value>
   </data>
-  <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
+  <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
     <value>Ĥîðé "Šéàŕçĥ ƒôŕ îţéɱš" ŕéšûļţš ɱéššàĝéš</value>
         <comment>The text that happens after /isearch command is used</comment>
   </data>
-  <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>éĝ· ① îţéɱ ƒôûñð îñ ţĥé ④ţĥ ţàƀ ôƒ ýôûŕ îñṽéñţôŕý·</value>
   </data>
-  <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendations" xml:space="preserve">
     <value>Ĥîðé Ŕéçéîṽéð Çôɱɱéñðàţîôñš</value>
   </data>
-  <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ŕéçéîṽéð à þļàýéŕ çôɱɱéñðàţîôñ¡</value>
   </data>
-  <data name="SystemTab_HideSayReminder" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminder" xml:space="preserve">
     <value>Ĥîðé ŕéɱîñðéŕš ôƒ ŵĥàţ ţô /šàý îñ çĥàţ ðûŕîñĝ ǫûéšţš·</value>
   </data>
-  <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
     <value>éĝ· Ŵîţĥ ţĥé çĥàţ ɱôðé îñ Šàý، éñţéŕ à þĥŕàšé çôñţàîñîñĝ “Ţàţàŕû” àţ ţĥé ðéšţîñàţîôñ þôîñţ·</value>
   </data>
-  <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-    <value>Ĥîðé Šýšţéɱ ɱéššàĝéš Ţîðý Çĥàţ šĥôŵš ƀý ðéƒàûļţ</value>
-  </data>
-  <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
+<data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Ĥîðé Š Ŕàñķ Ĥûñţ šþàŵñ àññôûñçéɱéñţ</value>
   </data>
-  <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû šéñšé ţĥé þŕéšéñçé ôƒ à þôŵéŕƒûļ ɱàŕķ···</value>
   </data>
-  <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
     <value>Ĥîðé ŠŠ Ŕàñķ Ṁîñîôñ àññôûñçéɱéñţš</value>
   </data>
-  <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>éĝ· Ţĥé ɱîñîôñš ôƒ àñ éẋţŕàôŕðîñàŕîļý þôŵéŕƒûļ ɱàŕķ àŕé ôñ ţĥé ĥûñţ ƒôŕ þŕéý···
 Ţĥé ɱîñîôñš ôƒ àñ éẋţŕàôŕðîñàŕîļý þôŵéŕƒûļ ɱàŕķ ĥàṽé ŵîţĥðŕàŵñ···</value>
   </data>
-  <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-    <value>Ĥîðé Šûƀɱàŕîñé ṽôýàĝé ɱéššàĝéš</value>
-  </data>
-  <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>éĝ· À ñéŵ šûƀàǫûàţîç ṽôýàĝé ðéšţîñàţîôñ···ĥàš ƀééñ ðîšçôṽéŕéð¡</value>
-  </data>
-  <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
+<data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
     <value>Ĥîðé ţŕý ôñ ĝļàɱôûŕ ɱéššàĝéš</value>
   </data>
-  <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ţŕý ôñ îţéɱ·</value>
   </data>
-  <data name="SystemTab_HideVistaMessages" xml:space="preserve">
+  <data name="SystemTab_ShowVistaMessages" xml:space="preserve">
     <value>Ĥîðé ṽîšţà àŕŕîṽàļ àñð šţŕàý ɱéššàĝéš</value>
   </data>
-  <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ĥàṽé àŕŕîṽéð àţ à ṽîšţà¡ àñð Ýôû ĥàṽé šţŕàýéð ţôô ƒàŕ ƒŕôɱ ţĥé ṽîšţà·</value>
   </data>
-  <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
     <value>Ĥîðé "Ýôû šéñšé šôɱéţĥîñĝ···" ɱéššàĝéš</value>
         <comment>This message may not be as consistent for other languages . This originally meant for the Eureka Bunny message: You sense something to the far, far southwest but was expanded for English for all other "You sense something nearby..." type messages.</comment>
   </data>
-  <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû šéñšé šôɱéţĥîñĝ ţô ţĥé ƒàŕ، ƒàŕ šôûţĥŵéšţ···</value>
   </data>
-  <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-    <value>Þàŕţý ⅋ Îñṽîţé Ṁéššàĝéš</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš ðîšçôṽéŕéð</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš ñôţ šéñšéð ôñ ţĥé çûŕŕéñţ ƒļôôŕ</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ Àççûŕšéð Ĥôàŕð îš šéñšéð</value>
-  </data>
-  <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-    <value>Šĥôŵ Àéţĥéŕþôôļ îñçŕéàšéš</value>
-  </data>
-  <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-    <value>Šĥôŵ Àéţĥéŕþôôļ ŕéɱàîñš ûñçĥàñĝéð···</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ ţĥé Çàîŕñ ôƒ Þàššàĝé îš àçţîṽàţéð</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ ţĥé Çàîŕñ ôƒ Þàššàĝé ƀéĝîñš ţô ĝļôŵ</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ Çàîŕñ ôƒ Ŕéţûŕñ îš ûšéð</value>
-  </data>
-  <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-    <value>Šĥôŵ çôɱþļéţîôñ ţîɱé ŵĥéñ ûñŕéšţŕîçţéð þàŕţý îš àçţîṽé</value>
-  </data>
-  <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-    <value>éĝ· &lt;Duty&gt; çôɱþļéţîôñ ţîɱé∶ ⓞⓞ∶③ⓞ</value>
-  </data>
-  <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-    <value>Šĥôŵ þàŕţý ðîšƀàñðš àñð ðîššôļṽéš</value>
-  </data>
-  <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-    <value>Šĥôŵ ƒļôôŕ ñûɱƀéŕ ŵĥéñ éñţéŕîñĝ à ñéŵ ƒļôôŕ</value>
-  </data>
-  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+<data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Šĥôŵ ɱéššàĝé ŵĥéñ çĥàñĝîñĝ ĝéàŕšéţš</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
@@ -1036,25 +974,13 @@
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ĥûñţ ɱàŕķ &lt;mark&gt; šļàîñ¡ ①/③</value>
   </data>
-  <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-    <value>Šĥôŵ ĵôîñéð þàŕţý/çŕôšš‐þàŕţý ɱéššàĝéš</value>
-  </data>
-  <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-    <value>Šĥôŵ þļàýéŕš ĵôîñîñĝ þàŕţý</value>
-  </data>
-  <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-    <value>Šĥôŵ þļàýéŕš ļéàṽîñĝ þàŕţý</value>
-  </data>
-  <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
+<data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
     <value>Šĥôŵ îţéɱš àţţàçĥéð ţô šéñţ ɱàîļ</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àţţàçĥ ② þôţš ôƒ Ðàļàɱûð Ŕéð Ðýé ţô ţĥé ļéţţéŕ·</value>
   </data>
-  <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-    <value>Šĥôŵ ŵĥéñ ţĥé þàŕţý ôƀţàîñš à þôɱàñðéŕ</value>
-  </data>
-  <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
+<data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
     <value>Šĥôŵ ôñļîñé šţàţûš ûþðàţéš</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
@@ -1088,16 +1014,7 @@
     <value>Šĥôŵ ŵĥéñ Þôɱàñðéŕ ôƒ Ŵîţçĥîñĝ îš ûšéð</value>
         <comment>This is the deep dungeon pomander that transforms nearby enemies into mostly harmless mobs.</comment>
   </data>
-  <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-    <value>Šĥôŵ šéñţ þàŕţý îñṽîţéš</value>
-  </data>
-  <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-    <value>Šĥôŵ ţéļéþôŕţ ôƒƒéŕš ƒŕôɱ þàŕţý ɱéɱƀéŕš</value>
-  </data>
-  <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-    <value>Šĥôŵ ţŕàñšƒéŕéñçé ɱéššàĝéš</value>
-  </data>
-  <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
+<data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Ţŕàðîñĝ Ṁéššàĝéš</value>
   </data>
   <data name="SystemTab_VendorAndRetainerDropdownHeader" xml:space="preserve">

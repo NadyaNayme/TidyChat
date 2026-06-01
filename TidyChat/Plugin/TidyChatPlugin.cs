@@ -20,6 +20,7 @@ using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
 using Lumina.Text.ReadOnly;
 using TidyChat.Localization.Resources;
+using TidyChat.Settings;
 using TidyChat.Translation.Data;
 using Flags = TidyChat.Utility.ChatFlags;
 using TidyStrings = TidyChat.Utility.InternalStrings;
@@ -82,68 +83,16 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-        if (Configuration.Version < 1)
-        {
-            Configuration.ShowStellarMissionMessages =
-                Configuration.ShowAllOtherGathering || Configuration.ShowEverythingElse;
-            Configuration.ShowCosmicRewards = Configuration.ShowObtainedItems;
-            Configuration.ShowCosmicDailyProgress =
-                Configuration.ShowGainExperience && Configuration.ShowQuestProgress;
-            Configuration.Version = 1;
-            Configuration.Save();
-        }
-
-        if (Configuration.Version < 2)
-        {
-            Configuration.ShowCosmicExplorationMessages =
-                Configuration.ShowStellarMissionMessages || Configuration.ShowAllOtherGathering;
-            Configuration.Version = 2;
-            Configuration.Save();
-        }
-
-        if (Configuration.Version < 3)
-        {
-            if (Configuration.HideObtainedShardsFromLoot)
-                Configuration.HideObtainedShards = true;
-            Configuration.Version = 3;
-            Configuration.Save();
-        }
-
-        if (Configuration.Version < 4)
-        {
-            if (Configuration.HideOthersObtainFromLoot)
-                Configuration.HideOthersObtain = true;
-            Configuration.ShowSSRankHunt = Configuration.ShowSRankHunt || Configuration.ShowSSRankHunt;
-            Configuration.ShowUserLogouts = Configuration.ShowUserLogins || Configuration.ShowUserLogouts;
-            Configuration.ShowSubaquaticVoyage = Configuration.ShowExploratoryVoyage || Configuration.ShowSubaquaticVoyage;
-            Configuration.ShowTradeCanceled = Configuration.ShowTradeSent || Configuration.ShowTradeCanceled;
-            Configuration.ShowAwaitingTradeConfirmation = Configuration.ShowTradeSent || Configuration.ShowAwaitingTradeConfirmation;
-            Configuration.ShowTradeComplete = Configuration.ShowTradeSent || Configuration.ShowTradeComplete;
-            Configuration.ShowRelicBookComplete = Configuration.ShowRelicBookStep || Configuration.ShowRelicBookComplete;
-            Configuration.ShowDesynthedItem = Configuration.ShowDesynthesisLevel || Configuration.ShowDesynthedItem;
-            Configuration.ShowDesynthesisObtains = Configuration.ShowDesynthesisLevel || Configuration.ShowDesynthesisObtains;
-            Configuration.HideAdventurerInNeedBonus = Configuration.HideRouletteBonus || Configuration.HideAdventurerInNeedBonus;
-            Configuration.ShowLootRoll = Configuration.ShowCastLot || Configuration.ShowLootRoll;
-            Configuration.ShowOthersLootRoll = Configuration.ShowOthersCastLot || Configuration.ShowOthersLootRoll;
-            Configuration.ShowOtherEarnedAchievement = Configuration.ShowEarnAchievement || Configuration.ShowOtherEarnedAchievement;
-            Configuration.FilterCustomEmoteChannel = Configuration.FilterEmoteChannel || Configuration.FilterCustomEmoteChannel;
-            Configuration.Version = 4;
-            Configuration.Save();
-        }
-
-        // TODO(next release): Config migration v6 — remove deprecated Configuration properties listed in
-        // docs/rules-review-checklist.md (HideObtainedShardsFromLoot, HideOthersObtainFromLoot).
-        // Bump Configuration.Version to 6 after v1–v5 migrations remain for upgrade path.
-
         if (Configuration.Version < 5)
         {
-            if (Configuration.ShowGearsetEquipped)
-            {
-                Configuration.ShowJobChange = true;
-                Configuration.ShowPortraitMessages = true;
-            }
-
+            ConfigurationMigration.ApplyPreV5(Configuration, PluginInterface);
             Configuration.Version = 5;
+            Configuration.Save();
+        }
+
+        if (Configuration.Version < 6)
+        {
+            Configuration.Version = 6;
             Configuration.Save();
         }
 

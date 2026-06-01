@@ -849,164 +849,80 @@ z. B. Spieler erreicht Level 33!</value>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Seite</value>
   </data>
-  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
-    <value>Tiefenkämpfe</value>
-  </data>
-  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+<data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
     <value>Fehlermeldungen</value>
   </data>
-  <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
-    <value>Freie Gesellschaft</value>
-  </data>
-  <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
+<data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
     <value>Verstecke Aether-Kompass-Nachricht</value>
   </data>
-  <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
     <value>z.B. Der Kompass erkennt eine Windätherquelle ungefähr 143 Yalms im Westen...</value>
   </data>
-  <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-    <value>Verstecke Luftschiff-Reise-Nachrichten</value>
-  </data>
-  <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>z.B. Ein neues Reiseziel für Entdeckungen ... wurde entdeckt!</value>
-  </data>
-  <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-    <value>Abgschlossene Unternehmungen blockieren</value>
-  </data>
-  <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-    <value>z. B. RetainerName hat ein Unternehmen abgeschlossen!</value>
-  </data>
-  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+<data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
     <value>FATE-Stufenabgleich-Meldungen ausblenden</value>
   </data>
-  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>z.B. Dein Level ist mindestens 5 Stufen über dem empfohlenen Level für dieses FATE.</value>
   </data>
-  <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
-    <value>Verstecke Nachrichten für neue Einträge im Diarium der Freien Gesellschaft</value>
-  </data>
-  <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
+<data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
     <value>"Suche nach Gegenstände" Ergebnisnachrichten ausblenden</value>
   </data>
-  <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>z.B. 1 Gegenstand in der 4. Registerkarte deines Inventars gefunden.</value>
   </data>
-  <data name="SystemTab_HideLoginMessages" xml:space="preserve">
-    <value>Meldungen zu sich gerade einloggenden Mitgliedern der Freien Gesellschaft ausblenden</value>
-  </data>
-  <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
-    <value>Meldungen zu sich ausloggenden Mitgliedern der Freien Gesellschaft ausblenden</value>
-  </data>
-  <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
+<data name="SystemTab_ShowNumberOfCoffers" xml:space="preserve">
     <value>Menge an verfügbaren Ausrüstungskisten ausblenden</value>
   </data>
-  <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
+  <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
     <value>Verstecke Nachrichten für neue Einträge im persönlichen Diarium</value>
   </data>
-  <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendations" xml:space="preserve">
     <value>Erhaltene "Wertvollster Spieler"-Ehrungen blockieren</value>
   </data>
-  <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
     <value>zB. Du hast ein Spieler-Lob erhalten!</value>
   </data>
-  <data name="SystemTab_HideSayReminder" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminder" xml:space="preserve">
     <value>Erinnerungen während Aufträgen etwas zu /sagen blockieren.</value>
   </data>
-  <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
     <value>z.B. Mit dem Chat-Modus in Sagen, geben Sie am Zielpunkt eine Phrase ein, die „Tataru“ enthält.</value>
   </data>
-  <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-    <value>Systemnachrichten blockieren, die Tidy Chat standardmäßig anzeigt</value>
-  </data>
-  <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
+<data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
     <value>Verstecke Nachrichten, wenn ein Gegenstand 100% Seelenbindung erreicht</value>
   </data>
-  <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Benachrichtigung über Rang S Elite-Ziele blockieren</value>
   </data>
-  <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>z.B. Du spürst ein sehr starkes Hochwild ...</value>
   </data>
-  <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
     <value>Benachrichtigung über Rang S Elite-Ziele blockieren</value>
   </data>
-  <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>z.B. Die Lakaien einer außergewöhnlich mächtigen Mark sind auf der Jagd nach Beute...
 Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...</value>
   </data>
-  <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-    <value>U-Boot-Reisemeldungen ausblenden</value>
-  </data>
-  <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>z.B. Ein neues Ziel für Unterwasserreisen...wurde entdeckt!</value>
-  </data>
-  <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
-    <value>"Teleporte zu..."-Meldungen ausblenden</value>
-  </data>
-  <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
+<data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
     <value>Glamour anprobieren Nachrichten ausblenden</value>
   </data>
-  <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
     <value>z.B. Du probierst den Gegenstand an.</value>
   </data>
-  <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
-    <value>"Du konntest dem Neulings-Chat nicht beitreten." - Nachrichten ausblenden.</value>
-  </data>
-  <data name="SystemTab_HideVistaMessages" xml:space="preserve">
+<data name="SystemTab_ShowVistaMessages" xml:space="preserve">
     <value>Ankunfts- und Verfallsnachrichten für Vista's ausblenden</value>
   </data>
-  <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>z.B. Du bist an der Vista angekommen! und Du bist zu weit von der Vista weggegangen.</value>
   </data>
-  <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
     <value>Verstecke "Du spürst etwas..." Nachrichten</value>
   </data>
-  <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>z.B. Du spürst etwas im weit entfernten Südwesten...</value>
   </data>
-  <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-    <value>Gruppen-/Einladungs- Benachrichtigungen</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-    <value>Anzeigen, wenn ein Verborgener Schatz aufgedeckt worden ist</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-    <value>Anzeigen, wenn in diesem Gebiet kein Verborgener Schatz erspürt werden kann</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-    <value>Anzeigen, wenn ein Verborgener Schatz gespürt werden kann</value>
-  </data>
-  <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-    <value>AetherPool-Erhöhungen anzeigen</value>
-  </data>
-  <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-    <value>Zeige Aetherpool bleibt unverändert...</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-    <value>Zeige wenn eine Wegleuchte aktiviert wird</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-    <value>Zeige wenn eine Wegleuchte anfängt zu leuchten</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-    <value>Zeige wenn eine Totenleuchte benutzt wird</value>
-  </data>
-  <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-    <value>Vervollständigungszeit anzeigen, wenn unbeschränkte Gruppe aktiv ist</value>
-  </data>
-  <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-    <value>z.B. &lt;Duty&gt; Vervollständigungszeit: 00:30</value>
-  </data>
-  <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-    <value>Zeige Partyauflösungen</value>
-  </data>
-  <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
-    <value>Zeige Bonus-Prämie für das erstmalige Abschließen des Inhalts eines Gruppen-Mitgliedes</value>
-  </data>
-  <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-    <value>Zu Beginn einer Ebene die entsprechende Ebenennummer anzeigen</value>
-  </data>
-  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+<data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Nachricht beim Ändern von Ausrüstungssets anzeigen</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
@@ -1021,31 +937,13 @@ Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
     <value>z. B. Jagdmarkierung &lt;mark&gt; erlegt! 1/3</value>
   </data>
-  <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-    <value>Meldung zu beigetretener Welten-/Gruppe anzeigen</value>
-  </data>
-  <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-    <value>Zeige der Party beitretende Spieler</value>
-  </data>
-  <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-    <value>Zeige die Party verlassende Spieler</value>
-  </data>
-  <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
+<data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
     <value>An gesendete Nachrichten angehängte Elemente anzeigen</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
     <value>z.B. Du hängst 2 Töpfe Dalamud roten Farbstoff an den Brief an.</value>
   </data>
-  <data name="SystemTab_ShowNowALeader" xml:space="preserve">
-    <value>Zeige Nachrichten mit Du bist nun/nicht länger der Anführer der Gruppe</value>
-  </data>
-  <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
-    <value>Diese Meldungen erscheinen, wenn du zum Anführer der Gruppe, der Freien Gesellschaft, PvP-Gruppe oder der Welten-\Kontaktkreise gewählt worden bist.</value>
-  </data>
-  <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-    <value>Zeige wenn die Gruppe ein Tongefäß erhält</value>
-  </data>
-  <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
+<data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
     <value>Online-Status Updates anzeigen</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
@@ -1072,19 +970,7 @@ Die Lakaien einer außergewöhnlich mächtigen Mark haben sich zurückgezogen...
   <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
     <value>Anzeigen, wenn das Tongefäß der Wandlung verwendet worden ist</value>
   </data>
-  <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
-    <value>Anzeigen, wenn Zweite-Chance-Punkte bei einem Sieg erhalten werden können</value>
-  </data>
-  <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-    <value>Zeige gesendete Partyeinladungen</value>
-  </data>
-  <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-    <value>Zeige Teleportanfragen von Partymitgliedern</value>
-  </data>
-  <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-    <value>Transfernachrichten anzeigen</value>
-  </data>
-  <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
+<data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Handelsnachrichten</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">

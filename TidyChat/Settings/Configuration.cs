@@ -225,9 +225,6 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedTribalCurrency { get; set; } = false;
     public bool HideObtainedShards { get; set; } = false;
 
-    /// <summary>Deprecated v3: merged into <see cref="HideObtainedShards" />; retained for config deserialization.</summary>
-    public bool HideObtainedShardsFromLoot { get; set; } = false;
-
     public bool ShowGainExperience { get; set; } = false;
     public bool HideRouletteBonus { get; set; } = false;
     public bool HideAdventurerInNeedBonus { get; set; } = false;
@@ -246,9 +243,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowOnlyPartyMemberRolls { get; set; } = false;
     public bool ShowOthersCastLot { get; set; } = false;
     public bool HideOthersObtain { get; set; } = false;
-
-    /// <summary>Deprecated v4: merged into <see cref="HideOthersObtain" />; retained for config deserialization.</summary>
-    public bool HideOthersObtainFromLoot { get; set; } = false;
 
     #endregion
 

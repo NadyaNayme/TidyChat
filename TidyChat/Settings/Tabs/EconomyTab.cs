@@ -1,5 +1,5 @@
-using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
+using TidyChat.Settings;
 namespace TidyChat.Settings.Tabs;
 
 internal static class EconomyTab
@@ -46,7 +46,7 @@ internal static class EconomyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.EconomyTab_ShowVendorSellMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorSellMessagesHelpMarker);
 
             bool showVendorPurchaseMessages = configuration.ShowVendorPurchaseMessages;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorPurchaseMessages, ref showVendorPurchaseMessages))
@@ -55,7 +55,7 @@ internal static class EconomyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.EconomyTab_ShowVendorPurchaseMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorPurchaseMessagesHelpMarker);
 
             bool showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
@@ -64,7 +64,7 @@ internal static class EconomyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.EconomyTab_MarketBoardSectionHeader))
@@ -76,7 +76,7 @@ internal static class EconomyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.EconomyTab_ShowMarketBoardMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardMessagesHelpMarker);
 
             if (configuration.ShowMarketBoardMessages)
             {
@@ -88,7 +88,7 @@ internal static class EconomyTab
                     configuration.OnSettingChanged();
                 }
 
-                ImGuiComponents.HelpMarker(Languages.EconomyTab_ShortenMarketBoardSaleHelpMarker);
+                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShortenMarketBoardSaleHelpMarker);
                 ImGui.Unindent();
             }
         }
@@ -102,7 +102,7 @@ internal static class EconomyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
         }
     }
 }

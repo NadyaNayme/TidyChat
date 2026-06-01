@@ -1,5 +1,5 @@
-﻿using Dalamud.Interface.Components;
-using TidyChat.Localization.Resources;
+﻿using TidyChat.Localization.Resources;
+using TidyChat.Settings;
 namespace TidyChat.Settings.Tabs;
 
 internal static class PartyDutyTab
@@ -69,22 +69,22 @@ internal static class PartyDutyTab
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_PartyToolsDropdownHeader))
         {
             bool showCountdownTime = configuration.ShowCountdownTime;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideCountdownMessages, ref showCountdownTime))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCountdownMessages, ref showCountdownTime))
             {
                 configuration.ShowCountdownTime = showCountdownTime;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_HideCountdownMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCountdownMessagesHelpMarker);
 
             bool showReadyChecks = configuration.ShowReadyChecks;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideReadycheckMessages, ref showReadyChecks))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowReadycheckMessages, ref showReadyChecks))
             {
                 configuration.ShowReadyChecks = showReadyChecks;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_HideReadycheckMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowReadycheckMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_PartyLeadershipDropdownHeader))
@@ -96,7 +96,7 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_ShowNowALeaderHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowNowALeaderHelpMarker);
 
             bool showSealedOff = configuration.ShowSealedOff;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSealedOffMessages, ref showSealedOff))
@@ -105,7 +105,7 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_ShowSealedOffMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSealedOffMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DutyFinderDropdownHeader))
@@ -117,7 +117,7 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_ShowDutyFinderMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowDutyFinderMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DutyCompletionDropdownHeader))
@@ -129,19 +129,19 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_RetainerAndVentureDropdownHeader))
         {
             bool completedVenture = configuration.ShowCompletedVenture;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideCompletedVenture, ref completedVenture))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
             {
                 configuration.ShowCompletedVenture = completedVenture;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_HideCompletedVentureHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletedVentureHelpMarker);
 
             bool retainerVentureMessages = configuration.ShowRetainerVentureMessages;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
@@ -150,27 +150,27 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_ShowRetainerVentureMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowRetainerVentureMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_FreeCompanyDropdownHeader))
         {
             bool showUserLogins = configuration.ShowUserLogins;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideLoginMessages, ref showUserLogins))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLoginMessages, ref showUserLogins))
             {
                 configuration.ShowUserLogins = showUserLogins;
                 configuration.OnSettingChanged();
             }
 
             bool showUserLogouts = configuration.ShowUserLogouts;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideLogoutMessages, ref showUserLogouts))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLogoutMessages, ref showUserLogouts))
             {
                 configuration.ShowUserLogouts = showUserLogouts;
                 configuration.OnSettingChanged();
             }
 
             bool showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideFreeCompanyMessageBookMessages,
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages,
                     ref showFreeCompanyMessageBook))
             {
                 configuration.ShowFreeCompanyMessageBook = showFreeCompanyMessageBook;
@@ -178,22 +178,22 @@ internal static class PartyDutyTab
             }
 
             bool showExploratoryVoyage = configuration.ShowExploratoryVoyage;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideAirshipVoyageMessages, ref showExploratoryVoyage))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAirshipVoyageMessages, ref showExploratoryVoyage))
             {
                 configuration.ShowExploratoryVoyage = showExploratoryVoyage;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_HideAirshipVoyageMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker);
 
             bool showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_HideSubmarineVoyageMessages, ref showSubaquaticVoyage))
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineVoyageMessages, ref showSubaquaticVoyage))
             {
                 configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_HideSubmarineVoyageMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DeepDungeonsDropdownHeader))
@@ -255,7 +255,7 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker);
 
             bool showPomanderEffects = configuration.ShowPomanderEffects;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowPomanderEffectsMessages, ref showPomanderEffects))

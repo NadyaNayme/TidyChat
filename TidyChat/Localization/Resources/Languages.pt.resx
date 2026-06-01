@@ -850,164 +850,80 @@ It can be considered spammy in deep dungeons.</value>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Page</value>
   </data>
-  <data name="SystemTab_DeepDungeonsDropdownHeader" xml:space="preserve">
-    <value>Masmorras profundas</value>
-  </data>
-  <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
+<data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
     <value>Error Messages</value>
   </data>
-  <data name="SystemTab_FreeCompanyDropdownHeader" xml:space="preserve">
-    <value>Free Company</value>
-  </data>
-  <data name="SystemTab_HideAetherCompassMessages" xml:space="preserve">
+<data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
     <value>Esconder mensagem Bússola de Aether</value>
   </data>
-  <data name="SystemTab_HideAetherCompassMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
     <value>eg. The compass detects a current approximately 143 yalms to the West...</value>
   </data>
-  <data name="SystemTab_HideAirshipVoyageMessages" xml:space="preserve">
-    <value>Show Airship voyage messages</value>
-  </data>
-  <data name="SystemTab_HideAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>eg. A new exploratory voyage destination...has been discovered!</value>
-  </data>
-  <data name="SystemTab_HideCompletedVenture" xml:space="preserve">
-    <value>Ocultar Ventura Completada</value>
-  </data>
-  <data name="SystemTab_HideCompletedVentureHelpMarker" xml:space="preserve">
-    <value>ex: NomeDoRetainer completou um empreendimento!</value>
-  </data>
-  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+<data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
     <value>Hide FATE level sync messages</value>
   </data>
-  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>eg. You are 5 or more levels above the recommended level for this FATE.</value>
   </data>
-  <data name="SystemTab_HideFreeCompanyMessageBookMessages" xml:space="preserve">
-    <value>Show Free Company message book new entry messages</value>
-  </data>
-  <data name="SystemTab_HideItemSearchResultsMessage" xml:space="preserve">
+<data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
     <value>Show "Search for items" results message</value>
   </data>
-  <data name="SystemTab_HideItemSearchResultsMessageHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>eg. 1 item found in the 4th tab of your inventory.</value>
   </data>
-  <data name="SystemTab_HideLoginMessages" xml:space="preserve">
-    <value>Show Free Company member login messages</value>
-  </data>
-  <data name="SystemTab_HideLogoutMessages" xml:space="preserve">
-    <value>Show Free Company member logout messages</value>
-  </data>
-  <data name="SystemTab_HideNumberOfCoffers" xml:space="preserve">
+<data name="SystemTab_ShowNumberOfCoffers" xml:space="preserve">
     <value>Show number of available coffers messages</value>
   </data>
-  <data name="SystemTab_HidePersonalMessageBookMessages" xml:space="preserve">
+  <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
     <value>Show personal message book new entry messages</value>
   </data>
-  <data name="SystemTab_HideReceivedCommendations" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendations" xml:space="preserve">
     <value>Ocultar comendas recebidas</value>
   </data>
-  <data name="SystemTab_HideReceivedCommendationsHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
     <value>ex. Você recebeu um elogio de jogador!</value>
   </data>
-  <data name="SystemTab_HideSayReminder" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminder" xml:space="preserve">
     <value>Ocultar lembretes do que /say no chat durante as missões.</value>
   </data>
-  <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
     <value>por exemplo. Com o modo de bate-papo em Say, digite uma frase contendo "Tataru" no ponto de destino.</value>
   </data>
-  <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
-    <value>Ocultar mensagens do sistema que o Tidy Chat mostra por padrão</value>
-  </data>
-  <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
+<data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
     <value>Show gear reaching 100% spiritbound messages</value>
   </data>
-  <data name="SystemTab_HideSRankSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Esconder anúncio de spawn de caçada Rank S</value>
   </data>
-  <data name="SystemTab_HideSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>ex. Você sente a presença de uma caça poderosa...</value>
   </data>
-  <data name="SystemTab_HideSSRankMinionSpawnAnnouncement" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
     <value>Esconder anúncios de Minions Rank SS</value>
   </data>
-  <data name="SystemTab_HideSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>por exemplo. Os lacaios de uma caça extraordinariamente poderosa estão caçando presas...
 Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
   </data>
-  <data name="SystemTab_HideSubmarineVoyageMessages" xml:space="preserve">
-    <value>Show Submarine voyage messages</value>
-  </data>
-  <data name="SystemTab_HideSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>eg. A new subaquatic voyage destination...has been discovered!</value>
-  </data>
-  <data name="SystemTab_HideTeleportingToMessages" xml:space="preserve">
-    <value>Show "Teleporting to..." messages</value>
-  </data>
-  <data name="SystemTab_HideTryOnGlamourMessages" xml:space="preserve">
+<data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
     <value>Show try on glamour messages</value>
   </data>
-  <data name="SystemTab_HideTryOnGlamourMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
     <value>eg. You try on item.</value>
   </data>
-  <data name="SystemTab_HideUnableToJoinFullNoviceNetwork" xml:space="preserve">
-    <value>Show unable to join full Novice Network.</value>
-  </data>
-  <data name="SystemTab_HideVistaMessages" xml:space="preserve">
+<data name="SystemTab_ShowVistaMessages" xml:space="preserve">
     <value>Show vista arrival and stray messages</value>
   </data>
-  <data name="SystemTab_HideVistaMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
   </data>
-  <data name="SystemTab_HideYouSenseSomethingMessages" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
     <value>Ocultar mensagens "Você sente alguma coisa..."</value>
   </data>
-  <data name="SystemTab_HideYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+  <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>ex. Você percebe algo muito ao sudoeste...</value>
   </data>
-  <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
-    <value>Mensagens de Party e Convite</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardDiscoveredMessages" xml:space="preserve">
-    <value>Mostrar quando Accursed Hoard é descoberto</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardNotSensedMessages" xml:space="preserve">
-    <value>Mostrar quando Accursed Hoard não é detectado no andar atual</value>
-  </data>
-  <data name="SystemTab_ShowAccursedHoardSensedMessages" xml:space="preserve">
-    <value>Mostrar quando Accursed Hoard é detectado</value>
-  </data>
-  <data name="SystemTab_ShowAetherpoolIncreasesMessages" xml:space="preserve">
-    <value>Mostrar aumentos de Aetherpool</value>
-  </data>
-  <data name="SystemTab_ShowAetherpoolRemainsUnchangedMessages" xml:space="preserve">
-    <value>Mostrar Aetherpool permanece inalterado...</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
-    <value>Mostrar quando o Cairn de Passagem estiver ativado</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfPassageGlowsMessages" xml:space="preserve">
-    <value>Exibir quando o Cairn de Passagem começa a brilhar</value>
-  </data>
-  <data name="SystemTab_ShowCairnOfReturnUsedMessages" xml:space="preserve">
-    <value>Exibir quando o Cairn de Retorno é usado</value>
-  </data>
-  <data name="SystemTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-    <value>Show completion time when unrestricted party is active</value>
-  </data>
-  <data name="SystemTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-    <value>eg. &lt;Duty&gt; completion time: 00:30</value>
-  </data>
-  <data name="SystemTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-    <value>Mostrar debandadas e dissoluções da party</value>
-  </data>
-  <data name="SystemTab_ShowFirstClearAward" xml:space="preserve">
-    <value>Show bonus award for a party member's first clear</value>
-  </data>
-  <data name="SystemTab_ShowFloorNumberMessages" xml:space="preserve">
-    <value>Mostrar o número do piso ao entrar em um novo andar</value>
-  </data>
-  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+<data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Show message when changing gearsets</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
@@ -1022,31 +938,13 @@ Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
     <value>eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
   </data>
-  <data name="SystemTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
-    <value>Mostrar mensagem de party/cross-party</value>
-  </data>
-  <data name="SystemTab_ShowJoiningPartyMessages" xml:space="preserve">
-    <value>Mostrar jogadores entrando na party</value>
-  </data>
-  <data name="SystemTab_ShowLeftPartyMessages" xml:space="preserve">
-    <value>Mostrar jogadores saindo da party</value>
-  </data>
-  <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
+<data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
     <value>Show items attached to sent mail</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
     <value>eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
   </data>
-  <data name="SystemTab_ShowNowALeader" xml:space="preserve">
-    <value>Show you are now/no longer a leader messages</value>
-  </data>
-  <data name="SystemTab_ShowNowALeaderHelpMarker" xml:space="preserve">
-    <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
-  </data>
-  <data name="SystemTab_ShowObtainedPomanderMessages" xml:space="preserve">
-    <value>Show when the party obtains a pomander</value>
-  </data>
-  <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
+<data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
     <value>Show online status updates</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
@@ -1073,19 +971,7 @@ Os lacaios de uma caça extraordinariamente poderosa se retiraram...</value>
   <data name="SystemTab_ShowPomanderOfWitchingUsedMessages" xml:space="preserve">
     <value>Mostrar quando Pomander of Witching é usado</value>
   </data>
-  <data name="SystemTab_ShowSecondChanceAward" xml:space="preserve">
-    <value>Show when Second Chance points will be awarded for duty clear</value>
-  </data>
-  <data name="SystemTab_ShowSentPartyInviteMessages" xml:space="preserve">
-    <value>Mostrar convites de party enviados</value>
-  </data>
-  <data name="SystemTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-    <value>Mostrar ofertas de teleporte dos membros da party</value>
-  </data>
-  <data name="SystemTab_ShowTransferenceMessages" xml:space="preserve">
-    <value>Mostrar mensagens de transferência</value>
-  </data>
-  <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
+<data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Mensagens de Trading</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">

@@ -14,6 +14,8 @@ internal static class GeneralTab
             configuration.OnSettingChanged();
         }
 
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterSystemSpamHelpMarker);
+
         bool filterProgressSpam = configuration.FilterProgressSpam;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterProgressSpam, ref filterProgressSpam))
         {

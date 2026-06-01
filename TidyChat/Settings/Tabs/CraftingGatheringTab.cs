@@ -1,5 +1,6 @@
 using Dalamud.Interface.Components;
 using TidyChat.Localization.Resources;
+using TidyChat.Settings;
 namespace TidyChat.Settings.Tabs;
 
 internal static class CraftingGatheringTab
@@ -255,6 +256,9 @@ internal static class CraftingGatheringTab
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_StellarMissionsDropdownHeader))
         {
+            ImGui.TextWrapped(Languages.CraftingGatheringTab_StellarSectionFilteringNote);
+            ImGui.Spacing();
+
             bool showStellarMissionMessages = configuration.ShowStellarMissionMessages;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowStellarMissionMessages,
                     ref showStellarMissionMessages))
@@ -262,6 +266,8 @@ internal static class CraftingGatheringTab
                 configuration.ShowStellarMissionMessages = showStellarMissionMessages;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowStellarMissionMessagesHelpMarker);
 
             bool showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicExplorationMessages,
@@ -271,12 +277,16 @@ internal static class CraftingGatheringTab
                 configuration.OnSettingChanged();
             }
 
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker);
+
             bool showCosmicRewards = configuration.ShowCosmicRewards;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicRewards, ref showCosmicRewards))
             {
                 configuration.ShowCosmicRewards = showCosmicRewards;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicRewardsHelpMarker);
 
             bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
@@ -285,6 +295,8 @@ internal static class CraftingGatheringTab
                 configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker);
         }
     }
 }
