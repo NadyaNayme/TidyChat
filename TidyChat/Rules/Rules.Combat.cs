@@ -93,7 +93,7 @@ public static partial class Rules
         {
             Name = "ShowCombatDamage",
             SettingsTab = "Combat",
-            Channel = ChatType.Damage,
+            Channel = ChatType.Healing,
             IsActive = true,
             LogMessageIds = [523],
             StringChecks = [ChatStrings.CombatAbsorption],
@@ -209,7 +209,7 @@ public static partial class Rules
         {
             Name = "ShowCombatHealing",
             SettingsTab = "Combat",
-            Channel = ChatType.Healing,
+            Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [560],
             StringChecks = [ChatStrings.CombatRevived],
@@ -286,7 +286,7 @@ public static partial class Rules
         {
             Name = "ShowCombatEffects",
             SettingsTab = "Combat",
-            Channel = ChatType.BattleSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [640],
             StringChecks = [ChatStrings.PetWithdraws],
@@ -352,7 +352,7 @@ public static partial class Rules
         {
             Name = "ShowCombatEnmity",
             SettingsTab = "Combat",
-            Channel = ChatType.BattleSystem,
+            Channel = ChatType.Damage,
             IsActive = true,
             LogMessageIds = [536],
             StringChecks = [ChatStrings.CombatEnmity],

@@ -67,7 +67,10 @@ public sealed partial class TidyChatPlugin
         ServerAnnouncementCatalog.Load(DataManager, Log);
         Rules.RebuildLogMessageIdLookup();
         if (validateRuleIds)
+        {
             LogMessageCatalog.ValidateRuleIds(Rules.EnumerateReferencedLogMessageIds(), Log);
+            LogMessageCatalog.ValidateRuleChannels(Rules.AllRules, Log);
+        }
     }
 
     private static void LoadTomestones()

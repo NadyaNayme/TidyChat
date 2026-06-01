@@ -20,7 +20,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11154],
             StringChecks = [ChatStrings.StellarMissionUnderway],
@@ -31,7 +31,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10764],
             StringChecks = [ChatStrings.StellarSpecialActionUnlock],
@@ -42,7 +42,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10804],
             StringChecks = [ChatStrings.StellarMissionScore],
@@ -53,7 +53,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5533, 11365],
             StringChecks = [ChatStrings.AbleToExecute],
@@ -75,7 +75,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10770],
             StringChecks = [ChatStrings.StellarSilverStarRating],
@@ -86,7 +86,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10771],
             StringChecks = [ChatStrings.StellarGoldStarRating],
@@ -97,7 +97,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10766],
             StringChecks = [ChatStrings.StellarObjectivesComplete],
@@ -108,7 +108,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10822],
             StringChecks = [ChatStrings.StellarTimeLimitExpired],
@@ -119,7 +119,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10769],
             StringChecks = [ChatStrings.StellarReportMission],
@@ -130,7 +130,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10815],
             StringChecks = [ChatStrings.StellarSequentialMissions],
@@ -141,7 +141,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10779],
             StringChecks = [ChatStrings.StellarMissionCompleted],
@@ -152,7 +152,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11197],
             StringChecks = [ChatStrings.StellarGoldCountStreak],
@@ -163,7 +163,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10878],
             StringChecks = [ChatStrings.StellarMissionLogCommittedPlain],
@@ -174,7 +174,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10879],
             StringChecks = [ChatStrings.StellarMissionLogCommitted],
@@ -185,7 +185,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11175],
             StringChecks = [ChatStrings.StellarGpRecovered],
@@ -196,7 +196,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10946],
             StringChecks = [ChatStrings.CordialRecastReset],
@@ -207,7 +207,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11379],
             StringChecks = [ChatStrings.ReconnaissanceDroneLocatedArtifact],
@@ -218,7 +218,7 @@ public static partial class Rules
         {
             Name = "ShowStellarMissionMessages",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11383],
             StringChecks = [ChatStrings.ArtifactAppraisalComplete],
@@ -272,7 +272,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicRewards",
             SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10872],
             StringChecks = [ChatStrings.CosmocreditObtain],
@@ -283,7 +283,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicRewards",
             SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10873],
             StringChecks = [ChatStrings.OizysCreditObtain],
@@ -294,7 +294,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicRewards",
             SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11331],
             StringChecks = [ChatStrings.OizysDronebitsObtain],
@@ -305,7 +305,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicRewards",
             SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10883],
             StringChecks = [ChatStrings.ObtainedSingleItem],
@@ -362,7 +362,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicDailyProgress",
             SettingsTab = "Gathering",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10874],
             StringChecks = [ChatStrings.CosmicClassPoints],
@@ -373,7 +373,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicDailyProgress",
             SettingsTab = "Gathering",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10875],
             StringChecks = [ChatStrings.DailyPointsEarned],
@@ -384,7 +384,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicDailyProgress",
             SettingsTab = "Gathering",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11156],
             StringChecks = [ChatStrings.DailySuccessAchieved],
@@ -395,7 +395,7 @@ public static partial class Rules
         {
             Name = "ShowCosmicDailyProgress",
             SettingsTab = "Gathering",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10877],
             StringChecks = [ChatStrings.DailySuccessGoalAchieved],

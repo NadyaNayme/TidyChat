@@ -72,7 +72,7 @@ public static partial class Rules
         {
             Name = "ShowObtainedItems",
             SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3617],
             StringChecks = [ChatStrings.ObtainedGearPiece],

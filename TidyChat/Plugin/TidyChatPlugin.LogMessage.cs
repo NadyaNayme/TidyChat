@@ -211,7 +211,9 @@ public sealed partial class TidyChatPlugin
 
         foreach(LocalizedFilterRule rule in matchingRules)
         {
-            if (rule.Pattern == PatternKind.None) continue;
+            if (LogMessageCatalog.IsLoaded && rule.LogMessageIds is not null &&
+                LogMessageCatalog.Matches(logMessageId, normalizedText))
+                return true;
             if (RuleMatchesText(rule, normalizedText, false)) return true;
         }
 

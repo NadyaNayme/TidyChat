@@ -22,6 +22,7 @@ public static class LogMessageCatalog
 
     private static readonly Dictionary<uint, string[]> WordTokensById = new();
     private static readonly Dictionary<uint, string> TemplateTextById = new();
+    private static readonly Dictionary<uint, byte> LogKindById = new();
 
     /// <summary>LogMessage IDs that fire in-game but are absent from the Lumina sheet.</summary>
     private static readonly HashSet<uint> RuntimeOnlyIds =
@@ -45,12 +46,15 @@ public static class LogMessageCatalog
     {
         WordTokensById.Clear();
         TemplateTextById.Clear();
+        LogKindById.Clear();
         IsLoaded = false;
 
         try
         {
             foreach(LogMessage row in dataManager.GetExcelSheet<LogMessage>())
             {
+                LogKindById[row.RowId] = (byte)row.LogKind.RowId;
+
                 ReadOnlySeString template = row.Text;
                 string text = template.ExtractText().Trim();
                 if (string.IsNullOrWhiteSpace(text)) continue;
@@ -120,6 +124,30 @@ public static class LogMessageCatalog
         {
             if (Matches(id, normalizedText)) return true;
         }
+        return false;
+    }
+
+    /// <summary>LogKind from the Lumina LogMessage sheet (matches Dalamud <c>message.LogKind</c>).</summary>
+    public static ChatType? GetChatTypeForId(uint logMessageId)
+    {
+        if (!LogKindById.TryGetValue(logMessageId, out byte logKind)) return null;
+        return (ChatType)logKind;
+    }
+
+    /// <summary>
+    ///     True when the rule's configured channel matches, or Lumina says a listed ID uses this chat type and the text matches that ID.
+    /// </summary>
+    public static bool RuleAppliesOnChannel(LocalizedFilterRule rule, ChatType chatType, string normalizedText)
+    {
+        if (chatType == rule.Channel || chatType is ChatType.Echo) return true;
+        if (rule.LogMessageIds is not { Length: > 0 }) return false;
+
+        foreach(uint id in rule.LogMessageIds)
+        {
+            if (GetChatTypeForId(id) is not ChatType idChannel || idChannel != chatType) continue;
+            if (Matches(id, normalizedText)) return true;
+        }
+
         return false;
     }
 
@@ -236,5 +264,37 @@ public static class LogMessageCatalog
         log.Warning(
             $"LogMessageCatalog: {missing.Count} rule LogMessage ID(s) not found in the Lumina sheet " +
             $"(game patch drift or retired messages): {string.Join(", ", missing)}");
+    }
+
+    /// <summary>Warn when a rule's <see cref="LocalizedFilterRule.Channel" /> disagrees with Lumina LogKind for its IDs.</summary>
+    public static void ValidateRuleChannels(IEnumerable<LocalizedFilterRule> rules, IPluginLog log)
+    {
+        if (!IsLoaded) return;
+
+        foreach(LocalizedFilterRule rule in rules)
+        {
+            if (rule.LogMessageIds is not { Length: > 0 }) continue;
+
+            ChatType? sheetChannel = null;
+            bool mixedKinds = false;
+            foreach(uint id in rule.LogMessageIds)
+            {
+                if (!LogKindById.TryGetValue(id, out byte logKind)) continue;
+                var channel = (ChatType)logKind;
+                if (sheetChannel is null)
+                    sheetChannel = channel;
+                else if (sheetChannel != channel)
+                {
+                    mixedKinds = true;
+                    break;
+                }
+            }
+
+            if (mixedKinds || sheetChannel is null || sheetChannel == rule.Channel) continue;
+
+            log.Warning(
+                $"Rule '{rule.Name}' uses Channel={rule.Channel} but Lumina LogKind={sheetChannel} " +
+                $"for LogMessage ID(s): {string.Join(", ", rule.LogMessageIds)}");
+        }
     }
 }

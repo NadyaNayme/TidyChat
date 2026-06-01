@@ -46,6 +46,7 @@ public enum ChatType : ushort
     GainDebuff = 47,
     LoseBuff = 48,
     LoseDebuff = 49,
+    GlamourNotifications = 54,
     Alarm = 55,
     Echo = 56,
     System = 57,

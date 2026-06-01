@@ -37,7 +37,7 @@ public static partial class Rules
         {
             Name = "ShowMountMessages",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [646],
             StringChecks = [ChatStrings.MountMessage],

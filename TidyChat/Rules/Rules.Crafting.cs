@@ -217,7 +217,7 @@ public static partial class Rules
         {
             Name = "AlwaysShowCraftingErrors",
             SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
+            Channel = ChatType.Error,
             IsActive = true,
             LogMessageIds = [1147],
             StringChecks = [ChatStrings.UnableToCraft],
@@ -239,7 +239,7 @@ public static partial class Rules
         {
             Name = "ShowAllOtherCrafting",
             SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
+            Channel = ChatType.GainBuff,
             IsActive = true,
             LogMessageIds = [603],
             StringChecks = [ChatStrings.BuffEffectGain],
@@ -250,7 +250,7 @@ public static partial class Rules
         {
             Name = "ShowAllOtherCrafting",
             SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
+            Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5533],
             StringChecks = [ChatStrings.AbleToExecute],
@@ -385,7 +385,7 @@ public static partial class Rules
         {
             Name = "ShowAetherialReductionMinigame",
             SettingsTab = "System",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [3549],
             StringChecks = [ChatStrings.BrazenWoodsman],
@@ -396,7 +396,7 @@ public static partial class Rules
         {
             Name = "ShowAetherialReductionMinigame",
             SettingsTab = "System",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [3569],
             StringChecks = [ChatStrings.MeticulousWoodsman],

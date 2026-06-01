@@ -98,6 +98,11 @@ public sealed partial class TidyChatPlugin
                 }
 
                 return true;
+            case PatternKind.None:
+                if (rule.LogMessageIds is not { Length: > 0 }) return false;
+                if (LogMessageCatalog.IsLoaded && LogMessageCatalog.MatchesAny(rule.LogMessageIds, normalizedText))
+                    return true;
+                return false;
             default:
                 return false;
         }

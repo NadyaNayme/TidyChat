@@ -72,7 +72,6 @@ public static partial class Rules
             Channel = ChatType.LootRoll,
             IsActive = true,
             BlockWhenActive = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true
@@ -87,7 +86,6 @@ public static partial class Rules
             RegexChecks = [ChatRegexStrings.ObtainedShards],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             ObtainMarkerAnyElemental = true
         },
         new()

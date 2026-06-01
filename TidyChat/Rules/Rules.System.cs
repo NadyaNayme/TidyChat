@@ -195,7 +195,7 @@ public static partial class Rules
         {
             Name = "ShowInstanceMessage",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [2163],
             StringChecks = [ChatStrings.DutyObjectiveBonus],
@@ -422,7 +422,7 @@ public static partial class Rules
         {
             Name = "ShowDutyFinder",
             SettingsTab = "Party",
-            Channel = ChatType.System,
+            Channel = ChatType.Error,
             IsActive = true,
             LogMessageIds = [890],
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
@@ -830,7 +830,7 @@ public static partial class Rules
         {
             Name = "ShowSpideySenses",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [3240],
             StringChecks = [ChatStrings.HostilePresence],
@@ -1024,7 +1024,7 @@ public static partial class Rules
         {
             Name = "ShowTryOnGlamour",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.GlamourNotifications,
             IsActive = true,
             LogMessageIds = [4309],
             StringChecks = [ChatStrings.TryOnGlamourCast],
@@ -1046,7 +1046,7 @@ public static partial class Rules
         {
             Name = "ShowTryOnGlamour",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Error,
             IsActive = true,
             LogMessageIds = [4378],
             StringChecks = [ChatStrings.TryOnGlamourPartialApply],
@@ -1121,7 +1121,7 @@ public static partial class Rules
         {
             Name = "ShowFreeCompanyMessageBook",
             SettingsTab = "Party",
-            Channel = ChatType.System,
+            Channel = ChatType.FreeCompanyAnnouncement,
             IsActive = true,
             LogMessageIds = [3127],
             StringChecks = [ChatStrings.CompanyActionExpired],
@@ -1142,7 +1142,7 @@ public static partial class Rules
         {
             Name = "ShowPersonalMessageBook",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.MessageBook,
             IsActive = true,
             LogMessageIds = [6066]
         },
@@ -1618,7 +1618,7 @@ public static partial class Rules
         {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Item,
             IsActive = true,
             LogMessageIds = [503, 535, 1341]
         },
@@ -1626,7 +1626,7 @@ public static partial class Rules
         {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Item,
             IsActive = true,
             LogMessageIds = [503, 535],
             StringChecks = [ChatStrings.AetheryteTicket],
@@ -1710,7 +1710,7 @@ public static partial class Rules
         {
             Name = "BetterNoviceNetworkMessage",
             SettingsTab = "System",
-            Channel = ChatType.NoviceNetwork,
+            Channel = ChatType.NoviceNetworkSystem,
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [7025]

@@ -21,7 +21,7 @@ public static partial class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            LogMessageIds = [549, 588, 589, 4466, 7300, 10953],
+            LogMessageIds = [588, 589, 4466, 7300, 10953],
             StringChecks = [ChatStrings.GainExperience],
             Pattern = PatternKind.StringMatch
         },
@@ -29,7 +29,18 @@ public static partial class Rules
         {
             Name = "ShowGainExperience",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.BattleSystem,
+            IsActive = true,
+            LogMessageIds = [549],
+            StringChecks = [ChatStrings.GainExperience],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [549],
             StringChecks = [ChatStrings.ExpChainBonus],
@@ -44,7 +55,17 @@ public static partial class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            LogMessageIds = [549, 588, 589, 4466, 7300, 10953],
+            LogMessageIds = [588, 589, 4466, 7300, 10953],
+            RegexChecks = [ChatRegexStrings.GainExperience],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.BattleSystem,
+            IsActive = true,
+            LogMessageIds = [549],
             RegexChecks = [ChatRegexStrings.GainExperience],
             Pattern = PatternKind.RegexMatch
         },
@@ -124,7 +145,7 @@ public static partial class Rules
         {
             Name = "ShowOtherLevelUps",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3921, 9454],
             StringChecks = [ChatStrings.OtherLevelUp],
@@ -174,7 +195,7 @@ public static partial class Rules
         {
             Name = "ShowAbilityUnlocks",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3612],
             StringChecks = [ChatStrings.JobWisdomBequeathed],
@@ -185,7 +206,7 @@ public static partial class Rules
         {
             Name = "ShowAbilityUnlocks",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3613],
             StringChecks = [ChatStrings.JobMemoriesAwoken],
@@ -196,7 +217,7 @@ public static partial class Rules
         {
             Name = "ShowAbilityUnlocks",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1461],
             StringChecks = [ChatStrings.OathGaugeExpanded],
@@ -207,7 +228,7 @@ public static partial class Rules
         {
             Name = "ShowQuestProgress",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [410],
             StringChecks = [ChatStrings.ClassJobQuestAvailable],
@@ -218,7 +239,7 @@ public static partial class Rules
         {
             Name = "ShowQuestProgress",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3780],
             StringChecks = [ChatStrings.ChallengeLogComplete],
@@ -229,7 +250,7 @@ public static partial class Rules
         {
             Name = "ShowQuestProgress",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3783],
             StringChecks = [ChatStrings.ChallengeLogAlmostComplete],
@@ -240,7 +261,7 @@ public static partial class Rules
         {
             Name = "ShowQuestProgress",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1601],
             StringChecks = [ChatStrings.QuestAccepted],
@@ -251,7 +272,7 @@ public static partial class Rules
         {
             Name = "ShowQuestProgress",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1602],
             StringChecks = [ChatStrings.QuestComplete],
@@ -262,7 +283,7 @@ public static partial class Rules
         {
             Name = "ShowQuestProgress",
             SettingsTab = "Progress",
-            Channel = ChatType.Progress,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1603],
             StringChecks = [ChatStrings.QuestObjectiveFulfilled],

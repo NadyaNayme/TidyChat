@@ -252,8 +252,7 @@ public sealed partial class TidyChatPlugin
         foreach(LocalizedFilterRule rule in Rules.AllRules)
         {
             if (rule.ShouldBlock) continue;
-            if (chatType != rule.Channel && chatType is not ChatType.Echo) continue;
-            if (rule.Pattern == PatternKind.None) continue;
+            if (!LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText)) continue;
             if (RuleMatchesText(rule, normalizedText, false))
                 protectingRules.Add(rule.Name);
         }
@@ -304,12 +303,6 @@ public sealed partial class TidyChatPlugin
         {
             if (rule.Error is not null) Log.Error($"Error: {rule.Error}");
 
-            if (rule.LogMessageIds is not null && rule.Pattern == PatternKind.None)
-            {
-                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} handled by LogMessage ID");
-                rulesSkipped?.Add(rule.Name);
-                continue;
-            }
             // On LootNotice, inactive Show* rules must still run so unchecked "Show X" hides matching lines.
             if (rule.IsActive == showEverythingElse &&
                 !(chatType is ChatType.LootNotice && !rule.BlockWhenActive))
@@ -318,7 +311,7 @@ public sealed partial class TidyChatPlugin
                 rulesSkipped?.Add(rule.Name);
                 continue;
             }
-            if (chatType != rule.Channel && chatType is not ChatType.Echo)
+            if (!LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText))
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
                 rulesSkipped?.Add(rule.Name);
@@ -438,6 +431,8 @@ public sealed partial class TidyChatPlugin
                 ChatType.LootRoll or
                 ChatType.Progress or
                 ChatType.FreeCompanyLoginLogout or
+                ChatType.GlamourNotifications or
+                ChatType.BattleSystem or
                 ChatType.Echo => true,
             _ => false
         };
@@ -449,7 +444,18 @@ public sealed partial class TidyChatPlugin
         if (ChannelIsSpammy(chatType)) return true;
         return chatType switch
         {
-            ChatType.Error or
+            ChatType.Item or
+                ChatType.Action or
+                ChatType.Damage or
+                ChatType.Miss or
+                ChatType.Healing or
+                ChatType.GainBuff or
+                ChatType.GainDebuff or
+                ChatType.LoseBuff or
+                ChatType.LoseDebuff or
+                ChatType.FreeCompanyAnnouncement or
+                ChatType.MessageBook or
+                ChatType.Error or
                 ChatType.Say or
                 ChatType.Shout or
                 ChatType.Yell or

@@ -19,7 +19,7 @@ public static partial class Rules
         {
             Name = "ShowGatheringAttempts",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [1098],
             StringChecks = [ChatStrings.GatheringAttempts],
@@ -41,7 +41,7 @@ public static partial class Rules
         {
             Name = "ShowGatherersBoon",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [1097],
             StringChecks = [ChatStrings.GatherersBoon],
@@ -52,7 +52,7 @@ public static partial class Rules
         {
             Name = "ShowGatherersBoon",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11172],
             StringChecks = [ChatStrings.GatherersBoonScore],
@@ -115,7 +115,7 @@ public static partial class Rules
         {
             Name = "ShowLocationAffects",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [1096, 1098],
             StringChecks = [ChatStrings.LocationAffects],
@@ -126,7 +126,7 @@ public static partial class Rules
         {
             Name = "ShowLocationAffects",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [5550],
             StringChecks = [ChatStrings.LocationCollectabilityIncrease],
@@ -137,7 +137,7 @@ public static partial class Rules
         {
             Name = "ShowLocationAffects",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [5551],
             StringChecks = [ChatStrings.LocationMeticulousIntegrity],
@@ -232,7 +232,7 @@ public static partial class Rules
         {
             Name = "ShowAllOtherGathering",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.GainBuff,
             IsActive = true,
             LogMessageIds = [603],
             StringChecks = [ChatStrings.BuffEffectGain],
