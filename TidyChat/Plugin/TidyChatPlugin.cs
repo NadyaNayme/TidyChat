@@ -77,7 +77,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         L10N.Language = ClientState.ClientLanguage;
         LoadFishingFlavorMessages();
         PluginInterface.LanguageChanged += UpdateLang;
-        UpdateLang(PluginInterface.UiLanguage);
+        Languages.Culture = new(PluginInterface.UiLanguage);
 
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
         Configuration = loaded ?? new Configuration();
@@ -165,6 +165,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
         PluginUi = new(Configuration);
         _windowSystem.AddWindow(PluginUi);
+        PluginUi.InvalidateLayoutCache();
 
         CommandManager.AddHandler(SettingsCommand, new(OnCommand)
         {
@@ -202,7 +203,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
     private Configuration Configuration { get; }
-    private PluginUI PluginUi { get; }
+    private PluginUI? PluginUi { get; set; }
 
     public void Dispose()
     {
@@ -212,7 +213,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         PluginInterface.UiBuilder.OpenMainUi -= DrawConfigUI;
         PluginInterface.UiBuilder.OpenConfigUi -= DrawConfigUI;
         _windowSystem.RemoveAllWindows();
-        PluginUi.Dispose();
+        PluginUi?.Dispose();
 
         // DTR bar: drop the entry so it doesn't linger after the plugin is gone.
         if (DtrEntry is not null)
@@ -233,12 +234,14 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     }
     private void OnCommand(string command, string args)
     {
-        PluginUi.IsOpen = true;
+        if (PluginUi is not null)
+            PluginUi.IsOpen = true;
     }
 
     private void UpdateLang(string langCode)
     {
         Languages.Culture = new(langCode);
+        PluginUi?.InvalidateLayoutCache();
     }
 
     private void DrawUI()
@@ -248,6 +251,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     private void DrawConfigUI()
     {
-        PluginUi.IsOpen = true;
+        if (PluginUi is not null)
+            PluginUi.IsOpen = true;
     }
 }

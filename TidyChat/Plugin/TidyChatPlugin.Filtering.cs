@@ -126,9 +126,24 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
+    /// <summary>Rewrites LogMessage 748 item-sold lines when the shorten option is enabled.</summary>
+    private void TryRewriteMarketBoardSaleMessage(IHandleableChatMessage message, ChatType chatType, string normalizedText)
+    {
+        if (!Configuration.BetterMarketBoardSaleMessage) return;
+        if (chatType is not ChatType.System and not ChatType.RetainerSale) return;
+        if (!LogMessageCatalog.MatchesWithFallback(748, normalizedText, ChatStrings.MarketItemSold) &&
+            !L10N.Get(ChatRegexStrings.MarketItemSold).IsMatch(normalizedText))
+            return;
+
+        if (Better.MarketItemSold(message.Message, Configuration, normalizedText) is SeString rewritten)
+            message.Message = rewritten;
+    }
+
     /// <summary>Runs Better Messages rewrites. Returns true when the message is done and needs no further filtering.</summary>
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
+        TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
+
         if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&
             LogMessageCatalog.MatchesWithFallback(1531, normalizedText, ChatStrings.DutyHasBegun))
         {
@@ -214,6 +229,8 @@ public sealed partial class TidyChatPlugin
         }
         if (wasAllowedByLog)
         {
+            // OnLogMessage already allowed this line; rewrite before we short-circuit OnChat filtering.
+            TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
             return true;
@@ -221,6 +238,7 @@ public sealed partial class TidyChatPlugin
 
         if (TryConsumePendingLogMessageAllow(normalizedText))
         {
+            TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
             return true;
@@ -260,7 +278,7 @@ public sealed partial class TidyChatPlugin
         bool isBlocked = ChannelIsSpammy(chatType);
 
         // Skip filtering if channel filter is disabled — only whitelist Block rules apply.
-        if ((chatType is ChatType.System && !Configuration.FilterSystemMessages) ||
+        if ((chatType is ChatType.System or ChatType.RetainerSale && !Configuration.FilterSystemMessages) ||
             (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
             (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) ||
             (chatType is ChatType.LootNotice && !Configuration.FilterObtainedSpam) ||
@@ -276,7 +294,7 @@ public sealed partial class TidyChatPlugin
         }
 
         bool showEverythingElse = false;
-        if ((chatType is ChatType.System && Configuration.ShowEverythingElse) ||
+        if ((chatType is ChatType.System or ChatType.RetainerSale && Configuration.ShowEverythingElse) ||
             (chatType is ChatType.Crafting && Configuration.ShowAllOtherCrafting) ||
             (chatType is ChatType.Gathering or ChatType.GatheringSystem && Configuration.ShowAllOtherGathering))
         {
@@ -415,6 +433,7 @@ public sealed partial class TidyChatPlugin
         return chatType switch
         {
             ChatType.System or
+                ChatType.RetainerSale or
                 ChatType.StandardEmote or
                 ChatType.CustomEmote or
                 ChatType.Crafting or

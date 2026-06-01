@@ -1,5 +1,7 @@
 using System.Diagnostics;
+using System.Numerics;
 using TidyChat.Localization.Resources;
+using TidyStrings = TidyChat.Utility.InternalStrings;
 namespace TidyChat.Settings.UI;
 
 public static class TabFooter
@@ -37,5 +39,10 @@ public static class TabFooter
                 UseShellExecute = true
             });
         ImGui.PopStyleColor(3);
+
+        ImGui.SameLine();
+        float versionWidth = ImGui.CalcTextSize(TidyStrings.Version).X;
+        ImGui.SetCursorPosX(ImGui.GetWindowContentRegionMax().X - versionWidth);
+        ImGui.TextColored(new Vector4(0.45f, 0.45f, 0.45f, 1f), TidyStrings.Version);
     }
 }

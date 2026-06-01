@@ -41,6 +41,12 @@ public sealed partial class TidyChatPlugin
 
         bool requiresCatalog = RequiresLogMessageCatalog(rule);
         bool catalogMatched = LogMessageCatalogMatches(rule, normalizedText);
+        if (requiresCatalog && catalogMatched)
+        {
+            if (debugMode) Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
+            return true;
+        }
+
         bool allowTextFallback = requiresCatalog && !catalogMatched &&
                                  ShouldFallbackToTextChecksWhenCatalogMisses(rule);
 
@@ -68,8 +74,6 @@ public sealed partial class TidyChatPlugin
                     }
                 }
 
-                if (catalogMatched && debugMode)
-                    Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
                 return true;
             case PatternKind.StringMatch:
                 if (rule.StringChecks is null) return false;
@@ -93,8 +97,6 @@ public sealed partial class TidyChatPlugin
                     }
                 }
 
-                if (catalogMatched && debugMode)
-                    Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
                 return true;
             default:
                 return false;

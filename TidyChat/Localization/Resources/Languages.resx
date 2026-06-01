@@ -500,6 +500,15 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CombatTab_CombatLogDropdownHeader" xml:space="preserve">
     <value>Combat log</value>
   </data>
+  <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
+    <value>Casting &amp; Abilities</value>
+  </data>
+  <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
+    <value>Damage, Healing &amp; Effects</value>
+  </data>
+  <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
+    <value>Defeat, Adds &amp; Enmity</value>
+  </data>
   <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
     <value>Show combat ability usage messages</value>
   </data>
@@ -563,6 +572,36 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
     <value>Advanced</value>
   </data>
+  <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
+    <value>Combat</value>
+  </data>
+  <data name="ConfigWindow_CraftingGatheringTabHeader" xml:space="preserve">
+    <value>Crafting &amp; Gathering</value>
+  </data>
+  <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
+    <value>Economy</value>
+  </data>
+  <data name="ConfigWindow_EmotesTabHeader" xml:space="preserve">
+    <value>Emotes</value>
+  </data>
+  <data name="ConfigWindow_GeneralTabHeader" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ConfigWindow_ObtainTabHeader" xml:space="preserve">
+    <value>Obtain</value>
+  </data>
+  <data name="ConfigWindow_PartyDutyTabHeader" xml:space="preserve">
+    <value>Party &amp; Duty</value>
+  </data>
+  <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="ConfigWindow_SystemTabHeader" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="ConfigWindow_ToolsTabHeader" xml:space="preserve">
+    <value>Tools</value>
+  </data>
   <data name="ConfigWindow_SearchClear" xml:space="preserve">
     <value>Clear</value>
   </data>
@@ -591,7 +630,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>This message type is always shown and cannot be toggled.</value>
   </data>
   <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
-    <value>Settings</value>
+    <value>General</value>
   </data>
   <data name="CraftingGatheringTab_CosmicExplorationHeader" xml:space="preserve">
     <value>Cosmic Exploration</value>
@@ -604,6 +643,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
     <value>Fishing</value>
+  </data>
+  <data name="CraftingGatheringTab_AetherialReductionDropdownHeader" xml:space="preserve">
+    <value>Aetherial Reduction</value>
   </data>
   <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
     <value>Gathering</value>
@@ -726,7 +768,16 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show final status messages upon finishing a Trial synthesis</value>
   </data>
   <data name="CraftingGatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
-    <value>Stellar Missions / Cosmic Exploration</value>
+    <value>Cosmic &amp; Stellar Exploration</value>
+  </data>
+  <data name="ToolsTab_ChatHistoryDropdownHeader" xml:space="preserve">
+    <value>Chat History</value>
+  </data>
+  <data name="ToolsTab_CustomFiltersDropdownHeader" xml:space="preserve">
+    <value>Custom Filters</value>
+  </data>
+  <data name="ToolsTab_DebugDropdownHeader" xml:space="preserve">
+    <value>Debug</value>
   </data>
   <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
     <value>Filter Custom Emote Channel</value>
@@ -854,6 +905,9 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
     <value>Replaces duty entry spam with a single line: Duty Name has begun. Hides level sync, item level sync, alliance reform, and Echo briefing lines.</value>
   </data>
+  <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
+    <value>Display Options</value>
+  </data>
   <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
     <value>Improved Messages</value>
         <comment>Dropdown header for Improved Messages</comment>
@@ -920,7 +974,7 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Show "You cast your lot" messages</value>
   </data>
   <data name="ObtainTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
-    <value>Common Currencies</value>
+    <value>Items &amp; Currency</value>
   </data>
   <data name="ObtainTab_HideObtainedShardsFromLoot" xml:space="preserve">
     <value>Hide elemental shards, crystals, and clusters (from loot)</value>
@@ -1002,6 +1056,12 @@ eg. You obtain 30 ice shards</value>
   </data>
   <data name="ObtainTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
     <value>Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
+  </data>
+  <data name="ObtainTab_HideInventoryItemAddedMessages" xml:space="preserve">
+    <value>Hide "added to your inventory" messages</value>
+  </data>
+  <data name="ObtainTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
+    <value>eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates "You obtain …" on retainer ventures.)</value>
   </data>
   <data name="ObtainTab_ShowGil" xml:space="preserve">
     <value>Hide Gil</value>
@@ -1089,6 +1149,18 @@ eg. You cast your lot for the &lt;item&gt;</value>
   <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
 eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
+  </data>
+  <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
+    <value>Duty Rewards</value>
+  </data>
+  <data name="ProgressTab_ExperienceAndLevelsDropdownHeader" xml:space="preserve">
+    <value>Experience &amp; Levels</value>
+  </data>
+  <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
+    <value>Quests &amp; Achievements</value>
+  </data>
+  <data name="ProgressTab_UnlocksDropdownHeader" xml:space="preserve">
+    <value>Unlocks</value>
   </data>
   <data name="ProgressTab_HideDutyRouletteBonusMessages" xml:space="preserve">
     <value>Hide duty roulette bonus messages</value>
@@ -1289,8 +1361,53 @@ Current instance can be confirmed at any time using the /instance text command.<
   <data name="SystemTab_HideSayReminderHelpMarker" xml:space="preserve">
     <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
   </data>
+  <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
+    <value>Other System Messages</value>
+  </data>
+  <data name="SystemTab_CharacterAndGearDropdownHeader" xml:space="preserve">
+    <value>Character &amp; Gear</value>
+  </data>
+  <data name="SystemTab_DutyCompletionDropdownHeader" xml:space="preserve">
+    <value>Duty Completion</value>
+  </data>
+  <data name="SystemTab_DutyFinderDropdownHeader" xml:space="preserve">
+    <value>Duty Finder</value>
+  </data>
+  <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
+    <value>Exploration &amp; Compass</value>
+  </data>
+  <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
+    <value>Glamour &amp; Spiritbound</value>
+  </data>
   <data name="SystemTab_HideShownDefaultDropdownHeader" xml:space="preserve">
     <value>Shown by default (uncheck to hide)</value>
+  </data>
+  <data name="SystemTab_HuntMessagesDropdownHeader" xml:space="preserve">
+    <value>Hunt Messages</value>
+  </data>
+  <data name="SystemTab_PartyLeadershipDropdownHeader" xml:space="preserve">
+    <value>Party Leadership</value>
+  </data>
+  <data name="SystemTab_PartyToolsDropdownHeader" xml:space="preserve">
+    <value>Party Tools</value>
+  </data>
+  <data name="SystemTab_RelicAndMailDropdownHeader" xml:space="preserve">
+    <value>Relic &amp; Mail</value>
+  </data>
+  <data name="SystemTab_RetainerAndVentureDropdownHeader" xml:space="preserve">
+    <value>Retainer &amp; Venture Messages</value>
+  </data>
+  <data name="SystemTab_ServerAnnouncementsDropdownHeader" xml:space="preserve">
+    <value>Server Announcements</value>
+  </data>
+  <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
+    <value>Social &amp; Misc</value>
+  </data>
+  <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
+    <value>Status &amp; Audio</value>
+  </data>
+  <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
+    <value>World &amp; Instance Messages</value>
   </data>
   <data name="SystemTab_HideSpiritboundMessages" xml:space="preserve">
     <value>Show gear reaching 100% spiritbound messages</value>
@@ -1339,7 +1456,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>eg. You sense something to the far, far southwest...</value>
   </data>
   <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
-    <value>Orchestrion</value>
+    <value>Orchestrion &amp; BGM</value>
   </data>
   <data name="SystemTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Party &amp; Invite Messages</value>
@@ -1585,8 +1702,17 @@ eg. Your submersible has returned from its voyage.</value>
   <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Trading Messages</value>
   </data>
+  <data name="SystemTab_VendorAndRetainerDropdownHeader" xml:space="preserve">
+    <value>Vendor &amp; Retainer Messages</value>
+  </data>
+  <data name="SystemTab_MarketBoardDropdownHeader" xml:space="preserve">
+    <value>Market Board Messages</value>
+  </data>
+  <data name="SystemTab_GilMessagesDropdownHeader" xml:space="preserve">
+    <value>Gil Messages</value>
+  </data>
   <data name="SystemTab_ShowVendorSellMessages" xml:space="preserve">
-    <value>Show vendor and retainer sell messages</value>
+    <value>Show vendor and retainer item sell messages</value>
   </data>
   <data name="SystemTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
     <value>eg. You sell 3 Shisui gobies for 6 gil.</value>
@@ -1598,10 +1724,16 @@ eg. Your submersible has returned from its voyage.</value>
     <value>eg. You purchase an item from a vendor.</value>
   </data>
   <data name="SystemTab_ShowMarketBoardMessages" xml:space="preserve">
-    <value>Show market board listing and sale messages</value>
+    <value>Show market board messages</value>
   </data>
   <data name="SystemTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You are now selling items in the markets. / An item sold on the market board.</value>
+    <value>eg. You are now selling items in the markets. / The item you listed has sold for 75,660 gil (after fees). / Gil entrusted to retainer.</value>
+  </data>
+  <data name="EconomyTab_BetterMarketBoardSaleMessage" xml:space="preserve">
+    <value>Shorten item sold lines</value>
+  </data>
+  <data name="EconomyTab_BetterMarketBoardSaleMessageHelpMarker" xml:space="preserve">
+    <value>eg. O'Ghomoro berries sold for 75,660 gil. (Instead of the long "put up for sale in … markets" line.)</value>
   </data>
   <data name="SystemTab_ShowGilWithdrawnMessage" xml:space="preserve">
     <value>Show retainer gil withdrawal message</value>

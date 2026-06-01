@@ -290,6 +290,15 @@ public static class ChatRegexStrings
         Fra = new(@"^(?<duty>.+?)\s+a\s+commencé\.?$", regexOptions, regexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/748?pretty=true">Market board item sold (after fees).</see>
+    public static readonly LocalizedRegex MarketItemSold = new()
+    {
+        Jpn = new(@"you put up for sale.*?(?:has|have) sold for (?<gil>[\d,]+) gil", regexOptions, regexTimeout),
+        Eng = new(@"you put up for sale.*?(?:has|have) sold for (?<gil>[\d,]+) gil", regexOptions, regexTimeout),
+        Deu = new(@"you put up for sale.*?(?:has|have) sold for (?<gil>[\d,]+) gil", regexOptions, regexTimeout),
+        Fra = new(@"you put up for sale.*?(?:has|have) sold for (?<gil>[\d,]+) gil", regexOptions, regexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/7265?pretty=true">Floor Number"</see>
     public static readonly LocalizedRegex FloorNumber = new()
     {

@@ -132,7 +132,7 @@ internal static class SettingsSearchIndex
                 $"tomestone-{tomestone.RowId}",
                 label,
                 null,
-                $"Advanced > {Languages.AdvancedTab_LootObtainTabHeader}",
+                Languages.ConfigWindow_ObtainTabHeader,
                 null,
                 [],
                 [],
@@ -154,9 +154,10 @@ internal static class SettingsSearchIndex
 
             (string label, string? help) = ResolveLabelAndHelp(property.Name);
             RuleMetadata? ruleMeta = RuleMetadataByName.GetValueOrDefault(property.Name);
-            string location = ruleMeta is not null
-                ? FormatRuleLocation(ruleMeta.SettingsTab)
-                : InferLocation(property.Name);
+            string location = TryGetInferredLocation(property.Name)
+                ?? (ruleMeta is not null
+                    ? FormatRuleLocation(ruleMeta.SettingsTab)
+                    : Languages.ConfigWindow_GeneralTabHeader);
 
             entries.Add(new(
                 property.Name,
@@ -319,17 +320,22 @@ internal static class SettingsSearchIndex
 
     private static string FormatRuleLocation(string settingsTab) => settingsTab switch
     {
-        "System" => $"Advanced > {Languages.AdvancedTab_SystemTabHeader}",
-        "Loot/Obtain" => $"Advanced > {Languages.AdvancedTab_LootObtainTabHeader}",
-        "Progress" => $"Advanced > {Languages.AdvancedTab_ProgressTabHeader}",
-        "Combat" => $"Advanced > {Languages.AdvancedTab_CombatTabHeader}",
-        "Crafting" or "Gathering" =>
-            $"Advanced > {Languages.AdvancedTab_CraftingGatheringTabHeader}",
-        "General" or "Emotes" => Languages.ConfigWindow_SettingsTabHeader,
-        _ => $"Advanced > {settingsTab}"
+        "System" => Languages.ConfigWindow_SystemTabHeader,
+        "Loot/Obtain" => Languages.ConfigWindow_ObtainTabHeader,
+        "Progress" => Languages.ConfigWindow_ProgressTabHeader,
+        "Combat" => Languages.ConfigWindow_CombatTabHeader,
+        "Crafting" or "Gathering" => Languages.ConfigWindow_CraftingGatheringTabHeader,
+        "General" => Languages.ConfigWindow_GeneralTabHeader,
+        "Emotes" => Languages.ConfigWindow_EmotesTabHeader,
+        "Party" or "Duty" => Languages.ConfigWindow_PartyDutyTabHeader,
+        "Economy" => Languages.ConfigWindow_EconomyTabHeader,
+        _ => settingsTab
     };
 
-    private static string InferLocation(string propertyName)
+    private static string InferLocation(string propertyName) =>
+        TryGetInferredLocation(propertyName) ?? Languages.ConfigWindow_GeneralTabHeader;
+
+    private static string? TryGetInferredLocation(string propertyName)
     {
         if (propertyName.StartsWith("Filter", StringComparison.Ordinal) ||
             propertyName.StartsWith("Better", StringComparison.Ordinal) ||
@@ -339,20 +345,53 @@ internal static class SettingsSearchIndex
                 "AlwaysNormalizeBlocks" or
                 "NoCoffee" or
                 "ShowSelfUsedEmotes")
-            return Languages.ConfigWindow_SettingsTabHeader;
+            return Languages.ConfigWindow_GeneralTabHeader;
+
+        if (propertyName is "HideObtainedMGP" or "HideInventoryItemAdded")
+            return Languages.ConfigWindow_ObtainTabHeader;
+
+        if (propertyName.StartsWith("ShowGathering", StringComparison.Ordinal) ||
+            propertyName is "ShowCaughtFish" or "ShowMooching" or "ShowLocationAffects" or
+            "ShowAetherialReductionSands" or "ShowAetherialReductionSuccess" or
+            "ShowAetherialReductionMinigame")
+            return Languages.ConfigWindow_CraftingGatheringTabHeader;
 
         if (propertyName.StartsWith("EnableDebug", StringComparison.Ordinal) ||
             propertyName is "DebugIncludeChannel")
-            return Languages.ConfigWindow_AdvancedSettingsTabHeader;
+            return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_DebugDropdownHeader}";
 
         if (propertyName.StartsWith("ChatHistory", StringComparison.Ordinal) ||
             propertyName is "DisableSelfChatHistory")
-            return $"Advanced > {Languages.AdvancedTab_ChatHistoryTabHeader}";
+            return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_ChatHistoryDropdownHeader}";
 
         if (propertyName is "SentByWhitelistPlayer" or "TargetingWhitelistPlayer")
-            return $"Advanced > {Languages.AdvancedTab_CustomFiltersHeader}";
+            return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_CustomFiltersDropdownHeader}";
 
-        return Languages.ConfigWindow_AdvancedSettingsTabHeader;
+        if (propertyName.StartsWith("FilterEmote", StringComparison.Ordinal) ||
+            propertyName is "ShowOtherCustomEmotes" or "ShowSelfUsedEmotes")
+            return Languages.ConfigWindow_EmotesTabHeader;
+
+        if (            propertyName is "ShowTradeSent" or "ShowTradeCanceled" or "ShowAwaitingTradeConfirmation" or
+            "ShowTradeComplete" or "ShowVendorSellMessages" or "ShowVendorPurchaseMessages" or
+            "ShowMarketBoardMessages" or "BetterMarketBoardSaleMessage" or "ShowGilWithdrawnMessage" or
+            "ShowGilSpentMessage")
+            return Languages.ConfigWindow_EconomyTabHeader;
+
+        if (propertyName.StartsWith("ShowInvite", StringComparison.Ordinal) ||
+            propertyName.StartsWith("ShowJoin", StringComparison.Ordinal) ||
+            propertyName.StartsWith("ShowLeft", StringComparison.Ordinal) ||
+            propertyName.StartsWith("ShowParty", StringComparison.Ordinal) ||
+            propertyName is "ShowDutyFinder" or "ShowOfferedTeleport" or "ShowCompletedVenture" or
+            "ShowRetainerVentureMessages" or "ShowUserLogins" or "ShowUserLogouts" or
+            "ShowFreeCompanyMessageBook" or "ShowExploratoryVoyage" or "ShowSubaquaticVoyage" or
+            "ShowCountdownTime" or "ShowReadyChecks" or "ShowCompletionTime" or "ShowNowLeaderOf" or
+            "ShowSealedOff" or "ShowCairnGlows" or "ShowRestoresLifeToFallen" or "ShowCairnActivates" or
+            "ShowTransference" or "ShowAetherpoolIncrease" or "ShowAetherpoolUnchanged" or
+            "ShowObtainedPomander" or "ShowPomanderEffects" or "ShowFloorNumber" or "ShowTrapTriggered" or
+            "ShowSenseAccursedHoard" or "ShowDoNotSenseAccursedHoard" or "ShowDiscoverAccursedHoard")
+            return Languages.ConfigWindow_PartyDutyTabHeader;
+
+        return null;
     }
 
     private static bool Contains(string query, string? value) =>

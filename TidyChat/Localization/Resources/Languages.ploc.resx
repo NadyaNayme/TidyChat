@@ -1094,6 +1094,15 @@
   <data name="SystemTab_TradingDropdownHeader" xml:space="preserve">
     <value>Ţŕàðîñĝ Ṁéššàĝéš</value>
   </data>
+  <data name="SystemTab_VendorAndRetainerDropdownHeader" xml:space="preserve">
+    <value>Ṽéñðôŕ &amp; Ŕéţàîñéŕ Ṁéššàĝéš</value>
+  </data>
+  <data name="SystemTab_MarketBoardDropdownHeader" xml:space="preserve">
+    <value>Ṁàŕķéţ ƀôàŕð Ṁéššàĝéš</value>
+  </data>
+  <data name="SystemTab_GilMessagesDropdownHeader" xml:space="preserve">
+    <value>Ĝîļ Ṁéššàĝéš</value>
+  </data>
   <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
     <value>Ýôû ɱûšţ éñţéŕ ţĥé þļàýéŕ'š ñàɱé àš îţ ŵôûļð ƀé šééñ îñ çĥàţ ‐ îñçļûðîñĝ àñý þéŕîôðš·
 

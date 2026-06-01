@@ -23,7 +23,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCompletedVenture",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4341],
@@ -34,7 +34,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRetainerVentureMessages",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4331],
@@ -45,7 +45,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRetainerVentureMessages",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4330],
@@ -56,7 +56,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRetainerVentureMessages",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4334],
@@ -67,7 +67,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCompletedVenture",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4332],
@@ -78,7 +78,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCompletedVenture",
-            SettingsTab = "System",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4335],
@@ -1267,7 +1267,7 @@ public static partial class Rules
         {
             Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.RetainerSale,
             IsActive = true,
             LogMessageIds = [748],
             StringChecks = [ChatStrings.MarketItemSold],
@@ -1278,7 +1278,7 @@ public static partial class Rules
         {
             Name = "ShowMarketBoardMessages",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.RetainerSale,
             IsActive = true,
             LogMessageIds = [384],
             StringChecks = [ChatStrings.MarketAllItemsSold],

@@ -108,16 +108,8 @@ internal static class CraftingGatheringTab
             }
         }
 
-        if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_GatheringLocationsDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_AetherialReductionDropdownHeader))
         {
-            bool showGatheringSenses = configuration.ShowGatheringSenses;
-            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringSensesLabel,
-                    ref showGatheringSenses))
-            {
-                configuration.ShowGatheringSenses = showGatheringSenses;
-                configuration.OnSettingChanged();
-            }
-
             bool showAetherialReductionSands = configuration.ShowAetherialReductionSands;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowObtainedSandsFromAetherialReductionMessages,
                     ref showAetherialReductionSands))
@@ -143,6 +135,17 @@ internal static class CraftingGatheringTab
             }
 
             ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker);
+        }
+
+        if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_GatheringLocationsDropdownHeader))
+        {
+            bool showGatheringSenses = configuration.ShowGatheringSenses;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringSensesLabel,
+                    ref showGatheringSenses))
+            {
+                configuration.ShowGatheringSenses = showGatheringSenses;
+                configuration.OnSettingChanged();
+            }
 
             bool showGatheringStartEnd = configuration.ShowGatheringStartEnd;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringStartEnd,
@@ -283,8 +286,5 @@ internal static class CraftingGatheringTab
                 configuration.OnSettingChanged();
             }
         }
-
-
-        ImGui.EndTabItem();
     }
 }

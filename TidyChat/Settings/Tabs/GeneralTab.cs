@@ -59,9 +59,7 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterGatheringSpamHelpMarker);
 
-        if (ImGui.CollapsingHeader(Languages.GeneralTab_EmoteFiltersHeaderDropdown)) EmotesTab.Draw(configuration);
-
-        if (ImGui.CollapsingHeader(Languages.GeneralTab_ImprovedMessagesHeader))
+        if (ImGui.CollapsingHeader(Languages.GeneralTab_DisplayOptionsHeader))
         {
             bool includeChatTag = configuration.IncludeChatTag;
             if (ImGui.Checkbox(Languages.GeneralTab_TidyChatTag, ref includeChatTag))
@@ -96,7 +94,10 @@ internal static class GeneralTab
                 configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
                 configuration.OnSettingChanged();
             }
+        }
 
+        if (ImGui.CollapsingHeader(Languages.GeneralTab_ImprovedMessagesHeader))
+        {
             bool betterInstanceMessage = configuration.BetterInstanceMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
             {
@@ -198,7 +199,5 @@ internal static class GeneralTab
         ImGui.TextUnformatted(string.Format(Languages.GeneralTab_BlockedMessages,
             configuration.TtlMessagesBlocked.ToString()));
         ImGuiComponents.HelpMarker(Languages.GeneralTab_BlockCountHelpMarker);
-
-        ImGui.EndTabItem();
     }
 }

@@ -77,6 +77,15 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGeneralItemObtainsHelpMarker);
 
+            bool hideInventoryItemAdded = configuration.HideInventoryItemAdded;
+            if (ImGui.Checkbox(Languages.ObtainTab_HideInventoryItemAddedMessages, ref hideInventoryItemAdded))
+            {
+                configuration.HideInventoryItemAdded = hideInventoryItemAdded;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.ObtainTab_HideInventoryItemAddedMessagesHelpMarker);
+
             bool showObtainedQuestItems = configuration.ShowObtainedQuestItems;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowObtainedQuestItems, ref showObtainedQuestItems))
             {
@@ -222,7 +231,5 @@ internal static class ObtainTab
 
             ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
         }
-
-        ImGui.EndTabItem();
     }
 }

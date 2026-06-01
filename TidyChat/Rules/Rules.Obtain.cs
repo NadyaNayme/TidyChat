@@ -25,7 +25,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.QuestItemObtain],
             Pattern = PatternKind.StringMatch
         },
-        // Dedicated obtain/inventory templates (1607/750/751/789/720); not part of SharedObtainTemplateIds or HideObtainedGil (1605).
+        // Dedicated obtain/inventory templates (1607/750/751/720); 789 uses HideInventoryItemAdded. Not part of SharedObtainTemplateIds or HideObtainedGil (1605).
         new()
         {
             Name = "ShowObtainedItems",
@@ -114,7 +114,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowObtainedItems",
+            Name = "ShowInventoryItemAdded",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.System,
             IsActive = true,
@@ -122,6 +122,37 @@ public static partial class Rules
             StringChecks = [ChatStrings.InventoryItemAdded],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowInventoryItemAdded",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.InventoryItemAdded],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "HideInventoryItemAdded",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [789],
+            StringChecks = [ChatStrings.InventoryItemAdded],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideInventoryItemAdded",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            StringChecks = [ChatStrings.InventoryItemAdded],
+            Pattern = PatternKind.StringMatch
         },
         // Inventory discard (720) — no dedicated setting; shares ShowObtainedItems toggle.
         new()
@@ -151,15 +182,6 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.ObtainedItemQuantity],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.InventoryItemAdded],
             Pattern = PatternKind.StringMatch
         },
         new()

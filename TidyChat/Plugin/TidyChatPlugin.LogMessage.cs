@@ -135,15 +135,23 @@ public sealed partial class TidyChatPlugin
     {
         if (rule.Pattern == PatternKind.None) return true;
 
-        if (!TryGetNormalizedLogMessageText(message, out string normalizedText) ||
-            !RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
-        {
-            if (Configuration.EnableDebugMode)
-                Log.Debug($"[LogMessage] ID {message.LogMessageId} matched {rule.Name} but text check failed");
-            return false;
-        }
+        bool idMatches = rule.LogMessageIds?.Contains(message.LogMessageId) == true;
 
-        return true;
+        if (!TryGetNormalizedLogMessageText(message, out string normalizedText))
+            return !rule.ShouldBlock && idMatches;
+
+        if (LogMessageCatalog.IsLoaded && idMatches && LogMessageCatalog.Matches(message.LogMessageId, normalizedText))
+            return true;
+
+        if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+            return true;
+
+        if (!rule.ShouldBlock && idMatches)
+            return true;
+
+        if (Configuration.EnableDebugMode)
+            Log.Debug($"[LogMessage] ID {message.LogMessageId} matched {rule.Name} but text check failed");
+        return false;
     }
     private void RememberLogMessageTexts(HashSet<string> target, string text)
     {

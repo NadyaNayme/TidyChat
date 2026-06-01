@@ -6,7 +6,7 @@ namespace TidyChat.Settings.Tabs;
 
 internal static class ChatHistoryTab
 {
-    public static void Draw(Configuration configuration)
+    public static void DrawContent(Configuration configuration)
     {
         bool chatHistoryFilter = configuration.ChatHistoryFilter;
         if (ImGui.Checkbox(Languages.ChatHistoryTab_EnableChatHistoryFilter, ref chatHistoryFilter))
@@ -106,7 +106,5 @@ internal static class ChatHistoryTab
         }
 
         #endregion Channels
-
-        ImGui.EndTabItem();
     }
 }

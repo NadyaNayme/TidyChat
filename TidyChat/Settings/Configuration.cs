@@ -66,8 +66,6 @@ public class Configuration : IPluginConfiguration
     #region Error Messages
 
     public bool HideFateLevelSync { get; set; } = false;
-    public bool HideCannotExecute { get; set; } = false;
-    public bool ShowFateDiscovery { get; set; } = false;
 
     #endregion
 
@@ -125,7 +123,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowUserLogins { get; set; } = true;
     public bool ShowUserLogouts { get; set; } = true;
 
-    public bool ShowFriendList { get; set; } = false;
 
     public bool ShowSpiritboundGear { get; set; } = true;
 
@@ -168,6 +165,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowVendorSellMessages { get; set; } = false;
     public bool ShowVendorPurchaseMessages { get; set; } = false;
     public bool ShowMarketBoardMessages { get; set; } = false;
+    public bool BetterMarketBoardSaleMessage { get; set; } = true;
     public bool ShowGilWithdrawnMessage { get; set; } = false;
     public bool ShowGilSpentMessage { get; set; } = false;
 
@@ -213,6 +211,7 @@ public class Configuration : IPluginConfiguration
     #region Obtained Items
 
     public bool ShowObtainedItems { get; set; } = true;
+    public bool HideInventoryItemAdded { get; set; } = true;
     public bool HideObtainedGil { get; set; } = false;
     public bool HideObtainedMGP { get; set; } = false;
     public bool HideObtainedClusters { get; set; } = false;

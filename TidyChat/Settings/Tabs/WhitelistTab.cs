@@ -10,7 +10,7 @@ internal static class WhitelistTab
 {
     private static PlayerName m_placeholder = new();
 
-    public static void Draw(Configuration configuration)
+    public static void DrawContent(Configuration configuration)
     {
         bool sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
@@ -196,6 +196,5 @@ internal static class WhitelistTab
         ImGui.Spacing();
         ImGui.TextUnformatted(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
         ImGui.TextUnformatted("Use #ID (e.g. #588 or #588,589) to match by LogMessage ID.");
-        ImGui.EndTabItem();
     }
 }

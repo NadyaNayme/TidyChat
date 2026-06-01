@@ -6,7 +6,7 @@ internal static class CombatTab
 {
     public static void Draw(Configuration configuration)
     {
-        if (ImGui.CollapsingHeader(Languages.CombatTab_CombatLogDropdownHeader, ImGuiTreeNodeFlags.DefaultOpen))
+        if (ImGui.CollapsingHeader(Languages.CombatTab_CastingAndAbilitiesDropdownHeader, ImGuiTreeNodeFlags.DefaultOpen))
         {
             bool showCombatCasting = configuration.ShowCombatCasting;
             if (ImGui.Checkbox(Languages.CombatTab_ShowCombatCastingMessages, ref showCombatCasting))
@@ -25,7 +25,10 @@ internal static class CombatTab
             }
 
             ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatAbilitiesMessagesHelpMarker);
+        }
 
+        if (ImGui.CollapsingHeader(Languages.CombatTab_DamageHealingAndEffectsDropdownHeader))
+        {
             bool showCombatDamage = configuration.ShowCombatDamage;
             if (ImGui.Checkbox(Languages.CombatTab_ShowCombatDamageMessages, ref showCombatDamage))
             {
@@ -61,7 +64,10 @@ internal static class CombatTab
             }
 
             ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatEffectsMessagesHelpMarker);
+        }
 
+        if (ImGui.CollapsingHeader(Languages.CombatTab_DefeatAndAddsDropdownHeader))
+        {
             bool showCombatDefeat = configuration.ShowCombatDefeat;
             if (ImGui.Checkbox(Languages.CombatTab_ShowCombatDefeatMessages, ref showCombatDefeat))
             {
@@ -98,7 +104,5 @@ internal static class CombatTab
 
             ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatEnmityMessagesHelpMarker);
         }
-
-        ImGui.EndTabItem();
     }
 }

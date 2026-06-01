@@ -6,6 +6,7 @@ using System.Timers;
 using Dalamud.Game;
 using Dalamud.Game.Text;
 using Dalamud.Game.Text.SeStringHandling;
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;
@@ -32,6 +33,52 @@ internal static class BetterStrings
         }
 
         return $"/say {containingPhrase}";
+    }
+
+    /// <summary>
+    ///     Rewrites LogMessage 748 to "[item link] sold for [gil] gil." while preserving item payloads.
+    /// </summary>
+    public static SeString? MarketItemSold(SeString message, Configuration configuration, string normalizedText)
+    {
+        Match gilMatch = L10N.Get(ChatRegexStrings.MarketItemSold).Match(normalizedText);
+        if (!gilMatch.Success || !gilMatch.Groups["gil"].Success)
+            return null;
+
+        string gilAmount = gilMatch.Groups["gil"].Value;
+        var builder = new SeStringBuilder();
+        if (configuration.IncludeChatTag)
+            AddTidyChatTag(builder);
+
+        bool addedItem = false;
+        foreach(Payload payload in message.Payloads)
+        {
+            if (payload is TextPayload { Text: { Length: > 0 } text })
+            {
+                int putUpIndex = text.IndexOf(" you put up", StringComparison.OrdinalIgnoreCase);
+                int soldForIndex = text.IndexOf("sold for", StringComparison.OrdinalIgnoreCase);
+                int cutIndex = putUpIndex >= 0 ? putUpIndex : soldForIndex;
+                if (cutIndex >= 0)
+                {
+                    if (cutIndex > 0)
+                    {
+                        builder.AddText(text[..cutIndex]);
+                        if (!text.StartsWith("The ", StringComparison.OrdinalIgnoreCase) || cutIndex > "The ".Length)
+                            addedItem = true;
+                    }
+                    break;
+                }
+            }
+
+            builder.Add(payload);
+            if (payload is ItemPayload)
+                addedItem = true;
+        }
+
+        if (!addedItem)
+            return null;
+
+        builder.AddText($" sold for {gilAmount} gil.");
+        return builder.BuiltString;
     }
 
     public static SeString DutyCommence(SeString message, Configuration configuration, string normalizedText)

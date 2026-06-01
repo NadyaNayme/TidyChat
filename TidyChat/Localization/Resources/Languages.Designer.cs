@@ -357,6 +357,18 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string CombatTab_CastingAndAbilitiesDropdownHeader {
+            get { return ResourceManager.GetString("CombatTab_CastingAndAbilitiesDropdownHeader", resourceCulture); }
+        }
+        
+        internal static string CombatTab_DamageHealingAndEffectsDropdownHeader {
+            get { return ResourceManager.GetString("CombatTab_DamageHealingAndEffectsDropdownHeader", resourceCulture); }
+        }
+        
+        internal static string CombatTab_DefeatAndAddsDropdownHeader {
+            get { return ResourceManager.GetString("CombatTab_DefeatAndAddsDropdownHeader", resourceCulture); }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Show combat ability usage messages.
         /// </summary>
@@ -546,6 +558,46 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string ConfigWindow_CombatTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_CombatTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_CraftingGatheringTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_CraftingGatheringTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_EconomyTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_EconomyTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_EmotesTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_EmotesTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_GeneralTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_GeneralTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_ObtainTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_ObtainTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_PartyDutyTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_PartyDutyTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_ProgressTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_ProgressTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_SystemTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_SystemTabHeader", resourceCulture); }
+        }
+        
+        internal static string ConfigWindow_ToolsTabHeader {
+            get { return ResourceManager.GetString("ConfigWindow_ToolsTabHeader", resourceCulture); }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Clear.
         /// </summary>
@@ -633,6 +685,15 @@ namespace TidyChat.Localization.Resources {
         internal static string ConfigWindow_SettingsTabHeader {
             get {
                 return ResourceManager.GetString("ConfigWindow_SettingsTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aetherial Reduction.
+        /// </summary>
+        internal static string CraftingGatheringTab_AetherialReductionDropdownHeader {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_AetherialReductionDropdownHeader", resourceCulture);
             }
         }
         
@@ -1398,6 +1459,15 @@ namespace TidyChat.Localization.Resources {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Display Options.
+        /// </summary>
+        internal static string GeneralTab_DisplayOptionsHeader {
+            get {
+                return ResourceManager.GetString("GeneralTab_DisplayOptionsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Improved Messages.
         /// </summary>
         internal static string GeneralTab_ImprovedMessagesHeader {
@@ -1828,6 +1898,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide "added to your inventory" messages.
+        /// </summary>
+        internal static string ObtainTab_HideInventoryItemAddedMessages {
+            get {
+                return ResourceManager.GetString("ObtainTab_HideInventoryItemAddedMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates "You obtain …" on retainer ventures.).
+        /// </summary>
+        internal static string ObtainTab_HideInventoryItemAddedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_HideInventoryItemAddedMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hide Gil.
         /// </summary>
         internal static string ObtainTab_ShowGil {
@@ -2085,6 +2173,30 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Hide duty roulette bonus messages.
         /// </summary>
+        internal static string ProgressTab_DutyRewardsDropdownHeader {
+            get {
+                return ResourceManager.GetString("ProgressTab_DutyRewardsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string ProgressTab_ExperienceAndLevelsDropdownHeader {
+            get {
+                return ResourceManager.GetString("ProgressTab_ExperienceAndLevelsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string ProgressTab_QuestAndAchievementsDropdownHeader {
+            get {
+                return ResourceManager.GetString("ProgressTab_QuestAndAchievementsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string ProgressTab_UnlocksDropdownHeader {
+            get {
+                return ResourceManager.GetString("ProgressTab_UnlocksDropdownHeader", resourceCulture);
+            }
+        }
+        
         internal static string ProgressTab_HideDutyRouletteBonusMessages {
             get {
                 return ResourceManager.GetString("ProgressTab_HideDutyRouletteBonusMessages", resourceCulture);
@@ -2328,12 +2440,36 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string SystemTab_CatchAllDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_CatchAllDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_CharacterAndGearDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_CharacterAndGearDropdownHeader", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Deep Dungeons.
         /// </summary>
         internal static string SystemTab_DeepDungeonsDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_DeepDungeonsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_DutyCompletionDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_DutyCompletionDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_DutyFinderDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_DutyFinderDropdownHeader", resourceCulture);
             }
         }
         
@@ -2346,12 +2482,30 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string SystemTab_ExplorationDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ExplorationDropdownHeader", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Free Company.
         /// </summary>
         internal static string SystemTab_FreeCompanyDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_FreeCompanyDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_GlamourAndGearDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_GlamourAndGearDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_HuntMessagesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_HuntMessagesDropdownHeader", resourceCulture);
             }
         }
         
@@ -2825,12 +2979,42 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string SystemTab_PartyLeadershipDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_PartyLeadershipDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_PartyToolsDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_PartyToolsDropdownHeader", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Party &amp; Invite Messages.
         /// </summary>
         internal static string SystemTab_PartyAndInviteDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_PartyAndInviteDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_RelicAndMailDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_RelicAndMailDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_RetainerAndVentureDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_RetainerAndVentureDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_ServerAnnouncementsDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ServerAnnouncementsDropdownHeader", resourceCulture);
             }
         }
         
@@ -3268,9 +3452,27 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Hidden by default (check to show).
         /// </summary>
+        internal static string SystemTab_SocialAndMiscDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_SocialAndMiscDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_SocialStatusDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_SocialStatusDropdownHeader", resourceCulture);
+            }
+        }
+        
         internal static string SystemTab_ShowHiddenMessagesDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_ShowHiddenMessagesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_WorldAndInstancesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_WorldAndInstancesDropdownHeader", resourceCulture);
             }
         }
         
@@ -3481,6 +3683,18 @@ namespace TidyChat.Localization.Resources {
             }
         }
 
+        internal static string EconomyTab_BetterMarketBoardSaleMessage {
+            get {
+                return ResourceManager.GetString("EconomyTab_BetterMarketBoardSaleMessage", resourceCulture);
+            }
+        }
+
+        internal static string EconomyTab_BetterMarketBoardSaleMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_BetterMarketBoardSaleMessageHelpMarker", resourceCulture);
+            }
+        }
+
         internal static string SystemTab_ShowGilWithdrawnMessage {
             get {
                 return ResourceManager.GetString("SystemTab_ShowGilWithdrawnMessage", resourceCulture);
@@ -3587,6 +3801,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Gil Messages.
+        /// </summary>
+        internal static string SystemTab_GilMessagesDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_GilMessagesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Market Board Messages.
+        /// </summary>
+        internal static string SystemTab_MarketBoardDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_MarketBoardDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trading Messages.
         /// </summary>
         internal static string SystemTab_TradingDropdownHeader {
@@ -3596,8 +3828,29 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vendor &amp; Retainer Messages.
+        /// </summary>
+        internal static string SystemTab_VendorAndRetainerDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_VendorAndRetainerDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Allow.
         /// </summary>
+        internal static string ToolsTab_ChatHistoryDropdownHeader {
+            get { return ResourceManager.GetString("ToolsTab_ChatHistoryDropdownHeader", resourceCulture); }
+        }
+        
+        internal static string ToolsTab_CustomFiltersDropdownHeader {
+            get { return ResourceManager.GetString("ToolsTab_CustomFiltersDropdownHeader", resourceCulture); }
+        }
+        
+        internal static string ToolsTab_DebugDropdownHeader {
+            get { return ResourceManager.GetString("ToolsTab_DebugDropdownHeader", resourceCulture); }
+        }
+        
         internal static string WhitelistTab_Allow {
             get {
                 return ResourceManager.GetString("WhitelistTab_Allow", resourceCulture);
