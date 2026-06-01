@@ -6,9 +6,6 @@ using Lumina.Excel.Sheets;
 using TidyChat.Translation.Data;
 namespace TidyChat.Data;
 
-/// <summary>
-///     Lowercase marker tokens from Lumina <see cref="Item" /> names for shared obtain templates (e.g. LogMessage 657).
-/// </summary>
 public static class ItemMarkerCatalog
 {
     private static readonly Dictionary<uint, string[]> MarkersByItemId = new();
@@ -63,7 +60,6 @@ public static class ItemMarkerCatalog
         return false;
     }
 
-    /// <summary>True when any GC seal item marker matches the text.</summary>
     public static bool MatchesAnySeal(string normalizedText, LocalizedStrings? fallback = null)
     {
         if (Matches(Items.StormSeal, normalizedText) ||
@@ -75,7 +71,6 @@ public static class ItemMarkerCatalog
         return false;
     }
 
-    /// <summary>Item row IDs referenced by obtain filter rules.</summary>
     public static class Items
     {
         public const uint WolfMarks = 25;
@@ -87,9 +82,6 @@ public static class ItemMarkerCatalog
         public const uint Venture = 21072;
         public const uint Nuts = 41784;
 
-        /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
-        /// through
-        /// <see href="https://xivapi.com/Item/19?pretty=true">Water Cluster</see>
         public static readonly uint[] ElementalAll =
         [
             2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19
@@ -97,7 +89,6 @@ public static class ItemMarkerCatalog
 
         public static readonly uint[] ElementalClusters = [14, 15, 16, 17, 18, 19];
 
-        /// <summary>Beast tribe currencies matched by <see cref="ChatRegexStrings.ObtainedTribalCurrency" />.</summary>
         public static readonly uint[] TribalCurrency =
         [
             6567, // Steel Amalj'ok

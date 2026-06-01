@@ -4,7 +4,6 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    // Rule arrays live in Rules.*.cs partials; _rules must be built after they initialize.
     private static readonly List<LocalizedFilterRule> _rules;
 
     private static readonly Dictionary<string, Func<Configuration, bool>> ConfigAccessors = new(StringComparer.Ordinal)
@@ -175,9 +174,6 @@ public static partial class Rules
 
     public static LocalizedFilterRule[] AllRules => [.. _rules];
 
-    /// <summary>
-    ///     Maps each LogMessage ID to filter rules that reference it. Built once at startup.
-    /// </summary>
     public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } =
         new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>();
 
@@ -204,7 +200,6 @@ public static partial class Rules
 
     private static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> BuildLogMessageIdLookup()
     {
-        // Build with mutable inner lists, then expose as read-only.
         var mutable = new Dictionary<uint, List<LocalizedFilterRule>>();
         foreach(LocalizedFilterRule rule in _rules)
         {
@@ -236,7 +231,6 @@ public static partial class Rules
             }
             else
             {
-                // Unknown rule name — default to active and log once.
                 rule.IsActive = true;
                 rule.Error ??= $"No config accessor for rule '{rule.Name}'";
                 TidyChatPlugin.Log.Error(rule.Error);
@@ -244,7 +238,6 @@ public static partial class Rules
         }
     }
 
-    /// <summary>Every LogMessage ID used by filter rules or whitelist documentation.</summary>
     public static IEnumerable<uint> EnumerateReferencedLogMessageIds()
     {
         var seen = new HashSet<uint>();

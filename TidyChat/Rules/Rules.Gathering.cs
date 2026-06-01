@@ -168,10 +168,6 @@ public static partial class Rules
         },
         new()
         {
-            // 1116 = "Something bites!"
-            // 1117 = "You lose your bait..."
-            // 3511/5584 = "You reel in your line."
-            // 11333 = "The multihook has reeled in additional fish!"
             Name = "ShowCaughtFish",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,

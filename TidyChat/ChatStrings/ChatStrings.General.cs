@@ -5,6 +5,7 @@ public static partial class ChatStrings
 {
 
     /// <see href="https://github.com/NadyaNayme/TidyChat/issues/122">Login / world-travel server announcements</see>
+
     public static readonly LocalizedStrings ServerAnnouncementMarkers = new()
     {
         Eng =
@@ -41,7 +42,12 @@ public static partial class ChatStrings
         ]
     };
 
+
+
+
+
     /// <see href="https://github.com/NadyaNayme/TidyChat/issues/122">Phishing warning lines in the login block</see>
+
     public static readonly LocalizedStrings ServerPhishingMarkers = new()
     {
         Eng =
@@ -71,7 +77,9 @@ public static partial class ChatStrings
         ]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/398?pretty=true">You are now selling items in … markets.</see>
+
+
+
     public static readonly LocalizedStrings MarketBoardStartSelling = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -80,7 +88,9 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/399?pretty=true">You are no longer selling items in … markets.</see>
+
+
+
     public static readonly LocalizedStrings MarketBoardStopSelling = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -89,10 +99,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+
+
+
+
     /// <see href="https://xivapi.com/LogMessage/748?pretty=true">
     ///     … you put up for sale in the markets has sold for … gil
     ///     (after fees).
     /// </see>
+
     public static readonly LocalizedStrings MarketItemSold = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -101,7 +116,9 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/384?pretty=true">All your items up for sale in the … markets have sold.</see>
+
+
+
     public static readonly LocalizedStrings MarketAllItemsSold = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -110,7 +127,9 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/734?pretty=true">You purchase …</see>
+
+
+
     public static readonly LocalizedStrings VendorPurchase = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -119,7 +138,9 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/561?pretty=true">You change to … (job/class).</see>
+
+
+
     public static readonly LocalizedStrings JobChange = new()
     {
         Jpn = ["チェンジ"],
@@ -128,7 +149,9 @@ public static partial class ChatStrings
         Fra = ["maintenant"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/788?pretty=true">… placed in your Armoury Chest.</see>
+
+
+
     public static readonly LocalizedStrings ArmouryChestPlacement = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -137,7 +160,9 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/756?pretty=true">Job registered (e.g. Paladin registered.).</see>
+
+
+
     public static readonly LocalizedStrings JobRegistered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -146,7 +171,9 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1281?pretty=true">You change to … (specialist).</see>
+
+
+
     public static readonly LocalizedStrings JobSpecialistChange = new()
     {
         Jpn = ["NeedsLocalization"],

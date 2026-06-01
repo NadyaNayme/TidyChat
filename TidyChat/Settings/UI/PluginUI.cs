@@ -11,10 +11,8 @@ namespace TidyChat.Settings.UI;
 internal class PluginUI : Window, IDisposable
 {
     private const float MinWindowHeight = 400f;
-    /// <summary>Collapse/menu controls on the Dalamud window chrome (not tab labels).</summary>
     private const float WindowChromePadding = 28f;
 
-    /// <summary>Scroll only when narrower than minimum — never shrink tab labels to "Gen...".</summary>
     private static readonly ImGuiTabBarFlags TabBarFlags =
         ImGuiTabBarFlags.FittingPolicyScroll;
 
@@ -222,7 +220,6 @@ internal class PluginUI : Window, IDisposable
                 width += style.ItemInnerSpacing.X;
         }
 
-        // Tab bar sits inside the window content area.
         return width + style.WindowPadding.X * 2f + style.ItemInnerSpacing.X;
     }
 }

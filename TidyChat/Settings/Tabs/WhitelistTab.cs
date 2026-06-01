@@ -108,8 +108,6 @@ internal static class WhitelistTab
                 configuration.OnSettingChanged();
             }
 
-            // Match-mode selector for existing entries. Hidden for regex entries (the regex itself controls matching)
-            // and for the placeholder row (-1) where there's no entry to configure yet.
             if (i != -1 && !alias.IsRegex)
             {
                 string matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
@@ -144,7 +142,6 @@ internal static class WhitelistTab
             ImGui.Spacing();
             if (i == -1)
             {
-                // Don't render the Allow/Block for initial addition
             }
             else
             {

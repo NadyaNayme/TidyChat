@@ -7,9 +7,6 @@ namespace TidyChat.Settings;
 
 internal static class ConfigurationMigration
 {
-    /// <summary>
-    /// Applies all pre-v5 schema merges (formerly v1–v5) and reads removed JSON keys from disk when needed.
-    /// </summary>
     public static void ApplyPreV5(Configuration config, IDalamudPluginInterface pluginInterface)
     {
         if (config.Version >= 5)
@@ -65,7 +62,6 @@ internal static class ConfigurationMigration
         }
         catch
         {
-            // Best-effort: current in-memory values are kept if the file cannot be read.
         }
     }
 

@@ -25,13 +25,12 @@ public sealed partial class TidyChatPlugin
 
     private void OnLogout(int add, int remove)
     {
-        BlockedCountUpdate();
+        FlushBlockedMessageCount(persist: true);
     }
 
     private void OnTerritoryChanged(uint e)
     {
-        BlockedCountUpdate();
-        // Look up the new territory to determine if we're entering a duty instance.
+        FlushBlockedMessageCount(persist: false);
         byte newExclusiveType = 0;
         try
         {
@@ -42,8 +41,6 @@ public sealed partial class TidyChatPlugin
             /* non-critical — default 0 means "not a duty" */
         }
 
-        // Only print the better commendation summary when leaving a duty (arriving at
-        // a non-instanced zone), not when entering the next one.
         if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate(printMessage: newExclusiveType != 2);
         if (Configuration.InstanceInDtrBar) DelayedInstanceDtrBarUpdate(Configuration);
         if (Configuration.IncludeDutyNameInComms)
@@ -111,10 +108,11 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    private void BlockedCountUpdate()
+    private void FlushBlockedMessageCount(bool persist)
     {
         Configuration.TtlMessagesBlocked += (ulong)Interlocked.Exchange(ref _sessionBlockedMessages, 0);
-        Configuration.Save();
+        if (persist)
+            Configuration.FlushToDisk();
     }
 
     private unsafe void BetterCommendationsUpdate(bool printMessage = true)

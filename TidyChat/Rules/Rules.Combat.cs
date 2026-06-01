@@ -58,7 +58,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCombatCasting",
@@ -68,7 +67,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.CombatInterruptPrevent],
             Pattern = PatternKind.StringMatch
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCombatCasting",
@@ -184,7 +182,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.CombatUnaffected],
             Pattern = PatternKind.StringMatch
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCombatMisses",

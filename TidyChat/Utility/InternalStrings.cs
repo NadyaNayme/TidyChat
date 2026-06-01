@@ -15,7 +15,6 @@ internal static class InternalStrings
 
     public static readonly string ShorthandHelper = "Shorthand command to open settings";
 
-    // The space at the end is intentional
     public static readonly string Tag = "[TidyChat] ";
 
     public static readonly LocalizedTidyStrings InstanceText = new()

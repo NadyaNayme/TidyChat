@@ -13,6 +13,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">Quest accepted.</see>
+
+
     public static readonly LocalizedStrings QuestAccepted = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -22,6 +24,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1602?pretty=true">Quest complete.</see>
+
+
     public static readonly LocalizedStrings QuestComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -31,6 +35,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3780?pretty=true">Challenge log entry "…" complete!</see>
+
+
     public static readonly LocalizedStrings ChallengeLogComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -40,6 +46,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3783?pretty=true">Challenge log entry "…" is almost complete!</see>
+
+
     public static readonly LocalizedStrings ChallengeLogAlmostComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -49,6 +57,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1603?pretty=true">Quest objective fulfilled.</see>
+
+
     public static readonly LocalizedStrings QuestObjectiveFulfilled = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -58,6 +68,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/659?pretty=true">You acquire \d PvP EXP.</see>
+
+
     public static readonly LocalizedStrings GainPvpExp = new()
     {
         Jpn = ["pvp", "exp"],
@@ -67,6 +79,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/549?pretty=true">EXP chain #N! Chain expires in N seconds.</see>
+
+
     public static readonly LocalizedStrings ExpChainBonus = new()
     {
         Jpn = ["チェーン"],
@@ -76,6 +90,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/588?pretty=true">You gain N experience points.</see>
+
+
     public static readonly LocalizedStrings GainExperience = new()
     {
         Jpn = ["経験値"],
@@ -85,6 +101,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/10874?pretty=true">You earn N cosmic class points for …</see>
+
+
     public static readonly LocalizedStrings CosmicClassPoints = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -94,6 +112,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/10875?pretty=true">You earn N daily points.</see>
+
+
     public static readonly LocalizedStrings DailyPointsEarned = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -103,6 +123,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/11156?pretty=true">You achieved the "…" daily success!</see>
+
+
     public static readonly LocalizedStrings DailySuccessAchieved = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -112,6 +134,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/10877?pretty=true">Daily success goal achieved!</see>
+
+
     public static readonly LocalizedStrings DailySuccessGoalAchieved = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -121,6 +145,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">You earn the achievement "…"!</see>
+
+
     public static readonly LocalizedStrings PlayerEarnAchievement = new()
     {
         Jpn = ["アチーブメント", "達成"],
@@ -130,6 +156,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/590?pretty=true">You attain level N!</see>
+
+
     public static readonly LocalizedStrings LevelUp = new()
     {
         Jpn = ["レベル"],
@@ -139,6 +167,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3921?pretty=true">Name attains level N!</see>
+
+
     public static readonly LocalizedStrings OtherLevelUp = new()
     {
         Jpn = ["レベル"],
@@ -148,6 +178,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/552?pretty=true">You learn …</see>
+
+
     public static readonly LocalizedStrings AbilityUnlock = new()
     {
         Jpn = ["修得"],
@@ -157,6 +189,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/609?pretty=true">You can now summon the … minion.</see>
+
+
     public static readonly LocalizedStrings MinionUnlock = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -166,6 +200,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3612?pretty=true">Paladin wisdom bequeathed.</see>
+
+
     public static readonly LocalizedStrings JobWisdomBequeathed = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -175,6 +211,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/3613?pretty=true">Paladin memories awoken.</see>
+
+
     public static readonly LocalizedStrings JobMemoriesAwoken = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -184,6 +222,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1461?pretty=true">Oath gauge expanded.</see>
+
+
     public static readonly LocalizedStrings OathGaugeExpanded = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -193,6 +233,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4679?pretty=true">Completion time: …</see>
+
+
     public static readonly LocalizedStrings CompletionTime = new()
     {
         Jpn = ["コンプリート"],
@@ -202,6 +244,8 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/4325?pretty=true">Desynthesis skill increases …</see>
+
+
     public static readonly LocalizedStrings DesynthesisLevel = new()
     {
         Jpn = ["分解"],
@@ -210,10 +254,15 @@ public static partial class ChatStrings
         Fra = ["recyclage"]
     };
 
+
+
+
+
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">
     ///     Someone earns the achievement " Blah blah blah, Tidal
     ///     Wave!"
     /// </see>
+
     public static readonly LocalizedStrings OtherEarnAchievement = new()
     {
         Jpn = ["アチーブメント"],

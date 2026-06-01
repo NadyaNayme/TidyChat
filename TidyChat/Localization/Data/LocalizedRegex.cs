@@ -5,9 +5,6 @@ namespace TidyChat.Translation.Data;
 
 public readonly record struct LocalizedRegex : IEnumerable<Regex>
 {
-    /// <remarks>
-    ///     The string to be matched is preprocessed and always replaces the local player name with "you"
-    /// </remarks>
     public Regex Jpn { get; init; }
 
     public Regex Eng { get; init; }

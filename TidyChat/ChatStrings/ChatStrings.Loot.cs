@@ -3,7 +3,8 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
-    /// <summary>Substring markers for another-player obtain lines (<see cref="LocalizedFilterRule.ExcludePlayerObtain" />).</summary>
+    /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Other-player obtain (657 / 1259 templates)</see>
+
     public static readonly LocalizedStrings OtherObtainMarker = new()
     {
         Jpn = ["手に入れた"],
@@ -12,7 +13,6 @@ public static partial class ChatStrings
         Fra = ["obtient"]
     };
 
-    /// <summary>Substring markers for "You cast your lot …" loot-roll messages.</summary>
     public static readonly LocalizedStrings CastLot = new()
     {
         Jpn = ["ロット"],
@@ -21,7 +21,6 @@ public static partial class ChatStrings
         Fra = ["lance", "dés"]
     };
 
-    /// <summary>Substring markers for "You roll Need/Greed …" loot-roll messages.</summary>
     public static readonly LocalizedStrings LootRoll = new()
     {
         Jpn = ["ダイス"],

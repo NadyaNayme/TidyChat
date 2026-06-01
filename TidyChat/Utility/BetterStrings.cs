@@ -17,7 +17,6 @@ internal static class BetterStrings
 {
     public static SeString SayReminder(SeString message, Configuration configuration)
     {
-        // With the chat mode in Say, enter a phrase containing "Capture this"
 
         int containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
         int containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
@@ -35,9 +34,6 @@ internal static class BetterStrings
         return $"/say {containingPhrase}";
     }
 
-    /// <summary>
-    ///     Rewrites LogMessage 748 to "[item link] sold for [gil] gil." while preserving item payloads.
-    /// </summary>
     public static SeString? MarketItemSold(SeString message, Configuration configuration, string normalizedText)
     {
         Match gilMatch = L10N.Get(ChatRegexStrings.MarketItemSold).Match(normalizedText);
@@ -129,7 +125,6 @@ internal static class BetterStrings
             UIState* uiState = UIState.Instance();
             if (uiState == null) return "";
 
-            // This will return the instance value: 0,1,2,3,4,5,6
             int instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
             string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
@@ -139,7 +134,6 @@ internal static class BetterStrings
         }
         catch
         {
-            // Nah
         }
         return "";
     }
@@ -157,10 +151,6 @@ internal static class BetterStrings
         return stringBuilder.BuiltString;
     }
 
-    /// <summary>
-    ///     Compact Novice Network leave text. Used by <see cref="TidyChatPlugin.OnLogMessage" />
-    ///     after suppressing LogMessage 7030.
-    /// </summary>
     public static SeString NoviceNetworkLeaveMessage(Configuration configuration)
     {
         string newMessage = ResolveNoviceNetworkCompactText(7030, 0, 0,
@@ -217,9 +207,6 @@ internal static class BetterStrings
         t.Enabled = true;
     }
 
-    /// <summary>Prepends a red "[TidyChat] " tag to the builder.</summary>
-    /// <param name="sestring">Target builder.</param>
-    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddTidyChatTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(14);
@@ -228,9 +215,6 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>Prepends a yellow "[Channel] " tag to the builder.</summary>
-    /// <param name="sestring">Target builder.</param>
-    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddChannelTag(SeStringBuilder sestring, ChatType channel)
     {
         sestring.AddUiForeground(8);
@@ -239,9 +223,6 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>Prepends a purple rule-name tag to the builder.</summary>
-    /// <param name="sestring">Target builder.</param>
-    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddRuleTag(SeStringBuilder sestring, List<string> rulesMatched)
     {
         sestring.AddUiForeground(9);
@@ -250,9 +231,6 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>Prepends a red "[Blocked] " tag to the builder.</summary>
-    /// <param name="sestring">Target builder.</param>
-    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddBlockedTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(8);
@@ -261,9 +239,6 @@ internal static class BetterStrings
         return sestring;
     }
 
-    /// <summary>Prepends a purple "[Allowed] " tag to the builder.</summary>
-    /// <param name="sestring">Target builder.</param>
-    /// <returns>The same builder, for chaining.</returns>
     public static SeStringBuilder AddAllowedTag(SeStringBuilder sestring)
     {
         sestring.AddUiForeground(9);

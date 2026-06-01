@@ -2,9 +2,6 @@
 
 public readonly record struct LocalizedStrings
 {
-    /// <remarks>
-    ///     The string to be matched is preprocessed and always replaces the local player name with "you"
-    /// </remarks>
     public string[] Jpn { get; init; }
 
     public string[] Eng { get; init; }

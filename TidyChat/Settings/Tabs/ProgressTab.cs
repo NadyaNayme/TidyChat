@@ -104,6 +104,8 @@ internal static class ProgressTab
                 configuration.OnSettingChanged();
             }
 
+            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker);
+
             bool showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
                     ref showOtherEarnedAchievement))
@@ -111,6 +113,8 @@ internal static class ProgressTab
                 configuration.ShowOtherEarnedAchievement = showOtherEarnedAchievement;
                 configuration.OnSettingChanged();
             }
+
+            ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ProgressTab_UnlocksDropdownHeader))

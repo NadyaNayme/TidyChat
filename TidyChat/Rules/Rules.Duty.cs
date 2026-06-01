@@ -2,9 +2,6 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    /// <summary>
-    ///     Suppresses duty entry briefing spam while <see cref="Configuration.BetterDutyCommenceMessage" /> is on.
-    /// </summary>
     private static readonly LocalizedFilterRule[] DutyCommenceRules =
     [
         new()

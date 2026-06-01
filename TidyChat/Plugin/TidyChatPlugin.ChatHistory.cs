@@ -6,7 +6,6 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    /// <summary>Suppresses duplicate chat lines. Returns true when OnChat should stop.</summary>
     private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
     {
         if (!Configuration.ChatHistoryFilter || isHandled) return false;

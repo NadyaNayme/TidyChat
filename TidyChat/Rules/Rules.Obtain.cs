@@ -15,7 +15,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowObtainedQuestItems",
@@ -25,7 +24,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.QuestItemObtain],
             Pattern = PatternKind.StringMatch
         },
-        // Dedicated obtain/inventory templates (1607/750/751/720); 789 uses HideInventoryItemAdded. Not part of SharedObtainTemplateIds or HideObtainedGil (1605).
         new()
         {
             Name = "ShowObtainedItems",
@@ -47,7 +45,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ItemBoundToYou],
             Pattern = PatternKind.StringMatch
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowObtainedItems",
@@ -154,7 +151,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.InventoryItemAdded],
             Pattern = PatternKind.StringMatch
         },
-        // Inventory discard (720) — no dedicated setting; shares ShowObtainedItems toggle.
         new()
         {
             Name = "ShowObtainedItems",
@@ -202,7 +198,6 @@ public static partial class Rules
             BlockWhenActive = true,
             LogMessageIds = [2244]
         },
-        // Dedicated gil obtain templates (1605/1258/1417); shared obtain shapes use marker rule below.
         new()
         {
             Name = "HideObtainedGil",
@@ -215,7 +210,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // Shared "You obtain ." templates — require gil marker so items are not blocked.
         new()
         {
             Name = "HideObtainedGil",
@@ -229,7 +223,6 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerGil = true
         },
-        // OnChat fallback when LogMessage handling did not run for this message.
         new()
         {
             Name = "HideObtainedGil",
@@ -265,7 +258,6 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerMgp = true
         },
-        // Shared obtain template + Lumina item marker (657 family).
         new()
         {
             Name = "HideObtainedWolfMarks",

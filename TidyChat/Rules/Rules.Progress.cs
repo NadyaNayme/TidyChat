@@ -47,8 +47,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = false
         },
-        // Regex fallback: catches XP messages whose LogMessageId isn't registered above
-        // (e.g. bonus-XP variants with (+N%) suffix added in newer patches).
         new()
         {
             Name = "ShowGainExperience",
@@ -69,7 +67,6 @@ public static partial class Rules
             RegexChecks = [ChatRegexStrings.GainExperience],
             Pattern = PatternKind.RegexMatch
         },
-        // OnChat fallback when LogMessage handling did not run (no LogMessageIds — avoids Lumina catalog gate).
         new()
         {
             Name = "ShowGainExperience",
@@ -131,7 +128,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.LevelUp],
             Pattern = PatternKind.StringMatch
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowLevelUps",
@@ -172,7 +168,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.MinionUnlock],
             Pattern = PatternKind.StringMatch
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowAbilityUnlocks",

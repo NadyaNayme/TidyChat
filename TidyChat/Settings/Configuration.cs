@@ -8,7 +8,6 @@ namespace TidyChat.Settings;
 public class Configuration : IPluginConfiguration
 {
     [NonSerialized] private bool _pendingPersist;
-    // the below exist just to make saving less cumbersome
 
     [NonSerialized] private IDalamudPluginInterface? pluginInterface;
 
@@ -40,17 +39,14 @@ public class Configuration : IPluginConfiguration
 
     public void Save()
     {
-        pluginInterface!.SavePluginConfig(this);
-        Rules.UpdateIsActiveStates(this);
-        TidyChatPlugin.InstanceDtrBarUpdate(this);
+        WriteToDisk();
+        ApplyRuntimeSideEffects();
         _pendingPersist = false;
     }
 
-    /// <summary>Apply a settings change in-session; persisted when the config window closes.</summary>
     public void OnSettingChanged()
     {
-        Rules.UpdateIsActiveStates(this);
-        TidyChatPlugin.InstanceDtrBarUpdate(this);
+        ApplyRuntimeSideEffects();
         _pendingPersist = true;
     }
 
@@ -59,8 +55,21 @@ public class Configuration : IPluginConfiguration
         if (!_pendingPersist)
             return;
 
-        pluginInterface!.SavePluginConfig(this);
+        WriteToDisk();
         _pendingPersist = false;
+    }
+
+    public void FlushToDisk()
+    {
+        WriteToDisk();
+    }
+
+    private void WriteToDisk() => pluginInterface!.SavePluginConfig(this);
+
+    private void ApplyRuntimeSideEffects()
+    {
+        Rules.UpdateIsActiveStates(this);
+        TidyChatPlugin.InstanceDtrBarUpdate(this);
     }
 
     #region Error Messages

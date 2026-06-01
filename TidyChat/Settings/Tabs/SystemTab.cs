@@ -11,7 +11,6 @@ internal static class SystemTab
         if (ImGui.CollapsingHeader(Languages.SystemTab_ServerAnnouncementsDropdownHeader,
                 ImGuiTreeNodeFlags.DefaultOpen))
         {
-            // TODO(#122): localize combo labels in satellite language resx files.
             string[] serverAnnouncementModes =
             [
                 Languages.SystemTab_ServerAnnouncementMode_ShowAll,

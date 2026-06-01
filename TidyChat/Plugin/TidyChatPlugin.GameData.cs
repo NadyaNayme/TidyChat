@@ -12,10 +12,6 @@ public sealed partial class TidyChatPlugin
         var messages = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         try
         {
-            // Load Fisher's Intuition flavor text from FishingSpot sheet.
-            // BigFishOnReach   = message shown when a big fish becomes catchable (Fisher's Intuition activates)
-            // BigFishOnEnd     = message shown when the big fish window expires
-            // BigFishOnRefresh = message shown when the window refreshes
             foreach(FishingSpot row in DataManager.GetExcelSheet<FishingSpot>())
             {
                 string reach = $"{row.BigFishOnReach}".Trim();
@@ -34,10 +30,6 @@ public sealed partial class TidyChatPlugin
 
         try
         {
-            // Load per-fish lure flavor text from FishParameter sheet.
-            // Unknown_70_1/2/3 are three lure flavor message variants per fish entry,
-            // added in patch 7.0 (Dawntrail). They appear in the Gathering channel when
-            // a lure (Versatile/Ambitious/Modest Lure) is used at a compatible fishing spot.
             foreach(FishParameter row in DataManager.GetExcelSheet<FishParameter>())
             {
                 string lure1 = $"{row.Unknown_70_1}".Trim();
@@ -78,8 +70,6 @@ public sealed partial class TidyChatPlugin
         List<TomestoneInfo> tomestones = new();
         try
         {
-            // Each Tomestones slot (Poetics / capped / weekly-capped) accumulates retired tomestones over patches.
-            // Take the highest TomestonesItem RowId per slot — that’s the currently active one for that slot.
             Dictionary<uint, (uint RowId, string Name)> bestPerSlot = new();
             foreach(TomestonesItem row in DataManager.GetExcelSheet<TomestonesItem>())
             {

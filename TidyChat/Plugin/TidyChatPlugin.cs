@@ -37,33 +37,20 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private const int MaxSetPlayerNameRetries = 10;
     private const int ServerAnnouncementLoginGraceSeconds = 20;
 
-    /// <summary>
-    ///     Messages OnLogMessage already allowed. OnChat checks this set so it will not block them again.
-    /// </summary>
     private readonly HashSet<string> _allowedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 
-    /// <summary>
-    ///     In debug mode, messages OnLogMessage would have blocked. OnChat shows them with a [Blocked] prefix
-    ///     instead of calling <see cref="IHandleableChatMessage.PreventOriginal" />.
-    /// </summary>
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 
     private readonly Queue<(string Message, long ExpiresAtTicks)> _chatHistory = new();
     private readonly Lock _chatHistoryLock = new();
 
-    /// <summary>LogMessage IDs logged as unmatched at most once per session (debug).</summary>
     private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = new();
     private readonly Lock _logMessageLock = new();
 
-    /// <summary>
-    ///     LogMessage IDs allowed on the log path and consumed on the chat path when
-    ///     <see cref="OnChat" /> runs before <see cref="OnLogMessage" />.
-    /// </summary>
     private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
     // #122: announcements inside this window after a Login event are treated as a real login
-    // (full block shown in "Login only" mode); announcements outside it are world-hops.
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
 
     private long _sessionBlockedMessages;
@@ -74,7 +61,6 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     public TidyChatPlugin()
     {
-        // Player cannot change this without restarting the game so should be safe to grab here
         L10N.Language = ClientState.ClientLanguage;
         LoadFishingFlavorMessages();
         PluginInterface.LanguageChanged += UpdateLang;
@@ -83,15 +69,10 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-        if (Configuration.Version < 5)
-        {
-            ConfigurationMigration.ApplyPreV5(Configuration, PluginInterface);
-            Configuration.Version = 5;
-            Configuration.Save();
-        }
-
         if (Configuration.Version < 6)
         {
+            if (Configuration.Version < 5)
+                ConfigurationMigration.ApplyPreV5(Configuration, PluginInterface);
             Configuration.Version = 6;
             Configuration.Save();
         }
@@ -102,7 +83,6 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
         if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
 
-        // Sync commendation baseline without printing (plugin reload mid-session).
         if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
             BetterCommendationsUpdate(printMessage: false);
 
@@ -145,10 +125,6 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
 
-    /// <summary>
-    ///     Fishing flavor lines loaded from game data at startup (Fisher's Intuition, lure text, and similar).
-    ///     Stored in a case-insensitive set for lookup against normalized chat text.
-    /// </summary>
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
     private Configuration Configuration { get; }
@@ -156,15 +132,15 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     public void Dispose()
     {
-        // UI: tear down the window system and the three UiBuilder subscriptions so the host
-        // doesn't keep calling into a disposed plugin on reload.
+        FlushBlockedMessageCount(persist: true);
+        Configuration.PersistIfDirty();
+
         PluginInterface.UiBuilder.Draw -= DrawUI;
         PluginInterface.UiBuilder.OpenMainUi -= DrawConfigUI;
         PluginInterface.UiBuilder.OpenConfigUi -= DrawConfigUI;
         _windowSystem.RemoveAllWindows();
         PluginUi?.Dispose();
 
-        // DTR bar: drop the entry so it doesn't linger after the plugin is gone.
         if (DtrEntry is not null)
         {
             try { DtrEntry.Remove(); }

@@ -11,7 +11,6 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    /// <summary>Filters login and world-travel server announcements (#122). Returns true when fully handled.</summary>
     private bool HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType, string normalizedText,
         bool protectedByShowRule)
     {
@@ -75,10 +74,8 @@ public sealed partial class TidyChatPlugin
         return true;
     }
 
-    /// <summary>Handles emote channel filtering. Returns true when fully handled.</summary>
     private bool HandleEmoteFilters(IHandleableChatMessage message, ChatType chatType)
     {
-        // Unfiltered emote channels — only whitelist Block rules apply.
         if ((chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) ||
             (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel))
         {
@@ -90,7 +87,6 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        // Block other players' custom emotes unless whitelisted.
         if (!Configuration.ShowOtherCustomEmotes &&
             !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) &&
             chatType is ChatType.CustomEmote)
@@ -107,7 +103,6 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    /// <summary>Turns off system filtering briefly for /? help and party-join messages. Returns true when disabled.</summary>
     private bool HandleTemporaryFilterDisables(string normalizedText)
     {
         if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
@@ -126,7 +121,6 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    /// <summary>Rewrites LogMessage 748 item-sold lines when the shorten option is enabled.</summary>
     private void TryRewriteMarketBoardSaleMessage(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
         if (!Configuration.BetterMarketBoardSaleMessage) return;
@@ -139,7 +133,6 @@ public sealed partial class TidyChatPlugin
             message.Message = rewritten;
     }
 
-    /// <summary>Runs Better Messages rewrites. Returns true when the message is done and needs no further filtering.</summary>
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
         if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&
@@ -190,7 +183,6 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        // Non-early-return transformations: deblock and smol still need filtering afterward.
         if (Configuration.NormalizeBlocks &&
             (Configuration.AlwaysNormalizeBlocks || chatType is not ChatType.Party and not ChatType.Alliance))
             message.Message = DeblockMessage(message.Message);
@@ -201,7 +193,6 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    /// <summary>Applies an earlier OnLogMessage allow/block decision. Returns true when handled.</summary>
     private bool CheckLogMessageDecision(IHandleableChatMessage message, ChatType chatType, string rawTextValue, string extractedTextValue, string normalizedText)
     {
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
@@ -242,9 +233,6 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    /// <summary>
-    ///     True when an enabled Show rule matches this text, so server announcement filtering must leave it alone.
-    /// </summary>
     private bool IsProtectedByActiveShowRule(ChatType chatType, string normalizedText, out List<string> protectingRules)
     {
         protectingRules = [];
@@ -259,10 +247,6 @@ public sealed partial class TidyChatPlugin
 
         return protectingRules.Count > 0;
     }
-    /// <summary>
-    ///     Runs channel filter rules. Returns <c>isHandled</c>, or null when channel filtering is off
-    ///     and the caller should return immediately.
-    /// </summary>
     private bool? EvaluateChannelRules(IHandleableChatMessage message, ChatType chatType, string normalizedText, out List<string> rulesMatched)
     {
         rulesMatched = [];
@@ -271,7 +255,6 @@ public sealed partial class TidyChatPlugin
 
         bool isBlocked = ChannelIsSpammy(chatType);
 
-        // Skip filtering if channel filter is disabled — only whitelist Block rules apply.
         if ((chatType is ChatType.System or ChatType.RetainerSale && !Configuration.FilterSystemMessages) ||
             (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
             (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) ||
@@ -303,7 +286,6 @@ public sealed partial class TidyChatPlugin
         {
             if (rule.Error is not null) Log.Error($"Error: {rule.Error}");
 
-            // On LootNotice, inactive Show* rules must still run so unchecked "Show X" hides matching lines.
             if (rule.IsActive == showEverythingElse &&
                 !(chatType is ChatType.LootNotice && !rule.BlockWhenActive))
             {
@@ -359,7 +341,6 @@ public sealed partial class TidyChatPlugin
         return isHandled;
     }
 
-    /// <summary>Post-rule overrides for self emotes, party-only loot rolls, fishing flavor, and tomestones.</summary>
     private void ApplyFilterOverrides(IHandleableChatMessage message, ChatType chatType, string normalizedText, ref bool isHandled)
     {
         if (chatType is ChatType.CustomEmote &&
@@ -440,7 +421,6 @@ public sealed partial class TidyChatPlugin
 
     private static bool ChannelCanBeFiltered(ChatType chatType)
     {
-        // Every spammy channel is filterable, plus player/social/error channels.
         if (ChannelIsSpammy(chatType)) return true;
         return chatType switch
         {

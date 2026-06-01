@@ -49,7 +49,6 @@ public sealed partial class TidyChatPlugin
                 return;
             }
 
-            // This will return the instance value: 0,1,2,3,4,5,6
             int instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
             string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 

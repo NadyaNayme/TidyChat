@@ -8,7 +8,6 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    /// <summary>Runs whitelist Allow/Block rules. Allow pass runs after Block so Allow wins ties.</summary>
     private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
     {
         if (Configuration.Whitelist.Count == 0) return;
@@ -33,9 +32,6 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    /// <summary>
-    ///     When enabled, allows all messages sent by or targeting any whitelist entry regardless of per-entry Allow/Block.
-    /// </summary>
     private void ApplyGlobalWhitelistOverrides(IHandleableChatMessage message, ref bool isHandled)
     {
         if (!Configuration.SentByWhitelistPlayer && !Configuration.TargetingWhitelistPlayer)
@@ -84,15 +80,10 @@ public sealed partial class TidyChatPlugin
 
         return messageText.Contains(entry.FirstName, StringComparison.Ordinal);
     }
-    /// <summary>
-    ///     True when the whitelist entry matches sender, message text, and channel.
-    ///     Handles empty-name guard, channel scoping, cached regex, and <see cref="PlayerNameMatchMode" />.
-    /// </summary>
     private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType)
     {
         if (string.IsNullOrWhiteSpace(entry.FirstName)) return false; // empty name would Contains-match everything
 
-        // LogMessageId entries are handled in OnLogMessage, not here.
         if (entry.IsLogMessageId) return false;
 
         var channels = (ChatFlags.Channels)entry.WhitelistedChannels;
@@ -114,16 +105,13 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        // Plain text mode
         if (entry.MatchMode == PlayerNameMatchMode.ExactSender)
             return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal);
 
-        // MessageContains (backward-compatible default): sender match OR substring match
         return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal)
                || message.TextValue.Contains(entry.FirstName, StringComparison.Ordinal);
     }
 
-    /// <summary>True when a whitelist Allow entry would let this message through.</summary>
     private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType)
     {
         if (Configuration.Whitelist.Count == 0) return false;
@@ -135,7 +123,6 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    /// <summary>True when a whitelist Block entry would suppress this message.</summary>
     private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType)
     {
         if (Configuration.Whitelist.Count == 0) return false;
@@ -151,7 +138,6 @@ public sealed partial class TidyChatPlugin
         PlayerName playerOrMessage,
         ChatType chatType)
     {
-        // Cheap rejects first: empty entries match everything via Contains("") so they must be skipped.
         if (string.IsNullOrWhiteSpace(playerOrMessage.FirstName)) return;
         if (!CustomFilterMatches(sender, message, playerOrMessage, chatType)) return;
 

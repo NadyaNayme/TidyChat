@@ -140,7 +140,6 @@ public static partial class Rules
             ObtainMarkerAnyElemental = true,
             ObtainMarkerRequireSharedTemplate = false
         },
-        // Dedicated obtain templates (1606/1607/750/751); not part of SharedObtainTemplateIds.
         new()
         {
             Name = "HideObtainedShards",

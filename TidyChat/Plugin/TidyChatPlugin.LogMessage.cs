@@ -15,8 +15,6 @@ public sealed partial class TidyChatPlugin
         if (!Configuration.Enabled || message.IsHandled) return;
         Rules.UpdateIsActiveStates(Configuration);
 
-        // Check custom filters (whitelist) that use #LogMessageId syntax.
-        // Block entries suppress the message here; Allow entries add it to _allowedByLogMessage.
         if (Configuration.Whitelist.Count > 0)
         {
             foreach(PlayerName entry in Configuration.Whitelist)
@@ -43,7 +41,6 @@ public sealed partial class TidyChatPlugin
                     Interlocked.Increment(ref _sessionBlockedMessages);
                     return;
                 }
-                // Allow entry — track it so OnChat doesn't re-block.
                 try
                 {
                     string text = message.FormatLogMessageForDebugging().ExtractText();
@@ -78,8 +75,6 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
-        // Block when any applicable rule wants suppression. Only track allow when an active
-        // Show* rule explicitly matches — never auto-allow just because Hide* text checks failed.
         foreach(LocalizedFilterRule rule in matchingRules)
         {
             if (!rule.ShouldBlock || !LogMessageRuleApplies(message, rule)) continue;
@@ -94,7 +89,6 @@ public sealed partial class TidyChatPlugin
                 }
                 catch
                 {
-                    // ignored
                 }
                 return;
             }

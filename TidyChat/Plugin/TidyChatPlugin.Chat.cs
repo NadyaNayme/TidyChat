@@ -25,10 +25,8 @@ public sealed partial class TidyChatPlugin
         catch { extractedTextValue = rawTextValue; }
         if (Configuration.PlayerName != "") normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
 
-        // Rewrite while text still matches LogMessage templates (before allow-path short-circuit).
         TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
 
-        // Each handler returns true if OnChat should stop processing.
         // Respect OnLogMessage allow/block before server-announcement filtering (#122 / open issue #1).
         if (CheckLogMessageDecision(message, chatType, rawTextValue, extractedTextValue, normalizedText)) return;
         bool protectedByShowRule = IsProtectedByActiveShowRule(chatType, normalizedText, out _);

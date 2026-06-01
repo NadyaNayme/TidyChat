@@ -23,17 +23,9 @@ public sealed partial class TidyChatPlugin
             _ => false
         };
 
-    /// <summary>
-    ///     When PreferLogMessageCatalog is set but the Lumina template misses, fall back to
-    ///     <see cref="LocalizedFilterRule.StringChecks" /> or <see cref="LocalizedFilterRule.RegexChecks" />.
-    /// </summary>
     private static bool ShouldFallbackToTextChecksWhenCatalogMisses(LocalizedFilterRule rule) =>
         RuleHasTextChecks(rule);
 
-    /// <summary>
-    ///     True when every regex or string check on the rule matches <paramref name="normalizedText" /> (AND logic).
-    ///     False when the rule has no checks or any check fails.
-    /// </summary>
     private static bool RuleMatchesText(LocalizedFilterRule rule, string normalizedText, bool debugMode)
     {
         if (TryMatchObtainMarkerRule(rule, normalizedText, debugMode, out bool obtainMatched))

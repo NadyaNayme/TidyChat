@@ -236,7 +236,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = false
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCosmicExplorationMessages",
@@ -312,7 +311,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCosmicRewards",

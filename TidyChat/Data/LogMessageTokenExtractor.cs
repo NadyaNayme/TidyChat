@@ -4,9 +4,6 @@ using System.Globalization;
 using System.Text.RegularExpressions;
 namespace TidyChat.Data;
 
-/// <summary>
-///     Builds lowercase word tokens from LogMessage template text for substring matching in filters.
-/// </summary>
 internal static class LogMessageTokenExtractor
 {
     private const RegexOptions Options =
@@ -24,10 +21,6 @@ internal static class LogMessageTokenExtractor
     private static readonly Regex SeIconRegex = new(@"[\uE000-\uF8FF]", Options, RegexTimeout);
     private static readonly Regex WordRegex = new(@"[\p{L}\p{N}]+", Options, RegexTimeout);
 
-    /// <summary>
-    ///     Tokenize template text for <c>normalizedText.Contains</c> checks.
-    ///     Strips FFXIV placeholders, XML-like tags, format codes, and icon characters first.
-    /// </summary>
     public static string[] Extract(string templateText)
     {
         if (string.IsNullOrWhiteSpace(templateText)) return [];

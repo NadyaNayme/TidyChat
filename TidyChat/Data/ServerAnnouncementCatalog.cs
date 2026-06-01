@@ -7,11 +7,6 @@ using Lumina.Excel.Sheets;
 using Lumina.Text.ReadOnly;
 namespace TidyChat.Data;
 
-/// <summary>
-///     Matches login and world-travel server announcement chat (#122).
-///     Text is server-pushed and mostly absent from LogMessage; uses curated per-language markers
-///     plus fragments from Lumina Lobby and Addon rows.
-/// </summary>
 public static class ServerAnnouncementCatalog
 {
     private const int MinDiscoveredTokenLength = 8;
@@ -24,9 +19,6 @@ public static class ServerAnnouncementCatalog
     private static readonly HashSet<string> DiscoveredAnnouncementTokens = new(StringComparer.OrdinalIgnoreCase);
     private static readonly HashSet<string> DiscoveredPhishingTokens = new(StringComparer.OrdinalIgnoreCase);
 
-    /// <summary>
-    ///     Common gameplay words scraped from sqex.to templates; substring hits here caused false blocks.
-    /// </summary>
     private static readonly HashSet<string> DiscoveredTokenDenylist = new(StringComparer.OrdinalIgnoreCase)
     {
         "sanctuary", "instanced", "inventory", "registration", "withdrawn", "interrupted", "projected",
@@ -58,9 +50,6 @@ public static class ServerAnnouncementCatalog
     private static readonly Regex EnglishPhishingBody =
         new(@"\breceive\s+a\s+tell\s+containing\s+a\s+url\b", CompiledRegexOptions, RegexTimeout);
 
-    /// <summary>
-    ///     Phishing-warning vocabulary when Lumina Lobby or Addon rows omit the strings (#24).
-    /// </summary>
     private static readonly string[] HardcodedPhishingTokens =
     [
         "phishing",
@@ -113,7 +102,6 @@ public static class ServerAnnouncementCatalog
 
         if (pattern.IsMatch(normalizedText)) return true;
 
-        // Some clients still print the English world line.
         return L10N.Language is not ClientLanguage.English && EnglishWorldGreeting.IsMatch(normalizedText);
     }
 

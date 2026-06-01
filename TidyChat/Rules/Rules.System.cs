@@ -130,7 +130,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowInstanceMessage",
@@ -213,7 +212,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowSanctuaryMessage",
@@ -375,7 +373,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = false
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowDutyFinder",
@@ -429,7 +426,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowDutyFinder",
@@ -584,7 +580,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCairnGlows",
@@ -649,7 +644,6 @@ public static partial class Rules
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowAetherpoolIncrease",
@@ -691,7 +685,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallbacks when LogMessage handling did not run.
         new()
         {
             Name = "ShowTrapTriggered",
@@ -807,7 +800,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowReadyChecks",
@@ -891,7 +883,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowCountdownTime",
@@ -950,7 +941,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowSubaquaticVoyage",
@@ -1064,7 +1054,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowTryOnGlamour",
@@ -1128,7 +1117,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowFreeCompanyMessageBook",
@@ -1705,7 +1693,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ChangesDiscarded, ChatStrings.ChangesLost, ChatStrings.TripleTriadAllowed, ChatStrings.TripleTriadNotAllowed],
             Pattern = PatternKind.StringMatch
         },
-        // LogMessage 7025 = redundant single-line join announcement alongside 7027.
         new()
         {
             Name = "BetterNoviceNetworkMessage",
@@ -1715,7 +1702,6 @@ public static partial class Rules
             BlockWhenActive = true,
             LogMessageIds = [7025]
         },
-        // LogMessage 7027 / 7011 = multi-line join; compact replacement printed in OnLogMessage.
         new()
         {
             Name = "BetterNoviceNetworkMessage",
@@ -1725,7 +1711,6 @@ public static partial class Rules
             BlockWhenActive = true,
             LogMessageIds = [7011, 7027]
         },
-        // LogMessage 7030 = leave; compact replacement printed in OnLogMessage.
         new()
         {
             Name = "BetterNoviceNetworkMessage",

@@ -183,7 +183,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // OnChat fallback when LogMessage handling did not run.
         new()
         {
             Name = "ShowAllOtherCrafting",
@@ -317,7 +316,6 @@ public static partial class Rules
         },
         new()
         {
-            // ID 3555 = "N <sands> are obtained." (the resulting aethersand)
             Name = "ShowAetherialReductionSands",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -340,7 +338,6 @@ public static partial class Rules
         },
         new()
         {
-            // ID 3553 = "You successfully reduce <item> (Collectability: N)."
             Name = "ShowAetherialReductionSuccess",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -352,7 +349,6 @@ public static partial class Rules
         },
         new()
         {
-            // Collectable reduction minigame (GatheringSystem channel).
             Name = "ShowAetherialReductionMinigame",
             SettingsTab = "System",
             Channel = ChatType.GatheringSystem,
