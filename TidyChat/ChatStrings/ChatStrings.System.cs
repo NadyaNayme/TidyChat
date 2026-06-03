@@ -956,4 +956,13 @@ public static partial class ChatStrings
         Deu = ["triple", "triad", "nicht", "erlaubt"],
         Fra = ["triple", "triad", "interdites"]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/4735?pretty=true">Jumbo Cactpot ticket purchase (MGP spend).</see>
+    public static readonly LocalizedStrings JumboCactpotTicketPurchase = new()
+    {
+        Jpn = ["mgp", "くじ"],
+        Eng = ["mgp", "cactpot"],
+        Deu = ["mgp", "gekauft"],
+        Fra = ["pgs", "billet"]
+    };
 }

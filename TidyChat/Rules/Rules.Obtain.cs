@@ -257,6 +257,29 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowMgpSpending",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4735],
+            StringChecks = [ChatStrings.JumboCactpotTicketPurchase],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideObtainedMGP",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [4735],
+            StringChecks = [ChatStrings.JumboCactpotTicketPurchase],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "HideObtainedMGP",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,

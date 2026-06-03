@@ -395,7 +395,7 @@
     <value>Stellar Missions / Cosmic Exploration</value>
   </data>
   <data name="CraftingGatheringTab_StellarSectionFilteringNote" xml:space="preserve">
-    <value>Stellar and cosmic options below use the system channel (each help includes the system-filter reminder). You still need Filter Gathering on General for gathering-channel lines.</value>
+    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General.</value>
   </data>
   <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
@@ -518,8 +518,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Ƒîļţéŕ Çŕàƒţîñĝ šþàɱ</value>
   </data>
   <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ƒîļţéŕ îñçļûðéš àļļ çŕàƒţîñĝ ɱéššàĝéš éẋçéþţ &quot;Ýôû šýñţĥéšîžé à/àñ &lt;item&gt;&quot;
-Ţĥîš àļļôŵš ýôû ţô ûšé ÇĥàţÀļéŕţš ţô çŕéàţé àñ àļéŕţ ƒôŕ &quot;Ýôû šýñţĥéšîžé&quot; îñšţéàð ôƒ ûšîñĝ ɱàçŕô‐ƒîñîšĥéð àļéŕţš</value>
+    <value>When enabled, Crafting channel messages are hidden unless a Show option on the Crafting/Gathering tab allows them. When disabled, Crafting is not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
     <value>Ƒîļţéŕ çûšţôɱ éɱôţé šþàɱ</value>
@@ -541,19 +540,19 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Ƒîļţéŕ Ĝàţĥéŕîñĝ šþàɱ</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ƒîļţéŕ îñçļûðéš &quot;ýôû ƀéĝîñ/ƒîñîšĥ&quot; ĝàţĥéŕîñĝ ɱéššàĝéš، àš ŵéļļ àš ļôçàţîôñ àƒƒéçţš</value>
+    <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them. When disabled, those channels are not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
     <value>Ƒîļţéŕ Ļôôţ ŕôļļ šþàɱ</value>
   </data>
   <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ƒîļţéŕ îñçļûðéš ɱéššàĝéš ļîķé ŕôļļîñĝ ĝŕééð ôŕ þļàýéŕ ôƀţàîñéð à ĝéàŕ þîéçé</value>
+    <value>When enabled, Loot Roll messages are hidden unless a Show option on the Obtain tab allows them (cast lot, your rolls, party rolls). Item obtained lines use the Obtained channel. When disabled, Loot Roll is not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterObtainedSpam" xml:space="preserve">
     <value>Filter Obtained channel</value>
   </data>
   <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ƒîļţéŕ îñçļûðéš îţéɱš ôƀţàîñéð àš ɱôñšţéŕ ðŕôþš، ǫûéšţ ŕéŵàŕðš، àñð ŕôûļéţţé ŕéŵàŕðš</value>
+    <value>When enabled, Obtained (loot notice) messages are hidden unless a Show or Hide option on the Obtain tab allows them (drops, currencies, tomestones, cosmic rewards, and similar). When disabled, Obtained is not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterProfile_Balanced" xml:space="preserve">
     <value>Balanced (recommended)</value>
@@ -580,7 +579,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Ƒîļţéŕ Þŕôĝŕéšš šþàɱ</value>
   </data>
   <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-    <value>Ţĥéšé ƒîļţéŕš îñçļûðé ɱéššàĝéš ļîķé éàŕñéð àçĥîéṽéɱéñţš ôŕ éẋþéŕîéñçé þôîñţš</value>
+    <value>When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Crafting/Gathering: cosmic dataset submissions). Progress tab quest lines use the System channel—also enable Filter System channel. When disabled, Progress and Battle System are not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
     <value>Ƒîļţéŕ éɱôţéš ûšéð ƀý ýôûŕšéļƒ</value>
@@ -590,10 +589,10 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
 éĝ· Ýôû ĝéñţļý þàţ &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
-    <value>Ƒîļţéŕ Šýšţéɱ šþàɱ</value>
+    <value>Filter System channel</value>
   </data>
   <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
-    <value>Master switch for system-channel chat: quests, duties, market and retainer sales, ventures, System tab options, and several toggles on Progress and Crafting &amp; Gathering. When off, those lines are not filtered regardless of per-message options.</value>
+    <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party &amp; Duty, Progress tab quest lines, Crafting/Gathering stellar/cosmic system lines, and similar). When disabled, those channels are not filtered here.</value>
   </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
     <value>Ĥîðé ķô‐ƒî ƀûţţôñ</value>
@@ -1103,7 +1102,7 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Ŵîķî Þàĝé</value>
   </data>
   <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
-    <value>Ŕéqûîŕéš Šýšţéɱ ɱéššàĝé ƒîļţéŕîñĝ ôñ ţĥé Ĝéñéŕàļ ţàƀ.</value>
+    <value>Requires Filter System channel on the General tab.</value>
   </data>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>

@@ -352,7 +352,11 @@ internal static class SettingsSearchIndex
                 "ShowLocationAffects" or
                 "ShowAetherialReductionSands" or
                 "ShowAetherialReductionSuccess" or
-                "ShowAetherialReductionMinigame")
+                "ShowAetherialReductionMinigame" or
+                "ShowStellarMissionMessages" or
+                "ShowCosmicExplorationMessages" or
+                "ShowCosmicRewards" or
+                "ShowCosmicDailyProgress")
             return Languages.ConfigWindow_CraftingGatheringTabHeader;
 
         if (propertyName.StartsWith("EnableDebug", StringComparison.Ordinal) ||

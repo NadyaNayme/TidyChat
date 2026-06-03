@@ -20,6 +20,7 @@ internal static class CosmicShowRuleHelper
     public static bool MatchesCosmicRewardText(string normalizedText) =>
         MatchesAnyMarker(normalizedText,
             ChatStrings.CosmocreditObtain,
+            ChatStrings.CosmocreditReceived,
             ChatStrings.OizysCreditObtain,
             ChatStrings.OizysDronebitsObtain,
             ChatStrings.CosmicFortuneObtain,
@@ -30,6 +31,7 @@ internal static class CosmicShowRuleHelper
 
     public static bool MatchesCosmicDailyProgressText(string normalizedText) =>
         MatchesAnyMarker(normalizedText,
+            ChatStrings.CosmicDatasetSubmitted,
             ChatStrings.CosmicClassPoints,
             ChatStrings.DailyPointsEarned,
             ChatStrings.DailySuccessAchieved,

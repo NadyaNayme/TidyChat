@@ -145,6 +145,7 @@ public static partial class Rules
         ["HideAdventurerInNeedBonus"] = c => c.HideAdventurerInNeedBonus,
         ["HideObtainedGil"] = c => c.HideObtainedGil,
         ["HideObtainedMGP"] = c => c.HideObtainedMGP,
+        ["ShowMgpSpending"] = c => !c.HideObtainedMGP,
         ["HideObtainedWolfMarks"] = c => c.HideObtainedWolfMarks,
         ["HideObtainedSeals"] = c => c.HideObtainedSeals,
         ["HideObtainedVenture"] = c => c.HideObtainedVenture,

@@ -51,6 +51,16 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/10859?pretty=true">You will receive additional cosmocredits.</see>
+    public static readonly LocalizedStrings CosmocreditReceived = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["receive", "cosmocredit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
     public static readonly LocalizedStrings OizysCreditObtain = new()
     {
         Jpn = ["NeedsLocalization"],

@@ -304,6 +304,26 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [10859],
+            StringChecks = [ChatStrings.CosmocreditReceived],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicRewards",
+            SettingsTab = "Gathering",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.CosmocreditReceived],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowCosmicRewards",
+            SettingsTab = "Gathering",
+            Channel = ChatType.System,
+            IsActive = true,
             LogMessageIds = [10873],
             StringChecks = [ChatStrings.OizysCreditObtain],
             Pattern = PatternKind.StringMatch,
@@ -419,6 +439,26 @@ public static partial class Rules
             StringChecks = [ChatStrings.DailySuccessGoalAchieved],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicDailyProgress",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [10803],
+            StringChecks = [ChatStrings.CosmicDatasetSubmitted],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicDailyProgress",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            StringChecks = [ChatStrings.CosmicDatasetSubmitted],
+            Pattern = PatternKind.StringMatch
         }
     ];
 }

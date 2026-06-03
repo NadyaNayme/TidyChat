@@ -84,6 +84,16 @@ public static partial class ChatStrings
         Fra = ["expérience", "point"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/10803?pretty=true">You submitted … points toward the … dataset.</see>
+    public static readonly LocalizedStrings CosmicDatasetSubmitted = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["submitted", "dataset"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
     /// <see href="https://xivapi.com/LogMessage/10874?pretty=true">You earn N cosmic class points for …</see>
     public static readonly LocalizedStrings CosmicClassPoints = new()
     {
