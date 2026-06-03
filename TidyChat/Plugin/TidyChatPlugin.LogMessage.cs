@@ -70,58 +70,136 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
-        foreach(LocalizedFilterRule rule in matchingRules)
-        {
-            if (!rule.ShouldBlock || !LogMessageRuleApplies(message, rule)) continue;
+        if (!TryResolveLogMessageFilter(message, matchingRules, out bool shouldAllow, out string? decidingRuleName))
+            return;
 
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug($"[LogMessage] BLOCKED by {rule.Name} (ID: {message.LogMessageId})");
-                try
-                {
-                    string text = message.FormatLogMessageForDebugging().ExtractText();
-                    RememberLogMessageTexts(_blockedByLogMessage, text);
-                }
-                catch
-                { }
-                return;
-            }
-            message.PreventOriginal();
-            Interlocked.Increment(ref _sessionBlockedMessages);
-            if (Configuration.BetterNoviceNetworkMessage)
-            {
-                if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
-                    ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
-                else if (message.LogMessageId == 7030)
-                    ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
-            }
+        if (shouldAllow)
+        {
+            RememberLogMessageAllowDecision(message, decidingRuleName);
             return;
         }
 
-        foreach(LocalizedFilterRule rule in matchingRules)
+        if (Configuration.EnableDebugMode)
         {
-            if (rule.ShouldBlock || !LogMessageRuleApplies(message, rule)) continue;
-
+            Log.Debug($"[LogMessage] BLOCKED by {decidingRuleName} (ID: {message.LogMessageId})");
             try
             {
                 string text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageTexts(_allowedByLogMessage, text);
-                RememberLogMessageAllow(message.LogMessageId);
+                RememberLogMessageTexts(_blockedByLogMessage, text);
             }
             catch
             {
-                /* Safe to ignore — worst case OnChat re-evaluates the message */
+                /* non-critical */
             }
-
-            if (Configuration.EnableDebugMode)
-                Log.Debug($"[LogMessage] ALLOWED by {rule.Name} (ID: {message.LogMessageId})");
             return;
         }
+
+        message.PreventOriginal();
+        Interlocked.Increment(ref _sessionBlockedMessages);
+        if (Configuration.BetterNoviceNetworkMessage)
+        {
+            if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
+                ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
+            else if (message.LogMessageId == 7030)
+                ChatGui.Print(Better.NoviceNetworkLeaveMessage(Configuration));
+        }
+    }
+
+    private bool TryResolveLogMessageFilter(
+        ILogMessage message,
+        IReadOnlyList<LocalizedFilterRule> matchingRules,
+        out bool shouldAllow,
+        out string? decidingRuleName)
+    {
+        shouldAllow = false;
+        decidingRuleName = null;
+
+        if (TryGetNormalizedLogMessageText(message, out string normalizedText) &&
+            CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        {
+            shouldAllow = true;
+            decidingRuleName = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
+            return true;
+        }
+
+        bool activeHideMatch = false;
+        string? activeHideRule = null;
+        bool activeShowMatch = false;
+        string? activeShowRule = null;
+        bool inactiveShowMatch = false;
+        string? inactiveShowRule = null;
+
+        foreach(LocalizedFilterRule rule in matchingRules)
+        {
+            if (!LogMessageRuleApplies(message, rule)) continue;
+
+            if (rule.BlockWhenActive)
+            {
+                if (!rule.IsActive) continue;
+                activeHideMatch = true;
+                activeHideRule ??= rule.Name;
+            }
+            else if (rule.IsActive)
+            {
+                activeShowMatch = true;
+                activeShowRule ??= rule.Name;
+            }
+            else
+            {
+                inactiveShowMatch = true;
+                inactiveShowRule ??= rule.Name;
+            }
+        }
+
+        if (activeHideMatch)
+        {
+            shouldAllow = false;
+            decidingRuleName = activeHideRule;
+            return true;
+        }
+
+        if (activeShowMatch)
+        {
+            shouldAllow = true;
+            decidingRuleName = activeShowRule;
+            return true;
+        }
+
+        if (inactiveShowMatch)
+        {
+            shouldAllow = false;
+            decidingRuleName = inactiveShowRule;
+            return true;
+        }
+
+        return false;
+    }
+
+    private void RememberLogMessageAllowDecision(ILogMessage message, string? decidingRuleName)
+    {
+        try
+        {
+            string text = message.FormatLogMessageForDebugging().ExtractText();
+            RememberLogMessageTexts(_allowedByLogMessage, text);
+            RememberLogMessageAllow(message.LogMessageId);
+        }
+        catch
+        {
+            /* Safe to ignore — worst case OnChat re-evaluates the message */
+        }
+
+        if (Configuration.EnableDebugMode)
+            Log.Debug($"[LogMessage] ALLOWED by {decidingRuleName} (ID: {message.LogMessageId})");
     }
 
     private bool LogMessageRuleApplies(ILogMessage message, LocalizedFilterRule rule)
     {
-        if (rule.Pattern == PatternKind.None) return true;
+        if (rule.Pattern == PatternKind.None)
+        {
+            if (LogMessageCatalog.GetChatTypeForId(message.LogMessageId) is ChatType sheetChannel)
+                return rule.Channel == sheetChannel;
+            return rule.LogMessageIds?.Contains(message.LogMessageId) == true;
+        }
 
         bool idMatches = rule.LogMessageIds?.Contains(message.LogMessageId) == true;
 

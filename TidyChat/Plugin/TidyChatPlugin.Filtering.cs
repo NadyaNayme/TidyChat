@@ -195,19 +195,6 @@ public sealed partial class TidyChatPlugin
     {
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
 
-        bool wasBlockedByLog;
-        lock(_logMessageLock)
-        {
-            wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
-                              TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
-        }
-        if (wasBlockedByLog)
-        {
-            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
-            return true;
-        }
-
         bool wasAllowedByLog;
         lock(_logMessageLock)
         {
@@ -218,6 +205,19 @@ public sealed partial class TidyChatPlugin
         {
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
+            return true;
+        }
+
+        bool wasBlockedByLog;
+        lock(_logMessageLock)
+        {
+            wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
+                              TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
+        }
+        if (wasBlockedByLog)
+        {
+            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
             return true;
         }
 
@@ -234,6 +234,12 @@ public sealed partial class TidyChatPlugin
     private bool IsProtectedByActiveShowRule(ChatType chatType, string normalizedText, out List<string> protectingRules)
     {
         protectingRules = [];
+        if (CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        {
+            protectingRules.Add(CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText)!);
+            return true;
+        }
+
         Rules.UpdateIsActiveStates(Configuration);
         foreach(LocalizedFilterRule rule in Rules.AllRules)
         {
@@ -309,10 +315,10 @@ public sealed partial class TidyChatPlugin
 
             if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
             {
-                if (string.Equals(rule.Name, "ShowObtainedItems", StringComparison.Ordinal) &&
-                    CosmicShowRuleHelper.ShouldDeferGeneralObtainRule(Configuration, normalizedText))
+                if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
+                    CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText))
                 {
-                    rulesFailed?.Add(rule.Name);
+                    if (Configuration.EnableDebugMode) rulesFailed?.Add(rule.Name);
                     continue;
                 }
 
@@ -325,9 +331,20 @@ public sealed partial class TidyChatPlugin
                             : defaultBlocked
                         : !defaultBlocked;
             }
-            else
+            else if (rulesMatched is null || !rulesMatched.Contains(rule.Name))
             {
                 rulesFailed?.Add(rule.Name);
+            }
+        }
+
+        if (CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        {
+            isBlocked = chatType is ChatType.LootNotice;
+            if (Configuration.EnableDebugMode)
+            {
+                string? cosmicRule = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
+                if (cosmicRule is not null && !rulesMatched.Contains(cosmicRule))
+                    rulesMatched.Add(cosmicRule);
             }
         }
 
