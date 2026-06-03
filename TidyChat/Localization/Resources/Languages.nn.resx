@@ -762,7 +762,7 @@ eg. You obtain 30 ice shards</value>
     <value>Show Gil</value>
   </data>
   <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 69 gil.</value>
+    <value>eg. You obtain 69 gil or You receive 1,670 gil. Obtain lines need Filter Obtain on General; receive lines need Filter System on General.</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
     <value>Show Grand Company Seals</value>

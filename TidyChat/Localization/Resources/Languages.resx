@@ -299,7 +299,7 @@ It&apos;s recommended to keep it at 50 or lower.</value>
     <value>cosmic exploration messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
-    <value>Cosmic exploration progress and area messages.</value>
+    <value>Mech op directives, red alerts, and related cosmic exploration system lines.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
     <value>cosmic currency and container obtains</value>
@@ -759,7 +759,7 @@ eg. You obtain 30 ice shards</value>
     <value>Hide Gil</value>
   </data>
   <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 69 gil.</value>
+    <value>eg. You obtain 69 gil or You receive 1,670 gil. Obtain lines need Filter Obtain on General; receive lines need Filter System on General.</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
     <value>Hide Grand Company Seals</value>

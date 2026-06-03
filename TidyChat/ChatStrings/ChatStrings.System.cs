@@ -861,6 +861,20 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/10884?pretty=true">A red alert has been issued.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/10881?pretty=true">The red alert has been resolved.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/10807?pretty=true">Moongate Hub red alert (critical missions).</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/11334?pretty=true">Red alert — critical missions available.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/11335?pretty=true">Red alert in effect.</seealso>
+    public static readonly LocalizedStrings CosmicRedAlert = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["red", "alert"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
     /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
     ///     Your meticulous actions prove effective. Integrity is not
     ///     reduced.

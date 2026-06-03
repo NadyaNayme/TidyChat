@@ -309,6 +309,13 @@ public sealed partial class TidyChatPlugin
 
             if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
             {
+                if (string.Equals(rule.Name, "ShowObtainedItems", StringComparison.Ordinal) &&
+                    CosmicShowRuleHelper.ShouldDeferGeneralObtainRule(Configuration, normalizedText))
+                {
+                    rulesFailed?.Add(rule.Name);
+                    continue;
+                }
+
                 rulesMatched.Add(rule.Name);
                 isBlocked = chatType is ChatType.LootNotice && !rule.BlockWhenActive
                     ? rule.IsActive

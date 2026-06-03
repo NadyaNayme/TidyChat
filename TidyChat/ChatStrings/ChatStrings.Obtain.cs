@@ -142,6 +142,17 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/1798?pretty=true">You receive N gil (System channel).</see>
+    /// <seealso href="https://xivapi.com/LogMessage/10923?pretty=true">Alternate receive-gil template</see>
+    public static readonly LocalizedStrings ReceivedGilMarker = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["you", "receive", "gil"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
     /// <see href="https://xivapi.com/LogMessage/4765?pretty=true">MGP obtain</see>
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {

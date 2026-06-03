@@ -235,6 +235,28 @@ public static partial class Rules
         },
         new()
         {
+            Name = "HideObtainedGil",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [1798, 10923],
+            StringChecks = [ChatStrings.ReceivedGilMarker],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "HideObtainedGil",
+            SettingsTab = "Loot/Obtain",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            RegexChecks = [ChatRegexStrings.ReceivedGil],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
             Name = "HideObtainedMGP",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,

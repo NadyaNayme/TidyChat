@@ -247,6 +247,26 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowCosmicExplorationMessages",
+            SettingsTab = "Gathering",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10884, 10881, 10807, 11334, 11335],
+            StringChecks = [ChatStrings.CosmicRedAlert],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicExplorationMessages",
+            SettingsTab = "Gathering",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.CosmicRedAlert],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
             Name = "ShowCosmicRewards",
             SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,

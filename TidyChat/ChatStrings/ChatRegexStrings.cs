@@ -219,6 +219,16 @@ public static class ChatRegexStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/1798?pretty=true">You receive N gil (custom delivery and similar).</see>
+    public static readonly LocalizedRegex ReceivedGil = new()
+    {
+        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new(@"^you receive (\d{1,3},)?\d{1,3} gil\.$", regexOptions, regexTimeout),
+        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
+    };
+
+
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Shared obtain template (tomestone lines)</see>
     public static readonly LocalizedRegex ObtainedTomestones = new()
     {
