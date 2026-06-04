@@ -211,7 +211,7 @@ public static partial class Rules
         {
             Name = "ShowAllOtherGathering",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1111, 3549, 3569]
         },

@@ -938,7 +938,7 @@ public static partial class Rules
         {
             Name = "ShowSubaquaticVoyageOtherFinalized",
             SettingsTab = "Party",
-            Channel = ChatType.System,
+            Channel = ChatType.FreeCompanyAnnouncement,
             IsActive = true,
             LogMessageIds = [6060],
             StringChecks = [ChatStrings.SubaquaticVoyageFinalized],
@@ -1048,7 +1048,7 @@ public static partial class Rules
         {
             Name = "ShowGlamourPlatePartialApply",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Error,
             IsActive = true,
             LogMessageIds = [4378],
             StringChecks = [ChatStrings.TryOnGlamourPartialApply],
@@ -1603,29 +1603,7 @@ public static partial class Rules
         {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [503],
-            StringChecks = [ChatStrings.AetheryteTicketReady],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAetheryteTicket",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [535],
-            StringChecks = [ChatStrings.AetheryteTicketUsed],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAetheryteTicket",
-            SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Item,
             IsActive = true,
             StringChecks = [ChatStrings.AetheryteTicketReady],
             Pattern = PatternKind.StringMatch
@@ -1634,7 +1612,7 @@ public static partial class Rules
         {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
-            Channel = ChatType.System,
+            Channel = ChatType.Item,
             IsActive = true,
             StringChecks = [ChatStrings.AetheryteTicketUsed],
             Pattern = PatternKind.StringMatch
