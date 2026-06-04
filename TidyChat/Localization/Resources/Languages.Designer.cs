@@ -1367,6 +1367,12 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string ObtainTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("ObtainTab_FilteringNote", resourceCulture);
+            }
+        }
+        
         internal static string ObtainTab_HideInventoryItemAddedMessages {
             get {
                 return ResourceManager.GetString("ObtainTab_HideInventoryItemAddedMessages", resourceCulture);
@@ -1430,6 +1436,12 @@ namespace TidyChat.Localization.Resources {
         internal static string ObtainTab_ShowAnotherPlayerRollsMessages {
             get {
                 return ResourceManager.GetString("ObtainTab_ShowAnotherPlayerRollsMessages", resourceCulture);
+            }
+        }
+        
+        internal static string ObtainTab_ShowAnotherPlayerRollsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ObtainTab_ShowAnotherPlayerRollsMessagesHelpMarker", resourceCulture);
             }
         }
         
@@ -2186,6 +2198,18 @@ namespace TidyChat.Localization.Resources {
         internal static string Shared_RequiresSystemFilteringNote {
             get {
                 return ResourceManager.GetString("Shared_RequiresSystemFilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string Shared_RequiresObtainedFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresObtainedFilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string Shared_RequiresLootFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresLootFilteringNote", resourceCulture);
             }
         }
         

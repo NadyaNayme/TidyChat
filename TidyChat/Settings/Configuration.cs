@@ -74,6 +74,7 @@ public class Configuration : IPluginConfiguration
     private void ApplyRuntimeSideEffects()
     {
         Rules.UpdateIsActiveStates(this);
+        TidyChatPlugin.ClearPendingLogMessageAllows();
         TidyChatPlugin.InstanceDtrBarUpdate(this);
     }
 

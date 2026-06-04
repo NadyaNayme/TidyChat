@@ -270,6 +270,15 @@ public sealed partial class TidyChatPlugin
         }
     }
 
+    public static void ClearPendingLogMessageAllows()
+    {
+        if (TidyChatPlugin.Instance is not { } plugin) return;
+        lock(plugin._logMessageLock)
+        {
+            plugin._pendingAllowedLogMessageIds.Clear();
+        }
+    }
+
     private void RememberLogMessageAllow(uint logMessageId)
     {
         lock(_logMessageLock)

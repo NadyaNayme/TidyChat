@@ -41,8 +41,11 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     #region Setup
 
+    public static TidyChatPlugin? Instance { get; private set; }
+
     public TidyChatPlugin()
     {
+        Instance = this;
         L10N.Language = ClientState.ClientLanguage;
         LoadFishingFlavorMessages();
         PluginInterface.LanguageChanged += UpdateLang;
@@ -114,6 +117,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     public void Dispose()
     {
+        Instance = null;
         FlushBlockedMessageCount(persist: true);
         Configuration.PersistIfDirty();
 

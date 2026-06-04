@@ -5,6 +5,9 @@ internal static class ObtainTab
 {
     public static void Draw(Configuration configuration)
     {
+        ImGui.TextWrapped(Languages.ObtainTab_FilteringNote);
+        ImGui.Spacing();
+
         if (ImGui.CollapsingHeader(Languages.ObtainTab_LootingAndRollingDropdownHeader))
         {
             bool showCastLot = configuration.ShowCastLot;
@@ -14,7 +17,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_CastYourLotHelpMarker);
+            UiHelp.LootFilterMarker(Languages.ObtainTab_CastYourLotHelpMarker);
 
             bool showLootRoll = configuration.ShowLootRoll;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowYouRolledMessages, ref showLootRoll))
@@ -23,7 +26,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowYouRolledMessagesHelpMarker);
+            UiHelp.LootFilterMarker(Languages.ObtainTab_ShowYouRolledMessagesHelpMarker);
 
             bool showOthersCastLot = configuration.ShowOthersCastLot;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessages, ref showOthersCastLot))
@@ -32,7 +35,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker);
+            UiHelp.LootFilterMarker(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker);
 
             bool showOthersLootRoll = configuration.ShowOthersLootRoll;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerRollsMessages, ref showOthersLootRoll))
@@ -40,6 +43,8 @@ internal static class ObtainTab
                 configuration.ShowOthersLootRoll = showOthersLootRoll;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.LootFilterMarker(Languages.ObtainTab_ShowAnotherPlayerRollsMessagesHelpMarker);
 
             if (configuration.ShowOthersLootRoll)
             {
@@ -51,7 +56,7 @@ internal static class ObtainTab
                     configuration.OnSettingChanged();
                 }
 
-                ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowOnlyPartyMemberRollsHelpMarker);
+                UiHelp.LootFilterMarker(Languages.ObtainTab_ShowOnlyPartyMemberRollsHelpMarker);
                 ImGui.Unindent();
             }
 
@@ -62,7 +67,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_CommonCurrenciesDropdownHeader))
@@ -74,7 +79,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGeneralItemObtainsHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowGeneralItemObtainsHelpMarker);
 
             bool hideInventoryItemAdded = configuration.HideInventoryItemAdded;
             if (ImGui.Checkbox(Languages.ObtainTab_HideInventoryItemAddedMessages, ref hideInventoryItemAdded))
@@ -83,7 +88,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_HideInventoryItemAddedMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_HideInventoryItemAddedMessagesHelpMarker);
 
             bool showObtainedQuestItems = configuration.ShowObtainedQuestItems;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowObtainedQuestItems, ref showObtainedQuestItems))
@@ -92,7 +97,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowObtainedQuestItemsHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowObtainedQuestItemsHelpMarker);
 
             bool hideObtainedgil = configuration.HideObtainedGil;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowGil, ref hideObtainedgil))
@@ -101,7 +106,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGilHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowGilHelpMarker);
 
             bool hideObtainedSeals = configuration.HideObtainedSeals;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowGrandCompanySealsMessages, ref hideObtainedSeals))
@@ -110,7 +115,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowGrandCompanySealsMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowGrandCompanySealsMessagesHelpMarker);
 
             bool hideObtainedVenture = configuration.HideObtainedVenture;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowVentureMessages, ref hideObtainedVenture))
@@ -119,7 +124,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowVentureMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowVentureMessagesHelpMarker);
 
             bool hideObtainedMGP = configuration.HideObtainedMGP;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowMGPMessages, ref hideObtainedMGP))
@@ -128,7 +133,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowMGPMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowMGPMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_BattleCurrenciesDropdownHeader))
@@ -157,7 +162,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowWolfMarksMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowWolfMarksMessagesHelpMarker);
 
             bool hideObtainedAlliedSeals = configuration.HideObtainedAlliedSeals;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowAlliedSealsMessages, ref hideObtainedAlliedSeals))
@@ -166,7 +171,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowAlliedSealsMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowAlliedSealsMessagesHelpMarker);
 
             bool hideObtainedCenturioSeals = configuration.HideObtainedCenturioSeals;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowCenturioSealsMessages, ref hideObtainedCenturioSeals))
@@ -175,7 +180,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowCenturioSealsMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowCenturioSealsMessagesHelpMarker);
 
             bool hideObtainedNuts = configuration.HideObtainedNuts;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowSacksOfNutsMessages, ref hideObtainedNuts))
@@ -184,7 +189,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowSacksOfNutsMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowSacksOfNutsMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_BeastTribeQuestsDropdownHeader))
@@ -197,7 +202,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
 
             bool hideObtainedTribalCurrency = configuration.HideObtainedTribalCurrency;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowBeastTribeCurrenciesMessages, ref hideObtainedTribalCurrency))
@@ -206,7 +211,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_OtherObtainMessagesDropdownHeader))
@@ -218,7 +223,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
 
             bool hideObtainedShards = configuration.HideObtainedShards;
             if (ImGui.Checkbox(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessages,
@@ -228,7 +233,7 @@ internal static class ObtainTab
                 configuration.OnSettingChanged();
             }
 
-            ImGuiComponents.HelpMarker(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
         }
     }
 }

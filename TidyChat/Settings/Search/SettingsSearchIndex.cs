@@ -218,8 +218,16 @@ internal static class SettingsSearchIndex
         string label = (string)labelProperty.GetValue(null)!;
         PropertyInfo? helpProperty = FindPairedHelpProperty(labelProperty.Name);
         string? help = helpProperty is null ? null : (string)helpProperty.GetValue(null)!;
-        if (help is not null && UiHelp.ShouldAppendSystemFilterNote(helpProperty!.Name))
-            help = UiHelp.WithSystemFilterNote(help);
+        if (help is not null)
+        {
+            if (UiHelp.ShouldAppendLootFilterNote(helpProperty!.Name))
+                help = UiHelp.WithLootFilterNote(help);
+            else if (UiHelp.ShouldAppendObtainedFilterNote(helpProperty!.Name))
+                help = UiHelp.WithObtainedFilterNote(help);
+            else if (UiHelp.ShouldAppendSystemFilterNote(helpProperty.Name))
+                help = UiHelp.WithSystemFilterNote(help);
+        }
+
         return (label, help);
     }
 

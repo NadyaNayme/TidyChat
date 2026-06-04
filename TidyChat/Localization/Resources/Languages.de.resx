@@ -552,7 +552,7 @@ z.B. Anderer Spieler lehnt sich zu dir rüber und knuddelt dich ganz doll.</valu
     <value>Filter Obtained channel</value>
   </data>
   <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, Obtained (loot notice) messages are hidden unless a Show or Hide option on the Obtain tab allows them (drops, currencies, tomestones, cosmic rewards, and similar). When disabled, Obtained is not filtered here.</value>
+    <value>When enabled, Obtained (loot notice) messages are hidden unless an Obtain tab option allows them. Show … = allow when checked; Hide … = hide when checked. When disabled, Obtained is not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterProfile_Balanced" xml:space="preserve">
     <value>Balanced (recommended)</value>
@@ -670,7 +670,7 @@ z.B. Du streichelst &lt;user&gt; sanft.</value>
     <value>Kampfwährungen</value>
   </data>
   <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-    <value>Verbündete Gesellschaften</value>
+    <value>Allied Society</value>
   </data>
   <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
     <value>Dies ist die Nachricht die angezeigt wird, wenn du um Beute würfelst.
@@ -718,17 +718,17 @@ z.B. Ein Spieler hat ein &lt;item&gt; erhalten!</value>
     <value>Show &quot;Another Player rolls Greed...&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
-    <value>Handwerksmaterialien verbündeter Gesellschaften ausblenden</value>
+    <value>Hide allied society crafting materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
-    <value>Blendet Erhaltensmeldungen für Handwerksmaterialien verbündeter Gesellschaften aus.
-z. B. You obtain Starboard Hull Component Materials</value>
+    <value>Hides allied society crafting material obtain messages.
+eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
-    <value>Währungen verbündeter Gesellschaften ausblenden</value>
+    <value>Hide allied society currencies</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
-    <value>Blendet Erhaltensmeldungen für Währungen aller 18 verbündeten Gesellschaften aus (bis Yok Huy in Dawntrail), einschließlich Pelu Pelplume, Mamool Ja Nanook und Yok Huy Ward. Erfordert „Erhaltensnachrichten filtern“ unter Allgemein.</value>
+    <value>Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward.</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
     <value>Hide Centurio Seals</value>
@@ -1101,7 +1101,7 @@ z. B. Spieler erreicht Level 33!</value>
     <value>Wiki Seite</value>
   </data>
   <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
-    <value>Requires Filter System channel on the General tab.</value>
+    <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>
@@ -1179,7 +1179,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show Aetheryte Ticket usage message</value>
   </data>
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
-    <value>eg. You used Aetheryte Ticket (Remaining: 5). Uses the item channel in the chat log.</value>
+    <value>eg. You used an aetheryte ticket. (Remaining: 5). Often appears on the System line in chat even though LogMessage 535 is Item-type.</value>
   </data>
   <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
     <value>Show ARR Relic book step completed messages</value>
@@ -1209,7 +1209,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
-    <value>z.B. Dein Level ist mindestens 5 Stufen über dem empfohlenen Level für dieses FATE.</value>
+    <value>eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_ShowFriendListMessages" xml:space="preserve">
     <value>Show friend list messages</value>
@@ -1276,7 +1276,7 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>Hide &quot;Orchestrion now plays&quot; messages</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
-    <value>eg. Orchestrion now plays &lt;song&gt;.</value>
+    <value>eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
     <value>Show personal message book new entry messages</value>
