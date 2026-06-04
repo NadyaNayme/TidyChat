@@ -3,6 +3,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
+using TidyChat.Utility;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat;
@@ -258,6 +259,9 @@ public sealed partial class TidyChatPlugin
         LocalizedFilterRule[] rules = Rules.AllRules;
 
         bool isBlocked = ChannelIsSpammy(chatType);
+        bool errorChannelOnlyHideRules = chatType is ChatType.Error;
+        if (errorChannelOnlyHideRules)
+            isBlocked = false;
 
         if ((chatType is ChatType.System or ChatType.RetainerSale && !Configuration.FilterSystemMessages) ||
             (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
@@ -323,13 +327,21 @@ public sealed partial class TidyChatPlugin
                 }
 
                 rulesMatched.Add(rule.Name);
-                isBlocked = chatType is ChatType.LootNotice && !rule.BlockWhenActive
-                    ? rule.IsActive
-                    : rule.BlockWhenActive
-                        ? chatType is ChatType.LootNotice || !defaultBlocked
-                            ? !defaultBlocked
-                            : defaultBlocked
-                        : !defaultBlocked;
+                if (errorChannelOnlyHideRules)
+                {
+                    if (rule.BlockWhenActive && rule.IsActive)
+                        isBlocked = true;
+                }
+                else
+                {
+                    isBlocked = chatType is ChatType.LootNotice && !rule.BlockWhenActive
+                        ? rule.IsActive
+                        : rule.BlockWhenActive
+                            ? chatType is ChatType.LootNotice || !defaultBlocked
+                                ? !defaultBlocked
+                                : defaultBlocked
+                            : !defaultBlocked;
+                }
             }
             else if (rulesMatched is null || !rulesMatched.Contains(rule.Name))
             {
@@ -399,24 +411,11 @@ public sealed partial class TidyChatPlugin
             isHandled = false;
         }
 
-        if (chatType is ChatType.LootNotice && !isHandled &&
-            L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
+        if (chatType is ChatType.LootNotice &&
+            TomestoneHideHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
-            foreach(TomestoneInfo tomestone in Tomestones)
-            {
-                string itemNameLower = tomestone.Name.ToLower(CultureInfo.InvariantCulture);
-                int lastWordStart = itemNameLower.LastIndexOf(' ') + 1;
-                string typeName = itemNameLower[lastWordStart..];
-                if (normalizedText.Contains(typeName, StringComparison.Ordinal))
-                {
-                    if (Configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out bool hide) && hide)
-                    {
-                        if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (tomestone): {message.Message}");
-                        isHandled = true;
-                    }
-                    break;
-                }
-            }
+            if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (tomestone): {message.Message}");
+            isHandled = true;
         }
     }
     private static bool ChannelIsSpammy(ChatType chatType)

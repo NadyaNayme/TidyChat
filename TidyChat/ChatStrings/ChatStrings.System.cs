@@ -762,6 +762,15 @@ public static partial class ChatStrings
         Fra = ["équipez"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/765?pretty=true">Unable to equip gear set.</see>
+    public static readonly LocalizedStrings GearsetUnableToEquip = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["unable", "equip", "gear", "set"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/5865?pretty=true">Portrait set as instant portrait.</see>
     public static readonly LocalizedStrings PortraitSetInstant = new()
     {
@@ -903,13 +912,21 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/503?pretty=true">Aetheryte ticket ready message.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/535?pretty=true">Aetheryte ticket use message.</seealso>
-    public static readonly LocalizedStrings AetheryteTicket = new()
+    public static readonly LocalizedStrings AetheryteTicketReady = new()
     {
-        Jpn = ["使用"],
-        Eng = ["ready", "use"],
-        Deu = ["bereit", "verwendet"],
-        Fra = ["préparez", "utilise"]
+        Jpn = ["チケット", "使用"],
+        Eng = ["aetheryte", "ticket", "ready"],
+        Deu = ["ätheryt", "ticket", "bereit"],
+        Fra = ["téléportation", "préparez"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/535?pretty=true">Aetheryte ticket use message.</see>
+    public static readonly LocalizedStrings AetheryteTicketUsed = new()
+    {
+        Jpn = ["チケット", "使用"],
+        Eng = ["aetheryte", "ticket", "used"],
+        Deu = ["ätheryt", "ticket", "verwendet"],
+        Fra = ["téléportation", "utilise"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1341?pretty=true">You attune to the aetheryte.</see>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -670,7 +670,7 @@ Ex.: Você delicadamente toca &lt;user&gt;</value>
     <value>Battle Currencies</value>
   </data>
   <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-    <value>Beast Tribe Quests</value>
+    <value>Allied Society</value>
   </data>
   <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
     <value>Isto irá mostrar a mensagem que ocorre quando você rolar no saque.
@@ -695,7 +695,7 @@ ex: Você lança sua sorte para o &lt;item&gt;</value>
     <value>Other Obtain Messages</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
-    <value>Show Hide Allied Seals</value>
+    <value>Hide Allied Seals</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 100 Allied Seals.</value>
@@ -708,7 +708,7 @@ ex: Você lança sua sorte para o &lt;item&gt;</value>
 por exemplo. Alguns jogadores lançam seu lot for &lt;item&gt;.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Show Hide &quot;Another Player obtains &lt;item&gt;&quot; messages</value>
+    <value>Hide &quot;Another Player obtains &lt;item&gt;&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
     <value>Isto irá mostrar a mensagem que ocorre quando outro jogador na party rola para receber um loot.
@@ -718,26 +718,26 @@ por exemplo. Alguns jogadores lançam seu lot for &lt;item&gt;!</value>
     <value>Show &quot;Another Player rolls Greed...&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
-    <value>Show Hide Beast Tribe crafting materials</value>
+    <value>Hide allied society crafting materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you receive crafting materials to be used in Beast Tribe crafting quests.
+    <value>Hides allied society crafting material obtain messages.
 eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
-    <value>Show Hide Beast Tribe Currencies</value>
+    <value>Hide allied society currencies</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you receive Beast Tribe currencies upon completion of a Beast Tribe quest.</value>
+    <value>Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward. Requires Filter Obtained on General.</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
-    <value>Show Hide Centurio Seals</value>
+    <value>Hide Centurio Seals</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 40 Centurio Seals.</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
-    <value>Show Hide cracked clusters</value>
+    <value>Hide cracked clusters</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
     <value>This will show cracked clusters such as Dendroclusters and Anthoclusters.
@@ -745,7 +745,7 @@ For hiding elemental clusters see the hide elemental clusters option down below.
 eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
-    <value>Show Hide elemental shards, crystals, and clusters</value>
+    <value>Hide elemental shards, crystals, and clusters</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
     <value>This will show the message that occurs when you gather or receive elemental shards, crystals, or clusters
@@ -758,31 +758,31 @@ eg. You obtain 30 ice shards</value>
     <value>Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
   </data>
   <data name="ObtainTab_ShowGil" xml:space="preserve">
-    <value>Show Hide Gil</value>
+    <value>Hide Gil</value>
   </data>
   <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
     <value>eg. You obtain 69 gil or You receive 1,670 gil. Obtain lines need Filter Obtain on General; receive lines need Filter System on General.</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
-    <value>Show Hide Grand Company Seals</value>
+    <value>Hide Grand Company Seals</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 420 Flame Seals.</value>
   </data>
   <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
-    <value>Show Hide Allagan tomestones of Mathematics</value>
+    <value>Hide Allagan tomestones of Mathematics</value>
   </data>
   <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 60 Allagan tomestones of Mathematics.</value>
   </data>
   <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
-    <value>Show Hide MGP</value>
+    <value>Hide MGP</value>
   </data>
   <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 117 MGP.</value>
   </data>
   <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
-    <value>Show Hide Allagan tomestones of Mnemonics</value>
+    <value>Hide Allagan tomestones of Mnemonics</value>
   </data>
   <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 20 Allagan tomestones of Mnemonics.</value>
@@ -807,25 +807,25 @@ Requires &quot;Show Another Player rolls&quot; to be enabled and only takes effe
     <value>Shows when other players cast lot or roll on loot.</value>
   </data>
   <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
-    <value>Show Hide Allagan tomestones of Poetics</value>
+    <value>Hide Allagan tomestones of Poetics</value>
   </data>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 100 Allagan tomestones of Poetics.</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
-    <value>Show Hide sacks of Nuts</value>
+    <value>Hide sacks of Nuts</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 100 sacks of Nuts.</value>
   </data>
   <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
-    <value>Show Hide Ventures</value>
+    <value>Hide Ventures</value>
   </data>
   <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain a Venture.</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
-    <value>Show Hide Wolf Marks</value>
+    <value>Hide Wolf Marks</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 1,000 Wolf Marks.</value>
@@ -1016,13 +1016,13 @@ por exemplo. Você joga Need/Greed no &lt;item&gt;. 63!</value>
     <value>Quests &amp; achievements</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
-    <value>Show Hide adventurer-in-need bonus awards</value>
+    <value>Hide adventurer-in-need bonus awards</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
     <value>eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
-    <value>Show Hide duty roulette bonus awards</value>
+    <value>Hide duty roulette bonus awards</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
     <value>eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
@@ -1207,7 +1207,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
-    <value>Show Hide FATE level sync messages</value>
+    <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>eg. You are 5 or more levels above the recommended level for this FATE.</value>
@@ -1274,7 +1274,7 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>eg. Updating online status to Away from Keyboard.</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlaying" xml:space="preserve">
-    <value>Show Hide &quot;Orchestrion now plays&quot; messages</value>
+    <value>Hide &quot;Orchestrion now plays&quot; messages</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
     <value>eg. Orchestrion now plays &lt;song&gt;.</value>

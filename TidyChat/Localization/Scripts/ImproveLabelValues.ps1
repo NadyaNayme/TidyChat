@@ -3,6 +3,7 @@ $ResxPath = Join-Path (Split-Path $PSScriptRoot -Parent) "Resources\Languages.re
 $prefixes = 'GeneralTab_|ObtainTab_|CombatTab_|ProgressTab_|CraftingGatheringTab_|SystemTab_|EmotesTab_|ToolsTab_|WhitelistTab_|ChatHistoryTab_'
 $content = Get-Content $ResxPath -Raw
 
+$content = $content.Replace('Show Hide ', 'Hide ')
 $content = [regex]::Replace($content, "(<data name=`"(?:$prefixes)[^`"]+`"[^>]*>\s*<value>)Show ", '${1}', 'IgnoreCase')
 
 # Section header improvements
@@ -13,7 +14,7 @@ $headers = @{
     'ObtainTab_LootingAndRollingDropdownHeader' = 'Loot rolls'
     'ObtainTab_CommonCurrenciesDropdownHeader' = 'Common currencies'
     'ObtainTab_BattleCurrenciesDropdownHeader' = 'Battle currencies'
-    'ObtainTab_BeastTribeQuestsDropdownHeader' = 'Beast Tribe'
+    'ObtainTab_BeastTribeQuestsDropdownHeader' = 'Allied Society'
     'ObtainTab_OtherObtainMessagesDropdownHeader' = 'Other obtain'
     'CombatTab_CastingAndAbilitiesDropdownHeader' = 'Casting &amp; abilities'
     'CombatTab_DamageHealingAndEffectsDropdownHeader' = 'Damage, healing &amp; effects'

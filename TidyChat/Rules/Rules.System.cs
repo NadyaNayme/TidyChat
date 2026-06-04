@@ -419,17 +419,6 @@ public static partial class Rules
         {
             Name = "ShowDutyFinder",
             SettingsTab = "Party",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [890],
-            StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowDutyFinder",
-            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
@@ -1036,17 +1025,6 @@ public static partial class Rules
         {
             Name = "ShowTryOnGlamour",
             SettingsTab = "System",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [4378],
-            StringChecks = [ChatStrings.TryOnGlamourPartialApply],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowTryOnGlamour",
-            SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1900],
@@ -1067,7 +1045,25 @@ public static partial class Rules
         {
             Name = "ShowTryOnGlamour",
             SettingsTab = "System",
+            Channel = ChatType.GlamourNotifications,
+            IsActive = true,
+            StringChecks = [ChatStrings.TryOnGlamourCast],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTryOnGlamour",
+            SettingsTab = "System",
             Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GlamourPlateProjected],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTryOnGlamour",
+            SettingsTab = "System",
+            Channel = ChatType.GlamourNotifications,
             IsActive = true,
             StringChecks = [ChatStrings.GlamourPlateProjected],
             Pattern = PatternKind.StringMatch
@@ -1383,7 +1379,7 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [5865, 5874, 5886]
+            LogMessageIds = [5865]
         },
         new()
         {
@@ -1393,28 +1389,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [5865],
             StringChecks = [ChatStrings.PortraitSetInstant],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowPortraitMessages",
-            SettingsTab = "System",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [5874],
-            StringChecks = [ChatStrings.PortraitExpired],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowPortraitMessages",
-            SettingsTab = "System",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [5886],
-            StringChecks = [ChatStrings.PortraitUpdateIncompatible],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -1461,24 +1435,6 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.PortraitSetInstant],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowPortraitMessages",
-            SettingsTab = "System",
-            Channel = ChatType.Error,
-            IsActive = true,
-            StringChecks = [ChatStrings.PortraitExpired],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowPortraitMessages",
-            SettingsTab = "System",
-            Channel = ChatType.Error,
-            IsActive = true,
-            StringChecks = [ChatStrings.PortraitUpdateIncompatible],
             Pattern = PatternKind.StringMatch
         },
         new()
@@ -1608,7 +1564,10 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.Item,
             IsActive = true,
-            LogMessageIds = [503, 535, 1341]
+            LogMessageIds = [503],
+            StringChecks = [ChatStrings.AetheryteTicketReady],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -1616,10 +1575,50 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.Item,
             IsActive = true,
-            LogMessageIds = [503, 535],
-            StringChecks = [ChatStrings.AetheryteTicket],
+            LogMessageIds = [535],
+            StringChecks = [ChatStrings.AetheryteTicketUsed],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [503],
+            StringChecks = [ChatStrings.AetheryteTicketReady],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [535],
+            StringChecks = [ChatStrings.AetheryteTicketUsed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.AetheryteTicketReady],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.AetheryteTicketUsed],
+            Pattern = PatternKind.StringMatch
         },
         new()
         {

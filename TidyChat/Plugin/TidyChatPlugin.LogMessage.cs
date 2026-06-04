@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Lumina.Text.ReadOnly;
+using TidyChat.Utility;
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
@@ -54,6 +55,9 @@ public sealed partial class TidyChatPlugin
 
         if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out IReadOnlyList<LocalizedFilterRule>? matchingRules))
         {
+            if (TryBlockHiddenTomestoneLogMessage(message))
+                return;
+
             if (Configuration.EnableDebugMode && _loggedUnmatchedLogMessageIds.Add(message.LogMessageId))
             {
                 try
@@ -70,11 +74,16 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
-        if (!TryResolveLogMessageFilter(message, matchingRules, out bool shouldAllow, out string? decidingRuleName))
+        if (!TryGetNormalizedLogMessageText(message, out string normalizedLogText) ||
+            !TryResolveLogMessageAllow(message.LogMessageId, normalizedLogText, matchingRules,
+                out bool shouldAllow, out string? decidingRuleName))
             return;
 
         if (shouldAllow)
         {
+            if (TryBlockHiddenTomestoneLogMessage(message))
+                return;
+
             RememberLogMessageAllowDecision(message, decidingRuleName);
             return;
         }
@@ -105,20 +114,30 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    private bool TryResolveLogMessageFilter(
-        ILogMessage message,
+    private bool TryResolveLogMessageAllow(
+        uint logMessageId,
+        string normalizedText,
         IReadOnlyList<LocalizedFilterRule> matchingRules,
+        out bool shouldAllow,
+        out string? decidingRuleName) =>
+        TryResolveLogMessageAllow(logMessageId, normalizedText, matchingRules, Configuration, out shouldAllow,
+            out decidingRuleName);
+
+    private static bool TryResolveLogMessageAllow(
+        uint logMessageId,
+        string normalizedText,
+        IReadOnlyList<LocalizedFilterRule> matchingRules,
+        Configuration configuration,
         out bool shouldAllow,
         out string? decidingRuleName)
     {
         shouldAllow = false;
         decidingRuleName = null;
 
-        if (TryGetNormalizedLogMessageText(message, out string normalizedText) &&
-            CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        if (CosmicShowRuleHelper.IsCosmicMessageAllowed(configuration, normalizedText))
         {
             shouldAllow = true;
-            decidingRuleName = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
+            decidingRuleName = CosmicShowRuleHelper.GetActiveCosmicRuleName(configuration, normalizedText);
             return true;
         }
 
@@ -131,7 +150,7 @@ public sealed partial class TidyChatPlugin
 
         foreach(LocalizedFilterRule rule in matchingRules)
         {
-            if (!LogMessageRuleApplies(message, rule)) continue;
+            if (!LogMessageRuleApplies(logMessageId, normalizedText, rule, configuration.EnableDebugMode)) continue;
 
             if (rule.BlockWhenActive)
             {
@@ -167,6 +186,14 @@ public sealed partial class TidyChatPlugin
 
         if (inactiveShowMatch)
         {
+            // Error-channel LogMessages are always shown unless an active hide rule matched above.
+            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.Error)
+            {
+                shouldAllow = true;
+                decidingRuleName = inactiveShowRule;
+                return true;
+            }
+
             shouldAllow = false;
             decidingRuleName = inactiveShowRule;
             return true;
@@ -194,29 +221,38 @@ public sealed partial class TidyChatPlugin
 
     private bool LogMessageRuleApplies(ILogMessage message, LocalizedFilterRule rule)
     {
+        if (!TryGetNormalizedLogMessageText(message, out string normalizedText))
+            return LogMessageRuleApplies(message.LogMessageId, string.Empty, rule, Configuration.EnableDebugMode);
+
+        return LogMessageRuleApplies(message.LogMessageId, normalizedText, rule, Configuration.EnableDebugMode);
+    }
+
+    private static bool LogMessageRuleApplies(uint logMessageId, string normalizedText, LocalizedFilterRule rule,
+        bool debugMode)
+    {
         if (rule.Pattern == PatternKind.None)
         {
-            if (LogMessageCatalog.GetChatTypeForId(message.LogMessageId) is ChatType sheetChannel)
+            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType sheetChannel)
                 return rule.Channel == sheetChannel;
-            return rule.LogMessageIds?.Contains(message.LogMessageId) == true;
+            return rule.LogMessageIds?.Contains(logMessageId) == true;
         }
 
-        bool idMatches = rule.LogMessageIds?.Contains(message.LogMessageId) == true;
+        bool idMatches = rule.LogMessageIds?.Contains(logMessageId) == true;
 
-        if (!TryGetNormalizedLogMessageText(message, out string normalizedText))
+        if (normalizedText.Length == 0)
             return !rule.ShouldBlock && idMatches;
 
-        if (LogMessageCatalog.IsLoaded && idMatches && LogMessageCatalog.Matches(message.LogMessageId, normalizedText))
+        if (LogMessageCatalog.IsLoaded && idMatches && LogMessageCatalog.Matches(logMessageId, normalizedText))
             return true;
 
-        if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+        if (RuleMatchesText(rule, normalizedText, debugMode))
             return true;
 
         if (!rule.ShouldBlock && idMatches)
             return true;
 
-        if (Configuration.EnableDebugMode)
-            Log.Debug($"[LogMessage] ID {message.LogMessageId} matched {rule.Name} but text check failed");
+        if (debugMode)
+            Log.Debug($"[LogMessage] ID {logMessageId} matched {rule.Name} but text check failed");
         return false;
     }
     private void RememberLogMessageTexts(HashSet<string> target, string text)
@@ -256,6 +292,11 @@ public sealed partial class TidyChatPlugin
             {
                 if (!_pendingAllowedLogMessageIds.TryGetValue(id, out int count) || count <= 0) continue;
                 if (!PendingLogMessageTextMatches(id, normalizedText)) continue;
+                if (!Rules.LogMessageIdToRules.TryGetValue(id, out IReadOnlyList<LocalizedFilterRule>? pendingRules) ||
+                    !TryResolveLogMessageAllow(id, normalizedText, pendingRules, Configuration, out bool stillAllow,
+                        out _) ||
+                    !stillAllow)
+                    continue;
 
                 if (count == 1) _pendingAllowedLogMessageIds.Remove(id);
                 else _pendingAllowedLogMessageIds[id] = count - 1;
@@ -315,5 +356,32 @@ public sealed partial class TidyChatPlugin
         {
             return false;
         }
+    }
+
+    private bool TryBlockHiddenTomestoneLogMessage(ILogMessage message)
+    {
+        if (!TryGetNormalizedLogMessageText(message, out string normalizedText)) return false;
+        if (!TomestoneHideHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
+            return false;
+
+        if (Configuration.EnableDebugMode)
+        {
+            Log.Debug($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
+            try
+            {
+                string text = message.FormatLogMessageForDebugging().ExtractText();
+                RememberLogMessageTexts(_blockedByLogMessage, text);
+            }
+            catch
+            {
+                /* non-critical */
+            }
+
+            return true;
+        }
+
+        message.PreventOriginal();
+        Interlocked.Increment(ref _sessionBlockedMessages);
+        return true;
     }
 }

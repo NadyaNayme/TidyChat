@@ -8,7 +8,7 @@ namespace TidyChat.Data;
 public static class LogMessageCatalog
 {
 
-    public static readonly uint[] SharedObtainTemplateIds = [657, 1259];
+    public static readonly uint[]SharedObtainTemplateIds = [657, 1259];
 
     private static readonly Dictionary<uint, string[]> WordTokensById = new();
     private static readonly Dictionary<uint, string> TemplateTextById = new();

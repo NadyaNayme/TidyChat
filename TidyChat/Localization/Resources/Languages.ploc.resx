@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -670,7 +670,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Ɓàţţļé Çûŕŕéñçîéš</value>
   </data>
   <data name="ObtainTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-    <value>Ɓéàšţ Ţŕîƀé Ǫûéšţš</value>
+    <value>Allied Society</value>
   </data>
   <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕôļļ ôñ ļôôţ·
@@ -695,7 +695,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Ôţĥéŕ Ôƀţàîñ Ṁéššàĝéš</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessages" xml:space="preserve">
-    <value>Show Hide Allied Seals</value>
+    <value>Hide Allied Seals</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļîéð Šéàļš·</value>
@@ -708,7 +708,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
 éĝ· Šôɱé þļàýéŕ çàšţš ĥéŕ ļôţ ƒôŕ &lt;item&gt;·</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Show Hide &quot;Another Player obtains &lt;item&gt;&quot; messages</value>
+    <value>Hide &quot;Another Player obtains &lt;item&gt;&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ àñôţĥéŕ þļàýéŕ îñ ţĥé þàŕţý ôƀţàîñš à ļôôţ ðŕôþ·
@@ -718,26 +718,26 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Show &quot;Another Player rolls Greed...&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
-    <value>Show Hide Beast Tribe crafting materials</value>
+    <value>Hide allied society crafting materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕéçéîṽé çŕàƒţîñĝ ɱàţéŕîàļš ţô ƀé ûšéð îñ Ɓéàšţ Ţŕîƀé çŕàƒţîñĝ ǫûéšţš·
-éĝ· Ýôû ôƀţàîñ Šţàŕƀôàŕð Ĥûļļ Çôɱþôñéñţ Ṁàţéŕîàļš</value>
+    <value>Hides allied society crafting material obtain messages.
+eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessages" xml:space="preserve">
-    <value>Show Hide Beast Tribe Currencies</value>
+    <value>Hide allied society currencies</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
-    <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ŕéçéîṽé Ɓéàšţ Ţŕîƀé çûŕŕéñçîéš ûþôñ çôɱþļéţîôñ ôƒ à Ɓéàšţ Ţŕîƀé ǫûéšţ·</value>
+    <value>Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward. Requires Filter Obtained on General.</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessages" xml:space="preserve">
-    <value>Show Hide Centurio Seals</value>
+    <value>Hide Centurio Seals</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ④ⓞ Çéñţûŕîô Šéàļš·</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
-    <value>Show Hide cracked clusters</value>
+    <value>Hide cracked clusters</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ çŕàçķéð çļûšţéŕš šûçĥ àš Ðéñðŕôçļûšţéŕš àñð Àñţĥôçļûšţéŕš·
@@ -745,7 +745,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
 éĝ· Ýôû ôƀţàîñ à çŕàçķéð ðéñðŕôçļûšţéŕ</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
-    <value>Show Hide elemental shards, crystals, and clusters</value>
+    <value>Hide elemental shards, crystals, and clusters</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
     <value>Ţĥîš ŵîļļ šĥôŵ ţĥé ɱéššàĝé ţĥàţ ôççûŕš ŵĥéñ ýôû ĝàţĥéŕ ôŕ ŕéçéîṽé éļéɱéñţàļ šĥàŕðš، çŕýšţàļš، ôŕ çļûšţéŕš
@@ -758,31 +758,31 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
   </data>
   <data name="ObtainTab_ShowGil" xml:space="preserve">
-    <value>Show Hide Gil</value>
+    <value>Hide Gil</value>
   </data>
   <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ⑥⑨ ĝîļ·</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
-    <value>Show Hide Grand Company Seals</value>
+    <value>Hide Grand Company Seals</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ④②ⓞ Ƒļàɱé Šéàļš·</value>
   </data>
   <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
-    <value>Show Hide Allagan tomestones of Mathematics</value>
+    <value>Hide Allagan tomestones of Mathematics</value>
   </data>
   <data name="ObtainTab_ShowMathematicsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ⑥ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁàţĥéɱàţîçš·</value>
   </data>
   <data name="ObtainTab_ShowMGPMessages" xml:space="preserve">
-    <value>Show Hide MGP</value>
+    <value>Hide MGP</value>
   </data>
   <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①①⑦ ṀĜÞ·</value>
   </data>
   <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
-    <value>Show Hide Allagan tomestones of Mnemonics</value>
+    <value>Hide Allagan tomestones of Mnemonics</value>
   </data>
   <data name="ObtainTab_ShowMnemonicsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ②ⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Ṁñéɱôñîçš·</value>
@@ -807,25 +807,25 @@ Requires &quot;Show Another Player rolls&quot; to be enabled and only takes effe
     <value>Shows when other players cast lot or roll on loot.</value>
   </data>
   <data name="ObtainTab_ShowPoeticsMessages" xml:space="preserve">
-    <value>Show Hide Allagan tomestones of Poetics</value>
+    <value>Hide Allagan tomestones of Poetics</value>
   </data>
   <data name="ObtainTab_ShowPoeticsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ Àļļàĝàñ ţôɱéšţôñéš ôƒ Þôéţîçš·</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessages" xml:space="preserve">
-    <value>Show Hide sacks of Nuts</value>
+    <value>Hide sacks of Nuts</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①ⓞⓞ šàçķš ôƒ Ñûţš·</value>
   </data>
   <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
-    <value>Show Hide Ventures</value>
+    <value>Hide Ventures</value>
   </data>
   <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ à Ṽéñţûŕé·</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
-    <value>Show Hide Wolf Marks</value>
+    <value>Hide Wolf Marks</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû ôƀţàîñ ①،ⓞⓞⓞ Ŵôļƒ Ṁàŕķš·</value>
@@ -1016,13 +1016,13 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Quests &amp; achievements</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessages" xml:space="preserve">
-    <value>Show Hide adventurer-in-need bonus awards</value>
+    <value>Hide adventurer-in-need bonus awards</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· À ƀôñûš ôƒ ⑦،②ⓞⓞ ĝîļ ĥàš ƀééñ àŵàŕðéð ƒôŕ ƀéîñĝ àñ àðṽéñţûŕéŕ îñ ñééð·</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
-    <value>Show Hide duty roulette bonus awards</value>
+    <value>Hide duty roulette bonus awards</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· À ƀôñûš ôƒ ④،②⑤②،④⑨⑧ éẋþéŕîéñçé þôîñţš àñð ①②،ⓞⓞⓞ ĝîļ ĥàš ƀééñ àŵàŕðéð ƒôŕ ûšîñĝ ţĥé ðûţý ŕôûļéţţé·</value>
@@ -1207,7 +1207,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
-    <value>Show Hide FATE level sync messages</value>
+    <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>éĝ· Ýôû àŕé ⑤ ôŕ ɱôŕé ļéṽéļš àƀôṽé ţĥé ŕéçôɱɱéñðéð ļéṽéļ ƒôŕ ţĥîš ƑÀŢÉ·</value>
@@ -1274,7 +1274,7 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>éĝ· Ûþðàţîñĝ ôñļîñé šţàţûš ţô Àŵàý ƒŕôɱ Ķéýƀôàŕð·</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlaying" xml:space="preserve">
-    <value>Show Hide &quot;Orchestrion now plays&quot; messages</value>
+    <value>Hide &quot;Orchestrion now plays&quot; messages</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
     <value>eg. Orchestrion now plays &lt;song&gt;.</value>

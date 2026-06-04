@@ -189,7 +189,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowNowLeaderOf { get; set; } = false;
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
-    public bool ShowAetheryteTicket { get; set; } = true;
+    public bool ShowAetheryteTicket { get; set; } = false;
     public bool ShowActiveHelpEntry { get; set; } = false;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;

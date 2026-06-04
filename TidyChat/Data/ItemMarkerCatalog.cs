@@ -89,21 +89,24 @@ public static class ItemMarkerCatalog
 
         public static readonly uint[] TribalCurrency =
         [
-            6567, // Steel Amalj'ok
-            6582, // Sylphic Goldleaf
-            8134, // Titan Cobaltpiece
-            8864, // Rainbowtide Psashp
-            12876, // Ixali Oaknot
-            15994, // Vanu Whitebone
-            20027, // Black Copper Gil
-            27907, // Carved Kupo Nut
-            28725, // Kojin Sango
-            33155, // Ananta Dreamstaff
-            36305, // Namazu Koban
-            41778, // Fae Fancy
-            44642, // Qitari Compliment
-            46970, // Hammered Frogment
-            50622 // Arkasodara Pana
+            21076, // Steel Amalj'ok (Amalj'aa)
+            21075, // Sylphic Goldleaf (Sylphs)
+            21078, // Titan Cobaltpiece (Kobolds)
+            21077, // Rainbowtide Psashp (Sahagin)
+            21073, // Ixali Oaknot (Ixal)
+            21074, // Vanu Whitebone (Vanu Vanu)
+            21079, // Black Copper Gil (Vath)
+            21080, // Carved Kupo Nut (Moogles)
+            21081, // Kojin Sango (Kojin)
+            21935, // Ananta Dreamstaff (Ananta)
+            22525, // Namazu Koban (Namazu)
+            28186, // Fae Fancy (Pixies)
+            28187, // Qitari Compliment (Qitari)
+            28188, // Hammered Frogment (Dwarves)
+            36657, // Arkasodara Pana (Arkasodara)
+            44472, // Pelu Pelplume (Pelupelu)
+            48084, // Mamool Ja Nanook (Mamool Ja)
+            46178 // Yok Huy Ward (Yok Huy)
         ];
 
         public static readonly uint[] AllTracked =
