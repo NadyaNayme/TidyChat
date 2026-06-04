@@ -337,8 +337,10 @@ public sealed partial class TidyChatPlugin
 
             if (!rule.IsActive && !rule.BlockWhenActive && rule.LogMessageIds is { Length: > 0 } &&
                 LogMessageCatalog.IsLoaded &&
-                LogMessageCatalog.MatchesAny(rule.LogMessageIds, normalizedText) &&
-                LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText))
+                LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText) &&
+                RuleMatchesText(rule, normalizedText, false) &&
+                !(chatType is ChatType.LootNotice &&
+                  ObtainCurrencyHelper.ShouldAllowCurrencyObtain(Configuration, normalizedText)))
             {
                 rulesMatched.Add(rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
@@ -399,6 +401,18 @@ public sealed partial class TidyChatPlugin
             else if (rulesMatched is null || !rulesMatched.Contains(rule.Name))
             {
                 rulesFailed?.Add(rule.Name);
+            }
+        }
+
+        if (chatType is ChatType.LootNotice &&
+            ObtainCurrencyHelper.ShouldAllowCurrencyObtain(Configuration, normalizedText))
+        {
+            isBlocked = true;
+            if (Configuration.EnableDebugMode)
+            {
+                const string allowTag = "ObtainCurrency (hide off)";
+                if (!rulesMatched.Contains(allowTag))
+                    rulesMatched.Add(allowTag);
             }
         }
 

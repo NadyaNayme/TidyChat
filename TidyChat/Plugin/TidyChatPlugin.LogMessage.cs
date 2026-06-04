@@ -189,6 +189,14 @@ public sealed partial class TidyChatPlugin
                 return true;
             }
 
+            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.LootNotice &&
+                ObtainCurrencyHelper.ShouldAllowCurrencyObtain(configuration, normalizedText))
+            {
+                shouldAllow = true;
+                decidingRuleName = "ObtainCurrency (hide off)";
+                return true;
+            }
+
             shouldAllow = false;
             decidingRuleName = inactiveShowRule;
             return true;
@@ -199,6 +207,13 @@ public sealed partial class TidyChatPlugin
             shouldAllow = false;
             decidingRuleName = matchingRules.FirstOrDefault(r => r.ShouldBlock && !r.BlockWhenActive)?.Name ??
                                matchingRules[0].Name;
+            return true;
+        }
+
+        if (ObtainCurrencyHelper.ShouldAllowCurrencyObtain(configuration, normalizedText))
+        {
+            shouldAllow = true;
+            decidingRuleName = "ObtainCurrency (hide off)";
             return true;
         }
 
@@ -291,8 +306,9 @@ public sealed partial class TidyChatPlugin
         }
 
         bool idMatches = rule.LogMessageIds?.Contains(logMessageId) == true;
+        bool obtainMarkerRule = ObtainCurrencyHelper.HasObtainMarkerConstraint(rule);
 
-        if (idMatches && rule.ShouldBlock)
+        if (idMatches && rule.ShouldBlock && !obtainMarkerRule)
         {
             if (LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId))
                 return true;
@@ -304,7 +320,8 @@ public sealed partial class TidyChatPlugin
             return rule.ShouldBlock && idMatches &&
                    LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId);
 
-        if (LogMessageCatalog.IsLoaded && idMatches && LogMessageCatalog.Matches(logMessageId, normalizedText))
+        if (LogMessageCatalog.IsLoaded && idMatches && !obtainMarkerRule &&
+            LogMessageCatalog.Matches(logMessageId, normalizedText))
             return true;
 
         if (RuleMatchesText(rule, normalizedText, debugMode))

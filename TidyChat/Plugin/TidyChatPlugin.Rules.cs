@@ -30,7 +30,7 @@ public sealed partial class TidyChatPlugin
 
         bool requiresCatalog = RequiresLogMessageCatalog(rule);
         bool catalogMatched = LogMessageCatalogMatches(rule, normalizedText);
-        if (requiresCatalog && catalogMatched)
+        if (requiresCatalog && catalogMatched && !ObtainCurrencyHelper.HasObtainMarkerConstraint(rule))
         {
             if (debugMode) Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
             return true;
