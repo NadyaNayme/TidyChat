@@ -213,7 +213,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [603, 1111, 3549, 3569]
+            LogMessageIds = [1111, 3549, 3569]
         },
         new()
         {
@@ -226,7 +226,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAllOtherGathering",
+            Name = "ShowGatheringBuffEffectGain",
             SettingsTab = "Gathering",
             Channel = ChatType.GainBuff,
             IsActive = true,

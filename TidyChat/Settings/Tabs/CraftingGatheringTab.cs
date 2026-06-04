@@ -105,6 +105,29 @@ internal static class CraftingGatheringTab
                 configuration.ShowAllOtherCrafting = showAllOtherCrafting;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowAllOtherCraftingHelpMarker);
+
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowAllOtherCrafting, () =>
+            {
+                bool showCraftingBuff = configuration.ShowCraftingBuffEffectGain;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCraftingBuffEffectGain, ref showCraftingBuff))
+                {
+                    configuration.ShowCraftingBuffEffectGain = showCraftingBuff;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCraftingBuffEffectGainHelpMarker);
+
+                bool showCraftingExecute = configuration.ShowCraftingAbleToExecute;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCraftingAbleToExecute, ref showCraftingExecute))
+                {
+                    configuration.ShowCraftingAbleToExecute = showCraftingExecute;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCraftingAbleToExecuteHelpMarker);
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_AetherialReductionDropdownHeader))
@@ -192,6 +215,20 @@ internal static class CraftingGatheringTab
                 configuration.ShowAllOtherGathering = showAllOtherGathering;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowAllOtherGatheringHelpMarker);
+
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowAllOtherGathering, () =>
+            {
+                bool showGatheringBuff = configuration.ShowGatheringBuffEffectGain;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringBuffEffectGain, ref showGatheringBuff))
+                {
+                    configuration.ShowGatheringBuffEffectGain = showGatheringBuff;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowGatheringBuffEffectGainHelpMarker);
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.CraftingGatheringTab_FishingDropdownHeader))
@@ -267,43 +304,77 @@ internal static class CraftingGatheringTab
 
             UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowStellarMissionMessagesHelpMarker);
 
-            bool showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
-            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicExplorationMessages,
-                    ref showCosmicExplorationMessages))
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowStellarMissionMessages, () =>
             {
-                configuration.ShowCosmicExplorationMessages = showCosmicExplorationMessages;
-                configuration.OnSettingChanged();
-            }
+                bool showStellarExecute = configuration.ShowStellarAbleToExecute;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowStellarAbleToExecute, ref showStellarExecute))
+                {
+                    configuration.ShowStellarAbleToExecute = showStellarExecute;
+                    configuration.OnSettingChanged();
+                }
 
-            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker);
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowStellarAbleToExecuteHelpMarker);
 
-            bool showCosmicRewards = configuration.ShowCosmicRewards;
-            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicRewards, ref showCosmicRewards))
+                bool showStellarBuff = configuration.ShowStellarBuffEffectGain;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowStellarBuffEffectGain, ref showStellarBuff))
+                {
+                    configuration.ShowStellarBuffEffectGain = showStellarBuff;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowStellarBuffEffectGainHelpMarker);
+            });
+
+            SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                configuration.ShowCosmicRewards = showCosmicRewards;
-                configuration.OnSettingChanged();
-            }
+                bool showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicExplorationMessages,
+                        ref showCosmicExplorationMessages))
+                {
+                    configuration.ShowCosmicExplorationMessages = showCosmicExplorationMessages;
+                    configuration.OnSettingChanged();
+                }
 
-            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicRewardsHelpMarker);
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker);
 
-            bool showCosmicContainers = configuration.ShowCosmicContainers;
-            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicContainers, ref showCosmicContainers))
-            {
-                configuration.ShowCosmicContainers = showCosmicContainers;
-                configuration.OnSettingChanged();
-            }
+                bool showCosmicRewards = configuration.ShowCosmicRewards;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicRewards, ref showCosmicRewards))
+                {
+                    configuration.ShowCosmicRewards = showCosmicRewards;
+                    configuration.OnSettingChanged();
+                }
 
-            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicContainersHelpMarker);
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicRewardsHelpMarker);
 
-            bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
-            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
-                    ref showCosmicDailyProgress))
-            {
-                configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
-                configuration.OnSettingChanged();
-            }
+                bool showCosmicContainers = configuration.ShowCosmicContainers;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicContainers, ref showCosmicContainers))
+                {
+                    configuration.ShowCosmicContainers = showCosmicContainers;
+                    configuration.OnSettingChanged();
+                }
 
-            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker);
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicContainersHelpMarker);
+
+                bool showCosmicClassPointsAndDataset = configuration.ShowCosmicClassPointsAndDataset;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicClassPointsAndDataset,
+                        ref showCosmicClassPointsAndDataset))
+                {
+                    configuration.ShowCosmicClassPointsAndDataset = showCosmicClassPointsAndDataset;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker);
+
+                bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
+                if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
+                        ref showCosmicDailyProgress))
+                {
+                    configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker);
+            });
         }
     }
 }

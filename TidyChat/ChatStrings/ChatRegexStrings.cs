@@ -57,15 +57,8 @@ public static class ChatRegexStrings
 
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">Storm Seals</see>
-    /// <seealso href="https://xivapi.com/Item/21?pretty=true">
-    ///     Serpent Seals</see>
-    ///     <see href="https://xivapi.com/Item/20?pretty=true">Storm Seals</see>
-    ///     <seealso href="https://xivapi.com/Item/21?pretty=true">
-    ///         Serpent Seals</see>
-    ///         <see href="https://xivapi.com/Item/20?pretty=true">Storm Seals</see>
-    ///         <seealso href="https://xivapi.com/Item/21?pretty=true">
-    ///             Serpent Seals</see>
-    ///             <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
+    /// <seealso href="https://xivapi.com/Item/21?pretty=true">Serpent Seals</see>
+    /// <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
     public static readonly LocalizedRegex ObtainedSeals = new()
     {
         Jpn = new(@"の軍票(\d{1,3},)?\d{1,3}枚を手に入れた。$", regexOptions, regexTimeout),

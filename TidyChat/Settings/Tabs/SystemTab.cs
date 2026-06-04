@@ -58,14 +58,20 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInstanceMessageHelpMarker);
 
-            bool housingWardMessage = configuration.ShowHousingWardMessage;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowHousingWardMessage, ref housingWardMessage))
-            {
-                configuration.ShowHousingWardMessage = housingWardMessage;
-                configuration.OnSettingChanged();
-            }
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowInstanceMessage,
+                () => DrawInstanceMessageSubOptions(configuration));
 
-            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHousingWardMessageHelpMarker);
+            SettingsTabLayout.DrawIndependentOptions(() =>
+            {
+                bool housingWardMessage = configuration.ShowHousingWardMessage;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowHousingWardMessage, ref housingWardMessage))
+                {
+                    configuration.ShowHousingWardMessage = housingWardMessage;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHousingWardMessageHelpMarker);
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_HuntMessagesDropdownHeader))
@@ -118,6 +124,27 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowYouSenseSomethingMessagesHelpMarker);
 
+            SettingsTabLayout.DrawIndependentOptions(() =>
+            {
+                bool showLocationDiscovered = configuration.ShowLocationDiscovered;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowLocationDiscoveredMessages, ref showLocationDiscovered))
+                {
+                    configuration.ShowLocationDiscovered = showLocationDiscovered;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLocationDiscoveredMessagesHelpMarker);
+
+                bool showHostilePresence = configuration.ShowHostilePresence;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowHostilePresenceMessages, ref showHostilePresence))
+                {
+                    configuration.ShowHostilePresence = showHostilePresence;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHostilePresenceMessagesHelpMarker);
+            });
+
             bool showAetherCompass = configuration.ShowAetherCompass;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAetherCompassMessages, ref showAetherCompass))
             {
@@ -148,19 +175,25 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTryOnGlamourMessagesHelpMarker);
 
-            bool showSpiritboundGear = configuration.ShowSpiritboundGear;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
-            {
-                configuration.ShowSpiritboundGear = showSpiritboundGear;
-                configuration.OnSettingChanged();
-            }
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowTryOnGlamour,
+                () => DrawGlamourSubOptions(configuration));
 
-            bool showEligibleForCoffers = configuration.ShowEligibleForCoffers;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowNumberOfCoffers, ref showEligibleForCoffers))
+            SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                configuration.ShowEligibleForCoffers = showEligibleForCoffers;
-                configuration.OnSettingChanged();
-            }
+                bool showSpiritboundGear = configuration.ShowSpiritboundGear;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
+                {
+                    configuration.ShowSpiritboundGear = showSpiritboundGear;
+                    configuration.OnSettingChanged();
+                }
+
+                bool showEligibleForCoffers = configuration.ShowEligibleForCoffers;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowNumberOfCoffers, ref showEligibleForCoffers))
+                {
+                    configuration.ShowEligibleForCoffers = showEligibleForCoffers;
+                    configuration.OnSettingChanged();
+                }
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_SocialAndMiscDropdownHeader))
@@ -191,6 +224,15 @@ internal static class SystemTab
             }
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
+
+            bool showAttuneAetheryte = configuration.ShowAttuneAetheryte;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowAttuneAetheryteMessage, ref showAttuneAetheryte))
+            {
+                configuration.ShowAttuneAetheryte = showAttuneAetheryte;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAttuneAetheryteMessageHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_CharacterAndGearDropdownHeader))
@@ -223,7 +265,7 @@ internal static class SystemTab
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowPortraitMessagesHelpMarker);
         }
 
-        if (ImGui.CollapsingHeader(Languages.SystemTab_RelicAndMailDropdownHeader))
+        if (ImGui.CollapsingHeader(Languages.SystemTab_MailDropdownHeader))
         {
             bool showAttachToMail = configuration.ShowAttachToMail;
             if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
@@ -233,7 +275,10 @@ internal static class SystemTab
             }
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
+        }
 
+        if (ImGui.CollapsingHeader(Languages.SystemTab_RelicDropdownHeader))
+        {
             bool showRelicBookStep = configuration.ShowRelicBookStep;
             if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
             {
@@ -272,6 +317,27 @@ internal static class SystemTab
             }
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowItemSearchResultsMessageHelpMarker);
+
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowSearchForItemResults, () =>
+            {
+                bool showItemSearchResults = configuration.ShowItemSearchResults;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowInventoryItemSearchResults, ref showItemSearchResults))
+                {
+                    configuration.ShowItemSearchResults = showItemSearchResults;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInventoryItemSearchResultsHelpMarker);
+
+                bool showLocationSearchResults = configuration.ShowLocationSearchResults;
+                if (ImGui.Checkbox(Languages.SystemTab_ShowLocationSearchResults, ref showLocationSearchResults))
+                {
+                    configuration.ShowLocationSearchResults = showLocationSearchResults;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLocationSearchResultsHelpMarker);
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_CatchAllDropdownHeader))
@@ -284,6 +350,9 @@ internal static class SystemTab
             }
 
             ImGuiComponents.HelpMarker(Languages.SystemTab_ShowEverythingElseHelpMarker);
+
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowEverythingElse,
+                () => DrawMiscSystemSubOptions(configuration));
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_OrchestrionDropdownHeader))
@@ -327,5 +396,158 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowActiveHelpEntryMessagesHelpMarker);
         }
+    }
+
+    private static void DrawInstanceMessageSubOptions(Configuration configuration)
+    {
+        bool showInstancedArea = configuration.ShowInstancedAreaMessages;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowInstancedAreaMessages, ref showInstancedArea))
+        {
+            configuration.ShowInstancedAreaMessages = showInstancedArea;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInstancedAreaMessagesHelpMarker);
+
+        bool showDutyEnded = configuration.ShowDutyEndedMessage;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowDutyEndedMessage, ref showDutyEnded))
+        {
+            configuration.ShowDutyEndedMessage = showDutyEnded;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyEndedMessageHelpMarker);
+
+        bool showGuildhestEnded = configuration.ShowGuildhestEndedMessage;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGuildhestEndedMessage, ref showGuildhestEnded))
+        {
+            configuration.ShowGuildhestEndedMessage = showGuildhestEnded;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGuildhestEndedMessageHelpMarker);
+
+        bool showLevelNoLongerSynced = configuration.ShowLevelNoLongerSynced;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowLevelNoLongerSynced, ref showLevelNoLongerSynced))
+        {
+            configuration.ShowLevelNoLongerSynced = showLevelNoLongerSynced;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLevelNoLongerSyncedHelpMarker);
+
+        bool showDutyMechanic = configuration.ShowDutyMechanicMessages;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowDutyMechanicMessages, ref showDutyMechanic))
+        {
+            configuration.ShowDutyMechanicMessages = showDutyMechanic;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyMechanicMessagesHelpMarker);
+
+        bool showDutyObjectiveBonus = configuration.ShowDutyObjectiveBonus;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowDutyObjectiveBonus, ref showDutyObjectiveBonus))
+        {
+            configuration.ShowDutyObjectiveBonus = showDutyObjectiveBonus;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyObjectiveBonusHelpMarker);
+    }
+
+    private static void DrawGlamourSubOptions(Configuration configuration)
+    {
+        bool showTryOnCast = configuration.ShowTryOnGlamourCast;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowTryOnGlamourCast, ref showTryOnCast))
+        {
+            configuration.ShowTryOnGlamourCast = showTryOnCast;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTryOnGlamourCastHelpMarker);
+
+        bool showPlateProjected = configuration.ShowGlamourPlateProjected;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlateProjected, ref showPlateProjected))
+        {
+            configuration.ShowGlamourPlateProjected = showPlateProjected;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlateProjectedHelpMarker);
+
+        bool showPartialApply = configuration.ShowGlamourPlatePartialApply;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlatePartialApply, ref showPartialApply))
+        {
+            configuration.ShowGlamourPlatePartialApply = showPartialApply;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlatePartialApplyHelpMarker);
+
+        bool showGearDye = configuration.ShowGearDyeApplied;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGearDyeApplied, ref showGearDye))
+        {
+            configuration.ShowGearDyeApplied = showGearDye;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearDyeAppliedHelpMarker);
+
+        bool showRestoreFailed = configuration.ShowGearsetGlamourRestoreFailed;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetGlamourRestoreFailed, ref showRestoreFailed))
+        {
+            configuration.ShowGearsetGlamourRestoreFailed = showRestoreFailed;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetGlamourRestoreFailedHelpMarker);
+
+        bool showGlamourAltered = configuration.ShowGlamourAltered;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourAltered, ref showGlamourAltered))
+        {
+            configuration.ShowGlamourAltered = showGlamourAltered;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourAlteredHelpMarker);
+    }
+
+    private static void DrawMiscSystemSubOptions(Configuration configuration)
+    {
+        bool showChangesDiscarded = configuration.ShowChangesDiscarded;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowChangesDiscarded, ref showChangesDiscarded))
+        {
+            configuration.ShowChangesDiscarded = showChangesDiscarded;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesDiscardedHelpMarker);
+
+        bool showChangesLost = configuration.ShowChangesLost;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowChangesLost, ref showChangesLost))
+        {
+            configuration.ShowChangesLost = showChangesLost;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesLostHelpMarker);
+
+        bool showTripleTriadAllowed = configuration.ShowTripleTriadAllowed;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowTripleTriadAllowed, ref showTripleTriadAllowed))
+        {
+            configuration.ShowTripleTriadAllowed = showTripleTriadAllowed;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTripleTriadAllowedHelpMarker);
+
+        bool showTripleTriadNotAllowed = configuration.ShowTripleTriadNotAllowed;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowTripleTriadNotAllowed, ref showTripleTriadNotAllowed))
+        {
+            configuration.ShowTripleTriadNotAllowed = showTripleTriadNotAllowed;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTripleTriadNotAllowedHelpMarker);
     }
 }

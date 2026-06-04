@@ -2231,9 +2231,15 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
-        internal static string SystemTab_RelicAndMailDropdownHeader {
+        internal static string SystemTab_MailDropdownHeader {
             get {
-                return ResourceManager.GetString("SystemTab_RelicAndMailDropdownHeader", resourceCulture);
+                return ResourceManager.GetString("SystemTab_MailDropdownHeader", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_RelicDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_RelicDropdownHeader", resourceCulture);
             }
         }
         

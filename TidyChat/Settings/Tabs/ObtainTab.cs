@@ -46,9 +46,8 @@ internal static class ObtainTab
 
             UiHelp.LootFilterMarker(Languages.ObtainTab_ShowAnotherPlayerRollsMessagesHelpMarker);
 
-            if (configuration.ShowOthersLootRoll)
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowOthersLootRoll, () =>
             {
-                ImGui.Indent();
                 bool showOnlyPartyMemberRolls = configuration.ShowOnlyPartyMemberRolls;
                 if (ImGui.Checkbox(Languages.ObtainTab_ShowOnlyPartyMemberRolls, ref showOnlyPartyMemberRolls))
                 {
@@ -57,17 +56,19 @@ internal static class ObtainTab
                 }
 
                 UiHelp.LootFilterMarker(Languages.ObtainTab_ShowOnlyPartyMemberRollsHelpMarker);
-                ImGui.Unindent();
-            }
+            });
 
-            bool hideOthersObtain = configuration.HideOthersObtain;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
+            SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                configuration.HideOthersObtain = hideOthersObtain;
-                configuration.OnSettingChanged();
-            }
+                bool hideOthersObtain = configuration.HideOthersObtain;
+                if (ImGui.Checkbox(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
+                {
+                    configuration.HideOthersObtain = hideOthersObtain;
+                    configuration.OnSettingChanged();
+                }
 
-            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+                UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_CommonCurrenciesDropdownHeader))

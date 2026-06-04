@@ -1,8 +1,5 @@
 namespace TidyChat;
 
-/// <summary>
-/// Improved market sale rewrites and optional hiding of the gil-entrusted follow-up line.
-/// </summary>
 internal static class MarketBoardSaleHelper
 {
     public static bool IsMarketItemSoldText(string normalizedText) =>
@@ -20,6 +17,7 @@ internal static class MarketBoardSaleHelper
 
     public static bool ShouldAllowImprovedMarketSale(Configuration config, string normalizedText, string displayText) =>
         config.BetterMarketBoardSaleMessage &&
+        FilterMasterAccessors.MarketItemSold(config) &&
         (IsMarketItemSoldText(normalizedText) || IsRewrittenMarketItemSoldDisplay(displayText));
 
     public static bool ShouldBlockGilEntrusted(Configuration config, string normalizedText) =>

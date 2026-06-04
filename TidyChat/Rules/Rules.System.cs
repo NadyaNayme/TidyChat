@@ -99,7 +99,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowInstancedAreaMessages",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -110,7 +110,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowDutyEndedMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -121,7 +121,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowGuildhestEndedMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -132,7 +132,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowInstancedAreaMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -141,7 +141,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowDutyEndedMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -150,7 +150,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowGuildhestEndedMessage",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -159,7 +159,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowLevelNoLongerSynced",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -170,7 +170,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowDutyMechanicMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -181,7 +181,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowDutyMechanicMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -192,7 +192,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInstanceMessage",
+            Name = "ShowDutyObjectiveBonus",
             SettingsTab = "System",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -659,7 +659,7 @@ public static partial class Rules
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7263, 7264, 7265],
+            LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7263, 7264],
             StringChecks = [ChatStrings.PomanderEffect],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
@@ -729,7 +729,18 @@ public static partial class Rules
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [7249, 7270, 9218],
+            LogMessageIds = [7265],
+            StringChecks = [ChatStrings.FloorNumber],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowFloorNumber",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [7249, 7270, 9218, 7265],
             RegexChecks = [ChatRegexStrings.FloorNumber],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
@@ -809,13 +820,14 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSpideySenses",
+            Name = "ShowHostilePresence",
             SettingsTab = "System",
             Channel = ChatType.BattleSystem,
             IsActive = true,
             LogMessageIds = [3240],
             StringChecks = [ChatStrings.HostilePresence],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -830,7 +842,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSpideySenses",
+            Name = "ShowLocationDiscovered",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -902,15 +914,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSubaquaticVoyage",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [6061, 6057, 6059, 6060, 6062, 6092, 4168]
-        },
-        new()
-        {
-            Name = "ShowSubaquaticVoyage",
+            Name = "ShowSubaquaticVoyageEmbarked",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -921,7 +925,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSubaquaticVoyage",
+            Name = "ShowSubaquaticVoyageFinalized",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -932,7 +936,18 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSubaquaticVoyage",
+            Name = "ShowSubaquaticVoyageOtherFinalized",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [6060],
+            StringChecks = [ChatStrings.SubaquaticVoyageFinalized],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSubaquaticVoyageFinalized",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -941,7 +956,15 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSubaquaticVoyage",
+            Name = "ShowSubaquaticVoyageReturned",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [6061]
+        },
+        new()
+        {
+            Name = "ShowSubmarinePartRepaired",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -952,7 +975,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSubaquaticVoyage",
+            Name = "ShowSubmarineAttainsRank",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -963,7 +986,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSubaquaticVoyage",
+            Name = "ShowSubmarineRetrievalLevelsIncreased",
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
@@ -982,15 +1005,15 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGlamourAltered",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [3911, 4309, 4364, 4378, 10508, 1900]
+            LogMessageIds = [3911]
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGearDyeApplied",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1001,7 +1024,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowTryOnGlamourCast",
             SettingsTab = "System",
             Channel = ChatType.GlamourNotifications,
             IsActive = true,
@@ -1012,7 +1035,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGlamourPlateProjected",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1023,7 +1046,18 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGlamourPlatePartialApply",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4378],
+            StringChecks = [ChatStrings.TryOnGlamourPartialApply],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearsetGlamourRestoreFailed",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1034,7 +1068,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowTryOnGlamourCast",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1043,7 +1077,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowTryOnGlamourCast",
             SettingsTab = "System",
             Channel = ChatType.GlamourNotifications,
             IsActive = true,
@@ -1052,7 +1086,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGlamourPlateProjected",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1061,7 +1095,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGlamourPlateProjected",
             SettingsTab = "System",
             Channel = ChatType.GlamourNotifications,
             IsActive = true,
@@ -1070,7 +1104,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGearsetGlamourRestoreFailed",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1079,7 +1113,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowTryOnGlamour",
+            Name = "ShowGearDyeApplied",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1129,17 +1163,6 @@ public static partial class Rules
             Channel = ChatType.MessageBook,
             IsActive = true,
             LogMessageIds = [6066]
-        },
-        new()
-        {
-            Name = "BetterCommendationMessage",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [926],
-            StringChecks = [ChatStrings.PlayerCommendation],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -1249,7 +1272,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowMarketBoardMessages",
+            Name = "ShowMarketItemSold",
             SettingsTab = "Economy",
             Channel = ChatType.RetainerSale,
             IsActive = true,
@@ -1260,7 +1283,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowMarketBoardMessages",
+            Name = "ShowMarketAllItemsSold",
             SettingsTab = "Economy",
             Channel = ChatType.RetainerSale,
             IsActive = true,
@@ -1499,58 +1522,54 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowSearchForItemResults",
+            Name = "ShowItemSearchResults",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds =
-            [
-                1629, 1630, 1631,
-                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
-                1450, 1451, 1452, 1453
-            ]
+            LogMessageIds = [1629, 1630, 1631]
         },
         new()
         {
-            Name = "ShowSearchForItemResults",
+            Name = "ShowItemSearchResults",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds =
-            [
-                1629, 1630, 1631,
-                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
-                1450, 1451, 1452, 1453
-            ],
+            LogMessageIds = [1629, 1630, 1631],
             StringChecks = [ChatStrings.ItemSearchResults],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
         new()
         {
-            Name = "ShowSearchForItemResults",
+            Name = "ShowItemSearchResults",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds =
-            [
-                1629, 1630, 1631,
-                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
-                1450, 1451, 1452, 1453
-            ],
+            LogMessageIds = [1629, 1630, 1631],
             RegexChecks = [ChatRegexStrings.ItemSearchCommand],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
         {
-            Name = "ShowSearchForItemResults",
+            Name = "ShowLocationSearchResults",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds =
             [
-                1629, 1630, 1631,
+                1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
+                1450, 1451, 1452, 1453
+            ]
+        },
+        new()
+        {
+            Name = "ShowLocationSearchResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds =
+            [
                 1438, 1439, 1440, 1441, 1442, 1443, 1444, 1445, 1446, 1447, 1448, 1449,
                 1450, 1451, 1452, 1453
             ],
@@ -1622,7 +1641,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAetheryteTicket",
+            Name = "ShowAttuneAetheryte",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1633,15 +1652,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowEverythingElse",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4242, 802, 4763, 4764]
-        },
-        new()
-        {
-            Name = "ShowEverythingElse",
+            Name = "ShowChangesDiscarded",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1652,7 +1663,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowEverythingElse",
+            Name = "ShowChangesLost",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1663,7 +1674,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowEverythingElse",
+            Name = "ShowTripleTriadAllowed",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1674,7 +1685,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowEverythingElse",
+            Name = "ShowTripleTriadNotAllowed",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
@@ -1685,11 +1696,38 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowEverythingElse",
+            Name = "ShowChangesDiscarded",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.ChangesDiscarded, ChatStrings.ChangesLost, ChatStrings.TripleTriadAllowed, ChatStrings.TripleTriadNotAllowed],
+            StringChecks = [ChatStrings.ChangesDiscarded],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowChangesLost",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.ChangesLost],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTripleTriadAllowed",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.TripleTriadAllowed],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowTripleTriadNotAllowed",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.TripleTriadNotAllowed],
             Pattern = PatternKind.StringMatch
         },
         new()

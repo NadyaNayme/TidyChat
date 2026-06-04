@@ -123,7 +123,8 @@ public static partial class ChatStrings
         Fra = ["synthèse", "essai"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5533?pretty=true">Able to execute …!</see>
+    /// <see href="https://xivapi.com/LogMessage/5533?pretty=true">You are now able to execute …</see>
+    /// <seealso href="https://xivapi.com/LogMessage/11365?pretty=true">Stellar mission able-to-execute.</seealso>
     public static readonly LocalizedStrings AbleToExecute = new()
     {
         Jpn = ["実行可能"],
@@ -133,6 +134,7 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/603?pretty=true">Buff effect gain (Inner Quiet, Multihook, etc.)</see>
+    /// <seealso href="https://xivapi.com/LogMessage/11366?pretty=true">Stellar mission buff effect gain.</seealso>
     public static readonly LocalizedStrings BuffEffectGain = new()
     {
         Jpn = ["NeedsLocalization"],

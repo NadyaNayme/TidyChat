@@ -184,6 +184,8 @@ internal static class PartyDutyTab
 
             UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker);
 
+            SettingsTabLayout.DrawSectionSeparator();
+
             bool showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineVoyageMessages, ref showSubaquaticVoyage))
             {
@@ -192,6 +194,9 @@ internal static class PartyDutyTab
             }
 
             UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker);
+
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowSubaquaticVoyage,
+                () => DrawSubaquaticSubOptions(configuration));
         }
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DeepDungeonsDropdownHeader))
@@ -292,5 +297,71 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
         }
+    }
+
+    private static void DrawSubaquaticSubOptions(Configuration configuration)
+    {
+        bool showEmbarked = configuration.ShowSubaquaticVoyageEmbarked;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageEmbarked, ref showEmbarked))
+        {
+            configuration.ShowSubaquaticVoyageEmbarked = showEmbarked;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageEmbarkedHelpMarker);
+
+        bool showFinalized = configuration.ShowSubaquaticVoyageFinalized;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageFinalized, ref showFinalized))
+        {
+            configuration.ShowSubaquaticVoyageFinalized = showFinalized;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageFinalizedHelpMarker);
+
+        bool showOtherFinalized = configuration.ShowSubaquaticVoyageOtherFinalized;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageOtherFinalized, ref showOtherFinalized))
+        {
+            configuration.ShowSubaquaticVoyageOtherFinalized = showOtherFinalized;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageOtherFinalizedHelpMarker);
+
+        bool showReturned = configuration.ShowSubaquaticVoyageReturned;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageReturned, ref showReturned))
+        {
+            configuration.ShowSubaquaticVoyageReturned = showReturned;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageReturnedHelpMarker);
+
+        bool showPartRepaired = configuration.ShowSubmarinePartRepaired;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarinePartRepaired, ref showPartRepaired))
+        {
+            configuration.ShowSubmarinePartRepaired = showPartRepaired;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarinePartRepairedHelpMarker);
+
+        bool showAttainsRank = configuration.ShowSubmarineAttainsRank;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineAttainsRank, ref showAttainsRank))
+        {
+            configuration.ShowSubmarineAttainsRank = showAttainsRank;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineAttainsRankHelpMarker);
+
+        bool showRetrievalLevels = configuration.ShowSubmarineRetrievalLevelsIncreased;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineRetrievalLevelsIncreased, ref showRetrievalLevels))
+        {
+            configuration.ShowSubmarineRetrievalLevelsIncreased = showRetrievalLevels;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineRetrievalLevelsIncreasedHelpMarker);
     }
 }

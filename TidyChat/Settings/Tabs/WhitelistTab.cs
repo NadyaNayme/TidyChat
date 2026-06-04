@@ -16,6 +16,7 @@ internal static class WhitelistTab
             configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
             configuration.OnSettingChanged();
         }
+        ImGuiComponents.HelpMarker(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayerHelpMarker);
 
         bool targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer,
@@ -24,25 +25,40 @@ internal static class WhitelistTab
             configuration.TargetingWhitelistPlayer = targetingWhitelistPlayer;
             configuration.OnSettingChanged();
         }
+        ImGuiComponents.HelpMarker(Languages.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayerHelpMarker);
 
-        ImGui.TextUnformatted(Languages.WhitelistTab_ExplanationMessage);
+        ImGui.TextWrapped(Languages.WhitelistTab_ExplanationMessage);
+        ImGui.Spacing();
+        ImGui.TextWrapped(Languages.WhitelistTab_FilteringNote);
         ImGui.Spacing();
 
-        ImGui.NewLine();
+        ImGui.TextUnformatted(Languages.WhitelistTab_SelectChannelsHeader);
+        ImGui.SameLine();
+        ImGuiComponents.HelpMarker(Languages.WhitelistTab_ChannelsHelpMarker);
+        ImGui.SameLine();
+        ImGui.TextUnformatted(Languages.WhitelistTab_FiltersHeader);
+        ImGui.SameLine();
+        ImGuiComponents.HelpMarker(Languages.WhitelistTab_FiltersHelpMarker);
+        ImGui.SameLine();
+        ImGui.TextUnformatted(Languages.WhitelistTab_Allow);
+        ImGui.SameLine();
+        ImGuiComponents.HelpMarker(Languages.WhitelistTab_AllowBlockHelpMarker);
+        ImGui.Spacing();
+
         var outer_height = new Vector2(640f, 400f);
         if (!ImGui.BeginTable("##whitelistTable", 4,
                 ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
                 ImGuiTableFlags.RowBg, outer_height)) return;
         ImGui.TableSetupScrollFreeze(0, 1);
-        ImGui.TableSetupColumn(Languages.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn(Languages.WhitelistTab_FiltersHeader,
-            ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn("##AllowColumn", ImGuiTableColumnFlags.WidthFixed, 120f);
-        ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed);
+        ImGui.TableSetupColumn(Languages.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed, 148f);
+        ImGui.TableSetupColumn(Languages.WhitelistTab_FiltersHeader, ImGuiTableColumnFlags.WidthStretch);
+        ImGui.TableSetupColumn(Languages.WhitelistTab_Allow, ImGuiTableColumnFlags.WidthFixed, 96f);
+        ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed, 36f);
         ImGui.TableHeadersRow();
         var list = configuration.Whitelist.ToList();
         for (int i = -1; i < list.Count; i++)
         {
+            ImGui.TableNextRow();
             PlayerName alias = i < 0 ? m_placeholder : list[i];
 
             #region Channels Column
@@ -109,18 +125,18 @@ internal static class WhitelistTab
             if (i != -1 && !alias.IsRegex)
             {
                 string matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
-                    ? "Match: Exact sender only"
-                    : "Match: Sender or message contains";
+                    ? Languages.WhitelistTab_MatchModeExactSender
+                    : Languages.WhitelistTab_MatchModeMessageContains;
                 ImGui.SetNextItemWidth(-1);
                 if (ImGui.BeginCombo($"##whitelist{i}MatchMode", matchPreview))
                 {
-                    if (ImGui.Selectable("Sender or message contains (default)",
+                    if (ImGui.Selectable(Languages.WhitelistTab_MatchModeMessageContains,
                             alias.MatchMode == PlayerNameMatchMode.MessageContains))
                     {
                         alias.MatchMode = PlayerNameMatchMode.MessageContains;
                         configuration.OnSettingChanged();
                     }
-                    if (ImGui.Selectable("Exact sender only",
+                    if (ImGui.Selectable(Languages.WhitelistTab_MatchModeExactSender,
                             alias.MatchMode == PlayerNameMatchMode.ExactSender))
                     {
                         alias.MatchMode = PlayerNameMatchMode.ExactSender;
@@ -188,7 +204,6 @@ internal static class WhitelistTab
         ImGui.EndTable();
         ImGui.NewLine();
         ImGui.Spacing();
-        ImGui.TextUnformatted(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
-        ImGui.TextUnformatted("Use #ID (e.g. #588 or #588,589) to match by LogMessage ID.");
+        ImGui.TextWrapped(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
     }
 }

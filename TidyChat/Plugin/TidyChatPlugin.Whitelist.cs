@@ -5,7 +5,8 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
+    private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText, ref bool isHandled)
     {
         if (Configuration.Whitelist.Count == 0) return;
         try
@@ -13,12 +14,14 @@ public sealed partial class TidyChatPlugin
             foreach(PlayerName p in Configuration.Whitelist)
             {
                 if (!p.AllowMessage)
-                    CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+                    CustomFilterCheck(message.Sender, message.Message, rawTextValue, extractedTextValue,
+                        normalizedText, ref isHandled, p, chatType);
             }
             foreach(PlayerName p in Configuration.Whitelist)
             {
                 if (p.AllowMessage)
-                    CustomFilterCheck(message.Sender, message.Message, ref isHandled, p, chatType);
+                    CustomFilterCheck(message.Sender, message.Message, rawTextValue, extractedTextValue,
+                        normalizedText, ref isHandled, p, chatType);
             }
 
             ApplyGlobalWhitelistOverrides(message, ref isHandled);
@@ -77,7 +80,8 @@ public sealed partial class TidyChatPlugin
 
         return messageText.Contains(entry.FirstName, StringComparison.Ordinal);
     }
-    private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType)
+    private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType,
+        string rawTextValue, string extractedTextValue, string normalizedText)
     {
         if (string.IsNullOrWhiteSpace(entry.FirstName)) return false; // empty name would Contains-match everything
 
@@ -93,7 +97,9 @@ public sealed partial class TidyChatPlugin
                 Log.Warning($"[Whitelist] Invalid regex \"{src}\": {ex.Message}"));
             try
             {
-                return regex != null && regex.IsMatch(message.TextValue);
+                return regex != null &&
+                       (regex.IsMatch(rawTextValue) || regex.IsMatch(extractedTextValue) ||
+                        regex.IsMatch(normalizedText));
             }
             catch(RegexMatchTimeoutException)
             {
@@ -105,50 +111,52 @@ public sealed partial class TidyChatPlugin
         if (entry.MatchMode == PlayerNameMatchMode.ExactSender)
             return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal);
 
-        return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal)
-               || message.TextValue.Contains(entry.FirstName, StringComparison.Ordinal);
+        return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal) ||
+               rawTextValue.Contains(entry.FirstName, StringComparison.Ordinal) ||
+               extractedTextValue.Contains(entry.FirstName, StringComparison.Ordinal) ||
+               normalizedText.Contains(entry.FirstName, StringComparison.Ordinal);
     }
 
-    private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType)
+    private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
     {
         if (Configuration.Whitelist.Count == 0) return false;
         foreach(PlayerName p in Configuration.Whitelist)
         {
             if (!p.AllowMessage) continue;
-            if (CustomFilterMatches(sender, message, p, chatType)) return true;
+            if (CustomFilterMatches(sender, message, p, chatType, rawTextValue, extractedTextValue, normalizedText))
+                return true;
         }
         return false;
     }
 
-    private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType)
+    private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
     {
         if (Configuration.Whitelist.Count == 0) return false;
         foreach(PlayerName p in Configuration.Whitelist)
         {
             if (p.AllowMessage) continue;
-            if (CustomFilterMatches(sender, message, p, chatType)) return true;
+            if (CustomFilterMatches(sender, message, p, chatType, rawTextValue, extractedTextValue, normalizedText))
+                return true;
         }
         return false;
     }
 
-    private void CustomFilterCheck(SeString sender, SeString message, ref bool isHandled,
-        PlayerName playerOrMessage,
-        ChatType chatType)
+    private void CustomFilterCheck(SeString sender, SeString message, string rawTextValue, string extractedTextValue,
+        string normalizedText, ref bool isHandled, PlayerName playerOrMessage, ChatType chatType)
     {
         if (string.IsNullOrWhiteSpace(playerOrMessage.FirstName)) return;
-        if (!CustomFilterMatches(sender, message, playerOrMessage, chatType)) return;
+        if (!CustomFilterMatches(sender, message, playerOrMessage, chatType, rawTextValue, extractedTextValue,
+                normalizedText))
+            return;
 
-        if (!isHandled && !playerOrMessage.AllowMessage)
+        isHandled = !playerOrMessage.AllowMessage;
+        if (Configuration.EnableDebugMode)
         {
-            isHandled = true;
-            if (Configuration.EnableDebugMode)
-                Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
-        }
-        else if (isHandled && playerOrMessage.AllowMessage)
-        {
-            isHandled = false;
-            if (Configuration.EnableDebugMode)
-                Log.Verbose($"A message matching \"{playerOrMessage.FirstName}\" has been allowed.");
+            Log.Verbose(playerOrMessage.AllowMessage
+                ? $"A message matching \"{playerOrMessage.FirstName}\" has been allowed."
+                : $"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
         }
     }
 }

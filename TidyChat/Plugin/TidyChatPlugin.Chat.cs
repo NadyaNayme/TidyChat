@@ -24,36 +24,39 @@ public sealed partial class TidyChatPlugin
 
         TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
 
-        // Respect OnLogMessage allow/block before server-announcement filtering (#122 / open issue #1).
-        if (CheckLogMessageDecision(message, chatType, rawTextValue, extractedTextValue, normalizedText)) return;
-        bool protectedByShowRule =
-            IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
-        if (HandleServerAnnouncements(message, chatType, normalizedText, protectedByShowRule)) return;
-        if (!ChannelCanBeFiltered(chatType)) return;
-        if (HandleEmoteFilters(message, chatType)) return;
-        if (HandleTemporaryFilterDisables(normalizedText)) return;
-        if (HandleBetterMessages(message, chatType, normalizedText)) return;
-
-        bool? channelResult = EvaluateChannelRules(message, chatType, normalizedText, out List<string> rulesMatched);
-        if (channelResult is null) return; // null sentinel: EvaluateChannelRules handled the early-return internally
-        bool isHandled = channelResult.Value;
-        ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled);
-        ApplyWhitelist(message, chatType, ref isHandled);
-        if (CheckChatHistory(message, chatType, ref isHandled)) return;
-
-        if (chatType is ChatType.Echo) isHandled = false;
-
-        if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+        LogMessageChatEffect logEffect =
+            ResolveLogMessageChatEffect(rawTextValue, extractedTextValue, normalizedText);
+        if (logEffect == LogMessageChatEffect.PreserveHidden)
         {
-            if (Configuration.DebugIncludeChannel || isHandled)
-                message.Message = BuildDebugString(chatType, message.Message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
+            return;
+        }
+
+        if (logEffect != LogMessageChatEffect.PreserveVisible)
+        {
+            bool protectedByShowRule =
+                IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
+            if (HandleServerAnnouncements(message, chatType, normalizedText, protectedByShowRule)) return;
+            if (!ChannelCanBeFiltered(chatType)) return;
+            if (HandleEmoteFilters(message, chatType, rawTextValue, extractedTextValue, normalizedText)) return;
+            if (HandleTemporaryFilterDisables(normalizedText)) return;
+            if (HandleBetterMessages(message, chatType, normalizedText)) return;
+        }
+
+        List<string> rulesMatched = logEffect == LogMessageChatEffect.PreserveVisible ? ["LogMessage"] : [];
+        bool isHandled;
+        if (logEffect == LogMessageChatEffect.PreserveVisible)
             isHandled = false;
+        else
+        {
+            bool? channelResult = EvaluateChannelRules(message, chatType, rawTextValue, extractedTextValue,
+                normalizedText, out rulesMatched);
+            isHandled = channelResult ?? false;
         }
 
-        if (isHandled)
-        {
-            Interlocked.Increment(ref _sessionBlockedMessages);
-            message.PreventOriginal();
-        }
+        if (FinishChatHandling(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled,
+                rulesMatched))
+            return;
     }
 }

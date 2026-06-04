@@ -10,6 +10,13 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
+    private enum LogMessageChatEffect
+    {
+        None,
+        PreserveVisible,
+        PreserveHidden
+    }
+
     private bool HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType, string normalizedText,
         bool protectedByShowRule)
     {
@@ -83,12 +90,14 @@ public sealed partial class TidyChatPlugin
         return true;
     }
 
-    private bool HandleEmoteFilters(IHandleableChatMessage message, ChatType chatType)
+    private bool HandleEmoteFilters(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
     {
         if ((chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) ||
             (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel))
         {
-            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType))
+            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
+                    normalizedText))
             {
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
@@ -100,7 +109,8 @@ public sealed partial class TidyChatPlugin
             !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) &&
             chatType is ChatType.CustomEmote)
         {
-            if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType))
+            if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
+                    normalizedText))
             {
                 if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message.Message}");
                 message.PreventOriginal();
@@ -202,7 +212,8 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    private bool CheckLogMessageDecision(IHandleableChatMessage message, ChatType chatType, string rawTextValue, string extractedTextValue, string normalizedText)
+    private LogMessageChatEffect ResolveLogMessageChatEffect(string rawTextValue, string extractedTextValue,
+        string normalizedText)
     {
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
 
@@ -212,12 +223,7 @@ public sealed partial class TidyChatPlugin
             wasAllowedByLog = _allowedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_allowedByLogMessage, textCandidates);
         }
-        if (wasAllowedByLog)
-        {
-            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
-            return true;
-        }
+        if (wasAllowedByLog) return LogMessageChatEffect.PreserveVisible;
 
         bool wasBlockedByLog;
         lock(_logMessageLock)
@@ -225,18 +231,34 @@ public sealed partial class TidyChatPlugin
             wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
         }
-        if (wasBlockedByLog)
-        {
-            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
-            return true;
-        }
+        if (wasBlockedByLog) return LogMessageChatEffect.PreserveHidden;
 
         if (TryConsumePendingLogMessageAllow(normalizedText))
+            return LogMessageChatEffect.PreserveVisible;
+
+        return LogMessageChatEffect.None;
+    }
+
+    private bool FinishChatHandling(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText, ref bool isHandled, List<string> rulesMatched)
+    {
+        ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled);
+        ApplyWhitelist(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled);
+        if (CheckChatHistory(message, chatType, ref isHandled)) return true;
+
+        if (chatType is ChatType.Echo) isHandled = false;
+
+        if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
-            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, false);
-            return true;
+            if (Configuration.DebugIncludeChannel || isHandled)
+                message.Message = BuildDebugString(chatType, message.Message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+            isHandled = false;
+        }
+
+        if (isHandled)
+        {
+            Interlocked.Increment(ref _sessionBlockedMessages);
+            message.PreventOriginal();
         }
 
         return false;
@@ -269,7 +291,8 @@ public sealed partial class TidyChatPlugin
 
         return protectingRules.Count > 0;
     }
-    private bool? EvaluateChannelRules(IHandleableChatMessage message, ChatType chatType, string normalizedText, out List<string> rulesMatched)
+    private bool? EvaluateChannelRules(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText, out List<string> rulesMatched)
     {
         rulesMatched = [];
         Rules.UpdateIsActiveStates(Configuration);
@@ -287,7 +310,8 @@ public sealed partial class TidyChatPlugin
             (chatType is ChatType.Gathering or ChatType.GatheringSystem && !Configuration.FilterGatheringSpam) ||
             (chatType is ChatType.Crafting && !Configuration.FilterCraftingSpam))
         {
-            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType))
+            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
+                    normalizedText))
             {
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
@@ -434,7 +458,7 @@ public sealed partial class TidyChatPlugin
             isHandled = true;
 
         if (chatType is ChatType.LootRoll && !isHandled &&
-            Configuration.ShowOnlyPartyMemberRolls && PartyList.Length > 0)
+            FilterMasterAccessors.OnlyPartyMemberLootRolls(Configuration) && PartyList.Length > 0)
         {
             bool isPlayerMessage = normalizedText.StartsWith("you ", StringComparison.Ordinal);
             bool isPartyMember = isPlayerMessage || PartyList.Any(member =>

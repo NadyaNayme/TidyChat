@@ -58,6 +58,93 @@ internal static class ConfigurationMigration
             config.ShowCosmicContainers = true;
     }
 
+    public static void ApplyVersion9(Configuration config)
+    {
+        if (config.ShowMarketBoardMessages)
+        {
+            config.ShowMarketItemSold = true;
+            config.ShowMarketAllItemsSold = true;
+        }
+
+        if (config.ShowSpideySenses)
+        {
+            config.ShowLocationDiscovered = true;
+            config.ShowHostilePresence = true;
+        }
+
+        if (config.ShowAetheryteTicket)
+            config.ShowAttuneAetheryte = true;
+    }
+
+    public static void ApplyVersion10(Configuration config)
+    {
+        if (config.ShowInstanceMessage)
+        {
+            config.ShowInstancedAreaMessages = true;
+            config.ShowDutyEndedMessage = true;
+            config.ShowGuildhestEndedMessage = true;
+            config.ShowLevelNoLongerSynced = true;
+            config.ShowDutyMechanicMessages = true;
+            config.ShowDutyObjectiveBonus = true;
+        }
+
+        if (config.ShowEverythingElse)
+        {
+            config.ShowChangesDiscarded = true;
+            config.ShowChangesLost = true;
+            config.ShowTripleTriadAllowed = true;
+            config.ShowTripleTriadNotAllowed = true;
+        }
+
+        if (config.ShowSubaquaticVoyage)
+        {
+            config.ShowSubaquaticVoyageEmbarked = true;
+            config.ShowSubaquaticVoyageFinalized = true;
+            config.ShowSubaquaticVoyageOtherFinalized = true;
+            config.ShowSubaquaticVoyageReturned = true;
+            config.ShowSubmarinePartRepaired = true;
+            config.ShowSubmarineAttainsRank = true;
+            config.ShowSubmarineRetrievalLevelsIncreased = true;
+        }
+
+        if (config.ShowTryOnGlamour)
+        {
+            config.ShowTryOnGlamourCast = true;
+            config.ShowGlamourPlateProjected = true;
+            config.ShowGlamourPlatePartialApply = true;
+            config.ShowGearDyeApplied = true;
+            config.ShowGearsetGlamourRestoreFailed = true;
+            config.ShowGlamourAltered = true;
+        }
+
+        if (config.ShowSearchForItemResults)
+        {
+            config.ShowItemSearchResults = true;
+            config.ShowLocationSearchResults = true;
+        }
+
+        if (config.ShowAllOtherCrafting)
+        {
+            config.ShowCraftingBuffEffectGain = true;
+            config.ShowCraftingAbleToExecute = true;
+        }
+
+        if (config.ShowAllOtherGathering)
+            config.ShowGatheringBuffEffectGain = true;
+
+        if (config.ShowStellarMissionMessages)
+        {
+            config.ShowStellarAbleToExecute = true;
+            config.ShowStellarBuffEffectGain = true;
+        }
+    }
+
+    public static void ApplyVersion11(Configuration config)
+    {
+        if (config.ShowCosmicDailyProgress)
+            config.ShowCosmicClassPointsAndDataset = true;
+    }
+
     private static void ApplyLegacyJsonFields(Configuration config, IDalamudPluginInterface pluginInterface)
     {
         string path = Path.Combine(pluginInterface.ConfigDirectory.FullName, $"{pluginInterface.InternalName}.json");

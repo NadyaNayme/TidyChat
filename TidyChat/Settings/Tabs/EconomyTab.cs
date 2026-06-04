@@ -76,18 +76,26 @@ internal static class EconomyTab
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardMessagesHelpMarker);
 
-            bool showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
+            SettingsTabLayout.DrawNestedOptions(configuration.ShowMarketBoardMessages, () =>
             {
-                configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
-                configuration.OnSettingChanged();
-            }
+                bool showMarketItemSold = configuration.ShowMarketItemSold;
+                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketItemSold, ref showMarketItemSold))
+                {
+                    configuration.ShowMarketItemSold = showMarketItemSold;
+                    configuration.OnSettingChanged();
+                }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
+                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketItemSoldHelpMarker);
 
-            if (configuration.ShowMarketBoardMessages)
-            {
-                ImGui.Indent();
+                bool showMarketAllItemsSold = configuration.ShowMarketAllItemsSold;
+                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketAllItemsSold, ref showMarketAllItemsSold))
+                {
+                    configuration.ShowMarketAllItemsSold = showMarketAllItemsSold;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketAllItemsSoldHelpMarker);
+
                 bool showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
                 if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardSellingStatus, ref showMarketBoardSellingStatus))
                 {
@@ -96,8 +104,19 @@ internal static class EconomyTab
                 }
 
                 UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardSellingStatusHelpMarker);
-                ImGui.Unindent();
-            }
+            });
+
+            SettingsTabLayout.DrawIndependentOptions(() =>
+            {
+                bool showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
+                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
+                {
+                    configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
+                    configuration.OnSettingChanged();
+                }
+
+                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
+            });
         }
 
         if (ImGui.CollapsingHeader(Languages.EconomyTab_GilSectionHeader))

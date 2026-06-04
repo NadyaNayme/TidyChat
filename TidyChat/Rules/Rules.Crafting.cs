@@ -236,7 +236,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAllOtherCrafting",
+            Name = "ShowCraftingBuffEffectGain",
             SettingsTab = "Crafting",
             Channel = ChatType.GainBuff,
             IsActive = true,
@@ -247,7 +247,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAllOtherCrafting",
+            Name = "ShowCraftingAbleToExecute",
             SettingsTab = "Crafting",
             Channel = ChatType.Gathering,
             IsActive = true,

@@ -1,9 +1,3 @@
-/*
- * The following code was taken from Chat2 source code.
- * It is more comprehensive than XivChatType
- *
- */
-
 using System.Diagnostics.CodeAnalysis;
 namespace ChatTwo.Code;
 

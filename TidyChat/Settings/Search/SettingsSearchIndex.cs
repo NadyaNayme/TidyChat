@@ -362,9 +362,15 @@ internal static class SettingsSearchIndex
                 "ShowAetherialReductionSuccess" or
                 "ShowAetherialReductionMinigame" or
                 "ShowStellarMissionMessages" or
+                "ShowStellarAbleToExecute" or
+                "ShowStellarBuffEffectGain" or
+                "ShowCraftingBuffEffectGain" or
+                "ShowCraftingAbleToExecute" or
+                "ShowGatheringBuffEffectGain" or
                 "ShowCosmicExplorationMessages" or
                 "ShowCosmicRewards" or
                 "ShowCosmicContainers" or
+                "ShowCosmicClassPointsAndDataset" or
                 "ShowCosmicDailyProgress")
             return Languages.ConfigWindow_CraftingGatheringTabHeader;
 
@@ -387,9 +393,54 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_EmotesTabHeader;
 
         if (propertyName is "ShowMarketBoardMessages" or
+            "ShowMarketItemSold" or
+            "ShowMarketAllItemsSold" or
+            "ShowMarketGilEntrustedToRetainer" or
             "ShowMarketBoardSellingStatus" or
             "BetterMarketBoardSaleMessage")
             return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_MarketBoardSectionHeader}";
+
+        if (propertyName is "ShowInstanceMessage" or
+            "ShowInstancedAreaMessages" or
+            "ShowDutyEndedMessage" or
+            "ShowGuildhestEndedMessage" or
+            "ShowLevelNoLongerSynced" or
+            "ShowDutyMechanicMessages" or
+            "ShowDutyObjectiveBonus")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_WorldAndInstancesDropdownHeader}";
+
+        if (propertyName is "ShowTryOnGlamour" or
+            "ShowTryOnGlamourCast" or
+            "ShowGlamourPlateProjected" or
+            "ShowGlamourPlatePartialApply" or
+            "ShowGearDyeApplied" or
+            "ShowGearsetGlamourRestoreFailed" or
+            "ShowGlamourAltered")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_GlamourAndGearDropdownHeader}";
+
+        if (propertyName is "ShowSearchForItemResults" or
+            "ShowItemSearchResults" or
+            "ShowLocationSearchResults")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialStatusDropdownHeader}";
+
+        if (propertyName is "ShowEverythingElse" or
+            "ShowChangesDiscarded" or
+            "ShowChangesLost" or
+            "ShowTripleTriadAllowed" or
+            "ShowTripleTriadNotAllowed")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CatchAllDropdownHeader}";
+
+        if (propertyName is "ShowSpideySenses" or "ShowLocationDiscovered" or "ShowHostilePresence")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_ExplorationDropdownHeader}";
+
+        if (propertyName is "ShowAetheryteTicket" or "ShowAttuneAetheryte")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
+
+        if (propertyName is "ShowAttachToMail")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_MailDropdownHeader}";
+
+        if (propertyName is "ShowRelicBookStep" or "ShowRelicBookComplete")
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_RelicDropdownHeader}";
 
         if (propertyName is "ShowTradeSent" or
             "ShowTradeCanceled" or
@@ -414,6 +465,13 @@ internal static class SettingsSearchIndex
                 "ShowFreeCompanyMessageBook" or
                 "ShowExploratoryVoyage" or
                 "ShowSubaquaticVoyage" or
+                "ShowSubaquaticVoyageEmbarked" or
+                "ShowSubaquaticVoyageFinalized" or
+                "ShowSubaquaticVoyageOtherFinalized" or
+                "ShowSubaquaticVoyageReturned" or
+                "ShowSubmarinePartRepaired" or
+                "ShowSubmarineAttainsRank" or
+                "ShowSubmarineRetrievalLevelsIncreased" or
                 "ShowCountdownTime" or
                 "ShowReadyChecks" or
                 "ShowCompletionTime" or

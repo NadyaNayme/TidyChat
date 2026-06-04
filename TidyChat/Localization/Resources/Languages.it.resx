@@ -61,7 +61,7 @@
     <value>Imposta il numero di secondi in cui i messaggi vengono mantenuti nella cronologia della chat</value>
   </data>
   <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
-    <value>Imposta a 0 per disattivare</value>
+    <value>Set to 0 to disable</value>
   </data>
   <data name="ChatHistoryTab_CraftingChannel" xml:space="preserve">
     <value>Crafting</value>
@@ -73,7 +73,7 @@
     <value>Attiva il filtro sulla cronologia della chat</value>
   </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
-    <value>Se un messaggio è stato inviato entro gli ultimi {0} messaggi, verrà filtrato</value>
+    <value>If a message was sent within the last {0} messages it will be filtered</value>
   </data>
   <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
     <value>Gathering</value>
@@ -82,7 +82,7 @@
     <value>Ignora i messaggi inviati da un giocatore</value>
   </data>
   <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
-    <value>Filtra i messaggi duplicati inviati dal giocaotre, abilitala se vuoi che i messaggi duplicati che invii vengano filtrati dalla tua visualizzazione.</value>
+    <value>Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.</value>
   </data>
   <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
     <value>Numero di messaggi da mantenere nella cronologia della chat</value>
@@ -125,61 +125,61 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Show combat ability usage messages</value>
   </data>
   <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy uses Attack.</value>
+    <value>LogMessage 533 — eg. The enemy uses Attack.</value>
   </data>
   <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
     <value>Show adds calling for help messages</value>
   </data>
   <data name="CombatTab_ShowCombatAddsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The goblin calls for help!</value>
+    <value>LogMessage 555 — eg. The goblin calls for help!</value>
   </data>
   <data name="CombatTab_ShowCombatCastingMessages" xml:space="preserve">
     <value>Show Combat casting</value>
   </data>
   <data name="CombatTab_ShowCombatCastingMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy begins casting Fire.</value>
+    <value>LogMessages 502, 534, 537, 538, 540, 541, 542, 1472 — eg. The enemy begins casting Fire.</value>
   </data>
   <data name="CombatTab_ShowCombatDamageMessages" xml:space="preserve">
     <value>Show combat damage messages</value>
   </data>
   <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy takes 1,234 damage.</value>
+    <value>LogMessages 447–523 (13 IDs) — eg. The enemy takes 1,234 damage.</value>
   </data>
   <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
     <value>Show enemy defeated messages</value>
   </data>
   <data name="CombatTab_ShowCombatDefeatMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy is defeated.</value>
+    <value>LogMessages 557, 558 — eg. The enemy is defeated.</value>
   </data>
   <data name="CombatTab_ShowCombatEffectsMessages" xml:space="preserve">
     <value>Show combat status effect messages</value>
   </data>
   <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy suffers the effect of Poison.</value>
+    <value>LogMessages 526–640 (11 IDs) — eg. The enemy suffers the effect of Poison.</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
     <value>Show enemy ready messages</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy is ready to act!</value>
+    <value>LogMessage 501 — eg. The enemy is ready to act!</value>
   </data>
   <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
     <value>Show combat enmity messages</value>
   </data>
   <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy&apos;s enmity toward you increases!</value>
+    <value>LogMessage 536 — eg. The enemy&amp;apos;s enmity toward you increases!</value>
   </data>
   <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
     <value>Show combat healing messages</value>
   </data>
   <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy recovers 500 HP.</value>
+    <value>LogMessages 519, 520, 560 — eg. The enemy recovers 500 HP.</value>
   </data>
   <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
     <value>Show combat miss and evade messages</value>
   </data>
   <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The enemy evades your attack.</value>
+    <value>LogMessages 506, 515, 600, 612 — eg. The enemy evades your attack.</value>
   </data>
   <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
     <value>Avanzate</value>
@@ -278,7 +278,7 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Show collectable reduction minigame messages (integrity, woodsman actions, etc.)</value>
   </data>
   <data name="CraftingGatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Your meticulous actions prove effective. Integrity is not reduced.</value>
+    <value>LogMessages 3549, 3569, 5514, 5516, 5550, 5573, 5574 — eg. Your meticulous actions prove effective. Integrity is not reduced.</value>
   </data>
   <data name="CraftingGatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
     <value>Show message when you successfully reduce a collectable item</value>
@@ -290,28 +290,28 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Show All other gathering (catch-all)</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
-    <value>Show cosmic class points and daily progress</value>
+    <value>Show cosmic daily progress</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
-    <value>Cosmic class points and daily progress lines.</value>
+    <value>LogMessages 10875, 10877, 11156 — daily points and daily success lines (System). Needs Filter Progress on General.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
     <value>Show cosmic exploration messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
-    <value>Cosmic exploration progress and area messages.</value>
+    <value>LogMessages 10807, 10830, 10881, 10884, 11334, 11335 — mech-op directives and red-alert lines. Needs Filter System on General.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency obtains</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 10 cosmocredits. You obtain 27 Auxesia credits. Cosmic fortunes and Oizys dronebits. Does not include cosmic containers or class points.</value>
+    <value>LogMessages 10800, 10859, 10872, 10873, 10883, 11331 — cosmocredits, Auxesia/Oizys credits, fortunes, dronebits (not containers or class points).</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
     <value>Show synthesis complete message</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisCompleteHelpMarker" xml:space="preserve">
-    <value>eg. You synthesize a Linen Bandana. (English only; other languages need localization)</value>
+    <value>LogMessages 1156, 1157, 1158, 1178 — eg. You synthesize a Linen Bandana. (English only; other languages need localization)</value>
   </data>
   <data name="CraftingGatheringTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
     <value>Show desynthesis level increases messages</value>
@@ -326,7 +326,9 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Show Fisher&apos;s Intuition flavor text</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
-    <value>Shows Fisher&apos;s Intuition messages (&quot;the scent of baitfish...&quot;) and per-fish lure flavor text (loaded from game data at startup).</value>
+    <value>Shows Fisher&apos;s Intuition messages (&quot;the scent of baitfish...&quot;) and per-fish lure flavor text (loaded from game data at startup).
+
+For other gathering lines this toggle does not cover (e.g. big-fish feeling text), use Tools → Custom Filters: Allow, Gathering channel only, regex such as /winged shadow|golden|gentle giant|dark form/i. Requires Filter Gathering channels on General so Allow can un-hide matching lines.</value>
   </data>
   <data name="CraftingGatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
     <value>Show message when a fishing location is discovered</value>
@@ -353,7 +355,7 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Show Modest/Ambitious Lure and bite feeling messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you&apos;ve attracted a fish with a weak bite!</value>
+    <value>LogMessages 5565, 5566, 5569, 5570, 5571, 5572 — eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you&amp;apos;ve attracted a fish with a weak bite!</value>
   </data>
   <data name="CraftingGatheringTab_ShowMateriaExtractedMessages" xml:space="preserve">
     <value>Show message when materia is extracted from spiritbonded gear</value>
@@ -383,7 +385,7 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Show stellar mission messages</value>
   </data>
   <data name="CraftingGatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
-    <value>Stellar mission area and related system messages.</value>
+    <value>LogMessages 631–11383 (21 IDs) — stellar mission catch-all; use nested options for able-to-execute (5533, 11365) and buff gain (11366).</value>
   </data>
   <data name="CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
     <value>Show message when you successfully retrieve materia from gear</value>
@@ -395,7 +397,7 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Stellar Missions / Cosmic Exploration</value>
   </data>
   <data name="CraftingGatheringTab_StellarSectionFilteringNote" xml:space="preserve">
-    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General.</value>
+    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic or fishing lines further.</value>
   </data>
   <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
@@ -404,14 +406,10 @@ E&apos; consigliabile tenerla a 50 o meno.</value>
     <value>Market board</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
-    <value>Show market board item sales</value>
+    <value>Show market board sales</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>Per-item sold lines when a listing completes, plus the “all items on this retainer sold” summary. Shown on the Retainer Sale channel (not System).
-
-Example: The bolt of vanya silk sold for 4,228 gil.
-
-Requires Filter System channel on General (Retainer Sale is filtered together with System). Not tied to “gil entrusted to retainer” below. Optional on General: Improved market board &amp; retainer sale lines for shorter wording.</value>
+    <value>Master toggle for retainer sale lines. Use the nested options for per-item sold (748), all-items-sold summary (384), and listing started/stopped (398/399). Gil entrusted to retainer is separate below. Improved market board lines on General only affect per-item sold (748).</value>
   </data>
   <data name="GeneralTab_ImprovedMarketBoardSale" xml:space="preserve">
     <value>Improved market board &amp; retainer sale lines</value>
@@ -421,13 +419,13 @@ Requires Filter System channel on General (Retainer Sale is filtered together wi
 
 Example: Pair of titanium gold saberfangs sold for 757 gil.
 
-Applies to Retainer Sale lines (and the original System wording before rewrite). Requires Show market board item sales on Economy and Filter System channel on General. Does not affect the separate “gil entrusted to retainer” system message.</value>
+Shows those sold lines when enabled (Filter System channel on General). Does not show “gil entrusted to your retainer”—turn on Show market sale gil entrusted to retainer on Economy only if you want that follow-up line.</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardSellingStatus" xml:space="preserve">
     <value>Show Listing started and stopped</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardSellingStatusHelpMarker" xml:space="preserve">
-    <value>When you begin or end selling on a retainer’s market board listing.
+    <value>LogMessages 398, 399 — When you begin or end selling on a retainer’s market board listing.
 
 Examples: You are now selling items in the Limsa Lominsa markets. / You are no longer selling items in the … markets.
 
@@ -438,13 +436,13 @@ System channel. Shown only when Show market board item sales is enabled. Require
     <value>Show Gil spent confirmation</value>
   </data>
   <data name="EconomyTab_ShowGilSpentMessageHelpMarker" xml:space="preserve">
-    <value>eg. You spend gil on a purchase.</value>
+    <value>LogMessage 4590 — eg. You spend gil on a purchase.</value>
   </data>
   <data name="EconomyTab_ShowGilWithdrawnMessage" xml:space="preserve">
     <value>Show Gil withdrawn from retainer</value>
   </data>
   <data name="EconomyTab_ShowGilWithdrawnMessageHelpMarker" xml:space="preserve">
-    <value>eg. Your gil has been safely withdrawn.</value>
+    <value>LogMessage 736 — eg. Your gil has been safely withdrawn.</value>
   </data>
   <data name="EconomyTab_ShowTradeAwaitingConfirmation" xml:space="preserve">
     <value>Show Awaiting trade confirmation</value>
@@ -462,13 +460,13 @@ System channel. Shown only when Show market board item sales is enabled. Require
     <value>Show Items bought from vendor</value>
   </data>
   <data name="EconomyTab_ShowVendorPurchaseMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You purchase an item from a vendor.</value>
+    <value>LogMessages 734, 1687 — eg. You purchase an item from a vendor.</value>
   </data>
   <data name="EconomyTab_ShowVendorSellMessages" xml:space="preserve">
     <value>Show Items sold to vendor or retainer</value>
   </data>
   <data name="EconomyTab_ShowVendorSellMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You sell 3 Shisui gobies for 6 gil.</value>
+    <value>LogMessage 1688 — eg. You sell 3 Shisui gobies for 6 gil.</value>
   </data>
   <data name="EconomyTab_TradingSectionHeader" xml:space="preserve">
     <value>Player trade</value>
@@ -506,7 +504,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Tiny chat (lowercase)</value>
   </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
-    <value>Il conteggio viene aggiornato solo ogni 100 messaggi bloccati, quando si cambia zona, o quando ci si disconnette.</value>
+    <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
   </data>
   <data name="GeneralTab_BlockedMessages" xml:space="preserve">
     <value>Tidy Chat ha bloccato {0:n0} messaggi finora.</value>
@@ -518,7 +516,7 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Copia automaticamente il messaggio /say nella clipboard</value>
   </data>
   <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-    <value>Richiede &quot;Messaggio /say migliorato per le quest&quot; per essere abilitato</value>
+    <value>Requires Improved /Say message for quests to be enabled</value>
   </data>
   <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
     <value>Display</value>
@@ -536,8 +534,8 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
     <value>Filtra lo spam di emote personalizzate</value>
   </data>
   <data name="GeneralTab_FilterCustomEmotesHelpMarker" xml:space="preserve">
-    <value>Questo nasconde tutti i messaggi &quot;/em&quot; a meno che non siano rivolti a te o siano una emote personalizzata usata da te.
-es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
+    <value>This will hide all &quot;/em&quot; messages unless it mentions you or is a custom emote you used.
+eg. Another Player leans over and gives you a big bear hug.</value>
   </data>
   <data name="GeneralTab_FilterEmoteChannelsHeader" xml:space="preserve">
     <value>Filter emote channels</value>
@@ -546,13 +544,13 @@ es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
     <value>Filtra lo spam di emote</value>
   </data>
   <data name="GeneralTab_FilterEmotesHelpMarker" xml:space="preserve">
-    <value>Questo nasconderà tutto il testo delle emote a meno che non si tratti una emote rivolta a te o una emote usata da te.</value>
+    <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
     <value>Filtra lo spam del Gathering</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them. When disabled, those channels are not filtered here.</value>
+    <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here—Custom Filter Allow rules on Gathering will not take effect.</value>
   </data>
   <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
     <value>Filtra lo spam dei roll del Loot</value>
@@ -597,8 +595,8 @@ es. Un altro giocatore si avvicina e ti da un grande abbraccio.</value>
     <value>Filtra le emote usate da te</value>
   </data>
   <data name="GeneralTab_FilterSelfEmotesHelpMarker" xml:space="preserve">
-    <value>Nasconde il messaggio visualizzato quando usi un&apos;emote o un&apos;emote personalizzata.
-es. Accarezzi delicatamente &lt;user&gt;</value>
+    <value>When emote filtering is enabled, keep messages for emotes you use yourself.
+eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
     <value>Filter System channel</value>
@@ -613,7 +611,7 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Unisce la duty completata al messaggio delle commendation</value>
   </data>
   <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
-    <value>Richiede &quot;Commendation dei giocatori migliorate&quot; per essere abilitata</value>
+    <value>Requires Improved Player Commendations to be enabled</value>
   </data>
   <data name="GeneralTab_ImprovedDutyCommenceMessaging" xml:space="preserve">
     <value>Improved duty commence messaging</value>
@@ -625,7 +623,7 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Migliorata la messaggistica di /instance</value>
   </data>
   <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
-    <value>Cambia il testo dell&apos;istanza in: Ti trovi nell&apos;istanza: #</value>
+    <value>Changes the instance text to: You are now in instance: #</value>
   </data>
   <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
     <value>Messaggi migliorati</value>
@@ -634,19 +632,19 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Messaggi di entrata ed uscita dal Novice Network migliorati</value>
   </data>
   <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
-    <value>Riduce la quantità di testo visualizzata quando si entra nel Novice Network e cambia il messaggio di uscita per essere formulato più consistentemente.</value>
+    <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
   </data>
   <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
     <value>Commendation dei giocatori migliorate</value>
   </data>
   <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
-    <value>Disabilita il messaggio di sistema per le commendation ricevute e le unisce in un singolo messaggio nel proprio Dalamud General Chat Channel (verifica in Dalamud General Settings di quale canale si tratta - per default è Debug)</value>
+    <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
   </data>
   <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
     <value>Messaggio /say migliorato per le quest</value>
   </data>
   <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-    <value>Quando una quest richiede di scrivere qualcosa in chat /say, cambia quel messaggio in uno che può essere copiato ed incollato facilmente</value>
+    <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
   </data>
   <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
     <value>Improved Treasure Dungeon Messages</value>
@@ -670,7 +668,7 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Aggiungi il tag [TidyChat] ai messaggi modificati</value>
   </data>
   <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
-    <value>Antepone ai messaggi inviati o modificati da Tydy Chat [TidyChat]</value>
+    <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
   </data>
   <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
     <value>Include [Channel] tag in debug mode</value>
@@ -685,8 +683,8 @@ es. Accarezzi delicatamente &lt;user&gt;</value>
     <value>Allied Society</value>
   </data>
   <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
-    <value>Questo visualizza il messaggio che si attiva quando tirate i dadi su un oggetto.
-es. Tenti la fortuna su &lt;item&gt;</value>
+    <value>This will show the message that occurs when you roll on loot.
+eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
     <value>Visualizza il messaggio &quot;Hai tentato la fortuna&quot;</value>
@@ -698,7 +696,7 @@ es. Tenti la fortuna su &lt;item&gt;</value>
     <value>Hide &quot;added to your inventory&quot; messages</value>
   </data>
   <data name="ObtainTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates &quot;You obtain …&quot; on retainer ventures.)</value>
+    <value>LogMessage 789 — eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates &amp;quot;You obtain …&amp;quot; on retainer ventures.)</value>
   </data>
   <data name="ObtainTab_LootingAndRollingDropdownHeader" xml:space="preserve">
     <value>Loot e Roll</value>
@@ -710,21 +708,21 @@ es. Tenti la fortuna su &lt;item&gt;</value>
     <value>Hide Allied Seals</value>
   </data>
   <data name="ObtainTab_ShowAlliedSealsMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 100 Allied Seal.</value>
+    <value>eg. You obtain 100 Allied Seals.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessages" xml:space="preserve">
     <value>Show &quot;Another Player casts his/her lot &lt;item&gt;&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
-    <value>Questo visualizza il messaggio che si attiva quando un altro giocatore tenta la fortuna per su un drop.
-es. Un altro giocatore ha fatto la sua scelta per &lt;item&gt;,.</value>
+    <value>This will show the message that occurs when another player in the party rolls for a loot drop.
+eg. Some player casts her lot for &lt;item&gt;.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
     <value>Hide &quot;Another Player obtains &lt;item&gt;&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-    <value>Questo visualizza il messaggio che si attiva quando un altro giocatore nel party ottiene un drop.
-es: Un altro giocatore ha ottenuto &lt;item&gt;!</value>
+    <value>Hides loot obtain messages for other players in your party.
+eg. Some player obtains an &lt;item&gt;!</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
     <value>Show &quot;Another Player rolls Greed...&quot; messages</value>
@@ -746,40 +744,39 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Hide Centurio Seals</value>
   </data>
   <data name="ObtainTab_ShowCenturioSealsMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 40 Centurio Seal.</value>
+    <value>eg. You obtain 40 Centurio Seals.</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessages" xml:space="preserve">
     <value>Hide cracked clusters</value>
   </data>
   <data name="ObtainTab_ShowCrackedClustersMessagesHelpMarker" xml:space="preserve">
-    <value>Questo visualizza i cracked cluster come i Dendroclusters ed i Anthoclusters.
-Per nascondere gli elemental clusters consulta l&apos;opzione per nascondere gli elemental cluster in basso.
-es. Hai ricevuto un craced dendrocluster</value>
+    <value>Hides cracked cluster obtain messages such as Dendroclusters and Anthoclusters.
+eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessages" xml:space="preserve">
     <value>Hide elemental shards, crystals, and clusters</value>
   </data>
   <data name="ObtainTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
-    <value>Questo visualizza il messaggio che si attiva quand oraccogliete o ricevete elemental shard, crystal o cluster
-es. Hai ricevuto 30 ice shard</value>
+    <value>Hides obtain messages for elemental shards, crystals, and clusters from gathering, loot rolls, and loot notices.
+eg. You obtain 30 ice shards</value>
   </data>
   <data name="ObtainTab_ShowGeneralItemObtains" xml:space="preserve">
     <value>Show General item obtains</value>
   </data>
   <data name="ObtainTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
-    <value>Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
+    <value>LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
   </data>
   <data name="ObtainTab_ShowGil" xml:space="preserve">
     <value>Hide Gil</value>
   </data>
   <data name="ObtainTab_ShowGilHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 69 gil.</value>
+    <value>LogMessages 1258, 1417, 1605, 1798, 10923 — eg. You obtain 69 gil or You receive 1,670 gil. Obtain lines need Filter Obtained channel; receive lines need Filter System channel (General tab).</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessages" xml:space="preserve">
     <value>Hide Grand Company Seals</value>
   </data>
   <data name="ObtainTab_ShowGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 420 Flame Seals.</value>
+    <value>LogMessage 1300 — eg. You obtain 420 Flame Seals. Grand Company seals (Flame, Storm, Serpent) only—not Allied Society or Centurio seals (separate Hide options below).</value>
   </data>
   <data name="ObtainTab_ShowMathematicsMessages" xml:space="preserve">
     <value>Hide Allagan tomestones of Mathematics</value>
@@ -791,7 +788,7 @@ es. Hai ricevuto 30 ice shard</value>
     <value>Hide MGP</value>
   </data>
   <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 117 MGP.</value>
+    <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel; use System tab options for spend lines).</value>
   </data>
   <data name="ObtainTab_ShowMnemonicsMessages" xml:space="preserve">
     <value>Hide Allagan tomestones of Mnemonics</value>
@@ -803,7 +800,7 @@ es. Hai ricevuto 30 ice shard</value>
     <value>Show quest item obtain messages</value>
   </data>
   <data name="ObtainTab_ShowObtainedQuestItemsHelpMarker" xml:space="preserve">
-    <value>eg. You obtain the mysterious artifact.</value>
+    <value>LogMessage 1232 — eg. You obtain the mysterious artifact.</value>
   </data>
   <data name="ObtainTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
     <value>Show only rolls from party members</value>
@@ -828,19 +825,19 @@ Requires &quot;Show Another Player rolls&quot; to be enabled and only takes effe
     <value>Hide sacks of Nuts</value>
   </data>
   <data name="ObtainTab_ShowSacksOfNutsMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 100 sack of Nuts.</value>
+    <value>eg. You obtain 100 sacks of Nuts.</value>
   </data>
   <data name="ObtainTab_ShowVentureMessages" xml:space="preserve">
     <value>Hide Ventures</value>
   </data>
   <data name="ObtainTab_ShowVentureMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto una Venture.</value>
+    <value>eg. You obtain a Venture.</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessages" xml:space="preserve">
     <value>Hide Wolf Marks</value>
   </data>
   <data name="ObtainTab_ShowWolfMarksMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai ottenuto 1.000 Wolf Mark.</value>
+    <value>eg. You obtain 1,000 Wolf Marks.</value>
   </data>
   <data name="ObtainTab_ShowYourLootRolls" xml:space="preserve">
     <value>Show your loot rolls</value>
@@ -853,8 +850,8 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Show &quot;You rolled...&quot; messages</value>
   </data>
   <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
-    <value>Qeusto visualizza il messaggio che si attiva quando tutti hanno scelto cosa fare con un oggetto e viene visualizzato il tuo numero.
-es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
+    <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
+eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
   </data>
   <data name="PartyDutyTab_DeepDungeonsDropdownHeader" xml:space="preserve">
     <value>Deep dungeons</value>
@@ -899,7 +896,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show Airship expedition</value>
   </data>
   <data name="PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>eg. A new exploratory voyage destination...has been discovered!</value>
+    <value>LogMessage 4163 — eg. A new exploratory voyage destination...has been discovered!</value>
   </data>
   <data name="PartyDutyTab_ShowCairnOfPassageActivatedMessages" xml:space="preserve">
     <value>Show when the Cairn of Passage is activated</value>
@@ -914,19 +911,19 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show Venture complete</value>
   </data>
   <data name="PartyDutyTab_ShowCompletedVentureHelpMarker" xml:space="preserve">
-    <value>eg. RetainerName has completed a venture!</value>
+    <value>LogMessages 4332, 4335, 4341 — eg. RetainerName has completed a venture!</value>
   </data>
   <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
     <value>Show Unrestricted clear time</value>
   </data>
   <data name="PartyDutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-    <value>eg. &lt;Duty&gt; completion time: 00:30</value>
+    <value>LogMessage 4679 — eg. &amp;lt;Duty&amp;gt; completion time: 00:30</value>
   </data>
   <data name="PartyDutyTab_ShowCountdownMessages" xml:space="preserve">
     <value>Show /countdown</value>
   </data>
   <data name="PartyDutyTab_ShowCountdownMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Battle commencing in 18 seconds!</value>
+    <value>LogMessages 5255, 5256, 5260, 5264 — eg. Battle commencing in 18 seconds!</value>
   </data>
   <data name="PartyDutyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
     <value>Show Disband &amp; dissolve</value>
@@ -935,7 +932,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show Duty Finder notifications</value>
   </data>
   <data name="PartyDutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Duty registration complete. Participation requirements, unrestricted party notices. Mostly system channel; withdrawal notices use the error channel.</value>
+    <value>LogMessages 94–4676 (9 IDs) — eg. Duty registration complete. Participation requirements, unrestricted party notices. Mostly system channel; withdrawal notices use the error channel.</value>
   </data>
   <data name="PartyDutyTab_ShowFloorNumberMessages" xml:space="preserve">
     <value>Show floor number when entering a new floor</value>
@@ -962,7 +959,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show Leader promoted or demoted</value>
   </data>
   <data name="PartyDutyTab_ShowNowALeaderHelpMarker" xml:space="preserve">
-    <value>These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
+    <value>LogMessages 15–9298 (12 IDs) — These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
   </data>
   <data name="PartyDutyTab_ShowObtainedPomanderMessages" xml:space="preserve">
     <value>Show when the party obtains a pomander</value>
@@ -977,7 +974,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show /readycheck</value>
   </data>
   <data name="PartyDutyTab_ShowReadycheckMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Ready check complete.</value>
+    <value>LogMessages 3790, 3791, 3794 — eg. Ready check complete.</value>
   </data>
   <data name="PartyDutyTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Show Received invitations</value>
@@ -986,13 +983,13 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show Venture assignment &amp; payment</value>
   </data>
   <data name="PartyDutyTab_ShowRetainerVentureMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You assign your retainer to Quick Exploration. You pay a retainer 2 ventures.</value>
+    <value>LogMessages 4330, 4331, 4334 — eg. You assign your retainer to Quick Exploration. You pay a retainer 2 ventures.</value>
   </data>
   <data name="PartyDutyTab_ShowSealedOffMessages" xml:space="preserve">
     <value>Show area sealed/unsealed messages</value>
   </data>
   <data name="PartyDutyTab_ShowSealedOffMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The area has been sealed off! / The area is no longer sealed.</value>
+    <value>LogMessages 2012, 2013, 2014 — eg. The area has been sealed off! / The area is no longer sealed.</value>
   </data>
   <data name="PartyDutyTab_ShowSentPartyInviteMessages" xml:space="preserve">
     <value>Show Sent party invites</value>
@@ -1001,7 +998,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show Submarine voyage</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>eg. A new subaquatic voyage destination...has been discovered!</value>
+    <value>Master toggle for submarine voyage, repair, and rank messages below.</value>
   </data>
   <data name="PartyDutyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
     <value>Show Teleport offers from party</value>
@@ -1013,7 +1010,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show trap triggered messages</value>
   </data>
   <data name="PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
+    <value>LogMessages 7224, 7225, 7226, 7227, 7228, 7229 — eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
   </data>
   <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
     <value>Duty rewards</value>
@@ -1022,7 +1019,7 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Experience &amp; levels</value>
   </data>
   <data name="ProgressTab_FilteringNote" xml:space="preserve">
-    <value>Quest &amp; achievements, duty bonuses, and most unlocks use the system channel (see each help). XP and PVP EXP use Filter Progress channel on General. Mount unlocks use the action channel.</value>
+    <value>Quest &amp; achievements, duty bonuses, and most unlocks use the System channel (see each help). XP and PVP EXP use Filter Progress on General. Mount unlocks use the Action channel. Custom Filters on Tools can Allow or Block specific Progress or System text.</value>
   </data>
   <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
     <value>Quests &amp; achievements</value>
@@ -1031,25 +1028,25 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Hide adventurer-in-need bonus awards</value>
   </data>
   <data name="ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
-    <value>es. Ti è stato elargito un bonus di 7.200 gil per essere un avventuriero nel bisogno.</value>
+    <value>LogMessage 2244 — eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessages" xml:space="preserve">
     <value>Hide duty roulette bonus awards</value>
   </data>
   <data name="ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-    <value>es. Ti è stato elargito un bonus di 4.252.498 punti esperienza e 12.000 gil per aver usato la duty roulette.</value>
+    <value>LogMessage 2246 — eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
   </data>
   <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
     <value>Show your earned achievements</value>
   </data>
   <data name="ProgressTab_ShowEarnedAchievementMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You earn the achievement &lt;name&gt;! Uses the Progress channel.</value>
+    <value>LogMessage 952 — eg. You earn the achievement &amp;lt;name&amp;gt;! Uses the Progress channel.</value>
   </data>
   <data name="ProgressTab_ShowExperienceGainMessages" xml:space="preserve">
     <value>Show experience gain messages</value>
   </data>
   <data name="ProgressTab_ShowExperienceGainMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai guadagnato 2338 Punti Esperienza.</value>
+    <value>LogMessages 549, 588, 589, 4466, 7300, 10953 — eg. You gain 2,388 Experience Points. Most XP uses the Progress channel (Filter Progress channel on General). Bonus chain lines use the battle log and are not controlled by Progress filtering alone.</value>
   </data>
   <data name="ProgressTab_ShowFirstClearAward" xml:space="preserve">
     <value>First-time duty clear reward</value>
@@ -1058,30 +1055,29 @@ es. Hai scelto Need/Greed su &lt;item&gt;. 63!</value>
     <value>Show learned ability messages</value>
   </data>
   <data name="ProgressTab_ShowLearnedAbilityMessagesHelpMarker" xml:space="preserve">
-    <value>When you learn an ability or minion. Most lines use the Progress channel; a few job quest lines use System.</value>
+    <value>LogMessages 552, 609, 1461, 3612, 3613 — When you learn an ability or minion. Most lines use the Progress channel; a few job quest lines use System.</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessages" xml:space="preserve">
     <value>Show Your level-ups</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
-    <value>Questo visualizza i messaggi che si attivano quando sali di livello.
-Può essere considerato spam nei dungeon profondi.</value>
+    <value>LogMessage 590 — This will show the message that occurs when you level up.
+It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
     <value>Show mount unlock messages</value>
   </data>
   <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You have unlocked the ability to summon this mount. Uses the action channel (not System filtering).</value>
+    <value>LogMessages 646, 1306 — eg. You have unlocked the ability to summon this mount. Uses the action channel (not System filtering).</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
-    <value>Questo visualizza il messaggio che si attiva quando gli altri salgono di livello.
-es. Giocatore sale al livello 33!</value>
+    <value>LogMessages 3921, 9454 — eg. Player attains level 33! Uses the system channel.</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessages" xml:space="preserve">
     <value>Show other player&apos;s earned achievement messages</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Player earns the achievement &lt;name&gt;! Uses the Progress channel.</value>
+    <value>LogMessage 952 — eg. Player earns the achievement &amp;lt;name&amp;gt;! Uses the Progress channel.</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
     <value>Show other player&apos;s level up messages</value>
@@ -1090,13 +1086,13 @@ es. Giocatore sale al livello 33!</value>
     <value>Show PVP EXP gain messages</value>
   </data>
   <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
-    <value>es. Hai acquisito 500 PvP EXP.</value>
+    <value>LogMessage 659 — eg. You acquire 500 PvP EXP.</value>
   </data>
   <data name="ProgressTab_ShowQuestProgressMessages" xml:space="preserve">
     <value>Show quest progress messages</value>
   </data>
   <data name="ProgressTab_ShowQuestProgressMessagesHelpMarker" xml:space="preserve">
-    <value>eg. &quot;Starting from Scrap&quot; accepted. / &quot;Starting from Scrap&quot; complete! / &quot;Starting from Scrap&quot; objective fulfilled!</value>
+    <value>LogMessages 410, 1601, 1602, 1603, 3780, 3783 — eg. &amp;quot;Starting from Scrap&amp;quot; accepted. / &amp;quot;Starting from Scrap&amp;quot; complete! / &amp;quot;Starting from Scrap&amp;quot; objective fulfilled!</value>
   </data>
   <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show Second Chance reward</value>
@@ -1137,8 +1133,11 @@ es. Giocatore sale al livello 33!</value>
   <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
     <value>Orchestrion</value>
   </data>
-  <data name="SystemTab_RelicAndMailDropdownHeader" xml:space="preserve">
-    <value>Relic &amp; mail</value>
+  <data name="SystemTab_MailDropdownHeader" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="SystemTab_RelicDropdownHeader" xml:space="preserve">
+    <value>ARR relic book</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
     <value>Condensed (world line only)</value>
@@ -1181,61 +1180,61 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show Active Help entry messages</value>
   </data>
   <data name="SystemTab_ShowActiveHelpEntryMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Active Help entry added. Tutorial pop-ups for new content and UI features.</value>
+    <value>LogMessage 1286 — eg. Active Help entry added. Tutorial pop-ups for new content and UI features.</value>
   </data>
   <data name="SystemTab_ShowAetherCompassMessages" xml:space="preserve">
     <value>Show Aether Compass message</value>
   </data>
   <data name="SystemTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
-    <value>es. La bussola rileva una corrente approssimativamente a 143 yalm verso Ovest...</value>
+    <value>LogMessage 3712 — eg. The compass detects a current approximately 143 yalms to the West...</value>
   </data>
   <data name="SystemTab_ShowAetheryteTicketMessage" xml:space="preserve">
     <value>Show Aetheryte Ticket usage message</value>
   </data>
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
-    <value>eg. You used an aetheryte ticket. (Remaining: 5). Often appears on the System line in chat even though LogMessage 535 is Item-type.</value>
+    <value>LogMessages 503, 535 — eg. You used an aetheryte ticket. (Remaining: 5). Often appears on the System line in chat even though LogMessage 535 is Item-type.</value>
   </data>
   <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
     <value>Show ARR Relic book step completed messages</value>
   </data>
   <data name="SystemTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
-    <value>eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
+    <value>LogMessage 4400 — eg. All objectives under the category Dungeons for &amp;lt;Relic Weapon&amp;gt; - Strength +2 complete!</value>
   </data>
   <data name="SystemTab_ShowARRRelicProgressMessages" xml:space="preserve">
     <value>Show ARR Relic book step progress messages</value>
   </data>
   <data name="SystemTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
+    <value>LogMessage 4402 — eg. Record of Ouranos kill (1/1) added for &amp;lt;Relic Weapon&amp;gt; - Strength +2.</value>
   </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
-    <value>Show all other System messages</value>
+    <value>Show miscellaneous system messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
-    <value>Catch-all for System channel messages not covered by another option. When System filtering is enabled, checking this shows any remaining system messages TidyChat would otherwise block.</value>
+    <value>Master toggle for the four specific system messages below (not a catch-all for all system chat).</value>
   </data>
   <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
     <value>Show FATE discovered messages</value>
   </data>
   <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
-    <value>eg. The FATE &lt;name&gt; has appeared in the &lt;location&gt; area!</value>
+    <value>LogMessages 2001, 2026 — eg. The FATE &amp;lt;name&amp;gt; has appeared in the &amp;lt;location&amp;gt; area!</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
     <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
+    <value>LogMessages 2070, 2166 — eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_ShowFriendListMessages" xml:space="preserve">
     <value>Show friend list messages</value>
   </data>
   <data name="SystemTab_ShowFriendListMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated.</value>
+    <value>LogMessages 78, 81, 7487, 7488 — eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated.</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Show gearset equipped messages</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
-    <value>es. &quot;Red Mage&quot; equipaggiato.</value>
+    <value>LogMessages 700, 755, 788 — eg. “Red Mage” equipped.</value>
   </data>
   <data name="SystemTab_ShowHiddenMessagesDropdownHeader" xml:space="preserve">
     <value>Visualizza i messaggi di sistema che Tidy Chat nasconde per impostazione predefinita</value>
@@ -1244,38 +1243,37 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show housing ward messages</value>
   </data>
   <data name="SystemTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
-    <value>eg. Shirogane, Ward 15</value>
+    <value>LogMessage 3379 — eg. Shirogane, Ward 15</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessages" xml:space="preserve">
     <value>Show hunt mark slain messages</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
-    <value>es. L&apos;hunt &lt;mark&gt; è stata uccisa! 1/3</value>
+    <value>LogMessage 4411 — eg. Hunt mark &amp;lt;mark&amp;gt; slain! 1/3</value>
   </data>
   <data name="SystemTab_ShowInstanceMessage" xml:space="preserve">
     <value>Show /instance message</value>
   </data>
   <data name="SystemTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
-    <value>eg. You are now in the instanced area Old Sharlayan ❷.
-Current instance can be confirmed at any time using the /instance text command.</value>
+    <value>Master toggle for duty and instance system messages below. Unchecking hides all nested options.</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
-    <value>Show &quot;Search for items&quot; results message</value>
+    <value>Show /isearch result messages</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
-    <value>es. 1 elemento trovato nella quarta scheda del tuo inventario.</value>
+    <value>Master toggle for inventory item search and location search lines below.</value>
   </data>
   <data name="SystemTab_ShowJobChangeMessages" xml:space="preserve">
     <value>Show job change messages</value>
   </data>
   <data name="SystemTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You change to Scholar., Paladin registered.</value>
+    <value>LogMessages 561, 756, 1281 — eg. You change to Scholar., Paladin registered.</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
     <value>Show items attached to sent mail</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
-    <value>es. Alleghi 2 pots of Dalamud Red Dye alla lettera.</value>
+    <value>LogMessages 672, 673 — eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
   </data>
   <data name="SystemTab_ShowNumberOfCoffers" xml:space="preserve">
     <value>Show number of available coffers messages</value>
@@ -1284,43 +1282,43 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>Show online status updates</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
-    <value>es. Cambiamento dello stato online su Away from Keyboard.</value>
+    <value>LogMessage 97 — eg. Updating online status to Away from Keyboard.</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlaying" xml:space="preserve">
     <value>Hide &quot;Orchestrion now plays&quot; messages</value>
   </data>
   <data name="SystemTab_ShowOrchestrionPlayingHelpMarker" xml:space="preserve">
-    <value>eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message.</value>
+    <value>LogMessage 3433 — eg. Orchestrion now plays &amp;lt;song&amp;gt;. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
     <value>Show personal message book new entry messages</value>
   </data>
   <data name="SystemTab_ShowPersonalMessageBookMessagesHelpMarker" xml:space="preserve">
-    <value>eg. A new entry has been added to your message book. Uses the message-book channel.</value>
+    <value>LogMessage 6066 — eg. A new entry has been added to your message book. Uses the message-book channel.</value>
   </data>
   <data name="SystemTab_ShowPortraitMessages" xml:space="preserve">
     <value>Show portrait messages</value>
   </data>
   <data name="SystemTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Portrait set as instant portrait., Portrait has expired.</value>
+    <value>LogMessage 5865 — eg. Portrait set as instant portrait., Portrait has expired.</value>
   </data>
   <data name="SystemTab_ShowReceivedCommendations" xml:space="preserve">
     <value>Show received commendations</value>
   </data>
   <data name="SystemTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
-    <value>es. Hai ricevuto una commendation!</value>
+    <value>LogMessage 926 — eg. You received a player commendation!</value>
   </data>
   <data name="SystemTab_ShowSanctuaryMessage" xml:space="preserve">
     <value>Show sanctuary enter/leave messages</value>
   </data>
   <data name="SystemTab_ShowSanctuaryMessageHelpMarker" xml:space="preserve">
-    <value>eg. You have entered a sanctuary. / You have left the sanctuary.</value>
+    <value>LogMessages 732, 733 — eg. You have entered a sanctuary. / You have left the sanctuary.</value>
   </data>
   <data name="SystemTab_ShowSayReminder" xml:space="preserve">
     <value>Show reminders of what to /say in chat during quests</value>
   </data>
   <data name="SystemTab_ShowSayReminderHelpMarker" xml:space="preserve">
-    <value>es. Con la chat in modalità /say, scrivi una frase contenente &quot;Tataru&quot; al punto di destinazione.</value>
+    <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
   </data>
   <data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
     <value>Show gear reaching 100% spiritbound messages</value>
@@ -1329,26 +1327,26 @@ Current instance can be confirmed at any time using the /instance text command.<
     <value>Show S Rank Hunt spawn announcement</value>
   </data>
   <data name="SystemTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-    <value>es. Senti la presenza di un mostro potente...</value>
+    <value>LogMessage 9331 — eg. You sense the presence of a powerful mark...</value>
   </data>
   <data name="SystemTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
     <value>Show SS Rank Minion announcements</value>
   </data>
   <data name="SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
-    <value>es. I minion di un mostro straordinariamente potente sono in cerca di prede...
-I minion di un mostro straordinariamente potente si sono ritirati...</value>
+    <value>LogMessage 9332 — eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
+The minions of an extraordinarily powerful mark have withdrawn...</value>
   </data>
   <data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
-    <value>Show try on glamour messages</value>
+    <value>Show glamour and dye messages</value>
   </data>
   <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
-    <value>es. Provi un oggetto.</value>
+    <value>Master toggle for glamour cast, plates, dye, and related system lines below.</value>
   </data>
   <data name="SystemTab_ShowVistaMessages" xml:space="preserve">
     <value>Show vista arrival and stray messages</value>
   </data>
   <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
-    <value>es. Sei arrivato ad una vista! e Ti sei allontanato troppo da una vista.</value>
+    <value>LogMessages 1272, 1273 — eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
   </data>
   <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
     <value>Show volume control messages</value>
@@ -1360,7 +1358,7 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
     <value>Show &quot;You sense something...&quot; messages</value>
   </data>
   <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-    <value>es. Senti qualcosa a sudovest, molto molto lontano...</value>
+    <value>LogMessages 2600, 4791 — LogMessage 2600 / 4791 — spidey-senses lines on the System channel. Location discovered (88) and hostile presence (3240) are nested options below.</value>
   </data>
   <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
     <value>Social &amp; misc</value>
@@ -1396,16 +1394,10 @@ I minion di un mostro straordinariamente potente si sono ritirati...</value>
     <value>Canali</value>
   </data>
   <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
-    <value>È necessario inserire il nome del giocatore come sarebbe stato visto in chat - compresi i punti.
-
-es.
-Cognome Abbreviato: Esempio N.
-Forename Abbreviato: E. Nome
-Iniziali: E. N.</value>
+    <value>Player names must match chat exactly (including periods): Example N., E. Name, or E. N. Use /pattern/ for regex. Use #588 or #588,589 for LogMessage IDs (see Filters help above).</value>
   </data>
   <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-    <value>Gli utenti aggiunti alla whitelist vengono trattati dai filtri come se si trattasse di te.
-Inserisci il nome e cognome di un giocatore e poi premi &lt;Enter&gt; per aggiungerlo alla whitelist.</value>
+    <value>Add a row and press Enter. Custom filters run after normal TidyChat rules and override the result for matching lines.</value>
   </data>
   <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
     <value>Filtri</value>

@@ -12,8 +12,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds =
             [
-                631, 5533, 10764, 10766, 10769, 10770, 10771, 10779, 10781, 10804, 10815, 10822, 10878, 10879,
-                10946, 11154, 11174, 11175, 11197, 11365, 11366, 11379, 11383, 10784
+                631, 10764, 10766, 10769, 10770, 10771, 10779, 10781, 10804, 10815, 10822, 10878, 10879,
+                10946, 11154, 11174, 11175, 11197, 11379, 11383, 10784
             ]
         },
         new()
@@ -51,7 +51,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowStellarMissionMessages",
+            Name = "ShowStellarAbleToExecute",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
@@ -62,7 +62,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowStellarMissionMessages",
+            Name = "ShowStellarBuffEffectGain",
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
@@ -418,7 +418,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCosmicDailyProgress",
+            Name = "ShowCosmicClassPointsAndDataset",
             SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
@@ -462,7 +462,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCosmicDailyProgress",
+            Name = "ShowCosmicClassPointsAndDataset",
             SettingsTab = "Gathering",
             Channel = ChatType.Progress,
             IsActive = true,
@@ -473,7 +473,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCosmicDailyProgress",
+            Name = "ShowCosmicClassPointsAndDataset",
             SettingsTab = "Gathering",
             Channel = ChatType.Progress,
             IsActive = true,

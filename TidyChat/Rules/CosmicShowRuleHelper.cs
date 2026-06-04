@@ -1,18 +1,12 @@
 using TidyChat.Translation.Data;
 namespace TidyChat;
 
-/// <summary>
-/// Cosmic lines have dedicated show toggles; broad Obtain and other rules must not override them.
-/// </summary>
 internal static class CosmicShowRuleHelper
 {
     public static bool IsCosmicRuleName(string ruleName) =>
         ruleName is "ShowCosmicExplorationMessages" or "ShowCosmicRewards" or "ShowCosmicContainers" or
-        "ShowCosmicDailyProgress";
+        "ShowCosmicClassPointsAndDataset" or "ShowCosmicDailyProgress";
 
-    /// <summary>
-    /// True when the message is cosmic-related and the matching Crafting/Gathering toggle is enabled.
-    /// </summary>
     public static bool IsCosmicMessageAllowed(Configuration config, string normalizedText) =>
         GetActiveCosmicRuleName(config, normalizedText) is not null;
 
@@ -24,14 +18,13 @@ internal static class CosmicShowRuleHelper
             return "ShowCosmicRewards";
         if (config.ShowCosmicExplorationMessages && MatchesCosmicExplorationText(normalizedText))
             return "ShowCosmicExplorationMessages";
+        if (config.ShowCosmicClassPointsAndDataset && MatchesCosmicClassPointsAndDatasetText(normalizedText))
+            return "ShowCosmicClassPointsAndDataset";
         if (config.ShowCosmicDailyProgress && MatchesCosmicDailyProgressText(normalizedText))
             return "ShowCosmicDailyProgress";
         return null;
     }
 
-    /// <summary>
-    /// Non-cosmic rules must not claim cosmic lines while a cosmic show toggle is on for that text.
-    /// </summary>
     public static bool ShouldDeferNonCosmicRule(Configuration config, string normalizedText) =>
         IsCosmicMessageAllowed(config, normalizedText);
 
@@ -56,10 +49,11 @@ internal static class CosmicShowRuleHelper
     public static bool MatchesCosmicExplorationText(string normalizedText) =>
         MatchesAnyMarker(normalizedText, ChatStrings.MechOpDirective, ChatStrings.CosmicRedAlert);
 
+    public static bool MatchesCosmicClassPointsAndDatasetText(string normalizedText) =>
+        MatchesAnyMarker(normalizedText, ChatStrings.CosmicDatasetSubmitted, ChatStrings.CosmicClassPoints);
+
     public static bool MatchesCosmicDailyProgressText(string normalizedText) =>
         MatchesAnyMarker(normalizedText,
-            ChatStrings.CosmicDatasetSubmitted,
-            ChatStrings.CosmicClassPoints,
             ChatStrings.DailyPointsEarned,
             ChatStrings.DailySuccessAchieved,
             ChatStrings.DailySuccessGoalAchieved);

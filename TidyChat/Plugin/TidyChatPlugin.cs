@@ -30,6 +30,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private readonly Lock _logMessageLock = new();
 
     private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
+    private readonly Dictionary<uint, int> _pendingCustomFilterLogMessageIds = new();
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
     // #122: announcements inside this window after a Login event are treated as a real login
@@ -54,7 +55,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-        if (Configuration.Version < 8)
+        if (Configuration.Version < 11)
         {
             if (Configuration.Version < 5)
                 ConfigurationMigration.ApplyPreV5(Configuration, PluginInterface);
@@ -62,7 +63,13 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
                 ConfigurationMigration.ApplyVersion6(Configuration);
             if (Configuration.Version < 8)
                 ConfigurationMigration.ApplyVersion8(Configuration);
-            Configuration.Version = 8;
+            if (Configuration.Version < 9)
+                ConfigurationMigration.ApplyVersion9(Configuration);
+            if (Configuration.Version < 10)
+                ConfigurationMigration.ApplyVersion10(Configuration);
+            if (Configuration.Version < 11)
+                ConfigurationMigration.ApplyVersion11(Configuration);
+            Configuration.Version = 11;
             Configuration.Save();
         }
 

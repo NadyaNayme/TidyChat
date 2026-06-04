@@ -58,7 +58,7 @@ public static class ChatFlags
                 ChatType.CrossParty or
                 ChatType.FreeCompany)
             return true;
-        if (channels.HasFlag(Channels.System) && chatType is ChatType.System) return true;
+        if (channels.HasFlag(Channels.System) && chatType is ChatType.System or ChatType.RetainerSale) return true;
         if (channels.HasFlag(Channels.Progress) && chatType is ChatType.Progress) return true;
         if (channels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice) return true;
         if (channels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll) return true;

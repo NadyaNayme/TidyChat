@@ -114,6 +114,12 @@ public class Configuration : IPluginConfiguration
     public bool ShowRetainerVentureMessages { get; set; } = false;
 
     public bool ShowInstanceMessage { get; set; } = true;
+    public bool ShowInstancedAreaMessages { get; set; } = true;
+    public bool ShowDutyEndedMessage { get; set; } = true;
+    public bool ShowGuildhestEndedMessage { get; set; } = true;
+    public bool ShowLevelNoLongerSynced { get; set; } = true;
+    public bool ShowDutyMechanicMessages { get; set; } = true;
+    public bool ShowDutyObjectiveBonus { get; set; } = true;
 
     public bool ShowSanctuaryMessage { get; set; } = false;
 
@@ -136,15 +142,32 @@ public class Configuration : IPluginConfiguration
     public bool ShowSpiritboundGear { get; set; } = true;
 
     public bool ShowSpideySenses { get; set; } = true;
+    public bool ShowLocationDiscovered { get; set; } = true;
+    public bool ShowHostilePresence { get; set; } = true;
 
     public bool ShowAetherCompass { get; set; } = true;
     public bool ShowSearchForItemResults { get; set; } = true;
+    public bool ShowItemSearchResults { get; set; } = true;
+    public bool ShowLocationSearchResults { get; set; } = true;
     public bool ShowExploratoryVoyage { get; set; } = true;
     public bool ShowSubaquaticVoyage { get; set; } = true;
+    public bool ShowSubaquaticVoyageEmbarked { get; set; } = true;
+    public bool ShowSubaquaticVoyageFinalized { get; set; } = true;
+    public bool ShowSubaquaticVoyageOtherFinalized { get; set; } = true;
+    public bool ShowSubaquaticVoyageReturned { get; set; } = true;
+    public bool ShowSubmarinePartRepaired { get; set; } = true;
+    public bool ShowSubmarineAttainsRank { get; set; } = true;
+    public bool ShowSubmarineRetrievalLevelsIncreased { get; set; } = true;
     public bool ShowFreeCompanyMessageBook { get; set; } = true;
     public bool ShowPersonalMessageBook { get; set; } = true;
     public bool ShowVistaMessages { get; set; } = true;
     public bool ShowTryOnGlamour { get; set; } = true;
+    public bool ShowTryOnGlamourCast { get; set; } = true;
+    public bool ShowGlamourPlateProjected { get; set; } = true;
+    public bool ShowGlamourPlatePartialApply { get; set; } = true;
+    public bool ShowGearDyeApplied { get; set; } = true;
+    public bool ShowGearsetGlamourRestoreFailed { get; set; } = true;
+    public bool ShowGlamourAltered { get; set; } = true;
     public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowJobChange { get; set; } = false;
@@ -174,6 +197,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowVendorSellMessages { get; set; } = false;
     public bool ShowVendorPurchaseMessages { get; set; } = false;
     public bool ShowMarketBoardMessages { get; set; } = false;
+    public bool ShowMarketItemSold { get; set; } = false;
+    public bool ShowMarketAllItemsSold { get; set; } = false;
     public bool ShowMarketGilEntrustedToRetainer { get; set; } = false;
     public bool ShowMarketBoardSellingStatus { get; set; } = false;
     public bool BetterMarketBoardSaleMessage { get; set; } = true;
@@ -192,9 +217,14 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = false;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = false;
+    public bool ShowAttuneAetheryte { get; set; } = false;
     public bool ShowActiveHelpEntry { get; set; } = false;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
+    public bool ShowChangesDiscarded { get; set; } = false;
+    public bool ShowChangesLost { get; set; } = false;
+    public bool ShowTripleTriadAllowed { get; set; } = false;
+    public bool ShowTripleTriadNotAllowed { get; set; } = false;
     public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
 
     #endregion
@@ -281,6 +311,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowOtherSynthesis { get; set; } = false;
     public bool ShowCraftingSynthesisComplete { get; set; } = true;
     public bool ShowAllOtherCrafting { get; set; } = false;
+    public bool ShowCraftingBuffEffectGain { get; set; } = false;
+    public bool ShowCraftingAbleToExecute { get; set; } = false;
 
     #endregion
 
@@ -304,12 +336,16 @@ public class Configuration : IPluginConfiguration
     public bool ShowLureMessages { get; set; } = true;
     public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
+    public bool ShowGatheringBuffEffectGain { get; set; } = false;
     public bool ShowStellarMissionMessages { get; set; } = false;
+    public bool ShowStellarAbleToExecute { get; set; } = false;
+    public bool ShowStellarBuffEffectGain { get; set; } = false;
 
     public bool ShowCosmicExplorationMessages { get; set; } = false;
 
     public bool ShowCosmicRewards { get; set; } = false;
     public bool ShowCosmicContainers { get; set; } = false;
+    public bool ShowCosmicClassPointsAndDataset { get; set; } = false;
     public bool ShowCosmicDailyProgress { get; set; } = false;
 
     #endregion

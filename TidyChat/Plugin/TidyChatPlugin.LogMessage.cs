@@ -40,8 +40,8 @@ public sealed partial class TidyChatPlugin
                 try
                 {
                     string text = message.FormatLogMessageForDebugging().ExtractText();
-                    RememberLogMessageTexts(_allowedByLogMessage, text);
-                    RememberLogMessageAllow(message.LogMessageId);
+                    RememberLogMessageChatMatchTexts(_allowedByLogMessage, text);
+                    RememberCustomFilterLogMessageAllow(message.LogMessageId);
                 }
                 catch
                 {
@@ -213,7 +213,7 @@ public sealed partial class TidyChatPlugin
             try
             {
                 string text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageTexts(_blockedByLogMessage, text);
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
             }
             catch
             {
@@ -260,7 +260,7 @@ public sealed partial class TidyChatPlugin
         try
         {
             string text = message.FormatLogMessageForDebugging().ExtractText();
-            RememberLogMessageTexts(_allowedByLogMessage, text);
+            RememberLogMessageChatMatchTexts(_allowedByLogMessage, text);
             RememberLogMessageAllow(message.LogMessageId);
         }
         catch
@@ -301,15 +301,13 @@ public sealed partial class TidyChatPlugin
         }
 
         if (normalizedText.Length == 0)
-            return !rule.ShouldBlock && idMatches;
+            return rule.ShouldBlock && idMatches &&
+                   LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId);
 
         if (LogMessageCatalog.IsLoaded && idMatches && LogMessageCatalog.Matches(logMessageId, normalizedText))
             return true;
 
         if (RuleMatchesText(rule, normalizedText, debugMode))
-            return true;
-
-        if (!rule.ShouldBlock && idMatches)
             return true;
 
         if (debugMode)
@@ -331,12 +329,32 @@ public sealed partial class TidyChatPlugin
         }
     }
 
+    private void RememberLogMessageChatMatchTexts(HashSet<string> target, string text)
+    {
+        RememberLogMessageTexts(target, text);
+        if (string.IsNullOrWhiteSpace(Configuration.PlayerName)) return;
+
+        string lower = text.Trim().ToLower(CultureInfo.CurrentCulture);
+        if (lower.Length == 0) return;
+        RememberLogMessageTexts(target, NormalizeInput.ReplaceName(lower, Configuration));
+    }
+
+    private void RememberCustomFilterLogMessageAllow(uint logMessageId)
+    {
+        lock(_logMessageLock)
+        {
+            _pendingCustomFilterLogMessageIds.TryGetValue(logMessageId, out int count);
+            _pendingCustomFilterLogMessageIds[logMessageId] = count + 1;
+        }
+    }
+
     public static void ClearPendingLogMessageAllows()
     {
         if (TidyChatPlugin.Instance is not { } plugin) return;
         lock(plugin._logMessageLock)
         {
             plugin._pendingAllowedLogMessageIds.Clear();
+            plugin._pendingCustomFilterLogMessageIds.Clear();
         }
     }
 
@@ -355,23 +373,35 @@ public sealed partial class TidyChatPlugin
 
         lock(_logMessageLock)
         {
-            if (_pendingAllowedLogMessageIds.Count == 0) return false;
-
-            uint[] pendingIds = _pendingAllowedLogMessageIds.Keys.ToArray();
-            foreach(uint id in pendingIds)
-            {
-                if (!_pendingAllowedLogMessageIds.TryGetValue(id, out int count) || count <= 0) continue;
-                if (!PendingLogMessageTextMatches(id, normalizedText)) continue;
-                if (!Rules.LogMessageIdToRules.TryGetValue(id, out IReadOnlyList<LocalizedFilterRule>? pendingRules) ||
-                    !TryResolveLogMessageAllow(id, normalizedText, pendingRules, Configuration, out bool stillAllow,
-                        out _) ||
-                    !stillAllow)
-                    continue;
-
-                if (count == 1) _pendingAllowedLogMessageIds.Remove(id);
-                else _pendingAllowedLogMessageIds[id] = count - 1;
+            if (TryConsumePendingLogMessageAllowFrom(_pendingCustomFilterLogMessageIds, normalizedText,
+                    requireShowRuleAllow: false))
                 return true;
-            }
+
+            return TryConsumePendingLogMessageAllowFrom(_pendingAllowedLogMessageIds, normalizedText,
+                requireShowRuleAllow: true);
+        }
+    }
+
+    private bool TryConsumePendingLogMessageAllowFrom(Dictionary<uint, int> pendingById, string normalizedText,
+        bool requireShowRuleAllow)
+    {
+        if (pendingById.Count == 0) return false;
+
+        uint[] pendingIds = pendingById.Keys.ToArray();
+        foreach(uint id in pendingIds)
+        {
+            if (!pendingById.TryGetValue(id, out int count) || count <= 0) continue;
+            if (!PendingLogMessageTextMatches(id, normalizedText)) continue;
+            if (requireShowRuleAllow &&
+                (!Rules.LogMessageIdToRules.TryGetValue(id, out IReadOnlyList<LocalizedFilterRule>? pendingRules) ||
+                 !TryResolveLogMessageAllow(id, normalizedText, pendingRules, Configuration, out bool stillAllow,
+                     out _) ||
+                 !stillAllow))
+                continue;
+
+            if (count == 1) pendingById.Remove(id);
+            else pendingById[id] = count - 1;
+            return true;
         }
 
         return false;
@@ -440,7 +470,7 @@ public sealed partial class TidyChatPlugin
             try
             {
                 string text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageTexts(_blockedByLogMessage, text);
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
             }
             catch
             {
