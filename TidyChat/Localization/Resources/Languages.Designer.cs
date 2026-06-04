@@ -821,15 +821,15 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
-        internal static string EconomyTab_ShortenMarketBoardSale {
+        internal static string GeneralTab_ImprovedMarketBoardSale {
             get {
-                return ResourceManager.GetString("EconomyTab_ShortenMarketBoardSale", resourceCulture);
+                return ResourceManager.GetString("GeneralTab_ImprovedMarketBoardSale", resourceCulture);
             }
         }
         
-        internal static string EconomyTab_ShortenMarketBoardSaleHelpMarker {
+        internal static string GeneralTab_ImprovedMarketBoardSaleHelpMarker {
             get {
-                return ResourceManager.GetString("EconomyTab_ShortenMarketBoardSaleHelpMarker", resourceCulture);
+                return ResourceManager.GetString("GeneralTab_ImprovedMarketBoardSaleHelpMarker", resourceCulture);
             }
         }
         

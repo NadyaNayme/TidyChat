@@ -183,6 +183,15 @@ internal static class GeneralTab
             }
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker);
+
+            bool betterMarketBoardSaleMessage = configuration.BetterMarketBoardSaleMessage;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedMarketBoardSale, ref betterMarketBoardSaleMessage))
+            {
+                configuration.BetterMarketBoardSaleMessage = betterMarketBoardSaleMessage;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarketBoardSaleHelpMarker);
         }
 
         ImGuiHelpers.ScaledDummy(30f);

@@ -79,15 +79,6 @@ internal static class EconomyTab
             if (configuration.ShowMarketBoardMessages)
             {
                 ImGui.Indent();
-                bool betterMarketBoardSaleMessage = configuration.BetterMarketBoardSaleMessage;
-                if (ImGui.Checkbox(Languages.EconomyTab_ShortenMarketBoardSale, ref betterMarketBoardSaleMessage))
-                {
-                    configuration.BetterMarketBoardSaleMessage = betterMarketBoardSaleMessage;
-                    configuration.OnSettingChanged();
-                }
-
-                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShortenMarketBoardSaleHelpMarker);
-
                 bool showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
                 if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardSellingStatus, ref showMarketBoardSellingStatus))
                 {
