@@ -104,6 +104,13 @@ public static class ServerAnnouncementCatalog
         return L10N.Language is not ClientLanguage.English && EnglishWorldGreeting.IsMatch(normalizedText);
     }
 
+    /// <summary>&quot;Welcome to FINAL FANTASY XIV&quot; (or localized equivalent), not &quot;Welcome to &lt;world&gt;!&quot;.</summary>
+    public static bool IsGenericGameWelcome(string normalizedText)
+    {
+        if (!IsWorldGreeting(normalizedText)) return false;
+        return ContainsAnyMarker(normalizedText, L10N.Get(ChatStrings.GenericGameWelcomeMarkers));
+    }
+
     public static bool IsAnnouncement(string normalizedText)
     {
         if (string.IsNullOrWhiteSpace(normalizedText)) return false;

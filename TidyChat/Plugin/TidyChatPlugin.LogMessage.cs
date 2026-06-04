@@ -74,10 +74,20 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
-        if (!TryGetNormalizedLogMessageText(message, out string normalizedLogText) ||
-            !TryResolveLogMessageAllow(message.LogMessageId, normalizedLogText, matchingRules,
-                out bool shouldAllow, out string? decidingRuleName))
+        if (!TryGetNormalizedLogMessageText(message, out string normalizedLogText))
+        {
+            if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
+                ApplyLogMessageBlock(message, "Show rule off (ID-only)");
             return;
+        }
+
+        if (!TryResolveLogMessageAllow(message.LogMessageId, normalizedLogText, matchingRules,
+                out bool shouldAllow, out string? decidingRuleName))
+        {
+            if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
+                ApplyLogMessageBlock(message, matchingRules[0].Name);
+            return;
+        }
 
         if (shouldAllow)
         {
@@ -88,24 +98,8 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
-        if (Configuration.EnableDebugMode)
-        {
-            Log.Debug($"[LogMessage] BLOCKED by {decidingRuleName} (ID: {message.LogMessageId})");
-            try
-            {
-                string text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageTexts(_blockedByLogMessage, text);
-            }
-            catch
-            {
-                /* non-critical */
-            }
-            return;
-        }
-
-        message.PreventOriginal();
-        Interlocked.Increment(ref _sessionBlockedMessages);
-        if (Configuration.BetterNoviceNetworkMessage)
+        ApplyLogMessageBlock(message, decidingRuleName);
+        if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
         {
             if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
                 ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
@@ -186,8 +180,9 @@ public sealed partial class TidyChatPlugin
 
         if (inactiveShowMatch)
         {
-            // Error-channel LogMessages are always shown unless an active hide rule matched above.
-            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.Error)
+            // Generic error lines stay visible; dedicated show toggles still block when off.
+            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.Error &&
+                !HasDedicatedShowRuleForLogMessageId(logMessageId, matchingRules))
             {
                 shouldAllow = true;
                 decidingRuleName = inactiveShowRule;
@@ -199,7 +194,65 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
+        if (ShouldDefaultBlockDedicatedShowLogMessage(logMessageId, matchingRules, configuration))
+        {
+            shouldAllow = false;
+            decidingRuleName = matchingRules.FirstOrDefault(r => r.ShouldBlock && !r.BlockWhenActive)?.Name ??
+                               matchingRules[0].Name;
+            return true;
+        }
+
         return false;
+    }
+
+    private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName)
+    {
+        if (Configuration.EnableDebugMode)
+        {
+            Log.Debug($"[LogMessage] BLOCKED by {decidingRuleName} (ID: {message.LogMessageId})");
+            try
+            {
+                string text = message.FormatLogMessageForDebugging().ExtractText();
+                RememberLogMessageTexts(_blockedByLogMessage, text);
+            }
+            catch
+            {
+                /* non-critical */
+            }
+
+            return;
+        }
+
+        message.PreventOriginal();
+        Interlocked.Increment(ref _sessionBlockedMessages);
+    }
+
+    private static bool HasDedicatedShowRuleForLogMessageId(uint logMessageId,
+        IReadOnlyList<LocalizedFilterRule> matchingRules)
+    {
+        foreach(LocalizedFilterRule rule in matchingRules)
+        {
+            if (rule.BlockWhenActive) continue;
+            if (rule.LogMessageIds?.Contains(logMessageId) == true) return true;
+        }
+
+        return false;
+    }
+
+    private static bool ShouldDefaultBlockDedicatedShowLogMessage(uint logMessageId,
+        IReadOnlyList<LocalizedFilterRule> matchingRules, Configuration configuration)
+    {
+        Rules.UpdateIsActiveStates(configuration);
+        bool hasDedicatedShowRule = false;
+        foreach(LocalizedFilterRule rule in matchingRules)
+        {
+            if (rule.BlockWhenActive) continue;
+            if (rule.LogMessageIds?.Contains(logMessageId) != true) continue;
+            hasDedicatedShowRule = true;
+            if (!rule.ShouldBlock) return false;
+        }
+
+        return hasDedicatedShowRule;
     }
 
     private void RememberLogMessageAllowDecision(ILogMessage message, string? decidingRuleName)
@@ -238,6 +291,14 @@ public sealed partial class TidyChatPlugin
         }
 
         bool idMatches = rule.LogMessageIds?.Contains(logMessageId) == true;
+
+        if (idMatches && rule.ShouldBlock)
+        {
+            if (LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId))
+                return true;
+            if (normalizedText.Length == 0)
+                return true;
+        }
 
         if (normalizedText.Length == 0)
             return !rule.ShouldBlock && idMatches;

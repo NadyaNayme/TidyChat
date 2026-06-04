@@ -286,6 +286,15 @@ internal static class CraftingGatheringTab
 
             UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicRewardsHelpMarker);
 
+            bool showCosmicContainers = configuration.ShowCosmicContainers;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicContainers, ref showCosmicContainers))
+            {
+                configuration.ShowCosmicContainers = showCosmicContainers;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.CraftingGatheringTab_ShowCosmicContainersHelpMarker);
+
             bool showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowCosmicDailyProgress,
                     ref showCosmicDailyProgress))

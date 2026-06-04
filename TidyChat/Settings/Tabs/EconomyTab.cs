@@ -76,6 +76,15 @@ internal static class EconomyTab
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardMessagesHelpMarker);
 
+            bool showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
+            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
+            {
+                configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
+
             if (configuration.ShowMarketBoardMessages)
             {
                 ImGui.Indent();

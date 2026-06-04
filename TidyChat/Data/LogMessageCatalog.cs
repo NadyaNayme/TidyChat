@@ -143,7 +143,7 @@ public static class LogMessageCatalog
     public static bool MatchesSharedObtainSeal(string normalizedText, LocalizedStrings? markerFallback = null)
     {
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
-        return ItemMarkerCatalog.MatchesAnySeal(normalizedText, markerFallback);
+        return ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText);
     }
 
     public static bool MatchesSharedObtainGil(string normalizedText, LocalizedStrings? markerFallback = null)

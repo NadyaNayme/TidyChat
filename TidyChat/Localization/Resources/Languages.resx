@@ -302,10 +302,16 @@ It&apos;s recommended to keep it at 50 or lower.</value>
     <value>Mech op directives, red alerts, and related cosmic exploration system lines.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicRewards" xml:space="preserve">
-    <value>Show cosmic currency and container obtains</value>
+    <value>Show cosmic currency obtains</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
-    <value>Cosmic currency (obtain and receive), containers, and reward obtains.</value>
+    <value>eg. You obtain 10 cosmocredits. You obtain 27 Auxesia credits. Cosmic fortunes and Oizys dronebits. Does not include cosmic containers or class points.</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowCosmicContainers" xml:space="preserve">
+    <value>Show cosmic container obtains</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowCosmicContainersHelpMarker" xml:space="preserve">
+    <value>eg. You obtain 5 cosmic containers. Separate from cosmocredits and Auxesia credits above. Needs Filter Obtained on General for Loot Notice lines.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
     <value>Show synthesis complete message</value>
@@ -404,22 +410,44 @@ It&apos;s recommended to keep it at 50 or lower.</value>
     <value>Market board</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardMessages" xml:space="preserve">
-    <value>Show Market board &amp; retainer listings</value>
+    <value>Show market board item sales</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>Item sold (after fees), all listings sold, and sale gil entrusted to your retainer. Use Listing started and stopped below, or Improved market board lines on the General tab. Sold lines use the retainer-sale channel; other lines use System.</value>
+    <value>Per-item sold lines when a listing completes, plus the “all items on this retainer sold” summary. Shown on the Retainer Sale channel (not System).
+
+Example: The bolt of vanya silk sold for 4,228 gil.
+
+Requires Filter System channel on General (Retainer Sale is filtered together with System). Not tied to “gil entrusted to retainer” below. Optional on General: Improved market board &amp; retainer sale lines for shorter wording.</value>
+  </data>
+  <data name="EconomyTab_ShowMarketGilEntrustedToRetainer" xml:space="preserve">
+    <value>Show market sale gil entrusted to retainer</value>
+  </data>
+  <data name="EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker" xml:space="preserve">
+    <value>After sales finish, the lump-sum gil sent to your retainer’s inventory (not the per-item sold line).
+
+Example: Gil earned from market sales has been entrusted to your retainer.
+
+System channel. You can hide this while still showing item sold lines above. Requires Filter System channel on General.</value>
   </data>
   <data name="GeneralTab_ImprovedMarketBoardSale" xml:space="preserve">
     <value>Improved market board &amp; retainer sale lines</value>
   </data>
   <data name="GeneralTab_ImprovedMarketBoardSaleHelpMarker" xml:space="preserve">
-    <value>eg. Pair of titanium gold saberfangs sold for 757 gil. Replaces the long “put up for sale in … markets” line. Requires Show market board &amp; retainer listings on the Economy tab (and Filter System / retainer-sale channels on General).</value>
+    <value>Rewrites the default long sold message into a short item + gil line.
+
+Example: Pair of titanium gold saberfangs sold for 757 gil.
+
+Shows those sold lines when enabled (Filter System channel on General). Does not show “gil entrusted to your retainer”—turn on Show market sale gil entrusted to retainer on Economy only if you want that follow-up line.</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardSellingStatus" xml:space="preserve">
     <value>Show Listing started and stopped</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardSellingStatusHelpMarker" xml:space="preserve">
-    <value>eg. You are now selling items in the Limsa Lominsa markets. / You are no longer selling items in the Limsa Lominsa markets.</value>
+    <value>When you begin or end selling on a retainer’s market board listing.
+
+Examples: You are now selling items in the Limsa Lominsa markets. / You are no longer selling items in the … markets.
+
+System channel. Shown only when Show market board item sales is enabled. Requires Filter System channel on General.</value>
   </data>
   <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
     <value>Show Gil spent confirmation</value>
@@ -1121,7 +1149,7 @@ It can be considered spammy in deep dungeons.</value>
     <value>Relic &amp; mail</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
-    <value>Condensed (keep &quot;Welcome to &lt;world&gt;&quot;)</value>
+    <value>Condensed (world line only)</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_HideAll" xml:space="preserve">
     <value>Hide all</value>
@@ -1146,9 +1174,10 @@ It can be considered spammy in deep dungeons.</value>
 
 Show all — unchanged.
 Hide all — suppress the whole block.
-Condensed — keep only the &quot;Welcome to &lt;world&gt;!&quot; line.
-Login only — full block on login, nothing on world-hops.
-Login full, condensed on world-hop — full block on login, only the welcome line on world-hops.
+Condensed — keep only the per-world &quot;Welcome to &lt;world&gt;!&quot; line; hide the generic &quot;Welcome to FINAL FANTASY XIV&quot; title and event promos.
+Login only — full block on login (including the FFXIV title), nothing on world-hops.
+Login full, condensed on world-hop — full block on login; on world-hops, only the per-world welcome line (not the FFXIV title or promos).
+The generic FFXIV welcome line is hidden in every mode except Show all, Hide phishing only, and the login portion of Login only / Login full, condensed on world-hop.
 Hide phishing warning only — keeps greeting and event text, removes the phishing/congestion warning and its URL.
 
 Uses localized matching for all supported client languages (EN/DE/FR/JP).</value>

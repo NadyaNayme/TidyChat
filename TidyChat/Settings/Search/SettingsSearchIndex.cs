@@ -364,6 +364,7 @@ internal static class SettingsSearchIndex
                 "ShowStellarMissionMessages" or
                 "ShowCosmicExplorationMessages" or
                 "ShowCosmicRewards" or
+                "ShowCosmicContainers" or
                 "ShowCosmicDailyProgress")
             return Languages.ConfigWindow_CraftingGatheringTabHeader;
 

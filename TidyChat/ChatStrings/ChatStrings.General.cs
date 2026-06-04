@@ -41,6 +41,14 @@ public static partial class ChatStrings
         ]
     };
 
+    /// <summary>Login block title line (not the per-world &quot;Welcome to &lt;world&gt;!&quot; hop line).</summary>
+    public static readonly LocalizedStrings GenericGameWelcomeMarkers = new()
+    {
+        Eng = ["final fantasy", "ffxiv"],
+        Deu = ["final fantasy"],
+        Fra = ["l'univers", "final fantasy"],
+        Jpn = ["ファイナルファンタジー"]
+    };
 
     /// <see href="https://github.com/NadyaNayme/TidyChat/issues/122">Phishing warning lines in the login block</see>
     public static readonly LocalizedStrings ServerPhishingMarkers = new()

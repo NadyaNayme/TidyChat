@@ -278,7 +278,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCosmicRewards",
+            Name = "ShowCosmicContainers",
             SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -335,6 +335,17 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [10873],
+            StringChecks = [ChatStrings.AuxesiaCreditObtain],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicRewards",
+            SettingsTab = "Gathering",
+            Channel = ChatType.System,
+            IsActive = true,
             LogMessageIds = [11331],
             StringChecks = [ChatStrings.OizysDronebitsObtain],
             Pattern = PatternKind.StringMatch,
@@ -353,7 +364,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCosmicRewards",
+            Name = "ShowCosmicContainers",
             SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,
             IsActive = true,
@@ -385,6 +396,15 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             StringChecks = [ChatStrings.OizysCreditObtain],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowCosmicRewards",
+            SettingsTab = "Gathering",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            StringChecks = [ChatStrings.AuxesiaCreditObtain],
             Pattern = PatternKind.StringMatch
         },
         new()

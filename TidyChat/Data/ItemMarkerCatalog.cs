@@ -58,15 +58,19 @@ public static class ItemMarkerCatalog
         return false;
     }
 
-    public static bool MatchesAnySeal(string normalizedText, LocalizedStrings? fallback = null)
+    public static bool MatchesAnyGrandCompanySeal(string normalizedText)
     {
+        if (Matches(Items.AlliedSeals, normalizedText) ||
+            Matches(Items.CenturioSeals, normalizedText) ||
+            Matches(Items.WolfMarks, normalizedText))
+            return false;
+
         if (Matches(Items.StormSeal, normalizedText) ||
             Matches(Items.SerpentSeal, normalizedText) ||
             Matches(Items.FlameSeal, normalizedText))
             return true;
 
-        if (fallback is { } fb) return L10N.Get(fb).All(normalizedText.Contains);
-        return false;
+        return L10N.Get(ChatRegexStrings.ObtainedSeals).IsMatch(normalizedText);
     }
 
     public static class Items

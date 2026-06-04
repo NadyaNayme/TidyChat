@@ -161,7 +161,7 @@ public sealed partial class TidyChatPlugin
 
         if (rule.ObtainMarkerAnySeal)
         {
-            matched = LogMessageCatalog.MatchesSharedObtainSeal(normalizedText, markerFallback);
+            matched = LogMessageCatalog.MatchesSharedObtainSeal(normalizedText);
             if (debugMode && matched) Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + GC seal marker");
             return true;
         }

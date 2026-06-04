@@ -174,6 +174,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowVendorSellMessages { get; set; } = false;
     public bool ShowVendorPurchaseMessages { get; set; } = false;
     public bool ShowMarketBoardMessages { get; set; } = false;
+    public bool ShowMarketGilEntrustedToRetainer { get; set; } = false;
     public bool ShowMarketBoardSellingStatus { get; set; } = false;
     public bool BetterMarketBoardSaleMessage { get; set; } = true;
     public bool ShowGilWithdrawnMessage { get; set; } = false;
@@ -308,6 +309,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowCosmicExplorationMessages { get; set; } = false;
 
     public bool ShowCosmicRewards { get; set; } = false;
+    public bool ShowCosmicContainers { get; set; } = false;
     public bool ShowCosmicDailyProgress { get; set; } = false;
 
     #endregion

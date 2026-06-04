@@ -7,7 +7,8 @@ namespace TidyChat;
 internal static class CosmicShowRuleHelper
 {
     public static bool IsCosmicRuleName(string ruleName) =>
-        ruleName is "ShowCosmicExplorationMessages" or "ShowCosmicRewards" or "ShowCosmicDailyProgress";
+        ruleName is "ShowCosmicExplorationMessages" or "ShowCosmicRewards" or "ShowCosmicContainers" or
+        "ShowCosmicDailyProgress";
 
     /// <summary>
     /// True when the message is cosmic-related and the matching Crafting/Gathering toggle is enabled.
@@ -17,7 +18,9 @@ internal static class CosmicShowRuleHelper
 
     public static string? GetActiveCosmicRuleName(Configuration config, string normalizedText)
     {
-        if (config.ShowCosmicRewards && MatchesCosmicRewardText(normalizedText))
+        if (config.ShowCosmicContainers && MatchesCosmicContainerText(normalizedText))
+            return "ShowCosmicContainers";
+        if (config.ShowCosmicRewards && MatchesCosmicCurrencyRewardText(normalizedText))
             return "ShowCosmicRewards";
         if (config.ShowCosmicExplorationMessages && MatchesCosmicExplorationText(normalizedText))
             return "ShowCosmicExplorationMessages";
@@ -35,14 +38,20 @@ internal static class CosmicShowRuleHelper
     public static bool ShouldDeferGeneralObtainRule(Configuration config, string normalizedText) =>
         ShouldDeferNonCosmicRule(config, normalizedText);
 
-    public static bool MatchesCosmicRewardText(string normalizedText) =>
+    public static bool MatchesCosmicContainerText(string normalizedText) =>
+        MatchesAnyMarker(normalizedText, ChatStrings.CosmicContainerObtain);
+
+    public static bool MatchesCosmicCurrencyRewardText(string normalizedText) =>
         MatchesAnyMarker(normalizedText,
             ChatStrings.CosmocreditObtain,
             ChatStrings.CosmocreditReceived,
             ChatStrings.OizysCreditObtain,
+            ChatStrings.AuxesiaCreditObtain,
             ChatStrings.OizysDronebitsObtain,
-            ChatStrings.CosmicFortuneObtain,
-            ChatStrings.CosmicContainerObtain);
+            ChatStrings.CosmicFortuneObtain);
+
+    public static bool MatchesCosmicRewardText(string normalizedText) =>
+        MatchesCosmicContainerText(normalizedText) || MatchesCosmicCurrencyRewardText(normalizedText);
 
     public static bool MatchesCosmicExplorationText(string normalizedText) =>
         MatchesAnyMarker(normalizedText, ChatStrings.MechOpDirective, ChatStrings.CosmicRedAlert);

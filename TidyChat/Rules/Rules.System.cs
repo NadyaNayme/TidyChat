@@ -1271,7 +1271,7 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowMarketBoardMessages",
+            Name = "ShowMarketGilEntrustedToRetainer",
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,

@@ -337,8 +337,8 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [1300],
-            StringChecks = [ChatStrings.ObtainSealsMarker],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatRegexStrings.ObtainedSeals],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
@@ -349,7 +349,6 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            StringChecks = [ChatStrings.ObtainSealsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnySeal = true

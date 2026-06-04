@@ -26,7 +26,8 @@ public sealed partial class TidyChatPlugin
 
         // Respect OnLogMessage allow/block before server-announcement filtering (#122 / open issue #1).
         if (CheckLogMessageDecision(message, chatType, rawTextValue, extractedTextValue, normalizedText)) return;
-        bool protectedByShowRule = IsProtectedByActiveShowRule(chatType, normalizedText, out _);
+        bool protectedByShowRule =
+            IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
         if (HandleServerAnnouncements(message, chatType, normalizedText, protectedByShowRule)) return;
         if (!ChannelCanBeFiltered(chatType)) return;
         if (HandleEmoteFilters(message, chatType)) return;

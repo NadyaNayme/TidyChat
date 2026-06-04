@@ -69,6 +69,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <summary>EN client uses &quot;Auxesia credits&quot; for the same reward line as Oizys credits.</summary>
+    public static readonly LocalizedStrings AuxesiaCreditObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "auxesia"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
 
     public static readonly LocalizedStrings OizysDronebitsObtain = new()
     {
@@ -112,12 +121,13 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/Item/20?pretty=true">GC Seals (Storm)</see>
     /// <seealso href="https://xivapi.com/Item/21?pretty=true">Serpent Seals</see>
     /// <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
+    /// <remarks>Legacy string fallback only. GC matching uses item markers + <see cref="ChatRegexStrings.ObtainedSeals"/>.</remarks>
     public static readonly LocalizedStrings ObtainSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["seals"],
-        Deu = ["talern"],
-        Fra = ["sceaux"]
+        Eng = ["storm seals"],
+        Deu = ["flottentaler"],
+        Fra = ["sceaux des immortels"]
     };
 
 

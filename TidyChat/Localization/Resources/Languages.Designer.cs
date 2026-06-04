@@ -629,6 +629,18 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string CraftingGatheringTab_ShowCosmicContainers {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCosmicContainers", resourceCulture);
+            }
+        }
+        
+        internal static string CraftingGatheringTab_ShowCosmicContainersHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowCosmicContainersHelpMarker", resourceCulture);
+            }
+        }
+        
         internal static string CraftingGatheringTab_ShowCraftingSynthesisComplete {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowCraftingSynthesisComplete", resourceCulture);
@@ -878,6 +890,18 @@ namespace TidyChat.Localization.Resources {
         internal static string EconomyTab_ShowMarketBoardMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("EconomyTab_ShowMarketBoardMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string EconomyTab_ShowMarketGilEntrustedToRetainer {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowMarketGilEntrustedToRetainer", resourceCulture);
+            }
+        }
+        
+        internal static string EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker", resourceCulture);
             }
         }
         

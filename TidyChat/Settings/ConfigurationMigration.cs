@@ -46,6 +46,18 @@ internal static class ConfigurationMigration
             config.ShowMarketBoardSellingStatus = true;
     }
 
+    public static void ApplyVersion6(Configuration config)
+    {
+        if (config.ShowMarketBoardMessages)
+            config.ShowMarketGilEntrustedToRetainer = true;
+    }
+
+    public static void ApplyVersion8(Configuration config)
+    {
+        if (config.ShowCosmicRewards)
+            config.ShowCosmicContainers = true;
+    }
+
     private static void ApplyLegacyJsonFields(Configuration config, IDalamudPluginInterface pluginInterface)
     {
         string path = Path.Combine(pluginInterface.ConfigDirectory.FullName, $"{pluginInterface.InternalName}.json");
