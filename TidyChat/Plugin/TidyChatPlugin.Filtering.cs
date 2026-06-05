@@ -179,7 +179,7 @@ public sealed partial class TidyChatPlugin
                 RuleMatcher.MatchesText(rule, normalizedText, false) &&
                 !(chatType is ChatType.LootNotice &&
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
-                      Configuration.HideTomestoneById)))
+                      Configuration.HideTomestoneById, TribalCurrencies, Configuration.HideTribalCurrencyById)))
             {
                 TrackMatchedRule(matchedRules, rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
@@ -262,7 +262,7 @@ public sealed partial class TidyChatPlugin
 
         if (chatType is ChatType.LootNotice &&
             ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
-                Configuration.HideTomestoneById))
+                Configuration.HideTomestoneById, TribalCurrencies, Configuration.HideTribalCurrencyById))
         {
             isBlocked = true;
             if (Configuration.EnableDebugMode)
@@ -378,6 +378,17 @@ public sealed partial class TidyChatPlugin
             if (Configuration.EnableDebugMode)
             {
                 Log.Debug($"BLOCKED (tomestone): {message.Message}");
+            }
+            isHandled = true;
+        }
+
+        if (chatType is ChatType.LootNotice &&
+            ObtainCurrencyHelper.ShouldHideTribalCurrency(Configuration, normalizedText, TribalCurrencies,
+                Configuration.HideTribalCurrencyById))
+        {
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug($"BLOCKED (allied society currency): {message.Message}");
             }
             isHandled = true;
         }
