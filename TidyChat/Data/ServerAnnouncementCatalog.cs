@@ -1,9 +1,8 @@
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using Dalamud.Game;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
-using Lumina.Text.ReadOnly;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 namespace TidyChat.Data;
 
 public static class ServerAnnouncementCatalog
@@ -81,7 +80,7 @@ public static class ServerAnnouncementCatalog
                     $"{DiscoveredPhishingTokens.Count} phishing fragment(s) from Lumina.");
             }
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             log.Error("ServerAnnouncementCatalog: failed to load: " + ex);
         }
@@ -89,9 +88,12 @@ public static class ServerAnnouncementCatalog
 
     public static bool IsWorldGreeting(string normalizedText)
     {
-        if (string.IsNullOrWhiteSpace(normalizedText)) return false;
+        if (string.IsNullOrWhiteSpace(normalizedText))
+        {
+            return false;
+        }
 
-        Regex pattern = L10N.Language switch
+        var pattern = L10N.Language switch
         {
             ClientLanguage.German => GermanWorldGreeting,
             ClientLanguage.French => FrenchWorldGreeting,
@@ -99,35 +101,65 @@ public static class ServerAnnouncementCatalog
             _ => EnglishWorldGreeting
         };
 
-        if (pattern.IsMatch(normalizedText)) return true;
+        if (pattern.IsMatch(normalizedText))
+        {
+            return true;
+        }
 
         return L10N.Language is not ClientLanguage.English && EnglishWorldGreeting.IsMatch(normalizedText);
     }
 
     public static bool IsGenericGameWelcome(string normalizedText)
     {
-        if (!IsWorldGreeting(normalizedText)) return false;
+        if (!IsWorldGreeting(normalizedText))
+        {
+            return false;
+        }
         return ContainsAnyMarker(normalizedText, L10N.Get(ChatStrings.GenericGameWelcomeMarkers));
     }
 
     public static bool IsAnnouncement(string normalizedText)
     {
-        if (string.IsNullOrWhiteSpace(normalizedText)) return false;
-        if (IsWorldGreeting(normalizedText)) return true;
-        if (IsPhishingWarning(normalizedText)) return true;
-        if (normalizedText.Contains("sqex.to", StringComparison.OrdinalIgnoreCase)) return true;
+        if (string.IsNullOrWhiteSpace(normalizedText))
+        {
+            return false;
+        }
+        if (IsWorldGreeting(normalizedText))
+        {
+            return true;
+        }
+        if (IsPhishingWarning(normalizedText))
+        {
+            return true;
+        }
+        if (normalizedText.Contains("sqex.to", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
 
-        if (ContainsAnyMarker(normalizedText, L10N.Get(ChatStrings.ServerAnnouncementMarkers))) return true;
+        if (ContainsAnyMarker(normalizedText, L10N.Get(ChatStrings.ServerAnnouncementMarkers)))
+        {
+            return true;
+        }
         return ContainsAnyDiscovered(normalizedText, DiscoveredAnnouncementTokens);
     }
 
     public static bool IsPhishingWarning(string normalizedText)
     {
-        if (string.IsNullOrWhiteSpace(normalizedText)) return false;
+        if (string.IsNullOrWhiteSpace(normalizedText))
+        {
+            return false;
+        }
 
-        string stripped = StripFormatNoise(normalizedText);
-        if (MatchesPhishingPatterns(stripped)) return true;
-        if (ContainsAnyMarker(stripped, L10N.Get(ChatStrings.ServerPhishingMarkers))) return true;
+        var stripped = StripFormatNoise(normalizedText);
+        if (MatchesPhishingPatterns(stripped))
+        {
+            return true;
+        }
+        if (ContainsAnyMarker(stripped, L10N.Get(ChatStrings.ServerPhishingMarkers)))
+        {
+            return true;
+        }
         return ContainsAnyDiscovered(stripped, DiscoveredPhishingTokens);
     }
 
@@ -139,11 +171,14 @@ public static class ServerAnnouncementCatalog
 
     private static bool ContainsAnyMarker(string normalizedText, string[] markers)
     {
-        foreach(string marker in markers)
+        foreach (var marker in markers)
         {
             if (marker.Contains(' ', StringComparison.Ordinal))
             {
-                if (normalizedText.Contains(marker, StringComparison.OrdinalIgnoreCase)) return true;
+                if (normalizedText.Contains(marker, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
             }
             else if (ContainsTokenAsWord(normalizedText, marker))
             {
@@ -156,10 +191,16 @@ public static class ServerAnnouncementCatalog
 
     private static bool ContainsAnyDiscovered(string normalizedText, IEnumerable<string> tokens)
     {
-        foreach(string token in tokens)
+        foreach (var token in tokens)
         {
-            if (DiscoveredTokenDenylist.Contains(token)) continue;
-            if (ContainsTokenAsWord(normalizedText, token)) return true;
+            if (DiscoveredTokenDenylist.Contains(token))
+            {
+                continue;
+            }
+            if (ContainsTokenAsWord(normalizedText, token))
+            {
+                return true;
+            }
         }
 
         return false;
@@ -167,15 +208,21 @@ public static class ServerAnnouncementCatalog
 
     private static bool ContainsTokenAsWord(string normalizedText, string token)
     {
-        if (string.IsNullOrEmpty(token)) return false;
-
-        int index = 0;
-        while((index = normalizedText.IndexOf(token, index, StringComparison.OrdinalIgnoreCase)) >= 0)
+        if (string.IsNullOrEmpty(token))
         {
-            bool startOk = index == 0 || !IsWordChar(normalizedText[index - 1]);
-            int endIndex = index + token.Length;
-            bool endOk = endIndex >= normalizedText.Length || !IsWordChar(normalizedText[endIndex]);
-            if (startOk && endOk) return true;
+            return false;
+        }
+
+        var index = 0;
+        while ((index = normalizedText.IndexOf(token, index, StringComparison.OrdinalIgnoreCase)) >= 0)
+        {
+            var startOk = index == 0 || !IsWordChar(normalizedText[index - 1]);
+            var endIndex = index + token.Length;
+            var endOk = endIndex >= normalizedText.Length || !IsWordChar(normalizedText[endIndex]);
+            if (startOk && endOk)
+            {
+                return true;
+            }
             index++;
         }
 
@@ -192,9 +239,9 @@ public static class ServerAnnouncementCatalog
             return;
         }
 
-        foreach(Lobby row in rows)
+        foreach (var row in rows)
         {
-            ReadOnlySeString template = row.Text;
+            var template = row.Text;
             ScanTemplateText(template.ExtractText());
         }
     }
@@ -207,9 +254,9 @@ public static class ServerAnnouncementCatalog
             return;
         }
 
-        foreach(Addon row in rows)
+        foreach (var row in rows)
         {
-            ReadOnlySeString template = row.Text;
+            var template = row.Text;
             ScanTemplateText(template.ExtractText());
         }
     }
@@ -222,29 +269,38 @@ public static class ServerAnnouncementCatalog
             return;
         }
 
-        foreach(LogMessage row in rows)
+        foreach (var row in rows)
         {
-            ReadOnlySeString template = row.Text;
+            var template = row.Text;
             ScanTemplateText(template.ExtractText());
         }
     }
 
     private static void AddHardcodedPhishingFallbacks()
     {
-        foreach(string token in HardcodedPhishingTokens)
+        foreach (var token in HardcodedPhishingTokens)
+        {
             DiscoveredPhishingTokens.Add(token);
+        }
     }
 
     private static void ScanTemplateText(string? text)
     {
-        if (string.IsNullOrWhiteSpace(text)) return;
+        if (string.IsNullOrWhiteSpace(text))
+        {
+            return;
+        }
 
-        string lower = text.ToLowerInvariant();
+        var lower = text.ToLowerInvariant();
         if (lower.Contains("sqex.to", StringComparison.Ordinal))
+        {
             AddDiscoveredTokens(text, DiscoveredAnnouncementTokens);
+        }
 
         if (IsPhishingSeed(lower))
+        {
             AddDiscoveredTokens(text, DiscoveredPhishingTokens);
+        }
     }
 
     private static bool IsPhishingSeed(string lower) =>
@@ -255,10 +311,16 @@ public static class ServerAnnouncementCatalog
 
     private static void AddDiscoveredTokens(string templateText, HashSet<string> target)
     {
-        foreach(string token in LogMessageTokenExtractor.Extract(templateText))
+        foreach (var token in LogMessageTokenExtractor.Extract(templateText))
         {
-            if (token.Length < MinDiscoveredTokenLength) continue;
-            if (DiscoveredTokenDenylist.Contains(token)) continue;
+            if (token.Length < MinDiscoveredTokenLength)
+            {
+                continue;
+            }
+            if (DiscoveredTokenDenylist.Contains(token))
+            {
+                continue;
+            }
             target.Add(token);
         }
     }

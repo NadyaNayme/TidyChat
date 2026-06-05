@@ -6,28 +6,28 @@ internal static class PartyDutyTab
     {
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_PartyAndInviteDropdownHeader, ImGuiTreeNodeFlags.DefaultOpen))
         {
-            bool showInviteSent = configuration.ShowInviteSent;
+            var showInviteSent = configuration.ShowInviteSent;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSentPartyInviteMessages, ref showInviteSent))
             {
                 configuration.ShowInviteSent = showInviteSent;
                 configuration.OnSettingChanged();
             }
 
-            bool showInviteeJoins = configuration.ShowInviteeJoins;
+            var showInviteeJoins = configuration.ShowInviteeJoins;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowJoiningPartyMessages, ref showInviteeJoins))
             {
                 configuration.ShowInviteeJoins = showInviteeJoins;
                 configuration.OnSettingChanged();
             }
 
-            bool showLeftParty = configuration.ShowLeftParty;
+            var showLeftParty = configuration.ShowLeftParty;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLeftPartyMessages, ref showLeftParty))
             {
                 configuration.ShowLeftParty = showLeftParty;
                 configuration.OnSettingChanged();
             }
 
-            bool showPartyDisband = configuration.ShowPartyDisband;
+            var showPartyDisband = configuration.ShowPartyDisband;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowDisbandAndDissolveMessages, ref showPartyDisband))
             {
                 configuration.ShowPartyDisband = showPartyDisband;
@@ -35,28 +35,28 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            bool showInvitedBy = configuration.ShowInvitedBy;
+            var showInvitedBy = configuration.ShowInvitedBy;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowReceivedPartyInvitationMessages, ref showInvitedBy))
             {
                 configuration.ShowInvitedBy = showInvitedBy;
                 configuration.OnSettingChanged();
             }
 
-            bool showJoinParty = configuration.ShowJoinParty;
+            var showJoinParty = configuration.ShowJoinParty;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowJoinedCrossworldPartyMessages, ref showJoinParty))
             {
                 configuration.ShowJoinParty = showJoinParty;
                 configuration.OnSettingChanged();
             }
 
-            bool showPartyInformation = configuration.ShowPartyInformation;
+            var showPartyInformation = configuration.ShowPartyInformation;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowPartyObjectiveOnJoin, ref showPartyInformation))
             {
                 configuration.ShowPartyInformation = showPartyInformation;
                 configuration.OnSettingChanged();
             }
 
-            bool showOfferedTeleport = configuration.ShowOfferedTeleport;
+            var showOfferedTeleport = configuration.ShowOfferedTeleport;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowTeleportOfferFromPartyMessages, ref showOfferedTeleport))
             {
                 configuration.ShowOfferedTeleport = showOfferedTeleport;
@@ -66,7 +66,7 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_PartyToolsDropdownHeader))
         {
-            bool showCountdownTime = configuration.ShowCountdownTime;
+            var showCountdownTime = configuration.ShowCountdownTime;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCountdownMessages, ref showCountdownTime))
             {
                 configuration.ShowCountdownTime = showCountdownTime;
@@ -75,7 +75,7 @@ internal static class PartyDutyTab
 
             UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCountdownMessagesHelpMarker);
 
-            bool showReadyChecks = configuration.ShowReadyChecks;
+            var showReadyChecks = configuration.ShowReadyChecks;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowReadycheckMessages, ref showReadyChecks))
             {
                 configuration.ShowReadyChecks = showReadyChecks;
@@ -87,7 +87,7 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_PartyLeadershipDropdownHeader))
         {
-            bool showNowLeaderOf = configuration.ShowNowLeaderOf;
+            var showNowLeaderOf = configuration.ShowNowLeaderOf;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowNowALeader, ref showNowLeaderOf))
             {
                 configuration.ShowNowLeaderOf = showNowLeaderOf;
@@ -96,7 +96,7 @@ internal static class PartyDutyTab
 
             UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowNowALeaderHelpMarker);
 
-            bool showSealedOff = configuration.ShowSealedOff;
+            var showSealedOff = configuration.ShowSealedOff;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSealedOffMessages, ref showSealedOff))
             {
                 configuration.ShowSealedOff = showSealedOff;
@@ -108,7 +108,7 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DutyFinderDropdownHeader))
         {
-            bool showDutyFinder = configuration.ShowDutyFinder;
+            var showDutyFinder = configuration.ShowDutyFinder;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowDutyFinderMessages, ref showDutyFinder))
             {
                 configuration.ShowDutyFinder = showDutyFinder;
@@ -120,7 +120,7 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DutyCompletionDropdownHeader))
         {
-            bool showCompletionTime = configuration.ShowCompletionTime;
+            var showCompletionTime = configuration.ShowCompletionTime;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletionTimeForUnrestrictedParty, ref showCompletionTime))
             {
                 configuration.ShowCompletionTime = showCompletionTime;
@@ -132,7 +132,7 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_RetainerAndVentureDropdownHeader))
         {
-            bool completedVenture = configuration.ShowCompletedVenture;
+            var completedVenture = configuration.ShowCompletedVenture;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
             {
                 configuration.ShowCompletedVenture = completedVenture;
@@ -141,7 +141,7 @@ internal static class PartyDutyTab
 
             UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletedVentureHelpMarker);
 
-            bool retainerVentureMessages = configuration.ShowRetainerVentureMessages;
+            var retainerVentureMessages = configuration.ShowRetainerVentureMessages;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
             {
                 configuration.ShowRetainerVentureMessages = retainerVentureMessages;
@@ -153,21 +153,21 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_FreeCompanyDropdownHeader))
         {
-            bool showUserLogins = configuration.ShowUserLogins;
+            var showUserLogins = configuration.ShowUserLogins;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLoginMessages, ref showUserLogins))
             {
                 configuration.ShowUserLogins = showUserLogins;
                 configuration.OnSettingChanged();
             }
 
-            bool showUserLogouts = configuration.ShowUserLogouts;
+            var showUserLogouts = configuration.ShowUserLogouts;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLogoutMessages, ref showUserLogouts))
             {
                 configuration.ShowUserLogouts = showUserLogouts;
                 configuration.OnSettingChanged();
             }
 
-            bool showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
+            var showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages,
                     ref showFreeCompanyMessageBook))
             {
@@ -175,7 +175,7 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            bool showExploratoryVoyage = configuration.ShowExploratoryVoyage;
+            var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAirshipVoyageMessages, ref showExploratoryVoyage))
             {
                 configuration.ShowExploratoryVoyage = showExploratoryVoyage;
@@ -186,7 +186,7 @@ internal static class PartyDutyTab
 
             SettingsTabLayout.DrawSectionSeparator();
 
-            bool showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
+            var showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineVoyageMessages, ref showSubaquaticVoyage))
             {
                 configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
@@ -201,42 +201,42 @@ internal static class PartyDutyTab
 
         if (ImGui.CollapsingHeader(Languages.PartyDutyTab_DeepDungeonsDropdownHeader))
         {
-            bool showCairnGlows = configuration.ShowCairnGlows;
+            var showCairnGlows = configuration.ShowCairnGlows;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCairnOfPassageGlowsMessages, ref showCairnGlows))
             {
                 configuration.ShowCairnGlows = showCairnGlows;
                 configuration.OnSettingChanged();
             }
 
-            bool showRestoresLifeToFallen = configuration.ShowRestoresLifeToFallen;
+            var showRestoresLifeToFallen = configuration.ShowRestoresLifeToFallen;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCairnOfReturnUsedMessages, ref showRestoresLifeToFallen))
             {
                 configuration.ShowRestoresLifeToFallen = showRestoresLifeToFallen;
                 configuration.OnSettingChanged();
             }
 
-            bool showCairnActivates = configuration.ShowCairnActivates;
+            var showCairnActivates = configuration.ShowCairnActivates;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCairnOfPassageActivatedMessages, ref showCairnActivates))
             {
                 configuration.ShowCairnActivates = showCairnActivates;
                 configuration.OnSettingChanged();
             }
 
-            bool showTransference = configuration.ShowTransference;
+            var showTransference = configuration.ShowTransference;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowTransferenceMessages, ref showTransference))
             {
                 configuration.ShowTransference = showTransference;
                 configuration.OnSettingChanged();
             }
 
-            bool showAetherpoolIncrease = configuration.ShowAetherpoolIncrease;
+            var showAetherpoolIncrease = configuration.ShowAetherpoolIncrease;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAetherpoolIncreasesMessages, ref showAetherpoolIncrease))
             {
                 configuration.ShowAetherpoolIncrease = showAetherpoolIncrease;
                 configuration.OnSettingChanged();
             }
 
-            bool showAetherpoolUnchanged = configuration.ShowAetherpoolUnchanged;
+            var showAetherpoolUnchanged = configuration.ShowAetherpoolUnchanged;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAetherpoolRemainsUnchangedMessages,
                     ref showAetherpoolUnchanged))
             {
@@ -244,14 +244,14 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            bool showObtainedPomander = configuration.ShowObtainedPomander;
+            var showObtainedPomander = configuration.ShowObtainedPomander;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowObtainedPomanderMessages, ref showObtainedPomander))
             {
                 configuration.ShowObtainedPomander = showObtainedPomander;
                 configuration.OnSettingChanged();
             }
 
-            bool showTrapTriggered = configuration.ShowTrapTriggered;
+            var showTrapTriggered = configuration.ShowTrapTriggered;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowTrapTriggeredMessages, ref showTrapTriggered))
             {
                 configuration.ShowTrapTriggered = showTrapTriggered;
@@ -260,28 +260,28 @@ internal static class PartyDutyTab
 
             UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker);
 
-            bool showPomanderEffects = configuration.ShowPomanderEffects;
+            var showPomanderEffects = configuration.ShowPomanderEffects;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowPomanderEffectsMessages, ref showPomanderEffects))
             {
                 configuration.ShowPomanderEffects = showPomanderEffects;
                 configuration.OnSettingChanged();
             }
 
-            bool showFloorNumber = configuration.ShowFloorNumber;
+            var showFloorNumber = configuration.ShowFloorNumber;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowFloorNumberMessages, ref showFloorNumber))
             {
                 configuration.ShowFloorNumber = showFloorNumber;
                 configuration.OnSettingChanged();
             }
 
-            bool showSenseAccursedHoard = configuration.ShowSenseAccursedHoard;
+            var showSenseAccursedHoard = configuration.ShowSenseAccursedHoard;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAccursedHoardSensedMessages, ref showSenseAccursedHoard))
             {
                 configuration.ShowSenseAccursedHoard = showSenseAccursedHoard;
                 configuration.OnSettingChanged();
             }
 
-            bool showDoNotSenseAccursedHoard = configuration.ShowDoNotSenseAccursedHoard;
+            var showDoNotSenseAccursedHoard = configuration.ShowDoNotSenseAccursedHoard;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAccursedHoardNotSensedMessages,
                     ref showDoNotSenseAccursedHoard))
             {
@@ -289,7 +289,7 @@ internal static class PartyDutyTab
                 configuration.OnSettingChanged();
             }
 
-            bool showDiscoverAccursedHoard = configuration.ShowDiscoverAccursedHoard;
+            var showDiscoverAccursedHoard = configuration.ShowDiscoverAccursedHoard;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAccursedHoardDiscoveredMessages,
                     ref showDiscoverAccursedHoard))
             {
@@ -301,7 +301,7 @@ internal static class PartyDutyTab
 
     private static void DrawSubaquaticSubOptions(Configuration configuration)
     {
-        bool showEmbarked = configuration.ShowSubaquaticVoyageEmbarked;
+        var showEmbarked = configuration.ShowSubaquaticVoyageEmbarked;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageEmbarked, ref showEmbarked))
         {
             configuration.ShowSubaquaticVoyageEmbarked = showEmbarked;
@@ -310,7 +310,7 @@ internal static class PartyDutyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageEmbarkedHelpMarker);
 
-        bool showFinalized = configuration.ShowSubaquaticVoyageFinalized;
+        var showFinalized = configuration.ShowSubaquaticVoyageFinalized;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageFinalized, ref showFinalized))
         {
             configuration.ShowSubaquaticVoyageFinalized = showFinalized;
@@ -319,7 +319,7 @@ internal static class PartyDutyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageFinalizedHelpMarker);
 
-        bool showOtherFinalized = configuration.ShowSubaquaticVoyageOtherFinalized;
+        var showOtherFinalized = configuration.ShowSubaquaticVoyageOtherFinalized;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageOtherFinalized, ref showOtherFinalized))
         {
             configuration.ShowSubaquaticVoyageOtherFinalized = showOtherFinalized;
@@ -328,7 +328,7 @@ internal static class PartyDutyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageOtherFinalizedHelpMarker);
 
-        bool showReturned = configuration.ShowSubaquaticVoyageReturned;
+        var showReturned = configuration.ShowSubaquaticVoyageReturned;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubaquaticVoyageReturned, ref showReturned))
         {
             configuration.ShowSubaquaticVoyageReturned = showReturned;
@@ -337,7 +337,7 @@ internal static class PartyDutyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubaquaticVoyageReturnedHelpMarker);
 
-        bool showPartRepaired = configuration.ShowSubmarinePartRepaired;
+        var showPartRepaired = configuration.ShowSubmarinePartRepaired;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarinePartRepaired, ref showPartRepaired))
         {
             configuration.ShowSubmarinePartRepaired = showPartRepaired;
@@ -346,7 +346,7 @@ internal static class PartyDutyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarinePartRepairedHelpMarker);
 
-        bool showAttainsRank = configuration.ShowSubmarineAttainsRank;
+        var showAttainsRank = configuration.ShowSubmarineAttainsRank;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineAttainsRank, ref showAttainsRank))
         {
             configuration.ShowSubmarineAttainsRank = showAttainsRank;
@@ -355,7 +355,7 @@ internal static class PartyDutyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineAttainsRankHelpMarker);
 
-        bool showRetrievalLevels = configuration.ShowSubmarineRetrievalLevelsIncreased;
+        var showRetrievalLevels = configuration.ShowSubmarineRetrievalLevelsIncreased;
         if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineRetrievalLevelsIncreased, ref showRetrievalLevels))
         {
             configuration.ShowSubmarineRetrievalLevelsIncreased = showRetrievalLevels;

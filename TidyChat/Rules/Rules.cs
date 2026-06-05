@@ -239,12 +239,15 @@ public static partial class Rules
     private static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> BuildLogMessageIdLookup()
     {
         var mutable = new Dictionary<uint, List<LocalizedFilterRule>>();
-        foreach(LocalizedFilterRule rule in _rules)
+        foreach (var rule in _rules)
         {
-            if (rule.LogMessageIds is null) continue;
-            foreach(uint id in rule.LogMessageIds)
+            if (rule.LogMessageIds is null)
             {
-                if (!mutable.TryGetValue(id, out List<LocalizedFilterRule>? list))
+                continue;
+            }
+            foreach (var id in rule.LogMessageIds)
+            {
+                if (!mutable.TryGetValue(id, out var list))
                 {
                     list = [];
                     mutable[id] = list;
@@ -253,16 +256,18 @@ public static partial class Rules
             }
         }
         var result = new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>(mutable.Count);
-        foreach(KeyValuePair<uint, List<LocalizedFilterRule>> kvp in mutable)
+        foreach (var kvp in mutable)
+        {
             result[kvp.Key] = kvp.Value;
+        }
         return result;
     }
 
     public static void UpdateIsActiveStates(Configuration config)
     {
-        foreach(LocalizedFilterRule rule in _rules)
+        foreach (var rule in _rules)
         {
-            if (ConfigAccessors.TryGetValue(rule.Name, out Func<Configuration, bool>? accessor))
+            if (ConfigAccessors.TryGetValue(rule.Name, out var accessor))
             {
                 rule.IsActive = accessor(config);
                 rule.Error = null;
@@ -279,11 +284,16 @@ public static partial class Rules
     public static IEnumerable<uint> EnumerateReferencedLogMessageIds()
     {
         var seen = new HashSet<uint>();
-        foreach(LocalizedFilterRule rule in _rules)
+        foreach (var rule in _rules)
         {
-            if (rule.LogMessageIds is null) continue;
-            foreach(uint id in rule.LogMessageIds)
+            if (rule.LogMessageIds is null)
+            {
+                continue;
+            }
+            foreach (var id in rule.LogMessageIds)
+            {
                 seen.Add(id);
+            }
         }
         return seen;
     }

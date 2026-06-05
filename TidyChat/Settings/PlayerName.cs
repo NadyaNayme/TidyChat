@@ -28,10 +28,15 @@ public class PlayerName
 
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
     {
-        if (string.IsNullOrEmpty(FirstName) || !IsRegexShape(FirstName)) return null;
+        if (string.IsNullOrEmpty(FirstName) || !IsRegexShape(FirstName))
+        {
+            return null;
+        }
 
         if (string.Equals(_compiledPatternSource, FirstName, StringComparison.Ordinal))
+        {
             return _compiledPattern;
+        }
 
         _compiledPatternSource = FirstName;
         try
@@ -41,7 +46,7 @@ public class PlayerName
                 RegexOptions.Compiled | RegexOptions.IgnoreCase | RegexOptions.ExplicitCapture,
                 TimeSpan.FromSeconds(1));
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             _compiledPattern = null;
             onError?.Invoke(FirstName, ex);
@@ -51,18 +56,25 @@ public class PlayerName
 
     public uint[] GetLogMessageIds()
     {
-        if (string.IsNullOrEmpty(FirstName) || !IsLogMessageIdShape(FirstName)) return [];
+        if (string.IsNullOrEmpty(FirstName) || !IsLogMessageIdShape(FirstName))
+        {
+            return [];
+        }
 
         if (string.Equals(_parsedLogMessageIdSource, FirstName, StringComparison.Ordinal))
+        {
             return _parsedLogMessageIds ?? [];
+        }
 
         _parsedLogMessageIdSource = FirstName;
         try
         {
-            string[] parts = FirstName[1..].Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            var parts = FirstName[1..].Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
             _parsedLogMessageIds = new uint[parts.Length];
-            for (int j = 0; j < parts.Length; j++)
+            for (var j = 0; j < parts.Length; j++)
+            {
                 _parsedLogMessageIds[j] = uint.Parse(parts[j], CultureInfo.InvariantCulture);
+            }
         }
         catch
         {

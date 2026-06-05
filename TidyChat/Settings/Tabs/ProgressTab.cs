@@ -11,7 +11,7 @@ internal static class ProgressTab
         if (ImGui.CollapsingHeader(Languages.ProgressTab_ExperienceAndLevelsDropdownHeader,
                 ImGuiTreeNodeFlags.DefaultOpen))
         {
-            bool showGainExperience = configuration.ShowGainExperience;
+            var showGainExperience = configuration.ShowGainExperience;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowExperienceGainMessages, ref showGainExperience))
             {
                 configuration.ShowGainExperience = showGainExperience;
@@ -20,7 +20,7 @@ internal static class ProgressTab
 
             ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
-            bool showGainPvpExp = configuration.ShowGainPvpExp;
+            var showGainPvpExp = configuration.ShowGainPvpExp;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowPVPExpGainMessages, ref showGainPvpExp))
             {
                 configuration.ShowGainPvpExp = showGainPvpExp;
@@ -29,7 +29,7 @@ internal static class ProgressTab
 
             ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPVPExpGainMessagesHelpMarker);
 
-            bool showLevelUps = configuration.ShowLevelUps;
+            var showLevelUps = configuration.ShowLevelUps;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowLevelUpMessages, ref showLevelUps))
             {
                 configuration.ShowLevelUps = showLevelUps;
@@ -38,7 +38,7 @@ internal static class ProgressTab
 
             ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker);
 
-            bool showOtherLevelUps = configuration.ShowOtherLevelUps;
+            var showOtherLevelUps = configuration.ShowOtherLevelUps;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
             {
                 configuration.ShowOtherLevelUps = showOtherLevelUps;
@@ -50,21 +50,21 @@ internal static class ProgressTab
 
         if (ImGui.CollapsingHeader(Languages.ProgressTab_DutyRewardsDropdownHeader))
         {
-            bool showFirstClearAward = configuration.ShowFirstClearAward;
+            var showFirstClearAward = configuration.ShowFirstClearAward;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowFirstClearAward, ref showFirstClearAward))
             {
                 configuration.ShowFirstClearAward = showFirstClearAward;
                 configuration.OnSettingChanged();
             }
 
-            bool showSecondChanceAward = configuration.ShowSecondChanceAward;
+            var showSecondChanceAward = configuration.ShowSecondChanceAward;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowSecondChanceAward, ref showSecondChanceAward))
             {
                 configuration.ShowSecondChanceAward = showSecondChanceAward;
                 configuration.OnSettingChanged();
             }
 
-            bool hideRouletteBonus = configuration.HideRouletteBonus;
+            var hideRouletteBonus = configuration.HideRouletteBonus;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
                     ref hideRouletteBonus))
             {
@@ -74,7 +74,7 @@ internal static class ProgressTab
 
             UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
 
-            bool hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
+            var hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
             {
                 configuration.HideAdventurerInNeedBonus = hideAdventurerInNeedBonus;
@@ -86,7 +86,7 @@ internal static class ProgressTab
 
         if (ImGui.CollapsingHeader(Languages.ProgressTab_QuestAndAchievementsDropdownHeader))
         {
-            bool showQuestProgress = configuration.ShowQuestProgress;
+            var showQuestProgress = configuration.ShowQuestProgress;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowQuestProgressMessages, ref showQuestProgress))
             {
                 configuration.ShowQuestProgress = showQuestProgress;
@@ -95,7 +95,7 @@ internal static class ProgressTab
 
             UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowQuestProgressMessagesHelpMarker);
 
-            bool showEarnAchievement = configuration.ShowEarnAchievement;
+            var showEarnAchievement = configuration.ShowEarnAchievement;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
             {
                 configuration.ShowEarnAchievement = showEarnAchievement;
@@ -104,7 +104,7 @@ internal static class ProgressTab
 
             ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker);
 
-            bool showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
+            var showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
                     ref showOtherEarnedAchievement))
             {
@@ -117,7 +117,7 @@ internal static class ProgressTab
 
         if (ImGui.CollapsingHeader(Languages.ProgressTab_UnlocksDropdownHeader))
         {
-            bool showAbilityUnlocks = configuration.ShowAbilityUnlocks;
+            var showAbilityUnlocks = configuration.ShowAbilityUnlocks;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
             {
                 configuration.ShowAbilityUnlocks = showAbilityUnlocks;
@@ -126,7 +126,7 @@ internal static class ProgressTab
 
             UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
 
-            bool showMountMessages = configuration.ShowMountMessages;
+            var showMountMessages = configuration.ShowMountMessages;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowMountMessages, ref showMountMessages))
             {
                 configuration.ShowMountMessages = showMountMessages;

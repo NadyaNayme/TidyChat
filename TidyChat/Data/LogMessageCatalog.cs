@@ -1,14 +1,13 @@
-using System.Collections.Generic;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
-using Lumina.Text.ReadOnly;
+using System.Collections.Generic;
 using TidyChat.Translation.Data;
 namespace TidyChat.Data;
 
 public static class LogMessageCatalog
 {
 
-    public static readonly uint[]SharedObtainTemplateIds = [657, 1259];
+    public static readonly uint[] SharedObtainTemplateIds = [657, 1259];
 
     private static readonly Dictionary<uint, string[]> WordTokensById = new();
     private static readonly Dictionary<uint, string> TemplateTextById = new();
@@ -40,19 +39,24 @@ public static class LogMessageCatalog
 
         try
         {
-            foreach(LogMessage row in dataManager.GetExcelSheet<LogMessage>())
+            foreach (var row in dataManager.GetExcelSheet<LogMessage>())
             {
                 LogKindById[row.RowId] = (byte)row.LogKind.RowId;
 
-                ReadOnlySeString template = row.Text;
-                string text = template.ExtractText().Trim();
-                if (string.IsNullOrWhiteSpace(text)) continue;
+                var template = row.Text;
+                var text = template.ExtractText().Trim();
+                if (string.IsNullOrWhiteSpace(text))
+                {
+                    continue;
+                }
 
                 TemplateTextById[row.RowId] = text;
 
-                string[] tokens = LogMessageTokenExtractor.Extract(text);
+                var tokens = LogMessageTokenExtractor.Extract(text);
                 if (tokens.Length > 0)
+                {
                     WordTokensById[row.RowId] = tokens;
+                }
             }
 
             IsLoaded = true;
@@ -60,7 +64,7 @@ public static class LogMessageCatalog
                 $"LogMessageCatalog: loaded {TemplateTextById.Count} LogMessage templates " +
                 $"({WordTokensById.Count} with match tokens) from Lumina.");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             log.Error("LogMessageCatalog: failed to load LogMessage sheet: " + ex);
         }
@@ -68,7 +72,7 @@ public static class LogMessageCatalog
 
     public static bool HasTokens(uint logMessageId) =>
         WordTokensById.ContainsKey(logMessageId) ||
-        (TemplateTextById.TryGetValue(logMessageId, out string? template) &&
+        (TemplateTextById.TryGetValue(logMessageId, out var template) &&
          LogMessageTokenExtractor.Extract(template).Length > 0);
 
     public static bool HasTemplate(uint logMessageId) => TemplateTextById.ContainsKey(logMessageId);
@@ -76,10 +80,13 @@ public static class LogMessageCatalog
     public static bool TryGetCompactLine(uint logMessageId, out string line)
     {
         line = string.Empty;
-        if (!TemplateTextById.TryGetValue(logMessageId, out string? template)) return false;
+        if (!TemplateTextById.TryGetValue(logMessageId, out var template))
+        {
+            return false;
+        }
 
-        string firstLine = template.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)[0];
-        foreach(string prefix in CompactLinePrefixes)
+        var firstLine = template.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)[0];
+        foreach (var prefix in CompactLinePrefixes)
         {
             if (firstLine.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
             {
@@ -88,47 +95,71 @@ public static class LogMessageCatalog
             }
         }
 
-        if (string.IsNullOrWhiteSpace(firstLine)) return false;
+        if (string.IsNullOrWhiteSpace(firstLine))
+        {
+            return false;
+        }
         line = firstLine;
         return true;
     }
 
     public static bool Matches(uint logMessageId, string normalizedText)
     {
-        if (!WordTokensById.TryGetValue(logMessageId, out string[]? tokens) &&
-            TemplateTextById.TryGetValue(logMessageId, out string? template))
+        if (!WordTokensById.TryGetValue(logMessageId, out var tokens) &&
+            TemplateTextById.TryGetValue(logMessageId, out var template))
         {
             tokens = LogMessageTokenExtractor.Extract(template);
         }
 
-        if (tokens is null || tokens.Length == 0) return false;
+        if (tokens is null || tokens.Length == 0)
+        {
+            return false;
+        }
         return tokens.All(normalizedText.Contains);
     }
 
     public static bool MatchesAny(IEnumerable<uint> logMessageIds, string normalizedText)
     {
-        foreach(uint id in logMessageIds)
+        foreach (var id in logMessageIds)
         {
-            if (Matches(id, normalizedText)) return true;
+            if (Matches(id, normalizedText))
+            {
+                return true;
+            }
         }
         return false;
     }
 
     public static ChatType? GetChatTypeForId(uint logMessageId)
     {
-        if (!LogKindById.TryGetValue(logMessageId, out byte logKind)) return null;
+        if (!LogKindById.TryGetValue(logMessageId, out var logKind))
+        {
+            return null;
+        }
         return (ChatType)logKind;
     }
 
     public static bool RuleAppliesOnChannel(LocalizedFilterRule rule, ChatType chatType, string normalizedText)
     {
-        if (chatType == rule.Channel || chatType is ChatType.Echo) return true;
-        if (rule.LogMessageIds is not { Length: > 0 }) return false;
-
-        foreach(uint id in rule.LogMessageIds)
+        if (chatType == rule.Channel || chatType is ChatType.Echo)
         {
-            if (GetChatTypeForId(id) is not ChatType idChannel || idChannel != chatType) continue;
-            if (Matches(id, normalizedText)) return true;
+            return true;
+        }
+        if (rule.LogMessageIds is not { Length: > 0 })
+        {
+            return false;
+        }
+
+        foreach (var id in rule.LogMessageIds)
+        {
+            if (GetChatTypeForId(id) is not ChatType idChannel || idChannel != chatType)
+            {
+                continue;
+            }
+            if (Matches(id, normalizedText))
+            {
+                return true;
+            }
         }
 
         return false;
@@ -136,41 +167,65 @@ public static class LogMessageCatalog
 
     public static bool MatchesSharedObtain(string normalizedText, uint markerItemId, LocalizedStrings? markerFallback = null)
     {
-        if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
+        if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
+        {
+            return false;
+        }
         return ItemMarkerCatalog.Matches(markerItemId, normalizedText, markerFallback);
     }
 
     public static bool MatchesSharedObtainSeal(string normalizedText, LocalizedStrings? markerFallback = null)
     {
-        if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
+        if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
+        {
+            return false;
+        }
         return ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText);
     }
 
     public static bool MatchesSharedObtainGil(string normalizedText, LocalizedStrings? markerFallback = null)
     {
-        if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
-        if (markerFallback is { } fb) return L10N.Get(fb).All(normalizedText.Contains);
+        if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
+        {
+            return false;
+        }
+        if (markerFallback is { } fb)
+        {
+            return L10N.Get(fb).All(normalizedText.Contains);
+        }
         return normalizedText.Contains("gil", StringComparison.Ordinal);
     }
 
     public static bool MatchesSharedObtainMgp(string normalizedText, LocalizedStrings? markerFallback = null)
     {
-        if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
-        if (markerFallback is { } fb) return L10N.Get(fb).All(normalizedText.Contains);
+        if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
+        {
+            return false;
+        }
+        if (markerFallback is { } fb)
+        {
+            return L10N.Get(fb).All(normalizedText.Contains);
+        }
         return normalizedText.Contains("mgp", StringComparison.Ordinal);
     }
 
     public static bool MatchesSharedObtainElemental(string normalizedText, bool clustersOnly, LocalizedStrings? markerFallback = null,
         bool requireSharedTemplate = true)
     {
-        if (requireSharedTemplate && !MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
-        uint[] itemIds = clustersOnly ? ItemMarkerCatalog.Items.ElementalClusters : ItemMarkerCatalog.Items.ElementalAll;
+        if (requireSharedTemplate && !MatchesAny(SharedObtainTemplateIds, normalizedText))
+        {
+            return false;
+        }
+        var itemIds = clustersOnly ? ItemMarkerCatalog.Items.ElementalClusters : ItemMarkerCatalog.Items.ElementalAll;
         return ItemMarkerCatalog.MatchesAny(itemIds, normalizedText, markerFallback);
     }
 
     public static bool MatchesSharedObtainTribal(string normalizedText, LocalizedStrings? markerFallback = null)
     {
-        if (!MatchesAny(SharedObtainTemplateIds, normalizedText)) return false;
+        if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
+        {
+            return false;
+        }
         return ItemMarkerCatalog.MatchesAny(ItemMarkerCatalog.Items.TribalCurrency, normalizedText, markerFallback);
     }
 
@@ -179,14 +234,20 @@ public static class LogMessageCatalog
     {
         if (markerFallback is { } fb)
         {
-            if (!L10N.Get(fb).All(normalizedText.Contains)) return false;
+            if (!L10N.Get(fb).All(normalizedText.Contains))
+            {
+                return false;
+            }
         }
         else if (!normalizedText.Contains("materials", StringComparison.Ordinal))
         {
             return false;
         }
 
-        if (requireSharedTemplate) return MatchesAny(SharedObtainTemplateIds, normalizedText);
+        if (requireSharedTemplate)
+        {
+            return MatchesAny(SharedObtainTemplateIds, normalizedText);
+        }
         return normalizedText.Contains("you obtain", StringComparison.Ordinal) ||
                normalizedText.Contains("you obtains", StringComparison.Ordinal);
     }
@@ -196,13 +257,19 @@ public static class LogMessageCatalog
 
     public static bool MatchesOtherPlayerObtain(string normalizedText, LocalizedStrings? markerFallback = null)
     {
-        if (IsPlayerObtainMessage(normalizedText)) return false;
+        if (IsPlayerObtainMessage(normalizedText))
+        {
+            return false;
+        }
 
         if (markerFallback is { } fb)
         {
-            foreach(string token in L10N.Get(fb))
+            foreach (var token in L10N.Get(fb))
             {
-                if (normalizedText.Contains(token, StringComparison.Ordinal)) return true;
+                if (normalizedText.Contains(token, StringComparison.Ordinal))
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -212,23 +279,38 @@ public static class LogMessageCatalog
 
     public static bool MatchesWithFallback(uint logMessageId, string normalizedText, LocalizedStrings fallback)
     {
-        if (HasTokens(logMessageId) && Matches(logMessageId, normalizedText)) return true;
+        if (HasTokens(logMessageId) && Matches(logMessageId, normalizedText))
+        {
+            return true;
+        }
         return L10N.Get(fallback).All(normalizedText.Contains);
     }
 
     public static void ValidateRuleIds(IEnumerable<uint> referencedIds, IPluginLog log)
     {
-        if (!IsLoaded) return;
+        if (!IsLoaded)
+        {
+            return;
+        }
 
         var missing = new List<uint>();
         var seen = new HashSet<uint>();
-        foreach(uint id in referencedIds)
+        foreach (var id in referencedIds)
         {
-            if (!seen.Add(id)) continue;
-            if (!TemplateTextById.ContainsKey(id) && !RuntimeOnlyIds.Contains(id)) missing.Add(id);
+            if (!seen.Add(id))
+            {
+                continue;
+            }
+            if (!TemplateTextById.ContainsKey(id) && !RuntimeOnlyIds.Contains(id))
+            {
+                missing.Add(id);
+            }
         }
 
-        if (missing.Count == 0) return;
+        if (missing.Count == 0)
+        {
+            return;
+        }
 
         missing.Sort();
         log.Warning(
@@ -238,20 +320,31 @@ public static class LogMessageCatalog
 
     public static void ValidateRuleChannels(IEnumerable<LocalizedFilterRule> rules, IPluginLog log)
     {
-        if (!IsLoaded) return;
-
-        foreach(LocalizedFilterRule rule in rules)
+        if (!IsLoaded)
         {
-            if (rule.LogMessageIds is not { Length: > 0 }) continue;
+            return;
+        }
+
+        foreach (var rule in rules)
+        {
+            if (rule.LogMessageIds is not { Length: > 0 })
+            {
+                continue;
+            }
 
             ChatType? sheetChannel = null;
-            bool mixedKinds = false;
-            foreach(uint id in rule.LogMessageIds)
+            var mixedKinds = false;
+            foreach (var id in rule.LogMessageIds)
             {
-                if (!LogKindById.TryGetValue(id, out byte logKind)) continue;
+                if (!LogKindById.TryGetValue(id, out var logKind))
+                {
+                    continue;
+                }
                 var channel = (ChatType)logKind;
                 if (sheetChannel is null)
+                {
                     sheetChannel = channel;
+                }
                 else if (sheetChannel != channel)
                 {
                     mixedKinds = true;
@@ -259,7 +352,10 @@ public static class LogMessageCatalog
                 }
             }
 
-            if (mixedKinds || sheetChannel is null || sheetChannel == rule.Channel) continue;
+            if (mixedKinds || sheetChannel is null || sheetChannel == rule.Channel)
+            {
+                continue;
+            }
 
             log.Warning(
                 $"Rule '{rule.Name}' uses Channel={rule.Channel} but Lumina LogKind={sheetChannel} " +

@@ -8,25 +8,32 @@ public sealed partial class TidyChatPlugin
     private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText, ref bool isHandled)
     {
-        if (Configuration.Whitelist.Count == 0) return;
+        if (Configuration.Whitelist.Count == 0)
+        {
+            return;
+        }
         try
         {
-            foreach(PlayerName p in Configuration.Whitelist)
+            foreach (var p in Configuration.Whitelist)
             {
                 if (!p.AllowMessage)
+                {
                     CustomFilterCheck(message.Sender, message.Message, rawTextValue, extractedTextValue,
                         normalizedText, ref isHandled, p, chatType);
+                }
             }
-            foreach(PlayerName p in Configuration.Whitelist)
+            foreach (var p in Configuration.Whitelist)
             {
                 if (p.AllowMessage)
+                {
                     CustomFilterCheck(message.Sender, message.Message, rawTextValue, extractedTextValue,
                         normalizedText, ref isHandled, p, chatType);
+                }
             }
 
             ApplyGlobalWhitelistOverrides(message, ref isHandled);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Error("Error: Failed to evaluate Whitelist - " + ex);
         }
@@ -35,15 +42,19 @@ public sealed partial class TidyChatPlugin
     private void ApplyGlobalWhitelistOverrides(IHandleableChatMessage message, ref bool isHandled)
     {
         if (!Configuration.SentByWhitelistPlayer && !Configuration.TargetingWhitelistPlayer)
+        {
             return;
+        }
 
-        string senderText = message.Sender.TextValue;
-        string messageText = message.Message.TextValue;
+        var senderText = message.Sender.TextValue;
+        var messageText = message.Message.TextValue;
 
-        foreach(PlayerName entry in Configuration.Whitelist)
+        foreach (var entry in Configuration.Whitelist)
         {
             if (string.IsNullOrWhiteSpace(entry.FirstName) || entry.IsLogMessageId)
+            {
                 continue;
+            }
 
             if (Configuration.SentByWhitelistPlayer && IsSentByWhitelistEntry(senderText, entry))
             {
@@ -63,7 +74,7 @@ public sealed partial class TidyChatPlugin
     {
         if (entry.IsRegex)
         {
-            Regex? regex = entry.GetCompiledRegex();
+            var regex = entry.GetCompiledRegex();
             return regex != null && regex.IsMatch(senderText);
         }
 
@@ -74,7 +85,7 @@ public sealed partial class TidyChatPlugin
     {
         if (entry.IsRegex)
         {
-            Regex? regex = entry.GetCompiledRegex();
+            var regex = entry.GetCompiledRegex();
             return regex != null && regex.IsMatch(messageText);
         }
 
@@ -83,17 +94,29 @@ public sealed partial class TidyChatPlugin
     private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType,
         string rawTextValue, string extractedTextValue, string normalizedText)
     {
-        if (string.IsNullOrWhiteSpace(entry.FirstName)) return false; // empty name would Contains-match everything
+        if (string.IsNullOrWhiteSpace(entry.FirstName))
+        {
+            return false; // empty name would Contains-match everything
+        }
 
-        if (entry.IsLogMessageId) return false;
+        if (entry.IsLogMessageId)
+        {
+            return false;
+        }
 
         var channels = (ChatFlags.Channels)entry.WhitelistedChannels;
-        if (channels == ChatFlags.Channels.None) return false;
-        if (!Flags.CheckFlags(entry, chatType)) return false;
+        if (channels == ChatFlags.Channels.None)
+        {
+            return false;
+        }
+        if (!Flags.CheckFlags(entry, chatType))
+        {
+            return false;
+        }
 
         if (entry.IsRegex)
         {
-            Regex? regex = entry.GetCompiledRegex((src, ex) =>
+            var regex = entry.GetCompiledRegex((src, ex) =>
                 Log.Warning($"[Whitelist] Invalid regex \"{src}\": {ex.Message}"));
             try
             {
@@ -101,7 +124,7 @@ public sealed partial class TidyChatPlugin
                        (regex.IsMatch(rawTextValue) || regex.IsMatch(extractedTextValue) ||
                         regex.IsMatch(normalizedText));
             }
-            catch(RegexMatchTimeoutException)
+            catch (RegexMatchTimeoutException)
             {
                 Log.Warning($"[Whitelist] Regex match timeout for \"{entry.FirstName}\"");
                 return false;
@@ -109,7 +132,9 @@ public sealed partial class TidyChatPlugin
         }
 
         if (entry.MatchMode == PlayerNameMatchMode.ExactSender)
+        {
             return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal);
+        }
 
         return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal) ||
                rawTextValue.Contains(entry.FirstName, StringComparison.Ordinal) ||
@@ -120,12 +145,20 @@ public sealed partial class TidyChatPlugin
     private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText)
     {
-        if (Configuration.Whitelist.Count == 0) return false;
-        foreach(PlayerName p in Configuration.Whitelist)
+        if (Configuration.Whitelist.Count == 0)
         {
-            if (!p.AllowMessage) continue;
+            return false;
+        }
+        foreach (var p in Configuration.Whitelist)
+        {
+            if (!p.AllowMessage)
+            {
+                continue;
+            }
             if (CustomFilterMatches(sender, message, p, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
                 return true;
+            }
         }
         return false;
     }
@@ -133,12 +166,20 @@ public sealed partial class TidyChatPlugin
     private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText)
     {
-        if (Configuration.Whitelist.Count == 0) return false;
-        foreach(PlayerName p in Configuration.Whitelist)
+        if (Configuration.Whitelist.Count == 0)
         {
-            if (p.AllowMessage) continue;
+            return false;
+        }
+        foreach (var p in Configuration.Whitelist)
+        {
+            if (p.AllowMessage)
+            {
+                continue;
+            }
             if (CustomFilterMatches(sender, message, p, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
                 return true;
+            }
         }
         return false;
     }
@@ -146,10 +187,15 @@ public sealed partial class TidyChatPlugin
     private void CustomFilterCheck(SeString sender, SeString message, string rawTextValue, string extractedTextValue,
         string normalizedText, ref bool isHandled, PlayerName playerOrMessage, ChatType chatType)
     {
-        if (string.IsNullOrWhiteSpace(playerOrMessage.FirstName)) return;
+        if (string.IsNullOrWhiteSpace(playerOrMessage.FirstName))
+        {
+            return;
+        }
         if (!CustomFilterMatches(sender, message, playerOrMessage, chatType, rawTextValue, extractedTextValue,
                 normalizedText))
+        {
             return;
+        }
 
         isHandled = !playerOrMessage.AllowMessage;
         if (Configuration.EnableDebugMode)

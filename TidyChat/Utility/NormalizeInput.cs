@@ -1,5 +1,5 @@
-using System.Text.RegularExpressions;
 using Lumina.Text.ReadOnly;
+using System.Text.RegularExpressions;
 namespace TidyChat.Utility;
 
 internal static class NormalizeInput
@@ -40,10 +40,13 @@ internal static class NormalizeInput
      */
     public static string ReplaceName(string normalizedInput, Configuration configuration)
     {
-        string playerName = configuration.PlayerName;
-        if (string.IsNullOrWhiteSpace(playerName)) return normalizedInput;
+        var playerName = configuration.PlayerName;
+        if (string.IsNullOrWhiteSpace(playerName))
+        {
+            return normalizedInput;
+        }
 
-        string[] parts = playerName.Split(' ');
+        var parts = playerName.Split(' ');
         if (parts.Length < 2 || parts[0].Length == 0 || parts[1].Length == 0)
         {
             return normalizedInput.Replace(playerName, "you", StringComparison.Ordinal);
@@ -54,23 +57,32 @@ internal static class NormalizeInput
         normalizedInput = normalizedInput.Replace(playerName, "you", StringComparison.Ordinal);
 
         if (_firstNameLastInitial is not null && normalizedInput.Contains(_firstNameLastInitialLower, StringComparison.Ordinal))
+        {
             normalizedInput = SafeReplace(_firstNameLastInitial, normalizedInput);
+        }
         if (_firstInitialLastName is not null && normalizedInput.Contains(_firstInitialLastNameLower, StringComparison.Ordinal))
+        {
             normalizedInput = SafeReplace(_firstInitialLastName, normalizedInput);
+        }
         if (_initialsOnly is not null && normalizedInput.Contains(_initialsOnlyLower, StringComparison.Ordinal))
+        {
             normalizedInput = SafeReplace(_initialsOnly, normalizedInput);
+        }
 
         return normalizedInput;
     }
 
     private static void EnsureCacheFor(string playerName, string[] parts)
     {
-        if (string.Equals(_cachedPlayerName, playerName, StringComparison.Ordinal)) return;
+        if (string.Equals(_cachedPlayerName, playerName, StringComparison.Ordinal))
+        {
+            return;
+        }
 
-        string firstName = parts[0];
-        string lastName = parts[1];
-        char firstInitial = firstName[0];
-        char lastInitial = lastName[0];
+        var firstName = parts[0];
+        var lastName = parts[1];
+        var firstInitial = firstName[0];
+        var lastInitial = lastName[0];
 
         _firstNameLastInitialLower = $"{firstName} {lastInitial}.".ToLower(CultureInfo.CurrentCulture);
         _firstInitialLastNameLower = $"{firstInitial}. {lastName}".ToLower(CultureInfo.CurrentCulture);
@@ -102,7 +114,7 @@ internal static class NormalizeInput
         {
             return regex.Replace(input, "you", 1);
         }
-        catch(RegexMatchTimeoutException)
+        catch (RegexMatchTimeoutException)
         {
             return input;
         }

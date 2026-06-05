@@ -25,7 +25,7 @@ public sealed partial class TidyChatPlugin
         t.Enabled = true;
     }
 
-    public unsafe static void InstanceDtrBarUpdate(Configuration configuration)
+    public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
     {
         DtrEntry ??= GetDtrBar();
         DtrEntry.Tooltip = "TidyChat";
@@ -38,7 +38,7 @@ public sealed partial class TidyChatPlugin
         }
         try
         {
-            UIState* uiState = UIState.Instance();
+            var uiState = UIState.Instance();
             if (uiState == null)
             {
                 DtrEntry.Shown = false;
@@ -46,8 +46,8 @@ public sealed partial class TidyChatPlugin
                 return;
             }
 
-            int instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
-            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
+            var instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
+            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
 
             DtrEntry.Text = instanceNumberFromSignature switch
             {
@@ -56,7 +56,7 @@ public sealed partial class TidyChatPlugin
             };
             DtrEntry.Shown = instanceNumberFromSignature >= 1;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Error("Error: Failed to update Instance for DtrBarEntry - " + ex);
         }

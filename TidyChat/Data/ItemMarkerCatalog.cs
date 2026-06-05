@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
+using System.Collections.Generic;
 using TidyChat.Translation.Data;
 namespace TidyChat.Data;
 
@@ -18,21 +18,30 @@ public static class ItemMarkerCatalog
         try
         {
             var tracked = new HashSet<uint>(Items.AllTracked);
-            foreach(Item row in dataManager.GetExcelSheet<Item>())
+            foreach (var row in dataManager.GetExcelSheet<Item>())
             {
-                if (!tracked.Contains(row.RowId)) continue;
+                if (!tracked.Contains(row.RowId))
+                {
+                    continue;
+                }
 
-                string name = $"{row.Name}".Trim();
-                if (string.IsNullOrWhiteSpace(name)) continue;
+                var name = $"{row.Name}".Trim();
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    continue;
+                }
 
-                string[] tokens = LogMessageTokenExtractor.Extract(name);
-                if (tokens.Length > 0) MarkersByItemId[row.RowId] = tokens;
+                var tokens = LogMessageTokenExtractor.Extract(name);
+                if (tokens.Length > 0)
+                {
+                    MarkersByItemId[row.RowId] = tokens;
+                }
             }
 
             IsLoaded = true;
             log.Information($"ItemMarkerCatalog: loaded markers for {MarkersByItemId.Count} obtain items.");
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             log.Error("ItemMarkerCatalog: failed to load Item sheet: " + ex);
         }
@@ -40,21 +49,32 @@ public static class ItemMarkerCatalog
 
     public static bool Matches(uint itemId, string normalizedText, LocalizedStrings? fallback = null)
     {
-        if (MarkersByItemId.TryGetValue(itemId, out string[]? tokens) && tokens.All(normalizedText.Contains))
+        if (MarkersByItemId.TryGetValue(itemId, out var tokens) && tokens.All(normalizedText.Contains))
+        {
             return true;
+        }
 
-        if (fallback is { } fb) return L10N.Get(fb).All(normalizedText.Contains);
+        if (fallback is { } fb)
+        {
+            return L10N.Get(fb).All(normalizedText.Contains);
+        }
         return false;
     }
 
     public static bool MatchesAny(IEnumerable<uint> itemIds, string normalizedText, LocalizedStrings? fallback = null)
     {
-        foreach(uint itemId in itemIds)
+        foreach (var itemId in itemIds)
         {
-            if (Matches(itemId, normalizedText)) return true;
+            if (Matches(itemId, normalizedText))
+            {
+                return true;
+            }
         }
 
-        if (fallback is { } fb) return L10N.Get(fb).All(normalizedText.Contains);
+        if (fallback is { } fb)
+        {
+            return L10N.Get(fb).All(normalizedText.Contains);
+        }
         return false;
     }
 
@@ -63,12 +83,16 @@ public static class ItemMarkerCatalog
         if (Matches(Items.AlliedSeals, normalizedText) ||
             Matches(Items.CenturioSeals, normalizedText) ||
             Matches(Items.WolfMarks, normalizedText))
+        {
             return false;
+        }
 
         if (Matches(Items.StormSeal, normalizedText) ||
             Matches(Items.SerpentSeal, normalizedText) ||
             Matches(Items.FlameSeal, normalizedText))
+        {
             return true;
+        }
 
         return L10N.Get(ChatRegexStrings.ObtainedSeals).IsMatch(normalizedText);
     }

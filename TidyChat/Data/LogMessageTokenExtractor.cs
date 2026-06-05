@@ -21,9 +21,12 @@ internal static class LogMessageTokenExtractor
 
     public static string[] Extract(string templateText)
     {
-        if (string.IsNullOrWhiteSpace(templateText)) return [];
+        if (string.IsNullOrWhiteSpace(templateText))
+        {
+            return [];
+        }
 
-        string stripped = XmlTagRegex.Replace(templateText, " ");
+        var stripped = XmlTagRegex.Replace(templateText, " ");
         stripped = FfxivParameterRegex.Replace(stripped, " ");
         stripped = PlaceholderRegex.Replace(stripped, " ");
         stripped = AnglePlaceholderRegex.Replace(stripped, " ");
@@ -31,11 +34,17 @@ internal static class LogMessageTokenExtractor
         stripped = SeIconRegex.Replace(stripped, " ");
 
         var tokens = new List<string>();
-        foreach(Match match in WordRegex.Matches(stripped))
+        foreach (Match match in WordRegex.Matches(stripped))
         {
-            string token = match.Value.ToLower(CultureInfo.CurrentCulture);
-            if (token.Length == 0) continue;
-            if (token.Length == 1 && !ContainsCjk(token)) continue;
+            var token = match.Value.ToLower(CultureInfo.CurrentCulture);
+            if (token.Length == 0)
+            {
+                continue;
+            }
+            if (token.Length == 1 && !ContainsCjk(token))
+            {
+                continue;
+            }
             tokens.Add(token);
         }
 
@@ -44,9 +53,12 @@ internal static class LogMessageTokenExtractor
 
     private static bool ContainsCjk(string token)
     {
-        foreach(char c in token)
+        foreach (var c in token)
         {
-            if (c is >= '\u3040' and <= '\u9FFF') return true;
+            if (c is >= '\u3040' and <= '\u9FFF')
+            {
+                return true;
+            }
         }
         return false;
     }

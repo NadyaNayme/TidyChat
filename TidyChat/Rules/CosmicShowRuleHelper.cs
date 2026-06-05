@@ -4,8 +4,11 @@ namespace TidyChat;
 internal static class CosmicShowRuleHelper
 {
     public static bool IsCosmicRuleName(string ruleName) =>
-        ruleName is "ShowCosmicExplorationMessages" or "ShowCosmicRewards" or "ShowCosmicContainers" or
-        "ShowCosmicClassPointsAndDataset" or "ShowCosmicDailyProgress";
+        ruleName is "ShowCosmicExplorationMessages" or
+            "ShowCosmicRewards" or
+            "ShowCosmicContainers" or
+            "ShowCosmicClassPointsAndDataset" or
+            "ShowCosmicDailyProgress";
 
     public static bool IsCosmicMessageAllowed(Configuration config, string normalizedText) =>
         GetActiveCosmicRuleName(config, normalizedText) is not null;
@@ -13,15 +16,25 @@ internal static class CosmicShowRuleHelper
     public static string? GetActiveCosmicRuleName(Configuration config, string normalizedText)
     {
         if (config.ShowCosmicContainers && MatchesCosmicContainerText(normalizedText))
+        {
             return "ShowCosmicContainers";
+        }
         if (config.ShowCosmicRewards && MatchesCosmicCurrencyRewardText(normalizedText))
+        {
             return "ShowCosmicRewards";
+        }
         if (config.ShowCosmicExplorationMessages && MatchesCosmicExplorationText(normalizedText))
+        {
             return "ShowCosmicExplorationMessages";
+        }
         if (config.ShowCosmicClassPointsAndDataset && MatchesCosmicClassPointsAndDatasetText(normalizedText))
+        {
             return "ShowCosmicClassPointsAndDataset";
+        }
         if (config.ShowCosmicDailyProgress && MatchesCosmicDailyProgressText(normalizedText))
+        {
             return "ShowCosmicDailyProgress";
+        }
         return null;
     }
 
@@ -60,10 +73,12 @@ internal static class CosmicShowRuleHelper
 
     private static bool MatchesAnyMarker(string normalizedText, params LocalizedStrings[] markers)
     {
-        foreach (LocalizedStrings marker in markers)
+        foreach (var marker in markers)
         {
             if (L10N.Get(marker).All(normalizedText.Contains))
+            {
                 return true;
+            }
         }
 
         return false;

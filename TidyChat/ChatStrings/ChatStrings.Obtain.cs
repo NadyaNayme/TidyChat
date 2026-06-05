@@ -118,8 +118,9 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">GC Seals (Storm)</see>
-    /// <seealso href="https://xivapi.com/Item/21?pretty=true">Serpent Seals</see>
-    /// <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
+    /// <seealso href="https://xivapi.com/Item/21?pretty=true">
+    ///     Serpent Seals</see>
+    ///     <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</see>
     public static readonly LocalizedStrings ObtainSealsMarker = new()
     {
         Jpn = ["NeedsLocalization"],

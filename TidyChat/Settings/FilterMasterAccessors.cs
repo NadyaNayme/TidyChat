@@ -1,8 +1,8 @@
 namespace TidyChat;
 
 /// <summary>
-/// Combines UI master toggles with nested child settings for rule active state.
-/// Child checkbox values are preserved when a master is off; they only take effect when the master is on.
+///     Combines UI master toggles with nested child settings for rule active state.
+///     Child checkbox values are preserved when a master is off; they only take effect when the master is on.
 /// </summary>
 internal static class FilterMasterAccessors
 {

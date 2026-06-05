@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Timers;
 using Dalamud.Game;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Timers;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
@@ -13,14 +13,17 @@ internal static class BetterStrings
 {
     public static SeString SayReminder(SeString message, Configuration configuration)
     {
-        int containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
-        int containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
-        int lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
-        string containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
+        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
+        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
+        var lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
+        var containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
         if (configuration.CopyBetterSayReminder)
         {
             var stringBuilder = new SeStringBuilder();
-            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+            if (configuration.IncludeChatTag)
+            {
+                AddTidyChatTag(stringBuilder);
+            }
             stringBuilder.AddText($"\"/say {containingPhrase}\" {L10N.GetTidy(TidyStrings.CopiedToClipboard)}");
             ClipboardService.SetText($"/say {containingPhrase}");
             return stringBuilder.BuiltString;
@@ -31,30 +34,36 @@ internal static class BetterStrings
 
     public static SeString? MarketItemSold(SeString message, Configuration configuration, string normalizedText)
     {
-        Match gilMatch = L10N.Get(ChatRegexStrings.MarketItemSold).Match(normalizedText);
+        var gilMatch = L10N.Get(ChatRegexStrings.MarketItemSold).Match(normalizedText);
         if (!gilMatch.Success || !gilMatch.Groups["gil"].Success)
+        {
             return null;
+        }
 
-        string gilAmount = gilMatch.Groups["gil"].Value;
+        var gilAmount = gilMatch.Groups["gil"].Value;
         var builder = new SeStringBuilder();
         if (configuration.IncludeChatTag)
+        {
             AddTidyChatTag(builder);
+        }
 
-        bool addedItem = false;
-        foreach(Payload payload in message.Payloads)
+        var addedItem = false;
+        foreach (var payload in message.Payloads)
         {
             if (payload is TextPayload { Text: { Length: > 0 } text })
             {
-                int putUpIndex = text.IndexOf(" you put up", StringComparison.OrdinalIgnoreCase);
-                int soldForIndex = text.IndexOf("sold for", StringComparison.OrdinalIgnoreCase);
-                int cutIndex = putUpIndex >= 0 ? putUpIndex : soldForIndex;
+                var putUpIndex = text.IndexOf(" you put up", StringComparison.OrdinalIgnoreCase);
+                var soldForIndex = text.IndexOf("sold for", StringComparison.OrdinalIgnoreCase);
+                var cutIndex = putUpIndex >= 0 ? putUpIndex : soldForIndex;
                 if (cutIndex >= 0)
                 {
                     if (cutIndex > 0)
                     {
                         builder.AddText(text[..cutIndex]);
                         if (!text.StartsWith("The ", StringComparison.OrdinalIgnoreCase) || cutIndex > "The ".Length)
+                        {
                             addedItem = true;
+                        }
                     }
                     break;
                 }
@@ -62,11 +71,15 @@ internal static class BetterStrings
 
             builder.Add(payload);
             if (payload is ItemPayload)
+            {
                 addedItem = true;
+            }
         }
 
         if (!addedItem)
+        {
             return null;
+        }
 
         builder.AddText($" sold for {gilAmount} gil.");
         return builder.BuiltString;
@@ -74,33 +87,48 @@ internal static class BetterStrings
 
     public static SeString DutyCommence(SeString message, Configuration configuration, string normalizedText)
     {
-        string dutyName = ExtractDutyNameFromCommence(normalizedText, message.TextValue);
+        var dutyName = ExtractDutyNameFromCommence(normalizedText, message.TextValue);
         if (string.IsNullOrWhiteSpace(dutyName) && TidyStrings.LastDuty.Length > 0)
+        {
             dutyName = TidyStrings.LastDuty;
+        }
 
         if (!string.IsNullOrWhiteSpace(dutyName))
+        {
             TidyStrings.LastDuty = dutyName;
+        }
 
         if (string.IsNullOrWhiteSpace(dutyName))
+        {
             dutyName = L10N.GetTidy(TidyStrings.InstanceWord);
+        }
 
         var stringBuilder = new SeStringBuilder();
-        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        if (configuration.IncludeChatTag)
+        {
+            AddTidyChatTag(stringBuilder);
+        }
         stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.DutyHasBegunFormat), dutyName));
         return stringBuilder.BuiltString;
     }
 
     private static string ExtractDutyNameFromCommence(string normalizedText, string rawText)
     {
-        string strippedRaw = StripItemLinkNoise(rawText);
-        foreach(string candidate in new[] { strippedRaw, normalizedText })
+        var strippedRaw = StripItemLinkNoise(rawText);
+        foreach (var candidate in new[] { strippedRaw, normalizedText })
         {
-            if (string.IsNullOrWhiteSpace(candidate)) continue;
-            Match match = L10N.Get(ChatRegexStrings.DutyHasBegun).Match(candidate);
+            if (string.IsNullOrWhiteSpace(candidate))
+            {
+                continue;
+            }
+            var match = L10N.Get(ChatRegexStrings.DutyHasBegun).Match(candidate);
             if (match.Success && match.Groups["duty"].Success)
             {
-                string duty = match.Groups["duty"].Value.Trim();
-                if (duty.Length > 0) return duty;
+                var duty = match.Groups["duty"].Value.Trim();
+                if (duty.Length > 0)
+                {
+                    return duty;
+                }
             }
         }
 
@@ -109,22 +137,31 @@ internal static class BetterStrings
 
     private static string StripItemLinkNoise(string text)
     {
-        if (string.IsNullOrEmpty(text)) return text;
+        if (string.IsNullOrEmpty(text))
+        {
+            return text;
+        }
         return Regex.Replace(text, @"\uE0BB|\uE0BC|\uE0BD|\uE0BE|\uE0BF|", string.Empty, RegexOptions.None, TimeSpan.FromSeconds(1))
             .Trim();
     }
 
-    public unsafe static SeString Instances(SeString message, Configuration configuration)
+    public static unsafe SeString Instances(SeString message, Configuration configuration)
     {
         try
         {
-            UIState* uiState = UIState.Instance();
-            if (uiState == null) return "";
+            var uiState = UIState.Instance();
+            if (uiState == null)
+            {
+                return "";
+            }
 
-            int instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
-            string instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
+            var instanceNumberFromSignature = (int)uiState->PublicInstance.InstanceId;
+            var instanceCharacter = ((char)(SeIconChar.Instance1 + (byte)(instanceNumberFromSignature - 1))).ToString();
             var stringBuilder = new SeStringBuilder();
-            if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+            if (configuration.IncludeChatTag)
+            {
+                AddTidyChatTag(stringBuilder);
+            }
             stringBuilder.AddText($"{L10N.GetTidy(TidyStrings.InstanceText)} {instanceCharacter}");
             return stringBuilder.BuiltString;
         }
@@ -135,26 +172,32 @@ internal static class BetterStrings
 
     public static SeString NoviceNetworkJoinMessage(Configuration configuration)
     {
-        string newMessage = ResolveNoviceNetworkCompactText(7025, 7027, 7011,
+        var newMessage = ResolveNoviceNetworkCompactText(7025, 7027, 7011,
             "You've joined the Novice Network.",
             "Du bist dem Neulings-Chat beigetreten.",
             "Vous avez rejoint le réseau des novices.",
             "ビギナーチャンネルに参加しました。");
         var stringBuilder = new SeStringBuilder();
-        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        if (configuration.IncludeChatTag)
+        {
+            AddTidyChatTag(stringBuilder);
+        }
         stringBuilder.AddText(newMessage);
         return stringBuilder.BuiltString;
     }
 
     public static SeString NoviceNetworkLeaveMessage(Configuration configuration)
     {
-        string newMessage = ResolveNoviceNetworkCompactText(7030, 0, 0,
+        var newMessage = ResolveNoviceNetworkCompactText(7030, 0, 0,
             "You've left the Novice Network.",
             "Du hast den Neulings-Chat verlassen.",
             "Vous avez quitté le réseau des novices.",
             "ビギナーチャンネルから退出しました。");
         var stringBuilder = new SeStringBuilder();
-        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        if (configuration.IncludeChatTag)
+        {
+            AddTidyChatTag(stringBuilder);
+        }
         stringBuilder.AddText(newMessage);
         return stringBuilder.BuiltString;
     }
@@ -163,9 +206,18 @@ internal static class BetterStrings
         uint primaryId, uint secondaryId, uint tertiaryId,
         string engFallback, string deuFallback, string fraFallback, string jpnFallback)
     {
-        if (LogMessageCatalog.TryGetCompactLine(primaryId, out string line)) return line;
-        if (secondaryId != 0 && LogMessageCatalog.TryGetCompactLine(secondaryId, out line)) return line;
-        if (tertiaryId != 0 && LogMessageCatalog.TryGetCompactLine(tertiaryId, out line)) return line;
+        if (LogMessageCatalog.TryGetCompactLine(primaryId, out var line))
+        {
+            return line;
+        }
+        if (secondaryId != 0 && LogMessageCatalog.TryGetCompactLine(secondaryId, out line))
+        {
+            return line;
+        }
+        if (tertiaryId != 0 && LogMessageCatalog.TryGetCompactLine(tertiaryId, out line))
+        {
+            return line;
+        }
 
         return L10N.Language switch
         {
@@ -178,9 +230,12 @@ internal static class BetterStrings
 
     public static SeString TreasureDungeon(Configuration configuration)
     {
-        string chamber = TidyStrings.LastTreasureDungeonChamber;
+        var chamber = TidyStrings.LastTreasureDungeonChamber;
         var stringBuilder = new SeStringBuilder();
-        if (configuration.IncludeChatTag) AddTidyChatTag(stringBuilder);
+        if (configuration.IncludeChatTag)
+        {
+            AddTidyChatTag(stringBuilder);
+        }
         stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
         return stringBuilder.BuiltString;
     }

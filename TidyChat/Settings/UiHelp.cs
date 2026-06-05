@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Dalamud.Interface.Components;
+using System.Collections.Generic;
 namespace TidyChat.Settings;
 
 internal static class UiHelp

@@ -1,9 +1,8 @@
+using Dalamud.Interface.Components;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
-using Dalamud.Interface.Components;
-using TidyChat.Translation.Data;
 namespace TidyChat.Settings.Search;
 
 internal static class SettingsSearchIndex
@@ -29,8 +28,8 @@ internal static class SettingsSearchIndex
 
     public static void DrawResults(Configuration configuration)
     {
-        string query = SettingsSearch.Query.Trim();
-        Entry[] entries = s_entries ??= BuildEntries();
+        var query = SettingsSearch.Query.Trim();
+        var entries = s_entries ??= BuildEntries();
 
         var matches = entries.Where(e => e.Matches(query)).ToList();
         AppendTomestoneMatches(configuration, query, matches);
@@ -47,11 +46,15 @@ internal static class SettingsSearchIndex
         ImGui.Spacing();
 
         if (!ImGui.BeginChild("##settingsSearchResults", new(0, 0)))
+        {
             return;
+        }
 
-        foreach(Entry entry in matches.OrderBy(e => e.Location, StringComparer.OrdinalIgnoreCase)
-                    .ThenBy(e => e.Label, StringComparer.OrdinalIgnoreCase))
+        foreach (var entry in matches.OrderBy(e => e.Location, StringComparer.OrdinalIgnoreCase)
+                     .ThenBy(e => e.Label, StringComparer.OrdinalIgnoreCase))
+        {
             DrawEntry(configuration, entry);
+        }
 
         ImGui.EndChild();
     }
@@ -62,7 +65,7 @@ internal static class SettingsSearchIndex
 
         if (entry.CanToggle)
         {
-            bool value = entry.GetBool(configuration);
+            var value = entry.GetBool(configuration);
             if (ImGui.Checkbox(entry.Label, ref value))
             {
                 entry.SetBool(configuration, value);
@@ -72,7 +75,7 @@ internal static class SettingsSearchIndex
         else if (entry.AlwaysOn)
         {
             ImGui.BeginDisabled();
-            bool value = true;
+            var value = true;
             ImGui.Checkbox(entry.Label, ref value);
             ImGui.EndDisabled();
             ImGuiComponents.HelpMarker(Languages.ConfigWindow_SettingAlwaysOn);
@@ -91,17 +94,19 @@ internal static class SettingsSearchIndex
         ImGui.TextColored(new Vector4(0.55f, 0.55f, 0.55f, 1f), entry.Location);
 
         if (!string.IsNullOrEmpty(entry.RuleName))
+        {
             ImGui.TextDisabled($"{Languages.ConfigWindow_SearchRuleLabel}: {entry.RuleName}");
+        }
 
         if (entry.Examples.Count > 0)
         {
-            string examples = string.Join(" / ", entry.Examples.Take(3));
+            var examples = string.Join(" / ", entry.Examples.Take(3));
             ImGui.TextWrapped($"{Languages.ConfigWindow_SearchExamplesLabel}: {examples}");
         }
 
         if (entry.LogMessageIds.Count > 0)
         {
-            string ids = string.Join(", ", entry.LogMessageIds.OrderBy(id => id));
+            var ids = string.Join(", ", entry.LogMessageIds.OrderBy(id => id));
             ImGui.TextDisabled($"{Languages.ConfigWindow_SearchLogMessageIdsLabel}: {ids}");
         }
 
@@ -112,15 +117,19 @@ internal static class SettingsSearchIndex
     private static void AppendTomestoneMatches(Configuration configuration, string query, List<Entry> matches)
     {
         if (TidyChatPlugin.Tomestones.Count == 0)
+        {
             return;
+        }
 
-        foreach(TomestoneInfo tomestone in TidyChatPlugin.Tomestones)
+        foreach (var tomestone in TidyChatPlugin.Tomestones)
         {
             if (!Contains(query, tomestone.Name) && !Contains(query, "tomestone") && !Contains(query, "tomestones"))
+            {
                 continue;
+            }
 
-            configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out bool hide);
-            string label = string.Format(CultureInfo.CurrentCulture, Languages.ConfigWindow_SearchHideTomestone,
+            configuration.HideTomestoneById.TryGetValue(tomestone.RowId, out var hide);
+            var label = string.Format(CultureInfo.CurrentCulture, Languages.ConfigWindow_SearchHideTomestone,
                 tomestone.Name);
             matches.Add(new(
                 $"tomestone-{tomestone.RowId}",
@@ -141,17 +150,19 @@ internal static class SettingsSearchIndex
     {
         var entries = new List<Entry>(ConfigBoolProperties.Length);
 
-        foreach(PropertyInfo property in ConfigBoolProperties)
+        foreach (var property in ConfigBoolProperties)
         {
             if (SkippedProperties.Contains(property.Name))
+            {
                 continue;
+            }
 
-            (string label, string? help) = ResolveLabelAndHelp(property.Name);
-            RuleMetadata? ruleMeta = RuleMetadataByName.GetValueOrDefault(property.Name);
-            string location = TryGetInferredLocation(property.Name)
-                              ?? (ruleMeta is not null
-                                  ? FormatRuleLocation(ruleMeta.SettingsTab)
-                                  : Languages.ConfigWindow_GeneralTabHeader);
+            (var label, var help) = ResolveLabelAndHelp(property.Name);
+            var ruleMeta = RuleMetadataByName.GetValueOrDefault(property.Name);
+            var location = TryGetInferredLocation(property.Name)
+                           ?? (ruleMeta is not null
+                               ? FormatRuleLocation(ruleMeta.SettingsTab)
+                               : Languages.ConfigWindow_GeneralTabHeader);
 
             entries.Add(new(
                 property.Name,
@@ -174,29 +185,33 @@ internal static class SettingsSearchIndex
     {
         var metadata = new Dictionary<string, RuleMetadata>(StringComparer.Ordinal);
 
-        foreach(IGrouping<string, LocalizedFilterRule> group in Rules.AllRules.GroupBy(r => r.Name, StringComparer.Ordinal))
+        foreach (var group in Rules.AllRules.GroupBy(r => r.Name, StringComparer.Ordinal))
         {
             var examples = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
             var logIds = new HashSet<uint>();
 
-            foreach(LocalizedFilterRule rule in group)
+            foreach (var rule in group)
             {
                 if (rule.StringChecks is not null)
                 {
-                    foreach(LocalizedStrings strings in rule.StringChecks)
+                    foreach (var strings in rule.StringChecks)
                     {
-                        foreach(string token in strings.Eng)
+                        foreach (var token in strings.Eng)
                         {
                             if (!string.IsNullOrWhiteSpace(token))
+                            {
                                 examples.Add(token);
+                            }
                         }
                     }
                 }
 
                 if (rule.LogMessageIds is not null)
                 {
-                    foreach(uint id in rule.LogMessageIds)
+                    foreach (var id in rule.LogMessageIds)
+                    {
                         logIds.Add(id);
+                    }
                 }
             }
 
@@ -211,21 +226,29 @@ internal static class SettingsSearchIndex
 
     private static (string Label, string? Help) ResolveLabelAndHelp(string propertyName)
     {
-        PropertyInfo? labelProperty = FindBestLanguageProperty(propertyName, false);
+        var labelProperty = FindBestLanguageProperty(propertyName, false);
         if (labelProperty is null)
+        {
             return (FormatPropertyName(propertyName), null);
+        }
 
-        string label = (string)labelProperty.GetValue(null)!;
-        PropertyInfo? helpProperty = FindPairedHelpProperty(labelProperty.Name);
-        string? help = helpProperty is null ? null : (string)helpProperty.GetValue(null)!;
+        var label = (string)labelProperty.GetValue(null)!;
+        var helpProperty = FindPairedHelpProperty(labelProperty.Name);
+        var help = helpProperty is null ? null : (string)helpProperty.GetValue(null)!;
         if (help is not null)
         {
             if (UiHelp.ShouldAppendLootFilterNote(helpProperty!.Name))
+            {
                 help = UiHelp.WithLootFilterNote(help);
+            }
             else if (UiHelp.ShouldAppendObtainedFilterNote(helpProperty!.Name))
+            {
                 help = UiHelp.WithObtainedFilterNote(help);
+            }
             else if (UiHelp.ShouldAppendSystemFilterNote(helpProperty.Name))
+            {
                 help = UiHelp.WithSystemFilterNote(help);
+            }
         }
 
         return (label, help);
@@ -233,7 +256,7 @@ internal static class SettingsSearchIndex
 
     private static PropertyInfo? FindPairedHelpProperty(string labelPropertyName)
     {
-        string helpName = $"{labelPropertyName}HelpMarker";
+        var helpName = $"{labelPropertyName}HelpMarker";
         return LanguageProperties.FirstOrDefault(p =>
             p.PropertyType == typeof(string) &&
             string.Equals(p.Name, helpName, StringComparison.Ordinal));
@@ -241,22 +264,28 @@ internal static class SettingsSearchIndex
 
     private static PropertyInfo? FindBestLanguageProperty(string propertyName, bool helpMarker)
     {
-        string[] terms = ExtractTerms(propertyName);
+        var terms = ExtractTerms(propertyName);
         PropertyInfo? best = null;
-        int bestScore = 0;
+        var bestScore = 0;
 
-        foreach(PropertyInfo property in LanguageProperties)
+        foreach (var property in LanguageProperties)
         {
             if (property.PropertyType != typeof(string))
+            {
                 continue;
+            }
 
-            bool isHelp = property.Name.EndsWith("HelpMarker", StringComparison.Ordinal);
+            var isHelp = property.Name.EndsWith("HelpMarker", StringComparison.Ordinal);
             if (isHelp != helpMarker)
+            {
                 continue;
+            }
 
-            int score = ScoreLanguageProperty(property.Name, terms);
+            var score = ScoreLanguageProperty(property.Name, terms);
             if (score <= bestScore)
+            {
                 continue;
+            }
 
             bestScore = score;
             best = property;
@@ -267,14 +296,18 @@ internal static class SettingsSearchIndex
 
     private static int ScoreLanguageProperty(string languagePropertyName, string[] terms)
     {
-        int score = 0;
-        foreach(string term in terms)
+        var score = 0;
+        foreach (var term in terms)
         {
             if (term.Length < 3)
+            {
                 continue;
+            }
 
             if (languagePropertyName.Contains(term, StringComparison.OrdinalIgnoreCase))
+            {
                 score += term.Length;
+            }
         }
 
         return score;
@@ -283,13 +316,17 @@ internal static class SettingsSearchIndex
     private static string[] ExtractTerms(string propertyName)
     {
         var terms = new List<string>();
-        foreach(string part in SplitCamelCase(propertyName))
+        foreach (var part in SplitCamelCase(propertyName))
         {
             if (part is "Show" or "Hide" or "Filter" or "Better" or "Enable" or "Disable")
+            {
                 continue;
+            }
 
             if (part.EndsWith('s') && part.Length > 4)
+            {
                 terms.Add(part[..^1]);
+            }
 
             terms.Add(part);
         }
@@ -300,12 +337,14 @@ internal static class SettingsSearchIndex
     private static IEnumerable<string> SplitCamelCase(string value)
     {
         if (string.IsNullOrEmpty(value))
+        {
             yield break;
+        }
 
         var current = new StringBuilder();
-        for (int i = 0; i < value.Length; i++)
+        for (var i = 0; i < value.Length; i++)
         {
-            char c = value[i];
+            var c = value[i];
             if (char.IsUpper(c) && current.Length > 0)
             {
                 yield return current.ToString();
@@ -316,7 +355,9 @@ internal static class SettingsSearchIndex
         }
 
         if (current.Length > 0)
+        {
             yield return current.ToString();
+        }
     }
 
     private static string FormatPropertyName(string propertyName) =>
@@ -349,10 +390,14 @@ internal static class SettingsSearchIndex
                 "AlwaysNormalizeBlocks" or
                 "NoCoffee" or
                 "ShowSelfUsedEmotes")
+        {
             return Languages.ConfigWindow_GeneralTabHeader;
+        }
 
         if (propertyName is "HideObtainedMGP" or "HideInventoryItemAdded")
+        {
             return Languages.ConfigWindow_ObtainTabHeader;
+        }
 
         if (propertyName.StartsWith("ShowGathering", StringComparison.Ordinal) ||
             propertyName is "ShowCaughtFish" or
@@ -372,25 +417,37 @@ internal static class SettingsSearchIndex
                 "ShowCosmicContainers" or
                 "ShowCosmicClassPointsAndDataset" or
                 "ShowCosmicDailyProgress")
+        {
             return Languages.ConfigWindow_CraftingGatheringTabHeader;
+        }
 
         if (propertyName.StartsWith("EnableDebug", StringComparison.Ordinal) ||
             propertyName is "DebugIncludeChannel")
+        {
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_DebugDropdownHeader}";
+        }
 
         if (propertyName is "ShowFirstClearAward" or "ShowSecondChanceAward")
+        {
             return Languages.ConfigWindow_ProgressTabHeader;
+        }
 
         if (propertyName.StartsWith("ChatHistory", StringComparison.Ordinal) ||
             propertyName is "DisableSelfChatHistory")
+        {
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_ChatHistoryDropdownHeader}";
+        }
 
         if (propertyName is "SentByWhitelistPlayer" or "TargetingWhitelistPlayer")
+        {
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_CustomFiltersDropdownHeader}";
+        }
 
         if (propertyName.StartsWith("FilterEmote", StringComparison.Ordinal) ||
             propertyName is "ShowOtherCustomEmotes" or "ShowSelfUsedEmotes")
+        {
             return Languages.ConfigWindow_EmotesTabHeader;
+        }
 
         if (propertyName is "ShowMarketBoardMessages" or
             "ShowMarketItemSold" or
@@ -398,7 +455,9 @@ internal static class SettingsSearchIndex
             "ShowMarketGilEntrustedToRetainer" or
             "ShowMarketBoardSellingStatus" or
             "BetterMarketBoardSaleMessage")
+        {
             return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_MarketBoardSectionHeader}";
+        }
 
         if (propertyName is "ShowInstanceMessage" or
             "ShowInstancedAreaMessages" or
@@ -407,7 +466,9 @@ internal static class SettingsSearchIndex
             "ShowLevelNoLongerSynced" or
             "ShowDutyMechanicMessages" or
             "ShowDutyObjectiveBonus")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_WorldAndInstancesDropdownHeader}";
+        }
 
         if (propertyName is "ShowTryOnGlamour" or
             "ShowTryOnGlamourCast" or
@@ -416,31 +477,45 @@ internal static class SettingsSearchIndex
             "ShowGearDyeApplied" or
             "ShowGearsetGlamourRestoreFailed" or
             "ShowGlamourAltered")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_GlamourAndGearDropdownHeader}";
+        }
 
         if (propertyName is "ShowSearchForItemResults" or
             "ShowItemSearchResults" or
             "ShowLocationSearchResults")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialStatusDropdownHeader}";
+        }
 
         if (propertyName is "ShowEverythingElse" or
             "ShowChangesDiscarded" or
             "ShowChangesLost" or
             "ShowTripleTriadAllowed" or
             "ShowTripleTriadNotAllowed")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CatchAllDropdownHeader}";
+        }
 
         if (propertyName is "ShowSpideySenses" or "ShowLocationDiscovered" or "ShowHostilePresence")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_ExplorationDropdownHeader}";
+        }
 
         if (propertyName is "ShowAetheryteTicket" or "ShowAttuneAetheryte")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
+        }
 
         if (propertyName is "ShowAttachToMail")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_MailDropdownHeader}";
+        }
 
         if (propertyName is "ShowRelicBookStep" or "ShowRelicBookComplete")
+        {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_RelicDropdownHeader}";
+        }
 
         if (propertyName is "ShowTradeSent" or
             "ShowTradeCanceled" or
@@ -450,7 +525,9 @@ internal static class SettingsSearchIndex
             "ShowVendorPurchaseMessages" or
             "ShowGilWithdrawnMessage" or
             "ShowGilSpentMessage")
+        {
             return Languages.ConfigWindow_EconomyTabHeader;
+        }
 
         if (propertyName.StartsWith("ShowInvite", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowJoin", StringComparison.Ordinal) ||
@@ -490,7 +567,9 @@ internal static class SettingsSearchIndex
                 "ShowSenseAccursedHoard" or
                 "ShowDoNotSenseAccursedHoard" or
                 "ShowDiscoverAccursedHoard")
+        {
             return Languages.ConfigWindow_PartyDutyTabHeader;
+        }
 
         return null;
     }
@@ -522,24 +601,32 @@ internal static class SettingsSearchIndex
                 Contains(query, Location) ||
                 Contains(query, RuleName) ||
                 Contains(query, Id))
+            {
                 return true;
+            }
 
-            foreach(string example in Examples)
+            foreach (var example in Examples)
             {
                 if (Contains(query, example))
+                {
                     return true;
+                }
             }
 
-            foreach(uint id in LogMessageIds)
+            foreach (var id in LogMessageIds)
             {
                 if (id.ToString(CultureInfo.InvariantCulture).Contains(query, StringComparison.Ordinal))
+                {
                     return true;
+                }
             }
 
-            foreach(string term in ExtractTerms(Id))
+            foreach (var term in ExtractTerms(Id))
             {
                 if (term.Length >= 3 && Contains(query, term))
+                {
                     return true;
+                }
             }
 
             return false;

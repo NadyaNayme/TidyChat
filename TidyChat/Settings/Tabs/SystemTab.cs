@@ -17,13 +17,13 @@ internal static class SystemTab
                 Languages.SystemTab_ServerAnnouncementMode_LoginThenCondensed,
                 Languages.SystemTab_ServerAnnouncementMode_HidePhishing
             ];
-            int serverAnnouncementMode =
+            var serverAnnouncementMode =
                 Math.Clamp((int)configuration.ServerAnnouncementMode, 0, serverAnnouncementModes.Length - 1);
             ImGui.TextUnformatted(Languages.SystemTab_ServerAnnouncementsLabel);
             ImGui.SetNextItemWidth(320f);
             if (ImGui.BeginCombo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
             {
-                for (int i = 0; i < serverAnnouncementModes.Length; i++)
+                for (var i = 0; i < serverAnnouncementModes.Length; i++)
                 {
                     if (ImGui.Selectable(serverAnnouncementModes[i], serverAnnouncementMode == i))
                     {
@@ -40,7 +40,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_WorldAndInstancesDropdownHeader))
         {
-            bool sanctuaryMessage = configuration.ShowSanctuaryMessage;
+            var sanctuaryMessage = configuration.ShowSanctuaryMessage;
             if (ImGui.Checkbox(Languages.SystemTab_ShowSanctuaryMessage, ref sanctuaryMessage))
             {
                 configuration.ShowSanctuaryMessage = sanctuaryMessage;
@@ -49,7 +49,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSanctuaryMessageHelpMarker);
 
-            bool instanceMessage = configuration.ShowInstanceMessage;
+            var instanceMessage = configuration.ShowInstanceMessage;
             if (ImGui.Checkbox(Languages.SystemTab_ShowInstanceMessage, ref instanceMessage))
             {
                 configuration.ShowInstanceMessage = instanceMessage;
@@ -63,7 +63,7 @@ internal static class SystemTab
 
             SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                bool housingWardMessage = configuration.ShowHousingWardMessage;
+                var housingWardMessage = configuration.ShowHousingWardMessage;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowHousingWardMessage, ref housingWardMessage))
                 {
                     configuration.ShowHousingWardMessage = housingWardMessage;
@@ -76,7 +76,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_HuntMessagesDropdownHeader))
         {
-            bool sRankHunt = configuration.ShowSRankHunt;
+            var sRankHunt = configuration.ShowSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_ShowSRankSpawnAnnouncement, ref sRankHunt))
             {
                 configuration.ShowSRankHunt = sRankHunt;
@@ -85,7 +85,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSRankSpawnAnnouncementHelpMarker);
 
-            bool ssRankHunt = configuration.ShowSSRankHunt;
+            var ssRankHunt = configuration.ShowSSRankHunt;
             if (ImGui.Checkbox(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncement, ref ssRankHunt))
             {
                 configuration.ShowSSRankHunt = ssRankHunt;
@@ -94,7 +94,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker);
 
-            bool showHuntSlain = configuration.ShowHuntSlain;
+            var showHuntSlain = configuration.ShowHuntSlain;
             if (ImGui.Checkbox(Languages.SystemTab_ShowHuntMarkSlainMessages, ref showHuntSlain))
             {
                 configuration.ShowHuntSlain = showHuntSlain;
@@ -106,7 +106,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ExplorationDropdownHeader))
         {
-            bool showQuestReminder = configuration.ShowQuestReminder;
+            var showQuestReminder = configuration.ShowQuestReminder;
             if (ImGui.Checkbox(Languages.SystemTab_ShowSayReminder, ref showQuestReminder))
             {
                 configuration.ShowQuestReminder = showQuestReminder;
@@ -115,7 +115,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSayReminderHelpMarker);
 
-            bool showSpideySenses = configuration.ShowSpideySenses;
+            var showSpideySenses = configuration.ShowSpideySenses;
             if (ImGui.Checkbox(Languages.SystemTab_ShowYouSenseSomethingMessages, ref showSpideySenses))
             {
                 configuration.ShowSpideySenses = showSpideySenses;
@@ -126,7 +126,7 @@ internal static class SystemTab
 
             SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                bool showLocationDiscovered = configuration.ShowLocationDiscovered;
+                var showLocationDiscovered = configuration.ShowLocationDiscovered;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowLocationDiscoveredMessages, ref showLocationDiscovered))
                 {
                     configuration.ShowLocationDiscovered = showLocationDiscovered;
@@ -135,7 +135,7 @@ internal static class SystemTab
 
                 UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLocationDiscoveredMessagesHelpMarker);
 
-                bool showHostilePresence = configuration.ShowHostilePresence;
+                var showHostilePresence = configuration.ShowHostilePresence;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowHostilePresenceMessages, ref showHostilePresence))
                 {
                     configuration.ShowHostilePresence = showHostilePresence;
@@ -145,7 +145,7 @@ internal static class SystemTab
                 UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHostilePresenceMessagesHelpMarker);
             });
 
-            bool showAetherCompass = configuration.ShowAetherCompass;
+            var showAetherCompass = configuration.ShowAetherCompass;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAetherCompassMessages, ref showAetherCompass))
             {
                 configuration.ShowAetherCompass = showAetherCompass;
@@ -154,7 +154,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetherCompassMessagesHelpMarker);
 
-            bool showVistaMessages = configuration.ShowVistaMessages;
+            var showVistaMessages = configuration.ShowVistaMessages;
             if (ImGui.Checkbox(Languages.SystemTab_ShowVistaMessages, ref showVistaMessages))
             {
                 configuration.ShowVistaMessages = showVistaMessages;
@@ -166,7 +166,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_GlamourAndGearDropdownHeader))
         {
-            bool showTryOnGlamour = configuration.ShowTryOnGlamour;
+            var showTryOnGlamour = configuration.ShowTryOnGlamour;
             if (ImGui.Checkbox(Languages.SystemTab_ShowTryOnGlamourMessages, ref showTryOnGlamour))
             {
                 configuration.ShowTryOnGlamour = showTryOnGlamour;
@@ -180,14 +180,14 @@ internal static class SystemTab
 
             SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                bool showSpiritboundGear = configuration.ShowSpiritboundGear;
+                var showSpiritboundGear = configuration.ShowSpiritboundGear;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
                 {
                     configuration.ShowSpiritboundGear = showSpiritboundGear;
                     configuration.OnSettingChanged();
                 }
 
-                bool showEligibleForCoffers = configuration.ShowEligibleForCoffers;
+                var showEligibleForCoffers = configuration.ShowEligibleForCoffers;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowNumberOfCoffers, ref showEligibleForCoffers))
                 {
                     configuration.ShowEligibleForCoffers = showEligibleForCoffers;
@@ -198,7 +198,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_SocialAndMiscDropdownHeader))
         {
-            bool commendations = configuration.ShowCommendations;
+            var commendations = configuration.ShowCommendations;
             if (ImGui.Checkbox(Languages.SystemTab_ShowReceivedCommendations, ref commendations))
             {
                 configuration.ShowCommendations = commendations;
@@ -207,7 +207,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowReceivedCommendationsHelpMarker);
 
-            bool showPersonalMessageBook = configuration.ShowPersonalMessageBook;
+            var showPersonalMessageBook = configuration.ShowPersonalMessageBook;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPersonalMessageBookMessages, ref showPersonalMessageBook))
             {
                 configuration.ShowPersonalMessageBook = showPersonalMessageBook;
@@ -216,7 +216,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowPersonalMessageBookMessagesHelpMarker);
 
-            bool showAetheryteTicket = configuration.ShowAetheryteTicket;
+            var showAetheryteTicket = configuration.ShowAetheryteTicket;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAetheryteTicketMessage, ref showAetheryteTicket))
             {
                 configuration.ShowAetheryteTicket = showAetheryteTicket;
@@ -225,7 +225,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
 
-            bool showAttuneAetheryte = configuration.ShowAttuneAetheryte;
+            var showAttuneAetheryte = configuration.ShowAttuneAetheryte;
             if (ImGui.Checkbox(Languages.SystemTab_ShowAttuneAetheryteMessage, ref showAttuneAetheryte))
             {
                 configuration.ShowAttuneAetheryte = showAttuneAetheryte;
@@ -237,7 +237,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_CharacterAndGearDropdownHeader))
         {
-            bool showGearsetEquipped = configuration.ShowGearsetEquipped;
+            var showGearsetEquipped = configuration.ShowGearsetEquipped;
             if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
             {
                 configuration.ShowGearsetEquipped = showGearsetEquipped;
@@ -246,7 +246,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
 
-            bool showJobChange = configuration.ShowJobChange;
+            var showJobChange = configuration.ShowJobChange;
             if (ImGui.Checkbox(Languages.SystemTab_ShowJobChangeMessages, ref showJobChange))
             {
                 configuration.ShowJobChange = showJobChange;
@@ -255,7 +255,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowJobChangeMessagesHelpMarker);
 
-            bool showPortraitMessages = configuration.ShowPortraitMessages;
+            var showPortraitMessages = configuration.ShowPortraitMessages;
             if (ImGui.Checkbox(Languages.SystemTab_ShowPortraitMessages, ref showPortraitMessages))
             {
                 configuration.ShowPortraitMessages = showPortraitMessages;
@@ -267,7 +267,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_MailDropdownHeader))
         {
-            bool showAttachToMail = configuration.ShowAttachToMail;
+            var showAttachToMail = configuration.ShowAttachToMail;
             if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
             {
                 configuration.ShowAttachToMail = showAttachToMail;
@@ -279,7 +279,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_RelicDropdownHeader))
         {
-            bool showRelicBookStep = configuration.ShowRelicBookStep;
+            var showRelicBookStep = configuration.ShowRelicBookStep;
             if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
             {
                 configuration.ShowRelicBookStep = showRelicBookStep;
@@ -288,7 +288,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicProgressMessagesHelpMarker);
 
-            bool showRelicBookComplete = configuration.ShowRelicBookComplete;
+            var showRelicBookComplete = configuration.ShowRelicBookComplete;
             if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
             {
                 configuration.ShowRelicBookComplete = showRelicBookComplete;
@@ -300,7 +300,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_SocialStatusDropdownHeader))
         {
-            bool showOnlineStatus = configuration.ShowOnlineStatus;
+            var showOnlineStatus = configuration.ShowOnlineStatus;
             if (ImGui.Checkbox(Languages.SystemTab_ShowOnlineStatusMessages, ref showOnlineStatus))
             {
                 configuration.ShowOnlineStatus = showOnlineStatus;
@@ -309,7 +309,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowOnlineStatusMessagesHelpMarker);
 
-            bool showSearchForItemResults = configuration.ShowSearchForItemResults;
+            var showSearchForItemResults = configuration.ShowSearchForItemResults;
             if (ImGui.Checkbox(Languages.SystemTab_ShowItemSearchResultsMessage, ref showSearchForItemResults))
             {
                 configuration.ShowSearchForItemResults = showSearchForItemResults;
@@ -320,7 +320,7 @@ internal static class SystemTab
 
             SettingsTabLayout.DrawNestedOptions(configuration.ShowSearchForItemResults, () =>
             {
-                bool showItemSearchResults = configuration.ShowItemSearchResults;
+                var showItemSearchResults = configuration.ShowItemSearchResults;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowInventoryItemSearchResults, ref showItemSearchResults))
                 {
                     configuration.ShowItemSearchResults = showItemSearchResults;
@@ -329,7 +329,7 @@ internal static class SystemTab
 
                 UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInventoryItemSearchResultsHelpMarker);
 
-                bool showLocationSearchResults = configuration.ShowLocationSearchResults;
+                var showLocationSearchResults = configuration.ShowLocationSearchResults;
                 if (ImGui.Checkbox(Languages.SystemTab_ShowLocationSearchResults, ref showLocationSearchResults))
                 {
                     configuration.ShowLocationSearchResults = showLocationSearchResults;
@@ -342,7 +342,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_CatchAllDropdownHeader))
         {
-            bool showEverythingElse = configuration.ShowEverythingElse;
+            var showEverythingElse = configuration.ShowEverythingElse;
             if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
             {
                 configuration.ShowEverythingElse = showEverythingElse;
@@ -357,7 +357,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_OrchestrionDropdownHeader))
         {
-            bool hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
+            var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
             if (ImGui.Checkbox(Languages.SystemTab_ShowOrchestrionPlaying, ref hideOrchestrionPlaying))
             {
                 configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
@@ -366,7 +366,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowOrchestrionPlayingHelpMarker);
 
-            bool showVolumeControlMessage = configuration.ShowVolumeControlMessage;
+            var showVolumeControlMessage = configuration.ShowVolumeControlMessage;
             if (ImGui.Checkbox(Languages.SystemTab_ShowVolumeControlMessages, ref showVolumeControlMessage))
             {
                 configuration.ShowVolumeControlMessage = showVolumeControlMessage;
@@ -378,7 +378,7 @@ internal static class SystemTab
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ErrorMessagesDropdownHeader))
         {
-            bool hideFateLevelSync = configuration.HideFateLevelSync;
+            var hideFateLevelSync = configuration.HideFateLevelSync;
             if (ImGui.Checkbox(Languages.SystemTab_ShowFateLevelSyncMessages, ref hideFateLevelSync))
             {
                 configuration.HideFateLevelSync = hideFateLevelSync;
@@ -387,7 +387,7 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowFateLevelSyncMessagesHelpMarker);
 
-            bool showActiveHelpEntry = configuration.ShowActiveHelpEntry;
+            var showActiveHelpEntry = configuration.ShowActiveHelpEntry;
             if (ImGui.Checkbox(Languages.SystemTab_ShowActiveHelpEntryMessages, ref showActiveHelpEntry))
             {
                 configuration.ShowActiveHelpEntry = showActiveHelpEntry;
@@ -400,7 +400,7 @@ internal static class SystemTab
 
     private static void DrawInstanceMessageSubOptions(Configuration configuration)
     {
-        bool showInstancedArea = configuration.ShowInstancedAreaMessages;
+        var showInstancedArea = configuration.ShowInstancedAreaMessages;
         if (ImGui.Checkbox(Languages.SystemTab_ShowInstancedAreaMessages, ref showInstancedArea))
         {
             configuration.ShowInstancedAreaMessages = showInstancedArea;
@@ -409,7 +409,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInstancedAreaMessagesHelpMarker);
 
-        bool showDutyEnded = configuration.ShowDutyEndedMessage;
+        var showDutyEnded = configuration.ShowDutyEndedMessage;
         if (ImGui.Checkbox(Languages.SystemTab_ShowDutyEndedMessage, ref showDutyEnded))
         {
             configuration.ShowDutyEndedMessage = showDutyEnded;
@@ -418,7 +418,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyEndedMessageHelpMarker);
 
-        bool showGuildhestEnded = configuration.ShowGuildhestEndedMessage;
+        var showGuildhestEnded = configuration.ShowGuildhestEndedMessage;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGuildhestEndedMessage, ref showGuildhestEnded))
         {
             configuration.ShowGuildhestEndedMessage = showGuildhestEnded;
@@ -427,7 +427,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGuildhestEndedMessageHelpMarker);
 
-        bool showLevelNoLongerSynced = configuration.ShowLevelNoLongerSynced;
+        var showLevelNoLongerSynced = configuration.ShowLevelNoLongerSynced;
         if (ImGui.Checkbox(Languages.SystemTab_ShowLevelNoLongerSynced, ref showLevelNoLongerSynced))
         {
             configuration.ShowLevelNoLongerSynced = showLevelNoLongerSynced;
@@ -436,7 +436,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLevelNoLongerSyncedHelpMarker);
 
-        bool showDutyMechanic = configuration.ShowDutyMechanicMessages;
+        var showDutyMechanic = configuration.ShowDutyMechanicMessages;
         if (ImGui.Checkbox(Languages.SystemTab_ShowDutyMechanicMessages, ref showDutyMechanic))
         {
             configuration.ShowDutyMechanicMessages = showDutyMechanic;
@@ -445,7 +445,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyMechanicMessagesHelpMarker);
 
-        bool showDutyObjectiveBonus = configuration.ShowDutyObjectiveBonus;
+        var showDutyObjectiveBonus = configuration.ShowDutyObjectiveBonus;
         if (ImGui.Checkbox(Languages.SystemTab_ShowDutyObjectiveBonus, ref showDutyObjectiveBonus))
         {
             configuration.ShowDutyObjectiveBonus = showDutyObjectiveBonus;
@@ -457,7 +457,7 @@ internal static class SystemTab
 
     private static void DrawGlamourSubOptions(Configuration configuration)
     {
-        bool showTryOnCast = configuration.ShowTryOnGlamourCast;
+        var showTryOnCast = configuration.ShowTryOnGlamourCast;
         if (ImGui.Checkbox(Languages.SystemTab_ShowTryOnGlamourCast, ref showTryOnCast))
         {
             configuration.ShowTryOnGlamourCast = showTryOnCast;
@@ -466,7 +466,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTryOnGlamourCastHelpMarker);
 
-        bool showPlateProjected = configuration.ShowGlamourPlateProjected;
+        var showPlateProjected = configuration.ShowGlamourPlateProjected;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlateProjected, ref showPlateProjected))
         {
             configuration.ShowGlamourPlateProjected = showPlateProjected;
@@ -475,7 +475,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlateProjectedHelpMarker);
 
-        bool showPartialApply = configuration.ShowGlamourPlatePartialApply;
+        var showPartialApply = configuration.ShowGlamourPlatePartialApply;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlatePartialApply, ref showPartialApply))
         {
             configuration.ShowGlamourPlatePartialApply = showPartialApply;
@@ -484,7 +484,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlatePartialApplyHelpMarker);
 
-        bool showGearDye = configuration.ShowGearDyeApplied;
+        var showGearDye = configuration.ShowGearDyeApplied;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearDyeApplied, ref showGearDye))
         {
             configuration.ShowGearDyeApplied = showGearDye;
@@ -493,7 +493,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearDyeAppliedHelpMarker);
 
-        bool showRestoreFailed = configuration.ShowGearsetGlamourRestoreFailed;
+        var showRestoreFailed = configuration.ShowGearsetGlamourRestoreFailed;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetGlamourRestoreFailed, ref showRestoreFailed))
         {
             configuration.ShowGearsetGlamourRestoreFailed = showRestoreFailed;
@@ -502,7 +502,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetGlamourRestoreFailedHelpMarker);
 
-        bool showGlamourAltered = configuration.ShowGlamourAltered;
+        var showGlamourAltered = configuration.ShowGlamourAltered;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourAltered, ref showGlamourAltered))
         {
             configuration.ShowGlamourAltered = showGlamourAltered;
@@ -514,7 +514,7 @@ internal static class SystemTab
 
     private static void DrawMiscSystemSubOptions(Configuration configuration)
     {
-        bool showChangesDiscarded = configuration.ShowChangesDiscarded;
+        var showChangesDiscarded = configuration.ShowChangesDiscarded;
         if (ImGui.Checkbox(Languages.SystemTab_ShowChangesDiscarded, ref showChangesDiscarded))
         {
             configuration.ShowChangesDiscarded = showChangesDiscarded;
@@ -523,7 +523,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesDiscardedHelpMarker);
 
-        bool showChangesLost = configuration.ShowChangesLost;
+        var showChangesLost = configuration.ShowChangesLost;
         if (ImGui.Checkbox(Languages.SystemTab_ShowChangesLost, ref showChangesLost))
         {
             configuration.ShowChangesLost = showChangesLost;
@@ -532,7 +532,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesLostHelpMarker);
 
-        bool showTripleTriadAllowed = configuration.ShowTripleTriadAllowed;
+        var showTripleTriadAllowed = configuration.ShowTripleTriadAllowed;
         if (ImGui.Checkbox(Languages.SystemTab_ShowTripleTriadAllowed, ref showTripleTriadAllowed))
         {
             configuration.ShowTripleTriadAllowed = showTripleTriadAllowed;
@@ -541,7 +541,7 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTripleTriadAllowedHelpMarker);
 
-        bool showTripleTriadNotAllowed = configuration.ShowTripleTriadNotAllowed;
+        var showTripleTriadNotAllowed = configuration.ShowTripleTriadNotAllowed;
         if (ImGui.Checkbox(Languages.SystemTab_ShowTripleTriadNotAllowed, ref showTripleTriadNotAllowed))
         {
             configuration.ShowTripleTriadNotAllowed = showTripleTriadNotAllowed;

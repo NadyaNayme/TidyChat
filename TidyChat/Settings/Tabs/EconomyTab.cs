@@ -6,28 +6,28 @@ internal static class EconomyTab
     {
         if (ImGui.CollapsingHeader(Languages.EconomyTab_TradingSectionHeader, ImGuiTreeNodeFlags.DefaultOpen))
         {
-            bool showTradeSent = configuration.ShowTradeSent;
+            var showTradeSent = configuration.ShowTradeSent;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeRequestSent, ref showTradeSent))
             {
                 configuration.ShowTradeSent = showTradeSent;
                 configuration.OnSettingChanged();
             }
 
-            bool showTradeCanceled = configuration.ShowTradeCanceled;
+            var showTradeCanceled = configuration.ShowTradeCanceled;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeCanceled, ref showTradeCanceled))
             {
                 configuration.ShowTradeCanceled = showTradeCanceled;
                 configuration.OnSettingChanged();
             }
 
-            bool showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
+            var showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeAwaitingConfirmation, ref showAwaitingTradeConfirmation))
             {
                 configuration.ShowAwaitingTradeConfirmation = showAwaitingTradeConfirmation;
                 configuration.OnSettingChanged();
             }
 
-            bool showTradeComplete = configuration.ShowTradeComplete;
+            var showTradeComplete = configuration.ShowTradeComplete;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeComplete, ref showTradeComplete))
             {
                 configuration.ShowTradeComplete = showTradeComplete;
@@ -37,7 +37,7 @@ internal static class EconomyTab
 
         if (ImGui.CollapsingHeader(Languages.EconomyTab_VendorSectionHeader))
         {
-            bool showVendorSellMessages = configuration.ShowVendorSellMessages;
+            var showVendorSellMessages = configuration.ShowVendorSellMessages;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorSellMessages, ref showVendorSellMessages))
             {
                 configuration.ShowVendorSellMessages = showVendorSellMessages;
@@ -46,7 +46,7 @@ internal static class EconomyTab
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorSellMessagesHelpMarker);
 
-            bool showVendorPurchaseMessages = configuration.ShowVendorPurchaseMessages;
+            var showVendorPurchaseMessages = configuration.ShowVendorPurchaseMessages;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorPurchaseMessages, ref showVendorPurchaseMessages))
             {
                 configuration.ShowVendorPurchaseMessages = showVendorPurchaseMessages;
@@ -55,7 +55,7 @@ internal static class EconomyTab
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorPurchaseMessagesHelpMarker);
 
-            bool showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
+            var showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
             {
                 configuration.ShowGilWithdrawnMessage = showGilWithdrawnMessage;
@@ -67,7 +67,7 @@ internal static class EconomyTab
 
         if (ImGui.CollapsingHeader(Languages.EconomyTab_MarketBoardSectionHeader))
         {
-            bool showMarketBoardMessages = configuration.ShowMarketBoardMessages;
+            var showMarketBoardMessages = configuration.ShowMarketBoardMessages;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardMessages, ref showMarketBoardMessages))
             {
                 configuration.ShowMarketBoardMessages = showMarketBoardMessages;
@@ -78,7 +78,7 @@ internal static class EconomyTab
 
             SettingsTabLayout.DrawNestedOptions(configuration.ShowMarketBoardMessages, () =>
             {
-                bool showMarketItemSold = configuration.ShowMarketItemSold;
+                var showMarketItemSold = configuration.ShowMarketItemSold;
                 if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketItemSold, ref showMarketItemSold))
                 {
                     configuration.ShowMarketItemSold = showMarketItemSold;
@@ -87,7 +87,7 @@ internal static class EconomyTab
 
                 UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketItemSoldHelpMarker);
 
-                bool showMarketAllItemsSold = configuration.ShowMarketAllItemsSold;
+                var showMarketAllItemsSold = configuration.ShowMarketAllItemsSold;
                 if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketAllItemsSold, ref showMarketAllItemsSold))
                 {
                     configuration.ShowMarketAllItemsSold = showMarketAllItemsSold;
@@ -96,7 +96,7 @@ internal static class EconomyTab
 
                 UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketAllItemsSoldHelpMarker);
 
-                bool showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
+                var showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
                 if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardSellingStatus, ref showMarketBoardSellingStatus))
                 {
                     configuration.ShowMarketBoardSellingStatus = showMarketBoardSellingStatus;
@@ -108,7 +108,7 @@ internal static class EconomyTab
 
             SettingsTabLayout.DrawIndependentOptions(() =>
             {
-                bool showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
+                var showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
                 if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
                 {
                     configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
@@ -121,7 +121,7 @@ internal static class EconomyTab
 
         if (ImGui.CollapsingHeader(Languages.EconomyTab_GilSectionHeader))
         {
-            bool showGilSpentMessage = configuration.ShowGilSpentMessage;
+            var showGilSpentMessage = configuration.ShowGilSpentMessage;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowGilSpentMessage, ref showGilSpentMessage))
             {
                 configuration.ShowGilSpentMessage = showGilSpentMessage;

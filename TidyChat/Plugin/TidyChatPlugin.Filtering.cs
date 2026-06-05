@@ -1,45 +1,47 @@
+using Dalamud.Game.Text.SeStringHandling.Payloads;
 using System.Collections.Generic;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using Dalamud.Game.Text.SeStringHandling.Payloads;
-using TidyChat.Utility;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    private enum LogMessageChatEffect
-    {
-        None,
-        PreserveVisible,
-        PreserveHidden
-    }
 
     private bool HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType, string normalizedText,
         bool protectedByShowRule)
     {
-        if (protectedByShowRule) return false;
-        if (Configuration.ServerAnnouncementMode == ServerAnnouncementMode.ShowAll) return false;
+        if (protectedByShowRule)
+        {
+            return false;
+        }
+        if (Configuration.ServerAnnouncementMode == ServerAnnouncementMode.ShowAll)
+        {
+            return false;
+        }
 
-        bool isWorldGreeting = ServerAnnouncementCatalog.IsWorldGreeting(normalizedText);
-        bool isGenericGameWelcome = ServerAnnouncementCatalog.IsGenericGameWelcome(normalizedText);
-        bool isAnnouncement = ServerAnnouncementCatalog.IsAnnouncement(normalizedText);
-        if (!isWorldGreeting && !isAnnouncement) return false;
+        var isWorldGreeting = ServerAnnouncementCatalog.IsWorldGreeting(normalizedText);
+        var isGenericGameWelcome = ServerAnnouncementCatalog.IsGenericGameWelcome(normalizedText);
+        var isAnnouncement = ServerAnnouncementCatalog.IsAnnouncement(normalizedText);
+        if (!isWorldGreeting && !isAnnouncement)
+        {
+            return false;
+        }
 
-        bool isPhishing = ServerAnnouncementCatalog.IsPhishingWarning(normalizedText);
+        var isPhishing = ServerAnnouncementCatalog.IsPhishingWarning(normalizedText);
         // Login announcements usually use System; some clients also deliver them on Notice/Urgent (#24).
         if (chatType is not ChatType.System && chatType is not ChatType.Notice and not ChatType.Urgent)
+        {
             return false;
+        }
 
-        bool withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
-        bool keepGenericGameWelcome =
+        var withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
+        var keepGenericGameWelcome =
             Configuration.ServerAnnouncementMode is ServerAnnouncementMode.HidePhishing ||
-            (withinLoginWindow && Configuration.ServerAnnouncementMode is ServerAnnouncementMode.LoginOnly
-                or ServerAnnouncementMode.LoginThenCondensed);
+            (withinLoginWindow && Configuration.ServerAnnouncementMode is ServerAnnouncementMode.LoginOnly or ServerAnnouncementMode.LoginThenCondensed);
 
-        bool suppress = Configuration.ServerAnnouncementMode switch
+        var suppress = Configuration.ServerAnnouncementMode switch
         {
             ServerAnnouncementMode.HideAll => true,
             ServerAnnouncementMode.Condensed => !isWorldGreeting,
@@ -49,7 +51,9 @@ public sealed partial class TidyChatPlugin
             _ => false
         };
         if (isGenericGameWelcome && !keepGenericGameWelcome)
+        {
             suppress = true;
+        }
 
         if (suppress)
         {
@@ -57,7 +61,9 @@ public sealed partial class TidyChatPlugin
             {
                 Log.Debug($"BLOCKED (server announcement): {message.Message}");
                 if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                {
                     message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, true);
+                }
                 return true;
             }
             message.PreventOriginal();
@@ -68,11 +74,13 @@ public sealed partial class TidyChatPlugin
         if (Configuration.EnableDebugMode)
         {
             if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+            {
                 message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, false);
+            }
             return true;
         }
 
-        bool isCondensing = Configuration.ServerAnnouncementMode switch
+        var isCondensing = Configuration.ServerAnnouncementMode switch
         {
             ServerAnnouncementMode.Condensed => true,
             ServerAnnouncementMode.LoginThenCondensed => !withinLoginWindow,
@@ -112,7 +120,10 @@ public sealed partial class TidyChatPlugin
             if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
                     normalizedText))
             {
-                if (Configuration.EnableDebugMode) Log.Verbose($"Filtered an emote: {message.Message}");
+                if (Configuration.EnableDebugMode)
+                {
+                    Log.Verbose($"Filtered an emote: {message.Message}");
+                }
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
@@ -142,14 +153,24 @@ public sealed partial class TidyChatPlugin
 
     private void TryRewriteMarketBoardSaleMessage(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
-        if (!Configuration.BetterMarketBoardSaleMessage) return;
-        if (chatType is not ChatType.System and not ChatType.RetainerSale) return;
+        if (!Configuration.BetterMarketBoardSaleMessage)
+        {
+            return;
+        }
+        if (chatType is not ChatType.System and not ChatType.RetainerSale)
+        {
+            return;
+        }
         if (!LogMessageCatalog.MatchesWithFallback(748, normalizedText, ChatStrings.MarketItemSold) &&
             !L10N.Get(ChatRegexStrings.MarketItemSold).IsMatch(normalizedText))
+        {
             return;
+        }
 
         if (Better.MarketItemSold(message.Message, Configuration, normalizedText) is SeString rewritten)
+        {
             message.Message = rewritten;
+        }
     }
 
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
@@ -165,7 +186,10 @@ public sealed partial class TidyChatPlugin
             LogMessageCatalog.MatchesWithFallback(1350, normalizedText, ChatStrings.InstancedArea))
         {
             message.Message = Better.Instances(message.Message, Configuration);
-            if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+            if (Configuration.InstanceInDtrBar)
+            {
+                InstanceDtrBarUpdate(Configuration);
+            }
             return true;
         }
 
@@ -189,25 +213,33 @@ public sealed partial class TidyChatPlugin
         {
             if (L10N.Get(ChatRegexStrings.ChamberOpens).IsMatch(normalizedText))
             {
-                Match match = L10N.Get(ChatRegexStrings.ChamberOpens).Match(normalizedText);
+                var match = L10N.Get(ChatRegexStrings.ChamberOpens).Match(normalizedText);
                 if (match.Groups["chamber"].Success)
+                {
                     TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
+                }
                 return true;
             }
             if (L10N.Get(ChatRegexStrings.TrapTriggered).IsMatch(normalizedText))
             {
                 if (TidyStrings.LastTreasureDungeonChamber.Length > 0)
+                {
                     message.Message = Better.TreasureDungeon(Configuration);
+                }
                 return true;
             }
         }
 
         if (Configuration.NormalizeBlocks &&
             (Configuration.AlwaysNormalizeBlocks || chatType is not ChatType.Party and not ChatType.Alliance))
+        {
             message.Message = DeblockMessage(message.Message);
+        }
 
         if (Configuration.EnableSmolMode)
+        {
             message.Message = SmolMessage(message.Message);
+        }
 
         return false;
     }
@@ -218,23 +250,31 @@ public sealed partial class TidyChatPlugin
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
 
         bool wasAllowedByLog;
-        lock(_logMessageLock)
+        lock (_logMessageLock)
         {
             wasAllowedByLog = _allowedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_allowedByLogMessage, textCandidates);
         }
-        if (wasAllowedByLog) return LogMessageChatEffect.PreserveVisible;
+        if (wasAllowedByLog)
+        {
+            return LogMessageChatEffect.PreserveVisible;
+        }
 
         bool wasBlockedByLog;
-        lock(_logMessageLock)
+        lock (_logMessageLock)
         {
             wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
         }
-        if (wasBlockedByLog) return LogMessageChatEffect.PreserveHidden;
+        if (wasBlockedByLog)
+        {
+            return LogMessageChatEffect.PreserveHidden;
+        }
 
         if (TryConsumePendingLogMessageAllow(normalizedText))
+        {
             return LogMessageChatEffect.PreserveVisible;
+        }
 
         return LogMessageChatEffect.None;
     }
@@ -244,14 +284,22 @@ public sealed partial class TidyChatPlugin
     {
         ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled);
         ApplyWhitelist(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled);
-        if (CheckChatHistory(message, chatType, ref isHandled)) return true;
+        if (CheckChatHistory(message, chatType, ref isHandled))
+        {
+            return true;
+        }
 
-        if (chatType is ChatType.Echo) isHandled = false;
+        if (chatType is ChatType.Echo)
+        {
+            isHandled = false;
+        }
 
         if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
             if (Configuration.DebugIncludeChannel || isHandled)
+            {
                 message.Message = BuildDebugString(chatType, message.Message, rulesMatched, Configuration.DebugIncludeChannel, isHandled);
+            }
             isHandled = false;
         }
 
@@ -281,12 +329,20 @@ public sealed partial class TidyChatPlugin
         }
 
         Rules.UpdateIsActiveStates(Configuration);
-        foreach(LocalizedFilterRule rule in Rules.AllRules)
+        foreach (var rule in Rules.AllRules)
         {
-            if (rule.ShouldBlock) continue;
-            if (!LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText)) continue;
+            if (rule.ShouldBlock)
+            {
+                continue;
+            }
+            if (!LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText))
+            {
+                continue;
+            }
             if (RuleMatchesText(rule, normalizedText, false))
+            {
                 protectingRules.Add(rule.Name);
+            }
         }
 
         return protectingRules.Count > 0;
@@ -296,12 +352,14 @@ public sealed partial class TidyChatPlugin
     {
         rulesMatched = [];
         Rules.UpdateIsActiveStates(Configuration);
-        LocalizedFilterRule[] rules = Rules.AllRules;
+        var rules = Rules.AllRules;
 
-        bool isBlocked = ChannelIsSpammy(chatType);
-        bool errorChannelOnlyHideRules = chatType is ChatType.Error;
+        var isBlocked = ChannelIsSpammy(chatType);
+        var errorChannelOnlyHideRules = chatType is ChatType.Error;
         if (errorChannelOnlyHideRules)
+        {
             isBlocked = false;
+        }
 
         if ((chatType is ChatType.System or ChatType.RetainerSale && !Configuration.FilterSystemMessages) ||
             (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
@@ -319,7 +377,7 @@ public sealed partial class TidyChatPlugin
             return null; // sentinel: caller should return immediately
         }
 
-        bool showEverythingElse = false;
+        var showEverythingElse = false;
         if ((chatType is ChatType.System or ChatType.RetainerSale && Configuration.ShowEverythingElse) ||
             (chatType is ChatType.Crafting && Configuration.ShowAllOtherCrafting) ||
             (chatType is ChatType.Gathering or ChatType.GatheringSystem && Configuration.ShowAllOtherGathering))
@@ -327,13 +385,16 @@ public sealed partial class TidyChatPlugin
             isBlocked = !isBlocked;
             showEverythingElse = true;
         }
-        bool defaultBlocked = isBlocked;
+        var defaultBlocked = isBlocked;
 
         List<string>? rulesSkipped = Configuration.EnableDebugMode ? [] : null;
         List<string>? rulesFailed = Configuration.EnableDebugMode ? [] : null;
-        foreach(LocalizedFilterRule rule in rules)
+        foreach (var rule in rules)
         {
-            if (rule.Error is not null) Log.Error($"Error: {rule.Error}");
+            if (rule.Error is not null)
+            {
+                Log.Error($"Error: {rule.Error}");
+            }
 
             if (!rule.IsActive && !rule.BlockWhenActive && rule.LogMessageIds is { Length: > 0 } &&
                 LogMessageCatalog.IsLoaded &&
@@ -345,20 +406,28 @@ public sealed partial class TidyChatPlugin
                 rulesMatched.Add(rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
                 if (Configuration.EnableDebugMode)
+                {
                     Log.Verbose($"BLOCKING CHECK: {rule.Name} is off for this LogMessage line");
+                }
                 continue;
             }
 
             if (rule.IsActive == showEverythingElse &&
                 !(chatType is ChatType.LootNotice && !rule.BlockWhenActive))
             {
-                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: {rule.Name} is {(showEverythingElse ? "active" : "inactive")}");
+                if (Configuration.EnableDebugMode)
+                {
+                    Log.Verbose($"SKIPPING CHECK: {rule.Name} is {(showEverythingElse ? "active" : "inactive")}");
+                }
                 rulesSkipped?.Add(rule.Name);
                 continue;
             }
             if (!LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText))
             {
-                if (Configuration.EnableDebugMode) Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
+                if (Configuration.EnableDebugMode)
+                {
+                    Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
+                }
                 rulesSkipped?.Add(rule.Name);
                 continue;
             }
@@ -366,9 +435,13 @@ public sealed partial class TidyChatPlugin
             if (rule.Channel == ChatType.Echo)
             {
                 if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+                {
                     rulesMatched.Add(rule.Name);
+                }
                 else if (Configuration.EnableDebugMode)
+                {
                     Log.Debug("/echo message failed to match any rules");
+                }
                 continue;
             }
 
@@ -377,7 +450,10 @@ public sealed partial class TidyChatPlugin
                 if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
                     CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText))
                 {
-                    if (Configuration.EnableDebugMode) rulesFailed?.Add(rule.Name);
+                    if (Configuration.EnableDebugMode)
+                    {
+                        rulesFailed?.Add(rule.Name);
+                    }
                     continue;
                 }
 
@@ -385,7 +461,9 @@ public sealed partial class TidyChatPlugin
                 if (errorChannelOnlyHideRules)
                 {
                     if (rule.BlockWhenActive && rule.IsActive)
+                    {
                         isBlocked = true;
+                    }
                 }
                 else
                 {
@@ -412,7 +490,9 @@ public sealed partial class TidyChatPlugin
             {
                 const string allowTag = "ObtainCurrency (hide off)";
                 if (!rulesMatched.Contains(allowTag))
+                {
                     rulesMatched.Add(allowTag);
+                }
             }
         }
 
@@ -421,9 +501,11 @@ public sealed partial class TidyChatPlugin
             isBlocked = chatType is ChatType.LootNotice;
             if (Configuration.EnableDebugMode)
             {
-                string? cosmicRule = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
+                var cosmicRule = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
                 if (cosmicRule is not null && !rulesMatched.Contains(cosmicRule))
+                {
                     rulesMatched.Add(cosmicRule);
+                }
             }
         }
 
@@ -431,18 +513,24 @@ public sealed partial class TidyChatPlugin
         {
             isBlocked = false;
             if (Configuration.EnableDebugMode && !rulesMatched.Contains(nameof(Configuration.BetterMarketBoardSaleMessage)))
+            {
                 rulesMatched.Add(nameof(Configuration.BetterMarketBoardSaleMessage));
+            }
         }
 
-        bool isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
+        var isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
 
         if (Configuration.EnableDebugMode && (rulesMatched.Count > 0 || isHandled))
         {
             Log.Debug($"{rulesMatched.Count} Rules Matched: {string.Join(", ", rulesMatched)}");
             if (rulesSkipped!.Count > 0)
+            {
                 Log.Debug($"{rulesSkipped.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
+            }
             if (rulesFailed!.Count > 0)
+            {
                 Log.Debug($"{rulesFailed.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
+            }
             Log.Debug($"{(isHandled ? "BLOCKED" : "ALLOWED")}: {message.Message}");
         }
 
@@ -455,33 +543,43 @@ public sealed partial class TidyChatPlugin
             MarketBoardSaleHelper.ShouldBlockGilEntrusted(Configuration, normalizedText))
         {
             if (Configuration.EnableDebugMode)
+            {
                 Log.Debug("BLOCKED (market gil entrusted): " + message.Message);
+            }
             isHandled = true;
         }
 
         if (chatType is ChatType.CustomEmote &&
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
         {
-            if (Configuration.EnableDebugMode) Log.Information("Allowing custom emote used by player");
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Information("Allowing custom emote used by player");
+            }
             isHandled = false;
         }
 
         if (!Configuration.ShowSelfUsedEmotes &&
             chatType is ChatType.StandardEmote or ChatType.CustomEmote &&
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
+        {
             isHandled = true;
+        }
 
         if (chatType is ChatType.LootRoll && !isHandled &&
             FilterMasterAccessors.OnlyPartyMemberLootRolls(Configuration) && PartyList.Length > 0)
         {
-            bool isPlayerMessage = normalizedText.StartsWith("you ", StringComparison.Ordinal);
-            bool isPartyMember = isPlayerMessage || PartyList.Any(member =>
+            var isPlayerMessage = normalizedText.StartsWith("you ", StringComparison.Ordinal);
+            var isPartyMember = isPlayerMessage || PartyList.Any(member =>
                 normalizedText.StartsWith(
                     member.Name.TextValue.ToLower(CultureInfo.InvariantCulture) + " ",
                     StringComparison.Ordinal));
             if (!isPartyMember)
             {
-                if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (non-party loot): {message.Message}");
+                if (Configuration.EnableDebugMode)
+                {
+                    Log.Debug($"BLOCKED (non-party loot): {message.Message}");
+                }
                 isHandled = true;
             }
         }
@@ -489,42 +587,48 @@ public sealed partial class TidyChatPlugin
         if (chatType is ChatType.Gathering && isHandled && Configuration.ShowFishingFlavorText &&
             FishingFlavorMessages.Count > 0 && FishingFlavorMessages.Contains(normalizedText))
         {
-            if (Configuration.EnableDebugMode) Log.Debug($"ALLOWED (fishing flavor): {message.Message}");
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug($"ALLOWED (fishing flavor): {message.Message}");
+            }
             isHandled = false;
         }
 
         if (chatType is ChatType.LootNotice &&
             TomestoneHideHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
-            if (Configuration.EnableDebugMode) Log.Debug($"BLOCKED (tomestone): {message.Message}");
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug($"BLOCKED (tomestone): {message.Message}");
+            }
             isHandled = true;
         }
     }
-    private static bool ChannelIsSpammy(ChatType chatType)
+    private static bool ChannelIsSpammy(ChatType chatType) => chatType switch
     {
-        return chatType switch
-        {
-            ChatType.System or
-                ChatType.RetainerSale or
-                ChatType.StandardEmote or
-                ChatType.CustomEmote or
-                ChatType.Crafting or
-                ChatType.Gathering or
-                ChatType.GatheringSystem or
-                ChatType.LootNotice or
-                ChatType.LootRoll or
-                ChatType.Progress or
-                ChatType.FreeCompanyLoginLogout or
-                ChatType.GlamourNotifications or
-                ChatType.BattleSystem or
-                ChatType.Echo => true,
-            _ => false
-        };
-    }
+        ChatType.System or
+            ChatType.RetainerSale or
+            ChatType.StandardEmote or
+            ChatType.CustomEmote or
+            ChatType.Crafting or
+            ChatType.Gathering or
+            ChatType.GatheringSystem or
+            ChatType.LootNotice or
+            ChatType.LootRoll or
+            ChatType.Progress or
+            ChatType.FreeCompanyLoginLogout or
+            ChatType.GlamourNotifications or
+            ChatType.BattleSystem or
+            ChatType.Echo => true,
+        _ => false
+    };
 
     private static bool ChannelCanBeFiltered(ChatType chatType)
     {
-        if (ChannelIsSpammy(chatType)) return true;
+        if (ChannelIsSpammy(chatType))
+        {
+            return true;
+        }
         return chatType switch
         {
             ChatType.Item or
@@ -574,7 +678,7 @@ public sealed partial class TidyChatPlugin
 
     private static SeString SmolMessage(SeString msg)
     {
-        List<Payload> payloads = msg.Payloads;
+        var payloads = msg.Payloads;
         SeStringBuilder stringBuilder = new();
         payloads.ForEach(payload =>
         {
@@ -585,7 +689,7 @@ public sealed partial class TidyChatPlugin
             else if (payload is TextPayload { Text: not null } textPayload)
             {
                 var sb = new StringBuilder(textPayload.Text.Length);
-                foreach(int i in textPayload.Text)
+                foreach (int i in textPayload.Text)
                 {
                     sb.Append(i is >= 65 and <= 90
                         ? (char)(i + 32) // 65='A', 90='Z' (91='[', not a letter)
@@ -601,7 +705,7 @@ public sealed partial class TidyChatPlugin
 
     private static SeString DeblockMessage(SeString msg)
     {
-        List<Payload> payloads = msg.Payloads;
+        var payloads = msg.Payloads;
         SeStringBuilder stringBuilder = new();
         payloads.ForEach(payload =>
         {
@@ -612,9 +716,9 @@ public sealed partial class TidyChatPlugin
             else if (payload is TextPayload { Text: not null } textPayload)
             {
                 var sb = new StringBuilder(textPayload.Text.Length);
-                foreach(int i in textPayload.Text)
+                foreach (int i in textPayload.Text)
                 {
-                    char c = i switch
+                    var c = i switch
                     {
                         >= 57457 and <= 57483 => (char)(i - 57392), // A-Z Blocks
                         >= 57487 and <= 57496 => (char)(i - 57439), // Number Blocks
@@ -630,5 +734,12 @@ public sealed partial class TidyChatPlugin
         msg = stringBuilder.Build();
         msg.EncodeWithNullTerminator();
         return msg;
+    }
+
+    private enum LogMessageChatEffect
+    {
+        None,
+        PreserveVisible,
+        PreserveHidden
     }
 }

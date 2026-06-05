@@ -6,14 +6,14 @@ internal static class ToolsTab
     {
         if (ImGui.CollapsingHeader(Languages.ToolsTab_DebugDropdownHeader, ImGuiTreeNodeFlags.DefaultOpen))
         {
-            bool enableDebugMode = configuration.EnableDebugMode;
+            var enableDebugMode = configuration.EnableDebugMode;
             if (ImGui.Checkbox(Languages.ToolsTab_EnableDebugMode, ref enableDebugMode))
             {
                 configuration.EnableDebugMode = enableDebugMode;
                 configuration.OnSettingChanged();
             }
 
-            bool debugIncludeChannel = configuration.DebugIncludeChannel;
+            var debugIncludeChannel = configuration.DebugIncludeChannel;
             if (ImGui.Checkbox(Languages.ToolsTab_DebugIncludeChannel, ref debugIncludeChannel))
             {
                 configuration.DebugIncludeChannel = debugIncludeChannel;
@@ -22,9 +22,13 @@ internal static class ToolsTab
         }
 
         if (ImGui.CollapsingHeader(Languages.ToolsTab_ChatHistoryDropdownHeader))
+        {
             ChatHistoryTab.DrawContent(configuration);
+        }
 
         if (ImGui.CollapsingHeader(Languages.ToolsTab_CustomFiltersDropdownHeader))
+        {
             WhitelistTab.DrawContent(configuration);
+        }
     }
 }

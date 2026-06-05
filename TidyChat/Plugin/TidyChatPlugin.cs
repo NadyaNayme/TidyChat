@@ -1,11 +1,11 @@
 ﻿global using Dalamud.Bindings.ImGui;
-using System.Collections.Generic;
-using System.Threading;
 using Dalamud.Game.Gui.Dtr;
 using Dalamud.Interface.Windowing;
 using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
+using System.Collections.Generic;
+using System.Threading;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat;
@@ -37,79 +37,8 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
 
     private long _sessionBlockedMessages;
-    volatile private bool _setPlayerNamePending;
+    private volatile bool _setPlayerNamePending;
     private int _setPlayerNameRetries;
-
-    #region Setup
-
-    public static TidyChatPlugin? Instance { get; private set; }
-
-    public TidyChatPlugin()
-    {
-        Instance = this;
-        L10N.Language = ClientState.ClientLanguage;
-        LoadFishingFlavorMessages();
-        PluginInterface.LanguageChanged += UpdateLang;
-        Languages.Culture = new(PluginInterface.UiLanguage);
-
-        var loaded = PluginInterface.GetPluginConfig() as Configuration;
-        Configuration = loaded ?? new Configuration();
-        Configuration.Initialize(PluginInterface);
-        if (Configuration.Version < 12)
-        {
-            if (Configuration.Version < 5)
-                ConfigurationMigration.ApplyPreV5(Configuration, PluginInterface);
-            if (Configuration.Version < 7)
-                ConfigurationMigration.ApplyVersion6(Configuration);
-            if (Configuration.Version < 8)
-                ConfigurationMigration.ApplyVersion8(Configuration);
-            if (Configuration.Version < 9)
-                ConfigurationMigration.ApplyVersion9(Configuration);
-            if (Configuration.Version < 10)
-                ConfigurationMigration.ApplyVersion10(Configuration);
-            if (Configuration.Version < 11)
-                ConfigurationMigration.ApplyVersion11(Configuration);
-            if (Configuration.Version < 12)
-                ConfigurationMigration.ApplyVersion12(Configuration);
-            Configuration.Version = 12;
-            Configuration.Save();
-        }
-
-        Rules.UpdateIsActiveStates(Configuration);
-
-        ReloadGameDataCaches(validateRuleIds: true);
-
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
-
-        if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
-            BetterCommendationsUpdate(printMessage: false);
-
-        ChatGui.CheckMessageHandled += OnChat;
-        ChatGui.LogMessage += OnLogMessage;
-        ClientState.TerritoryChanged += OnTerritoryChanged;
-        ClientState.Login += OnLogin;
-        ClientState.Logout += OnLogout;
-
-        PluginUi = new(Configuration);
-        _windowSystem.AddWindow(PluginUi);
-        PluginUi.InvalidateLayoutCache();
-
-        CommandManager.AddHandler(SettingsCommand, new(OnCommand)
-        {
-            HelpMessage = TidyStrings.SettingsHelper
-        });
-
-        CommandManager.AddHandler(ShorthandCommand, new(OnCommand)
-        {
-            HelpMessage = TidyStrings.ShorthandHelper
-        });
-
-        PluginInterface.UiBuilder.Draw += DrawUI;
-        PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
-        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
-    }
-
-    #endregion Setup
     [PluginService] public static IDataManager DataManager { get; set; } = null!;
     [PluginService] public static IDtrBar DtrBar { get; set; } = null!;
     [PluginService] public static ICommandManager CommandManager { get; set; } = null!;
@@ -143,7 +72,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         if (DtrEntry is not null)
         {
             try { DtrEntry.Remove(); }
-            catch(Exception ex) { Log.Warning("Failed to remove DTR bar entry on dispose: " + ex); }
+            catch (Exception ex) { Log.Warning("Failed to remove DTR bar entry on dispose: " + ex); }
             DtrEntry = null;
         }
 
@@ -159,7 +88,9 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private void OnCommand(string command, string args)
     {
         if (PluginUi is not null)
+        {
             PluginUi.IsOpen = true;
+        }
     }
 
     private void UpdateLang(string langCode)
@@ -168,14 +99,78 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         PluginUi?.InvalidateLayoutCache();
     }
 
-    private void DrawUI()
-    {
-        _windowSystem.Draw();
-    }
+    private void DrawUI() => _windowSystem.Draw();
 
     private void DrawConfigUI()
     {
         if (PluginUi is not null)
+        {
             PluginUi.IsOpen = true;
+        }
     }
+
+    #region Setup
+
+    public static TidyChatPlugin? Instance { get; private set; }
+
+    public TidyChatPlugin()
+    {
+        Instance = this;
+        L10N.Language = ClientState.ClientLanguage;
+        LoadFishingFlavorMessages();
+        PluginInterface.LanguageChanged += UpdateLang;
+        Languages.Culture = new(PluginInterface.UiLanguage);
+
+        var loaded = PluginInterface.GetPluginConfig() as Configuration;
+        Configuration = loaded ?? new Configuration();
+        Configuration.Initialize(PluginInterface);
+        if (Configuration.Version < 12)
+        {
+            if (Configuration.Version < 11)
+                ConfigurationMigration.ApplyVersion11(Configuration);
+            ConfigurationMigration.ApplyVersion12(Configuration);
+            Configuration.Version = 12;
+            Configuration.Save();
+        }
+
+        Rules.UpdateIsActiveStates(Configuration);
+
+        ReloadGameDataCaches(validateRuleIds: true);
+
+        if (Configuration.InstanceInDtrBar)
+        {
+            InstanceDtrBarUpdate(Configuration);
+        }
+
+        if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
+        {
+            BetterCommendationsUpdate(printMessage: false);
+        }
+
+        ChatGui.CheckMessageHandled += OnChat;
+        ChatGui.LogMessage += OnLogMessage;
+        ClientState.TerritoryChanged += OnTerritoryChanged;
+        ClientState.Login += OnLogin;
+        ClientState.Logout += OnLogout;
+
+        PluginUi = new(Configuration);
+        _windowSystem.AddWindow(PluginUi);
+        PluginUi.InvalidateLayoutCache();
+
+        CommandManager.AddHandler(SettingsCommand, new(OnCommand)
+        {
+            HelpMessage = TidyStrings.SettingsHelper
+        });
+
+        CommandManager.AddHandler(ShorthandCommand, new(OnCommand)
+        {
+            HelpMessage = TidyStrings.ShorthandHelper
+        });
+
+        PluginInterface.UiBuilder.Draw += DrawUI;
+        PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
+        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+    }
+
+    #endregion Setup
 }

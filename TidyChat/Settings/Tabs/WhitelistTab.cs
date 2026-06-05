@@ -1,7 +1,7 @@
-using System.Numerics;
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
+using System.Numerics;
 namespace TidyChat.Settings.Tabs;
 
 internal static class WhitelistTab
@@ -10,7 +10,7 @@ internal static class WhitelistTab
 
     public static void DrawContent(Configuration configuration)
     {
-        bool sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
+        var sentByWhitelistPlayer = configuration.SentByWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayer, ref sentByWhitelistPlayer))
         {
             configuration.SentByWhitelistPlayer = sentByWhitelistPlayer;
@@ -18,7 +18,7 @@ internal static class WhitelistTab
         }
         ImGuiComponents.HelpMarker(Languages.WhitelistTab_ShowAllMessagesByWhitelistedPlayerHelpMarker);
 
-        bool targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
+        var targetingWhitelistPlayer = configuration.TargetingWhitelistPlayer;
         if (ImGui.Checkbox(Languages.WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer,
                 ref targetingWhitelistPlayer))
         {
@@ -48,7 +48,10 @@ internal static class WhitelistTab
         var outer_height = new Vector2(640f, 400f);
         if (!ImGui.BeginTable("##whitelistTable", 4,
                 ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
-                ImGuiTableFlags.RowBg, outer_height)) return;
+                ImGuiTableFlags.RowBg, outer_height))
+        {
+            return;
+        }
         ImGui.TableSetupScrollFreeze(0, 1);
         ImGui.TableSetupColumn(Languages.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed, 148f);
         ImGui.TableSetupColumn(Languages.WhitelistTab_FiltersHeader, ImGuiTableColumnFlags.WidthStretch);
@@ -56,10 +59,10 @@ internal static class WhitelistTab
         ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed, 36f);
         ImGui.TableHeadersRow();
         var list = configuration.Whitelist.ToList();
-        for (int i = -1; i < list.Count; i++)
+        for (var i = -1; i < list.Count; i++)
         {
             ImGui.TableNextRow();
-            PlayerName alias = i < 0 ? m_placeholder : list[i];
+            var alias = i < 0 ? m_placeholder : list[i];
 
             #region Channels Column
 
@@ -70,33 +73,55 @@ internal static class WhitelistTab
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 3)) configuration.OnSettingChanged();
+                        1 << 3))
+                {
+                    configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 2)) configuration.OnSettingChanged();
+                        1 << 2))
+                {
+                    configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
                         ref alias.WhitelistedChannels, 1 << 1))
+                {
                     configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags($"{Languages.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
                         ref alias.WhitelistedChannels, 1 << 5))
+                {
                     configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 8)) configuration.OnSettingChanged();
+                        1 << 8))
+                {
+                    configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 9)) configuration.OnSettingChanged();
+                        1 << 9))
+                {
+                    configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
-                        ref alias.WhitelistedChannels, 1 << 7)) configuration.OnSettingChanged();
+                        ref alias.WhitelistedChannels, 1 << 7))
+                {
+                    configuration.OnSettingChanged();
+                }
                 if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
                         ref alias.WhitelistedChannels,
-                        1 << 4)) configuration.OnSettingChanged();
+                        1 << 4))
+                {
+                    configuration.OnSettingChanged();
+                }
             }
 
             ImGui.Spacing();
@@ -107,7 +132,10 @@ internal static class WhitelistTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            if (i == -1) ImGui.TextUnformatted(Languages.WhitelistTab_MessageContains);
+            if (i == -1)
+            {
+                ImGui.TextUnformatted(Languages.WhitelistTab_MessageContains);
+            }
 
             ImGui.SetNextItemWidth(-1);
             if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 120,
@@ -124,7 +152,7 @@ internal static class WhitelistTab
 
             if (i != -1 && !alias.IsRegex)
             {
-                string matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
+                var matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
                     ? Languages.WhitelistTab_MatchModeExactSender
                     : Languages.WhitelistTab_MatchModeMessageContains;
                 ImGui.SetNextItemWidth(-1);
@@ -158,11 +186,15 @@ internal static class WhitelistTab
             { }
             else
             {
-                string? previewValue = "";
+                var previewValue = "";
                 if (alias.AllowMessage)
+                {
                     previewValue = Languages.WhitelistTab_Allow;
+                }
                 else
+                {
                     previewValue = Languages.WhitelistTab_Block;
+                }
                 ImGui.SetNextItemWidth(-1);
                 if (ImGui.BeginCombo($"##whitelist{i}AllowSetting", previewValue))
                 {

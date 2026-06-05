@@ -1,14 +1,16 @@
 namespace TidyChat.Settings.Tabs;
 
 /// <summary>
-/// Shared ImGui layout for settings masters, nested children, and independent siblings.
+///     Shared ImGui layout for settings masters, nested children, and independent siblings.
 /// </summary>
 internal static class SettingsTabLayout
 {
     public static void DrawNestedOptions(bool showNested, Action drawOptions)
     {
         if (!showNested)
+        {
             return;
+        }
 
         ImGui.Indent();
         drawOptions();

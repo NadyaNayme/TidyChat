@@ -1,8 +1,7 @@
-using System.Collections.Generic;
-using System.Threading;
-using Dalamud.Game.ClientState.Objects.SubKinds;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
+using System.Collections.Generic;
+using System.Threading;
 using Timer = System.Timers.Timer;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
@@ -14,18 +13,21 @@ public sealed partial class TidyChatPlugin
     {
         L10N.Language = ClientState.ClientLanguage;
         ReloadGameDataCaches(validateRuleIds: false);
-        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate(printMessage: false);
-        if (Configuration.InstanceInDtrBar) InstanceDtrBarUpdate(Configuration);
+        if (Configuration.BetterCommendationMessage)
+        {
+            BetterCommendationsUpdate(printMessage: false);
+        }
+        if (Configuration.InstanceInDtrBar)
+        {
+            InstanceDtrBarUpdate(Configuration);
+        }
         _setPlayerNameRetries = 0; // each login gets a fresh retry budget
         // #122: open the grace window so "Login only" mode shows the post-login announcement burst.
         _serverAnnouncementLoginGraceEnd = DateTime.UtcNow.AddSeconds(ServerAnnouncementLoginGraceSeconds);
         SetPlayerName();
     }
 
-    private void OnLogout(int add, int remove)
-    {
-        FlushBlockedMessageCount(persist: true);
-    }
+    private void OnLogout(int add, int remove) => FlushBlockedMessageCount(persist: true);
 
     private void OnTerritoryChanged(uint e)
     {
@@ -40,18 +42,25 @@ public sealed partial class TidyChatPlugin
             /* non-critical — default 0 means "not a duty" */
         }
 
-        if (Configuration.BetterCommendationMessage) BetterCommendationsUpdate(printMessage: newExclusiveType != 2);
-        if (Configuration.InstanceInDtrBar) DelayedInstanceDtrBarUpdate(Configuration);
+        if (Configuration.BetterCommendationMessage)
+        {
+            BetterCommendationsUpdate(printMessage: newExclusiveType != 2);
+        }
+        if (Configuration.InstanceInDtrBar)
+        {
+            DelayedInstanceDtrBarUpdate(Configuration);
+        }
         if (Configuration.IncludeDutyNameInComms)
+        {
             try
             {
-                TerritoryType territory =
+                var territory =
                     DataManager.GetExcelSheet<TerritoryType>().GetRow(e); // built in sheets will never be null
-                byte exclusiveType = territory.ExclusiveType;
-                bool isPvp = territory.IsPvpZone;
+                var exclusiveType = territory.ExclusiveType;
+                var isPvp = territory.IsPvpZone;
 
-                string placeName = $"{territory.PlaceName.Value.Name}";
-                string dutyName = $"{territory.ContentFinderCondition.Value.Name}";
+                var placeName = $"{territory.PlaceName.Value.Name}";
+                var dutyName = $"{territory.ContentFinderCondition.Value.Name}";
 
                 TidyStrings.LastDuty = exclusiveType switch
                 {
@@ -61,26 +70,33 @@ public sealed partial class TidyChatPlugin
                     _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
                 };
             }
-            catch(KeyNotFoundException)
+            catch (KeyNotFoundException)
             {
                 Log.Warning(
                     "Something somehow somewhere went wrong but we don't want to crash on territory change");
             }
+        }
     }
     private void SetPlayerName()
     {
-        if (_setPlayerNamePending) return;
+        if (_setPlayerNamePending)
+        {
+            return;
+        }
         try
         {
-            IPlayerCharacter? player = ObjectTable.LocalPlayer;
-            if (player is null) return;
+            var player = ObjectTable.LocalPlayer;
+            if (player is null)
+            {
+                return;
+            }
 
             Configuration.PlayerName = $"{player.Name}";
             Log.Information($"Player name saved as {player.Name}");
             Configuration.Save();
             _setPlayerNameRetries = 0; // success — reset the retry budget for the next login cycle
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             if (_setPlayerNameRetries >= MaxSetPlayerNameRetries)
             {
@@ -111,14 +127,16 @@ public sealed partial class TidyChatPlugin
     {
         Configuration.TtlMessagesBlocked += (ulong)Interlocked.Exchange(ref _sessionBlockedMessages, 0);
         if (persist)
+        {
             Configuration.FlushToDisk();
+        }
     }
 
     private unsafe void BetterCommendationsUpdate(bool printMessage = true)
     {
         try
         {
-            PlayerState* player = PlayerState.Instance();
+            var player = PlayerState.Instance();
             if (player == null)
             {
                 Log.Error("PlayerState was null, something went wrong");
@@ -127,24 +145,24 @@ public sealed partial class TidyChatPlugin
 
             TidyStrings.CommendationsEarned = player->PlayerCommendations;
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Log.Error(ex, "Failed to improve Commendations message");
         }
 
-        int commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
+        var commendationChange = TidyStrings.CommendationsEarned - TidyStrings.LastCommendations;
         TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
 
         if (printMessage && commendationChange is >= 1 and <= 7)
         {
-            string? commendations = commendationChange == 1
+            var commendations = commendationChange == 1
                 ? Languages.BetterStrings_CommendationSingular
                 : Languages.BetterStrings_CommendationsPlural;
 
-            string dutyName =
+            var dutyName =
                 $"{(Configuration.IncludeDutyNameInComms && TidyStrings.LastDuty.Length > 0 ? " " + Languages.BetterStrings_CommendationsFromCompletingDuty + " " + TidyStrings.LastDuty + "." : ".")}";
 
-            string summaryText = string.Format(
+            var summaryText = string.Format(
                 CultureInfo.CurrentCulture,
                 Languages.BetterStrings_ReceivedCommendationsMessages,
                 commendationChange.ToString(CultureInfo.CurrentCulture),
@@ -157,7 +175,9 @@ public sealed partial class TidyChatPlugin
                 SeStringBuilder debugBuilder = new();
                 Better.AddTidyChatTag(debugBuilder);
                 if (Configuration.DebugIncludeChannel)
+                {
                     Better.AddChannelTag(debugBuilder, ChatType.System);
+                }
                 Better.AddAllowedTag(debugBuilder);
                 Better.AddRuleTag(debugBuilder, ["BetterCommendationMessage"]);
                 debugBuilder.AddText(summaryText);
@@ -166,7 +186,10 @@ public sealed partial class TidyChatPlugin
             else
             {
                 SeStringBuilder stringBuilder = new();
-                if (Configuration.IncludeChatTag) Better.AddTidyChatTag(stringBuilder);
+                if (Configuration.IncludeChatTag)
+                {
+                    Better.AddTidyChatTag(stringBuilder);
+                }
                 stringBuilder.AddText(summaryText);
                 output = stringBuilder.BuiltString;
             }

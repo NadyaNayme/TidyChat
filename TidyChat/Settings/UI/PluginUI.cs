@@ -1,6 +1,6 @@
-﻿using System.Numerics;
-using Dalamud.Interface.Utility;
+﻿using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
+using System.Numerics;
 using TidyChat.Settings.Search;
 using TidyChat.Settings.Tabs;
 namespace TidyChat.Settings.UI;
@@ -57,7 +57,7 @@ internal class PluginUI : Window, IDisposable
 
     public override void PreDraw()
     {
-        float minWidth = GetMinimumWindowWidth();
+        var minWidth = GetMinimumWindowWidth();
 
         SizeConstraints = new WindowSizeConstraints
         {
@@ -75,9 +75,11 @@ internal class PluginUI : Window, IDisposable
             appliedDefaultWidth = true;
         }
 
-        Vector2 size = Size ?? new Vector2(minWidth, MinWindowHeight);
+        var size = Size ?? new Vector2(minWidth, MinWindowHeight);
         if (size.X < minWidth)
+        {
             Size = new Vector2(minWidth, Math.Max(size.Y, MinWindowHeight));
+        }
     }
 
     public override void Draw()
@@ -93,7 +95,9 @@ internal class PluginUI : Window, IDisposable
         }
 
         if (!ImGui.BeginTabBar("##tidychatConfigTabs", TabBarFlags))
+        {
             return;
+        }
 
         if (ImGui.BeginTabItem(Languages.ConfigWindow_GeneralTabHeader))
         {
@@ -173,15 +177,17 @@ internal class PluginUI : Window, IDisposable
         InvalidateLayoutCacheIfNeeded();
 
         if (cachedMinWindowWidth is float width)
+        {
             return width;
+        }
 
-        ImGuiStylePtr style = ImGui.GetStyle();
-        float scale = ImGuiHelpers.GlobalScale;
+        var style = ImGui.GetStyle();
+        var scale = ImGuiHelpers.GlobalScale;
 
-        float tabBarWidth = CalculateTabBarWidth(style);
-        float searchWidth = ImGui.CalcTextSize(Languages.ConfigWindow_SearchPlaceholder).X
-                            + style.FramePadding.X * 2f
-                            + style.WindowPadding.X * 2f;
+        var tabBarWidth = CalculateTabBarWidth(style);
+        var searchWidth = ImGui.CalcTextSize(Languages.ConfigWindow_SearchPlaceholder).X
+                          + style.FramePadding.X * 2f
+                          + style.WindowPadding.X * 2f;
 
         width = Math.Max(tabBarWidth, searchWidth)
                 + style.WindowPadding.X * 2f
@@ -193,12 +199,14 @@ internal class PluginUI : Window, IDisposable
 
     private void InvalidateLayoutCacheIfNeeded()
     {
-        float layoutScale = ImGuiHelpers.GlobalScale * ImGui.GetIO().FontGlobalScale;
-        string cultureName = Languages.Culture?.Name ?? string.Empty;
+        var layoutScale = ImGuiHelpers.GlobalScale * ImGui.GetIO().FontGlobalScale;
+        var cultureName = Languages.Culture?.Name ?? string.Empty;
 
         if (Math.Abs(cachedLayoutScale - layoutScale) < 0.001f &&
             string.Equals(cachedCultureName, cultureName, StringComparison.Ordinal))
+        {
             return;
+        }
 
         cachedLayoutScale = layoutScale;
         cachedCultureName = cultureName;
@@ -207,14 +215,16 @@ internal class PluginUI : Window, IDisposable
 
     private static float CalculateTabBarWidth(ImGuiStylePtr style)
     {
-        float width = 0f;
+        var width = 0f;
 
-        for (int i = 0; i < TabLabels.Length; i++)
+        for (var i = 0; i < TabLabels.Length; i++)
         {
             width += ImGui.CalcTextSize(TabLabels[i]).X + style.FramePadding.X * 2f;
 
             if (i < TabLabels.Length - 1)
+            {
                 width += style.ItemInnerSpacing.X;
+            }
         }
 
         return width + style.WindowPadding.X * 2f + style.ItemInnerSpacing.X;

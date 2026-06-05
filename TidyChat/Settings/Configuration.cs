@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using Dalamud.Configuration;
 using Dalamud.Plugin;
+using System.Collections.Generic;
 namespace TidyChat.Settings;
 
 [Serializable]
@@ -36,10 +36,7 @@ public class Configuration : IPluginConfiguration
     #endregion
     public int Version { get; set; } = 0;
 
-    public void Initialize(IDalamudPluginInterface pluginInterface)
-    {
-        this.pluginInterface = pluginInterface;
-    }
+    public void Initialize(IDalamudPluginInterface pluginInterface) => this.pluginInterface = pluginInterface;
 
 
     public void Save()
@@ -58,16 +55,15 @@ public class Configuration : IPluginConfiguration
     public void PersistIfDirty()
     {
         if (!_pendingPersist)
+        {
             return;
+        }
 
         WriteToDisk();
         _pendingPersist = false;
     }
 
-    public void FlushToDisk()
-    {
-        WriteToDisk();
-    }
+    public void FlushToDisk() => WriteToDisk();
 
     private void WriteToDisk() => pluginInterface!.SavePluginConfig(this);
 

@@ -1,11 +1,8 @@
-using TidyChat.Data;
-using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 /// <summary>
-/// Hunt currencies and similar obtains use per-currency Hide toggles (checked = hide).
-/// When hide is off, those lines should show even if Show general item obtains is off.
+///     Hunt currencies and similar obtains use per-currency Hide toggles (checked = hide).
+///     When hide is off, those lines should show even if Show general item obtains is off.
 /// </summary>
 internal static class ObtainCurrencyHelper
 {
@@ -22,15 +19,25 @@ internal static class ObtainCurrencyHelper
     public static bool ShouldAllowCurrencyObtain(Configuration config, string normalizedText)
     {
         if (MatchesNuts(normalizedText) && !config.HideObtainedNuts)
+        {
             return true;
+        }
         if (MatchesWolfMarks(normalizedText) && !config.HideObtainedWolfMarks)
+        {
             return true;
+        }
         if (MatchesAlliedSeals(normalizedText) && !config.HideObtainedAlliedSeals)
+        {
             return true;
+        }
         if (MatchesCenturioSeals(normalizedText) && !config.HideObtainedCenturioSeals)
+        {
             return true;
+        }
         if (MatchesGrandCompanySeals(normalizedText) && !config.HideObtainedSeals)
+        {
             return true;
+        }
         return false;
     }
 
@@ -53,7 +60,9 @@ internal static class ObtainCurrencyHelper
     private static bool MatchesGrandCompanySeals(string normalizedText)
     {
         if (ItemMarkerCatalog.IsLoaded && ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText))
+        {
             return true;
+        }
 
         return L10N.Get(ChatRegexStrings.ObtainedSeals).IsMatch(normalizedText);
     }

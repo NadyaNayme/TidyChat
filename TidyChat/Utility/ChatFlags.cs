@@ -28,9 +28,15 @@ public static class ChatFlags
 
     private static bool CheckChannelFlags(Channels channels, ChatType chatType)
     {
-        if (channels.HasFlag(Channels.Debug) && chatType is ChatType.Debug) return true;
+        if (channels.HasFlag(Channels.Debug) && chatType is ChatType.Debug)
+        {
+            return true;
+        }
         if (channels.HasFlag(Channels.Emotes) &&
-            chatType is ChatType.StandardEmote or ChatType.CustomEmote) return true;
+            chatType is ChatType.StandardEmote or ChatType.CustomEmote)
+        {
+            return true;
+        }
         if (channels.HasFlag(Channels.PlayerChannels) &&
             chatType is ChatType.Say or
                 ChatType.Shout or
@@ -57,16 +63,39 @@ public static class ChatFlags
                 ChatType.Party or
                 ChatType.CrossParty or
                 ChatType.FreeCompany)
+        {
             return true;
-        if (channels.HasFlag(Channels.System) && chatType is ChatType.System or ChatType.RetainerSale) return true;
-        if (channels.HasFlag(Channels.Progress) && chatType is ChatType.Progress) return true;
-        if (channels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice) return true;
-        if (channels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll) return true;
+        }
+        if (channels.HasFlag(Channels.System) && chatType is ChatType.System or ChatType.RetainerSale)
+        {
+            return true;
+        }
+        if (channels.HasFlag(Channels.Progress) && chatType is ChatType.Progress)
+        {
+            return true;
+        }
+        if (channels.HasFlag(Channels.Loot) && chatType is ChatType.LootNotice)
+        {
+            return true;
+        }
+        if (channels.HasFlag(Channels.Obtain) && chatType is ChatType.LootRoll)
+        {
+            return true;
+        }
         if (channels.HasFlag(Channels.FreeCompany) &&
-            chatType is ChatType.FreeCompany or ChatType.FreeCompanyLoginLogout) return true;
-        if (channels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting) return true;
+            chatType is ChatType.FreeCompany or ChatType.FreeCompanyLoginLogout)
+        {
+            return true;
+        }
+        if (channels.HasFlag(Channels.Crafting) && chatType is ChatType.Crafting)
+        {
+            return true;
+        }
         if (channels.HasFlag(Channels.Gathering) &&
-            chatType is ChatType.GatheringSystem or ChatType.Gathering) return true;
+            chatType is ChatType.GatheringSystem or ChatType.Gathering)
+        {
+            return true;
+        }
         return false;
     }
 }
