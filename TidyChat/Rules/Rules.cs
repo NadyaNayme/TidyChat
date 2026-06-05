@@ -222,7 +222,7 @@ public static partial class Rules
         rules.AddRange(EmoteRules);
         rules.AddRange(CraftingRules);
         rules.AddRange(GatheringRules);
-        rules.AddRange(StellarRules);
+        rules.AddRange(CosmicStellarRules);
         rules.AddRange(CombatRules);
         rules.AddRange(FreeCompanyRules);
         rules.AddRange(OrchestrionRules);

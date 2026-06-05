@@ -88,33 +88,6 @@ public static partial class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            StringChecks = [ChatStrings.AbilityUseMessage],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowAllOtherCrafting",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
-            StringChecks = [ChatStrings.BuffGainEffect],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowAllOtherCrafting",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
-            StringChecks = [ChatStrings.BuffLossEffect],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowAllOtherCrafting",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
             LogMessageIds = [1150],
             StringChecks = [ChatStrings.CraftingBeginSynthesizing],
             Pattern = PatternKind.StringMatch,
@@ -189,28 +162,10 @@ public static partial class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
-            StringChecks = [ChatStrings.CraftingMaterialRemoved],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowAllOtherCrafting",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
             LogMessageIds = [1169],
             StringChecks = [ChatStrings.CraftingRemoveFromBagHeader],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAllOtherCrafting",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Crafting,
-            IsActive = true,
-            StringChecks = [ChatStrings.CraftingRemoveFromBagHeader],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -274,15 +229,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.MateriaAttemptRemove],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowMateriaRetrieved",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.MateriaAttemptRemove],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {

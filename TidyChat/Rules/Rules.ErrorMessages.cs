@@ -305,42 +305,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowFriendList",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.FriendRequestSent],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowFriendList",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.FriendRequestReceived],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowFriendList",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.FriendAddedToList],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowFriendList",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.FriendListUpdated],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
             Name = "ShowActiveHelpEntry",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -350,14 +314,5 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        new()
-        {
-            Name = "ShowActiveHelpEntry",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.ActiveHelpEntryAdded],
-            Pattern = PatternKind.StringMatch
-        }
-    ];
+            ];
 }

@@ -1642,7 +1642,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show glamour altered</value>
   </data>
   <data name="SystemTab_ShowGlamourAlteredHelpMarker" xml:space="preserve">
-    <value>LogMessage 3911 — glamour appearance altered.</value>
+    <value>LogMessage 3911 — glamour appearance altered. Also outfit glamour stored in the dresser (removed from inventory → stored as … outfit glamour).</value>
   </data>
   <data name="SystemTab_ShowGlamourPlatePartialApply" xml:space="preserve">
     <value>Show glamour plate partial apply errors</value>

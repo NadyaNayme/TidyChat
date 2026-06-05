@@ -83,15 +83,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGatheringStartEnd",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            StringChecks = [ChatStrings.GatheringFinish],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
             Name = "ShowGatheringSenses",
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
@@ -254,15 +245,6 @@ public static partial class Rules
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1111, 3549, 3569]
-        },
-        new()
-        {
-            Name = "ShowAllOtherGathering",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            StringChecks = [ChatStrings.BuffGainEffect],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {

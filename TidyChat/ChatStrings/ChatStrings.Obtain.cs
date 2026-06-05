@@ -12,7 +12,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
     public static readonly LocalizedStrings ObtainWolfMarks = new()
     {
@@ -21,7 +20,6 @@ public static partial class ChatStrings
         Deu = ["erhalten", "wolfsmarken"],
         Fra = ["marques", "de", "loup"]
     };
-
 
     /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
     public static readonly LocalizedStrings ObtainVentureMarker = new()
@@ -32,7 +30,6 @@ public static partial class ChatStrings
         Fra = ["venture"]
     };
 
-
     public static readonly LocalizedStrings CosmicFortuneObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -40,7 +37,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings CosmocreditObtain = new()
     {
@@ -50,7 +46,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/10859?pretty=true">You will receive additional cosmocredits.</see>
     public static readonly LocalizedStrings CosmocreditReceived = new()
     {
@@ -59,7 +54,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings OizysCreditObtain = new()
     {
@@ -77,7 +71,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings OizysDronebitsObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -85,7 +78,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
     public static readonly LocalizedStrings ObtainAlliedSealsMarker = new()
@@ -96,7 +88,6 @@ public static partial class ChatStrings
         Fra = ["insignes", "alliés"]
     };
 
-
     /// <see href="https://xivapi.com/Item/10307?pretty=true">Centurio Seals</see>
     public static readonly LocalizedStrings ObtainCenturioSealsMarker = new()
     {
@@ -106,7 +97,6 @@ public static partial class ChatStrings
         Fra = ["insignes", "centurio"]
     };
 
-
     /// <see href="https://xivapi.com/Item/41784?pretty=true">Sacks of Nuts</see>
     public static readonly LocalizedStrings ObtainNutsMarker = new()
     {
@@ -115,7 +105,6 @@ public static partial class ChatStrings
         Deu = ["kupo-trophaë"],
         Fra = ["insignes", "de", "chasse"]
     };
-
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">GC Seals (Storm)</see>
     /// <seealso href="https://xivapi.com/Item/21?pretty=true">
@@ -129,7 +118,6 @@ public static partial class ChatStrings
         Fra = ["sceaux des immortels"]
     };
 
-
     /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental clusters (see Item/14–19)</see>
     public static readonly LocalizedStrings ObtainClusterMarker = new()
     {
@@ -139,7 +127,6 @@ public static partial class ChatStrings
         Fra = ["cluster"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Obtain template + materials suffix</see>
     public static readonly LocalizedStrings ObtainMaterialsMarker = new()
     {
@@ -148,7 +135,6 @@ public static partial class ChatStrings
         Deu = ["materials"],
         Fra = ["materials"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain N gil (657 family)</see>
     /// <seealso href="https://xivapi.com/LogMessage/1259?pretty=true">Alternate obtain template</see>
@@ -160,7 +146,6 @@ public static partial class ChatStrings
         Fra = ["gil"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/1798?pretty=true">You receive N gil (System channel).</see>
     /// <seealso href="https://xivapi.com/LogMessage/10923?pretty=true">Alternate receive-gil template</see>
     public static readonly LocalizedStrings ReceivedGilMarker = new()
@@ -171,7 +156,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/4765?pretty=true">MGP obtain</see>
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {
@@ -181,7 +165,6 @@ public static partial class ChatStrings
         Fra = ["mgp"]
     };
 
-
     public static readonly LocalizedStrings QuestItemObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -189,7 +172,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings ObtainedItemQuantity = new()
     {
@@ -199,7 +181,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings ObtainedGearPiece = new()
     {
         Jpn = ["手に入れた"],
@@ -207,7 +188,6 @@ public static partial class ChatStrings
         Deu = ["teil", "erhalten"],
         Fra = ["obtenez", "pièce"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/3538?pretty=true">Collectable gather obtain (LootNotice).</see>
     public static readonly LocalizedStrings ObtainedSingleItem = new()
@@ -218,7 +198,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings InventoryItemAdded = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -226,7 +205,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings DiscardedItem = new()
     {
@@ -236,7 +214,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings ItemBoundToYou = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -244,57 +221,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-    public static readonly LocalizedStrings VendorSellForGil = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "sell", "for", "gil"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    public static readonly LocalizedStrings VendorPurchaseForGil = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "purchase", "for", "gil"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/4590?pretty=true">You spend gil on a purchase.</see>
-    public static readonly LocalizedStrings GilSpent = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["spent", "gil"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">
-    ///     Gil earned from market sales has been entrusted to your
-    ///     retainer.
-    /// </see>
-    public static readonly LocalizedStrings MarketGilEntrustedToRetainer = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["gil", "earned", "market", "sales", "entrusted", "retainer"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    public static readonly LocalizedStrings GilSafelyWithdrawn = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["gil", "safely", "withdrawn"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
 
     public static readonly LocalizedStrings SealedOff = new()
     {

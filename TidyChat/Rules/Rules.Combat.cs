@@ -45,7 +45,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [540, 541, 542],
             StringChecks = [ChatStrings.CombatCastInterrupted],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -57,24 +58,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.CombatInterruptPrevent],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCombatCasting",
-            SettingsTab = "Combat",
-            Channel = ChatType.Damage,
-            IsActive = true,
-            StringChecks = [ChatStrings.CombatInterruptPrevent],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCombatCasting",
-            SettingsTab = "Combat",
-            Channel = ChatType.Action,
-            IsActive = true,
-            StringChecks = [ChatStrings.CombatCastInterrupted],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -180,16 +163,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [612],
             StringChecks = [ChatStrings.CombatUnaffected],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCombatMisses",
-            SettingsTab = "Combat",
-            Channel = ChatType.Miss,
-            IsActive = true,
-            StringChecks = [ChatStrings.CombatUnaffected],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {

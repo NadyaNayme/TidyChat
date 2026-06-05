@@ -2,7 +2,7 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    private static readonly LocalizedFilterRule[] StellarRules =
+    private static readonly LocalizedFilterRule[] CosmicStellarRules =
     [
         new()
         {
@@ -242,28 +242,10 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.MechOpDirective],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicExplorationMessages",
-            SettingsTab = "Gathering",
-            Channel = ChatType.System,
-            IsActive = true,
             LogMessageIds = [10884, 10881, 10807, 11334, 11335],
             StringChecks = [ChatStrings.CosmicRedAlert],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCosmicExplorationMessages",
-            SettingsTab = "Gathering",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmicRedAlert],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -315,15 +297,6 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.CosmocreditReceived],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.System,
-            IsActive = true,
             LogMessageIds = [10873],
             StringChecks = [ChatStrings.OizysCreditObtain],
             Pattern = PatternKind.StringMatch,
@@ -361,60 +334,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainedSingleItem],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCosmicContainers",
-            SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmicContainerObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmicFortuneObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmocreditObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.OizysCreditObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.AuxesiaCreditObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.OizysDronebitsObtain],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -471,14 +390,5 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        new()
-        {
-            Name = "ShowCosmicClassPointsAndDataset",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            StringChecks = [ChatStrings.CosmicDatasetSubmitted],
-            Pattern = PatternKind.StringMatch
-        }
-    ];
+            ];
 }

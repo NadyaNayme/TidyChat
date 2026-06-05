@@ -77,58 +77,6 @@ public static partial class ChatStrings
         ]
     };
 
-
-    /// <see href="https://xivapi.com/LogMessage/398?pretty=true">You are now selling items in the … markets.</see>
-    public static readonly LocalizedStrings MarketBoardStartSelling = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["selling", "items", "markets"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/399?pretty=true">You are no longer selling items in the … markets.</see>
-    public static readonly LocalizedStrings MarketBoardStopSelling = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["no", "longer", "selling"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/748?pretty=true">
-    ///     … you put up for sale in the markets has sold for … gil
-    ///     (after fees).
-    /// </see>
-    public static readonly LocalizedStrings MarketItemSold = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["put", "up", "for", "sale", "markets", "sold", "after", "fees"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    public static readonly LocalizedStrings MarketAllItemsSold = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["all", "items", "sale", "markets", "sold"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
-    public static readonly LocalizedStrings VendorPurchase = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "purchase"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
     public static readonly LocalizedStrings JobChange = new()
     {
         Jpn = ["チェンジ"],
@@ -136,7 +84,6 @@ public static partial class ChatStrings
         Deu = ["bist", "nun"],
         Fra = ["maintenant"]
     };
-
 
     public static readonly LocalizedStrings ArmouryChestPlacement = new()
     {
@@ -146,7 +93,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings JobRegistered = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -154,7 +100,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings JobSpecialistChange = new()
     {

@@ -27,30 +27,12 @@ public static partial class Rules
         {
             Name = "ShowUserLogouts",
             SettingsTab = "System",
-            Channel = ChatType.FreeCompanyLoginLogout,
-            IsActive = true,
-            StringChecks = [ChatStrings.UserLoggedOut],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowUserLogouts",
-            SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [84],
             StringChecks = [ChatStrings.UserLogout],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowUserLogouts",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.UserLogout],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {

@@ -17,15 +17,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowObtainedQuestItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.QuestItemObtain],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
             Name = "ShowObtainedItems",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
@@ -42,15 +33,6 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [743],
-            StringChecks = [ChatStrings.ItemBoundToYou],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.System,
-            IsActive = true,
             StringChecks = [ChatStrings.ItemBoundToYou],
             Pattern = PatternKind.StringMatch
         },
@@ -122,15 +104,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowInventoryItemAdded",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.InventoryItemAdded],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
             Name = "HideInventoryItemAdded",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.System,
@@ -143,16 +116,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "HideInventoryItemAdded",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.System,
-            IsActive = true,
-            BlockWhenActive = true,
-            StringChecks = [ChatStrings.InventoryItemAdded],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
             Name = "ShowObtainedItems",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.System,
@@ -161,24 +124,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.DiscardedItem],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.ObtainedSingleItem],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            StringChecks = [ChatStrings.ObtainedItemQuantity],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -227,16 +172,6 @@ public static partial class Rules
         {
             Name = "HideObtainedGil",
             SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedGil],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
-            Name = "HideObtainedGil",
-            SettingsTab = "Loot/Obtain",
             Channel = ChatType.System,
             IsActive = true,
             BlockWhenActive = true,
@@ -244,16 +179,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ReceivedGilMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "HideObtainedGil",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.System,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ReceivedGil],
-            Pattern = PatternKind.RegexMatch
         },
         new()
         {
@@ -318,37 +243,12 @@ public static partial class Rules
         },
         new()
         {
-            Name = "HideObtainedWolfMarks",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedWolfMarks],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.WolfMarks
-        },
-        new()
-        {
             Name = "HideObtainedSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [1300],
-            RegexChecks = [ChatRegexStrings.ObtainedSeals],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "HideObtainedSeals",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnySeal = true
@@ -360,10 +260,9 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedSeals],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true,
             ObtainMarkerAnySeal = true
         },
         new()
@@ -381,19 +280,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "HideObtainedVenture",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedVenture],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.Venture
-        },
-        new()
-        {
             Name = "HideObtainedTribalCurrency",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
@@ -402,19 +288,6 @@ public static partial class Rules
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerAnyTribal = true
-        },
-        new()
-        {
-            Name = "HideObtainedTribalCurrency",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedTribalCurrency],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             ObtainMarkerAnyTribal = true
         },
         new()
@@ -433,20 +306,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "HideObtainedClusters",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedClusters],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerAnyElemental = true,
-            ObtainMarkerClustersOnly = true
-        },
-        new()
-        {
             Name = "HideObtainedAlliedSeals",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
@@ -456,19 +315,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainAlliedSealsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.AlliedSeals
-        },
-        new()
-        {
-            Name = "HideObtainedAlliedSeals",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedAlliedSeals],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             ObtainMarkerItemId = ItemMarkerCatalog.Items.AlliedSeals
         },
         new()
@@ -486,19 +332,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "HideObtainedCenturioSeals",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedCenturioSeals],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.CenturioSeals
-        },
-        new()
-        {
             Name = "HideObtainedNuts",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
@@ -508,19 +341,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ObtainNutsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
-            ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts
-        },
-        new()
-        {
-            Name = "HideObtainedNuts",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedNuts],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts
         },
         new()
@@ -536,17 +356,5 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerMaterials = true
         },
-        new()
-        {
-            Name = "HideObtainedMaterials",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedMaterials],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerMaterials = true
-        }
     ];
 }

@@ -23,7 +23,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [588, 589, 4466, 7300, 10953],
             StringChecks = [ChatStrings.GainExperience],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -46,15 +47,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ExpChainBonus],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = false
-        },
-        new()
-        {
-            Name = "ShowGainExperience",
-            SettingsTab = "Progress",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            StringChecks = [ChatStrings.GainExperience],
-            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -97,16 +89,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [590],
             StringChecks = [ChatStrings.LevelUp],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowLevelUps",
-            SettingsTab = "Progress",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            StringChecks = [ChatStrings.LevelUp],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -127,7 +111,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [552],
             StringChecks = [ChatStrings.AbilityUnlock],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -137,25 +122,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [609],
             StringChecks = [ChatStrings.MinionUnlock],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowAbilityUnlocks",
-            SettingsTab = "Progress",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            StringChecks = [ChatStrings.AbilityUnlock],
-            Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowAbilityUnlocks",
-            SettingsTab = "Progress",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            StringChecks = [ChatStrings.MinionUnlock],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {

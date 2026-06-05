@@ -12,7 +12,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [1231],
             StringChecks = [ChatStrings.LootRoll],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -22,7 +23,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [5180],
             StringChecks = [ChatStrings.CastLot],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -39,36 +41,11 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedShards",
-            SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false
-        },
-        new()
-        {
-            Name = "HideObtainedShards",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
             BlockWhenActive = true,
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerAnyElemental = true
-        },
-        new()
-        {
-            Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootRoll,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true
         },
@@ -91,19 +68,6 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
-            ObtainMarkerAnyElemental = true
-        },
-        new()
-        {
-            Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
             LogMessageIds = [1233],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
@@ -117,36 +81,8 @@ public static partial class Rules
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
-            LogMessageIds = [1233],
-            RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false
-        },
-        new()
-        {
-            Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
             LogMessageIds = [1606, 1607, 750, 751],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerAnyElemental = true,
-            ObtainMarkerRequireSharedTemplate = false
-        },
-        new()
-        {
-            Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            LogMessageIds = [1606, 1607, 750, 751],
-            RegexChecks = [ChatRegexStrings.ObtainedShards],
-            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
             ObtainMarkerRequireSharedTemplate = false
@@ -188,20 +124,6 @@ public static partial class Rules
         {
             Name = "HideOthersObtain",
             SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootRoll,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OtherObtains],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerOtherPlayer = true,
-            ExcludePlayerObtain = true,
-            StringChecks = [ChatStrings.OtherObtainMarker]
-        },
-        new()
-        {
-            Name = "HideOthersObtain",
-            SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -211,20 +133,6 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerMaterials = true,
             ExcludePlayerObtain = true
-        },
-        new()
-        {
-            Name = "HideOthersObtain",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            BlockWhenActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.ObtainedMaterials],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            ObtainMarkerMaterials = true,
-            ExcludePlayerObtain = true,
-            StringChecks = [ChatStrings.ObtainMaterialsMarker]
         }
     ];
 }
