@@ -63,11 +63,9 @@ internal static class FilterMasterAccessors
     public static bool ChangesLost(Configuration c) =>
         c.ShowEverythingElse && c.ShowChangesLost;
 
-    public static bool TripleTriadAllowed(Configuration c) =>
-        c.ShowEverythingElse && c.ShowTripleTriadAllowed;
+    public static bool TripleTriadAllowed(Configuration c) => c.ShowTripleTriadAllowed;
 
-    public static bool TripleTriadNotAllowed(Configuration c) =>
-        c.ShowEverythingElse && c.ShowTripleTriadNotAllowed;
+    public static bool TripleTriadNotAllowed(Configuration c) => c.ShowTripleTriadNotAllowed;
 
     public static bool SubaquaticVoyageEmbarked(Configuration c) =>
         c.ShowSubaquaticVoyage && c.ShowSubaquaticVoyageEmbarked;

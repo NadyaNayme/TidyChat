@@ -156,4 +156,74 @@ public static partial class Rules
         },
     ];
 
+    private static readonly LocalizedFilterRule[] EconomyRulesRetainer =
+    [
+        new()
+        {
+            Name = "ShowCompletedVenture",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4341],
+            StringChecks = [ChatStrings.RetainerVentureComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowRetainerVentureMessages",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4331],
+            StringChecks = [ChatStrings.RetainerVentureAssign],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowRetainerVentureMessages",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4330],
+            StringChecks = [ChatStrings.RetainerVentureAssign],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowRetainerVentureMessages",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4334],
+            StringChecks = [ChatStrings.RetainerVenturePayment],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCompletedVenture",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4332],
+            StringChecks = [ChatStrings.RetainerVentureItemComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCompletedVenture",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4335],
+            StringChecks = [ChatStrings.RetainerMaxLevel],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+    ];
+
 }

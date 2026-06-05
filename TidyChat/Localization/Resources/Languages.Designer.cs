@@ -592,11 +592,74 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Crafting.
+        /// </summary>
+        internal static string ConfigWindow_CraftingTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_CraftingTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gathering.
+        /// </summary>
+        internal static string ConfigWindow_GatheringTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_GatheringTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deep Dungeons.
+        /// </summary>
+        internal static string ConfigWindow_DeepDungeonsTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_DeepDungeonsTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exploration.
+        /// </summary>
+        internal static string ConfigWindow_ExplorationTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_ExplorationTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Glamour.
+        /// </summary>
+        internal static string ConfigWindow_GlamourTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_GlamourTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Housing.
+        /// </summary>
+        internal static string ConfigWindow_HousingTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_HousingTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Economy.
         /// </summary>
         internal static string ConfigWindow_EconomyTabHeader {
             get {
                 return ResourceManager.GetString("ConfigWindow_EconomyTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gold Saucer.
+        /// </summary>
+        internal static string ConfigWindow_GoldSaucerTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_GoldSaucerTabHeader", resourceCulture);
             }
         }
         
@@ -633,6 +696,15 @@ namespace TidyChat.Localization.Resources {
         internal static string ConfigWindow_PartyDutyTabHeader {
             get {
                 return ResourceManager.GetString("ConfigWindow_PartyDutyTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Free Company.
+        /// </summary>
+        internal static string ConfigWindow_FreeCompanyTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_FreeCompanyTabHeader", resourceCulture);
             }
         }
         
@@ -1375,6 +1447,51 @@ namespace TidyChat.Localization.Resources {
         internal static string CraftingGatheringTab_StellarSectionFilteringNote {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_StellarSectionFilteringNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Workshop and message-book lines use Filter System on General. FC login/logout uses the FC login/logout channel (no extra General toggle)..
+        /// </summary>
+        internal static string FreeCompanyTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Message book.
+        /// </summary>
+        internal static string FreeCompanyTab_MessageBookDropdownHeader {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_MessageBookDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login &amp; logout.
+        /// </summary>
+        internal static string FreeCompanyTab_SocialDropdownHeader {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_SocialDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Airship &amp; submarine.
+        /// </summary>
+        internal static string FreeCompanyTab_WorkshopDropdownHeader {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_WorkshopDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Retainer.
+        /// </summary>
+        internal static string EconomyTab_RetainerSectionHeader {
+            get {
+                return ResourceManager.GetString("EconomyTab_RetainerSectionHeader", resourceCulture);
             }
         }
         
@@ -2283,6 +2400,114 @@ namespace TidyChat.Localization.Resources {
         internal static string ObtainTab_CommonCurrenciesDropdownHeader {
             get {
                 return ResourceManager.GetString("ObtainTab_CommonCurrenciesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MGP obtain lines use Filter Obtained on General. Minigame and Triple Triad lines use Filter System. Options labeled Hide … hide those lines when checked..
+        /// </summary>
+        internal static string GoldSaucerTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MGP.
+        /// </summary>
+        internal static string GoldSaucerTab_MgpDropdownHeader {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_MgpDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Swing minigames.
+        /// </summary>
+        internal static string GoldSaucerTab_MinigamesDropdownHeader {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_MinigamesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide MGP.
+        /// </summary>
+        internal static string GoldSaucerTab_ShowMGPMessages {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowMGPMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel)..
+        /// </summary>
+        internal static string GoldSaucerTab_ShowMGPMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowMGPMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Out on a Limb / The Finer Miner swing feedback.
+        /// </summary>
+        internal static string GoldSaucerTab_ShowSwingMinigames {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowSwingMinigames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 4784–4793 — System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You&apos;re right on top of it!.
+        /// </summary>
+        internal static string GoldSaucerTab_ShowSwingMinigamesHelpMarker {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowSwingMinigamesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Triple Triad.
+        /// </summary>
+        internal static string GoldSaucerTab_TripleTriadDropdownHeader {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_TripleTriadDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Triple Triad allowed here.
+        /// </summary>
+        internal static string GoldSaucerTab_ShowTripleTriadAllowed {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowTripleTriadAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 4763 — eg. Triple Triad matches are allowed in the current area..
+        /// </summary>
+        internal static string GoldSaucerTab_ShowTripleTriadAllowedHelpMarker {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowTripleTriadAllowedHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Triple Triad not allowed here.
+        /// </summary>
+        internal static string GoldSaucerTab_ShowTripleTriadNotAllowed {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowTripleTriadNotAllowed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 4764 — eg. Triple Triad matches are not allowed in the current area..
+        /// </summary>
+        internal static string GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker", resourceCulture);
             }
         }
         

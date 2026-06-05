@@ -226,6 +226,16 @@ internal static class SettingsSearchIndex
 
     private static (string Label, string? Help) ResolveLabelAndHelp(string propertyName)
     {
+        if (TryGetGoldSaucerLabelAndHelp(propertyName, out var goldSaucerLabel, out var goldSaucerHelp))
+        {
+            return (goldSaucerLabel, goldSaucerHelp);
+        }
+
+        if (TryGetMovedTabLabelAndHelp(propertyName, out var movedLabel, out var movedHelp))
+        {
+            return (movedLabel, movedHelp);
+        }
+
         var labelProperty = FindBestLanguageProperty(propertyName, false);
         if (labelProperty is null)
         {
@@ -252,6 +262,109 @@ internal static class SettingsSearchIndex
         }
 
         return (label, help);
+    }
+
+    private static bool TryGetGoldSaucerLabelAndHelp(string propertyName, out string label, out string? help)
+    {
+        label = string.Empty;
+        help = null;
+
+        string? labelKey = propertyName switch
+        {
+            "HideObtainedMGP" => nameof(Languages.GoldSaucerTab_ShowMGPMessages),
+            "ShowGoldSaucerSwingMinigames" => nameof(Languages.GoldSaucerTab_ShowSwingMinigames),
+            "ShowTripleTriadAllowed" => nameof(Languages.GoldSaucerTab_ShowTripleTriadAllowed),
+            "ShowTripleTriadNotAllowed" => nameof(Languages.GoldSaucerTab_ShowTripleTriadNotAllowed),
+            _ => null
+        };
+
+        if (labelKey is null)
+        {
+            return false;
+        }
+
+        var labelProperty = LanguageProperties.FirstOrDefault(p =>
+            p.PropertyType == typeof(string) &&
+            string.Equals(p.Name, labelKey, StringComparison.Ordinal));
+        if (labelProperty is null)
+        {
+            return false;
+        }
+
+        label = (string)labelProperty.GetValue(null)!;
+        var helpProperty = FindPairedHelpProperty(labelProperty.Name);
+        if (helpProperty is not null)
+        {
+            help = (string)helpProperty.GetValue(null)!;
+            if (UiHelp.ShouldAppendObtainedFilterNote(helpProperty.Name))
+            {
+                help = UiHelp.WithObtainedFilterNote(help);
+            }
+            else if (UiHelp.ShouldAppendSystemFilterNote(helpProperty.Name))
+            {
+                help = UiHelp.WithSystemFilterNote(help);
+            }
+        }
+
+        return true;
+    }
+
+    private static bool TryGetMovedTabLabelAndHelp(string propertyName, out string label, out string? help)
+    {
+        label = string.Empty;
+        help = null;
+
+        string? labelKey = propertyName switch
+        {
+            "ShowCompletedVenture" => nameof(Languages.PartyDutyTab_ShowCompletedVenture),
+            "ShowRetainerVentureMessages" => nameof(Languages.PartyDutyTab_ShowRetainerVentureMessages),
+            "ShowMarketGilEntrustedToRetainer" => nameof(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer),
+            "ShowUserLogins" => nameof(Languages.PartyDutyTab_ShowLoginMessages),
+            "ShowUserLogouts" => nameof(Languages.PartyDutyTab_ShowLogoutMessages),
+            "ShowFreeCompanyMessageBook" => nameof(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages),
+            "ShowExploratoryVoyage" => nameof(Languages.PartyDutyTab_ShowAirshipVoyageMessages),
+            "ShowSubaquaticVoyage" => nameof(Languages.PartyDutyTab_ShowSubmarineVoyageMessages),
+            "ShowSubaquaticVoyageEmbarked" => nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageEmbarked),
+            "ShowSubaquaticVoyageFinalized" => nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageFinalized),
+            "ShowSubaquaticVoyageOtherFinalized" =>
+                nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageOtherFinalized),
+            "ShowSubaquaticVoyageReturned" => nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageReturned),
+            "ShowSubmarinePartRepaired" => nameof(Languages.PartyDutyTab_ShowSubmarinePartRepaired),
+            "ShowSubmarineAttainsRank" => nameof(Languages.PartyDutyTab_ShowSubmarineAttainsRank),
+            "ShowSubmarineRetrievalLevelsIncreased" =>
+                nameof(Languages.PartyDutyTab_ShowSubmarineRetrievalLevelsIncreased),
+            _ => null
+        };
+
+        if (labelKey is null)
+        {
+            return false;
+        }
+
+        var labelProperty = LanguageProperties.FirstOrDefault(p =>
+            p.PropertyType == typeof(string) &&
+            string.Equals(p.Name, labelKey, StringComparison.Ordinal));
+        if (labelProperty is null)
+        {
+            return false;
+        }
+
+        label = (string)labelProperty.GetValue(null)!;
+        var helpProperty = FindPairedHelpProperty(labelProperty.Name);
+        if (helpProperty is not null)
+        {
+            help = (string)helpProperty.GetValue(null)!;
+            if (UiHelp.ShouldAppendObtainedFilterNote(helpProperty.Name))
+            {
+                help = UiHelp.WithObtainedFilterNote(help);
+            }
+            else if (UiHelp.ShouldAppendSystemFilterNote(helpProperty.Name))
+            {
+                help = UiHelp.WithSystemFilterNote(help);
+            }
+        }
+
+        return true;
     }
 
     private static PropertyInfo? FindPairedHelpProperty(string labelPropertyName)
@@ -367,12 +480,19 @@ internal static class SettingsSearchIndex
     {
         "System" => Languages.ConfigWindow_SystemTabHeader,
         "Loot/Obtain" => Languages.ConfigWindow_ObtainTabHeader,
+        "Gold Saucer" => Languages.ConfigWindow_GoldSaucerTabHeader,
         "Progress" => Languages.ConfigWindow_ProgressTabHeader,
         "Combat" => Languages.ConfigWindow_CombatTabHeader,
-        "Crafting" or "Gathering" => Languages.ConfigWindow_CraftingGatheringTabHeader,
+        "Crafting" => Languages.ConfigWindow_CraftingTabHeader,
+        "Gathering" => Languages.ConfigWindow_GatheringTabHeader,
+        "Exploration" => Languages.ConfigWindow_ExplorationTabHeader,
+        "Housing" => Languages.ConfigWindow_HousingTabHeader,
+        "Glamour" => Languages.ConfigWindow_GlamourTabHeader,
+        "Deep Dungeons" => Languages.ConfigWindow_DeepDungeonsTabHeader,
         "General" => Languages.ConfigWindow_GeneralTabHeader,
         "Emotes" => Languages.ConfigWindow_EmotesTabHeader,
         "Party" or "Duty" => Languages.ConfigWindow_PartyDutyTabHeader,
+        "Free Company" => Languages.ConfigWindow_FreeCompanyTabHeader,
         "Economy" => Languages.ConfigWindow_EconomyTabHeader,
         _ => settingsTab
     };
@@ -394,23 +514,65 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_GeneralTabHeader;
         }
 
-        if (propertyName is "HideObtainedMGP" or "HideInventoryItemAdded")
+        if (propertyName is "HideInventoryItemAdded")
         {
             return Languages.ConfigWindow_ObtainTabHeader;
+        }
+
+        if (propertyName is "HideObtainedMGP" or "ShowGoldSaucerSwingMinigames" or
+            "ShowTripleTriadAllowed" or "ShowTripleTriadNotAllowed")
+        {
+            return Languages.ConfigWindow_GoldSaucerTabHeader;
+        }
+
+        if (propertyName is "ShowUserLogins" or "ShowUserLogouts" or "ShowFreeCompanyMessageBook" or
+            "ShowExploratoryVoyage" or "ShowSubaquaticVoyage" or "ShowSubaquaticVoyageEmbarked" or
+            "ShowSubaquaticVoyageFinalized" or "ShowSubaquaticVoyageOtherFinalized" or
+            "ShowSubaquaticVoyageReturned" or "ShowSubmarinePartRepaired" or "ShowSubmarineAttainsRank" or
+            "ShowSubmarineRetrievalLevelsIncreased")
+        {
+            return Languages.ConfigWindow_FreeCompanyTabHeader;
+        }
+
+        if (propertyName is "ShowCompletedVenture" or "ShowRetainerVentureMessages" or
+            "ShowMarketGilEntrustedToRetainer")
+        {
+            return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_RetainerSectionHeader}";
+        }
+
+        if (propertyName is "ShowDesynthesisLevel" or
+                "ShowDesynthedItem" or
+                "ShowDesynthesisObtains" or
+                "ShowAttachedMateria" or
+                "ShowOvermeldFailure" or
+                "ShowMateriaRetrieved" or
+                "ShowMateriaShatters" or
+                "ShowMateriaExtract" or
+                "ShowCraftingSynthesisComplete" or
+                "ShowTrialMessages" or
+                "ShowOtherSynthesis" or
+                "ShowAllOtherCrafting" or
+                "ShowCraftingBuffEffectGain" or
+                "ShowCraftingAbleToExecute" or
+                "ShowAetherialReductionSands" or
+                "ShowAetherialReductionSuccess" or
+                "ShowAetherialReductionMinigame")
+        {
+            return Languages.ConfigWindow_CraftingTabHeader;
         }
 
         if (propertyName.StartsWith("ShowGathering", StringComparison.Ordinal) ||
             propertyName is "ShowCaughtFish" or
                 "ShowMooching" or
                 "ShowLocationAffects" or
-                "ShowAetherialReductionSands" or
-                "ShowAetherialReductionSuccess" or
-                "ShowAetherialReductionMinigame" or
+                "ShowMeasuringIlms" or
+                "ShowCurrentFishingHole" or
+                "ShowDiscoveredFishingHole" or
+                "ShowLureMessages" or
+                "ShowFishingFlavorText" or
                 "ShowStellarMissionMessages" or
                 "ShowStellarAbleToExecute" or
                 "ShowStellarBuffEffectGain" or
-                "ShowCraftingBuffEffectGain" or
-                "ShowCraftingAbleToExecute" or
                 "ShowGatheringBuffEffectGain" or
                 "ShowCosmicExplorationMessages" or
                 "ShowCosmicRewards" or
@@ -418,7 +580,7 @@ internal static class SettingsSearchIndex
                 "ShowCosmicClassPointsAndDataset" or
                 "ShowCosmicDailyProgress")
         {
-            return Languages.ConfigWindow_CraftingGatheringTabHeader;
+            return Languages.ConfigWindow_GatheringTabHeader;
         }
 
         if (propertyName.StartsWith("EnableDebug", StringComparison.Ordinal) ||
@@ -452,7 +614,6 @@ internal static class SettingsSearchIndex
         if (propertyName is "ShowMarketBoardMessages" or
             "ShowMarketItemSold" or
             "ShowMarketAllItemsSold" or
-            "ShowMarketGilEntrustedToRetainer" or
             "ShowMarketBoardSellingStatus" or
             "BetterMarketBoardSaleMessage")
         {
@@ -476,14 +637,26 @@ internal static class SettingsSearchIndex
             "ShowGlamourPlatePartialApply" or
             "ShowGearDyeApplied" or
             "ShowGearsetGlamourRestoreFailed" or
-            "ShowGlamourAltered")
+            "ShowGlamourAltered" or
+            "ShowSpiritboundGear" or
+            "ShowEligibleForCoffers")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_GlamourAndGearDropdownHeader}";
+            return $"{Languages.ConfigWindow_GlamourTabHeader} > {Languages.SystemTab_GlamourAndGearDropdownHeader}";
         }
 
         if (propertyName is "ShowGearsetEquipped" or "ShowGearItemsRepaired" or "ShowJobChange" or "ShowPortraitMessages")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CharacterAndGearDropdownHeader}";
+            return $"{Languages.ConfigWindow_GlamourTabHeader} > {Languages.SystemTab_CharacterAndGearDropdownHeader}";
+        }
+
+        if (propertyName is "ShowSanctuaryMessage" or "ShowHousingWardMessage")
+        {
+            return Languages.ConfigWindow_HousingTabHeader;
+        }
+
+        if (propertyName is "ShowSRankHunt" or "ShowSSRankHunt" or "ShowHuntSlain")
+        {
+            return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.SystemTab_HuntMessagesDropdownHeader}";
         }
 
         if (propertyName is "ShowSearchForItemResults" or
@@ -493,18 +666,34 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialStatusDropdownHeader}";
         }
 
-        if (propertyName is "ShowEverythingElse" or
-            "ShowChangesDiscarded" or
-            "ShowChangesLost" or
-            "ShowTripleTriadAllowed" or
-            "ShowTripleTriadNotAllowed")
+        if (propertyName is "ShowEverythingElse" or "ShowChangesDiscarded" or "ShowChangesLost")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CatchAllDropdownHeader}";
         }
 
-        if (propertyName is "ShowSpideySenses" or "ShowLocationDiscovered" or "ShowHostilePresence")
+        if (propertyName is "HideObtainedMGP")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_ExplorationDropdownHeader}";
+            return $"{Languages.ConfigWindow_GoldSaucerTabHeader} > {Languages.GoldSaucerTab_MgpDropdownHeader}";
+        }
+
+        if (propertyName is "ShowGoldSaucerSwingMinigames")
+        {
+            return $"{Languages.ConfigWindow_GoldSaucerTabHeader} > {Languages.GoldSaucerTab_MinigamesDropdownHeader}";
+        }
+
+        if (propertyName is "ShowTripleTriadAllowed" or "ShowTripleTriadNotAllowed")
+        {
+            return $"{Languages.ConfigWindow_GoldSaucerTabHeader} > {Languages.GoldSaucerTab_TripleTriadDropdownHeader}";
+        }
+
+        if (propertyName is "ShowQuestReminder" or
+            "ShowSpideySenses" or
+            "ShowLocationDiscovered" or
+            "ShowHostilePresence" or
+            "ShowAetherCompass" or
+            "ShowVistaMessages")
+        {
+            return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.SystemTab_ExplorationDropdownHeader}";
         }
 
         if (propertyName is "ShowAetheryteTicket" or "ShowAttuneAetheryte")
@@ -534,44 +723,34 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_EconomyTabHeader;
         }
 
+        if (propertyName is "ShowCairnGlows" or
+            "ShowRestoresLifeToFallen" or
+            "ShowCairnActivates" or
+            "ShowTransference" or
+            "ShowAetherpoolIncrease" or
+            "ShowAetherpoolUnchanged" or
+            "ShowObtainedPomander" or
+            "ShowPomanderEffects" or
+            "ShowFloorNumber" or
+            "ShowTrapTriggered" or
+            "ShowSenseAccursedHoard" or
+            "ShowDoNotSenseAccursedHoard" or
+            "ShowDiscoverAccursedHoard")
+        {
+            return Languages.ConfigWindow_DeepDungeonsTabHeader;
+        }
+
         if (propertyName.StartsWith("ShowInvite", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowJoin", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowLeft", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowParty", StringComparison.Ordinal) ||
             propertyName is "ShowDutyFinder" or
                 "ShowOfferedTeleport" or
-                "ShowCompletedVenture" or
-                "ShowRetainerVentureMessages" or
-                "ShowUserLogins" or
-                "ShowUserLogouts" or
-                "ShowFreeCompanyMessageBook" or
-                "ShowExploratoryVoyage" or
-                "ShowSubaquaticVoyage" or
-                "ShowSubaquaticVoyageEmbarked" or
-                "ShowSubaquaticVoyageFinalized" or
-                "ShowSubaquaticVoyageOtherFinalized" or
-                "ShowSubaquaticVoyageReturned" or
-                "ShowSubmarinePartRepaired" or
-                "ShowSubmarineAttainsRank" or
-                "ShowSubmarineRetrievalLevelsIncreased" or
                 "ShowCountdownTime" or
                 "ShowReadyChecks" or
                 "ShowCompletionTime" or
                 "ShowNowLeaderOf" or
-                "ShowSealedOff" or
-                "ShowCairnGlows" or
-                "ShowRestoresLifeToFallen" or
-                "ShowCairnActivates" or
-                "ShowTransference" or
-                "ShowAetherpoolIncrease" or
-                "ShowAetherpoolUnchanged" or
-                "ShowObtainedPomander" or
-                "ShowPomanderEffects" or
-                "ShowFloorNumber" or
-                "ShowTrapTriggered" or
-                "ShowSenseAccursedHoard" or
-                "ShowDoNotSenseAccursedHoard" or
-                "ShowDiscoverAccursedHoard")
+                "ShowSealedOff")
         {
             return Languages.ConfigWindow_PartyDutyTabHeader;
         }

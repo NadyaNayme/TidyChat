@@ -115,7 +115,13 @@ public static class LogMessageCatalog
         {
             return false;
         }
-        return tokens.All(normalizedText.Contains);
+
+        if (!tokens.All(normalizedText.Contains))
+        {
+            return false;
+        }
+
+        return !ObtainCurrencyHelper.TemplateMissingDedicatedObtainMarkers(normalizedText, tokens);
     }
 
     public static bool MatchesAny(IEnumerable<uint> logMessageIds, string normalizedText)

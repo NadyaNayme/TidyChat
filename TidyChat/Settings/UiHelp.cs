@@ -22,11 +22,24 @@ internal static class UiHelp
     public static string WithLootFilterNote(string help) =>
         AppendNote(help, Languages.Shared_RequiresLootFilteringNote);
 
+    public static bool ShouldAppendObtainedFilterNote(string helpPropertyName) =>
+        (helpPropertyName.StartsWith("ObtainTab_", StringComparison.Ordinal) ||
+         helpPropertyName.StartsWith("GoldSaucerTab_", StringComparison.Ordinal)) &&
+        !IsLootRollHelpMarker(helpPropertyName) &&
+        !helpPropertyName.Contains("SwingMinigames", StringComparison.Ordinal) &&
+        !helpPropertyName.Contains("TripleTriad", StringComparison.Ordinal);
+
     public static bool ShouldAppendSystemFilterNote(string helpPropertyName) =>
         helpPropertyName switch
         {
             nameof(Languages.SystemTab_ServerAnnouncementsHelpMarker) => false,
             nameof(Languages.SystemTab_ShowEverythingElseHelpMarker) => false,
+            _ when helpPropertyName.StartsWith("GoldSaucerTab_", StringComparison.Ordinal) &&
+                   (helpPropertyName.Contains("SwingMinigames", StringComparison.Ordinal) ||
+                    helpPropertyName.Contains("TripleTriad", StringComparison.Ordinal)) => true,
+            _ when helpPropertyName.StartsWith("PartyDutyTab_ShowAirship", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("PartyDutyTab_ShowSubmarine", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("PartyDutyTab_ShowSubaquatic", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("SystemTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("PartyDutyTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("EconomyTab_", StringComparison.Ordinal) => true,
@@ -34,10 +47,6 @@ internal static class UiHelp
             _ when helpPropertyName.StartsWith("CraftingGatheringTab_ShowStellar", StringComparison.Ordinal) => true,
             _ => ProgressSystemFilterHelpMarkers.Contains(helpPropertyName)
         };
-
-    public static bool ShouldAppendObtainedFilterNote(string helpPropertyName) =>
-        helpPropertyName.StartsWith("ObtainTab_", StringComparison.Ordinal) &&
-        !IsLootRollHelpMarker(helpPropertyName);
 
     public static bool ShouldAppendLootFilterNote(string helpPropertyName) =>
         IsLootRollHelpMarker(helpPropertyName);

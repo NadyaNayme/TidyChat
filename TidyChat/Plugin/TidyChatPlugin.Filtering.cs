@@ -7,6 +7,14 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
+    private static void TrackMatchedRule(List<string> matchedRules, string ruleName)
+    {
+        if (!matchedRules.Contains(ruleName))
+        {
+            matchedRules.Add(ruleName);
+        }
+    }
+
     private LogMessageChatEffect ResolveLogMessageChatEffect(string rawTextValue, string extractedTextValue,
         string normalizedText)
     {
@@ -86,13 +94,13 @@ public sealed partial class TidyChatPlugin
         protectingRules = [];
         if (CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
         {
-            protectingRules.Add(CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText)!);
+            TrackMatchedRule(protectingRules, CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText)!);
             return true;
         }
 
         if (MarketBoardSaleHelper.ShouldAllowImprovedMarketSale(Configuration, normalizedText, displayText))
         {
-            protectingRules.Add(nameof(Configuration.BetterMarketBoardSaleMessage));
+            TrackMatchedRule(protectingRules, nameof(Configuration.BetterMarketBoardSaleMessage));
             return true;
         }
 
@@ -109,7 +117,7 @@ public sealed partial class TidyChatPlugin
             }
             if (RuleMatcher.MatchesText(rule, normalizedText, false))
             {
-                protectingRules.Add(rule.Name);
+                TrackMatchedRule(protectingRules, rule.Name);
             }
         }
 
@@ -173,7 +181,7 @@ public sealed partial class TidyChatPlugin
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
                       Configuration.HideTomestoneById)))
             {
-                matchedRules.Add(rule.Name);
+                TrackMatchedRule(matchedRules, rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
                 if (Configuration.EnableDebugMode)
                 {
@@ -206,7 +214,7 @@ public sealed partial class TidyChatPlugin
             {
                 if (RuleMatcher.MatchesText(rule, normalizedText, Configuration.EnableDebugMode))
                 {
-                    matchedRules.Add(rule.Name);
+                    TrackMatchedRule(matchedRules, rule.Name);
                 }
                 else if (Configuration.EnableDebugMode)
                 {
@@ -227,7 +235,7 @@ public sealed partial class TidyChatPlugin
                     continue;
                 }
 
-                matchedRules.Add(rule.Name);
+                TrackMatchedRule(matchedRules, rule.Name);
                 if (errorChannelOnlyHideRules)
                 {
                     if (rule.BlockWhenActive && rule.IsActive)
@@ -259,11 +267,9 @@ public sealed partial class TidyChatPlugin
             isBlocked = true;
             if (Configuration.EnableDebugMode)
             {
-                const string allowTag = "ObtainCurrency (hide off)";
-                if (!matchedRules.Contains(allowTag))
-                {
-                    matchedRules.Add(allowTag);
-                }
+                var allowRule = ObtainCurrencyHelper.GetAllowBecauseHideOffRuleName(Configuration, normalizedText) ??
+                                "ObtainCurrency";
+                TrackMatchedRule(matchedRules, $"{allowRule} (hide off)");
             }
         }
 
@@ -273,9 +279,9 @@ public sealed partial class TidyChatPlugin
             if (Configuration.EnableDebugMode)
             {
                 var cosmicRule = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
-                if (cosmicRule is not null && !matchedRules.Contains(cosmicRule))
+                if (cosmicRule is not null)
                 {
-                    matchedRules.Add(cosmicRule);
+                    TrackMatchedRule(matchedRules, cosmicRule);
                 }
             }
         }
@@ -283,9 +289,9 @@ public sealed partial class TidyChatPlugin
         if (MarketBoardSaleHelper.ShouldAllowImprovedMarketSale(Configuration, normalizedText, message.Message.TextValue))
         {
             isBlocked = false;
-            if (Configuration.EnableDebugMode && !matchedRules.Contains(nameof(Configuration.BetterMarketBoardSaleMessage)))
+            if (Configuration.EnableDebugMode)
             {
-                matchedRules.Add(nameof(Configuration.BetterMarketBoardSaleMessage));
+                TrackMatchedRule(matchedRules, nameof(Configuration.BetterMarketBoardSaleMessage));
             }
         }
 

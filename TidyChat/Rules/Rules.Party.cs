@@ -6,72 +6,6 @@ public static partial class Rules
     [
         new()
         {
-            Name = "ShowCompletedVenture",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4341],
-            StringChecks = [ChatStrings.RetainerVentureComplete],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowRetainerVentureMessages",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4331],
-            StringChecks = [ChatStrings.RetainerVentureAssign],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowRetainerVentureMessages",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4330],
-            StringChecks = [ChatStrings.RetainerVentureAssign],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowRetainerVentureMessages",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4334],
-            StringChecks = [ChatStrings.RetainerVenturePayment],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCompletedVenture",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4332],
-            StringChecks = [ChatStrings.RetainerVentureItemComplete],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCompletedVenture",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4335],
-            StringChecks = [ChatStrings.RetainerMaxLevel],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "ShowCommendations",
             SettingsTab = "Party",
             Channel = ChatType.System,
@@ -378,7 +312,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedPomander",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7220, 7221, 7222],
@@ -389,7 +323,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCairnGlows",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7242],
@@ -400,7 +334,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRestoresLifeToFallen",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7243],
@@ -411,7 +345,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCairnActivates",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7245],
@@ -422,7 +356,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTransference",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7246, 7247, 7248],
@@ -433,7 +367,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherpoolIncrease",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7250],
@@ -444,7 +378,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherpoolUnchanged",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7251],
@@ -455,7 +389,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowPomanderEffects",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7254, 7255, 7256, 7257, 7258, 7259, 7260, 7261, 7263, 7264],
@@ -466,7 +400,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7224, 7225, 7226, 7227, 7228, 7229],
@@ -476,7 +410,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DeepDungeonLandmineTriggered],
@@ -485,7 +419,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DeepDungeonTrapTriggered],
@@ -494,7 +428,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowTrapTriggered",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.DeepDungeonDetonatorTriggered],
@@ -503,7 +437,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFloorNumber",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7249],
@@ -514,7 +448,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFloorNumber",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7270, 9218],
@@ -525,7 +459,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowFloorNumber",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7265],
@@ -536,7 +470,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowSenseAccursedHoard",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7272],
@@ -547,7 +481,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDoNotSenseAccursedHoard",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7273],
@@ -558,7 +492,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDiscoverAccursedHoard",
-            SettingsTab = "Party",
+            SettingsTab = "Deep Dungeons",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7274],
@@ -604,124 +538,6 @@ public static partial class Rules
             PreferLogMessageCatalog = true
         },
             ];
-
-    private static readonly LocalizedFilterRule[] PartyRulesSegment4 =
-    [
-        new()
-        {
-            Name = "ShowExploratoryVoyage",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4163]
-        },
-        new()
-        {
-            Name = "ShowSubaquaticVoyageEmbarked",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [6057],
-            StringChecks = [ChatStrings.SubaquaticVoyageEmbarked],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowSubaquaticVoyageFinalized",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [6059],
-            StringChecks = [ChatStrings.SubaquaticVoyageFinalized],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowSubaquaticVoyageOtherFinalized",
-            SettingsTab = "Party",
-            Channel = ChatType.FreeCompanyAnnouncement,
-            IsActive = true,
-            LogMessageIds = [6060],
-            StringChecks = [ChatStrings.SubaquaticVoyageFinalized],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowSubaquaticVoyageReturned",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [6061]
-        },
-        new()
-        {
-            Name = "ShowSubmarinePartRepaired",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4168],
-            StringChecks = [ChatStrings.SubmarinePartRepaired],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowSubmarineAttainsRank",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [6062],
-            StringChecks = [ChatStrings.SubmarineAttainsRank],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowSubmarineRetrievalLevelsIncreased",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [6092],
-            StringChecks = [ChatStrings.SubmarineRetrievalLevelsIncreased],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-    ];
-
-    private static readonly LocalizedFilterRule[] PartyRulesSegment5 =
-    [
-        new()
-        {
-            Name = "ShowFreeCompanyMessageBook",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3087, 6065, 3127]
-        },
-        new()
-        {
-            Name = "ShowFreeCompanyMessageBook",
-            SettingsTab = "Party",
-            Channel = ChatType.FreeCompanyAnnouncement,
-            IsActive = true,
-            LogMessageIds = [3127],
-            StringChecks = [ChatStrings.CompanyActionExpired],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowFreeCompanyMessageBook",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            StringChecks = [ChatStrings.CompanyActionExpired],
-            Pattern = PatternKind.StringMatch
-        },
-    ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment6 =
     [

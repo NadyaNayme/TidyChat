@@ -178,6 +178,7 @@ public static partial class Rules
         ["HideObtainedGil"] = c => c.HideObtainedGil,
         ["HideObtainedMGP"] = c => c.HideObtainedMGP,
         ["ShowMgpSpending"] = c => !c.HideObtainedMGP,
+        ["ShowGoldSaucerSwingMinigames"] = c => c.ShowGoldSaucerSwingMinigames,
         ["HideObtainedWolfMarks"] = c => c.HideObtainedWolfMarks,
         ["HideObtainedSeals"] = c => c.HideObtainedSeals,
         ["HideObtainedVenture"] = c => c.HideObtainedVenture,
@@ -228,6 +229,7 @@ public static partial class Rules
         rules.AddRange(OrchestrionRules);
         rules.AddRange(LootRules);
         rules.AddRange(ObtainRules);
+        rules.AddRange(GoldSaucerRules);
         rules.AddRange(ProgressRules);
         return rules;
     }

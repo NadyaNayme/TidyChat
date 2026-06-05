@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TidyChat.Translation.Data;
 
 namespace TidyChat;
 
@@ -8,6 +9,34 @@ namespace TidyChat;
 /// </summary>
 internal static class ObtainCurrencyHelper
 {
+    private static readonly HashSet<string> GenericObtainShowRuleNames = new(StringComparer.Ordinal)
+    {
+        "ShowObtainedItems",
+        "ShowObtainedQuestItems",
+        "ShowGatheringCollectableObtains",
+    };
+
+    private static readonly LocalizedStrings[] DedicatedObtainTypeMarkers =
+    [
+        ChatStrings.ObtainedMgpMarker,
+        ChatStrings.ObtainedGilMarker,
+        ChatStrings.ReceivedGilMarker,
+        ChatStrings.ObtainWolfMarks,
+        ChatStrings.ObtainAlliedSealsMarker,
+        ChatStrings.ObtainCenturioSealsMarker,
+        ChatStrings.ObtainNutsMarker,
+        ChatStrings.ObtainClusterMarker,
+        ChatStrings.ObtainVentureMarker,
+        ChatStrings.ObtainMaterialsMarker,
+        ChatStrings.CosmicContainerObtain,
+        ChatStrings.CosmocreditObtain,
+        ChatStrings.CosmocreditReceived,
+        ChatStrings.OizysCreditObtain,
+        ChatStrings.AuxesiaCreditObtain,
+        ChatStrings.OizysDronebitsObtain,
+        ChatStrings.CosmicFortuneObtain,
+    ];
+
     public static bool ShouldAllowLootNoticeObtain(
         Configuration config,
         string normalizedText,
@@ -39,30 +68,90 @@ internal static class ObtainCurrencyHelper
         rule.ObtainMarkerGil ||
         rule.ObtainMarkerMgp;
 
-    public static bool ShouldAllowCurrencyObtain(Configuration config, string normalizedText)
+    public static bool ShouldExcludeGenericObtainShowRule(LocalizedFilterRule rule, string normalizedText) =>
+        GenericObtainShowRuleNames.Contains(rule.Name) && HasDedicatedObtainType(normalizedText);
+
+    public static bool HasDedicatedObtainType(string normalizedText)
     {
-        if (MatchesNuts(normalizedText) && !config.HideObtainedNuts)
+        foreach (var marker in DedicatedObtainTypeMarkers)
+        {
+            if (TextMatchHelper.MatchesAllTokens(normalizedText, marker))
+            {
+                return true;
+            }
+        }
+
+        return ItemMarkerCatalog.IsLoaded && ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText);
+    }
+
+    public static bool TemplateMissingDedicatedObtainMarkers(string normalizedText, string[] templateTokens)
+    {
+        foreach (var marker in DedicatedObtainTypeMarkers)
+        {
+            if (!TextMatchHelper.MatchesAllTokens(normalizedText, marker))
+            {
+                continue;
+            }
+
+            if (L10N.Get(marker).Any(token => !templateTokens.Contains(token)))
+            {
+                return true;
+            }
+        }
+
+        if (ItemMarkerCatalog.IsLoaded &&
+            ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText) &&
+            !templateTokens.Any(token => token.Contains("seal", StringComparison.Ordinal)))
         {
             return true;
+        }
+
+        return false;
+    }
+
+    public static string? GetAllowBecauseHideOffRuleName(Configuration config, string normalizedText)
+    {
+        if (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainedMgpMarker) &&
+            !config.HideObtainedMGP)
+        {
+            return "HideObtainedMGP";
+        }
+
+        if (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainedGilMarker) &&
+            !config.HideObtainedGil)
+        {
+            return "HideObtainedGil";
+        }
+
+        if (MatchesNuts(normalizedText) && !config.HideObtainedNuts)
+        {
+            return "HideObtainedNuts";
         }
         if (MatchesWolfMarks(normalizedText) && !config.HideObtainedWolfMarks)
         {
-            return true;
+            return "HideObtainedWolfMarks";
         }
+
         if (MatchesAlliedSeals(normalizedText) && !config.HideObtainedAlliedSeals)
         {
-            return true;
+            return "HideObtainedAlliedSeals";
         }
+
         if (MatchesCenturioSeals(normalizedText) && !config.HideObtainedCenturioSeals)
         {
-            return true;
+            return "HideObtainedCenturioSeals";
         }
+
         if (MatchesGrandCompanySeals(normalizedText) && !config.HideObtainedSeals)
         {
-            return true;
+            return "HideObtainedSeals";
         }
-        return false;
+
+        return null;
     }
+
+    public static bool ShouldAllowCurrencyObtain(Configuration config, string normalizedText) =>
+        GetAllowBecauseHideOffRuleName(config, normalizedText) is not null;
 
     private static bool ShouldAllowTomestoneObtain(
         string normalizedText,

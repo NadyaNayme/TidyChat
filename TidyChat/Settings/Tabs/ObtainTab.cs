@@ -125,15 +125,6 @@ internal static class ObtainTab
             }
 
             UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowVentureMessagesHelpMarker);
-
-            var hideObtainedMGP = configuration.HideObtainedMGP;
-            if (ImGui.Checkbox(Languages.ObtainTab_ShowMGPMessages, ref hideObtainedMGP))
-            {
-                configuration.HideObtainedMGP = hideObtainedMGP;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowMGPMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.ObtainTab_BattleCurrenciesDropdownHeader))

@@ -11,9 +11,22 @@ internal static class RuleMatcher
             return obtainMatched;
         }
 
+        if (ObtainCurrencyHelper.ShouldExcludeGenericObtainShowRule(rule, normalizedText))
+        {
+            if (debugMode)
+            {
+                TidyChatPlugin.Log.Verbose($"FAILED: {rule.Name} | dedicated obtain type (not generic item obtain)");
+            }
+            return false;
+        }
+
         var requiresCatalog = RequiresLogMessageCatalog(rule);
         var catalogMatched = LogMessageCatalogMatches(rule, normalizedText);
-        if (requiresCatalog && catalogMatched && !ObtainCurrencyHelper.HasObtainMarkerConstraint(rule))
+        var allowTextFallback = requiresCatalog && !catalogMatched &&
+                                ShouldFallbackToTextChecksWhenCatalogMisses(rule);
+
+        if (requiresCatalog && catalogMatched && !ObtainCurrencyHelper.HasObtainMarkerConstraint(rule) &&
+            !RuleHasTextChecks(rule))
         {
             if (debugMode)
             {
@@ -21,9 +34,6 @@ internal static class RuleMatcher
             }
             return true;
         }
-
-        var allowTextFallback = requiresCatalog && !catalogMatched &&
-                                ShouldFallbackToTextChecksWhenCatalogMisses(rule);
 
         switch (rule.Pattern)
         {
@@ -83,7 +93,9 @@ internal static class RuleMatcher
                     {
                         if (debugMode)
                         {
-                            TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
+                            var via = catalogMatched ? "catalog+string" : "string";
+                            TidyChatPlugin.Log.Debug(
+                                $"MATCHED: {rule.Name} | {via.ToUpperInvariant()}: {string.Join(", ", L10N.Get(check))}");
                         }
                     }
                     else

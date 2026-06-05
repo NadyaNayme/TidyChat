@@ -143,6 +143,17 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
+            LogMessageIds = [765],
+            StringChecks = [ChatStrings.GearsetUnableToEquip],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCannotExecuteMessages",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
             LogMessageIds = [4316],
             StringChecks = [ChatStrings.UnableToApplyGlamourPlates],
             Pattern = PatternKind.StringMatch,

@@ -205,7 +205,6 @@ public static partial class ChatStrings
         Fra = ["secteur"]
     };
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul …</see>
-    /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">You sense something close.</seealso>
     public static readonly LocalizedStrings SpideySenses = new()
     {
         Jpn = ["感じ"],

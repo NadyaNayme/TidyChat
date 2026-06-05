@@ -106,17 +106,36 @@ internal static class EconomyTab
                 UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardSellingStatusHelpMarker);
             });
 
-            SettingsTabLayout.DrawIndependentOptions(() =>
-            {
-                var showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
-                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
-                {
-                    configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
-                    configuration.OnSettingChanged();
-                }
+        }
 
-                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
-            });
+        if (ImGui.CollapsingHeader(Languages.EconomyTab_RetainerSectionHeader))
+        {
+            var completedVenture = configuration.ShowCompletedVenture;
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
+            {
+                configuration.ShowCompletedVenture = completedVenture;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletedVentureHelpMarker);
+
+            var retainerVentureMessages = configuration.ShowRetainerVentureMessages;
+            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
+            {
+                configuration.ShowRetainerVentureMessages = retainerVentureMessages;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowRetainerVentureMessagesHelpMarker);
+
+            var showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
+            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
+            {
+                configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.EconomyTab_GilSectionHeader))

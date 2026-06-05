@@ -141,7 +141,6 @@ public static class ChatRegexStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">You sense something close.</see>
     public static readonly LocalizedRegex SpideySenses = new()
     {
         Jpn = new("NeedsLocalization", regexOptions, regexTimeout),

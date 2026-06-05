@@ -8,28 +8,35 @@ namespace TidyChat.Settings.UI;
 internal class PluginUI : Window, IDisposable
 {
     private const float MinWindowHeight = 400f;
+    private const float MinContentWidth = 380f;
     private const float WindowChromePadding = 28f;
+    private const float SidebarExtraPadding = 12f;
 
-    private static readonly ImGuiTabBarFlags TabBarFlags =
-        ImGuiTabBarFlags.FittingPolicyScroll;
-
-    private static readonly string[] TabLabels =
+    private static readonly (string Label, Action<Configuration> Draw)[] Tabs =
     [
-        Languages.ConfigWindow_GeneralTabHeader,
-        Languages.ConfigWindow_EmotesTabHeader,
-        Languages.ConfigWindow_SystemTabHeader,
-        Languages.ConfigWindow_PartyDutyTabHeader,
-        Languages.ConfigWindow_EconomyTabHeader,
-        Languages.ConfigWindow_ObtainTabHeader,
-        Languages.ConfigWindow_ProgressTabHeader,
-        Languages.ConfigWindow_CombatTabHeader,
-        Languages.ConfigWindow_CraftingGatheringTabHeader,
-        Languages.ConfigWindow_ToolsTabHeader
+        (Languages.ConfigWindow_GeneralTabHeader, GeneralTab.Draw),
+        (Languages.ConfigWindow_EmotesTabHeader, EmotesTab.Draw),
+        (Languages.ConfigWindow_SystemTabHeader, SystemTab.Draw),
+        (Languages.ConfigWindow_ExplorationTabHeader, ExplorationTab.Draw),
+        (Languages.ConfigWindow_HousingTabHeader, HousingTab.Draw),
+        (Languages.ConfigWindow_GlamourTabHeader, GlamourTab.Draw),
+        (Languages.ConfigWindow_PartyDutyTabHeader, PartyDutyTab.Draw),
+        (Languages.ConfigWindow_DeepDungeonsTabHeader, DeepDungeonsTab.Draw),
+        (Languages.ConfigWindow_FreeCompanyTabHeader, FreeCompanyTab.Draw),
+        (Languages.ConfigWindow_EconomyTabHeader, EconomyTab.Draw),
+        (Languages.ConfigWindow_GoldSaucerTabHeader, GoldSaucerTab.Draw),
+        (Languages.ConfigWindow_ObtainTabHeader, ObtainTab.Draw),
+        (Languages.ConfigWindow_ProgressTabHeader, ProgressTab.Draw),
+        (Languages.ConfigWindow_CombatTabHeader, CombatTab.Draw),
+        (Languages.ConfigWindow_CraftingTabHeader, CraftingTab.Draw),
+        (Languages.ConfigWindow_GatheringTabHeader, GatheringTab.Draw),
+        (Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw),
     ];
 
     private readonly Configuration configuration;
     private bool appliedDefaultWidth;
     private string? cachedCultureName;
+    private int selectedTabIndex;
 
     private float cachedLayoutScale = -1f;
     private float? cachedMinWindowWidth;
@@ -94,82 +101,46 @@ internal class PluginUI : Window, IDisposable
             return;
         }
 
-        if (!ImGui.BeginTabBar("##tidychatConfigTabs", TabBarFlags))
+        selectedTabIndex = Math.Clamp(selectedTabIndex, 0, Tabs.Length - 1);
+
+        var sidebarWidth = GetSidebarWidth();
+        var avail = ImGui.GetContentRegionAvail();
+
+        ImGui.BeginChild("##tidychatConfigSidebar", new Vector2(sidebarWidth, avail.Y), true);
+        ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0f, 2f));
+        for (var i = 0; i < Tabs.Length; i++)
         {
-            return;
+            if (ImGui.Selectable(Tabs[i].Label, selectedTabIndex == i, ImGuiSelectableFlags.None,
+                    new Vector2(sidebarWidth - ImGui.GetStyle().WindowPadding.X * 2f, 0f)))
+            {
+                selectedTabIndex = i;
+            }
         }
 
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_GeneralTabHeader))
+        ImGui.PopStyleVar();
+        ImGui.EndChild();
+
+        ImGui.SameLine(0f, ImGui.GetStyle().ItemInnerSpacing.X);
+
+        ImGui.BeginChild("##tidychatConfigContent", new Vector2(0f, avail.Y), false);
+        Tabs[selectedTabIndex].Draw(configuration);
+        TabFooter.Display(configuration);
+        ImGui.EndChild();
+    }
+
+    private float GetSidebarWidth()
+    {
+        InvalidateLayoutCacheIfNeeded();
+
+        var style = ImGui.GetStyle();
+        var maxLabelWidth = 0f;
+
+        for (var i = 0; i < Tabs.Length; i++)
         {
-            GeneralTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
+            maxLabelWidth = Math.Max(maxLabelWidth, ImGui.CalcTextSize(Tabs[i].Label).X);
         }
 
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_EmotesTabHeader))
-        {
-            EmotesTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_SystemTabHeader))
-        {
-            SystemTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_PartyDutyTabHeader))
-        {
-            PartyDutyTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_EconomyTabHeader))
-        {
-            EconomyTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_ObtainTabHeader))
-        {
-            ObtainTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_ProgressTabHeader))
-        {
-            ProgressTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_CombatTabHeader))
-        {
-            CombatTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_CraftingGatheringTabHeader))
-        {
-            CraftingGatheringTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        if (ImGui.BeginTabItem(Languages.ConfigWindow_ToolsTabHeader))
-        {
-            ToolsTab.Draw(configuration);
-            TabFooter.Display(configuration);
-            ImGui.EndTabItem();
-        }
-
-        ImGui.EndTabBar();
+        return maxLabelWidth + style.FramePadding.X * 2f + style.WindowPadding.X * 2f + SidebarExtraPadding;
     }
 
     private float GetMinimumWindowWidth()
@@ -184,12 +155,13 @@ internal class PluginUI : Window, IDisposable
         var style = ImGui.GetStyle();
         var scale = ImGuiHelpers.GlobalScale;
 
-        var tabBarWidth = CalculateTabBarWidth(style);
         var searchWidth = ImGui.CalcTextSize(Languages.ConfigWindow_SearchPlaceholder).X
                           + style.FramePadding.X * 2f
                           + style.WindowPadding.X * 2f;
 
-        width = Math.Max(tabBarWidth, searchWidth)
+        width = GetSidebarWidth()
+                + style.ItemInnerSpacing.X
+                + Math.Max(MinContentWidth, searchWidth)
                 + style.WindowPadding.X * 2f
                 + WindowChromePadding * scale;
 
@@ -211,22 +183,5 @@ internal class PluginUI : Window, IDisposable
         cachedLayoutScale = layoutScale;
         cachedCultureName = cultureName;
         cachedMinWindowWidth = null;
-    }
-
-    private static float CalculateTabBarWidth(ImGuiStylePtr style)
-    {
-        var width = 0f;
-
-        for (var i = 0; i < TabLabels.Length; i++)
-        {
-            width += ImGui.CalcTextSize(TabLabels[i]).X + style.FramePadding.X * 2f;
-
-            if (i < TabLabels.Length - 1)
-            {
-                width += style.ItemInnerSpacing.X;
-            }
-        }
-
-        return width + style.WindowPadding.X * 2f + style.ItemInnerSpacing.X;
     }
 }

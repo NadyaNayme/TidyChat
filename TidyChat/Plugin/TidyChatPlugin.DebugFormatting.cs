@@ -15,12 +15,13 @@ public sealed partial class TidyChatPlugin
         {
             Better.AddBlockedTag(stringBuilder);
         }
+        else
+        {
+            Better.AddAllowedTag(stringBuilder);
+        }
+
         if (rulesMatched.Count > 0)
         {
-            if (!isBlocked)
-            {
-                Better.AddAllowedTag(stringBuilder);
-            }
             Better.AddRuleTag(stringBuilder, rulesMatched);
         }
         stringBuilder.AddText(message.TextValue);

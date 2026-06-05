@@ -437,8 +437,29 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_CraftingGatheringTabHeader" xml:space="preserve">
     <value>Crafting &amp; Gathering</value>
   </data>
+  <data name="ConfigWindow_CraftingTabHeader" xml:space="preserve">
+    <value>Crafting</value>
+  </data>
+  <data name="ConfigWindow_GatheringTabHeader" xml:space="preserve">
+    <value>Gathering</value>
+  </data>
+  <data name="ConfigWindow_ExplorationTabHeader" xml:space="preserve">
+    <value>Exploration</value>
+  </data>
+  <data name="ConfigWindow_HousingTabHeader" xml:space="preserve">
+    <value>Housing</value>
+  </data>
+  <data name="ConfigWindow_GlamourTabHeader" xml:space="preserve">
+    <value>Glamour</value>
+  </data>
+  <data name="ConfigWindow_DeepDungeonsTabHeader" xml:space="preserve">
+    <value>Deep Dungeons</value>
+  </data>
   <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
     <value>Economy</value>
+  </data>
+  <data name="ConfigWindow_GoldSaucerTabHeader" xml:space="preserve">
+    <value>Gold Saucer</value>
   </data>
   <data name="ConfigWindow_EmotesTabHeader" xml:space="preserve">
     <value>Emotes</value>
@@ -451,6 +472,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_PartyDutyTabHeader" xml:space="preserve">
     <value>Party &amp; Duty</value>
+  </data>
+  <data name="ConfigWindow_FreeCompanyTabHeader" xml:space="preserve">
+    <value>Free Company</value>
   </data>
   <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
     <value>Progress</value>
@@ -702,8 +726,23 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="CraftingGatheringTab_StellarSectionFilteringNote" xml:space="preserve">
     <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic or fishing lines further.</value>
   </data>
+  <data name="EconomyTab_RetainerSectionHeader" xml:space="preserve">
+    <value>Retainer</value>
+  </data>
   <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
+  </data>
+  <data name="FreeCompanyTab_FilteringNote" xml:space="preserve">
+    <value>Workshop and message-book lines use Filter System on General. FC login/logout uses the FC login/logout channel (no extra General toggle).</value>
+  </data>
+  <data name="FreeCompanyTab_MessageBookDropdownHeader" xml:space="preserve">
+    <value>Message book</value>
+  </data>
+  <data name="FreeCompanyTab_SocialDropdownHeader" xml:space="preserve">
+    <value>Login &amp; logout</value>
+  </data>
+  <data name="FreeCompanyTab_WorkshopDropdownHeader" xml:space="preserve">
+    <value>Airship &amp; submarine</value>
   </data>
   <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
@@ -1114,6 +1153,42 @@ eg. You obtain 30 ice shards</value>
   </data>
   <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel; use System tab options for spend lines).</value>
+  </data>
+  <data name="GoldSaucerTab_FilteringNote" xml:space="preserve">
+    <value>MGP obtain lines use Filter Obtained on General. Minigame and Triple Triad lines use Filter System. Options labeled Hide … hide those lines when checked.</value>
+  </data>
+  <data name="GoldSaucerTab_MgpDropdownHeader" xml:space="preserve">
+    <value>MGP</value>
+  </data>
+  <data name="GoldSaucerTab_MinigamesDropdownHeader" xml:space="preserve">
+    <value>Swing minigames</value>
+  </data>
+  <data name="GoldSaucerTab_ShowMGPMessages" xml:space="preserve">
+    <value>Hide MGP</value>
+  </data>
+  <data name="GoldSaucerTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel).</value>
+  </data>
+  <data name="GoldSaucerTab_ShowSwingMinigames" xml:space="preserve">
+    <value>Show Out on a Limb / The Finer Miner swing feedback</value>
+  </data>
+  <data name="GoldSaucerTab_ShowSwingMinigamesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4784–4793 — System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You're right on top of it!</value>
+  </data>
+  <data name="GoldSaucerTab_TripleTriadDropdownHeader" xml:space="preserve">
+    <value>Triple Triad</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadAllowed" xml:space="preserve">
+    <value>Show Triple Triad allowed here</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadAllowedHelpMarker" xml:space="preserve">
+    <value>LogMessage 4763 — eg. Triple Triad matches are allowed in the current area.</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadNotAllowed" xml:space="preserve">
+    <value>Show Triple Triad not allowed here</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker" xml:space="preserve">
+    <value>LogMessage 4764 — eg. Triple Triad matches are not allowed in the current area.</value>
   </data>
   <data name="ObtainTab_ShowObtainedQuestItems" xml:space="preserve">
     <value>Show quest item obtain messages</value>
@@ -1829,7 +1904,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Show "You sense something..." messages</value>
   </data>
   <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 2600, 4791 — spidey-senses lines on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
+    <value>LogMessage 2600 — spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
   </data>
   <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
     <value>Social &amp; misc</value>
