@@ -10,7 +10,6 @@ $migrations = @(
     @{ Old = 'GeneralTab_FilterCustomEmotesHelpMarker'; New = 'EmotesTab_ShowOtherCustomEmotesHelpMarker'; Value = $null },
     @{ Old = 'GeneralTab_FilterSelfEmotes'; New = 'EmotesTab_ShowSelfCustomEmotes'; Value = 'Your own custom emotes' },
     @{ Old = 'GeneralTab_FilterSelfEmotesHelpMarker'; New = 'EmotesTab_ShowSelfCustomEmotesHelpMarker'; Value = $null },
-    @{ Old = 'AdvancedTab_EnableDebugMode'; New = 'ToolsTab_EnableDebugMode'; Value = 'Debug mode (dry-run filtering)' },
     @{ Old = 'IncludeChannelTagInDryRunMode'; New = 'ToolsTab_DebugIncludeChannel'; Value = 'Show channel in debug lines' },
     @{ Old = 'SystemTab_ShowFirstClearAward'; New = 'ProgressTab_ShowFirstClearAward'; Value = 'First-time duty clear reward' },
     @{ Old = 'SystemTab_ShowSecondChanceAward'; New = 'ProgressTab_ShowSecondChanceAward'; Value = 'Second Chance reward' }
@@ -57,7 +56,6 @@ $replacements = @{
     'GeneralTab_FilterCustomEmotesHelpMarker' = 'EmotesTab_ShowOtherCustomEmotesHelpMarker'
     'GeneralTab_FilterSelfEmotes' = 'EmotesTab_ShowSelfCustomEmotes'
     'GeneralTab_FilterSelfEmotesHelpMarker' = 'EmotesTab_ShowSelfCustomEmotesHelpMarker'
-    'AdvancedTab_EnableDebugMode' = 'ToolsTab_EnableDebugMode'
     'IncludeChannelTagInDryRunMode' = 'ToolsTab_DebugIncludeChannel'
     'SystemTab_ShowFirstClearAward' = 'ProgressTab_ShowFirstClearAward'
     'SystemTab_ShowSecondChanceAward' = 'ProgressTab_ShowSecondChanceAward'

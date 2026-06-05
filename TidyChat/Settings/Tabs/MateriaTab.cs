@@ -51,4 +51,3 @@ internal static class MateriaTab
         }
     }
 }
-

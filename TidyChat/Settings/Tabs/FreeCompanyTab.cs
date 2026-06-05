@@ -132,4 +132,3 @@ internal static class FreeCompanyTab
         UiHelp.SystemFilterMarker(Languages.FreeCompanyTab_ShowSubmarineRetrievalLevelsIncreasedHelpMarker);
     }
 }
-

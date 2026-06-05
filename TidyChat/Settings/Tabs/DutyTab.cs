@@ -35,4 +35,3 @@ internal static class DutyTab
         UiHelp.SystemFilterMarker(Languages.DutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker);
     }
 }
-

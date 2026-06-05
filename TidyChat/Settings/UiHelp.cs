@@ -90,4 +90,3 @@ internal static class UiHelp
                 ? help
                 : help.TrimEnd() + "\n\n" + note;
 }
-

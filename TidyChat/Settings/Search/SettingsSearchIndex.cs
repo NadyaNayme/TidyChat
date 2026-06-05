@@ -917,4 +917,3 @@ internal static class SettingsSearchIndex
         }
     }
 }
-

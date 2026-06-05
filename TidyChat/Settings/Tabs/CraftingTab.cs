@@ -68,4 +68,3 @@ internal static class CraftingTab
         });
     }
 }
-

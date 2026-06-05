@@ -124,4 +124,3 @@ internal static class CurrenciesTab
         UiHelp.ObtainedFilterMarker(Languages.CurrenciesTab_ShowSacksOfNutsMessagesHelpMarker);
     }
 }
-

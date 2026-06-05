@@ -159,4 +159,3 @@ internal static class EconomyTab
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
     }
 }
-

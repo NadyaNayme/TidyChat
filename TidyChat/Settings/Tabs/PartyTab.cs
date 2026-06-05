@@ -178,4 +178,3 @@ internal static class PartyTab
         });
     }
 }
-

@@ -56,5 +56,3 @@ internal static class AlliedSocietiesTab
         }
     }
 }
-
-
