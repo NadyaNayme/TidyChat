@@ -380,7 +380,7 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        if (RuleMatchesText(rule, normalizedText, debugMode))
+        if (RuleMatcher.MatchesText(rule, normalizedText, debugMode))
         {
             return true;
         }
@@ -613,7 +613,7 @@ public sealed partial class TidyChatPlugin
             {
                 return true;
             }
-            if (RuleMatchesText(rule, normalizedText, false))
+            if (RuleMatcher.MatchesText(rule, normalizedText, false))
             {
                 return true;
             }

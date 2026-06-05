@@ -30,7 +30,7 @@ internal static class MarketBoardSaleHelper
         !displayText.Contains("entrusted", StringComparison.OrdinalIgnoreCase);
 
     public static bool IsGilEntrustedToRetainerText(string normalizedText) =>
-        L10N.Get(ChatStrings.MarketGilEntrustedToRetainer).All(normalizedText.Contains);
+        TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.MarketGilEntrustedToRetainer);
 
     public static bool ShouldAllowImprovedMarketSale(Configuration config, string normalizedText, string displayText) =>
         config.BetterMarketBoardSaleMessage &&

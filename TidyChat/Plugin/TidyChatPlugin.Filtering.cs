@@ -141,7 +141,7 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        if (L10N.Get(ChatStrings.JoinParty).All(normalizedText.Contains) && Configuration.ShowJoinParty &&
+        if (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.JoinParty) && Configuration.ShowJoinParty &&
             Configuration is { ShowPartyInformation: true, FilterSystemMessages: true })
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
@@ -202,7 +202,7 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.BetterSayReminder &&
             chatType is ChatType.System &&
-            L10N.Get(ChatStrings.SayQuestReminder).All(normalizedText.Contains))
+            TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.SayQuestReminder))
         {
             message.Message = Better.SayReminder(message.Message, Configuration);
             return true;
@@ -343,7 +343,7 @@ public sealed partial class TidyChatPlugin
             {
                 continue;
             }
-            if (RuleMatchesText(rule, normalizedText, false))
+            if (RuleMatcher.MatchesText(rule, normalizedText, false))
             {
                 protectingRules.Add(rule.Name);
             }
@@ -404,7 +404,7 @@ public sealed partial class TidyChatPlugin
             if (!rule.IsActive && !rule.BlockWhenActive && rule.LogMessageIds is { Length: > 0 } &&
                 LogMessageCatalog.IsLoaded &&
                 LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText) &&
-                RuleMatchesText(rule, normalizedText, false) &&
+                RuleMatcher.MatchesText(rule, normalizedText, false) &&
                 !(chatType is ChatType.LootNotice &&
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
                       Configuration.HideTomestoneById)))
@@ -440,7 +440,7 @@ public sealed partial class TidyChatPlugin
 
             if (rule.Channel == ChatType.Echo)
             {
-                if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+                if (RuleMatcher.MatchesText(rule, normalizedText, Configuration.EnableDebugMode))
                 {
                     matchedRules.Add(rule.Name);
                 }
@@ -451,7 +451,7 @@ public sealed partial class TidyChatPlugin
                 continue;
             }
 
-            if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+            if (RuleMatcher.MatchesText(rule, normalizedText, Configuration.EnableDebugMode))
             {
                 if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
                     CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText))

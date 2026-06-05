@@ -111,19 +111,19 @@ internal static class ObtainCurrencyHelper
 
     private static bool MatchesNuts(string normalizedText) =>
         L10N.Get(ChatRegexStrings.ObtainedNuts).IsMatch(normalizedText) ||
-        L10N.Get(ChatStrings.ObtainNutsMarker).All(normalizedText.Contains);
+        TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainNutsMarker);
 
     private static bool MatchesWolfMarks(string normalizedText) =>
         L10N.Get(ChatRegexStrings.ObtainedWolfMarks).IsMatch(normalizedText) ||
-        L10N.Get(ChatStrings.ObtainWolfMarks).All(normalizedText.Contains);
+        TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainWolfMarks);
 
     private static bool MatchesAlliedSeals(string normalizedText) =>
         L10N.Get(ChatRegexStrings.ObtainedAlliedSeals).IsMatch(normalizedText) ||
-        L10N.Get(ChatStrings.ObtainAlliedSealsMarker).All(normalizedText.Contains);
+        TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainAlliedSealsMarker);
 
     private static bool MatchesCenturioSeals(string normalizedText) =>
         L10N.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(normalizedText) ||
-        L10N.Get(ChatStrings.ObtainCenturioSealsMarker).All(normalizedText.Contains);
+        TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainCenturioSealsMarker);
 
     private static bool MatchesGrandCompanySeals(string normalizedText)
     {

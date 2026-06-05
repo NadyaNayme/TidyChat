@@ -56,7 +56,7 @@ public static class ItemMarkerCatalog
 
         if (fallback is { } fb)
         {
-            return L10N.Get(fb).All(normalizedText.Contains);
+            return TextMatchHelper.MatchesAllTokens(normalizedText, fb);
         }
         return false;
     }
@@ -73,7 +73,7 @@ public static class ItemMarkerCatalog
 
         if (fallback is { } fb)
         {
-            return L10N.Get(fb).All(normalizedText.Contains);
+            return TextMatchHelper.MatchesAllTokens(normalizedText, fb);
         }
         return false;
     }

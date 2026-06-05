@@ -191,7 +191,7 @@ public static class LogMessageCatalog
         }
         if (markerFallback is { } fb)
         {
-            return L10N.Get(fb).All(normalizedText.Contains);
+            return TextMatchHelper.MatchesAllTokens(normalizedText, fb);
         }
         return normalizedText.Contains("gil", StringComparison.Ordinal);
     }
@@ -204,7 +204,7 @@ public static class LogMessageCatalog
         }
         if (markerFallback is { } fb)
         {
-            return L10N.Get(fb).All(normalizedText.Contains);
+            return TextMatchHelper.MatchesAllTokens(normalizedText, fb);
         }
         return normalizedText.Contains("mgp", StringComparison.Ordinal);
     }
@@ -234,7 +234,7 @@ public static class LogMessageCatalog
     {
         if (markerFallback is { } fb)
         {
-            if (!L10N.Get(fb).All(normalizedText.Contains))
+            if (!TextMatchHelper.MatchesAllTokens(normalizedText, fb))
             {
                 return false;
             }
@@ -283,7 +283,7 @@ public static class LogMessageCatalog
         {
             return true;
         }
-        return L10N.Get(fallback).All(normalizedText.Contains);
+        return TextMatchHelper.MatchesAllTokens(normalizedText, fallback);
     }
 
     public static void ValidateRuleIds(IEnumerable<uint> referencedIds, IPluginLog log)

@@ -42,10 +42,10 @@ internal static class CosmicShowRuleHelper
         IsCosmicMessageAllowed(config, normalizedText);
 
     public static bool MatchesCosmicContainerText(string normalizedText) =>
-        MatchesAnyMarker(normalizedText, ChatStrings.CosmicContainerObtain);
+        TextMatchHelper.MatchesAny(normalizedText, ChatStrings.CosmicContainerObtain);
 
     public static bool MatchesCosmicCurrencyRewardText(string normalizedText) =>
-        MatchesAnyMarker(normalizedText,
+        TextMatchHelper.MatchesAny(normalizedText,
             ChatStrings.CosmocreditObtain,
             ChatStrings.CosmocreditReceived,
             ChatStrings.OizysCreditObtain,
@@ -54,27 +54,14 @@ internal static class CosmicShowRuleHelper
             ChatStrings.CosmicFortuneObtain);
 
     public static bool MatchesCosmicExplorationText(string normalizedText) =>
-        MatchesAnyMarker(normalizedText, ChatStrings.MechOpDirective, ChatStrings.CosmicRedAlert);
+        TextMatchHelper.MatchesAny(normalizedText, ChatStrings.MechOpDirective, ChatStrings.CosmicRedAlert);
 
     public static bool MatchesCosmicClassPointsAndDatasetText(string normalizedText) =>
-        MatchesAnyMarker(normalizedText, ChatStrings.CosmicDatasetSubmitted, ChatStrings.CosmicClassPoints);
+        TextMatchHelper.MatchesAny(normalizedText, ChatStrings.CosmicDatasetSubmitted, ChatStrings.CosmicClassPoints);
 
     public static bool MatchesCosmicDailyProgressText(string normalizedText) =>
-        MatchesAnyMarker(normalizedText,
+        TextMatchHelper.MatchesAny(normalizedText,
             ChatStrings.DailyPointsEarned,
             ChatStrings.DailySuccessAchieved,
             ChatStrings.DailySuccessGoalAchieved);
-
-    private static bool MatchesAnyMarker(string normalizedText, params LocalizedStrings[] markers)
-    {
-        foreach (var marker in markers)
-        {
-            if (L10N.Get(marker).All(normalizedText.Contains))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
 }
