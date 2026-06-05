@@ -55,10 +55,7 @@ public sealed partial class TidyChatPlugin
                     RememberLogMessageChatMatchTexts(_allowedByLogMessage, text);
                     RememberCustomFilterLogMessageAllow(message.LogMessageId);
                 }
-                catch
-                {
-                    /* non-critical */
-                }
+                catch { }
                 if (Configuration.EnableDebugMode)
                 {
                     Log.Debug($"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
@@ -262,10 +259,7 @@ public sealed partial class TidyChatPlugin
                 var text = message.FormatLogMessageForDebugging().ExtractText();
                 RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
             }
-            catch
-            {
-                /* non-critical */
-            }
+            catch { }
 
             return;
         }
@@ -325,10 +319,7 @@ public sealed partial class TidyChatPlugin
             RememberLogMessageChatMatchTexts(_allowedByLogMessage, text);
             RememberLogMessageAllow(message.LogMessageId);
         }
-        catch
-        {
-            /* Safe to ignore — worst case OnChat re-evaluates the message */
-        }
+        catch { }
 
         if (Configuration.EnableDebugMode)
         {
@@ -623,10 +614,7 @@ public sealed partial class TidyChatPlugin
                 var text = message.FormatLogMessageForDebugging().ExtractText();
                 RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
             }
-            catch
-            {
-                /* non-critical */
-            }
+            catch { }
 
             return true;
         }

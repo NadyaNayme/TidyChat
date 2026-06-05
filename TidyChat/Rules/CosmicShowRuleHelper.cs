@@ -41,9 +41,6 @@ internal static class CosmicShowRuleHelper
     public static bool ShouldDeferNonCosmicRule(Configuration config, string normalizedText) =>
         IsCosmicMessageAllowed(config, normalizedText);
 
-    public static bool ShouldDeferGeneralObtainRule(Configuration config, string normalizedText) =>
-        ShouldDeferNonCosmicRule(config, normalizedText);
-
     public static bool MatchesCosmicContainerText(string normalizedText) =>
         MatchesAnyMarker(normalizedText, ChatStrings.CosmicContainerObtain);
 
@@ -55,9 +52,6 @@ internal static class CosmicShowRuleHelper
             ChatStrings.AuxesiaCreditObtain,
             ChatStrings.OizysDronebitsObtain,
             ChatStrings.CosmicFortuneObtain);
-
-    public static bool MatchesCosmicRewardText(string normalizedText) =>
-        MatchesCosmicContainerText(normalizedText) || MatchesCosmicCurrencyRewardText(normalizedText);
 
     public static bool MatchesCosmicExplorationText(string normalizedText) =>
         MatchesAnyMarker(normalizedText, ChatStrings.MechOpDirective, ChatStrings.CosmicRedAlert);

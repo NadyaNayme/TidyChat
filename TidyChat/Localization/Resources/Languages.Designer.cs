@@ -4021,24 +4021,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show FATE discovered messages.
-        /// </summary>
-        internal static string SystemTab_ShowFateDiscoveryMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowFateDiscoveryMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 2001, 2026 — eg. The FATE &amp;lt;name&amp;gt; has appeared in the &amp;lt;location&amp;gt; area!.
-        /// </summary>
-        internal static string SystemTab_ShowFateDiscoveryMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowFateDiscoveryMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Hide FATE level sync messages.
         /// </summary>
         internal static string SystemTab_ShowFateLevelSyncMessages {
@@ -4053,24 +4035,6 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowFateLevelSyncMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowFateLevelSyncMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show friend list messages.
-        /// </summary>
-        internal static string SystemTab_ShowFriendListMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowFriendListMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 78, 81, 7487, 7488 — eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated..
-        /// </summary>
-        internal static string SystemTab_ShowFriendListMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowFriendListMessagesHelpMarker", resourceCulture);
             }
         }
         

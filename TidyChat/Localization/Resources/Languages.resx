@@ -408,7 +408,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show cosmic class points and dataset submission</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker" xml:space="preserve">
-    <value>LogMessages 10803, 10874 — class points (System) and dataset submission (Progress). Needs Filter Progress on General.</value>
+    <value>LogMessages 10874 (System), 10803 (Progress) — class points and dataset submission. Needs Filter System and Filter Progress on General.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicContainers" xml:space="preserve">
     <value>Show cosmic container obtains</value>
@@ -422,7 +422,7 @@ You can also block container lines with Tools → Custom Filters (Block, pattern
     <value>Show cosmic daily progress</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
-    <value>LogMessages 10875, 10877, 11156 — daily points and daily success lines (System). Needs Filter Progress on General.</value>
+    <value>LogMessages 10875, 10877, 11156 — daily points and daily success lines (System). Needs Filter System on General.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
     <value>Show cosmic exploration messages</value>
@@ -440,13 +440,13 @@ You can also block container lines with Tools → Custom Filters (Block, pattern
     <value>Show crafting "able to execute"</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingAbleToExecuteHelpMarker" xml:space="preserve">
-    <value>LogMessage 5533 — LogMessage 5533 on the gathering channel during crafting.</value>
+    <value>LogMessage 5533 — eg. You are now able to execute … (Gathering channel during crafting).</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingBuffEffectGain" xml:space="preserve">
     <value>Show crafting buff effect gain</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingBuffEffectGainHelpMarker" xml:space="preserve">
-    <value>LogMessage 603 — LogMessage 603 on the gain-buff channel during crafting.</value>
+    <value>LogMessage 603 — buff effect gain (Inner Quiet, Multihook, etc.) on the gain-buff channel during crafting.</value>
   </data>
   <data name="CraftingGatheringTab_ShowCraftingSynthesisComplete" xml:space="preserve">
     <value>Show synthesis complete message</value>
@@ -484,7 +484,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show gathering buff effect gain</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringBuffEffectGainHelpMarker" xml:space="preserve">
-    <value>LogMessage 603 — LogMessage 603 on the gain-buff channel during gathering.</value>
+    <value>LogMessage 603 — buff effect gain on the gain-buff channel during gathering.</value>
   </data>
   <data name="CraftingGatheringTab_ShowGatheringCollectableObtainMessages" xml:space="preserve">
     <value>Show collectable gather obtain messages</value>
@@ -1172,43 +1172,43 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>Show subaquatic voyage embarked</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageEmbarkedHelpMarker" xml:space="preserve">
-    <value>LogMessage 6057 — LogMessage 6057.</value>
+    <value>LogMessage 6057 — eg. Submersible has embarked on a subaquatic voyage.</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageFinalized" xml:space="preserve">
     <value>Show your voyage finalized</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageFinalizedHelpMarker" xml:space="preserve">
-    <value>LogMessage 6059 — LogMessage 6059.</value>
+    <value>LogMessage 6059 — eg. Submersible subaquatic voyage finalized.</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageOtherFinalized" xml:space="preserve">
     <value>Show other player voyage finalized</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageOtherFinalizedHelpMarker" xml:space="preserve">
-    <value>LogMessage 6060 — LogMessage 6060.</value>
+    <value>LogMessage 6060 — eg. Another player finalizes a subaquatic voyage (Free Company channel).</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageReturned" xml:space="preserve">
     <value>Show subaquatic voyage returned</value>
   </data>
   <data name="PartyDutyTab_ShowSubaquaticVoyageReturnedHelpMarker" xml:space="preserve">
-    <value>LogMessage 6061 — LogMessage 6061.</value>
+    <value>LogMessage 6061 — eg. Submersible has returned from its subaquatic voyage.</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarineAttainsRank" xml:space="preserve">
     <value>Show submarine attains rank</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarineAttainsRankHelpMarker" xml:space="preserve">
-    <value>LogMessage 6062 — LogMessage 6062.</value>
+    <value>LogMessage 6062 — eg. Submersible attains rank 5!</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarinePartRepaired" xml:space="preserve">
     <value>Show submarine part repaired</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarinePartRepairedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4168 — LogMessage 4168.</value>
+    <value>LogMessage 4168 — eg. Submarine part has been repaired.</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarineRetrievalLevelsIncreased" xml:space="preserve">
     <value>Show submarine retrieval levels increased</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarineRetrievalLevelsIncreasedHelpMarker" xml:space="preserve">
-    <value>LogMessage 6092 — LogMessage 6092.</value>
+    <value>LogMessage 6092 — eg. Submersible's retrieval levels increased by 3.</value>
   </data>
   <data name="PartyDutyTab_ShowSubmarineVoyageMessages" xml:space="preserve">
     <value>Show Submarine voyage</value>
@@ -1284,7 +1284,7 @@ It can be considered spammy in deep dungeons.</value>
     <value>Show mount unlock messages</value>
   </data>
   <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 646, 1306 — eg. You have unlocked the ability to summon this mount. Uses the action channel (not System filtering).</value>
+    <value>LogMessages 646 (Action), 1306 (System) — eg. You have unlocked the ability to summon this mount / flying speed increased.</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3921, 9454 — eg. Player attains level 33! Uses the system channel.</value>
@@ -1470,29 +1470,17 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Master toggle for the four specific system messages below (not a catch-all for all system chat). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
-  <data name="SystemTab_ShowFateDiscoveryMessages" xml:space="preserve">
-    <value>Show FATE discovered messages</value>
-  </data>
-  <data name="SystemTab_ShowFateDiscoveryMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 2001, 2026 — eg. The FATE &amp;lt;name&amp;gt; has appeared in the &amp;lt;location&amp;gt; area!</value>
-  </data>
   <data name="SystemTab_ShowFateLevelSyncMessages" xml:space="preserve">
     <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_ShowFateLevelSyncMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 2070, 2166 — eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
   </data>
-  <data name="SystemTab_ShowFriendListMessages" xml:space="preserve">
-    <value>Show friend list messages</value>
-  </data>
-  <data name="SystemTab_ShowFriendListMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 78, 81, 7487, 7488 — eg. Player has sent you a friend request. / Player is now on your friend list. / Friend list updated.</value>
-  </data>
   <data name="SystemTab_ShowGearDyeApplied" xml:space="preserve">
     <value>Show gear dye applied</value>
   </data>
   <data name="SystemTab_ShowGearDyeAppliedHelpMarker" xml:space="preserve">
-    <value>LogMessage 10508 — LogMessage 10508.</value>
+    <value>LogMessage 10508 — eg. You use a pot of Dalamud Red Dye to change Dye 1 of …</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Show gearset equipped messages</value>
@@ -1504,25 +1492,25 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show gearset glamour restore failed</value>
   </data>
   <data name="SystemTab_ShowGearsetGlamourRestoreFailedHelpMarker" xml:space="preserve">
-    <value>LogMessage 1900 — LogMessage 1900.</value>
+    <value>LogMessage 1900 — eg. Gearset equipped, but glamours could not be restored.</value>
   </data>
   <data name="SystemTab_ShowGlamourAltered" xml:space="preserve">
     <value>Show glamour altered</value>
   </data>
   <data name="SystemTab_ShowGlamourAlteredHelpMarker" xml:space="preserve">
-    <value>LogMessage 3911 — LogMessage 3911.</value>
+    <value>LogMessage 3911 — glamour appearance altered.</value>
   </data>
   <data name="SystemTab_ShowGlamourPlatePartialApply" xml:space="preserve">
     <value>Show glamour plate partial apply errors</value>
   </data>
   <data name="SystemTab_ShowGlamourPlatePartialApplyHelpMarker" xml:space="preserve">
-    <value>LogMessage 4378 — LogMessage 4378.</value>
+    <value>LogMessage 4378 — eg. Glamour plate could only be partially applied.</value>
   </data>
   <data name="SystemTab_ShowGlamourPlateProjected" xml:space="preserve">
     <value>Show glamour plate projected</value>
   </data>
   <data name="SystemTab_ShowGlamourPlateProjectedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4364 — LogMessage 4364.</value>
+    <value>LogMessage 4364 — eg. Glamours projected from plate 1.</value>
   </data>
   <data name="SystemTab_ShowGuildhestEndedMessage" xml:space="preserve">
     <value>Show guildhest will end soon</value>
@@ -1667,13 +1655,13 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Show Triple Triad allowed here</value>
   </data>
   <data name="SystemTab_ShowTripleTriadAllowedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4763 — LogMessage 4763.</value>
+    <value>LogMessage 4763 — eg. Triple Triad matches are allowed in the current area.</value>
   </data>
   <data name="SystemTab_ShowTripleTriadNotAllowed" xml:space="preserve">
     <value>Show Triple Triad not allowed here</value>
   </data>
   <data name="SystemTab_ShowTripleTriadNotAllowedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4764 — LogMessage 4764.</value>
+    <value>LogMessage 4764 — eg. Triple Triad matches are not allowed in the current area.</value>
   </data>
   <data name="SystemTab_ShowTryOnGlamourCast" xml:space="preserve">
     <value>Show try-on / cast glamour</value>

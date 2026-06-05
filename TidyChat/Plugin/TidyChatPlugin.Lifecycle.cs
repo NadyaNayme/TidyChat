@@ -37,10 +37,7 @@ public sealed partial class TidyChatPlugin
         {
             newExclusiveType = DataManager.GetExcelSheet<TerritoryType>().GetRow(e).ExclusiveType;
         }
-        catch
-        {
-            /* non-critical — default 0 means "not a duty" */
-        }
+        catch { }
 
         if (Configuration.BetterCommendationMessage)
         {
