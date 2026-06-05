@@ -182,7 +182,7 @@ public static partial class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OthersCastLot],
+            RegexChecks = [ChatRegexStrings.OthersCastLot],
             Pattern = PatternKind.RegexMatch
         },
         new()

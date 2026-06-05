@@ -209,6 +209,16 @@ internal static class CraftingGatheringTab
                 configuration.OnSettingChanged();
             }
 
+            bool showGatheringCollectableObtains = configuration.ShowGatheringCollectableObtains;
+            if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowGatheringCollectableObtainMessages,
+                    ref showGatheringCollectableObtains))
+            {
+                configuration.ShowGatheringCollectableObtains = showGatheringCollectableObtains;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.CraftingGatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker);
+
             bool showAllOtherGathering = configuration.ShowAllOtherGathering;
             if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowAllOtherGathering, ref showAllOtherGathering))
             {

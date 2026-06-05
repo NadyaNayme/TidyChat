@@ -55,7 +55,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-        if (Configuration.Version < 11)
+        if (Configuration.Version < 12)
         {
             if (Configuration.Version < 5)
                 ConfigurationMigration.ApplyPreV5(Configuration, PluginInterface);
@@ -69,7 +69,9 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
                 ConfigurationMigration.ApplyVersion10(Configuration);
             if (Configuration.Version < 11)
                 ConfigurationMigration.ApplyVersion11(Configuration);
-            Configuration.Version = 11;
+            if (Configuration.Version < 12)
+                ConfigurationMigration.ApplyVersion12(Configuration);
+            Configuration.Version = 12;
             Configuration.Save();
         }
 

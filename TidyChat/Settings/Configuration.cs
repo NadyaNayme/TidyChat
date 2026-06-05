@@ -328,6 +328,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGatheringYield { get; set; } = true;
     public bool ShowGatherersBoon { get; set; } = true;
     public bool ShowGatheringAttempts { get; set; } = true;
+    public bool ShowGatheringCollectableObtains { get; set; } = true;
     public bool ShowCaughtFish { get; set; } = true;
     public bool ShowMooching { get; set; } = true;
     public bool ShowCurrentFishingHole { get; set; } = true;

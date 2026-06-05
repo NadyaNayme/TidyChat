@@ -761,6 +761,18 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string CraftingGatheringTab_ShowGatheringCollectableObtainMessages {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowGatheringCollectableObtainMessages", resourceCulture);
+            }
+        }
+        
+        internal static string CraftingGatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingGatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
         internal static string CraftingGatheringTab_ShowGatheringSensesLabel {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_ShowGatheringSensesLabel", resourceCulture);

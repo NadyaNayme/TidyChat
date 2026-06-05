@@ -92,7 +92,8 @@ internal static class BetterStrings
 
     private static string ExtractDutyNameFromCommence(string normalizedText, string rawText)
     {
-        foreach(string candidate in new[] { normalizedText, StripItemLinkNoise(rawText).ToLower(CultureInfo.InvariantCulture) })
+        string strippedRaw = StripItemLinkNoise(rawText);
+        foreach(string candidate in new[] { strippedRaw, normalizedText })
         {
             if (string.IsNullOrWhiteSpace(candidate)) continue;
             Match match = L10N.Get(ChatRegexStrings.DutyHasBegun).Match(candidate);

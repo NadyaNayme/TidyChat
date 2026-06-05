@@ -146,6 +146,26 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowGatheringCollectableObtains",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3538],
+            StringChecks = [ChatStrings.ObtainedSingleItem],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGatheringCollectableObtains",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            StringChecks = [ChatStrings.ObtainedSingleItem],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
             Name = "ShowAllOtherGathering",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,

@@ -163,7 +163,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex CastLot = new()
     {
         Jpn = new(@"^youは.*にロットした。$", regexOptions, regexTimeout),
-        Eng = new(@"^you (cast|casts) (your|his|her) lot for (.*)\.$", regexOptions, regexTimeout),
+        Eng = new(@"^you (cast|casts) (your|his|her|their) lot for (.*)\.$", regexOptions, regexTimeout),
         Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
     };
@@ -179,7 +179,7 @@ public static class ChatRegexStrings
     public static readonly LocalizedRegex OthersCastLot = new()
     {
         Jpn = new(@"^\w+[ .].+は.+にロットした", regexOptions, regexTimeout),
-        Eng = new(@"(.*) casts (his|her) lot for (.*)", regexOptions, regexTimeout),
+        Eng = new(@"^(?!you ).* casts (his|her|their) lot for (.*)", regexOptions, regexTimeout),
         Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new(@"(.*) lance ses dés pour (la|le|les) (.*)", regexOptions, regexTimeout)
     };

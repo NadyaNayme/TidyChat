@@ -313,6 +313,12 @@ It&apos;s recommended to keep it at 50 or lower.</value>
   <data name="CraftingGatheringTab_ShowGatheringBuffEffectGainHelpMarker" xml:space="preserve">
     <value>LogMessage 603 — LogMessage 603 on the gain-buff channel during gathering.</value>
   </data>
+  <data name="CraftingGatheringTab_ShowGatheringCollectableObtainMessages" xml:space="preserve">
+    <value>Show collectable gather obtain messages</value>
+  </data>
+  <data name="CraftingGatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 3538 — eg. You obtain a chunk of rare gold artichoke ore. Requires Filter Gathering channel (General tab).</value>
+  </data>
   <data name="CraftingGatheringTab_ShowCosmicClassPointsAndDataset" xml:space="preserve">
     <value>Show cosmic class points and dataset submission</value>
   </data>

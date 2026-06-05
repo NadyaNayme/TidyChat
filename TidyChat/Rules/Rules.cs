@@ -133,6 +133,7 @@ public static partial class Rules
         ["ShowGatherersBoon"] = c => c.ShowGatherersBoon,
         ["ShowGatheringStartEnd"] = c => c.ShowGatheringStartEnd,
         ["ShowGatheringSenses"] = c => c.ShowGatheringSenses,
+        ["ShowGatheringCollectableObtains"] = c => c.ShowGatheringCollectableObtains,
         ["ShowLocationAffects"] = c => c.ShowLocationAffects,
         ["ShowCaughtFish"] = c => c.ShowCaughtFish,
         ["ShowMooching"] = c => c.ShowMooching,
