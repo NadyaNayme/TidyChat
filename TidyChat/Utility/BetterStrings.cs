@@ -32,59 +32,6 @@ internal static class BetterStrings
         return $"/say {containingPhrase}";
     }
 
-    public static SeString? MarketItemSold(SeString message, Configuration configuration, string normalizedText)
-    {
-        var gilMatch = L10N.Get(ChatRegexStrings.MarketItemSold).Match(normalizedText);
-        if (!gilMatch.Success || !gilMatch.Groups["gil"].Success)
-        {
-            return null;
-        }
-
-        var gilAmount = gilMatch.Groups["gil"].Value;
-        var builder = new SeStringBuilder();
-        if (configuration.IncludeChatTag)
-        {
-            AddTidyChatTag(builder);
-        }
-
-        var addedItem = false;
-        foreach (var payload in message.Payloads)
-        {
-            if (payload is TextPayload { Text: { Length: > 0 } text })
-            {
-                var putUpIndex = text.IndexOf(" you put up", StringComparison.OrdinalIgnoreCase);
-                var soldForIndex = text.IndexOf("sold for", StringComparison.OrdinalIgnoreCase);
-                var cutIndex = putUpIndex >= 0 ? putUpIndex : soldForIndex;
-                if (cutIndex >= 0)
-                {
-                    if (cutIndex > 0)
-                    {
-                        builder.AddText(text[..cutIndex]);
-                        if (!text.StartsWith("The ", StringComparison.OrdinalIgnoreCase) || cutIndex > "The ".Length)
-                        {
-                            addedItem = true;
-                        }
-                    }
-                    break;
-                }
-            }
-
-            builder.Add(payload);
-            if (payload is ItemPayload)
-            {
-                addedItem = true;
-            }
-        }
-
-        if (!addedItem)
-        {
-            return null;
-        }
-
-        builder.AddText($" sold for {gilAmount} gil.");
-        return builder.BuiltString;
-    }
-
     public static SeString DutyCommence(SeString message, Configuration configuration, string normalizedText)
     {
         var dutyName = ExtractDutyNameFromCommence(normalizedText, message.TextValue);

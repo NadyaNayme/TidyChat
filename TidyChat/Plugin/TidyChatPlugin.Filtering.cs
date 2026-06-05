@@ -161,13 +161,12 @@ public sealed partial class TidyChatPlugin
         {
             return;
         }
-        if (!LogMessageCatalog.MatchesWithFallback(748, normalizedText, ChatStrings.MarketItemSold) &&
-            !L10N.Get(ChatRegexStrings.MarketItemSold).IsMatch(normalizedText))
+        if (!MarketBoardSaleHelper.IsMarketItemSoldText(normalizedText))
         {
             return;
         }
 
-        if (Better.MarketItemSold(message.Message, Configuration, normalizedText) is SeString rewritten)
+        if (MarketBoardSaleHelper.TryRewriteSaleMessage(message.Message, Configuration, normalizedText) is SeString rewritten)
         {
             message.Message = rewritten;
         }
