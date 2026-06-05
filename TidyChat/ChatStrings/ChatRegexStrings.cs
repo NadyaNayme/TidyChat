@@ -235,21 +235,6 @@ public static class ChatRegexStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/4225?pretty=true">
-    ///     One or more party members have yet to complete this duty. A
-    ///     bonus of ... will be awarded upon completion.
-    /// </see>
-    public static readonly LocalizedRegex PartyMemberFirstClear = new()
-    {
-        Jpn = new(@"未制覇の参加メンバーがいるため、攻略成功時に", regexOptions, regexTimeout),
-        Eng = new(@"one or more party members have yet to complete this duty", regexOptions, regexTimeout),
-        Deu = new(
-            @"weil ein charakter diesen inhalt noch nicht beendet hat",
-            regexOptions, regexTimeout),
-        Fra = new(
-            @"un ou plusieurs participants n\'ont pas encore accompli cette mission",
-            regexOptions, regexTimeout)
-    };
     public static readonly LocalizedRegex QuestionMarkCommandResponse = new()
     {
         Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
@@ -312,25 +297,8 @@ public static class ChatRegexStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">Aetherial reduction sands obtained</see>
-    public static readonly LocalizedRegex AetherialReductionSands = new()
-    {
-        Jpn = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
-        Eng = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
-        Deu = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout),
-        Fra = new(@".+handfuls of .+ .+sand are obtained\.", regexOptions, regexTimeout)
-    };
-
 #region Deep Dungeons
 
-    /// <see href="https://xivapi.com/LogMessage/7250?pretty=true">Aetherpool strength increase (+0–98)</see>
-    public static readonly LocalizedRegex AetherpoolIncrease = new()
-    {
-        Jpn = new(@"強化値が([0-9]|[1-8][0-9]|9[0-8])になった", regexOptions, regexTimeout),
-        Eng = new(@"its strength is now \+([0-9]|[1-8][0-9]|9[0-8])", regexOptions, regexTimeout),
-        Deu = new(@"steigt auf \+([0-9]|[1-8][0-9]|9[0-8])", regexOptions, regexTimeout),
-        Fra = new(@"passe à \+([0-9]|[1-8][0-9]|9[0-8])", regexOptions, regexTimeout)
-    };
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
     public static readonly LocalizedRegex DutyHasBegun = new()
     {

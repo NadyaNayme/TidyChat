@@ -268,10 +268,28 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4168?pretty=true">Submarine part has been repaired.</see>
     public static readonly LocalizedStrings SubmarinePartRepaired = new()
     {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["repaired"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Jpn = ["潜水艦", "修理"],
+        Eng = ["submarine", "part", "repaired"],
+        Deu = ["tauchboot", "repariert"],
+        Fra = ["sous-marin", "réparé"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1388?pretty=true">N items repaired.</see>
+    public static readonly LocalizedStrings GearItemsRepairedBulk = new()
+    {
+        Jpn = ["修理"],
+        Eng = ["items", "repaired"],
+        Deu = ["gegenstände", "repariert"],
+        Fra = ["objets", "réparé"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1385?pretty=true">Item is repaired.</see>
+    public static readonly LocalizedStrings GearItemRepairedSingle = new()
+    {
+        Jpn = ["修理"],
+        Eng = ["is", "repaired"],
+        Deu = ["wurde", "repariert"],
+        Fra = ["été", "réparé"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/6062?pretty=true">Submersible attains rank N!</see>
@@ -361,6 +379,15 @@ public static partial class ChatStrings
         Eng = ["registration", "withdrawn"],
         Deu = ["registrierung", "zurückgezogen"],
         Fra = ["enregistrement", "annulé"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/902?pretty=true">A party member has withdrawn from the duty.</see>
+    public static readonly LocalizedStrings PartyMemberDutyWithdrawn = new()
+    {
+        Jpn = ["パーティメンバー", "取り消"],
+        Eng = ["party", "member", "withdrawn", "duty"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4676?pretty=true">Commencing duty with an unrestricted party…</see>
@@ -921,6 +948,7 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/535?pretty=true">Aetheryte ticket use message.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/4591?pretty=true">Aetheryte ticket used with remaining count (System).</seealso>
     public static readonly LocalizedStrings AetheryteTicketUsed = new()
     {
         Jpn = ["チケット", "使用"],

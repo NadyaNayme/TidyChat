@@ -209,6 +209,7 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/3538?pretty=true">Collectable gather obtain (LootNotice).</see>
     public static readonly LocalizedStrings ObtainedSingleItem = new()
     {
         Jpn = ["NeedsLocalization"],

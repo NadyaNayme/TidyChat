@@ -99,6 +99,7 @@ public static partial class Rules
         ["ShowGilSpentMessage"] = c => c.ShowGilSpentMessage,
         ["HideDutyCommenceBriefing"] = c => c.BetterDutyCommenceMessage,
         ["ShowGearsetEquipped"] = c => c.ShowGearsetEquipped,
+        ["ShowGearItemsRepaired"] = c => c.ShowGearItemsRepaired,
         ["ShowMateriaRetrieved"] = c => c.ShowMateriaRetrieved,
         ["ShowMateriaShatters"] = c => c.ShowMateriaShatters,
         ["ShowVolumeControlMessage"] = c => c.ShowVolumeControlMessage,

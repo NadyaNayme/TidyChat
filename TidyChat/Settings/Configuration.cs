@@ -166,6 +166,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGlamourAltered { get; set; } = true;
     public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGearsetEquipped { get; set; } = false;
+    public bool ShowGearItemsRepaired { get; set; } = true;
     public bool ShowJobChange { get; set; } = false;
     public bool ShowPortraitMessages { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;

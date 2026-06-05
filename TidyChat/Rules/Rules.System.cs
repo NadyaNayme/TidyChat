@@ -421,7 +421,56 @@ public static partial class Rules
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [890],
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.Error,
+            IsActive = true,
+            StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [902],
+            StringChecks = [ChatStrings.PartyMemberDutyWithdrawn],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.PartyMemberDutyWithdrawn],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.Error,
+            IsActive = true,
+            StringChecks = [ChatStrings.PartyMemberDutyWithdrawn],
             Pattern = PatternKind.StringMatch
         },
         new()
@@ -620,17 +669,6 @@ public static partial class Rules
             LogMessageIds = [7250],
             StringChecks = [ChatStrings.AetherpoolIncrease],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowAetherpoolIncrease",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [7250],
-            RegexChecks = [ChatRegexStrings.AetherpoolIncrease],
-            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
@@ -1209,17 +1247,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowFirstClearAward",
-            SettingsTab = "Progress",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4225],
-            RegexChecks = [ChatRegexStrings.PartyMemberFirstClear],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "ShowSecondChanceAward",
             SettingsTab = "Progress",
             Channel = ChatType.System,
@@ -1376,6 +1403,35 @@ public static partial class Rules
             StringChecks = [ChatStrings.GearsetEquipped],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearItemsRepaired",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1385, 1388],
+            StringChecks = [ChatStrings.GearItemsRepairedBulk],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGearItemsRepaired",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GearItemsRepairedBulk],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowGearItemsRepaired",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GearItemRepairedSingle],
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
@@ -1603,6 +1659,17 @@ public static partial class Rules
         {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4591],
+            StringChecks = [ChatStrings.AetheryteTicketUsed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
             Channel = ChatType.Item,
             IsActive = true,
             StringChecks = [ChatStrings.AetheryteTicketReady],
@@ -1613,6 +1680,15 @@ public static partial class Rules
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
             Channel = ChatType.Item,
+            IsActive = true,
+            StringChecks = [ChatStrings.AetheryteTicketUsed],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowAetheryteTicket",
+            SettingsTab = "System",
+            Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.AetheryteTicketUsed],
             Pattern = PatternKind.StringMatch

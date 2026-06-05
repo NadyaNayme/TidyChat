@@ -327,17 +327,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.AetherialReductionSands],
-            Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true,
-            LogMessageIds = [3555]
-        },
-        new()
-        {
             Name = "ShowAetherialReductionSuccess",
             SettingsTab = "System",
             Channel = ChatType.System,

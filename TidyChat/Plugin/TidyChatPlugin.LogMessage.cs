@@ -251,16 +251,18 @@ public sealed partial class TidyChatPlugin
 
     private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName)
     {
+        try
+        {
+            var text = message.FormatLogMessageForDebugging().ExtractText();
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
+        }
+        catch { }
+
+        RememberLogMessageBlock(message.LogMessageId);
+
         if (Configuration.EnableDebugMode)
         {
             Log.Debug($"[LogMessage] BLOCKED by {decidingRuleName} (ID: {message.LogMessageId})");
-            try
-            {
-                var text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
-            }
-            catch { }
-
             return;
         }
 
@@ -448,7 +450,17 @@ public sealed partial class TidyChatPlugin
         lock (plugin._logMessageLock)
         {
             plugin._pendingAllowedLogMessageIds.Clear();
+            plugin._pendingBlockedLogMessageIds.Clear();
             plugin._pendingCustomFilterLogMessageIds.Clear();
+        }
+    }
+
+    private void RememberLogMessageBlock(uint logMessageId)
+    {
+        lock (_logMessageLock)
+        {
+            _pendingBlockedLogMessageIds.TryGetValue(logMessageId, out var count);
+            _pendingBlockedLogMessageIds[logMessageId] = count + 1;
         }
     }
 
@@ -479,6 +491,62 @@ public sealed partial class TidyChatPlugin
             return TryConsumePendingLogMessageAllowFrom(_pendingAllowedLogMessageIds, normalizedText,
                 true);
         }
+    }
+
+    private bool TryConsumePendingLogMessageBlock(string normalizedText)
+    {
+        if (string.IsNullOrWhiteSpace(normalizedText))
+        {
+            return false;
+        }
+
+        lock (_logMessageLock)
+        {
+            return TryConsumePendingLogMessageBlockFrom(_pendingBlockedLogMessageIds, normalizedText,
+                true);
+        }
+    }
+
+    private bool TryConsumePendingLogMessageBlockFrom(Dictionary<uint, int> pendingById, string normalizedText,
+        bool requireShowRuleStillBlock)
+    {
+        if (pendingById.Count == 0)
+        {
+            return false;
+        }
+
+        var pendingIds = pendingById.Keys.ToArray();
+        foreach (var id in pendingIds)
+        {
+            if (!pendingById.TryGetValue(id, out var count) || count <= 0)
+            {
+                continue;
+            }
+            if (!PendingLogMessageTextMatches(id, normalizedText))
+            {
+                continue;
+            }
+            if (requireShowRuleStillBlock &&
+                (!Rules.LogMessageIdToRules.TryGetValue(id, out var pendingRules) ||
+                 !TryResolveLogMessageAllow(id, normalizedText, pendingRules, Configuration, out var shouldAllow,
+                     out _) ||
+                 shouldAllow))
+            {
+                continue;
+            }
+
+            if (count == 1)
+            {
+                pendingById.Remove(id);
+            }
+            else
+            {
+                pendingById[id] = count - 1;
+            }
+            return true;
+        }
+
+        return false;
     }
 
     private bool TryConsumePendingLogMessageAllowFrom(Dictionary<uint, int> pendingById, string normalizedText,

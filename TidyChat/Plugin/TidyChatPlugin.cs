@@ -30,6 +30,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private readonly Lock _logMessageLock = new();
 
     private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
+    private readonly Dictionary<uint, int> _pendingBlockedLogMessageIds = new();
     private readonly Dictionary<uint, int> _pendingCustomFilterLogMessageIds = new();
     private readonly WindowSystem _windowSystem = new("TidyChat");
 

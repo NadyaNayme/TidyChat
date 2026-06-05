@@ -97,12 +97,28 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/1063?pretty=true">You begin mining.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/1064?pretty=true">You begin quarrying.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/1065?pretty=true">You begin logging.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/1066?pretty=true">You begin harvesting.</seealso>
     public static readonly LocalizedStrings GatheringBegin = new()
     {
         Jpn = ["開始"],
         Eng = ["you", "begin"],
         Deu = ["beginnst"],
         Fra = ["commencez"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1067?pretty=true">You finish mining.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/1068?pretty=true">You finish quarrying.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/1069?pretty=true">You finish logging.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/1070?pretty=true">You finish harvesting.</seealso>
+    public static readonly LocalizedStrings GatheringFinish = new()
+    {
+        Jpn = ["終え"],
+        Eng = ["you", "finish"],
+        Deu = ["fertig"],
+        Fra = ["arrêtez"]
     };
 
 

@@ -246,6 +246,15 @@ internal static class SystemTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
 
+            var showGearItemsRepaired = configuration.ShowGearItemsRepaired;
+            if (ImGui.Checkbox(Languages.SystemTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
+            {
+                configuration.ShowGearItemsRepaired = showGearItemsRepaired;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearItemsRepairedHelpMarker);
+
             var showJobChange = configuration.ShowJobChange;
             if (ImGui.Checkbox(Languages.SystemTab_ShowJobChangeMessages, ref showJobChange))
             {

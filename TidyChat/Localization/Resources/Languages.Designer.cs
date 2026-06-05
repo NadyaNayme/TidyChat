@@ -1154,7 +1154,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3538 — eg. You obtain a chunk of rare gold artichoke ore. Requires Filter Gathering channel (General tab)..
+        ///   Looks up a localized string similar to LogMessage 3538 (LootNotice) — eg. You obtain a chunk of rare gold artichoke ore. Often appears on the Gathering channel in chat; needs Filter Obtained or Filter Gathering on General..
         /// </summary>
         internal static string CraftingGatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker {
             get {
@@ -3850,7 +3850,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 503, 535 — eg. You used an aetheryte ticket. (Remaining: 5). Often appears on the System line in chat even though LogMessage 535 is Item-type..
+        ///   Looks up a localized string similar to LogMessages 503, 535 (Item), 4591 (System) — eg. You used an aetheryte ticket. (Remaining: 674)..
         /// </summary>
         internal static string SystemTab_ShowAetheryteTicketMessageHelpMarker {
             get {
@@ -4071,6 +4071,24 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_ShowGearsetChangingMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowGearsetChangingMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show gear repair messages.
+        /// </summary>
+        internal static string SystemTab_ShowGearItemsRepaired {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowGearItemsRepaired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 1385, 1388 (System) — eg. Linen Cowl is repaired. / 2 items repaired..
+        /// </summary>
+        internal static string SystemTab_ShowGearItemsRepairedHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowGearItemsRepairedHelpMarker", resourceCulture);
             }
         }
         

@@ -481,6 +481,11 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_GlamourAndGearDropdownHeader}";
         }
 
+        if (propertyName is "ShowGearsetEquipped" or "ShowGearItemsRepaired" or "ShowJobChange" or "ShowPortraitMessages")
+        {
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CharacterAndGearDropdownHeader}";
+        }
+
         if (propertyName is "ShowSearchForItemResults" or
             "ShowItemSearchResults" or
             "ShowLocationSearchResults")

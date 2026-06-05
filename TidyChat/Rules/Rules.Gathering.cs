@@ -72,6 +72,26 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowGatheringStartEnd",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1067, 1068, 1069, 1070],
+            StringChecks = [ChatStrings.GatheringFinish],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGatheringStartEnd",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            StringChecks = [ChatStrings.GatheringFinish],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
             Name = "ShowGatheringSenses",
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
@@ -148,7 +168,7 @@ public static partial class Rules
         {
             Name = "ShowGatheringCollectableObtains",
             SettingsTab = "Gathering",
-            Channel = ChatType.Gathering,
+            Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [3538],
             StringChecks = [ChatStrings.ObtainedSingleItem],
