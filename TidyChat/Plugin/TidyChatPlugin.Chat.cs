@@ -81,8 +81,6 @@ public sealed partial class TidyChatPlugin
 
         if (FinishChatHandling(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled,
                 rulesMatched))
-        {
-            return;
-        }
+        { }
     }
 }

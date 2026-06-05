@@ -350,7 +350,7 @@ public sealed partial class TidyChatPlugin
     private bool? EvaluateChannelRules(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText, out List<string> rulesMatched)
     {
-        rulesMatched = [];
+        var matchedRules = new List<string>();
         Rules.UpdateIsActiveStates(Configuration);
         var rules = Rules.AllRules;
 
@@ -374,6 +374,7 @@ public sealed partial class TidyChatPlugin
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
+            rulesMatched = matchedRules;
             return null; // sentinel: caller should return immediately
         }
 
@@ -403,7 +404,7 @@ public sealed partial class TidyChatPlugin
                 !(chatType is ChatType.LootNotice &&
                   ObtainCurrencyHelper.ShouldAllowCurrencyObtain(Configuration, normalizedText)))
             {
-                rulesMatched.Add(rule.Name);
+                matchedRules.Add(rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
                 if (Configuration.EnableDebugMode)
                 {
@@ -436,7 +437,7 @@ public sealed partial class TidyChatPlugin
             {
                 if (RuleMatchesText(rule, normalizedText, Configuration.EnableDebugMode))
                 {
-                    rulesMatched.Add(rule.Name);
+                    matchedRules.Add(rule.Name);
                 }
                 else if (Configuration.EnableDebugMode)
                 {
@@ -457,7 +458,7 @@ public sealed partial class TidyChatPlugin
                     continue;
                 }
 
-                rulesMatched.Add(rule.Name);
+                matchedRules.Add(rule.Name);
                 if (errorChannelOnlyHideRules)
                 {
                     if (rule.BlockWhenActive && rule.IsActive)
@@ -476,7 +477,7 @@ public sealed partial class TidyChatPlugin
                             : !defaultBlocked;
                 }
             }
-            else if (rulesMatched is null || !rulesMatched.Contains(rule.Name))
+            else if (!matchedRules.Contains(rule.Name))
             {
                 rulesFailed?.Add(rule.Name);
             }
@@ -489,9 +490,9 @@ public sealed partial class TidyChatPlugin
             if (Configuration.EnableDebugMode)
             {
                 const string allowTag = "ObtainCurrency (hide off)";
-                if (!rulesMatched.Contains(allowTag))
+                if (!matchedRules.Contains(allowTag))
                 {
-                    rulesMatched.Add(allowTag);
+                    matchedRules.Add(allowTag);
                 }
             }
         }
@@ -502,9 +503,9 @@ public sealed partial class TidyChatPlugin
             if (Configuration.EnableDebugMode)
             {
                 var cosmicRule = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
-                if (cosmicRule is not null && !rulesMatched.Contains(cosmicRule))
+                if (cosmicRule is not null && !matchedRules.Contains(cosmicRule))
                 {
-                    rulesMatched.Add(cosmicRule);
+                    matchedRules.Add(cosmicRule);
                 }
             }
         }
@@ -512,17 +513,17 @@ public sealed partial class TidyChatPlugin
         if (MarketBoardSaleHelper.ShouldAllowImprovedMarketSale(Configuration, normalizedText, message.Message.TextValue))
         {
             isBlocked = false;
-            if (Configuration.EnableDebugMode && !rulesMatched.Contains(nameof(Configuration.BetterMarketBoardSaleMessage)))
+            if (Configuration.EnableDebugMode && !matchedRules.Contains(nameof(Configuration.BetterMarketBoardSaleMessage)))
             {
-                rulesMatched.Add(nameof(Configuration.BetterMarketBoardSaleMessage));
+                matchedRules.Add(nameof(Configuration.BetterMarketBoardSaleMessage));
             }
         }
 
         var isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
 
-        if (Configuration.EnableDebugMode && (rulesMatched.Count > 0 || isHandled))
+        if (Configuration.EnableDebugMode && (matchedRules.Count > 0 || isHandled))
         {
-            Log.Debug($"{rulesMatched.Count} Rules Matched: {string.Join(", ", rulesMatched)}");
+            Log.Debug($"{matchedRules.Count} Rules Matched: {string.Join(", ", matchedRules)}");
             if (rulesSkipped!.Count > 0)
             {
                 Log.Debug($"{rulesSkipped.Count} Rules Skipped: {string.Join(", ", rulesSkipped)}");
@@ -534,6 +535,7 @@ public sealed partial class TidyChatPlugin
             Log.Debug($"{(isHandled ? "BLOCKED" : "ALLOWED")}: {message.Message}");
         }
 
+        rulesMatched = matchedRules;
         return isHandled;
     }
 
