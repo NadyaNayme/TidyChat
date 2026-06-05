@@ -14,56 +14,56 @@ internal static class FreeCompanyTab
 
     private static void DrawSocial(Configuration configuration)
     {
-            var showUserLogins = configuration.ShowUserLogins;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLoginMessages, ref showUserLogins))
-            {
-                configuration.ShowUserLogins = showUserLogins;
-                configuration.OnSettingChanged();
-            }
+        var showUserLogins = configuration.ShowUserLogins;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLoginMessages, ref showUserLogins))
+        {
+            configuration.ShowUserLogins = showUserLogins;
+            configuration.OnSettingChanged();
+        }
 
-            var showUserLogouts = configuration.ShowUserLogouts;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLogoutMessages, ref showUserLogouts))
-            {
-                configuration.ShowUserLogouts = showUserLogouts;
-                configuration.OnSettingChanged();
-            }
+        var showUserLogouts = configuration.ShowUserLogouts;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLogoutMessages, ref showUserLogouts))
+        {
+            configuration.ShowUserLogouts = showUserLogouts;
+            configuration.OnSettingChanged();
+        }
     }
 
     private static void DrawMessageBook(Configuration configuration)
     {
-            var showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages,
-                    ref showFreeCompanyMessageBook))
-            {
-                configuration.ShowFreeCompanyMessageBook = showFreeCompanyMessageBook;
-                configuration.OnSettingChanged();
-            }
+        var showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages,
+                ref showFreeCompanyMessageBook))
+        {
+            configuration.ShowFreeCompanyMessageBook = showFreeCompanyMessageBook;
+            configuration.OnSettingChanged();
+        }
     }
 
     private static void DrawWorkshop(Configuration configuration)
     {
-            var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAirshipVoyageMessages, ref showExploratoryVoyage))
-            {
-                configuration.ShowExploratoryVoyage = showExploratoryVoyage;
-                configuration.OnSettingChanged();
-            }
+        var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAirshipVoyageMessages, ref showExploratoryVoyage))
+        {
+            configuration.ShowExploratoryVoyage = showExploratoryVoyage;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowAirshipVoyageMessagesHelpMarker);
 
-            SettingsTabLayout.DrawSectionSeparator();
+        SettingsTabLayout.DrawSectionSeparator();
 
-            var showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineVoyageMessages, ref showSubaquaticVoyage))
-            {
-                configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
-                configuration.OnSettingChanged();
-            }
+        var showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowSubmarineVoyageMessages, ref showSubaquaticVoyage))
+        {
+            configuration.ShowSubaquaticVoyage = showSubaquaticVoyage;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowSubmarineVoyageMessagesHelpMarker);
 
-            SettingsTabLayout.DrawNestedOptions(configuration.ShowSubaquaticVoyage,
-                () => DrawSubaquaticSubOptions(configuration));
+        SettingsTabLayout.DrawNestedOptions(configuration.ShowSubaquaticVoyage,
+            () => DrawSubaquaticSubOptions(configuration));
     }
 
     private static void DrawSubaquaticSubOptions(Configuration configuration)

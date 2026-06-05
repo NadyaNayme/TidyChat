@@ -34,18 +34,18 @@ internal class PluginUI : Window, IDisposable
         (() => Languages.ConfigWindow_DesynthesisTabHeader, DesynthesisTab.Draw),
         (() => Languages.ConfigWindow_GatheringTabHeader, GatheringTab.Draw),
         (() => Languages.ConfigWindow_MateriaTabHeader, MateriaTab.Draw),
-        (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw),
+        (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw)
     ];
 
     private readonly Configuration configuration;
     private bool appliedDefaultWidth;
     private string? cachedCultureName;
-    private string? sortedTabsCulture;
-    private (string Label, Action<Configuration> Draw)[]? sortedTabs;
-    private Action<Configuration> selectedTab = GeneralTab.Draw;
 
     private float cachedLayoutScale = -1f;
     private float? cachedMinWindowWidth;
+    private Action<Configuration> selectedTab = GeneralTab.Draw;
+    private (string Label, Action<Configuration> Draw)[]? sortedTabs;
+    private string? sortedTabsCulture;
 
     public PluginUI(Configuration configuration) : base("Tidy Chat")
     {
@@ -120,12 +120,12 @@ internal class PluginUI : Window, IDisposable
         var sidebarWidth = GetSidebarWidth(tabs);
         var avail = ImGui.GetContentRegionAvail();
 
-        ImGui.BeginChild("##tidychatConfigSidebar", new Vector2(sidebarWidth, avail.Y), true);
+        ImGui.BeginChild("##tidychatConfigSidebar", new(sidebarWidth, avail.Y), true);
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0f, 2f));
         for (var i = 0; i < tabs.Length; i++)
         {
             if (ImGui.Selectable(tabs[i].Label, selectedIndex == i, ImGuiSelectableFlags.None,
-                    new Vector2(sidebarWidth - ImGui.GetStyle().WindowPadding.X * 2f, 0f)))
+                    new(sidebarWidth - ImGui.GetStyle().WindowPadding.X * 2f, 0f)))
             {
                 selectedTab = tabs[i].Draw;
             }
@@ -136,7 +136,7 @@ internal class PluginUI : Window, IDisposable
 
         ImGui.SameLine(0f, ImGui.GetStyle().ItemInnerSpacing.X);
 
-        ImGui.BeginChild("##tidychatConfigContent", new Vector2(0f, avail.Y), false);
+        ImGui.BeginChild("##tidychatConfigContent", new(0f, avail.Y));
         tabs[selectedIndex].Draw(configuration);
         TabFooter.Display(configuration);
         ImGui.EndChild();

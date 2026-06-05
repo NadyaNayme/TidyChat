@@ -1,4 +1,3 @@
-using Dalamud.Game.Text.SeStringHandling.Payloads;
 using System.Threading;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 

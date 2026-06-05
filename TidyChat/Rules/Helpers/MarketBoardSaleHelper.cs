@@ -1,7 +1,4 @@
-using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Text.SeStringHandling.Payloads;
-using TidyChat.Utility;
-
 namespace TidyChat;
 
 internal static class MarketBoardSaleHelper

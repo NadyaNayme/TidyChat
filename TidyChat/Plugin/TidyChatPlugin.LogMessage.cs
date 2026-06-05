@@ -220,7 +220,7 @@ public sealed partial class TidyChatPlugin
 
             if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.LootNotice &&
                 ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(configuration, normalizedText,
-                    TidyChatPlugin.Tomestones, configuration.HideTomestoneById, TidyChatPlugin.TribalCurrencies,
+                    Tomestones, configuration.HideTomestoneById, TribalCurrencies,
                     configuration.HideTribalCurrencyById))
             {
                 shouldAllow = true;
@@ -242,7 +242,7 @@ public sealed partial class TidyChatPlugin
         }
 
         if (ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(configuration, normalizedText,
-                TidyChatPlugin.Tomestones, configuration.HideTomestoneById, TidyChatPlugin.TribalCurrencies,
+                Tomestones, configuration.HideTomestoneById, TribalCurrencies,
                 configuration.HideTribalCurrencyById))
         {
             shouldAllow = true;

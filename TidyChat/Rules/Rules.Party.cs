@@ -25,7 +25,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.InstancedArea],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment1 =
@@ -304,7 +304,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.PartyRecruitmentEnded],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment2 =
@@ -521,8 +521,8 @@ public static partial class Rules
             StringChecks = [ChatStrings.ReadyCheckInitiated],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-                    ];
+        }
+    ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment3 =
     [
@@ -536,8 +536,8 @@ public static partial class Rules
             StringChecks = [ChatStrings.CountdownTime],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-            ];
+        }
+    ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment6 =
     [
@@ -548,7 +548,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [15, 16, 23, 24, 367, 383, 9284, 9285, 9289, 9290, 9291, 9298]
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment7 =
@@ -563,7 +563,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.OfferedTeleport],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] PartyRulesSegment8 =
@@ -586,7 +586,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.SealedOff],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
-
 }

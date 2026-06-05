@@ -324,6 +324,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.ActiveHelpEntryAdded],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-            ];
+        }
+    ];
 }

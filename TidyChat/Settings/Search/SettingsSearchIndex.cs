@@ -305,7 +305,7 @@ internal static class SettingsSearchIndex
         label = string.Empty;
         help = null;
 
-        string? labelKey = propertyName switch
+        var labelKey = propertyName switch
         {
             "HideObtainedMGP" => nameof(Languages.GoldSaucerTab_ShowMGPMessages),
             "ShowGoldSaucerSwingMinigames" => nameof(Languages.GoldSaucerTab_ShowSwingMinigames),
@@ -350,7 +350,7 @@ internal static class SettingsSearchIndex
         label = string.Empty;
         help = null;
 
-        string? labelKey = propertyName switch
+        var labelKey = propertyName switch
         {
             "ShowCompletedVenture" => nameof(Languages.PartyDutyTab_ShowCompletedVenture),
             "ShowRetainerVentureMessages" => nameof(Languages.PartyDutyTab_ShowRetainerVentureMessages),
@@ -599,49 +599,59 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_GatheringTabHeader} > {Languages.GatheringTab_ElementalShardsDropdownHeader}";
         }
 
-        if (propertyName is "HideObtainedMGP" or "ShowGoldSaucerSwingMinigames" or
-            "ShowTripleTriadAllowed" or "ShowTripleTriadNotAllowed")
+        if (propertyName is "HideObtainedMGP" or
+            "ShowGoldSaucerSwingMinigames" or
+            "ShowTripleTriadAllowed" or
+            "ShowTripleTriadNotAllowed")
         {
             return Languages.ConfigWindow_GoldSaucerTabHeader;
         }
 
-        if (propertyName is "ShowUserLogins" or "ShowUserLogouts" or "ShowFreeCompanyMessageBook" or
-            "ShowExploratoryVoyage" or "ShowSubaquaticVoyage" or "ShowSubaquaticVoyageEmbarked" or
-            "ShowSubaquaticVoyageFinalized" or "ShowSubaquaticVoyageOtherFinalized" or
-            "ShowSubaquaticVoyageReturned" or "ShowSubmarinePartRepaired" or "ShowSubmarineAttainsRank" or
+        if (propertyName is "ShowUserLogins" or
+            "ShowUserLogouts" or
+            "ShowFreeCompanyMessageBook" or
+            "ShowExploratoryVoyage" or
+            "ShowSubaquaticVoyage" or
+            "ShowSubaquaticVoyageEmbarked" or
+            "ShowSubaquaticVoyageFinalized" or
+            "ShowSubaquaticVoyageOtherFinalized" or
+            "ShowSubaquaticVoyageReturned" or
+            "ShowSubmarinePartRepaired" or
+            "ShowSubmarineAttainsRank" or
             "ShowSubmarineRetrievalLevelsIncreased")
         {
             return Languages.ConfigWindow_FreeCompanyTabHeader;
         }
 
-        if (propertyName is "ShowCompletedVenture" or "ShowRetainerVentureMessages" or
+        if (propertyName is "ShowCompletedVenture" or
+            "ShowRetainerVentureMessages" or
             "ShowMarketGilEntrustedToRetainer")
         {
             return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_RetainerSectionHeader}";
         }
 
         if (propertyName is "ShowDesynthesisLevel" or
-                "ShowDesynthedItem" or
-                "ShowDesynthesisObtains")
+            "ShowDesynthedItem" or
+            "ShowDesynthesisObtains")
         {
             return Languages.ConfigWindow_DesynthesisTabHeader;
         }
 
         if (propertyName is "ShowAttachedMateria" or
-                "ShowOvermeldFailure" or
-                "ShowMateriaRetrieved" or
-                "ShowMateriaShatters" or
-                "ShowMateriaExtract")
+            "ShowOvermeldFailure" or
+            "ShowMateriaRetrieved" or
+            "ShowMateriaShatters" or
+            "ShowMateriaExtract")
         {
             return Languages.ConfigWindow_MateriaTabHeader;
         }
 
         if (propertyName is "ShowCraftingSynthesisComplete" or
-                "ShowTrialMessages" or
-                "ShowOtherSynthesis" or
-                "ShowAllOtherCrafting" or
-                "ShowCraftingBuffEffectGain" or
-                "ShowCraftingAbleToExecute")
+            "ShowTrialMessages" or
+            "ShowOtherSynthesis" or
+            "ShowAllOtherCrafting" or
+            "ShowCraftingBuffEffectGain" or
+            "ShowCraftingAbleToExecute")
         {
             return Languages.ConfigWindow_CraftingTabHeader;
         }

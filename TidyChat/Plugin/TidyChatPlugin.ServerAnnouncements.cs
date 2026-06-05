@@ -1,6 +1,4 @@
-using Dalamud.Game.Text.SeStringHandling.Payloads;
 using System.Threading;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

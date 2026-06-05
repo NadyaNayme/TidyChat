@@ -1,65 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-          Microsoft ResX Schema 
-          
-          Version 2.0
-          
-          The primary goals of this format is to allow a simple XML format 
-          that is mostly human readable. The generation and parsing of the 
-          various data types are done through the TypeConverter classes 
-          associated with the data types.
-          
-          Example:
-          
-          ... ado.net/XML headers & schema ...
-          <resheader name="resmimetype">text/microsoft-resx</resheader>
-          <resheader name="version">2.0</resheader>
-          <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-          <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-          <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-          <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-          <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-              <value>[base64 mime encoded serialized .NET Framework object]</value>
-          </data>
-          <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-              <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-              <comment>This is a comment</comment>
-          </data>
-          
-          There are any number of "resheader" rows that contain simple 
-          name/value pairs.
-          
-          Each data row contains a name, and value. The row also contains a 
-          type or mimetype. Type corresponds to a .NET class that support 
-          text/value conversion through the TypeConverter architecture. 
-          Classes that don't support this are serialized and stored with the 
-          mimetype set.
-          
-          The mimetype is used for serialized objects, and tells the 
-          ResXResourceReader how to depersist the object. This is currently not 
-          extensible. For a given mimetype the value must be set accordingly:
-          
-          Note - application/x-microsoft.net.object.binary.base64 is the format 
-          that the ResXResourceWriter will generate, however the reader can 
-          read any of the formats listed below.
-          
-          mimetype: application/x-microsoft.net.object.binary.base64
-          value   : The object must be serialized with 
-                  : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                  : and then encoded with base64 encoding.
-          
-          mimetype: application/x-microsoft.net.object.soap.base64
-          value   : The object must be serialized with 
-                  : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                  : and then encoded with base64 encoding.
-          
-          mimetype: application/x-microsoft.net.object.bytearray.base64
-          value   : The object must be serialized into a byte array 
-                  : using a System.ComponentModel.TypeConverter
-                  : and then encoded with base64 encoding.
-          -->
+            Microsoft ResX Schema 
+            
+            Version 2.0
+            
+            The primary goals of this format is to allow a simple XML format 
+            that is mostly human readable. The generation and parsing of the 
+            various data types are done through the TypeConverter classes 
+            associated with the data types.
+            
+            Example:
+            
+            ... ado.net/XML headers & schema ...
+            <resheader name="resmimetype">text/microsoft-resx</resheader>
+            <resheader name="version">2.0</resheader>
+            <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+            <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+            <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+            <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+            <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+                <value>[base64 mime encoded serialized .NET Framework object]</value>
+            </data>
+            <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+                <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+                <comment>This is a comment</comment>
+            </data>
+            
+            There are any number of "resheader" rows that contain simple 
+            name/value pairs.
+            
+            Each data row contains a name, and value. The row also contains a 
+            type or mimetype. Type corresponds to a .NET class that support 
+            text/value conversion through the TypeConverter architecture. 
+            Classes that don't support this are serialized and stored with the 
+            mimetype set.
+            
+            The mimetype is used for serialized objects, and tells the 
+            ResXResourceReader how to depersist the object. This is currently not 
+            extensible. For a given mimetype the value must be set accordingly:
+            
+            Note - application/x-microsoft.net.object.binary.base64 is the format 
+            that the ResXResourceWriter will generate, however the reader can 
+            read any of the formats listed below.
+            
+            mimetype: application/x-microsoft.net.object.binary.base64
+            value   : The object must be serialized with 
+                    : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+                    : and then encoded with base64 encoding.
+            
+            mimetype: application/x-microsoft.net.object.soap.base64
+            value   : The object must be serialized with 
+                    : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+                    : and then encoded with base64 encoding.
+            
+            mimetype: application/x-microsoft.net.object.bytearray.base64
+            value   : The object must be serialized into a byte array 
+                    : using a System.ComponentModel.TypeConverter
+                    : and then encoded with base64 encoding.
+            -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -286,6 +332,15 @@
   <data name="AdvancedTab_WhitelistTabHeader" xml:space="preserve">
     <value>Whitelist</value>
   </data>
+  <data name="AlliedSocietiesTab_CurrenciesDropdownHeader" xml:space="preserve">
+    <value>Currencies</value>
+  </data>
+  <data name="AlliedSocietiesTab_CurrencyDataUnavailable" xml:space="preserve">
+    <value>Allied society currency data unavailable</value>
+  </data>
+  <data name="AlliedSocietiesTab_MaterialsDropdownHeader" xml:space="preserve">
+    <value>Crafting materials</value>
+  </data>
   <data name="AllMessagesWillBeLowercased" xml:space="preserve">
     <value>all messages will be lowercased.</value>
   </data>
@@ -368,6 +423,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
     <value>Defeat &amp; adds</value>
   </data>
+  <data name="CombatTab_FilteringNote" xml:space="preserve">
+    <value>Combat log options filter Action, Battle System, and NPC Party channels directly—there is no separate General master toggle. Checked = show; unchecked = hide. Tools → Custom Filters can override.</value>
+  </data>
   <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
     <value>Show combat ability usage messages</value>
   </data>
@@ -431,6 +489,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
     <value>Advanced</value>
   </data>
+  <data name="ConfigWindow_AlliedSocietiesTabHeader" xml:space="preserve">
+    <value>Allied Societies</value>
+  </data>
   <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
     <value>Combat</value>
   </data>
@@ -440,68 +501,56 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_CraftingTabHeader" xml:space="preserve">
     <value>Crafting</value>
   </data>
-  <data name="ConfigWindow_GatheringTabHeader" xml:space="preserve">
-    <value>Gathering</value>
-  </data>
-  <data name="ConfigWindow_DesynthesisTabHeader" xml:space="preserve">
-    <value>Desynthesis</value>
-  </data>
-  <data name="ConfigWindow_MateriaTabHeader" xml:space="preserve">
-    <value>Materia</value>
-  </data>
-  <data name="ConfigWindow_ExplorationTabHeader" xml:space="preserve">
-    <value>Exploration</value>
-  </data>
-  <data name="ConfigWindow_HousingTabHeader" xml:space="preserve">
-    <value>Housing</value>
-  </data>
-  <data name="ConfigWindow_GlamourTabHeader" xml:space="preserve">
-    <value>Glamour</value>
+  <data name="ConfigWindow_CurrenciesTabHeader" xml:space="preserve">
+    <value>Currencies</value>
   </data>
   <data name="ConfigWindow_DeepDungeonsTabHeader" xml:space="preserve">
     <value>Deep Dungeons</value>
   </data>
+  <data name="ConfigWindow_DesynthesisTabHeader" xml:space="preserve">
+    <value>Desynthesis</value>
+  </data>
+  <data name="ConfigWindow_DutyTabHeader" xml:space="preserve">
+    <value>Duty</value>
+  </data>
   <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
     <value>Economy</value>
-  </data>
-  <data name="ConfigWindow_GoldSaucerTabHeader" xml:space="preserve">
-    <value>Gold Saucer</value>
   </data>
   <data name="ConfigWindow_EmotesTabHeader" xml:space="preserve">
     <value>Emotes</value>
   </data>
+  <data name="ConfigWindow_ExplorationTabHeader" xml:space="preserve">
+    <value>Exploration</value>
+  </data>
+  <data name="ConfigWindow_FreeCompanyTabHeader" xml:space="preserve">
+    <value>Free Company</value>
+  </data>
+  <data name="ConfigWindow_GatheringTabHeader" xml:space="preserve">
+    <value>Gathering</value>
+  </data>
   <data name="ConfigWindow_GeneralTabHeader" xml:space="preserve">
     <value>General</value>
   </data>
+  <data name="ConfigWindow_GlamourTabHeader" xml:space="preserve">
+    <value>Glamour</value>
+  </data>
+  <data name="ConfigWindow_GoldSaucerTabHeader" xml:space="preserve">
+    <value>Gold Saucer</value>
+  </data>
+  <data name="ConfigWindow_HousingTabHeader" xml:space="preserve">
+    <value>Housing</value>
+  </data>
+  <data name="ConfigWindow_MateriaTabHeader" xml:space="preserve">
+    <value>Materia</value>
+  </data>
   <data name="ConfigWindow_ObtainTabHeader" xml:space="preserve">
     <value>Obtain</value>
-  </data>
-  <data name="ConfigWindow_CurrenciesTabHeader" xml:space="preserve">
-    <value>Currencies</value>
-  </data>
-  <data name="ConfigWindow_AlliedSocietiesTabHeader" xml:space="preserve">
-    <value>Allied Societies</value>
-  </data>
-  <data name="AlliedSocietiesTab_MaterialsDropdownHeader" xml:space="preserve">
-    <value>Crafting materials</value>
-  </data>
-  <data name="AlliedSocietiesTab_CurrenciesDropdownHeader" xml:space="preserve">
-    <value>Currencies</value>
-  </data>
-  <data name="AlliedSocietiesTab_CurrencyDataUnavailable" xml:space="preserve">
-    <value>Allied society currency data unavailable</value>
   </data>
   <data name="ConfigWindow_PartyDutyTabHeader" xml:space="preserve">
     <value>Party &amp; Duty</value>
   </data>
   <data name="ConfigWindow_PartyTabHeader" xml:space="preserve">
     <value>Party</value>
-  </data>
-  <data name="ConfigWindow_DutyTabHeader" xml:space="preserve">
-    <value>Duty</value>
-  </data>
-  <data name="ConfigWindow_FreeCompanyTabHeader" xml:space="preserve">
-    <value>Free Company</value>
   </data>
   <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
     <value>Progress</value>
@@ -556,9 +605,6 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="CraftingGatheringTab_FishingDropdownHeader" xml:space="preserve">
     <value>Fishing</value>
-  </data>
-  <data name="GatheringTab_ElementalShardsDropdownHeader" xml:space="preserve">
-    <value>Elemental shards</value>
   </data>
   <data name="CraftingGatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
     <value>Gathering</value>
@@ -756,26 +802,29 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="CraftingGatheringTab_StellarSectionFilteringNote" xml:space="preserve">
     <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic or fishing lines further.</value>
   </data>
-  <data name="EconomyTab_RetainerSectionHeader" xml:space="preserve">
-    <value>Retainer</value>
+  <data name="CraftingTab_FilteringNote" xml:space="preserve">
+    <value>Synthesis and crafting-channel lines need Filter Crafting Channels on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="DeepDungeonsTab_FilteringNote" xml:space="preserve">
+    <value>Deep dungeon lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="DesynthesisTab_FilteringNote" xml:space="preserve">
+    <value>Desynthesis item and obtain lines use Filter System on General. Level increases use Filter Progress on General. Checked = show; unchecked = hide.</value>
+  </data>
+  <data name="DutyTab_FilteringNote" xml:space="preserve">
+    <value>Duty Finder and completion lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="EconomyTab_FilteringNote" xml:space="preserve">
+    <value>Vendor, trade, market board, and most gil lines use Filter System on General. Retainer sale completions use the Retainer Sale channel (under Filter System). Checked = show; unchecked = hide.</value>
   </data>
   <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
   </data>
-  <data name="FreeCompanyTab_FilteringNote" xml:space="preserve">
-    <value>Workshop and message-book lines use Filter System on General. FC login/logout uses the FC login/logout channel (no extra General toggle).</value>
-  </data>
-  <data name="FreeCompanyTab_MessageBookDropdownHeader" xml:space="preserve">
-    <value>Message book</value>
-  </data>
-  <data name="FreeCompanyTab_SocialDropdownHeader" xml:space="preserve">
-    <value>Login &amp; logout</value>
-  </data>
-  <data name="FreeCompanyTab_WorkshopDropdownHeader" xml:space="preserve">
-    <value>Airship &amp; submarine</value>
-  </data>
   <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
+  </data>
+  <data name="EconomyTab_RetainerSectionHeader" xml:space="preserve">
+    <value>Retainer</value>
   </data>
   <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
     <value>Show Gil spent confirmation</value>
@@ -863,6 +912,9 @@ System channel. Independent of “Show market board sales” and its nested sale
   <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
     <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
   </data>
+  <data name="EmotesTab_FilteringNote" xml:space="preserve">
+    <value>Standard emotes use Filter Standard Emotes below. Custom emotes use Filter Custom Emote Channel. Show options control which custom emote lines appear when filtering is enabled.</value>
+  </data>
   <data name="EmotesTab_FilterStandardEmotes" xml:space="preserve">
     <value>Filter standard emote channel</value>
   </data>
@@ -885,6 +937,27 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
   </data>
   <data name="EnableTinyChat" xml:space="preserve">
     <value>Tiny chat (lowercase)</value>
+  </data>
+  <data name="ExplorationTab_FilteringNote" xml:space="preserve">
+    <value>Hunt and exploration lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="FreeCompanyTab_FilteringNote" xml:space="preserve">
+    <value>Workshop and message-book lines use Filter System on General. FC login/logout uses the FC login/logout channel (no extra General toggle).</value>
+  </data>
+  <data name="FreeCompanyTab_MessageBookDropdownHeader" xml:space="preserve">
+    <value>Message book</value>
+  </data>
+  <data name="FreeCompanyTab_SocialDropdownHeader" xml:space="preserve">
+    <value>Login &amp; logout</value>
+  </data>
+  <data name="FreeCompanyTab_WorkshopDropdownHeader" xml:space="preserve">
+    <value>Airship &amp; submarine</value>
+  </data>
+  <data name="GatheringTab_ElementalShardsDropdownHeader" xml:space="preserve">
+    <value>Elemental shards</value>
+  </data>
+  <data name="GatheringTab_FilteringNote" xml:space="preserve">
+    <value>Gathering and fishing lines need Filter Gathering channels on General. Elemental shard obtains also need Filter Obtained. Cosmic and Stellar options include extra notes in that section.</value>
   </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
@@ -934,6 +1007,9 @@ eg. Another Player leans over and gives you a big bear hug.</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here—Custom Filter Allow rules on Gathering will not take effect.</value>
+  </data>
+  <data name="GeneralTab_FilteringNote" xml:space="preserve">
+    <value>These master toggles gate whole chat channels. When a channel is filtered, Show options on other tabs decide what still appears. Tools → Custom Filters can Block or Allow specific lines afterward.</value>
   </data>
   <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
     <value>Filter Loot Roll channel</value>
@@ -1063,8 +1139,53 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
     <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
   </data>
+  <data name="GlamourTab_FilteringNote" xml:space="preserve">
+    <value>Glamour and character gear lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="GoldSaucerTab_FilteringNote" xml:space="preserve">
+    <value>MGP obtain lines use Filter Obtained on General. Minigame and Triple Triad lines use Filter System. Options labeled Hide … hide those lines when checked.</value>
+  </data>
+  <data name="GoldSaucerTab_MgpDropdownHeader" xml:space="preserve">
+    <value>MGP</value>
+  </data>
+  <data name="GoldSaucerTab_MinigamesDropdownHeader" xml:space="preserve">
+    <value>Swing minigames</value>
+  </data>
+  <data name="GoldSaucerTab_ShowMGPMessages" xml:space="preserve">
+    <value>Hide MGP</value>
+  </data>
+  <data name="GoldSaucerTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel).</value>
+  </data>
+  <data name="GoldSaucerTab_ShowSwingMinigames" xml:space="preserve">
+    <value>Show Out on a Limb / The Finer Miner swing feedback</value>
+  </data>
+  <data name="GoldSaucerTab_ShowSwingMinigamesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4784–4793 — System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You're right on top of it!</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadAllowed" xml:space="preserve">
+    <value>Show Triple Triad allowed here</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadAllowedHelpMarker" xml:space="preserve">
+    <value>LogMessage 4763 — eg. Triple Triad matches are allowed in the current area.</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadNotAllowed" xml:space="preserve">
+    <value>Show Triple Triad not allowed here</value>
+  </data>
+  <data name="GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker" xml:space="preserve">
+    <value>LogMessage 4764 — eg. Triple Triad matches are not allowed in the current area.</value>
+  </data>
+  <data name="GoldSaucerTab_TripleTriadDropdownHeader" xml:space="preserve">
+    <value>Triple Triad</value>
+  </data>
+  <data name="HousingTab_FilteringNote" xml:space="preserve">
+    <value>Sanctuary and housing ward lines use Filter System on General. Checked = show; unchecked = hide.</value>
+  </data>
   <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
     <value>Include [Channel] tag in debug mode</value>
+  </data>
+  <data name="MateriaTab_FilteringNote" xml:space="preserve">
+    <value>Attach, extract, and overmeld lines use Filter Crafting Channels on General. Retrieve and shatter lines use Filter System on General. Checked = show; unchecked = hide.</value>
   </data>
   <data name="NormalizeSpecialCharactersExceptInPartyOrAllianceChannels" xml:space="preserve">
     <value>Normalize special characters - except in Party or Alliance channels</value>
@@ -1183,42 +1304,6 @@ eg. You obtain 30 ice shards</value>
   </data>
   <data name="ObtainTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel; use System tab options for spend lines).</value>
-  </data>
-  <data name="GoldSaucerTab_FilteringNote" xml:space="preserve">
-    <value>MGP obtain lines use Filter Obtained on General. Minigame and Triple Triad lines use Filter System. Options labeled Hide … hide those lines when checked.</value>
-  </data>
-  <data name="GoldSaucerTab_MgpDropdownHeader" xml:space="preserve">
-    <value>MGP</value>
-  </data>
-  <data name="GoldSaucerTab_MinigamesDropdownHeader" xml:space="preserve">
-    <value>Swing minigames</value>
-  </data>
-  <data name="GoldSaucerTab_ShowMGPMessages" xml:space="preserve">
-    <value>Hide MGP</value>
-  </data>
-  <data name="GoldSaucerTab_ShowMGPMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel).</value>
-  </data>
-  <data name="GoldSaucerTab_ShowSwingMinigames" xml:space="preserve">
-    <value>Show Out on a Limb / The Finer Miner swing feedback</value>
-  </data>
-  <data name="GoldSaucerTab_ShowSwingMinigamesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4784–4793 — System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You're right on top of it!</value>
-  </data>
-  <data name="GoldSaucerTab_TripleTriadDropdownHeader" xml:space="preserve">
-    <value>Triple Triad</value>
-  </data>
-  <data name="GoldSaucerTab_ShowTripleTriadAllowed" xml:space="preserve">
-    <value>Show Triple Triad allowed here</value>
-  </data>
-  <data name="GoldSaucerTab_ShowTripleTriadAllowedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4763 — eg. Triple Triad matches are allowed in the current area.</value>
-  </data>
-  <data name="GoldSaucerTab_ShowTripleTriadNotAllowed" xml:space="preserve">
-    <value>Show Triple Triad not allowed here</value>
-  </data>
-  <data name="GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4764 — eg. Triple Triad matches are not allowed in the current area.</value>
   </data>
   <data name="ObtainTab_ShowObtainedQuestItems" xml:space="preserve">
     <value>Show quest item obtain messages</value>
@@ -1471,6 +1556,9 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="PartyDutyTab_ShowTrapTriggeredMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 7224, 7225, 7226, 7227, 7228, 7229 — eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
   </data>
+  <data name="PartyTab_FilteringNote" xml:space="preserve">
+    <value>Party invites and tools use Filter System on General. Loot rolls use Filter Loot Roll; other-player obtains use Filter Obtained. Checked = show; unchecked = hide. Tools → Custom Filters can refine matching lines.</value>
+  </data>
   <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
     <value>Duty rewards</value>
   </data>
@@ -1568,71 +1656,23 @@ It can be considered spammy in deep dungeons.</value>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Page</value>
   </data>
-  <data name="Shared_RequiresLootFilteringNote" xml:space="preserve">
-    <value>Requires Filter Loot Roll channel on the General tab. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="Shared_RequiresObtainedFilteringNote" xml:space="preserve">
-    <value>Requires Filter Obtained channel on the General tab. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
-    <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
-  </data>
   <data name="Shared_RequiresCraftingFilteringNote" xml:space="preserve">
     <value>Requires Filter Crafting Channels on the General tab. Checked = show; unchecked = hide.</value>
   </data>
   <data name="Shared_RequiresGatheringFilteringNote" xml:space="preserve">
     <value>Requires Filter Gathering channels on the General tab. Checked = show; unchecked = hide.</value>
   </data>
+  <data name="Shared_RequiresLootFilteringNote" xml:space="preserve">
+    <value>Requires Filter Loot Roll channel on the General tab. Checked = show; unchecked = hide.</value>
+  </data>
+  <data name="Shared_RequiresObtainedFilteringNote" xml:space="preserve">
+    <value>Requires Filter Obtained channel on the General tab. Checked = show; unchecked = hide.</value>
+  </data>
   <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
     <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
-  <data name="GeneralTab_FilteringNote" xml:space="preserve">
-    <value>These master toggles gate whole chat channels. When a channel is filtered, Show options on other tabs decide what still appears. Tools → Custom Filters can Block or Allow specific lines afterward.</value>
-  </data>
-  <data name="SystemTab_FilteringNote" xml:space="preserve">
-    <value>Most options need Filter System channel on General (Retainer Sale lines are included). Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific System text.</value>
-  </data>
-  <data name="PartyTab_FilteringNote" xml:space="preserve">
-    <value>Party invites and tools use Filter System on General. Loot rolls use Filter Loot Roll; other-player obtains use Filter Obtained. Checked = show; unchecked = hide. Tools → Custom Filters can refine matching lines.</value>
-  </data>
-  <data name="DutyTab_FilteringNote" xml:space="preserve">
-    <value>Duty Finder and completion lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
-  </data>
-  <data name="EmotesTab_FilteringNote" xml:space="preserve">
-    <value>Standard emotes use Filter Standard Emotes below. Custom emotes use Filter Custom Emote Channel. Show options control which custom emote lines appear when filtering is enabled.</value>
-  </data>
-  <data name="ExplorationTab_FilteringNote" xml:space="preserve">
-    <value>Hunt and exploration lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
-  </data>
-  <data name="HousingTab_FilteringNote" xml:space="preserve">
-    <value>Sanctuary and housing ward lines use Filter System on General. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="GlamourTab_FilteringNote" xml:space="preserve">
-    <value>Glamour and character gear lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
-  </data>
-  <data name="DeepDungeonsTab_FilteringNote" xml:space="preserve">
-    <value>Deep dungeon lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
-  </data>
-  <data name="EconomyTab_FilteringNote" xml:space="preserve">
-    <value>Vendor, trade, market board, and most gil lines use Filter System on General. Retainer sale completions use the Retainer Sale channel (under Filter System). Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="CraftingTab_FilteringNote" xml:space="preserve">
-    <value>Synthesis and crafting-channel lines need Filter Crafting Channels on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
-  </data>
-  <data name="DesynthesisTab_FilteringNote" xml:space="preserve">
-    <value>Desynthesis item and obtain lines use Filter System on General. Level increases use Filter Progress on General. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="MateriaTab_FilteringNote" xml:space="preserve">
-    <value>Attach, extract, and overmeld lines use Filter Crafting Channels on General. Retrieve and shatter lines use Filter System on General. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="GatheringTab_FilteringNote" xml:space="preserve">
-    <value>Gathering and fishing lines need Filter Gathering channels on General. Elemental shard obtains also need Filter Obtained. Cosmic and Stellar options include extra notes in that section.</value>
-  </data>
-  <data name="CombatTab_FilteringNote" xml:space="preserve">
-    <value>Combat log options filter Action, Battle System, and NPC Party channels directly—there is no separate General master toggle. Checked = show; unchecked = hide. Tools → Custom Filters can override.</value>
-  </data>
-  <data name="ToolsTab_FilteringNote" xml:space="preserve">
-    <value>Debug mode logs rule matches to chat. Chat History and Custom Filters are optional extras; Custom Filters run after all other rules.</value>
+  <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
+    <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>
@@ -1648,6 +1688,9 @@ It can be considered spammy in deep dungeons.</value>
   </data>
   <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
     <value>Exploration</value>
+  </data>
+  <data name="SystemTab_FilteringNote" xml:space="preserve">
+    <value>Most options need Filter System channel on General (Retainer Sale lines are included). Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific System text.</value>
   </data>
   <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
     <value>Glamour &amp; gear</value>
@@ -1785,17 +1828,17 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowGearDyeAppliedHelpMarker" xml:space="preserve">
     <value>LogMessage 10508 — eg. You use a pot of Dalamud Red Dye to change Dye 1 of …</value>
   </data>
-  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
-    <value>Show gearset equipped messages</value>
-  </data>
-  <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 700, 755, 788 — eg. “Red Mage” equipped.</value>
-  </data>
   <data name="SystemTab_ShowGearItemsRepaired" xml:space="preserve">
     <value>Show gear repair messages</value>
   </data>
   <data name="SystemTab_ShowGearItemsRepairedHelpMarker" xml:space="preserve">
     <value>LogMessages 1385, 1388 (System) — eg. Linen Cowl is repaired. / 2 items repaired.</value>
+  </data>
+  <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
+    <value>Show gearset equipped messages</value>
+  </data>
+  <data name="SystemTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 700, 755, 788 — eg. “Red Mage” equipped.</value>
   </data>
   <data name="SystemTab_ShowGearsetGlamourRestoreFailed" xml:space="preserve">
     <value>Show gearset glamour restore failed</value>
@@ -2019,6 +2062,9 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   </data>
   <data name="ToolsTab_EnableDebugMode" xml:space="preserve">
     <value>Debug mode (dry-run filtering)</value>
+  </data>
+  <data name="ToolsTab_FilteringNote" xml:space="preserve">
+    <value>Debug mode logs rule matches to chat. Chat History and Custom Filters are optional extras; Custom Filters run after all other rules.</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
     <value>Allow</value>

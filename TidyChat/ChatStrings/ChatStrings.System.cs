@@ -485,5 +485,4 @@ public static partial class ChatStrings
         Deu = ["triple", "triad", "nicht", "erlaubt"],
         Fra = ["triple", "triad", "interdites"]
     };
-
 }

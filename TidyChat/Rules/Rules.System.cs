@@ -19,7 +19,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [9332]
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment1 =
@@ -120,7 +120,7 @@ public static partial class Rules
             IsActive = true,
             StringChecks = [ChatStrings.SayQuestReminder],
             Pattern = PatternKind.StringMatch
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment2 =
@@ -192,7 +192,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.DesynthesisObtain],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment3 =
@@ -240,7 +240,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.AetherCompass],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment4 =
@@ -255,7 +255,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.SpiritboundGear],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment5 =
@@ -356,7 +356,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4233, 4238, 4246]
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment6 =
@@ -368,7 +368,7 @@ public static partial class Rules
             Channel = ChatType.MessageBook,
             IsActive = true,
             LogMessageIds = [6066]
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment7 =
@@ -394,7 +394,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.SecondChanceAward],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment8 =
@@ -509,7 +509,7 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866],
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRulesSegment9 =

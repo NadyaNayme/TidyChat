@@ -16,146 +16,146 @@ internal static class EconomyTab
 
     private static void DrawTrading(Configuration configuration)
     {
-            var showTradeSent = configuration.ShowTradeSent;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeRequestSent, ref showTradeSent))
-            {
-                configuration.ShowTradeSent = showTradeSent;
-                configuration.OnSettingChanged();
-            }
+        var showTradeSent = configuration.ShowTradeSent;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeRequestSent, ref showTradeSent))
+        {
+            configuration.ShowTradeSent = showTradeSent;
+            configuration.OnSettingChanged();
+        }
 
-            var showTradeCanceled = configuration.ShowTradeCanceled;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeCanceled, ref showTradeCanceled))
-            {
-                configuration.ShowTradeCanceled = showTradeCanceled;
-                configuration.OnSettingChanged();
-            }
+        var showTradeCanceled = configuration.ShowTradeCanceled;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeCanceled, ref showTradeCanceled))
+        {
+            configuration.ShowTradeCanceled = showTradeCanceled;
+            configuration.OnSettingChanged();
+        }
 
-            var showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeAwaitingConfirmation, ref showAwaitingTradeConfirmation))
-            {
-                configuration.ShowAwaitingTradeConfirmation = showAwaitingTradeConfirmation;
-                configuration.OnSettingChanged();
-            }
+        var showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeAwaitingConfirmation, ref showAwaitingTradeConfirmation))
+        {
+            configuration.ShowAwaitingTradeConfirmation = showAwaitingTradeConfirmation;
+            configuration.OnSettingChanged();
+        }
 
-            var showTradeComplete = configuration.ShowTradeComplete;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeComplete, ref showTradeComplete))
-            {
-                configuration.ShowTradeComplete = showTradeComplete;
-                configuration.OnSettingChanged();
-            }
+        var showTradeComplete = configuration.ShowTradeComplete;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeComplete, ref showTradeComplete))
+        {
+            configuration.ShowTradeComplete = showTradeComplete;
+            configuration.OnSettingChanged();
+        }
     }
 
     private static void DrawVendor(Configuration configuration)
     {
-            var showVendorSellMessages = configuration.ShowVendorSellMessages;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorSellMessages, ref showVendorSellMessages))
-            {
-                configuration.ShowVendorSellMessages = showVendorSellMessages;
-                configuration.OnSettingChanged();
-            }
+        var showVendorSellMessages = configuration.ShowVendorSellMessages;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorSellMessages, ref showVendorSellMessages))
+        {
+            configuration.ShowVendorSellMessages = showVendorSellMessages;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorSellMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorSellMessagesHelpMarker);
 
-            var showVendorPurchaseMessages = configuration.ShowVendorPurchaseMessages;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorPurchaseMessages, ref showVendorPurchaseMessages))
-            {
-                configuration.ShowVendorPurchaseMessages = showVendorPurchaseMessages;
-                configuration.OnSettingChanged();
-            }
+        var showVendorPurchaseMessages = configuration.ShowVendorPurchaseMessages;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorPurchaseMessages, ref showVendorPurchaseMessages))
+        {
+            configuration.ShowVendorPurchaseMessages = showVendorPurchaseMessages;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorPurchaseMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorPurchaseMessagesHelpMarker);
 
-            var showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
-            {
-                configuration.ShowGilWithdrawnMessage = showGilWithdrawnMessage;
-                configuration.OnSettingChanged();
-            }
+        var showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
+        {
+            configuration.ShowGilWithdrawnMessage = showGilWithdrawnMessage;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
     }
 
     private static void DrawMarketBoard(Configuration configuration)
     {
-            var showMarketBoardMessages = configuration.ShowMarketBoardMessages;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardMessages, ref showMarketBoardMessages))
+        var showMarketBoardMessages = configuration.ShowMarketBoardMessages;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardMessages, ref showMarketBoardMessages))
+        {
+            configuration.ShowMarketBoardMessages = showMarketBoardMessages;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardMessagesHelpMarker);
+
+        SettingsTabLayout.DrawNestedOptions(configuration.ShowMarketBoardMessages, () =>
+        {
+            var showMarketItemSold = configuration.ShowMarketItemSold;
+            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketItemSold, ref showMarketItemSold))
             {
-                configuration.ShowMarketBoardMessages = showMarketBoardMessages;
+                configuration.ShowMarketItemSold = showMarketItemSold;
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardMessagesHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketItemSoldHelpMarker);
 
-            SettingsTabLayout.DrawNestedOptions(configuration.ShowMarketBoardMessages, () =>
+            var showMarketAllItemsSold = configuration.ShowMarketAllItemsSold;
+            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketAllItemsSold, ref showMarketAllItemsSold))
             {
-                var showMarketItemSold = configuration.ShowMarketItemSold;
-                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketItemSold, ref showMarketItemSold))
-                {
-                    configuration.ShowMarketItemSold = showMarketItemSold;
-                    configuration.OnSettingChanged();
-                }
+                configuration.ShowMarketAllItemsSold = showMarketAllItemsSold;
+                configuration.OnSettingChanged();
+            }
 
-                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketItemSoldHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketAllItemsSoldHelpMarker);
 
-                var showMarketAllItemsSold = configuration.ShowMarketAllItemsSold;
-                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketAllItemsSold, ref showMarketAllItemsSold))
-                {
-                    configuration.ShowMarketAllItemsSold = showMarketAllItemsSold;
-                    configuration.OnSettingChanged();
-                }
+            var showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
+            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardSellingStatus, ref showMarketBoardSellingStatus))
+            {
+                configuration.ShowMarketBoardSellingStatus = showMarketBoardSellingStatus;
+                configuration.OnSettingChanged();
+            }
 
-                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketAllItemsSoldHelpMarker);
-
-                var showMarketBoardSellingStatus = configuration.ShowMarketBoardSellingStatus;
-                if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardSellingStatus, ref showMarketBoardSellingStatus))
-                {
-                    configuration.ShowMarketBoardSellingStatus = showMarketBoardSellingStatus;
-                    configuration.OnSettingChanged();
-                }
-
-                UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardSellingStatusHelpMarker);
-            });
+            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardSellingStatusHelpMarker);
+        });
     }
 
     private static void DrawRetainer(Configuration configuration)
     {
-            var completedVenture = configuration.ShowCompletedVenture;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
-            {
-                configuration.ShowCompletedVenture = completedVenture;
-                configuration.OnSettingChanged();
-            }
+        var completedVenture = configuration.ShowCompletedVenture;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
+        {
+            configuration.ShowCompletedVenture = completedVenture;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletedVentureHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletedVentureHelpMarker);
 
-            var retainerVentureMessages = configuration.ShowRetainerVentureMessages;
-            if (ImGui.Checkbox(Languages.PartyDutyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
-            {
-                configuration.ShowRetainerVentureMessages = retainerVentureMessages;
-                configuration.OnSettingChanged();
-            }
+        var retainerVentureMessages = configuration.ShowRetainerVentureMessages;
+        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
+        {
+            configuration.ShowRetainerVentureMessages = retainerVentureMessages;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowRetainerVentureMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowRetainerVentureMessagesHelpMarker);
 
-            var showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
-            {
-                configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
-                configuration.OnSettingChanged();
-            }
+        var showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
+        {
+            configuration.ShowMarketGilEntrustedToRetainer = showMarketGilEntrusted;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
     }
 
     private static void DrawGil(Configuration configuration)
     {
-            var showGilSpentMessage = configuration.ShowGilSpentMessage;
-            if (ImGui.Checkbox(Languages.EconomyTab_ShowGilSpentMessage, ref showGilSpentMessage))
-            {
-                configuration.ShowGilSpentMessage = showGilSpentMessage;
-                configuration.OnSettingChanged();
-            }
+        var showGilSpentMessage = configuration.ShowGilSpentMessage;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowGilSpentMessage, ref showGilSpentMessage))
+        {
+            configuration.ShowGilSpentMessage = showGilSpentMessage;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
     }
 }

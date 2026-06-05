@@ -1,5 +1,4 @@
 using Dalamud.Game;
-using Dalamud.Game.Text.SeStringHandling.Payloads;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;

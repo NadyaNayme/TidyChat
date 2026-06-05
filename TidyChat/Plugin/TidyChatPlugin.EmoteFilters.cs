@@ -1,5 +1,4 @@
 using System.Threading;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

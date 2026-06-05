@@ -389,6 +389,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.CosmicDatasetSubmitted],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-            ];
+        }
+    ];
 }

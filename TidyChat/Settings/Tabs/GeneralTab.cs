@@ -86,140 +86,140 @@ internal static class GeneralTab
     private static void DrawDisplayOptions(Configuration configuration)
     {
         var includeChatTag = configuration.IncludeChatTag;
-            if (ImGui.Checkbox(Languages.GeneralTab_TidyChatTag, ref includeChatTag))
-            {
-                configuration.IncludeChatTag = includeChatTag;
-                configuration.OnSettingChanged();
-            }
+        if (ImGui.Checkbox(Languages.GeneralTab_TidyChatTag, ref includeChatTag))
+        {
+            configuration.IncludeChatTag = includeChatTag;
+            configuration.OnSettingChanged();
+        }
 
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_TidyChatTagHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_TidyChatTagHelpMarker);
 
-            var enableSmolMode = configuration.EnableSmolMode;
-            if (ImGui.Checkbox(Languages.EnableTinyChat, ref enableSmolMode))
-            {
-                configuration.EnableSmolMode = enableSmolMode;
-                configuration.OnSettingChanged();
-            }
+        var enableSmolMode = configuration.EnableSmolMode;
+        if (ImGui.Checkbox(Languages.EnableTinyChat, ref enableSmolMode))
+        {
+            configuration.EnableSmolMode = enableSmolMode;
+            configuration.OnSettingChanged();
+        }
 
-            ImGuiComponents.HelpMarker(Languages.AllMessagesWillBeLowercased);
+        ImGuiComponents.HelpMarker(Languages.AllMessagesWillBeLowercased);
 
-            var normalizeBlocks = configuration.NormalizeBlocks;
-            if (ImGui.Checkbox(Languages.NormalizeSpecialCharactersExceptInPartyOrAllianceChannels, ref normalizeBlocks))
-            {
-                configuration.NormalizeBlocks = normalizeBlocks;
-                configuration.OnSettingChanged();
-            }
+        var normalizeBlocks = configuration.NormalizeBlocks;
+        if (ImGui.Checkbox(Languages.NormalizeSpecialCharactersExceptInPartyOrAllianceChannels, ref normalizeBlocks))
+        {
+            configuration.NormalizeBlocks = normalizeBlocks;
+            configuration.OnSettingChanged();
+        }
 
-            ImGuiComponents.HelpMarker(Languages.ReplacesSpecialCharactersSuchAsWithA);
+        ImGuiComponents.HelpMarker(Languages.ReplacesSpecialCharactersSuchAsWithA);
 
-            var alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
-            if (ImGui.Checkbox(Languages.AlwaysNormalizeSpecialCharacters, ref alwaysNormalizeBlocks))
-            {
-                configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
-                configuration.OnSettingChanged();
-            }
+        var alwaysNormalizeBlocks = configuration.AlwaysNormalizeBlocks;
+        if (ImGui.Checkbox(Languages.AlwaysNormalizeSpecialCharacters, ref alwaysNormalizeBlocks))
+        {
+            configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
+            configuration.OnSettingChanged();
+        }
     }
 
     private static void DrawImprovedMessages(Configuration configuration)
     {
         var betterInstanceMessage = configuration.BetterInstanceMessage;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
+        {
+            configuration.BetterInstanceMessage = betterInstanceMessage;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
+
+        var betterDutyCommenceMessage = configuration.BetterDutyCommenceMessage;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedDutyCommenceMessaging, ref betterDutyCommenceMessage))
+        {
+            configuration.BetterDutyCommenceMessage = betterDutyCommenceMessage;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedDutyCommenceMessagingHelpMarker);
+
+        var instanceInDtrBar = configuration.InstanceInDtrBar;
+        if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
+        {
+            configuration.InstanceInDtrBar = instanceInDtrBar;
+            configuration.OnSettingChanged();
+        }
+
+        var betterCommendationMessage = configuration.BetterCommendationMessage;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedPlayerCommendations, ref betterCommendationMessage))
+        {
+            configuration.BetterCommendationMessage = betterCommendationMessage;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedPlayerCommendationsHelpMarker);
+
+        var includeDutyNameInComms = configuration.IncludeDutyNameInComms;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
+        {
+            configuration.IncludeDutyNameInComms = includeDutyNameInComms;
+            if (!configuration.BetterCommendationMessage && configuration.IncludeDutyNameInComms)
             {
-                configuration.BetterInstanceMessage = betterInstanceMessage;
-                configuration.OnSettingChanged();
+                configuration.BetterCommendationMessage = true;
             }
+            configuration.OnSettingChanged();
+        }
 
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedInstanceMessagingHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
 
-            var betterDutyCommenceMessage = configuration.BetterDutyCommenceMessage;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedDutyCommenceMessaging, ref betterDutyCommenceMessage))
+        var betterSayReminder = configuration.BetterSayReminder;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedSayMessages, ref betterSayReminder))
+        {
+            configuration.BetterSayReminder = betterSayReminder;
+            if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
             {
-                configuration.BetterDutyCommenceMessage = betterDutyCommenceMessage;
-                configuration.OnSettingChanged();
+                configuration.CopyBetterSayReminder = false;
             }
+            configuration.OnSettingChanged();
+        }
 
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedDutyCommenceMessagingHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedSayMessagesHelpMarker);
 
-            var instanceInDtrBar = configuration.InstanceInDtrBar;
-            if (ImGui.Checkbox(Languages.GeneralTab_InstanceInDTRBar, ref instanceInDtrBar))
+        var copyBetterSayReminder = configuration.CopyBetterSayReminder;
+        if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
+        {
+            configuration.CopyBetterSayReminder = copyBetterSayReminder;
+            if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
             {
-                configuration.InstanceInDtrBar = instanceInDtrBar;
-                configuration.OnSettingChanged();
+                configuration.BetterSayReminder = true;
             }
+            configuration.OnSettingChanged();
+        }
 
-            var betterCommendationMessage = configuration.BetterCommendationMessage;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedPlayerCommendations, ref betterCommendationMessage))
-            {
-                configuration.BetterCommendationMessage = betterCommendationMessage;
-                configuration.OnSettingChanged();
-            }
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
 
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedPlayerCommendationsHelpMarker);
+        var betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedNoviceNetworkMessages, ref betterNoviceNetworkMessage))
+        {
+            configuration.BetterNoviceNetworkMessage = betterNoviceNetworkMessage;
+            configuration.OnSettingChanged();
+        }
 
-            var includeDutyNameInComms = configuration.IncludeDutyNameInComms;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
-            {
-                configuration.IncludeDutyNameInComms = includeDutyNameInComms;
-                if (!configuration.BetterCommendationMessage && configuration.IncludeDutyNameInComms)
-                {
-                    configuration.BetterCommendationMessage = true;
-                }
-                configuration.OnSettingChanged();
-            }
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker);
 
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
+        var betterTreasureDungeonMessage = configuration.BetterTreasureDungeonMessage;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedTreasureDungeonMessages, ref betterTreasureDungeonMessage))
+        {
+            configuration.BetterTreasureDungeonMessage = betterTreasureDungeonMessage;
+            configuration.OnSettingChanged();
+        }
 
-            var betterSayReminder = configuration.BetterSayReminder;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedSayMessages, ref betterSayReminder))
-            {
-                configuration.BetterSayReminder = betterSayReminder;
-                if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
-                {
-                    configuration.CopyBetterSayReminder = false;
-                }
-                configuration.OnSettingChanged();
-            }
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker);
 
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedSayMessagesHelpMarker);
+        var betterMarketBoardSaleMessage = configuration.BetterMarketBoardSaleMessage;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedMarketBoardSale, ref betterMarketBoardSaleMessage))
+        {
+            configuration.BetterMarketBoardSaleMessage = betterMarketBoardSaleMessage;
+            configuration.OnSettingChanged();
+        }
 
-            var copyBetterSayReminder = configuration.CopyBetterSayReminder;
-            if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
-            {
-                configuration.CopyBetterSayReminder = copyBetterSayReminder;
-                if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
-                {
-                    configuration.BetterSayReminder = true;
-                }
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
-
-            var betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedNoviceNetworkMessages, ref betterNoviceNetworkMessage))
-            {
-                configuration.BetterNoviceNetworkMessage = betterNoviceNetworkMessage;
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker);
-
-            var betterTreasureDungeonMessage = configuration.BetterTreasureDungeonMessage;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedTreasureDungeonMessages, ref betterTreasureDungeonMessage))
-            {
-                configuration.BetterTreasureDungeonMessage = betterTreasureDungeonMessage;
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedTreasureDungeonMessagesHelpMarker);
-
-            var betterMarketBoardSaleMessage = configuration.BetterMarketBoardSaleMessage;
-            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedMarketBoardSale, ref betterMarketBoardSaleMessage))
-            {
-                configuration.BetterMarketBoardSaleMessage = betterMarketBoardSaleMessage;
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarketBoardSaleHelpMarker);
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarketBoardSaleHelpMarker);
     }
 }

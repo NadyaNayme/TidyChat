@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using TidyChat.Data;
 using TidyChat.Translation.Data;
-
 namespace TidyChat;
 
 /// <summary>
@@ -14,7 +12,7 @@ internal static class ObtainCurrencyHelper
     {
         "ShowObtainedItems",
         "ShowObtainedQuestItems",
-        "ShowGatheringCollectableObtains",
+        "ShowGatheringCollectableObtains"
     };
 
     private static readonly LocalizedStrings[] DedicatedObtainTypeMarkers =
@@ -35,7 +33,7 @@ internal static class ObtainCurrencyHelper
         ChatStrings.OizysCreditObtain,
         ChatStrings.AuxesiaCreditObtain,
         ChatStrings.OizysDronebitsObtain,
-        ChatStrings.CosmicFortuneObtain,
+        ChatStrings.CosmicFortuneObtain
     ];
 
     public static bool ShouldAllowLootNoticeObtain(

@@ -14,46 +14,46 @@ internal static class GoldSaucerTab
 
     private static void DrawMgp(Configuration configuration)
     {
-            var hideObtainedMgp = configuration.HideObtainedMGP;
-            if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowMGPMessages, ref hideObtainedMgp))
-            {
-                configuration.HideObtainedMGP = hideObtainedMgp;
-                configuration.OnSettingChanged();
-            }
+        var hideObtainedMgp = configuration.HideObtainedMGP;
+        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowMGPMessages, ref hideObtainedMgp))
+        {
+            configuration.HideObtainedMGP = hideObtainedMgp;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.ObtainedFilterMarker(Languages.GoldSaucerTab_ShowMGPMessagesHelpMarker);
+        UiHelp.ObtainedFilterMarker(Languages.GoldSaucerTab_ShowMGPMessagesHelpMarker);
     }
 
     private static void DrawMinigames(Configuration configuration)
     {
-            var showGoldSaucerSwingMinigames = configuration.ShowGoldSaucerSwingMinigames;
-            if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowSwingMinigames, ref showGoldSaucerSwingMinigames))
-            {
-                configuration.ShowGoldSaucerSwingMinigames = showGoldSaucerSwingMinigames;
-                configuration.OnSettingChanged();
-            }
+        var showGoldSaucerSwingMinigames = configuration.ShowGoldSaucerSwingMinigames;
+        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowSwingMinigames, ref showGoldSaucerSwingMinigames))
+        {
+            configuration.ShowGoldSaucerSwingMinigames = showGoldSaucerSwingMinigames;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowSwingMinigamesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowSwingMinigamesHelpMarker);
     }
 
     private static void DrawTripleTriad(Configuration configuration)
     {
-            var showTripleTriadAllowed = configuration.ShowTripleTriadAllowed;
-            if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowTripleTriadAllowed, ref showTripleTriadAllowed))
-            {
-                configuration.ShowTripleTriadAllowed = showTripleTriadAllowed;
-                configuration.OnSettingChanged();
-            }
+        var showTripleTriadAllowed = configuration.ShowTripleTriadAllowed;
+        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowTripleTriadAllowed, ref showTripleTriadAllowed))
+        {
+            configuration.ShowTripleTriadAllowed = showTripleTriadAllowed;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowTripleTriadAllowedHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowTripleTriadAllowedHelpMarker);
 
-            var showTripleTriadNotAllowed = configuration.ShowTripleTriadNotAllowed;
-            if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowTripleTriadNotAllowed, ref showTripleTriadNotAllowed))
-            {
-                configuration.ShowTripleTriadNotAllowed = showTripleTriadNotAllowed;
-                configuration.OnSettingChanged();
-            }
+        var showTripleTriadNotAllowed = configuration.ShowTripleTriadNotAllowed;
+        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowTripleTriadNotAllowed, ref showTripleTriadNotAllowed))
+        {
+            configuration.ShowTripleTriadNotAllowed = showTripleTriadNotAllowed;
+            configuration.OnSettingChanged();
+        }
 
-            UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker);
     }
 }

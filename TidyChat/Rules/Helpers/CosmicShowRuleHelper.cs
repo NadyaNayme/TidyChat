@@ -1,4 +1,3 @@
-using TidyChat.Translation.Data;
 namespace TidyChat;
 
 internal static class CosmicShowRuleHelper

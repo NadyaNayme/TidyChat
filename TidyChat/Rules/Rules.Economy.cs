@@ -27,7 +27,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [32]
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] EconomyRulesSegment1 =
@@ -39,7 +39,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [38]
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] EconomyRulesSegment2 =
@@ -153,7 +153,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.GilSafelyWithdrawn],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] EconomyRulesRetainer =
@@ -223,7 +223,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.RetainerMaxLevel],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
-
 }
