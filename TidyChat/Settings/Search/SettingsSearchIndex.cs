@@ -1,4 +1,4 @@
-using Dalamud.Interface.Components;
+﻿using Dalamud.Interface.Components;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Reflection;
@@ -352,23 +352,23 @@ internal static class SettingsSearchIndex
 
         var labelKey = propertyName switch
         {
-            "ShowCompletedVenture" => nameof(Languages.PartyDutyTab_ShowCompletedVenture),
-            "ShowRetainerVentureMessages" => nameof(Languages.PartyDutyTab_ShowRetainerVentureMessages),
+            "ShowCompletedVenture" => nameof(Languages.EconomyTab_ShowCompletedVenture),
+            "ShowRetainerVentureMessages" => nameof(Languages.EconomyTab_ShowRetainerVentureMessages),
             "ShowMarketGilEntrustedToRetainer" => nameof(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer),
-            "ShowUserLogins" => nameof(Languages.PartyDutyTab_ShowLoginMessages),
-            "ShowUserLogouts" => nameof(Languages.PartyDutyTab_ShowLogoutMessages),
-            "ShowFreeCompanyMessageBook" => nameof(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages),
-            "ShowExploratoryVoyage" => nameof(Languages.PartyDutyTab_ShowAirshipVoyageMessages),
-            "ShowSubaquaticVoyage" => nameof(Languages.PartyDutyTab_ShowSubmarineVoyageMessages),
-            "ShowSubaquaticVoyageEmbarked" => nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageEmbarked),
-            "ShowSubaquaticVoyageFinalized" => nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageFinalized),
+            "ShowUserLogins" => nameof(Languages.FreeCompanyTab_ShowLoginMessages),
+            "ShowUserLogouts" => nameof(Languages.FreeCompanyTab_ShowLogoutMessages),
+            "ShowFreeCompanyMessageBook" => nameof(Languages.FreeCompanyTab_ShowFreeCompanyMessageBookMessages),
+            "ShowExploratoryVoyage" => nameof(Languages.FreeCompanyTab_ShowAirshipVoyageMessages),
+            "ShowSubaquaticVoyage" => nameof(Languages.FreeCompanyTab_ShowSubmarineVoyageMessages),
+            "ShowSubaquaticVoyageEmbarked" => nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageEmbarked),
+            "ShowSubaquaticVoyageFinalized" => nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageFinalized),
             "ShowSubaquaticVoyageOtherFinalized" =>
-                nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageOtherFinalized),
-            "ShowSubaquaticVoyageReturned" => nameof(Languages.PartyDutyTab_ShowSubaquaticVoyageReturned),
-            "ShowSubmarinePartRepaired" => nameof(Languages.PartyDutyTab_ShowSubmarinePartRepaired),
-            "ShowSubmarineAttainsRank" => nameof(Languages.PartyDutyTab_ShowSubmarineAttainsRank),
+                nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageOtherFinalized),
+            "ShowSubaquaticVoyageReturned" => nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageReturned),
+            "ShowSubmarinePartRepaired" => nameof(Languages.FreeCompanyTab_ShowSubmarinePartRepaired),
+            "ShowSubmarineAttainsRank" => nameof(Languages.FreeCompanyTab_ShowSubmarineAttainsRank),
             "ShowSubmarineRetrievalLevelsIncreased" =>
-                nameof(Languages.PartyDutyTab_ShowSubmarineRetrievalLevelsIncreased),
+                nameof(Languages.FreeCompanyTab_ShowSubmarineRetrievalLevelsIncreased),
             _ => null
         };
 
@@ -517,7 +517,6 @@ internal static class SettingsSearchIndex
         "System" => Languages.ConfigWindow_SystemTabHeader,
         "Currencies" => Languages.ConfigWindow_CurrenciesTabHeader,
         "Allied Societies" => Languages.ConfigWindow_AlliedSocietiesTabHeader,
-        "Loot" => Languages.ConfigWindow_PartyTabHeader,
         "Gold Saucer" => Languages.ConfigWindow_GoldSaucerTabHeader,
         "Progress" => Languages.ConfigWindow_ProgressTabHeader,
         "Combat" => Languages.ConfigWindow_CombatTabHeader,
@@ -586,7 +585,7 @@ internal static class SettingsSearchIndex
             "ShowOnlyPartyMemberRolls" or
             "HideOthersObtain")
         {
-            return $"{Languages.ConfigWindow_PartyTabHeader} > {Languages.ObtainTab_LootingAndRollingDropdownHeader}";
+            return $"{Languages.ConfigWindow_PartyTabHeader} > {Languages.PartyTab_LootingAndRollingDropdownHeader}";
         }
 
         if (propertyName is "HideObtainedClusters")
@@ -918,3 +917,4 @@ internal static class SettingsSearchIndex
         }
     }
 }
+

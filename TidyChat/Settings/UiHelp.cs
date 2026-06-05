@@ -1,4 +1,4 @@
-using Dalamud.Interface.Components;
+﻿using Dalamud.Interface.Components;
 using System.Collections.Generic;
 namespace TidyChat.Settings;
 
@@ -23,8 +23,12 @@ internal static class UiHelp
         AppendNote(help, Languages.Shared_RequiresLootFilteringNote);
 
     public static bool ShouldAppendObtainedFilterNote(string helpPropertyName) =>
-        (helpPropertyName.StartsWith("ObtainTab_", StringComparison.Ordinal) ||
-         helpPropertyName.StartsWith("GoldSaucerTab_", StringComparison.Ordinal)) &&
+        (helpPropertyName.StartsWith("CurrenciesTab_", StringComparison.Ordinal) ||
+         helpPropertyName.StartsWith("AlliedSocietiesTab_", StringComparison.Ordinal) ||
+         helpPropertyName.StartsWith("GoldSaucerTab_", StringComparison.Ordinal) ||
+         helpPropertyName is nameof(Languages.PartyTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker) ||
+         helpPropertyName is nameof(Languages.SystemTab_ShowCrackedClustersMessagesHelpMarker) ||
+         helpPropertyName is nameof(Languages.GatheringTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker)) &&
         !IsLootRollHelpMarker(helpPropertyName) &&
         !helpPropertyName.Contains("SwingMinigames", StringComparison.Ordinal) &&
         !helpPropertyName.Contains("TripleTriad", StringComparison.Ordinal);
@@ -37,14 +41,16 @@ internal static class UiHelp
             _ when helpPropertyName.StartsWith("GoldSaucerTab_", StringComparison.Ordinal) &&
                    (helpPropertyName.Contains("SwingMinigames", StringComparison.Ordinal) ||
                     helpPropertyName.Contains("TripleTriad", StringComparison.Ordinal)) => true,
-            _ when helpPropertyName.StartsWith("PartyDutyTab_ShowAirship", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("PartyDutyTab_ShowSubmarine", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("PartyDutyTab_ShowSubaquatic", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("FreeCompanyTab_ShowAirship", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("FreeCompanyTab_ShowSubmarine", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("FreeCompanyTab_ShowSubaquatic", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("SystemTab_", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("PartyDutyTab_", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("PartyTab_", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("DutyTab_", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("DeepDungeonsTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("EconomyTab_", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("CraftingGatheringTab_ShowCosmic", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("CraftingGatheringTab_ShowStellar", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("GatheringTab_ShowCosmic", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("GatheringTab_ShowStellar", StringComparison.Ordinal) => true,
             _ => ProgressSystemFilterHelpMarkers.Contains(helpPropertyName)
         };
 
@@ -70,12 +76,12 @@ internal static class UiHelp
         ImGuiComponents.HelpMarker(AppendNote(help, Languages.Shared_RequiresProgressFilteringNote));
 
     private static bool IsLootRollHelpMarker(string helpPropertyName) =>
-        helpPropertyName is nameof(Languages.ObtainTab_CastYourLotHelpMarker) or
-            nameof(Languages.ObtainTab_ShowYouRolledMessagesHelpMarker) or
-            nameof(Languages.ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker) or
-            nameof(Languages.ObtainTab_ShowAnotherPlayerRollsMessagesHelpMarker) or
-            nameof(Languages.ObtainTab_ShowOnlyPartyMemberRollsHelpMarker) or
-            nameof(Languages.ObtainTab_ShowOtherPlayersLootRollsHelpMarker);
+        helpPropertyName is nameof(Languages.PartyTab_CastYourLotHelpMarker) or
+            nameof(Languages.PartyTab_ShowYouRolledMessagesHelpMarker) or
+            nameof(Languages.PartyTab_ShowAnotherPlayerCastsLotMessagesHelpMarker) or
+            nameof(Languages.PartyTab_ShowAnotherPlayerRollsMessagesHelpMarker) or
+            nameof(Languages.PartyTab_ShowOnlyPartyMemberRollsHelpMarker) or
+            nameof(Languages.PartyTab_ShowOtherPlayersLootRollsHelpMarker);
 
     private static string AppendNote(string help, string note) =>
         string.IsNullOrWhiteSpace(help)
@@ -84,3 +90,4 @@ internal static class UiHelp
                 ? help
                 : help.TrimEnd() + "\n\n" + note;
 }
+

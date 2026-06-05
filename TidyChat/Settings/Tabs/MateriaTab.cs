@@ -1,4 +1,4 @@
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class MateriaTab
 {
@@ -7,13 +7,13 @@ internal static class MateriaTab
         SettingsTabLayout.DrawTabNote(Languages.MateriaTab_FilteringNote);
 
         SettingsTabLayout.DrawSections(true,
-            (Languages.CraftingGatheringTab_MateriaDropdownHeader, () => DrawMateriaOptions(configuration)));
+            (Languages.MateriaTab_MateriaDropdownHeader, () => DrawMateriaOptions(configuration)));
     }
 
     private static void DrawMateriaOptions(Configuration configuration)
     {
         var showAttachedMateria = configuration.ShowAttachedMateria;
-        if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaSuccesfullyAttachedMessages,
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaSuccesfullyAttachedMessages,
                 ref showAttachedMateria))
         {
             configuration.ShowAttachedMateria = showAttachedMateria;
@@ -21,7 +21,7 @@ internal static class MateriaTab
         }
 
         var showOvermeldFailure = configuration.ShowOvermeldFailure;
-        if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaOvermeldFailuresMessages,
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaOvermeldFailuresMessages,
                 ref showOvermeldFailure))
         {
             configuration.ShowOvermeldFailure = showOvermeldFailure;
@@ -29,7 +29,7 @@ internal static class MateriaTab
         }
 
         var showMateriaRetrieved = configuration.ShowMateriaRetrieved;
-        if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowSuccesfullyRetrievedMateriaMessages,
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowSuccesfullyRetrievedMateriaMessages,
                 ref showMateriaRetrieved))
         {
             configuration.ShowMateriaRetrieved = showMateriaRetrieved;
@@ -37,17 +37,18 @@ internal static class MateriaTab
         }
 
         var showMateriaShatters = configuration.ShowMateriaShatters;
-        if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaShattersMessages, ref showMateriaShatters))
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaShattersMessages, ref showMateriaShatters))
         {
             configuration.ShowMateriaShatters = showMateriaShatters;
             configuration.OnSettingChanged();
         }
 
         var showMateriaExtract = configuration.ShowMateriaExtract;
-        if (ImGui.Checkbox(Languages.CraftingGatheringTab_ShowMateriaExtractedMessages, ref showMateriaExtract))
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaExtractedMessages, ref showMateriaExtract))
         {
             configuration.ShowMateriaExtract = showMateriaExtract;
             configuration.OnSettingChanged();
         }
     }
 }
+

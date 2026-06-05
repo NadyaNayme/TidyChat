@@ -211,13 +211,13 @@ internal static class SystemTab
     private static void DrawCrackedClusters(Configuration configuration)
     {
         var hideObtainedClusters = configuration.HideObtainedClusters;
-        if (ImGui.Checkbox(Languages.ObtainTab_ShowCrackedClustersMessages, ref hideObtainedClusters))
+        if (ImGui.Checkbox(Languages.SystemTab_ShowCrackedClustersMessages, ref hideObtainedClusters))
         {
             configuration.HideObtainedClusters = hideObtainedClusters;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedFilterMarker(Languages.ObtainTab_ShowCrackedClustersMessagesHelpMarker);
+        UiHelp.ObtainedFilterMarker(Languages.SystemTab_ShowCrackedClustersMessagesHelpMarker);
     }
 
     private static void DrawErrorMessages(Configuration configuration)
@@ -319,3 +319,4 @@ internal static class SystemTab
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesLostHelpMarker);
     }
 }
+

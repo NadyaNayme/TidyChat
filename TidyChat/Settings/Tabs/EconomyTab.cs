@@ -1,4 +1,4 @@
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class EconomyTab
 {
@@ -120,22 +120,22 @@ internal static class EconomyTab
     private static void DrawRetainer(Configuration configuration)
     {
         var completedVenture = configuration.ShowCompletedVenture;
-        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowCompletedVenture, ref completedVenture))
         {
             configuration.ShowCompletedVenture = completedVenture;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowCompletedVentureHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowCompletedVentureHelpMarker);
 
         var retainerVentureMessages = configuration.ShowRetainerVentureMessages;
-        if (ImGui.Checkbox(Languages.PartyDutyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowRetainerVentureMessages, ref retainerVentureMessages))
         {
             configuration.ShowRetainerVentureMessages = retainerVentureMessages;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.PartyDutyTab_ShowRetainerVentureMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowRetainerVentureMessagesHelpMarker);
 
         var showMarketGilEntrusted = configuration.ShowMarketGilEntrustedToRetainer;
         if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer, ref showMarketGilEntrusted))
@@ -159,3 +159,4 @@ internal static class EconomyTab
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
     }
 }
+
