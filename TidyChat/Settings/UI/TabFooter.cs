@@ -11,25 +11,6 @@ public static class TabFooter
         ImGui.Separator();
         ImGui.Spacing();
 
-        if (!configuration.NoCoffee)
-        {
-            ImGui.PushStyleColor(ImGuiCol.Button, 0xFF000000 | 0x005E5BFF);
-            ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0xDD000000 | 0x005E5BFF);
-            ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0xAA000000 | 0x005E5BFF);
-
-            if (ImGui.Button(Languages.SettingsTabFooter_SupportOnKofiButtonText))
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "https://ko-fi.com/kagekazu",
-                    UseShellExecute = true
-                });
-            }
-
-            ImGui.PopStyleColor(3);
-        }
-
-        ImGui.SameLine();
         ImGui.PushStyleColor(ImGuiCol.Button, 0x80FA8600);
         ImGui.PushStyleColor(ImGuiCol.ButtonActive, 0x2BBB3200);
         ImGui.PushStyleColor(ImGuiCol.ButtonHovered, 0x6ED86400);

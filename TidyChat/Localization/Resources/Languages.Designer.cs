@@ -728,6 +728,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ko-fi (because hiding chat spam is thirsty work).
+        /// </summary>
+        internal static string ConfigWindow_KofiTitleBarTooltip {
+            get {
+                return ResourceManager.GetString("ConfigWindow_KofiTitleBarTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Materia.
         /// </summary>
         internal static string ConfigWindow_MateriaTabHeader {
@@ -2865,15 +2874,6 @@ namespace TidyChat.Localization.Resources {
         internal static string GeneralTab_FilterSystemSpamHelpMarker {
             get {
                 return ResourceManager.GetString("GeneralTab_FilterSystemSpamHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hide ko-fi button.
-        /// </summary>
-        internal static string GeneralTab_HideKofiButton {
-            get {
-                return ResourceManager.GetString("GeneralTab_HideKofiButton", resourceCulture);
             }
         }
         

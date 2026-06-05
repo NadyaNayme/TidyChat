@@ -70,14 +70,6 @@ internal static class GeneralTab
         ImGui.Separator();
         ImGui.Spacing();
 
-        var noCoffee = configuration.NoCoffee;
-        if (ImGui.Checkbox(Languages.GeneralTab_HideKofiButton, ref noCoffee))
-        {
-            configuration.NoCoffee = noCoffee;
-            configuration.OnSettingChanged();
-        }
-
-        ImGui.Spacing();
         ImGui.TextUnformatted(string.Format(Languages.GeneralTab_BlockedMessages,
             configuration.TtlMessagesBlocked.ToString()));
         ImGuiComponents.HelpMarker(Languages.GeneralTab_BlockCountHelpMarker);

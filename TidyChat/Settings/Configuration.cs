@@ -27,8 +27,6 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryLength { get; set; } = 10;
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
-    public bool NoCoffee { get; set; } = false;
-
     #region Error Messages
 
     public bool HideFateLevelSync { get; set; } = false;

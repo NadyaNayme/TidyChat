@@ -575,6 +575,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_HousingTabHeader" xml:space="preserve">
     <value>Housing</value>
   </data>
+  <data name="ConfigWindow_KofiTitleBarTooltip" xml:space="preserve">
+    <value>Ko-fi (because hiding chat spam is thirsty work)</value>
+  </data>
   <data name="ConfigWindow_MateriaTabHeader" xml:space="preserve">
     <value>Materia</value>
   </data>
@@ -1299,9 +1302,6 @@ eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
     <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party, Duty, Progress tab quest lines, Crafting/Gathering stellar/cosmic system lines, and similar). When disabled, those channels are not filtered here.</value>
-  </data>
-  <data name="GeneralTab_HideKofiButton" xml:space="preserve">
-    <value>Hide ko-fi button</value>
   </data>
   <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
     <value>Include completed duty with commendations message</value>

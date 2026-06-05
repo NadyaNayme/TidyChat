@@ -1,5 +1,7 @@
-﻿using Dalamud.Interface.Utility;
+﻿using Dalamud.Interface;
+using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
+using System.Diagnostics;
 using System.Numerics;
 using TidyChat.Settings.Search;
 using TidyChat.Settings.Tabs;
@@ -46,11 +48,21 @@ internal class PluginUI : Window, IDisposable
     private Action<Configuration> selectedTab = GeneralTab.Draw;
     private (string Label, Action<Configuration> Draw)[]? sortedTabs;
     private string? sortedTabsCulture;
-
     public PluginUI(Configuration configuration) : base("Tidy Chat")
     {
         this.configuration = configuration;
         SizeCondition = ImGuiCond.FirstUseEver;
+
+        TitleBarButtons.Add(new TitleBarButton
+        {
+            Icon = FontAwesomeIcon.Heart,
+            ShowTooltip = () => ImGui.SetTooltip(Languages.ConfigWindow_KofiTitleBarTooltip),
+            Click = _ => Process.Start(new ProcessStartInfo
+            {
+                FileName = "https://ko-fi.com/kagekazu",
+                UseShellExecute = true
+            })
+        });
     }
 
     public void Dispose() { }
@@ -95,6 +107,7 @@ internal class PluginUI : Window, IDisposable
         {
             Size = new Vector2(minWidth, Math.Max(size.Y, MinWindowHeight));
         }
+
     }
 
     public override void Draw()
@@ -222,4 +235,5 @@ internal class PluginUI : Window, IDisposable
         sortedTabs = null;
         sortedTabsCulture = null;
     }
+
 }

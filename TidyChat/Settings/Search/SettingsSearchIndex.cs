@@ -547,8 +547,7 @@ internal static class SettingsSearchIndex
             propertyName.StartsWith("Include", StringComparison.Ordinal) ||
             propertyName is "EnableSmolMode" or
                 "NormalizeBlocks" or
-                "AlwaysNormalizeBlocks" or
-                "NoCoffee")
+                "AlwaysNormalizeBlocks")
         {
             return Languages.ConfigWindow_GeneralTabHeader;
         }
