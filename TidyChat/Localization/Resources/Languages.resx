@@ -1674,9 +1674,6 @@ It can be considered spammy in deep dungeons.</value>
   <data name="Shared_RequiresObtainedFilteringNote" xml:space="preserve">
     <value>Requires Filter Obtained channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
-  <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
-    <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
-  </data>
   <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
     <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>

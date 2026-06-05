@@ -537,9 +537,6 @@ internal static class SettingsSearchIndex
         _ => settingsTab
     };
 
-    private static string InferLocation(string propertyName) =>
-        TryGetInferredLocation(propertyName) ?? Languages.ConfigWindow_GeneralTabHeader;
-
     private static string? TryGetInferredLocation(string propertyName)
     {
         if (propertyName.StartsWith("Filter", StringComparison.Ordinal) ||

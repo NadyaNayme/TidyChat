@@ -131,14 +131,6 @@ public static partial class ChatStrings
         Deu = ["gegenstände", "repariert"],
         Fra = ["objets", "réparé"]
     };
-    /// <see href="https://xivapi.com/LogMessage/1385?pretty=true">Item is repaired.</see>
-    public static readonly LocalizedStrings GearItemRepairedSingle = new()
-    {
-        Jpn = ["修理"],
-        Eng = ["is", "repaired"],
-        Deu = ["wurde", "repariert"],
-        Fra = ["été", "réparé"]
-    };
     /// <see href="https://xivapi.com/LogMessage">Matched via formatted chat text (not a LogMessage row)</see>
     public static readonly LocalizedStrings SayQuestReminder = new()
     {
@@ -284,25 +276,6 @@ public static partial class ChatStrings
         Eng = ["portrait", "instant"],
         Deu = ["portrait", "schnellportrait"],
         Fra = ["portrait", "instantané"]
-    };
-    /// <see href="https://xivapi.com/LogMessage/5874?pretty=true">
-    ///     Portrait has expired. Please readjust its settings and try
-    ///     again.
-    /// </see>
-    public static readonly LocalizedStrings PortraitExpired = new()
-    {
-        Jpn = ["ポートレート", "期限"],
-        Eng = ["portrait", "expired"],
-        Deu = ["portrait", "abgelaufen"],
-        Fra = ["portrait", "expiré"]
-    };
-    /// <see href="https://xivapi.com/LogMessage/5886?pretty=true">Unable to update portrait due to incompatible settings.</see>
-    public static readonly LocalizedStrings PortraitUpdateIncompatible = new()
-    {
-        Jpn = ["ポートレート", "更新"],
-        Eng = ["update", "portrait", "incompatible"],
-        Deu = ["portrait", "aktualisieren", "inkompatibel"],
-        Fra = ["portrait", "incompatible"]
     };
     /// <see href="https://xivapi.com/LogMessage/1900?pretty=true">… equipped, but glamours could not be restored.</see>
     public static readonly LocalizedStrings GearsetGlamourRestoreFailed = new()

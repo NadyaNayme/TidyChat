@@ -3969,15 +3969,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide..
-        /// </summary>
-        internal static string Shared_RequiresProgressFilteringNote {
-            get {
-                return ResourceManager.GetString("Shared_RequiresProgressFilteringNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Requires Filter System channel on the General tab. Checked = show; unchecked = hide..
         /// </summary>
         internal static string Shared_RequiresSystemFilteringNote {

@@ -18,15 +18,6 @@ public static class ChatRegexStrings
         Fra = new(@"^(vous|you) (a|avez) reçu \d{1,6} marque de loup\.$", regexOptions, regexTimeout)
     };
 
-    /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
-    public static readonly LocalizedRegex ObtainedVenture = new()
-    {
-        Jpn = new(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
-        Eng = new(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
-        Deu = new(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout),
-        Fra = new(@"you (obtain|obtains) (a venture|\d{1,2} ventures)\.", regexOptions, regexTimeout)
-    };
-
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
     public static readonly LocalizedRegex ObtainedAlliedSeals = new()
     {
@@ -69,41 +60,6 @@ public static class ChatRegexStrings
             regexOptions, regexTimeout)
     };
 
-
-    /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
-    /// ...
-    /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
-    /// ...
-    /// <see href="https://xivapi.com/Item/2?pretty=true">Fire Shard</see>
-    /// ...
-    /// <seealso href="https://xivapi.com/Item/19?pretty=true">Water Cluster</see>
-    public static readonly LocalizedRegex ObtainedClusters = new()
-    {
-        Jpn = new(@"クラスター(×2)?を(手に入れた|入手した)", regexOptions, regexTimeout),
-        Eng = new(@"^you (obtain|obtains) (a|2) (.*)(cluster|clusters)\.$", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Obtain template + materials suffix</see>
-    public static readonly LocalizedRegex ObtainedMaterials = new()
-    {
-        Jpn = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
-        Eng = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
-        Deu = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout),
-        Fra = new(@"^you (obtain|obtains) (.*) materials\.$", regexOptions, regexTimeout)
-    };
-
-
-    /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental shards/crystals/clusters (Item/2–19)</see>
-    public static readonly LocalizedRegex ObtainedShards = new()
-    {
-        Jpn = new(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
-        Eng = new(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
-        Deu = new(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout),
-        Fra = new(@"^you (obtain|obtains) (a|an|\d{1,3}) .{1,3}(fire|ice|wind|earth|lightning|water) (shards|crystals|clusters)\.$", regexOptions, regexTimeout)
-    };
 
     public static readonly LocalizedRegex ObtainedTribalCurrency = new()
     {
@@ -169,35 +125,6 @@ public static class ChatRegexStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/1259?pretty=true">Other-player obtain template</see>
-    public static readonly LocalizedRegex OtherObtains = new()
-    {
-        Jpn = new(@"^\w+[ .].+は.+を手に入れた。$", regexOptions, regexTimeout),
-        Eng = new(@"(.*) obtains .+", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"(.*) obtient (un|une|\d{1,3}) .+", regexOptions, regexTimeout)
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/657?pretty=true">You obtain N gil.</see>
-    public static readonly LocalizedRegex ObtainedGil = new()
-    {
-        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Eng = new(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} gil\.$", regexOptions, regexTimeout),
-        Deu = new(@"^du hast (\d{1,3},)?\d{1,3} gil erhalten\.$", regexOptions, regexTimeout),
-        Fra = new(@"^(vous )?obtenez (\d{1,3},)?\d{1,3} gils?\.$", regexOptions, regexTimeout)
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/1798?pretty=true">You receive N gil (custom delivery and similar).</see>
-    public static readonly LocalizedRegex ReceivedGil = new()
-    {
-        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Eng = new(@"^you receive (\d{1,3},)?\d{1,3} gil\.$", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
-    };
-
-
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Shared obtain template (tomestone lines)</see>
     public static readonly LocalizedRegex ObtainedTomestones = new()
     {
@@ -217,63 +144,6 @@ public static class ChatRegexStrings
         Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
         Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
     };
-    /// <see href="https://xivapi.com/LogMessage/1631?pretty=true">/isearch item link lines (>> …)</see>
-    /// <see href="https://xivapi.com/LogMessage/1629?pretty=true">/isearch match summary</see>
-    /// <see href="https://xivapi.com/LogMessage/1630?pretty=true">/isearch no matches</see>
-    public static readonly LocalizedRegex ItemSearchCommand = new()
-    {
-        Jpn = new(@"^\s{1,3}>>|を含む所持アイテムは(\d{1,4}種類見つかりました|ありませんでした)。$", regexOptions, regexTimeout),
-        Eng = new(@"(\s{1,3}>>|(No|\d{1,4}) (match|matches) found containing)", regexOptions, regexTimeout),
-        Deu = new(@"(\s{1,3}>>|Die Suche nach|ergab .* Treffer|ergab keinen Treffer)", regexOptions, regexTimeout),
-        Fra = new(@"\s{1,3}>>|(Il n\'y a aucun objet contenant|Il y a \d{1,4} type)", regexOptions, regexTimeout)
-    };
-
-
-    /// <see href="https://xivapi.com/LogMessage/1438?pretty=true">/isearch location result lines</see>
-    public static readonly LocalizedRegex SearchForItemResults = new()
-    {
-        Jpn = new(
-            @"^アーマリーチェスト「.+」に\d+個あります。$|^ミラージュドレッサーに\d+個あります。$|^愛蔵品キャビネット「.+」に\d+個あります。$|に装備中です。$|合計\d{1,9}個見つかりました。|^所持品ブロック[1234]に\d{1,9}個あります。$|^チョコボかばんのかばんタブ[12]に\d{1,9}個あります。$|^チョコボかばんに\d+個あります。$",
-            regexOptions, regexTimeout),
-        Eng = new(
-            @"(^\d{1,9} (item|items) found in glamour dresser\.?)"
-            + @"|(^\d{1,9} (item|items) found in the .* section of the armoire\.?)"
-            + @"|(^\d{1,9} (item|items) found in the .* section of your [Aa]rmou?ry [Cc]hest\.?)"
-            + @"|(^currently equipped to .* slot)"
-            + @"|(^total: \d{1,9} (item|items) found)"
-            + @"|(^\d{1,9} (item|items) found in the (1st|2nd|3rd|4th) tab of (your|.+'s) inventory)"
-            + @"|(^\d{1,9} (item|items) found in the (1st|2nd) tab of your saddlebag\.?)"
-            + @"|(^\d{1,9} (item|items) found in saddlebag)",
-            regexOptions, regexTimeout),
-        Deu = new(
-            @"(^\d+ Exemplar(e)? wurde in der Kategorie .+ deines Arsenals gefunden)"
-            + @"|(^\d+ Exemplar(e)? wurde auf Seite .+ deines Inventars gefunden)"
-            + @"|(^\d+ Exemplar(e)? wurde auf Seite .+ deiner Satteltasche gefunden)"
-            + @"|(^\d+ Exemplar(e)? wurde in der Satteltasche gefunden)"
-            + @"|(^\d+ Exemplar(e)? wurde in der Projektionskommode gefunden)"
-            + @"|(^\d+ Exemplar(e)? wurde in deinem Kostbarkeitenkabinett unter)"
-            + @"|(^Der Gegenstand ist angelegt)"
-            + @"|(^Die Suche ergab)"
-            + @"|(wird gesucht\.$)",
-            regexOptions, regexTimeout),
-        Fra = new(
-            @"(possède|possédez) \d{1,3} (cristal|cristaux)\.$"
-            + @"|^recherche de l'objet"
-            + @"|(exemplaire(s)? de l'objet se trouve dans la rubrique .+ de l'arsenal)"
-            + @"|(exemplaire(s)? de l'objet se trouve dans l'onglet n°.+ de l'inventaire)"
-            + @"|(exemplaire(s)? de l'objet se trouve dans l'onglet n°.+ de la sacoche chocobo)"
-            + @"|(exemplaire(s)? de l'objet se trouve dans la sacoche chocobo)"
-            + @"|(exemplaire(s)? de l'objet se trouve dans la coiffeuse mirage)"
-            + @"|(exemplaire(s)? de l'objet se trouve dans la section .+ du bahut)"
-            + @"|^total\ \: \d{1,6} (résultat|résultats)\.$"
-            + @"|^l'objet est équipé dans la case"
-            + @"|^aucun résultat trouvé\.$",
-            regexOptions, regexTimeout)
-    };
-
-
-#region Deep Dungeons
-
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
     public static readonly LocalizedRegex DutyHasBegun = new()
     {
@@ -282,6 +152,7 @@ public static class ChatRegexStrings
         Deu = new(@"^(?<duty>.+?)\s+hat\s+begonnen\.?$", regexOptions, regexTimeout),
         Fra = new(@"^(?<duty>.+?)\s+a\s+commencé\.?$", regexOptions, regexTimeout)
     };
+
     /// <see href="https://xivapi.com/LogMessage/748?pretty=true">Market board item sold (after fees).</see>
     public static readonly LocalizedRegex MarketItemSold = new()
     {
@@ -290,17 +161,6 @@ public static class ChatRegexStrings
         Deu = new(@"you put up for sale.*?(?:has|have) sold for (?<gil>[\d,]+) gil", regexOptions, regexTimeout),
         Fra = new(@"you put up for sale.*?(?:has|have) sold for (?<gil>[\d,]+) gil", regexOptions, regexTimeout)
     };
-
-    /// <see href="https://xivapi.com/LogMessage/7265?pretty=true">Floor Number"</see>
-    public static readonly LocalizedRegex FloorNumber = new()
-    {
-        Jpn = new(@"^地下(\d|\d\d|\d\d\d)階", regexOptions, regexTimeout),
-        Eng = new(@"^floor (\d|\d\d|\d\d\d)|floors \d+-\d+\) has begun", regexOptions, regexTimeout),
-        Deu = new(@"^ebene (\d|\d\d|\d\d\d) betreten", regexOptions, regexTimeout),
-        Fra = new(@"^sous-sol (\d|\d\d|\d\d\d)", regexOptions, regexTimeout)
-    };
-
-#endregion Deep Dungeons
 
     #region Treasure Dungeons
 

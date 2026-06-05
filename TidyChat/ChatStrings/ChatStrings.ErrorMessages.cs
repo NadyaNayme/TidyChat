@@ -31,25 +31,6 @@ public static partial class ChatStrings
         Fra = ["commande", "indisponible"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/725?pretty=true">The command /… does not exist.</see>
-    public static readonly LocalizedStrings CommandDoesNotExist = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["command", "does", "not", "exist"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/458?pretty=true">That command doesn't exist.</see>
-    public static readonly LocalizedStrings CommandDoesntExist = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["command", "doesn't", "exist"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
     public static readonly LocalizedStrings PartyLeaderDutyRegister = new()
     {
         Jpn = ["NeedsLocalization"],

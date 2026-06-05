@@ -72,9 +72,6 @@ internal static class UiHelp
     public static void GatheringFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(AppendNote(help, Languages.Shared_RequiresGatheringFilteringNote));
 
-    public static void ProgressFilterMarker(string help) =>
-        ImGuiComponents.HelpMarker(AppendNote(help, Languages.Shared_RequiresProgressFilteringNote));
-
     private static bool IsLootRollHelpMarker(string helpPropertyName) =>
         helpPropertyName is nameof(Languages.PartyTab_CastYourLotHelpMarker) or
             nameof(Languages.PartyTab_ShowYouRolledMessagesHelpMarker) or
