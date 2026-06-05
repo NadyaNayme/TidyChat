@@ -10,35 +10,19 @@ public static partial class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
+            LogMessageIds = [1231],
             StringChecks = [ChatStrings.LootRoll],
             Pattern = PatternKind.StringMatch
         },
         new()
         {
-            Name = "ShowLootRoll",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootRoll,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.RollsNeedOrGreed],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
             Name = "ShowCastLot",
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
+            LogMessageIds = [5180],
             StringChecks = [ChatStrings.CastLot],
             Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowCastLot",
-            SettingsTab = "Loot/Obtain",
-            Channel = ChatType.LootRoll,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.CastLot],
-            Pattern = PatternKind.RegexMatch
         },
         new()
         {
@@ -173,6 +157,7 @@ public static partial class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
+            LogMessageIds = [1231],
             RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OthersRollNeedOrGreed],
             Pattern = PatternKind.RegexMatch
         },
@@ -182,6 +167,7 @@ public static partial class Rules
             SettingsTab = "Loot/Obtain",
             Channel = ChatType.LootRoll,
             IsActive = true,
+            LogMessageIds = [5180],
             RegexChecks = [ChatRegexStrings.OthersCastLot],
             Pattern = PatternKind.RegexMatch
         },

@@ -153,30 +153,6 @@ public static class ChatRegexStrings
 
     /// <see href="https://xivapi.com/LogMessage/588?pretty=true">Gain experience (588, 589, 4466, …)</see>
     /// <seealso href="https://xivapi.com/LogMessage/549?pretty=true">BattleSystem XP / chain bonus</see>
-    public static readonly LocalizedRegex GainExperience = new()
-    {
-        Jpn = new(@"経験値", regexOptions, regexTimeout),
-        Eng = new(@"\d[\d,]*(\(\+\d+%\))?\s+\w*\s*experience points", regexOptions, regexTimeout),
-        Deu = new(@"\d[\d,]* erfahrungspunkte", regexOptions, regexTimeout),
-        Fra = new(@"\d[\d,]* points? d'expérience", regexOptions, regexTimeout)
-    };
-
-    public static readonly LocalizedRegex CastLot = new()
-    {
-        Jpn = new(@"^youは.*にロットした。$", regexOptions, regexTimeout),
-        Eng = new(@"^you (cast|casts) (your|his|her|their) lot for (.*)\.$", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
-    };
-
-    public static readonly LocalizedRegex RollsNeedOrGreed = new()
-    {
-        Jpn = new(@"^youは.+に(NEED|GREED)のダイスで\d{1,2}を出した。$", regexOptions, regexTimeout),
-        Eng = new(@"^you (roll|rolls) (Need|Greed) on (.*)\. \d{1,2}\!$", regexOptions, regexTimeout),
-        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
-        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
-    };
-
     public static readonly LocalizedRegex OthersCastLot = new()
     {
         Jpn = new(@"^\w+[ .].+は.+にロットした", regexOptions, regexTimeout),

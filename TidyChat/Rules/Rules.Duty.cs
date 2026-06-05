@@ -6,6 +6,17 @@ public static partial class Rules
     [
         new()
         {
+            Name = "ShowDutyCommenceMessage",
+            SettingsTab = "General",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1531],
+            StringChecks = [ChatStrings.DutyHasBegun],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "HideDutyCommenceBriefing",
             SettingsTab = "System",
             Channel = ChatType.System,

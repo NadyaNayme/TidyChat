@@ -374,15 +374,6 @@ internal static class SystemTab
             }
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowOrchestrionPlayingHelpMarker);
-
-            var showVolumeControlMessage = configuration.ShowVolumeControlMessage;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowVolumeControlMessages, ref showVolumeControlMessage))
-            {
-                configuration.ShowVolumeControlMessage = showVolumeControlMessage;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowVolumeControlMessagesHelpMarker);
         }
 
         if (ImGui.CollapsingHeader(Languages.SystemTab_ErrorMessagesDropdownHeader))

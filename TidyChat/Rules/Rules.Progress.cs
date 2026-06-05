@@ -53,37 +53,8 @@ public static partial class Rules
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
             IsActive = true,
-            LogMessageIds = [588, 589, 4466, 7300, 10953],
-            RegexChecks = [ChatRegexStrings.GainExperience],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
-            Name = "ShowGainExperience",
-            SettingsTab = "Progress",
-            Channel = ChatType.BattleSystem,
-            IsActive = true,
-            LogMessageIds = [549],
-            RegexChecks = [ChatRegexStrings.GainExperience],
-            Pattern = PatternKind.RegexMatch
-        },
-        new()
-        {
-            Name = "ShowGainExperience",
-            SettingsTab = "Progress",
-            Channel = ChatType.Progress,
-            IsActive = true,
             StringChecks = [ChatStrings.GainExperience],
             Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowGainExperience",
-            SettingsTab = "Progress",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            RegexChecks = [ChatRegexStrings.GainExperience],
-            Pattern = PatternKind.RegexMatch
         },
         new()
         {

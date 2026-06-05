@@ -4670,24 +4670,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show volume control messages.
-        /// </summary>
-        internal static string SystemTab_ShowVolumeControlMessages {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowVolumeControlMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to eg. Master Volume muted, BGM volume set to 50..
-        /// </summary>
-        internal static string SystemTab_ShowVolumeControlMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("SystemTab_ShowVolumeControlMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Show &quot;You sense something...&quot; messages.
         /// </summary>
         internal static string SystemTab_ShowYouSenseSomethingMessages {

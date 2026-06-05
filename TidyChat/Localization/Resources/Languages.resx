@@ -931,7 +931,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Improved duty commence messaging</value>
   </data>
   <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
-    <value>Replaces duty entry spam with a single line: Duty Name has begun. Hides level sync, item level sync, alliance reform, and Echo briefing lines.</value>
+    <value>LogMessage 1531 — replaces duty entry spam with a single line: Duty Name has begun. Hides level sync (618, 9602), item level sync (4224, 9606), alliance reform (9795), and Echo briefing (4217) lines.</value>
   </data>
   <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
     <value>Improved /instance messaging</value>
@@ -1007,7 +1007,7 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Allied Society</value>
   </data>
   <data name="ObtainTab_CastYourLotHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you roll on loot.
+    <value>LogMessage 5180 — when you cast your lot on loot.
 eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="ObtainTab_CastYourLotMessages" xml:space="preserve">
@@ -1041,7 +1041,7 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when another player in the party rolls for a loot drop.
+    <value>LogMessage 5180 — when another player casts lot on loot (not your roll result).
 eg. Some player casts her lot for &lt;item&gt;.</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerObtainsItemMessages" xml:space="preserve">
@@ -1055,8 +1055,8 @@ eg. Some player obtains an &lt;item&gt;! Independent of the loot roll options ab
     <value>Show "Another Player rolls Greed..." messages</value>
   </data>
   <data name="ObtainTab_ShowAnotherPlayerRollsMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for when another player rolls Need, Greed, or Pass on loot in your party.
-eg. Another Player rolls Greed on &lt;item&gt;. When on, use the nested party-only filter. Unchecking disables the nested option in chat until you turn this back on (the nested checkbox keeps its setting for next time).</value>
+    <value>LogMessage 1231 — master toggle for when another player rolls Need, Greed, or Pass on loot in your party.
+eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested party-only filter. Unchecking disables the nested option in chat until you turn this back on (the nested checkbox keeps its setting for next time).</value>
   </data>
   <data name="ObtainTab_ShowBeastTribeCraftingMaterialsMessages" xml:space="preserve">
     <value>Hide allied society crafting materials</value>
@@ -1162,8 +1162,8 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Show "You rolled..." messages</value>
   </data>
   <data name="ObtainTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
-eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
+    <value>LogMessage 1231 — your Need/Greed/Pass roll result only (not other players' rolls).
+eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="PartyDutyTab_DeepDungeonsDropdownHeader" xml:space="preserve">
     <value>Deep dungeons</value>
@@ -1824,12 +1824,6 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   </data>
   <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 1272, 1273 — eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
-  </data>
-  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
-    <value>Show volume control messages</value>
-  </data>
-  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Master Volume muted, BGM volume set to 50.</value>
   </data>
   <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
     <value>Show "You sense something..." messages</value>

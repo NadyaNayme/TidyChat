@@ -171,7 +171,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowPortraitMessages { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
 
-    public bool ShowVolumeControlMessage { get; set; } = false;
 
     public bool ShowTradeSent { get; set; } = false;
     public bool ShowTradeCanceled { get; set; } = false;

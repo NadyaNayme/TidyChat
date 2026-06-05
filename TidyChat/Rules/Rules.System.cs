@@ -421,19 +421,19 @@ public static partial class Rules
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [890],
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
             Name = "ShowDutyFinder",
             SettingsTab = "Party",
-            Channel = ChatType.System,
+            Channel = ChatType.Error,
             IsActive = true,
+            LogMessageIds = [890],
             StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -450,19 +450,19 @@ public static partial class Rules
             SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [902],
             StringChecks = [ChatStrings.PartyMemberDutyWithdrawn],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            Pattern = PatternKind.StringMatch
         },
         new()
         {
             Name = "ShowDutyFinder",
             SettingsTab = "Party",
-            Channel = ChatType.System,
+            Channel = ChatType.Error,
             IsActive = true,
+            LogMessageIds = [902],
             StringChecks = [ChatStrings.PartyMemberDutyWithdrawn],
-            Pattern = PatternKind.StringMatch
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -1549,13 +1549,15 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
+        // Always shown when System filtering is on — no user toggle.
         new()
         {
-            Name = "ShowVolumeControlMessage",
+            Name = "ShowVolumeControlMessages",
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866]
+            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866],
+            PreferLogMessageCatalog = true
         },
         new()
         {
