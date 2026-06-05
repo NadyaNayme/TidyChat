@@ -96,6 +96,12 @@ internal static class WhitelistTab
                     configuration.OnSettingChanged();
                 }
                 if (ImGui.CheckboxFlags(
+                        $"{Languages.ChatHistoryTab_LootRollsChannel}##whitelist{i}OverrideLootRollFilters",
+                        ref alias.WhitelistedChannels, 1 << 6))
+                {
+                    configuration.OnSettingChanged();
+                }
+                if (ImGui.CheckboxFlags(
                         $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
                         ref alias.WhitelistedChannels,
                         1 << 8))

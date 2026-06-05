@@ -64,38 +64,45 @@ internal static class ChatHistoryTab
             configuration.OnSettingChanged();
         }
 
+        if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_LootRollsChannel, ref chatHistoryChannels, 1 << 6))
+        {
+            configuration.ChatHistoryChannels = chatHistoryChannels;
+            configuration.OnSettingChanged();
+        }
+
+        ImGui.SameLine(90f);
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_CraftingChannel, ref chatHistoryChannels, 1 << 8))
         {
             configuration.ChatHistoryChannels = chatHistoryChannels;
             configuration.OnSettingChanged();
         }
 
-        ImGui.SameLine(90f);
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_GatheringChannel, ref chatHistoryChannels, 1 << 9))
         {
             configuration.ChatHistoryChannels = chatHistoryChannels;
             configuration.OnSettingChanged();
         }
 
+        ImGui.SameLine(90f);
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_TalkingChannel, ref chatHistoryChannels, 1 << 2))
         {
             configuration.ChatHistoryChannels = chatHistoryChannels;
             configuration.OnSettingChanged();
         }
 
-        ImGui.SameLine(90f);
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_LoginLogoutChannel, ref chatHistoryChannels, 1 << 7))
-        {
-            configuration.ChatHistoryChannels = chatHistoryChannels;
-            configuration.OnSettingChanged();
-        }
-        if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_ProgressChannel, ref chatHistoryChannels, 1 << 4))
         {
             configuration.ChatHistoryChannels = chatHistoryChannels;
             configuration.OnSettingChanged();
         }
 
         ImGui.SameLine(90f);
+        if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_ProgressChannel, ref chatHistoryChannels, 1 << 4))
+        {
+            configuration.ChatHistoryChannels = chatHistoryChannels;
+            configuration.OnSettingChanged();
+        }
+
         if (ImGui.CheckboxFlags(Languages.ChatHistoryTab_SystemChannel, ref chatHistoryChannels, 1 << 3))
         {
             configuration.ChatHistoryChannels = chatHistoryChannels;

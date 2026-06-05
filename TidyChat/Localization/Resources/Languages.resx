@@ -437,6 +437,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
     <value>Loot</value>
   </data>
+  <data name="ChatHistoryTab_LootRollsChannel" xml:space="preserve">
+    <value>Loot rolls</value>
+  </data>
   <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
     <value>Progress</value>
   </data>
@@ -2099,7 +2102,7 @@ Login/Logout covers Free Company login/logout lines. Progress covers Progress an
     <value>Player names must match chat exactly (including periods): Example N., E. Name, or E. N. Use /pattern/ for regex. Use #588 or #588,589 for LogMessage IDs (see Filters help above).</value>
   </data>
   <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-    <value>Add a row and press Enter. Custom filters run after normal TidyChat rules and override the result for matching lines.</value>
+    <value>Add a row and press Enter. The Filters column accepts plain text, /pattern/ for regex, or #123 / #123,456 for LogMessage IDs — hover the Filters header for details. Custom filters run after normal TidyChat rules and override the result for matching lines.</value>
   </data>
   <data name="WhitelistTab_FilteringNote" xml:space="preserve">
     <value>Block hides matching lines. Allow shows matching lines even when another filter would hide them. Pick at least one channel per row. Gathering covers Gathering and Gathering System. System covers System and Retainer Sale. Loot is the Obtained (loot notice) channel.</value>
