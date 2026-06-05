@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using TidyChat.Utility;
 
 namespace TidyChat;
 
@@ -15,7 +14,20 @@ internal static class ObtainCurrencyHelper
         IReadOnlyList<TomestoneInfo> tomestones,
         IDictionary<uint, bool> hideTomestoneById) =>
         ShouldAllowCurrencyObtain(config, normalizedText) ||
-        TomestoneHelper.ShouldAllowObtain(normalizedText, tomestones, hideTomestoneById);
+        ShouldAllowTomestoneObtain(normalizedText, tomestones, hideTomestoneById);
+
+    public static bool ShouldHideTomestone(
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tomestones,
+        IDictionary<uint, bool> hideTomestoneById)
+    {
+        if (!TryGetMatchedTomestone(normalizedText, tomestones, out var tomestone))
+        {
+            return false;
+        }
+
+        return hideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide;
+    }
 
     public static bool HasObtainMarkerConstraint(LocalizedFilterRule rule) =>
         rule.ObtainMarkerItemId is not null ||
@@ -49,6 +61,51 @@ internal static class ObtainCurrencyHelper
         {
             return true;
         }
+        return false;
+    }
+
+    private static bool ShouldAllowTomestoneObtain(
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tomestones,
+        IDictionary<uint, bool> hideTomestoneById)
+    {
+        if (!TryGetMatchedTomestone(normalizedText, tomestones, out var tomestone))
+        {
+            return false;
+        }
+
+        return !hideTomestoneById.TryGetValue(tomestone.RowId, out var hide) || !hide;
+    }
+
+    private static bool TryGetMatchedTomestone(
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tomestones,
+        out TomestoneInfo tomestone)
+    {
+        tomestone = default!;
+        if (tomestones.Count == 0)
+        {
+            return false;
+        }
+        if (!L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
+        {
+            return false;
+        }
+
+        foreach (var candidate in tomestones)
+        {
+            var itemNameLower = candidate.Name.ToLower(CultureInfo.InvariantCulture);
+            var lastWordStart = itemNameLower.LastIndexOf(' ') + 1;
+            var typeName = itemNameLower[lastWordStart..];
+            if (!normalizedText.Contains(typeName, StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            tomestone = candidate;
+            return true;
+        }
+
         return false;
     }
 

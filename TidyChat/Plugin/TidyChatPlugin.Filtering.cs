@@ -604,7 +604,7 @@ public sealed partial class TidyChatPlugin
         }
 
         if (chatType is ChatType.LootNotice &&
-            TomestoneHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
+            ObtainCurrencyHelper.ShouldHideTomestone(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
             if (Configuration.EnableDebugMode)
             {

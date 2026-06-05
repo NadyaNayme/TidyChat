@@ -671,7 +671,7 @@ public sealed partial class TidyChatPlugin
         {
             return false;
         }
-        if (!TomestoneHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
+        if (!ObtainCurrencyHelper.ShouldHideTomestone(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
             return false;
         }
