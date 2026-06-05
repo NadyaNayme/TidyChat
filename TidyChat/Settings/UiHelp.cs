@@ -60,6 +60,15 @@ internal static class UiHelp
     public static void LootFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(WithLootFilterNote(help));
 
+    public static void CraftingFilterMarker(string help) =>
+        ImGuiComponents.HelpMarker(AppendNote(help, Languages.Shared_RequiresCraftingFilteringNote));
+
+    public static void GatheringFilterMarker(string help) =>
+        ImGuiComponents.HelpMarker(AppendNote(help, Languages.Shared_RequiresGatheringFilteringNote));
+
+    public static void ProgressFilterMarker(string help) =>
+        ImGuiComponents.HelpMarker(AppendNote(help, Languages.Shared_RequiresProgressFilteringNote));
+
     private static bool IsLootRollHelpMarker(string helpPropertyName) =>
         helpPropertyName is nameof(Languages.ObtainTab_CastYourLotHelpMarker) or
             nameof(Languages.ObtainTab_ShowYouRolledMessagesHelpMarker) or

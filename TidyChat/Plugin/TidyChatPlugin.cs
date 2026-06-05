@@ -52,6 +52,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private static IDtrBarEntry? DtrEntry { get; set; }
 
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
+    public static IReadOnlyList<TomestoneInfo> TribalCurrencies { get; private set; } = [];
 
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 

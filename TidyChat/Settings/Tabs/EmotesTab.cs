@@ -5,6 +5,8 @@ internal static class EmotesTab
 {
     public static void Draw(Configuration configuration)
     {
+        SettingsTabLayout.DrawTabNote(Languages.EmotesTab_FilteringNote);
+
         var filterEmoteSpam = configuration.FilterEmoteChannel;
         if (ImGui.Checkbox(Languages.EmotesTab_FilterStandardEmotes, ref filterEmoteSpam))
         {

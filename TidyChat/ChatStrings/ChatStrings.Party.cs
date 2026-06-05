@@ -87,7 +87,7 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings RetainerVentureAssign = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["assign", "retainer"],
+        Eng = ["assign your retainer"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

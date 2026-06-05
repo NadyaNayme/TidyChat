@@ -4,11 +4,16 @@ internal static class FreeCompanyTab
 {
     public static void Draw(Configuration configuration)
     {
-        ImGui.TextWrapped(Languages.FreeCompanyTab_FilteringNote);
-        ImGui.Spacing();
+        SettingsTabLayout.DrawTabNote(Languages.FreeCompanyTab_FilteringNote);
 
-        if (ImGui.CollapsingHeader(Languages.FreeCompanyTab_SocialDropdownHeader, ImGuiTreeNodeFlags.DefaultOpen))
-        {
+        SettingsTabLayout.DrawSections(true,
+            (Languages.FreeCompanyTab_SocialDropdownHeader, () => DrawSocial(configuration)),
+            (Languages.FreeCompanyTab_MessageBookDropdownHeader, () => DrawMessageBook(configuration)),
+            (Languages.FreeCompanyTab_WorkshopDropdownHeader, () => DrawWorkshop(configuration)));
+    }
+
+    private static void DrawSocial(Configuration configuration)
+    {
             var showUserLogins = configuration.ShowUserLogins;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowLoginMessages, ref showUserLogins))
             {
@@ -22,10 +27,10 @@ internal static class FreeCompanyTab
                 configuration.ShowUserLogouts = showUserLogouts;
                 configuration.OnSettingChanged();
             }
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.FreeCompanyTab_MessageBookDropdownHeader))
-        {
+    private static void DrawMessageBook(Configuration configuration)
+    {
             var showFreeCompanyMessageBook = configuration.ShowFreeCompanyMessageBook;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowFreeCompanyMessageBookMessages,
                     ref showFreeCompanyMessageBook))
@@ -33,10 +38,10 @@ internal static class FreeCompanyTab
                 configuration.ShowFreeCompanyMessageBook = showFreeCompanyMessageBook;
                 configuration.OnSettingChanged();
             }
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.FreeCompanyTab_WorkshopDropdownHeader))
-        {
+    private static void DrawWorkshop(Configuration configuration)
+    {
             var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowAirshipVoyageMessages, ref showExploratoryVoyage))
             {
@@ -59,7 +64,6 @@ internal static class FreeCompanyTab
 
             SettingsTabLayout.DrawNestedOptions(configuration.ShowSubaquaticVoyage,
                 () => DrawSubaquaticSubOptions(configuration));
-        }
     }
 
     private static void DrawSubaquaticSubOptions(Configuration configuration)

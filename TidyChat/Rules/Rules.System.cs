@@ -1,4 +1,4 @@
-namespace TidyChat;
+﻿namespace TidyChat;
 
 public static partial class Rules
 {
@@ -174,7 +174,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDesynthedItem",
-            SettingsTab = "System",
+            SettingsTab = "Desynthesis",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4321],
@@ -185,7 +185,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDesynthesisObtains",
-            SettingsTab = "System",
+            SettingsTab = "Desynthesis",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4322, 4323],

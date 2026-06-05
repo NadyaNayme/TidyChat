@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TidyChat.Data;
 using TidyChat.Translation.Data;
 
 namespace TidyChat;
@@ -41,9 +42,12 @@ internal static class ObtainCurrencyHelper
         Configuration config,
         string normalizedText,
         IReadOnlyList<TomestoneInfo> tomestones,
-        IDictionary<uint, bool> hideTomestoneById) =>
+        IDictionary<uint, bool> hideTomestoneById,
+        IReadOnlyList<TomestoneInfo> tribalCurrencies,
+        IDictionary<uint, bool> hideTribalCurrencyById) =>
         ShouldAllowCurrencyObtain(config, normalizedText) ||
-        ShouldAllowTomestoneObtain(normalizedText, tomestones, hideTomestoneById);
+        ShouldAllowTomestoneObtain(normalizedText, tomestones, hideTomestoneById) ||
+        ShouldAllowTribalCurrencyObtain(config, normalizedText, tribalCurrencies, hideTribalCurrencyById);
 
     public static bool ShouldHideTomestone(
         string normalizedText,
@@ -56,6 +60,25 @@ internal static class ObtainCurrencyHelper
         }
 
         return hideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide;
+    }
+
+    public static bool ShouldHideTribalCurrency(
+        Configuration config,
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tribalCurrencies,
+        IDictionary<uint, bool> hideTribalCurrencyById)
+    {
+        if (!TryGetMatchedTribalCurrency(normalizedText, tribalCurrencies, out var currency))
+        {
+            return false;
+        }
+
+        if (config.HideObtainedTribalCurrency)
+        {
+            return true;
+        }
+
+        return hideTribalCurrencyById.TryGetValue(currency.RowId, out var hide) && hide;
     }
 
     public static bool HasObtainMarkerConstraint(LocalizedFilterRule rule) =>
@@ -147,11 +170,67 @@ internal static class ObtainCurrencyHelper
             return "HideObtainedSeals";
         }
 
+        if (TryGetMatchedTribalCurrency(normalizedText, TidyChatPlugin.TribalCurrencies, out _) &&
+            !ShouldHideTribalCurrency(config, normalizedText, TidyChatPlugin.TribalCurrencies, config.HideTribalCurrencyById))
+        {
+            return "HideObtainedTribalCurrency";
+        }
+
         return null;
     }
 
     public static bool ShouldAllowCurrencyObtain(Configuration config, string normalizedText) =>
         GetAllowBecauseHideOffRuleName(config, normalizedText) is not null;
+
+    private static bool ShouldAllowTribalCurrencyObtain(
+        Configuration config,
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tribalCurrencies,
+        IDictionary<uint, bool> hideTribalCurrencyById) =>
+        TryGetMatchedTribalCurrency(normalizedText, tribalCurrencies, out _) &&
+        !ShouldHideTribalCurrency(config, normalizedText, tribalCurrencies, hideTribalCurrencyById);
+
+    private static bool TryGetMatchedTribalCurrency(
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tribalCurrencies,
+        out TomestoneInfo currency)
+    {
+        currency = default!;
+        if (!ItemMarkerCatalog.IsLoaded || tribalCurrencies.Count == 0)
+        {
+            return false;
+        }
+
+        foreach (var candidate in tribalCurrencies)
+        {
+            if (!ItemMarkerCatalog.Matches(candidate.RowId, normalizedText))
+            {
+                continue;
+            }
+
+            currency = candidate;
+            return true;
+        }
+
+        if (!L10N.Get(ChatRegexStrings.ObtainedTribalCurrency).IsMatch(normalizedText))
+        {
+            return false;
+        }
+
+        foreach (var candidate in tribalCurrencies)
+        {
+            var nameLower = candidate.Name.ToLower(CultureInfo.InvariantCulture);
+            if (!normalizedText.Contains(nameLower, StringComparison.Ordinal))
+            {
+                continue;
+            }
+
+            currency = candidate;
+            return true;
+        }
+
+        return false;
+    }
 
     private static bool ShouldAllowTomestoneObtain(
         string normalizedText,

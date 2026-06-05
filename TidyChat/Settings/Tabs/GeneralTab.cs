@@ -6,6 +6,8 @@ internal static class GeneralTab
 {
     public static void Draw(Configuration configuration)
     {
+        SettingsTabLayout.DrawTabNote(Languages.GeneralTab_FilteringNote);
+
         var filterSystemMessages = configuration.FilterSystemMessages;
         if (ImGui.Checkbox(Languages.GeneralTab_FilterSystemSpam, ref filterSystemMessages))
         {
@@ -60,9 +62,30 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_FilterGatheringSpamHelpMarker);
 
-        if (ImGui.CollapsingHeader(Languages.GeneralTab_DisplayOptionsHeader))
+        SettingsTabLayout.DrawSections(false,
+            (Languages.GeneralTab_DisplayOptionsHeader, () => DrawDisplayOptions(configuration)),
+            (Languages.GeneralTab_ImprovedMessagesHeader, () => DrawImprovedMessages(configuration)));
+
+        ImGuiHelpers.ScaledDummy(30f);
+        ImGui.Separator();
+        ImGui.Spacing();
+
+        var noCoffee = configuration.NoCoffee;
+        if (ImGui.Checkbox(Languages.GeneralTab_HideKofiButton, ref noCoffee))
         {
-            var includeChatTag = configuration.IncludeChatTag;
+            configuration.NoCoffee = noCoffee;
+            configuration.OnSettingChanged();
+        }
+
+        ImGui.Spacing();
+        ImGui.TextUnformatted(string.Format(Languages.GeneralTab_BlockedMessages,
+            configuration.TtlMessagesBlocked.ToString()));
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_BlockCountHelpMarker);
+    }
+
+    private static void DrawDisplayOptions(Configuration configuration)
+    {
+        var includeChatTag = configuration.IncludeChatTag;
             if (ImGui.Checkbox(Languages.GeneralTab_TidyChatTag, ref includeChatTag))
             {
                 configuration.IncludeChatTag = includeChatTag;
@@ -95,11 +118,11 @@ internal static class GeneralTab
                 configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
                 configuration.OnSettingChanged();
             }
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.GeneralTab_ImprovedMessagesHeader))
-        {
-            var betterInstanceMessage = configuration.BetterInstanceMessage;
+    private static void DrawImprovedMessages(Configuration configuration)
+    {
+        var betterInstanceMessage = configuration.BetterInstanceMessage;
             if (ImGui.Checkbox(Languages.GeneralTab_ImprovedInstanceMessaging, ref betterInstanceMessage))
             {
                 configuration.BetterInstanceMessage = betterInstanceMessage;
@@ -198,22 +221,5 @@ internal static class GeneralTab
             }
 
             ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarketBoardSaleHelpMarker);
-        }
-
-        ImGuiHelpers.ScaledDummy(30f);
-        ImGui.Separator();
-        ImGui.Spacing();
-
-        var noCoffee = configuration.NoCoffee;
-        if (ImGui.Checkbox(Languages.GeneralTab_HideKofiButton, ref noCoffee))
-        {
-            configuration.NoCoffee = noCoffee;
-            configuration.OnSettingChanged();
-        }
-
-        ImGui.Spacing();
-        ImGui.TextUnformatted(string.Format(Languages.GeneralTab_BlockedMessages,
-            configuration.TtlMessagesBlocked.ToString()));
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_BlockCountHelpMarker);
     }
 }

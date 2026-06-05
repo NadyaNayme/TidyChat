@@ -12,31 +12,37 @@ internal class PluginUI : Window, IDisposable
     private const float WindowChromePadding = 28f;
     private const float SidebarExtraPadding = 12f;
 
-    private static readonly (string Label, Action<Configuration> Draw)[] Tabs =
+    private static readonly (Func<string> GetLabel, Action<Configuration> Draw)[] TabDefinitions =
     [
-        (Languages.ConfigWindow_GeneralTabHeader, GeneralTab.Draw),
-        (Languages.ConfigWindow_EmotesTabHeader, EmotesTab.Draw),
-        (Languages.ConfigWindow_SystemTabHeader, SystemTab.Draw),
-        (Languages.ConfigWindow_ExplorationTabHeader, ExplorationTab.Draw),
-        (Languages.ConfigWindow_HousingTabHeader, HousingTab.Draw),
-        (Languages.ConfigWindow_GlamourTabHeader, GlamourTab.Draw),
-        (Languages.ConfigWindow_PartyDutyTabHeader, PartyDutyTab.Draw),
-        (Languages.ConfigWindow_DeepDungeonsTabHeader, DeepDungeonsTab.Draw),
-        (Languages.ConfigWindow_FreeCompanyTabHeader, FreeCompanyTab.Draw),
-        (Languages.ConfigWindow_EconomyTabHeader, EconomyTab.Draw),
-        (Languages.ConfigWindow_GoldSaucerTabHeader, GoldSaucerTab.Draw),
-        (Languages.ConfigWindow_ObtainTabHeader, ObtainTab.Draw),
-        (Languages.ConfigWindow_ProgressTabHeader, ProgressTab.Draw),
-        (Languages.ConfigWindow_CombatTabHeader, CombatTab.Draw),
-        (Languages.ConfigWindow_CraftingTabHeader, CraftingTab.Draw),
-        (Languages.ConfigWindow_GatheringTabHeader, GatheringTab.Draw),
-        (Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw),
+        (() => Languages.ConfigWindow_GeneralTabHeader, GeneralTab.Draw),
+        (() => Languages.ConfigWindow_EmotesTabHeader, EmotesTab.Draw),
+        (() => Languages.ConfigWindow_SystemTabHeader, SystemTab.Draw),
+        (() => Languages.ConfigWindow_ExplorationTabHeader, ExplorationTab.Draw),
+        (() => Languages.ConfigWindow_HousingTabHeader, HousingTab.Draw),
+        (() => Languages.ConfigWindow_GlamourTabHeader, GlamourTab.Draw),
+        (() => Languages.ConfigWindow_PartyTabHeader, PartyTab.Draw),
+        (() => Languages.ConfigWindow_DutyTabHeader, DutyTab.Draw),
+        (() => Languages.ConfigWindow_DeepDungeonsTabHeader, DeepDungeonsTab.Draw),
+        (() => Languages.ConfigWindow_FreeCompanyTabHeader, FreeCompanyTab.Draw),
+        (() => Languages.ConfigWindow_EconomyTabHeader, EconomyTab.Draw),
+        (() => Languages.ConfigWindow_CurrenciesTabHeader, CurrenciesTab.Draw),
+        (() => Languages.ConfigWindow_AlliedSocietiesTabHeader, AlliedSocietiesTab.Draw),
+        (() => Languages.ConfigWindow_GoldSaucerTabHeader, GoldSaucerTab.Draw),
+        (() => Languages.ConfigWindow_ProgressTabHeader, ProgressTab.Draw),
+        (() => Languages.ConfigWindow_CombatTabHeader, CombatTab.Draw),
+        (() => Languages.ConfigWindow_CraftingTabHeader, CraftingTab.Draw),
+        (() => Languages.ConfigWindow_DesynthesisTabHeader, DesynthesisTab.Draw),
+        (() => Languages.ConfigWindow_GatheringTabHeader, GatheringTab.Draw),
+        (() => Languages.ConfigWindow_MateriaTabHeader, MateriaTab.Draw),
+        (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw),
     ];
 
     private readonly Configuration configuration;
     private bool appliedDefaultWidth;
     private string? cachedCultureName;
-    private int selectedTabIndex;
+    private string? sortedTabsCulture;
+    private (string Label, Action<Configuration> Draw)[]? sortedTabs;
+    private Action<Configuration> selectedTab = GeneralTab.Draw;
 
     private float cachedLayoutScale = -1f;
     private float? cachedMinWindowWidth;
@@ -54,6 +60,8 @@ internal class PluginUI : Window, IDisposable
         cachedLayoutScale = -1f;
         cachedCultureName = null;
         cachedMinWindowWidth = null;
+        sortedTabs = null;
+        sortedTabsCulture = null;
     }
 
     public override void OnClose()
@@ -101,19 +109,25 @@ internal class PluginUI : Window, IDisposable
             return;
         }
 
-        selectedTabIndex = Math.Clamp(selectedTabIndex, 0, Tabs.Length - 1);
+        var tabs = GetTabs();
+        var selectedIndex = Array.FindIndex(tabs, tab => tab.Draw == selectedTab);
+        if (selectedIndex < 0)
+        {
+            selectedTab = GeneralTab.Draw;
+            selectedIndex = 0;
+        }
 
-        var sidebarWidth = GetSidebarWidth();
+        var sidebarWidth = GetSidebarWidth(tabs);
         var avail = ImGui.GetContentRegionAvail();
 
         ImGui.BeginChild("##tidychatConfigSidebar", new Vector2(sidebarWidth, avail.Y), true);
         ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0f, 2f));
-        for (var i = 0; i < Tabs.Length; i++)
+        for (var i = 0; i < tabs.Length; i++)
         {
-            if (ImGui.Selectable(Tabs[i].Label, selectedTabIndex == i, ImGuiSelectableFlags.None,
+            if (ImGui.Selectable(tabs[i].Label, selectedIndex == i, ImGuiSelectableFlags.None,
                     new Vector2(sidebarWidth - ImGui.GetStyle().WindowPadding.X * 2f, 0f)))
             {
-                selectedTabIndex = i;
+                selectedTab = tabs[i].Draw;
             }
         }
 
@@ -123,21 +137,43 @@ internal class PluginUI : Window, IDisposable
         ImGui.SameLine(0f, ImGui.GetStyle().ItemInnerSpacing.X);
 
         ImGui.BeginChild("##tidychatConfigContent", new Vector2(0f, avail.Y), false);
-        Tabs[selectedTabIndex].Draw(configuration);
+        tabs[selectedIndex].Draw(configuration);
         TabFooter.Display(configuration);
         ImGui.EndChild();
     }
 
-    private float GetSidebarWidth()
+    private (string Label, Action<Configuration> Draw)[] GetTabs()
+    {
+        var cultureName = Languages.Culture?.Name ?? string.Empty;
+        if (sortedTabs is { } cachedTabs &&
+            string.Equals(sortedTabsCulture, cultureName, StringComparison.Ordinal))
+        {
+            return cachedTabs;
+        }
+
+        var general = TabDefinitions.Single(tab => tab.Draw == GeneralTab.Draw);
+        var generalEntry = (general.GetLabel(), general.Draw);
+        var others = TabDefinitions
+            .Where(tab => tab.Draw != GeneralTab.Draw)
+            .Select(tab => (tab.GetLabel(), tab.Draw))
+            .OrderBy(tab => tab.Item1, StringComparer.CurrentCultureIgnoreCase)
+            .ToArray();
+
+        sortedTabs = [generalEntry, ..others];
+        sortedTabsCulture = cultureName;
+        return sortedTabs;
+    }
+
+    private float GetSidebarWidth((string Label, Action<Configuration> Draw)[] tabs)
     {
         InvalidateLayoutCacheIfNeeded();
 
         var style = ImGui.GetStyle();
         var maxLabelWidth = 0f;
 
-        for (var i = 0; i < Tabs.Length; i++)
+        for (var i = 0; i < tabs.Length; i++)
         {
-            maxLabelWidth = Math.Max(maxLabelWidth, ImGui.CalcTextSize(Tabs[i].Label).X);
+            maxLabelWidth = Math.Max(maxLabelWidth, ImGui.CalcTextSize(tabs[i].Label).X);
         }
 
         return maxLabelWidth + style.FramePadding.X * 2f + style.WindowPadding.X * 2f + SidebarExtraPadding;
@@ -159,7 +195,7 @@ internal class PluginUI : Window, IDisposable
                           + style.FramePadding.X * 2f
                           + style.WindowPadding.X * 2f;
 
-        width = GetSidebarWidth()
+        width = GetSidebarWidth(GetTabs())
                 + style.ItemInnerSpacing.X
                 + Math.Max(MinContentWidth, searchWidth)
                 + style.WindowPadding.X * 2f
@@ -183,5 +219,7 @@ internal class PluginUI : Window, IDisposable
         cachedLayoutScale = layoutScale;
         cachedCultureName = cultureName;
         cachedMinWindowWidth = null;
+        sortedTabs = null;
+        sortedTabsCulture = null;
     }
 }

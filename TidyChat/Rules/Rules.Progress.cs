@@ -7,7 +7,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCompletionTime",
-            SettingsTab = "Progress",
+            SettingsTab = "Duty",
             Channel = ChatType.Progress,
             IsActive = true,
             LogMessageIds = [4679],
@@ -227,7 +227,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDesynthesisLevel",
-            SettingsTab = "Progress",
+            SettingsTab = "Desynthesis",
             Channel = ChatType.Progress,
             IsActive = true,
             LogMessageIds = [4325],

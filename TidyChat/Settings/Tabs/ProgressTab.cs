@@ -5,12 +5,17 @@ internal static class ProgressTab
 {
     public static void Draw(Configuration configuration)
     {
-        ImGui.TextWrapped(Languages.ProgressTab_FilteringNote);
-        ImGui.Spacing();
+        SettingsTabLayout.DrawTabNote(Languages.ProgressTab_FilteringNote);
 
-        if (ImGui.CollapsingHeader(Languages.ProgressTab_ExperienceAndLevelsDropdownHeader,
-                ImGuiTreeNodeFlags.DefaultOpen))
-        {
+        SettingsTabLayout.DrawSections(true,
+            (Languages.ProgressTab_ExperienceAndLevelsDropdownHeader, () => DrawExperienceAndLevels(configuration)),
+            (Languages.ProgressTab_DutyRewardsDropdownHeader, () => DrawDutyRewards(configuration)),
+            (Languages.ProgressTab_QuestAndAchievementsDropdownHeader, () => DrawQuestAndAchievements(configuration)),
+            (Languages.ProgressTab_UnlocksDropdownHeader, () => DrawUnlocks(configuration)));
+    }
+
+    private static void DrawExperienceAndLevels(Configuration configuration)
+    {
             var showGainExperience = configuration.ShowGainExperience;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowExperienceGainMessages, ref showGainExperience))
             {
@@ -46,10 +51,10 @@ internal static class ProgressTab
             }
 
             UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker);
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.ProgressTab_DutyRewardsDropdownHeader))
-        {
+    private static void DrawDutyRewards(Configuration configuration)
+    {
             var showFirstClearAward = configuration.ShowFirstClearAward;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowFirstClearAward, ref showFirstClearAward))
             {
@@ -82,10 +87,10 @@ internal static class ProgressTab
             }
 
             UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.ProgressTab_QuestAndAchievementsDropdownHeader))
-        {
+    private static void DrawQuestAndAchievements(Configuration configuration)
+    {
             var showQuestProgress = configuration.ShowQuestProgress;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowQuestProgressMessages, ref showQuestProgress))
             {
@@ -113,10 +118,10 @@ internal static class ProgressTab
             }
 
             ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker);
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.ProgressTab_UnlocksDropdownHeader))
-        {
+    private static void DrawUnlocks(Configuration configuration)
+    {
             var showAbilityUnlocks = configuration.ShowAbilityUnlocks;
             if (ImGui.Checkbox(Languages.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
             {
@@ -134,6 +139,5 @@ internal static class ProgressTab
             }
 
             ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowMountMessagesHelpMarker);
-        }
     }
 }

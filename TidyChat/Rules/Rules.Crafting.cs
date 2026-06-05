@@ -7,7 +7,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAttachedMateria",
-            SettingsTab = "Crafting",
+            SettingsTab = "Materia",
             Channel = ChatType.Crafting,
             IsActive = true,
             LogMessageIds = [1201],
@@ -18,7 +18,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowOvermeldFailure",
-            SettingsTab = "Crafting",
+            SettingsTab = "Materia",
             Channel = ChatType.Crafting,
             IsActive = true,
             LogMessageIds = [1202],
@@ -29,7 +29,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMateriaExtract",
-            SettingsTab = "Crafting",
+            SettingsTab = "Materia",
             Channel = ChatType.Crafting,
             IsActive = true,
             LogMessageIds = [1200],
@@ -214,7 +214,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMateriaRetrieved",
-            SettingsTab = "System",
+            SettingsTab = "Materia",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1953, 1954]
@@ -222,7 +222,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMateriaRetrieved",
-            SettingsTab = "System",
+            SettingsTab = "Materia",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1953],
@@ -233,7 +233,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMateriaRetrieved",
-            SettingsTab = "System",
+            SettingsTab = "Materia",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1954],
@@ -244,7 +244,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMateriaShatters",
-            SettingsTab = "System",
+            SettingsTab = "Materia",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1955]
@@ -252,7 +252,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMateriaShatters",
-            SettingsTab = "System",
+            SettingsTab = "Materia",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1955],
@@ -263,7 +263,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionSands",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3555],
@@ -274,7 +274,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionSuccess",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3553],
@@ -285,7 +285,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionMinigame",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569]
@@ -293,7 +293,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionMinigame",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569],
@@ -304,7 +304,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionMinigame",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [5550],
@@ -315,7 +315,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionMinigame",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [3549],
@@ -326,7 +326,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowAetherialReductionMinigame",
-            SettingsTab = "System",
+            SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [3569],

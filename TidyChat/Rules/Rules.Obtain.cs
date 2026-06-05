@@ -7,7 +7,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedQuestItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [1232],
@@ -18,7 +18,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [1606],
@@ -29,7 +29,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [743],
@@ -39,7 +39,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [1607],
@@ -50,7 +50,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3617],
@@ -61,7 +61,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [750, 3208],
@@ -72,7 +72,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3208],
@@ -83,7 +83,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [751],
@@ -94,7 +94,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInventoryItemAdded",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [789],
@@ -105,7 +105,7 @@ public static partial class Rules
         new()
         {
             Name = "HideInventoryItemAdded",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             BlockWhenActive = true,
@@ -117,7 +117,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowObtainedItems",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [720],
@@ -128,7 +128,7 @@ public static partial class Rules
         new()
         {
             Name = "HideRouletteBonus",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -137,7 +137,7 @@ public static partial class Rules
         new()
         {
             Name = "HideAdventurerInNeedBonus",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -146,7 +146,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedGil",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -158,7 +158,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedGil",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -171,7 +171,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedGil",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.System,
             IsActive = true,
             BlockWhenActive = true,
@@ -183,7 +183,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedWolfMarks",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -196,7 +196,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedSeals",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -208,7 +208,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedSeals",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -220,7 +220,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedVenture",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -233,7 +233,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedTribalCurrency",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Allied Societies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -245,7 +245,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedClusters",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "System",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -259,7 +259,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedAlliedSeals",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -272,7 +272,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedCenturioSeals",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -285,7 +285,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedNuts",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -298,7 +298,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedMaterials",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Allied Societies",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,

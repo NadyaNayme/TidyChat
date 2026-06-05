@@ -154,7 +154,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.PeriodicRecruitmentNotification,
             IsActive = true,
             LogMessageIds = [94],
@@ -165,7 +165,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4670],
@@ -176,7 +176,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4671],
@@ -187,7 +187,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.Progress,
             IsActive = true,
             LogMessageIds = [4680],
@@ -198,7 +198,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4681],
@@ -209,7 +209,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4682],
@@ -220,7 +220,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [897],
@@ -231,7 +231,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.Error,
             IsActive = true,
             LogMessageIds = [890],
@@ -242,7 +242,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.Error,
             IsActive = true,
             LogMessageIds = [902],
@@ -253,7 +253,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4676],
@@ -264,7 +264,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4218],
@@ -275,7 +275,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4248],
@@ -286,7 +286,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [979],
@@ -297,7 +297,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyFinder",
-            SettingsTab = "Party",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [981],

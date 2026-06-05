@@ -7,7 +7,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowLootRoll",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Party",
             Channel = ChatType.LootRoll,
             IsActive = true,
             LogMessageIds = [1231],
@@ -18,7 +18,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCastLot",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Party",
             Channel = ChatType.LootRoll,
             IsActive = true,
             LogMessageIds = [5180],
@@ -41,7 +41,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Gathering",
             Channel = ChatType.LootRoll,
             IsActive = true,
             BlockWhenActive = true,
@@ -52,7 +52,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -64,7 +64,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -77,7 +77,7 @@ public static partial class Rules
         new()
         {
             Name = "HideObtainedShards",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -90,7 +90,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowOthersLootRoll",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Party",
             Channel = ChatType.LootRoll,
             IsActive = true,
             LogMessageIds = [1231],
@@ -100,7 +100,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowOthersCastLot",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Party",
             Channel = ChatType.LootRoll,
             IsActive = true,
             LogMessageIds = [5180],
@@ -110,7 +110,7 @@ public static partial class Rules
         new()
         {
             Name = "HideOthersObtain",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Party",
             Channel = ChatType.LootRoll,
             IsActive = true,
             BlockWhenActive = true,
@@ -123,7 +123,7 @@ public static partial class Rules
         new()
         {
             Name = "HideOthersObtain",
-            SettingsTab = "Loot/Obtain",
+            SettingsTab = "Party",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,

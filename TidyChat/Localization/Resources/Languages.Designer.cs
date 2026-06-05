@@ -610,6 +610,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desynthesis.
+        /// </summary>
+        internal static string ConfigWindow_DesynthesisTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_DesynthesisTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Materia.
+        /// </summary>
+        internal static string ConfigWindow_MateriaTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_MateriaTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Deep Dungeons.
         /// </summary>
         internal static string ConfigWindow_DeepDungeonsTabHeader {
@@ -691,11 +709,74 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allied Societies.
+        /// </summary>
+        internal static string ConfigWindow_AlliedSocietiesTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_AlliedSocietiesTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crafting materials.
+        /// </summary>
+        internal static string AlliedSocietiesTab_MaterialsDropdownHeader {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_MaterialsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currencies.
+        /// </summary>
+        internal static string AlliedSocietiesTab_CurrenciesDropdownHeader {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_CurrenciesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Allied society currency data unavailable.
+        /// </summary>
+        internal static string AlliedSocietiesTab_CurrencyDataUnavailable {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_CurrencyDataUnavailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Currencies.
+        /// </summary>
+        internal static string ConfigWindow_CurrenciesTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_CurrenciesTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Party &amp; Duty.
         /// </summary>
         internal static string ConfigWindow_PartyDutyTabHeader {
             get {
                 return ResourceManager.GetString("ConfigWindow_PartyDutyTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Party.
+        /// </summary>
+        internal static string ConfigWindow_PartyTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_PartyTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Duty.
+        /// </summary>
+        internal static string ConfigWindow_DutyTabHeader {
+            get {
+                return ResourceManager.GetString("ConfigWindow_DutyTabHeader", resourceCulture);
             }
         }
         
@@ -867,6 +948,15 @@ namespace TidyChat.Localization.Resources {
         internal static string CraftingGatheringTab_FishingDropdownHeader {
             get {
                 return ResourceManager.GetString("CraftingGatheringTab_FishingDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Elemental shards.
+        /// </summary>
+        internal static string GatheringTab_ElementalShardsDropdownHeader {
+            get {
+                return ResourceManager.GetString("GatheringTab_ElementalShardsDropdownHeader", resourceCulture);
             }
         }
         
@@ -3861,6 +3951,120 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        internal static string Shared_RequiresCraftingFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresCraftingFilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string Shared_RequiresGatheringFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresGatheringFilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string Shared_RequiresProgressFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresProgressFilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string GeneralTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("GeneralTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string SystemTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("SystemTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string PartyTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("PartyTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string DutyTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("DutyTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string EmotesTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("EmotesTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string ExplorationTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("ExplorationTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string HousingTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("HousingTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("GlamourTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string DeepDungeonsTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string EconomyTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("EconomyTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string CraftingTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("CraftingTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string DesynthesisTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("DesynthesisTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string MateriaTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("MateriaTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string GatheringTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("GatheringTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string CombatTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("CombatTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string ToolsTab_FilteringNote {
+            get {
+                return ResourceManager.GetString("ToolsTab_FilteringNote", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Catch-all.
         /// </summary>
@@ -3876,6 +4080,15 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_CharacterAndGearDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_CharacterAndGearDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cracked clusters.
+        /// </summary>
+        internal static string SystemTab_CrackedClustersDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_CrackedClustersDropdownHeader", resourceCulture);
             }
         }
         

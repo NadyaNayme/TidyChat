@@ -270,6 +270,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
     public IDictionary<uint, bool> HideTomestoneById { get; set; } = new Dictionary<uint, bool>();
+    public IDictionary<uint, bool> HideTribalCurrencyById { get; set; } = new Dictionary<uint, bool>();
 
     #endregion
 

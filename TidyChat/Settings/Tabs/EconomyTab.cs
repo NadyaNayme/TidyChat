@@ -4,8 +4,18 @@ internal static class EconomyTab
 {
     public static void Draw(Configuration configuration)
     {
-        if (ImGui.CollapsingHeader(Languages.EconomyTab_TradingSectionHeader, ImGuiTreeNodeFlags.DefaultOpen))
-        {
+        SettingsTabLayout.DrawTabNote(Languages.EconomyTab_FilteringNote);
+
+        SettingsTabLayout.DrawSections(true,
+            (Languages.EconomyTab_TradingSectionHeader, () => DrawTrading(configuration)),
+            (Languages.EconomyTab_VendorSectionHeader, () => DrawVendor(configuration)),
+            (Languages.EconomyTab_MarketBoardSectionHeader, () => DrawMarketBoard(configuration)),
+            (Languages.EconomyTab_RetainerSectionHeader, () => DrawRetainer(configuration)),
+            (Languages.EconomyTab_GilSectionHeader, () => DrawGil(configuration)));
+    }
+
+    private static void DrawTrading(Configuration configuration)
+    {
             var showTradeSent = configuration.ShowTradeSent;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeRequestSent, ref showTradeSent))
             {
@@ -33,10 +43,10 @@ internal static class EconomyTab
                 configuration.ShowTradeComplete = showTradeComplete;
                 configuration.OnSettingChanged();
             }
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.EconomyTab_VendorSectionHeader))
-        {
+    private static void DrawVendor(Configuration configuration)
+    {
             var showVendorSellMessages = configuration.ShowVendorSellMessages;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowVendorSellMessages, ref showVendorSellMessages))
             {
@@ -63,10 +73,10 @@ internal static class EconomyTab
             }
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.EconomyTab_MarketBoardSectionHeader))
-        {
+    private static void DrawMarketBoard(Configuration configuration)
+    {
             var showMarketBoardMessages = configuration.ShowMarketBoardMessages;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowMarketBoardMessages, ref showMarketBoardMessages))
             {
@@ -105,11 +115,10 @@ internal static class EconomyTab
 
                 UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketBoardSellingStatusHelpMarker);
             });
+    }
 
-        }
-
-        if (ImGui.CollapsingHeader(Languages.EconomyTab_RetainerSectionHeader))
-        {
+    private static void DrawRetainer(Configuration configuration)
+    {
             var completedVenture = configuration.ShowCompletedVenture;
             if (ImGui.Checkbox(Languages.PartyDutyTab_ShowCompletedVenture, ref completedVenture))
             {
@@ -136,10 +145,10 @@ internal static class EconomyTab
             }
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
-        }
+    }
 
-        if (ImGui.CollapsingHeader(Languages.EconomyTab_GilSectionHeader))
-        {
+    private static void DrawGil(Configuration configuration)
+    {
             var showGilSpentMessage = configuration.ShowGilSpentMessage;
             if (ImGui.Checkbox(Languages.EconomyTab_ShowGilSpentMessage, ref showGilSpentMessage))
             {
@@ -148,6 +157,5 @@ internal static class EconomyTab
             }
 
             UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
-        }
     }
 }

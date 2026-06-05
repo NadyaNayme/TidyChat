@@ -33,6 +33,7 @@ internal static class SettingsSearchIndex
 
         var matches = entries.Where(e => e.Matches(query)).ToList();
         AppendTomestoneMatches(configuration, query, matches);
+        AppendTribalCurrencyMatches(configuration, query, matches);
 
         ImGui.Spacing();
         if (matches.Count == 0)
@@ -114,6 +115,41 @@ internal static class SettingsSearchIndex
         ImGui.PopID();
     }
 
+    private static void AppendTribalCurrencyMatches(Configuration configuration, string query, List<Entry> matches)
+    {
+        if (TidyChatPlugin.TribalCurrencies.Count == 0)
+        {
+            return;
+        }
+
+        foreach (var currency in TidyChatPlugin.TribalCurrencies)
+        {
+            if (!Contains(query, currency.Name) &&
+                !Contains(query, "allied society") &&
+                !Contains(query, "beast tribe") &&
+                !Contains(query, "tribal"))
+            {
+                continue;
+            }
+
+            configuration.HideTribalCurrencyById.TryGetValue(currency.RowId, out var hide);
+            var label = string.Format(CultureInfo.CurrentCulture, Languages.ConfigWindow_SearchHideTomestone,
+                currency.Name);
+            matches.Add(new(
+                $"tribal-currency-{currency.RowId}",
+                label,
+                null,
+                $"{Languages.ConfigWindow_AlliedSocietiesTabHeader} > {Languages.AlliedSocietiesTab_CurrenciesDropdownHeader}",
+                null,
+                [],
+                [],
+                true,
+                false,
+                _ => hide,
+                (_, value) => configuration.HideTribalCurrencyById[currency.RowId] = value));
+        }
+    }
+
     private static void AppendTomestoneMatches(Configuration configuration, string query, List<Entry> matches)
     {
         if (TidyChatPlugin.Tomestones.Count == 0)
@@ -135,7 +171,7 @@ internal static class SettingsSearchIndex
                 $"tomestone-{tomestone.RowId}",
                 label,
                 null,
-                Languages.ConfigWindow_ObtainTabHeader,
+                Languages.ConfigWindow_CurrenciesTabHeader,
                 null,
                 [],
                 [],
@@ -479,19 +515,24 @@ internal static class SettingsSearchIndex
     private static string FormatRuleLocation(string settingsTab) => settingsTab switch
     {
         "System" => Languages.ConfigWindow_SystemTabHeader,
-        "Loot/Obtain" => Languages.ConfigWindow_ObtainTabHeader,
+        "Currencies" => Languages.ConfigWindow_CurrenciesTabHeader,
+        "Allied Societies" => Languages.ConfigWindow_AlliedSocietiesTabHeader,
+        "Loot" => Languages.ConfigWindow_PartyTabHeader,
         "Gold Saucer" => Languages.ConfigWindow_GoldSaucerTabHeader,
         "Progress" => Languages.ConfigWindow_ProgressTabHeader,
         "Combat" => Languages.ConfigWindow_CombatTabHeader,
         "Crafting" => Languages.ConfigWindow_CraftingTabHeader,
+        "Desynthesis" => Languages.ConfigWindow_DesynthesisTabHeader,
         "Gathering" => Languages.ConfigWindow_GatheringTabHeader,
+        "Materia" => Languages.ConfigWindow_MateriaTabHeader,
         "Exploration" => Languages.ConfigWindow_ExplorationTabHeader,
         "Housing" => Languages.ConfigWindow_HousingTabHeader,
         "Glamour" => Languages.ConfigWindow_GlamourTabHeader,
         "Deep Dungeons" => Languages.ConfigWindow_DeepDungeonsTabHeader,
         "General" => Languages.ConfigWindow_GeneralTabHeader,
         "Emotes" => Languages.ConfigWindow_EmotesTabHeader,
-        "Party" or "Duty" => Languages.ConfigWindow_PartyDutyTabHeader,
+        "Party" => Languages.ConfigWindow_PartyTabHeader,
+        "Duty" => Languages.ConfigWindow_DutyTabHeader,
         "Free Company" => Languages.ConfigWindow_FreeCompanyTabHeader,
         "Economy" => Languages.ConfigWindow_EconomyTabHeader,
         _ => settingsTab
@@ -508,15 +549,54 @@ internal static class SettingsSearchIndex
             propertyName is "EnableSmolMode" or
                 "NormalizeBlocks" or
                 "AlwaysNormalizeBlocks" or
-                "NoCoffee" or
-                "ShowSelfUsedEmotes")
+                "NoCoffee")
         {
             return Languages.ConfigWindow_GeneralTabHeader;
         }
 
-        if (propertyName is "HideInventoryItemAdded")
+        if (propertyName is "HideObtainedGil" or
+            "HideObtainedSeals" or
+            "HideObtainedVenture" or
+            "ShowObtainedItems" or
+            "ShowObtainedQuestItems" or
+            "HideInventoryItemAdded" or
+            "ShowInventoryItemAdded" or
+            "HideObtainedWolfMarks" or
+            "HideObtainedAlliedSeals" or
+            "HideObtainedCenturioSeals" or
+            "HideObtainedNuts")
         {
-            return Languages.ConfigWindow_ObtainTabHeader;
+            return Languages.ConfigWindow_CurrenciesTabHeader;
+        }
+
+        if (propertyName is "HideObtainedMaterials")
+        {
+            return $"{Languages.ConfigWindow_AlliedSocietiesTabHeader} > {Languages.AlliedSocietiesTab_MaterialsDropdownHeader}";
+        }
+
+        if (propertyName is "HideObtainedTribalCurrency")
+        {
+            return $"{Languages.ConfigWindow_AlliedSocietiesTabHeader} > {Languages.AlliedSocietiesTab_CurrenciesDropdownHeader}";
+        }
+
+        if (propertyName is "ShowCastLot" or
+            "ShowLootRoll" or
+            "ShowOthersCastLot" or
+            "ShowOthersLootRoll" or
+            "ShowOnlyPartyMemberRolls" or
+            "HideOthersObtain")
+        {
+            return $"{Languages.ConfigWindow_PartyTabHeader} > {Languages.ObtainTab_LootingAndRollingDropdownHeader}";
+        }
+
+        if (propertyName is "HideObtainedClusters")
+        {
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CrackedClustersDropdownHeader}";
+        }
+
+        if (propertyName is "HideObtainedShards")
+        {
+            return $"{Languages.ConfigWindow_GatheringTabHeader} > {Languages.GatheringTab_ElementalShardsDropdownHeader}";
         }
 
         if (propertyName is "HideObtainedMGP" or "ShowGoldSaucerSwingMinigames" or
@@ -542,21 +622,26 @@ internal static class SettingsSearchIndex
 
         if (propertyName is "ShowDesynthesisLevel" or
                 "ShowDesynthedItem" or
-                "ShowDesynthesisObtains" or
-                "ShowAttachedMateria" or
+                "ShowDesynthesisObtains")
+        {
+            return Languages.ConfigWindow_DesynthesisTabHeader;
+        }
+
+        if (propertyName is "ShowAttachedMateria" or
                 "ShowOvermeldFailure" or
                 "ShowMateriaRetrieved" or
                 "ShowMateriaShatters" or
-                "ShowMateriaExtract" or
-                "ShowCraftingSynthesisComplete" or
+                "ShowMateriaExtract")
+        {
+            return Languages.ConfigWindow_MateriaTabHeader;
+        }
+
+        if (propertyName is "ShowCraftingSynthesisComplete" or
                 "ShowTrialMessages" or
                 "ShowOtherSynthesis" or
                 "ShowAllOtherCrafting" or
                 "ShowCraftingBuffEffectGain" or
-                "ShowCraftingAbleToExecute" or
-                "ShowAetherialReductionSands" or
-                "ShowAetherialReductionSuccess" or
-                "ShowAetherialReductionMinigame")
+                "ShowCraftingAbleToExecute")
         {
             return Languages.ConfigWindow_CraftingTabHeader;
         }
@@ -570,6 +655,9 @@ internal static class SettingsSearchIndex
                 "ShowDiscoveredFishingHole" or
                 "ShowLureMessages" or
                 "ShowFishingFlavorText" or
+                "ShowAetherialReductionSands" or
+                "ShowAetherialReductionSuccess" or
+                "ShowAetherialReductionMinigame" or
                 "ShowStellarMissionMessages" or
                 "ShowStellarAbleToExecute" or
                 "ShowStellarBuffEffectGain" or
@@ -740,19 +828,22 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_DeepDungeonsTabHeader;
         }
 
+        if (propertyName is "ShowDutyFinder" or "ShowCompletionTime")
+        {
+            return Languages.ConfigWindow_DutyTabHeader;
+        }
+
         if (propertyName.StartsWith("ShowInvite", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowJoin", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowLeft", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowParty", StringComparison.Ordinal) ||
-            propertyName is "ShowDutyFinder" or
-                "ShowOfferedTeleport" or
+            propertyName is "ShowOfferedTeleport" or
                 "ShowCountdownTime" or
                 "ShowReadyChecks" or
-                "ShowCompletionTime" or
                 "ShowNowLeaderOf" or
                 "ShowSealedOff")
         {
-            return Languages.ConfigWindow_PartyDutyTabHeader;
+            return Languages.ConfigWindow_PartyTabHeader;
         }
 
         return null;

@@ -66,7 +66,7 @@ public sealed partial class TidyChatPlugin
 
         if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out var matchingRules))
         {
-            if (TryBlockHiddenTomestoneLogMessage(message))
+            if (TryBlockHiddenTomestoneLogMessage(message) || TryBlockHiddenTribalCurrencyLogMessage(message))
             {
                 return;
             }
@@ -108,7 +108,7 @@ public sealed partial class TidyChatPlugin
 
         if (shouldAllow)
         {
-            if (TryBlockHiddenTomestoneLogMessage(message))
+            if (TryBlockHiddenTomestoneLogMessage(message) || TryBlockHiddenTribalCurrencyLogMessage(message))
             {
                 return;
             }
@@ -220,7 +220,8 @@ public sealed partial class TidyChatPlugin
 
             if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.LootNotice &&
                 ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(configuration, normalizedText,
-                    TidyChatPlugin.Tomestones, configuration.HideTomestoneById))
+                    TidyChatPlugin.Tomestones, configuration.HideTomestoneById, TidyChatPlugin.TribalCurrencies,
+                    configuration.HideTribalCurrencyById))
             {
                 shouldAllow = true;
                 decidingRuleName = "ObtainCurrency (hide off)";
@@ -241,7 +242,8 @@ public sealed partial class TidyChatPlugin
         }
 
         if (ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(configuration, normalizedText,
-                TidyChatPlugin.Tomestones, configuration.HideTomestoneById))
+                TidyChatPlugin.Tomestones, configuration.HideTomestoneById, TidyChatPlugin.TribalCurrencies,
+                configuration.HideTribalCurrencyById))
         {
             shouldAllow = true;
             decidingRuleName = "ObtainCurrency (hide off)";
@@ -679,6 +681,37 @@ public sealed partial class TidyChatPlugin
         if (Configuration.EnableDebugMode)
         {
             Log.Debug($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
+            try
+            {
+                var text = message.FormatLogMessageForDebugging().ExtractText();
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
+            }
+            catch { }
+
+            return true;
+        }
+
+        message.PreventOriginal();
+        Interlocked.Increment(ref _sessionBlockedMessages);
+        return true;
+    }
+
+    private bool TryBlockHiddenTribalCurrencyLogMessage(ILogMessage message)
+    {
+        if (!TryGetNormalizedLogMessageText(message, out var normalizedText))
+        {
+            return false;
+        }
+
+        if (!ObtainCurrencyHelper.ShouldHideTribalCurrency(Configuration, normalizedText, TribalCurrencies,
+                Configuration.HideTribalCurrencyById))
+        {
+            return false;
+        }
+
+        if (Configuration.EnableDebugMode)
+        {
+            Log.Debug($"[LogMessage] BLOCKED by allied society currency hide (ID: {message.LogMessageId})");
             try
             {
                 var text = message.FormatLogMessageForDebugging().ExtractText();

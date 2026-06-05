@@ -1,5 +1,6 @@
 using Lumina.Excel.Sheets;
 using System.Collections.Generic;
+using TidyChat.Data;
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
@@ -68,6 +69,7 @@ public sealed partial class TidyChatPlugin
     private void ReloadGameDataCaches(bool validateRuleIds)
     {
         LoadTomestones();
+        LoadTribalCurrencies();
         LoadFishingFlavorMessages();
         LogMessageCatalog.Load(DataManager, Log);
         ItemMarkerCatalog.Load(DataManager, Log);
@@ -114,5 +116,35 @@ public sealed partial class TidyChatPlugin
         }
         Tomestones = tomestones.AsReadOnly();
         Log.Information($"Loaded {Tomestones.Count} tomestones: {string.Join(", ", Tomestones.Select(t => t.Name))}");
+    }
+
+    private static void LoadTribalCurrencies()
+    {
+        List<TomestoneInfo> currencies = new();
+        try
+        {
+            var sheet = DataManager.GetExcelSheet<Item>();
+            foreach (var itemId in ItemMarkerCatalog.Items.TribalCurrency)
+            {
+                var row = sheet.GetRow(itemId);
+                var name = $"{row.Name}".Trim();
+                if (string.IsNullOrWhiteSpace(name))
+                {
+                    continue;
+                }
+
+                currencies.Add(new(itemId, name));
+            }
+
+            currencies.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
+        }
+        catch (Exception ex)
+        {
+            Log.Error("Failed to load allied society currency data from Lumina: " + ex);
+        }
+
+        TribalCurrencies = currencies.AsReadOnly();
+        Log.Information(
+            $"Loaded {TribalCurrencies.Count} allied society currencies: {string.Join(", ", TribalCurrencies.Select(c => c.Name))}");
     }
 }
