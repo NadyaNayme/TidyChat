@@ -287,6 +287,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ļôôţ ŕôļļš.
+        /// </summary>
+        internal static string ChatHistoryTab_LootRollsChannel {
+            get {
+                return ResourceManager.GetString("ChatHistoryTab_LootRollsChannel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Þŕôĝŕéšš.
         /// </summary>
         internal static string ChatHistoryTab_ProgressChannel {

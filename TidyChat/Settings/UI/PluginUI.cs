@@ -53,7 +53,7 @@ internal class PluginUI : Window, IDisposable
         this.configuration = configuration;
         SizeCondition = ImGuiCond.FirstUseEver;
 
-        TitleBarButtons.Add(new TitleBarButton
+        TitleBarButtons.Add(new()
         {
             Icon = FontAwesomeIcon.Heart,
             ShowTooltip = () => ImGui.SetTooltip(Languages.ConfigWindow_KofiTitleBarTooltip),
@@ -107,7 +107,6 @@ internal class PluginUI : Window, IDisposable
         {
             Size = new Vector2(minWidth, Math.Max(size.Y, MinWindowHeight));
         }
-
     }
 
     public override void Draw()
@@ -235,5 +234,4 @@ internal class PluginUI : Window, IDisposable
         sortedTabs = null;
         sortedTabsCulture = null;
     }
-
 }

@@ -59,17 +59,14 @@ public sealed partial class TidyChatPlugin
                 {
                     if (_chatHistory.Count >= Configuration.ChatHistoryLength)
                     {
-                        Log.Verbose("Chat history reached limit. Removed oldest message and added:" + currentMessage);
+                        Log.Verbose("Chat history at limit; evicting oldest entry");
                         _chatHistory.Dequeue();
-                    }
-                    else
-                    {
-                        Log.Verbose("Added:" + currentMessage);
                     }
                     var expiresAt = Configuration.ChatHistoryTimer > 0
                         ? Environment.TickCount64 + (Configuration.ChatHistoryTimer * 1000L)
                         : long.MaxValue;
                     _chatHistory.Enqueue((currentMessage, expiresAt));
+                    Log.Verbose("Added to chat history: " + currentMessage);
                 }
             }
             return true; // chat history always returns after processing

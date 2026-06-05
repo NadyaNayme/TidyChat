@@ -242,15 +242,20 @@ public sealed partial class TidyChatPlugin
                         isBlocked = true;
                     }
                 }
+                else if (chatType is ChatType.LootNotice && !rule.BlockWhenActive)
+                {
+                    // LootNotice show-rules use the rule's IsActive directly (active = show, inactive = hide).
+                    isBlocked = rule.IsActive;
+                }
+                else if (rule.BlockWhenActive)
+                {
+                    // Hide-rule matched: keep the message unless the channel default was already hiding it on LootNotice.
+                    isBlocked = chatType is not ChatType.LootNotice || !defaultBlocked;
+                }
                 else
                 {
-                    isBlocked = chatType is ChatType.LootNotice && !rule.BlockWhenActive
-                        ? rule.IsActive
-                        : rule.BlockWhenActive
-                            ? chatType is ChatType.LootNotice || !defaultBlocked
-                                ? !defaultBlocked
-                                : defaultBlocked
-                            : !defaultBlocked;
+                    // Show-rule matched on a non-LootNotice channel: flip the default for this line.
+                    isBlocked = !defaultBlocked;
                 }
             }
             else if (!matchedRules.Contains(rule.Name))
