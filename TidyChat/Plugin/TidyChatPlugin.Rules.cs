@@ -139,15 +139,7 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        var isObtainMarkerRule = rule.ObtainMarkerAnySeal ||
-                                 rule.ObtainMarkerAnyElemental ||
-                                 rule.ObtainMarkerAnyTribal ||
-                                 rule.ObtainMarkerMaterials ||
-                                 rule.ObtainMarkerOtherPlayer ||
-                                 rule.ObtainMarkerGil ||
-                                 rule.ObtainMarkerMgp ||
-                                 rule.ObtainMarkerItemId is not null;
-        if (!isObtainMarkerRule)
+        if (!ObtainCurrencyHelper.HasObtainMarkerConstraint(rule))
         {
             return false;
         }
