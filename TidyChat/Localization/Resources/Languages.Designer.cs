@@ -312,7 +312,7 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("ChatHistoryTab_LootChannel", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Loot rolls.
         /// </summary>
@@ -321,7 +321,7 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("ChatHistoryTab_LootRollsChannel", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Progress.
         /// </summary>
@@ -5205,7 +5205,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a row and press Enter. Custom filters run after normal TidyChat rules and override the result for matching lines..
+        ///   Looks up a localized string similar to Add a row and press Enter. The Filters column accepts plain text, /pattern/ for regex, or #123 / #123,456 for LogMessage IDs — hover the Filters header for details. Custom filters run after normal TidyChat rules and override the result for matching lines..
         /// </summary>
         internal static string WhitelistTab_ExplanationMessage {
             get {
