@@ -363,6 +363,33 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/4680?pretty=true">Minimum IL active.</see>
+    public static readonly LocalizedStrings DutyFinderMinimumIlActive = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["minimum", "il", "active"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4681?pretty=true">Registration Language:</see>
+    public static readonly LocalizedStrings DutyFinderRegistrationLanguage = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["registration", "language"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4682?pretty=true">Language set to the following:</see>
+    public static readonly LocalizedStrings DutyFinderLanguageSet = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["language", "set", "following"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/897?pretty=true">Duty registration complete.</see>
     public static readonly LocalizedStrings DutyRegistrationComplete = new()
     {

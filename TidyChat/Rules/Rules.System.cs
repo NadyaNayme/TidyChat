@@ -408,6 +408,39 @@ public static partial class Rules
         {
             Name = "ShowDutyFinder",
             SettingsTab = "Party",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [4680],
+            StringChecks = [ChatStrings.DutyFinderMinimumIlActive],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4681],
+            StringChecks = [ChatStrings.DutyFinderRegistrationLanguage],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4682],
+            StringChecks = [ChatStrings.DutyFinderLanguageSet],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowDutyFinder",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [897],

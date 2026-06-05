@@ -407,7 +407,8 @@ public sealed partial class TidyChatPlugin
                 LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText) &&
                 RuleMatchesText(rule, normalizedText, false) &&
                 !(chatType is ChatType.LootNotice &&
-                  ObtainCurrencyHelper.ShouldAllowCurrencyObtain(Configuration, normalizedText)))
+                  ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
+                      Configuration.HideTomestoneById)))
             {
                 matchedRules.Add(rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
@@ -489,7 +490,8 @@ public sealed partial class TidyChatPlugin
         }
 
         if (chatType is ChatType.LootNotice &&
-            ObtainCurrencyHelper.ShouldAllowCurrencyObtain(Configuration, normalizedText))
+            ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
+                Configuration.HideTomestoneById))
         {
             isBlocked = true;
             if (Configuration.EnableDebugMode)
@@ -602,7 +604,7 @@ public sealed partial class TidyChatPlugin
         }
 
         if (chatType is ChatType.LootNotice &&
-            TomestoneHideHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
+            TomestoneHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
             if (Configuration.EnableDebugMode)
             {

@@ -86,6 +86,7 @@ public static partial class Rules
         ["ShowFirstClearAward"] = c => c.ShowFirstClearAward,
         ["ShowSecondChanceAward"] = c => c.ShowSecondChanceAward,
         ["HideFateLevelSync"] = c => c.HideFateLevelSync,
+        ["ShowCannotExecuteMessages"] = _ => true,
         ["ShowFateDiscovery"] = _ => true,
         ["ShowActiveHelpEntry"] = c => c.ShowActiveHelpEntry,
         ["ShowOfferedTeleport"] = c => c.ShowOfferedTeleport,

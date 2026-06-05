@@ -13,6 +13,7 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/579?pretty=true">Cannot execute at this time.</see>
     public static readonly LocalizedStrings CannotExecute = new()
     {
         Jpn = ["NeedsLocalization"],

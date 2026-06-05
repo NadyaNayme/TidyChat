@@ -1244,7 +1244,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Show Duty Finder notifications</value>
   </data>
   <data name="PartyDutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 94–4676 (11 IDs) — eg. Duty registration complete, registration withdrawn (890), party member withdrawn (902). Participation requirements, unrestricted party notices. Mostly system channel; withdrawal notices use the error channel.</value>
+    <value>LogMessages 94–4682 — duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
   </data>
   <data name="PartyDutyTab_ShowFloorNumberMessages" xml:space="preserve">
     <value>Show floor number when entering a new floor</value>

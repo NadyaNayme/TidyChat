@@ -1,11 +1,22 @@
+using System.Collections.Generic;
+using TidyChat.Utility;
+
 namespace TidyChat;
 
 /// <summary>
-///     Hunt currencies and similar obtains use per-currency Hide toggles (checked = hide).
+///     Hunt currencies, tomestones, and similar obtains use per-currency Hide toggles (checked = hide).
 ///     When hide is off, those lines should show even if Show general item obtains is off.
 /// </summary>
 internal static class ObtainCurrencyHelper
 {
+    public static bool ShouldAllowLootNoticeObtain(
+        Configuration config,
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tomestones,
+        IDictionary<uint, bool> hideTomestoneById) =>
+        ShouldAllowCurrencyObtain(config, normalizedText) ||
+        TomestoneHelper.ShouldAllowObtain(normalizedText, tomestones, hideTomestoneById);
+
     public static bool HasObtainMarkerConstraint(LocalizedFilterRule rule) =>
         rule.ObtainMarkerItemId is not null ||
         rule.ObtainMarkerAnySeal ||

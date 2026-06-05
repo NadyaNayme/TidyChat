@@ -219,7 +219,8 @@ public sealed partial class TidyChatPlugin
             }
 
             if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType.LootNotice &&
-                ObtainCurrencyHelper.ShouldAllowCurrencyObtain(configuration, normalizedText))
+                ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(configuration, normalizedText,
+                    TidyChatPlugin.Tomestones, configuration.HideTomestoneById))
             {
                 shouldAllow = true;
                 decidingRuleName = "ObtainCurrency (hide off)";
@@ -239,7 +240,8 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        if (ObtainCurrencyHelper.ShouldAllowCurrencyObtain(configuration, normalizedText))
+        if (ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(configuration, normalizedText,
+                TidyChatPlugin.Tomestones, configuration.HideTomestoneById))
         {
             shouldAllow = true;
             decidingRuleName = "ObtainCurrency (hide off)";
@@ -669,7 +671,7 @@ public sealed partial class TidyChatPlugin
         {
             return false;
         }
-        if (!TomestoneHideHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
+        if (!TomestoneHelper.ShouldHide(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
             return false;
         }
