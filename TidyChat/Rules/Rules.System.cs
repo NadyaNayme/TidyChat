@@ -2,7 +2,7 @@
 
 public static partial class Rules
 {
-    private static readonly LocalizedFilterRule[] SystemRulesSegment0 =
+    private static readonly LocalizedFilterRule[] ExplorationHuntRankRules =
     [
         new()
         {
@@ -22,7 +22,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment1 =
+    private static readonly LocalizedFilterRule[] SystemDutyAndHousingRules =
     [
         new()
         {
@@ -123,7 +123,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment2 =
+    private static readonly LocalizedFilterRule[] SystemMiscellaneousRules =
     [
         new()
         {
@@ -195,7 +195,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment3 =
+    private static readonly LocalizedFilterRule[] ExplorationDiscoveryRules =
     [
         new()
         {
@@ -243,7 +243,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment4 =
+    private static readonly LocalizedFilterRule[] GlamourSpiritboundRules =
     [
         new()
         {
@@ -258,7 +258,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment5 =
+    private static readonly LocalizedFilterRule[] ExplorationVistaGlamourRules =
     [
         new()
         {
@@ -435,7 +435,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment6 =
+    private static readonly LocalizedFilterRule[] SystemMessageBookRules =
     [
         new()
         {
@@ -447,7 +447,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment7 =
+    private static readonly LocalizedFilterRule[] ProgressAwardRules =
     [
         new()
         {
@@ -473,7 +473,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment8 =
+    private static readonly LocalizedFilterRule[] GlamourGearsetRules =
     [
         new()
         {
@@ -572,7 +572,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemRulesSegment9 =
+    private static readonly LocalizedFilterRule[] SystemUtilityRules =
     [
         new()
         {
@@ -758,28 +758,28 @@ public static partial class Rules
 
     private static readonly LocalizedFilterRule[] SystemRules =
     [
-        ..SystemRulesSegment0,
+        ..ExplorationHuntRankRules,
         ..PartyRulesIntro,
-        ..SystemRulesSegment1,
+        ..SystemDutyAndHousingRules,
         ..PartySocialRules,
-        ..SystemRulesSegment2,
-        ..DutyMessageRules,
+        ..SystemMiscellaneousRules,
+        ..DutyFinderRules,
         ..DeepDungeonRules,
         ..PartyReadyCheckRules,
-        ..SystemRulesSegment3,
+        ..ExplorationDiscoveryRules,
         ..PartyCountdownRules,
-        ..SystemRulesSegment4,
-        ..SystemRulesSegment5,
-        ..SystemRulesSegment6,
+        ..GlamourSpiritboundRules,
+        ..ExplorationVistaGlamourRules,
+        ..SystemMessageBookRules,
         ..EconomyTradeStatusRules,
         ..PartyLeadershipRules,
-        ..SystemRulesSegment7,
+        ..ProgressAwardRules,
         ..EconomyTradeCompleteRules,
         ..PartyTeleportRules,
         ..EconomyMarketBoardRules,
         ..EconomyRetainerRules,
-        ..SystemRulesSegment8,
+        ..GlamourGearsetRules,
         ..PartySealedOffRules,
-        ..SystemRulesSegment9
+        ..SystemUtilityRules
     ];
 }

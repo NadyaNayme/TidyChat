@@ -2,7 +2,7 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    private static readonly LocalizedFilterRule[] DutyMessageRules =
+    private static readonly LocalizedFilterRule[] DutyFinderRules =
     [
         new()
         {

@@ -92,4 +92,46 @@ public static partial class ChatStrings
         Deu = ["mgp", "gekauft"],
         Fra = ["pgs", "billet"]
     };
+
+
+    /// <see href="https://xivapi.com/LogMessage/4341?pretty=true">RetainerName has completed a venture!</see>
+    public static readonly LocalizedStrings RetainerVentureComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["completed", "venture"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4331?pretty=true">You assign your retainer "Quick Exploration."</see>
+    public static readonly LocalizedStrings RetainerVentureAssign = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["assign your retainer"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4334?pretty=true">You pay RetainerName N ventures.</see>
+    public static readonly LocalizedStrings RetainerVenturePayment = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["pay", "venture"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4332?pretty=true">"Lv. …" is now complete.</see>
+    public static readonly LocalizedStrings RetainerVentureItemComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["now", "complete"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4335?pretty=true">Retainer has reached maximum level.</see>
+    public static readonly LocalizedStrings RetainerMaxLevel = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["reached", "maximum", "level", "retainer"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
 }
