@@ -10,14 +10,6 @@ public static partial class Rules
             SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
-            LogMessageIds = [1116, 1117, 3511, 5584, 11333]
-        },
-        new()
-        {
-            Name = "ShowCaughtFish",
-            SettingsTab = "Fishing",
-            Channel = ChatType.Gathering,
-            IsActive = true,
             LogMessageIds = [1116],
             StringChecks = [ChatStrings.SomethingBites],
             Pattern = PatternKind.StringMatch,
@@ -25,12 +17,23 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowCaughtFish",
+            Name = "ShowReelInLine",
             SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5584, 3511],
             StringChecks = [ChatStrings.ReelInLine],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLoseBait",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1117],
+            StringChecks = [ChatStrings.LoseBait],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -95,13 +98,20 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowLureMessages",
+            Name = "ShowLureBiteFeelingMessages",
             SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
-            LogMessageIds = [5566, 5565, 5569, 5570, 5571, 5572],
-            StringChecks = [ChatStrings.LureFish],
-            Pattern = PatternKind.StringMatch,
+            LogMessageIds = [5565, 5569],
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLureAttemptMessages",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5566, 5567, 5568, 5570, 5571, 5572],
             PreferLogMessageCatalog = true
         }
     ];

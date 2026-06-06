@@ -15,6 +15,24 @@ internal static class FishingTab
 
         UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishAddedToGuideMessagesHelpMarker);
 
+        var showReelInLine = configuration.ShowReelInLine;
+        if (ImGui.Checkbox(Languages.GatheringTab_ShowReelInLineMessages, ref showReelInLine))
+        {
+            configuration.ShowReelInLine = showReelInLine;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowReelInLineMessagesHelpMarker);
+
+        var showLoseBait = configuration.ShowLoseBait;
+        if (ImGui.Checkbox(Languages.GatheringTab_ShowLoseBaitMessages, ref showLoseBait))
+        {
+            configuration.ShowLoseBait = showLoseBait;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowLoseBaitMessagesHelpMarker);
+
         var showMooching = configuration.ShowMooching;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowMooching, ref showMooching))
         {
@@ -53,14 +71,23 @@ internal static class FishingTab
 
         UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishingHoleDiscoveredHelpMarker);
 
-        var showLureMessages = configuration.ShowLureMessages;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowLureMessages, ref showLureMessages))
+        var showLureBiteFeelingMessages = configuration.ShowLureBiteFeelingMessages;
+        if (ImGui.Checkbox(Languages.GatheringTab_ShowLureBiteFeelingMessages, ref showLureBiteFeelingMessages))
         {
-            configuration.ShowLureMessages = showLureMessages;
+            configuration.ShowLureBiteFeelingMessages = showLureBiteFeelingMessages;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowLureMessagesHelpMarker);
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowLureBiteFeelingMessagesHelpMarker);
+
+        var showLureAttemptMessages = configuration.ShowLureAttemptMessages;
+        if (ImGui.Checkbox(Languages.GatheringTab_ShowLureAttemptMessages, ref showLureAttemptMessages))
+        {
+            configuration.ShowLureAttemptMessages = showLureAttemptMessages;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowLureAttemptMessagesHelpMarker);
 
         var showFishingFlavorText = configuration.ShowFishingFlavorText;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingFlavorText, ref showFishingFlavorText))

@@ -340,7 +340,12 @@ public class Configuration : IPluginConfiguration
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;
+    [Obsolete("Migrated to ShowLureAttemptMessages and ShowLureBiteFeelingMessages in config version 14.")]
     public bool ShowLureMessages { get; set; } = true;
+    public bool ShowLureAttemptMessages { get; set; } = true;
+    public bool ShowLureBiteFeelingMessages { get; set; } = true;
+    public bool ShowReelInLine { get; set; } = true;
+    public bool ShowLoseBait { get; set; } = true;
     public bool ShowFishingFlavorText { get; set; } = true;
     public bool ShowAllOtherGathering { get; set; } = false;
     public bool ShowGatheringBuffEffectGain { get; set; } = false;

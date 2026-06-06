@@ -1332,11 +1332,29 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
     <value>Show message when location affects gathering (integrity, collectability, senses)</value>
   </data>
-  <data name="GatheringTab_ShowLureMessages" xml:space="preserve">
-    <value>Show Modest/Ambitious Lure and bite feeling messages</value>
+  <data name="GatheringTab_ShowLureAttemptMessages" xml:space="preserve">
+    <value>Show Modest/Ambitious Lure attempt messages</value>
   </data>
-  <data name="GatheringTab_ShowLureMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 5565, 5566, 5569, 5570, 5571, 5572 — eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you've attracted a fish with a weak bite!</value>
+  <data name="GatheringTab_ShowLureAttemptMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 5566, 5567, 5568, 5570, 5571, 5572 — eg. You attempt to lure small-sized fish to your hook. / You make a second attempt… / You make a third attempt…</value>
+  </data>
+  <data name="GatheringTab_ShowLureBiteFeelingMessages" xml:space="preserve">
+    <value>Show Modest/Ambitious Lure bite feeling messages</value>
+  </data>
+  <data name="GatheringTab_ShowLureBiteFeelingMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 5565, 5569 — eg. You have a feeling your next cast will land a large-sized fish!</value>
+  </data>
+  <data name="GatheringTab_ShowLoseBaitMessages" xml:space="preserve">
+    <value>Show "You lose your bait…" messages</value>
+  </data>
+  <data name="GatheringTab_ShowLoseBaitMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1117 — eg. You lose your bait…</value>
+  </data>
+  <data name="GatheringTab_ShowReelInLineMessages" xml:space="preserve">
+    <value>Show "You reel in your line" messages</value>
+  </data>
+  <data name="GatheringTab_ShowReelInLineMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3511, 5584 — eg. You reel in your line.</value>
   </data>
   <data name="GatheringTab_ShowMooching" xml:space="preserve">
     <value>Show message after recasting with a moochable fish</value>
@@ -2471,7 +2489,7 @@ LogMessage ID — prefix with # and one or more IDs, e.g. #588 or #748,4578. All
     <value>LogMessages 4, 69 — eg. Raven Reaver leaves the party.</value>
   </data>
   <data name="GatheringTab_ShowFishAddedToGuideMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1116, 3511, 5584, 11333 — eg. Something bites! / You reel in your line.</value>
+    <value>LogMessages 1116, 11333 — eg. Something bites! / multihook bonus fish lines.</value>
   </data>
   <data name="GatheringTab_ShowMoochingHelpMarker" xml:space="preserve">
     <value>LogMessage 1121 — eg. You mooch a fish!</value>

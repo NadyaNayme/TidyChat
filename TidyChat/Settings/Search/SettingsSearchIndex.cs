@@ -669,11 +669,14 @@ internal static class SettingsSearchIndex
         }
 
         if (propertyName is "ShowCaughtFish" or
+                "ShowReelInLine" or
+                "ShowLoseBait" or
                 "ShowMooching" or
                 "ShowMeasuringIlms" or
                 "ShowCurrentFishingHole" or
                 "ShowDiscoveredFishingHole" or
-                "ShowLureMessages" or
+                "ShowLureAttemptMessages" or
+                "ShowLureBiteFeelingMessages" or
                 "ShowFishingFlavorText")
         {
             return Languages.ConfigWindow_FishingTabHeader;

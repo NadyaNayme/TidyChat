@@ -141,6 +141,13 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
             Configuration.Save();
         }
 
+        if (Configuration.Version < 14)
+        {
+            ConfigurationMigration.ApplyVersion14(Configuration);
+            Configuration.Version = 14;
+            Configuration.Save();
+        }
+
         Rules.UpdateIsActiveStates(Configuration);
 
         ReloadGameDataCaches(validateRuleIds: true);

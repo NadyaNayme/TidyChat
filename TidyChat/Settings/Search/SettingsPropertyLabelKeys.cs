@@ -118,8 +118,11 @@ internal static class SettingsPropertyLabelKeys
         ["ShowCurrentFishingHole"] = nameof(Languages.GatheringTab_ShowFishingHoleName),
         ["ShowDiscoveredFishingHole"] = nameof(Languages.GatheringTab_ShowFishingHoleDiscovered),
         ["ShowFishingFlavorText"] = nameof(Languages.GatheringTab_ShowFishingFlavorText),
-        ["ShowLureMessages"] = nameof(Languages.GatheringTab_ShowLureMessages),
+        ["ShowLoseBait"] = nameof(Languages.GatheringTab_ShowLoseBaitMessages),
+        ["ShowLureAttemptMessages"] = nameof(Languages.GatheringTab_ShowLureAttemptMessages),
+        ["ShowLureBiteFeelingMessages"] = nameof(Languages.GatheringTab_ShowLureBiteFeelingMessages),
         ["ShowMeasuringIlms"] = nameof(Languages.GatheringTab_ShowFishSizeMessages),
+        ["ShowReelInLine"] = nameof(Languages.GatheringTab_ShowReelInLineMessages),
         ["ShowMooching"] = nameof(Languages.GatheringTab_ShowMooching),
 
         ["ShowCosmicClassPointsAndDataset"] = nameof(Languages.GatheringTab_ShowCosmicClassPointsAndDataset),

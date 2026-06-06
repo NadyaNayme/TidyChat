@@ -21,6 +21,15 @@ public static partial class ChatStrings
     };
 
 
+    public static readonly LocalizedStrings LoseBait = new()
+    {
+        Jpn = ["釣り餌"],
+        Eng = ["lose", "bait"],
+        Deu = ["köder"],
+        Fra = ["appât"]
+    };
+
+
     public static readonly LocalizedStrings PutAwayRod = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -73,11 +82,4 @@ public static partial class ChatStrings
     };
 
 
-    public static readonly LocalizedStrings LureFish = new()
-    {
-        Jpn = ["誘っ"],
-        Eng = ["lure"],
-        Deu = ["angelockt"],
-        Fra = ["attirez"]
-    };
 }

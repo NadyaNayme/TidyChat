@@ -32,7 +32,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3563, 3569]
+            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569]
         },
         new()
         {
@@ -40,7 +40,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3563, 3569],
+            LogMessageIds = [5514, 5516, 5573, 5574, 5550, 3549, 3569],
             StringChecks = [ChatStrings.AetherialReductionIntegrity],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
@@ -82,7 +82,7 @@ public static partial class Rules
         {
             Name = "ShowAetherialReductionMinigame",
             SettingsTab = "Gathering",
-            Channel = ChatType.GatheringSystem,
+            Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3563],
             StringChecks = [ChatStrings.AetherialReductionDoubleBonus],

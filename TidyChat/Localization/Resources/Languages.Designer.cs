@@ -2525,20 +2525,75 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Modest/Ambitious Lure and bite feeling messages.
+        /// <summary>
+        ///   Looks up a localized string similar to Show Modest/Ambitious Lure attempt messages.
         /// </summary>
-        internal static string GatheringTab_ShowLureMessages {
+        internal static string GatheringTab_ShowLureAttemptMessages {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowLureMessages", resourceCulture);
+                return ResourceManager.GetString("GatheringTab_ShowLureAttemptMessages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5565, 5566, 5569, 5570, 5571, 5572 — eg. You attempt to lure small-jawed fish to your hook. / You have a feeling you&amp;apos;ve attracted a fish with a weak bite!.
+        ///   Looks up a localized string similar to LogMessages 5566, 5567, 5568, 5570, 5571, 5572 — eg. You attempt to lure small-sized fish to your hook. / You make a second attempt… / You make a third attempt….
         /// </summary>
-        internal static string GatheringTab_ShowLureMessagesHelpMarker {
+        internal static string GatheringTab_ShowLureAttemptMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowLureMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("GatheringTab_ShowLureAttemptMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Modest/Ambitious Lure bite feeling messages.
+        /// </summary>
+        internal static string GatheringTab_ShowLureBiteFeelingMessages {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowLureBiteFeelingMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 5565, 5569 — eg. You have a feeling your next cast will land a large-sized fish!.
+        /// </summary>
+        internal static string GatheringTab_ShowLureBiteFeelingMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowLureBiteFeelingMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show &quot;You lose your bait…&quot; messages.
+        /// </summary>
+        internal static string GatheringTab_ShowLoseBaitMessages {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowLoseBaitMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 1117 — eg. You lose your bait….
+        /// </summary>
+        internal static string GatheringTab_ShowLoseBaitMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowLoseBaitMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show &quot;You reel in your line&quot; messages.
+        /// </summary>
+        internal static string GatheringTab_ShowReelInLineMessages {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowReelInLineMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 3511, 5584 — eg. You reel in your line..
+        /// </summary>
+        internal static string GatheringTab_ShowReelInLineMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowReelInLineMessagesHelpMarker", resourceCulture);
             }
         }
         
