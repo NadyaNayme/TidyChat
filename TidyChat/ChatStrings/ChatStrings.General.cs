@@ -80,7 +80,7 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings JobChange = new()
     {
         Jpn = ["チェンジ"],
-        Eng = ["change", "to"],
+        Eng = ["change to"],
         Deu = ["bist", "nun"],
         Fra = ["maintenant"]
     };
@@ -104,7 +104,7 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings JobSpecialistChange = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["change", "specialist"],
+        Eng = ["change to", "specialist"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

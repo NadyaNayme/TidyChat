@@ -3,19 +3,21 @@ namespace TidyChat;
 
 internal static class RuleMatcher
 {
-    public static bool MatchesText(LocalizedFilterRule rule, string normalizedText, bool debugMode)
+    public static bool MatchesText(LocalizedFilterRule rule, string normalizedText, out string? matchDetail)
     {
-        if (TryMatchObtainMarkerRule(rule, normalizedText, debugMode, out var obtainMatched))
+        matchDetail = null;
+
+        if (TryMatchObtainMarkerRule(rule, normalizedText, out var obtainMatched, out var obtainDetail))
         {
+            if (obtainMatched)
+            {
+                matchDetail = obtainDetail;
+            }
             return obtainMatched;
         }
 
         if (ObtainCurrencyHelper.ShouldExcludeGenericObtainShowRule(rule, normalizedText))
         {
-            if (debugMode)
-            {
-                TidyChatPlugin.Log.Verbose($"FAILED: {rule.Name} | dedicated obtain type (not generic item obtain)");
-            }
             return false;
         }
 
@@ -27,10 +29,7 @@ internal static class RuleMatcher
         if (requiresCatalog && catalogMatched && !ObtainCurrencyHelper.HasObtainMarkerConstraint(rule) &&
             !RuleHasTextChecks(rule))
         {
-            if (debugMode)
-            {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA LogMessage catalog");
-            }
+            matchDetail = "LUMINA LogMessage catalog";
             return true;
         }
 
@@ -44,10 +43,6 @@ internal static class RuleMatcher
 
                 if (requiresCatalog && !catalogMatched && !allowTextFallback)
                 {
-                    if (debugMode)
-                    {
-                        TidyChatPlugin.Log.Verbose($"FAILED: {rule.Name} | LUMINA LogMessage catalog");
-                    }
                     return false;
                 }
 
@@ -55,17 +50,10 @@ internal static class RuleMatcher
                 {
                     if (L10N.Get(check).IsMatch(normalizedText))
                     {
-                        if (debugMode)
-                        {
-                            TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | REGEX: {L10N.Get(check)}");
-                        }
+                        matchDetail = $"REGEX: {L10N.Get(check)}";
                     }
                     else
                     {
-                        if (debugMode)
-                        {
-                            TidyChatPlugin.Log.Verbose($"FAILED: {rule.Name} | REGEX: {L10N.Get(check)}");
-                        }
                         return false;
                     }
                 }
@@ -79,10 +67,6 @@ internal static class RuleMatcher
 
                 if (requiresCatalog && !catalogMatched && !allowTextFallback)
                 {
-                    if (debugMode)
-                    {
-                        TidyChatPlugin.Log.Verbose($"FAILED: {rule.Name} | LUMINA LogMessage catalog");
-                    }
                     return false;
                 }
 
@@ -90,19 +74,11 @@ internal static class RuleMatcher
                 {
                     if (TextMatchHelper.MatchesAllTokens(normalizedText, check))
                     {
-                        if (debugMode)
-                        {
-                            var via = catalogMatched ? "catalog+string" : "string";
-                            TidyChatPlugin.Log.Debug(
-                                $"MATCHED: {rule.Name} | {via.ToUpperInvariant()}: {string.Join(", ", L10N.Get(check))}");
-                        }
+                        var via = catalogMatched ? "catalog+string" : "string";
+                        matchDetail = $"{via.ToUpperInvariant()}: {string.Join(", ", L10N.Get(check))}";
                     }
                     else
                     {
-                        if (debugMode)
-                        {
-                            TidyChatPlugin.Log.Verbose($"FAILED: {rule.Name} | CONTAINS: {string.Join(", ", L10N.Get(check))}");
-                        }
                         return false;
                     }
                 }
@@ -115,6 +91,7 @@ internal static class RuleMatcher
                 }
                 if (LogMessageCatalog.IsLoaded && LogMessageCatalog.MatchesAny(rule.LogMessageIds, normalizedText))
                 {
+                    matchDetail = "LUMINA LogMessage catalog";
                     return true;
                 }
                 return false;
@@ -122,6 +99,9 @@ internal static class RuleMatcher
                 return false;
         }
     }
+
+    public static bool MatchesText(LocalizedFilterRule rule, string normalizedText, bool _) =>
+        MatchesText(rule, normalizedText, out string? _);
 
     private static bool RequiresLogMessageCatalog(LocalizedFilterRule rule) =>
         rule.PreferLogMessageCatalog && rule.LogMessageIds is { Length: > 0 };
@@ -142,9 +122,11 @@ internal static class RuleMatcher
     private static bool ShouldFallbackToTextChecksWhenCatalogMisses(LocalizedFilterRule rule) =>
         RuleHasTextChecks(rule);
 
-    private static bool TryMatchObtainMarkerRule(LocalizedFilterRule rule, string normalizedText, bool debugMode, out bool matched)
+    private static bool TryMatchObtainMarkerRule(LocalizedFilterRule rule, string normalizedText, out bool matched,
+        out string? matchDetail)
     {
         matched = false;
+        matchDetail = null;
         if (!rule.PreferLogMessageCatalog)
         {
             return false;
@@ -182,9 +164,9 @@ internal static class RuleMatcher
         if (rule.ObtainMarkerOtherPlayer)
         {
             matched = LogMessageCatalog.MatchesOtherPlayerObtain(normalizedText, markerFallback);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA other-player obtain marker");
+                matchDetail = "LUMINA other-player obtain marker";
             }
             return true;
         }
@@ -193,9 +175,9 @@ internal static class RuleMatcher
         {
             matched = LogMessageCatalog.MatchesMaterialsObtain(
                 normalizedText, markerFallback, rule.ObtainMarkerRequireSharedTemplate);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA materials obtain marker");
+                matchDetail = "LUMINA materials obtain marker";
             }
             return true;
         }
@@ -204,9 +186,11 @@ internal static class RuleMatcher
         {
             matched = LogMessageCatalog.MatchesSharedObtainElemental(
                 normalizedText, rule.ObtainMarkerClustersOnly, markerFallback, rule.ObtainMarkerRequireSharedTemplate);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA {(rule.ObtainMarkerClustersOnly ? "cluster" : "elemental")} obtain marker");
+                matchDetail = rule.ObtainMarkerClustersOnly
+                    ? "LUMINA cluster obtain marker"
+                    : "LUMINA elemental obtain marker";
             }
             return true;
         }
@@ -214,9 +198,9 @@ internal static class RuleMatcher
         if (rule.ObtainMarkerAnyTribal)
         {
             matched = LogMessageCatalog.MatchesSharedObtainTribal(normalizedText, markerFallback);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA tribal currency obtain marker");
+                matchDetail = "LUMINA tribal currency obtain marker";
             }
             return true;
         }
@@ -224,9 +208,9 @@ internal static class RuleMatcher
         if (rule.ObtainMarkerAnySeal)
         {
             matched = LogMessageCatalog.MatchesSharedObtainSeal(normalizedText);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + GC seal marker");
+                matchDetail = "LUMINA shared obtain + GC seal marker";
             }
             return true;
         }
@@ -234,9 +218,9 @@ internal static class RuleMatcher
         if (rule.ObtainMarkerGil)
         {
             matched = LogMessageCatalog.MatchesSharedObtainGil(normalizedText, markerFallback);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + gil marker");
+                matchDetail = "LUMINA shared obtain + gil marker";
             }
             return true;
         }
@@ -244,9 +228,9 @@ internal static class RuleMatcher
         if (rule.ObtainMarkerMgp)
         {
             matched = LogMessageCatalog.MatchesSharedObtainMgp(normalizedText, markerFallback);
-            if (debugMode && matched)
+            if (matched)
             {
-                TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + MGP marker");
+                matchDetail = "LUMINA shared obtain + MGP marker";
             }
             return true;
         }
@@ -254,12 +238,11 @@ internal static class RuleMatcher
         var itemId = rule.ObtainMarkerItemId!.Value;
         matched = LogMessageCatalog.MatchesSharedObtain(normalizedText, itemId, markerFallback)
                   || ItemMarkerCatalog.Matches(itemId, normalizedText, markerFallback);
-        if (debugMode && matched)
+        if (matched)
         {
-            var via = LogMessageCatalog.MatchesSharedObtain(normalizedText, itemId, markerFallback)
+            matchDetail = LogMessageCatalog.MatchesSharedObtain(normalizedText, itemId, markerFallback)
                 ? "LUMINA shared obtain + item marker"
                 : "dedicated obtain + item marker";
-            TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | {via}");
         }
         return true;
     }

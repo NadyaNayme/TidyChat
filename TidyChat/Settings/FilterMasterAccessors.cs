@@ -33,6 +33,21 @@ internal static class FilterMasterAccessors
     public static bool DutyObjectiveBonus(Configuration c) =>
         c.ShowInstanceMessage && c.ShowDutyObjectiveBonus;
 
+    public static bool EligibleForCoffers(Configuration c) =>
+        c.ShowInstanceMessage && c.ShowEligibleForCoffers;
+
+    public static bool GlamourDresserOutfit(Configuration c) =>
+        c.ShowGlamourDresserMessages && c.ShowGlamourDresserOutfit;
+
+    public static bool GlamourDresserProjection(Configuration c) =>
+        c.ShowGlamourDresserMessages && c.ShowGlamourDresserProjection;
+
+    public static bool GlamourArmoireMessages(Configuration c) =>
+        c.ShowGlamourDresserMessages && c.ShowGlamourArmoireMessages;
+
+    public static bool TryOnGlamourPreview(Configuration c) =>
+        c.ShowTryOnGlamour && c.ShowTryOnGlamourPreview;
+
     public static bool TryOnGlamourCast(Configuration c) =>
         c.ShowTryOnGlamour && c.ShowTryOnGlamourCast;
 
@@ -47,9 +62,6 @@ internal static class FilterMasterAccessors
 
     public static bool GearsetGlamourRestoreFailed(Configuration c) =>
         c.ShowTryOnGlamour && c.ShowGearsetGlamourRestoreFailed;
-
-    public static bool GlamourAltered(Configuration c) =>
-        c.ShowTryOnGlamour && c.ShowGlamourAltered;
 
     public static bool ItemSearchResults(Configuration c) =>
         c.ShowSearchForItemResults && c.ShowItemSearchResults;
@@ -99,7 +111,8 @@ internal static class FilterMasterAccessors
         {
             "ShowCraftingBuffEffectGain" or "ShowCraftingAbleToExecute" => !config.ShowAllOtherCrafting,
             "ShowGatheringBuffEffectGain" => !config.ShowAllOtherGathering,
-            "ShowStellarAbleToExecute" or "ShowStellarBuffEffectGain" => !config.ShowStellarMissionMessages,
+            "ShowStellarAbleToExecute" or "ShowStellarBuffEffectGain" or "ShowStellarGpRecovery" =>
+                !config.ShowStellarMissionMessages,
             _ => false
         };
 
@@ -114,6 +127,9 @@ internal static class FilterMasterAccessors
 
     public static bool StellarBuffEffectGain(Configuration c) =>
         c.ShowStellarMissionMessages && c.ShowStellarBuffEffectGain;
+
+    public static bool StellarGpRecovery(Configuration c) =>
+        c.ShowStellarMissionMessages && c.ShowStellarGpRecovery;
 
     public static bool OthersLootRoll(Configuration c) => c.ShowOthersLootRoll;
 

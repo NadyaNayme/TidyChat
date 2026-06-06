@@ -95,7 +95,7 @@ internal static class CurrenciesTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemHideFilterMarker(Languages.CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker);
 
         var hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
         if (ImGui.Checkbox(Languages.CurrenciesTab_HideWolfMarksMessages, ref hideObtainedWolfMarks))

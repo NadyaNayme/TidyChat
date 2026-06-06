@@ -32,7 +32,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [1103, 1105],
+            LogMessageIds = [1102, 1103, 1105],
             StringChecks = [ChatStrings.GatheringAttemptGranted],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
@@ -128,7 +128,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
-            LogMessageIds = [1096, 1098],
+            LogMessageIds = [1096],
             StringChecks = [ChatStrings.LocationAffects],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
@@ -161,7 +161,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.LootNotice,
             IsActive = true,
-            LogMessageIds = [3538],
+            LogMessageIds = [3538, 1049, 1050, 1053, 1054],
             StringChecks = [ChatStrings.ObtainedSingleItem],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true

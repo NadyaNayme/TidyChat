@@ -163,8 +163,7 @@ internal static class UiHelp
         IsLootRollHelpMarker(helpPropertyName);
 
     public static bool ShouldAppendSystemHideFilterNote(string helpPropertyName) =>
-        helpPropertyName is nameof(Languages.CurrenciesTab_HideInventoryItemAddedMessagesHelpMarker) or
-            nameof(Languages.CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker);
+        helpPropertyName is nameof(Languages.CurrenciesTab_HideInventoryItemAddedMessagesHelpMarker);
 
     public static bool ShouldAppendGatheringHideFilterNote(string helpPropertyName) =>
         helpPropertyName.StartsWith("GatheringTab_HideGathering", StringComparison.Ordinal) &&
@@ -196,7 +195,8 @@ internal static class UiHelp
         (helpPropertyName.StartsWith("CraftingTab_", StringComparison.Ordinal) ||
          helpPropertyName is nameof(Languages.MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker) or
              nameof(Languages.MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker) or
-             nameof(Languages.MateriaTab_ShowMateriaExtractedMessagesHelpMarker));
+             nameof(Languages.MateriaTab_ShowMateriaExtractedMessagesHelpMarker)) &&
+        helpPropertyName is not nameof(Languages.CraftingTab_ShowCraftingAbleToExecuteHelpMarker);
 
     public static string WithGatheringFilterNote(string help) =>
         AppendNote(help, Languages.Shared_RequiresGatheringFilteringNote);

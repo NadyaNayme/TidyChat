@@ -35,6 +35,15 @@ internal static class CosmicExplorationTab
             }
 
             UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarBuffEffectGainHelpMarker);
+
+            var showStellarGpRecovery = configuration.ShowStellarGpRecovery;
+            if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarGpRecovery, ref showStellarGpRecovery))
+            {
+                configuration.ShowStellarGpRecovery = showStellarGpRecovery;
+                configuration.OnSettingChanged();
+            }
+
+            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarGpRecoveryHelpMarker);
         });
 
         SettingsTabLayout.DrawIndependentOptions(() =>

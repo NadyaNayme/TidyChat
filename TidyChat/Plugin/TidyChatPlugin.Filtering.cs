@@ -58,7 +58,12 @@ public sealed partial class TidyChatPlugin
         string extractedTextValue, string normalizedText, ref bool isHandled, List<string> rulesMatched)
     {
         ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled);
+        var handledBeforeWhitelist = isHandled;
         ApplyWhitelist(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled);
+        if (handledBeforeWhitelist != isHandled)
+        {
+            TrackMatchedRule(rulesMatched, isHandled ? "CustomFilter (Block)" : "CustomFilter (Allow)");
+        }
         if (CheckChatHistory(message, chatType, ref isHandled))
         {
             return true;
@@ -222,7 +227,7 @@ public sealed partial class TidyChatPlugin
 
             if (rule.Channel == ChatType.Echo)
             {
-                if (RuleMatcher.MatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+                if (RuleMatcher.MatchesText(rule, normalizedText, out _))
                 {
                     TrackMatchedRule(matchedRules, rule.Name);
                 }
@@ -233,10 +238,12 @@ public sealed partial class TidyChatPlugin
                 continue;
             }
 
-            if (RuleMatcher.MatchesText(rule, normalizedText, Configuration.EnableDebugMode))
+            if (RuleMatcher.MatchesText(rule, normalizedText, out _))
             {
                 if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
-                    CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText))
+                    !StellarGpShowRuleHelper.IsStellarGpRuleName(rule.Name) &&
+                    (CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText) ||
+                     StellarGpShowRuleHelper.ShouldDeferCombatRules(Configuration, normalizedText)))
                 {
                     if (Configuration.EnableDebugMode)
                     {
@@ -298,6 +305,15 @@ public sealed partial class TidyChatPlugin
                 {
                     TrackMatchedRule(matchedRules, cosmicRule);
                 }
+            }
+        }
+
+        if (StellarGpShowRuleHelper.IsGpRecoveryAllowed(Configuration, normalizedText))
+        {
+            isBlocked = chatType is ChatType.LootNotice;
+            if (Configuration.EnableDebugMode)
+            {
+                TrackMatchedRule(matchedRules, "ShowStellarGpRecovery");
             }
         }
 

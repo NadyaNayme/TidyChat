@@ -312,7 +312,7 @@ public static partial class Rules
         {
             Name = "HideTomestoneWeeklyCap",
             SettingsTab = "Currencies",
-            Channel = ChatType.System,
+            Channel = ChatType.Error,
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [2174],

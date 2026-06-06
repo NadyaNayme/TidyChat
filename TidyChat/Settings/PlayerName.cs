@@ -20,11 +20,22 @@ public class PlayerName
     public string FirstName = string.Empty;
 
     public PlayerNameMatchMode MatchMode = PlayerNameMatchMode.MessageContains;
-    public int WhitelistedChannels = 2;
+    public int WhitelistedChannels = 1 << 3; // System — most custom filters target system lines
 
     public bool IsRegex => IsRegexShape(FirstName);
 
     public bool IsLogMessageId => IsLogMessageIdShape(FirstName);
+
+    /// <summary>
+    ///     Allow-list player name rows used by the global "show messages by/from whitelisted player" toggles.
+    ///     Custom text/regex/#ID filters are excluded.
+    /// </summary>
+    public bool IsGlobalWhitelistPlayerEntry =>
+        AllowMessage &&
+        MatchMode == PlayerNameMatchMode.ExactSender &&
+        !IsRegex &&
+        !IsLogMessageId &&
+        !string.IsNullOrWhiteSpace(FirstName);
 
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
     {

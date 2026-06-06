@@ -220,6 +220,28 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.Error,
             IsActive = true,
+            LogMessageIds = [7739],
+            StringChecks = [ChatStrings.UnableToExecuteWhileOccupied],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCannotExecuteMessages",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            LogMessageIds = [585],
+            StringChecks = [ChatStrings.CannotUseWhileGathering],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCannotExecuteMessages",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
             LogMessageIds = [7122],
             StringChecks = [ChatStrings.UnableToConvertPartySave],
             Pattern = PatternKind.StringMatch,

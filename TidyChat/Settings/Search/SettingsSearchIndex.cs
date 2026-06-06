@@ -682,6 +682,7 @@ internal static class SettingsSearchIndex
         if (propertyName is "ShowStellarMissionMessages" or
                 "ShowStellarAbleToExecute" or
                 "ShowStellarBuffEffectGain" or
+                "ShowStellarGpRecovery" or
                 "ShowCosmicExplorationMessages" or
                 "ShowCosmicRewards" or
                 "ShowCosmicContainers" or
@@ -744,20 +745,24 @@ internal static class SettingsSearchIndex
             "ShowGuildhestEndedMessage" or
             "ShowLevelNoLongerSynced" or
             "ShowDutyMechanicMessages" or
-            "ShowDutyObjectiveBonus")
+            "ShowDutyObjectiveBonus" or
+            "ShowEligibleForCoffers")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_WorldAndInstancesDropdownHeader}";
         }
 
-        if (propertyName is "ShowTryOnGlamour" or
+        if (propertyName is "ShowGlamourDresserMessages" or
+            "ShowGlamourDresserOutfit" or
+            "ShowGlamourDresserProjection" or
+            "ShowGlamourArmoireMessages" or
+            "ShowTryOnGlamour" or
+            "ShowTryOnGlamourPreview" or
             "ShowTryOnGlamourCast" or
             "ShowGlamourPlateProjected" or
             "ShowGlamourPlatePartialApply" or
             "ShowGearDyeApplied" or
             "ShowGearsetGlamourRestoreFailed" or
-            "ShowGlamourAltered" or
-            "ShowSpiritboundGear" or
-            "ShowEligibleForCoffers")
+            "ShowSpiritboundGear")
         {
             return Languages.ConfigWindow_GlamourTabHeader;
         }

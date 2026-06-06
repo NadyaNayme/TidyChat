@@ -202,6 +202,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/10876?pretty=true">You achieved the "…" stellar success!</see>
+    public static readonly LocalizedStrings StellarSuccessAchieved = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["achieved", "stellar", "success"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">You earn the achievement "…"!</see>
     public static readonly LocalizedStrings PlayerEarnAchievement = new()
     {

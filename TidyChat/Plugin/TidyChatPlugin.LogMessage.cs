@@ -43,7 +43,8 @@ public sealed partial class TidyChatPlugin
                 {
                     if (Configuration.EnableDebugMode)
                     {
-                        Log.Debug($"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+                        EmitDedupedLogMessageDebug(
+                            $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
                     }
                     message.PreventOriginal();
                     Interlocked.Increment(ref _sessionBlockedMessages);
@@ -58,10 +59,16 @@ public sealed partial class TidyChatPlugin
                 catch { }
                 if (Configuration.EnableDebugMode)
                 {
-                    Log.Debug($"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+                    EmitDedupedLogMessageDebug(
+                        $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
                 }
                 return;
             }
+        }
+
+        if (TryApplyLogMessageTextCustomFilters(message))
+        {
+            return;
         }
 
         if (TryGetNormalizedLogMessageText(message, out var normalizedTomestoneText) &&
@@ -113,7 +120,7 @@ public sealed partial class TidyChatPlugin
         }
 
         if (!TryResolveLogMessageAllow(message.LogMessageId, normalizedLogText, matchingRules,
-                out var shouldAllow, out var decidingRuleName))
+                out var shouldAllow, out var decidingRuleName, out var decidingMatchDetail))
         {
             if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
             {
@@ -129,11 +136,11 @@ public sealed partial class TidyChatPlugin
                 return;
             }
 
-            RememberLogMessageAllowDecision(message, decidingRuleName);
+            RememberLogMessageAllowDecision(message, decidingRuleName, decidingMatchDetail);
             return;
         }
 
-        ApplyLogMessageBlock(message, decidingRuleName);
+        ApplyLogMessageBlock(message, decidingRuleName, decidingMatchDetail);
         if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
         {
             if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
@@ -152,9 +159,10 @@ public sealed partial class TidyChatPlugin
         string normalizedText,
         IReadOnlyList<LocalizedFilterRule> matchingRules,
         out bool shouldAllow,
-        out string? decidingRuleName) =>
+        out string? decidingRuleName,
+        out string? decidingMatchDetail) =>
         TryResolveLogMessageAllow(logMessageId, normalizedText, matchingRules, Configuration, out shouldAllow,
-            out decidingRuleName);
+            out decidingRuleName, out decidingMatchDetail);
 
     private static bool TryResolveLogMessageAllow(
         uint logMessageId,
@@ -162,10 +170,12 @@ public sealed partial class TidyChatPlugin
         IReadOnlyList<LocalizedFilterRule> matchingRules,
         Configuration configuration,
         out bool shouldAllow,
-        out string? decidingRuleName)
+        out string? decidingRuleName,
+        out string? decidingMatchDetail)
     {
         shouldAllow = false;
         decidingRuleName = null;
+        decidingMatchDetail = null;
 
         if (CosmicShowRuleHelper.IsCosmicMessageAllowed(configuration, normalizedText))
         {
@@ -174,12 +184,22 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
+        if (StellarGpShowRuleHelper.IsGpRecoveryLogMessageAllowed(configuration, logMessageId, normalizedText))
+        {
+            shouldAllow = true;
+            decidingRuleName = "ShowStellarGpRecovery";
+            return true;
+        }
+
         var activeHideMatch = false;
         string? activeHideRule = null;
+        string? activeHideMatchDetail = null;
         var activeShowMatch = false;
         string? activeShowRule = null;
+        string? activeShowMatchDetail = null;
         var inactiveShowMatch = false;
         string? inactiveShowRule = null;
+        string? inactiveShowMatchDetail = null;
 
         foreach (var rule in matchingRules)
         {
@@ -188,7 +208,7 @@ public sealed partial class TidyChatPlugin
                 continue;
             }
 
-            if (!LogMessageRuleApplies(logMessageId, normalizedText, rule, configuration.EnableDebugMode))
+            if (!LogMessageRuleApplies(logMessageId, normalizedText, rule, out var ruleMatchDetail))
             {
                 continue;
             }
@@ -200,17 +220,29 @@ public sealed partial class TidyChatPlugin
                     continue;
                 }
                 activeHideMatch = true;
-                activeHideRule ??= rule.Name;
+                if (activeHideRule is null)
+                {
+                    activeHideRule = rule.Name;
+                    activeHideMatchDetail = ruleMatchDetail;
+                }
             }
             else if (rule.IsActive)
             {
                 activeShowMatch = true;
-                activeShowRule ??= rule.Name;
+                if (activeShowRule is null)
+                {
+                    activeShowRule = rule.Name;
+                    activeShowMatchDetail = ruleMatchDetail;
+                }
             }
             else
             {
                 inactiveShowMatch = true;
-                inactiveShowRule ??= rule.Name;
+                if (inactiveShowRule is null)
+                {
+                    inactiveShowRule = rule.Name;
+                    inactiveShowMatchDetail = ruleMatchDetail;
+                }
             }
         }
 
@@ -218,6 +250,7 @@ public sealed partial class TidyChatPlugin
         {
             shouldAllow = false;
             decidingRuleName = activeHideRule;
+            decidingMatchDetail = activeHideMatchDetail;
             return true;
         }
 
@@ -225,6 +258,7 @@ public sealed partial class TidyChatPlugin
         {
             shouldAllow = true;
             decidingRuleName = activeShowRule;
+            decidingMatchDetail = activeShowMatchDetail;
             return true;
         }
 
@@ -236,6 +270,7 @@ public sealed partial class TidyChatPlugin
             {
                 shouldAllow = true;
                 decidingRuleName = inactiveShowRule;
+                decidingMatchDetail = inactiveShowMatchDetail;
                 return true;
             }
 
@@ -251,6 +286,7 @@ public sealed partial class TidyChatPlugin
 
             shouldAllow = false;
             decidingRuleName = inactiveShowRule;
+            decidingMatchDetail = inactiveShowMatchDetail;
             return true;
         }
 
@@ -274,7 +310,7 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName)
+    private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName, string? matchDetail = null)
     {
         try
         {
@@ -287,7 +323,8 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.EnableDebugMode)
         {
-            Log.Debug($"[LogMessage] BLOCKED by {decidingRuleName} (ID: {message.LogMessageId})");
+            EmitDedupedLogMessageDebug(
+                FormatLogMessageDecision("BLOCKED", decidingRuleName, message.LogMessageId, matchDetail));
             return;
         }
 
@@ -338,7 +375,8 @@ public sealed partial class TidyChatPlugin
         return hasDedicatedShowRule;
     }
 
-    private void RememberLogMessageAllowDecision(ILogMessage message, string? decidingRuleName)
+    private void RememberLogMessageAllowDecision(ILogMessage message, string? decidingRuleName,
+        string? matchDetail = null)
     {
         try
         {
@@ -350,23 +388,33 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.EnableDebugMode)
         {
-            Log.Debug($"[LogMessage] ALLOWED by {decidingRuleName} (ID: {message.LogMessageId})");
+            EmitDedupedLogMessageDebug(
+                FormatLogMessageDecision("ALLOWED", decidingRuleName, message.LogMessageId, matchDetail));
         }
     }
 
-    private bool LogMessageRuleApplies(ILogMessage message, LocalizedFilterRule rule)
+    private static string FormatLogMessageDecision(string verb, string? ruleName, uint logMessageId,
+        string? matchDetail)
+    {
+        var line = $"[LogMessage] {verb} by {ruleName} (ID: {logMessageId})";
+        return string.IsNullOrEmpty(matchDetail) ? line : $"{line} | {matchDetail}";
+    }
+
+    private bool LogMessageRuleApplies(ILogMessage message, LocalizedFilterRule rule, out string? matchDetail)
     {
         if (!TryGetNormalizedLogMessageText(message, out var normalizedText))
         {
-            return LogMessageRuleApplies(message.LogMessageId, string.Empty, rule, Configuration.EnableDebugMode);
+            return LogMessageRuleApplies(message.LogMessageId, string.Empty, rule, out matchDetail);
         }
 
-        return LogMessageRuleApplies(message.LogMessageId, normalizedText, rule, Configuration.EnableDebugMode);
+        return LogMessageRuleApplies(message.LogMessageId, normalizedText, rule, out matchDetail);
     }
 
     private static bool LogMessageRuleApplies(uint logMessageId, string normalizedText, LocalizedFilterRule rule,
-        bool debugMode)
+        out string? matchDetail)
     {
+        matchDetail = null;
+
         if (rule.Pattern == PatternKind.None)
         {
             if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType sheetChannel)
@@ -383,6 +431,7 @@ public sealed partial class TidyChatPlugin
         {
             if (LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId))
             {
+                matchDetail = "LUMINA template";
                 return true;
             }
             if (normalizedText.Length == 0)
@@ -400,19 +449,11 @@ public sealed partial class TidyChatPlugin
         if (LogMessageCatalog.IsLoaded && idMatches && !obtainMarkerRule &&
             LogMessageCatalog.Matches(logMessageId, normalizedText))
         {
+            matchDetail = "LUMINA catalog";
             return true;
         }
 
-        if (RuleMatcher.MatchesText(rule, normalizedText, debugMode))
-        {
-            return true;
-        }
-
-        if (debugMode)
-        {
-            Log.Debug($"[LogMessage] ID {logMessageId} matched {rule.Name} but text check failed");
-        }
-        return false;
+        return RuleMatcher.MatchesText(rule, normalizedText, out matchDetail);
     }
     private void RememberLogMessageTexts(HashSet<string> target, string text)
     {
@@ -554,7 +595,7 @@ public sealed partial class TidyChatPlugin
             if (requireShowRuleStillBlock &&
                 (!Rules.LogMessageIdToRules.TryGetValue(id, out var pendingRules) ||
                  !TryResolveLogMessageAllow(id, normalizedText, pendingRules, Configuration, out var shouldAllow,
-                     out _) ||
+                     out _, out _) ||
                  shouldAllow))
             {
                 continue;
@@ -596,7 +637,7 @@ public sealed partial class TidyChatPlugin
             if (requireShowRuleAllow &&
                 (!Rules.LogMessageIdToRules.TryGetValue(id, out var pendingRules) ||
                  !TryResolveLogMessageAllow(id, normalizedText, pendingRules, Configuration, out var stillAllow,
-                     out _) ||
+                     out _, out _) ||
                  !stillAllow))
             {
                 continue;
@@ -701,7 +742,7 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.EnableDebugMode)
         {
-            Log.Debug($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
+            EmitDedupedLogMessageDebug($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
             try
             {
                 var text = message.FormatLogMessageForDebugging().ExtractText();
@@ -732,7 +773,8 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.EnableDebugMode)
         {
-            Log.Debug($"[LogMessage] BLOCKED by allied society currency hide (ID: {message.LogMessageId})");
+            EmitDedupedLogMessageDebug(
+                $"[LogMessage] BLOCKED by allied society currency hide (ID: {message.LogMessageId})");
             try
             {
                 var text = message.FormatLogMessageForDebugging().ExtractText();

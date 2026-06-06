@@ -21,6 +21,10 @@ internal static class ToolsTab
         {
             configuration.EnableDebugMode = enableDebugMode;
             configuration.OnSettingChanged();
+            if (!enableDebugMode)
+            {
+                TidyChatPlugin.Instance?.FlushLogMessageDebugDedup();
+            }
         }
 
         ImGuiComponents.HelpMarker(Languages.ToolsTab_EnableDebugModeHelpMarker);

@@ -1,7 +1,9 @@
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
+using System.Collections.Generic;
 using System.Numerics;
+using Flags = TidyChat.Utility.ChatFlags;
 namespace TidyChat.Settings.Tabs;
 
 internal static class WhitelistTab
@@ -68,66 +70,9 @@ internal static class WhitelistTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            if (ImGui.CollapsingHeader($"{Languages.WhitelistTab_ChannelsHeader}##whitelist{i}ChannelsHeader"))
+            if (ImGui.CollapsingHeader($"{FormatChannelSummary(alias.WhitelistedChannels)}##whitelist{i}ChannelsHeader"))
             {
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_SystemChannel}##whitelist{i}OverrideSystemFilters",
-                        ref alias.WhitelistedChannels,
-                        1 << 3))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_TalkingChannel}##whitelist{i}OverrideTalkingFilters",
-                        ref alias.WhitelistedChannels,
-                        1 << 2))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_EmotesChannel}##whitelist{i}OverrideEmoteFilters",
-                        ref alias.WhitelistedChannels, 1 << 1))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags($"{Languages.ChatHistoryTab_LootChannel}##whitelist{i}OverrideLootFilters",
-                        ref alias.WhitelistedChannels, 1 << 5))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_LootRollsChannel}##whitelist{i}OverrideLootRollFilters",
-                        ref alias.WhitelistedChannels, 1 << 6))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{i}OverrideCraftingFilters",
-                        ref alias.WhitelistedChannels,
-                        1 << 8))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_GatheringChannel}##whitelist{i}OverrideGatheringFilters",
-                        ref alias.WhitelistedChannels,
-                        1 << 9))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_LoginLogoutChannel}##whitelist{i}OverrideFreeCompanyFilters",
-                        ref alias.WhitelistedChannels, 1 << 7))
-                {
-                    configuration.OnSettingChanged();
-                }
-                if (ImGui.CheckboxFlags(
-                        $"{Languages.ChatHistoryTab_ProgressChannel}##whitelist{i}OverrideProgressFilters",
-                        ref alias.WhitelistedChannels,
-                        1 << 4))
-                {
-                    configuration.OnSettingChanged();
-                }
+                DrawChannelCheckboxes(configuration, alias, i);
             }
 
             ImGui.Spacing();
@@ -243,5 +188,117 @@ internal static class WhitelistTab
         ImGui.NewLine();
         ImGui.Spacing();
         ImGui.TextWrapped(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
+    }
+
+    private static void DrawChannelCheckboxes(Configuration configuration, PlayerName alias, int rowIndex)
+    {
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_SystemChannel}##whitelist{rowIndex}OverrideSystemFilters",
+                ref alias.WhitelistedChannels,
+                1 << 3))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_TalkingChannel}##whitelist{rowIndex}OverrideTalkingFilters",
+                ref alias.WhitelistedChannels,
+                1 << 2))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_EmotesChannel}##whitelist{rowIndex}OverrideEmoteFilters",
+                ref alias.WhitelistedChannels, 1 << 1))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags($"{Languages.ChatHistoryTab_LootChannel}##whitelist{rowIndex}OverrideLootFilters",
+                ref alias.WhitelistedChannels, 1 << 5))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_LootRollsChannel}##whitelist{rowIndex}OverrideLootRollFilters",
+                ref alias.WhitelistedChannels, 1 << 6))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_CraftingChannel}##whitelist{rowIndex}OverrideCraftingFilters",
+                ref alias.WhitelistedChannels,
+                1 << 8))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_GatheringChannel}##whitelist{rowIndex}OverrideGatheringFilters",
+                ref alias.WhitelistedChannels,
+                1 << 9))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_LoginLogoutChannel}##whitelist{rowIndex}OverrideFreeCompanyFilters",
+                ref alias.WhitelistedChannels, 1 << 7))
+        {
+            configuration.OnSettingChanged();
+        }
+        if (ImGui.CheckboxFlags(
+                $"{Languages.ChatHistoryTab_ProgressChannel}##whitelist{rowIndex}OverrideProgressFilters",
+                ref alias.WhitelistedChannels,
+                1 << 4))
+        {
+            configuration.OnSettingChanged();
+        }
+    }
+
+    private static string FormatChannelSummary(int channelFlags)
+    {
+        if (channelFlags == 0)
+        {
+            return $"{Languages.WhitelistTab_ChannelsHeader} (none)";
+        }
+
+        var labels = new List<string>();
+        if ((channelFlags & (int)Flags.Channels.System) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_SystemChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.PlayerChannels) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_TalkingChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.Emotes) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_EmotesChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.Progress) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_ProgressChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.Loot) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_LootChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.Obtain) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_LootRollsChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.FreeCompany) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_LoginLogoutChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.Crafting) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_CraftingChannel);
+        }
+        if ((channelFlags & (int)Flags.Channels.Gathering) != 0)
+        {
+            labels.Add(Languages.ChatHistoryTab_GatheringChannel);
+        }
+
+        return labels.Count == 0
+            ? $"{Languages.WhitelistTab_ChannelsHeader} (none)"
+            : $"{Languages.WhitelistTab_ChannelsHeader}: {string.Join(", ", labels)}";
     }
 }

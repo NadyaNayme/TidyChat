@@ -270,20 +270,96 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowGlamourAltered",
-            SettingsTab = "Glamour",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3911]
-        },
-        new()
-        {
-            Name = "ShowGlamourAltered",
+            Name = "ShowGlamourDresserOutfit",
             SettingsTab = "Glamour",
             Channel = ChatType.System,
             IsActive = true,
             StringChecks = [ChatStrings.GlamourOutfitStored],
             Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowGlamourDresserOutfit",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GlamourOutfitInto],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowGlamourDresserProjection",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4380],
+            StringChecks = [ChatStrings.GlamourDresserProjectionAdded],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGlamourDresserProjection",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4381],
+            StringChecks = [ChatStrings.GlamourDresserProjectionRemoved],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGlamourDresserProjection",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4383],
+            StringChecks = [ChatStrings.GlamourDresserProjectionRestored],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGlamourDresserProjection",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            StringChecks = [ChatStrings.GlamourDresserProjection],
+            Pattern = PatternKind.StringMatch
+        },
+        new()
+        {
+            Name = "ShowGlamourArmoireMessages",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [624],
+            StringChecks = [ChatStrings.GlamourArmoireStore],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGlamourArmoireMessages",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [625],
+            StringChecks = [ChatStrings.GlamourArmoireWithdraw],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTryOnGlamourPreview",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3911],
+            StringChecks = [ChatStrings.TryOnGlamourPreview],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -352,7 +428,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowEligibleForCoffers",
-            SettingsTab = "Glamour",
+            SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4233, 4238, 4246]
@@ -435,26 +511,10 @@ public static partial class Rules
             SettingsTab = "Glamour",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [561, 756, 1281]
-        },
-        new()
-        {
-            Name = "ShowJobChange",
-            SettingsTab = "Glamour",
-            Channel = ChatType.System,
-            IsActive = true,
             LogMessageIds = [561],
             StringChecks = [ChatStrings.JobChange],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowPortraitMessages",
-            SettingsTab = "Glamour",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [5865]
         },
         new()
         {
@@ -528,8 +588,19 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [1629, 1630, 1631],
+            LogMessageIds = [1629, 1630],
             StringChecks = [ChatStrings.ItemSearchResults],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowItemSearchResults",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1631],
+            StringChecks = [ChatStrings.ItemSearchResultLine],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

@@ -283,7 +283,7 @@ public static partial class Rules
         {
             Name = "ShowCombatEffects",
             SettingsTab = "Combat",
-            Channel = ChatType.LoseBuff,
+            Channel = ChatType.Miss,
             IsActive = true,
             LogMessageIds = [607],
             StringChecks = [ChatStrings.BuffEffectNullify],

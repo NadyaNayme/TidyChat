@@ -86,6 +86,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         ClientState.TerritoryChanged -= OnTerritoryChanged;
         ClientState.Login -= OnLogin;
         ClientState.Logout -= OnLogout;
+        DisposeLogMessageDebugDedup();
     }
     private void OnCommand(string command, string args)
     {
@@ -130,6 +131,13 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         {
             ConfigurationMigration.ApplyVersion12(Configuration);
             Configuration.Version = 12;
+            Configuration.Save();
+        }
+
+        if (Configuration.Version < 13)
+        {
+            ConfigurationMigration.ApplyVersion13(Configuration);
+            Configuration.Version = 13;
             Configuration.Save();
         }
 

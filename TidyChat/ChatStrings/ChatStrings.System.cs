@@ -83,6 +83,14 @@ public static partial class ChatStrings
         Deu = ["farbe", "benutzt"],
         Fra = ["teignez", "teinture"]
     };
+    /// <see href="https://xivapi.com/LogMessage/3911?pretty=true">You try on …</see>
+    public static readonly LocalizedStrings TryOnGlamourPreview = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["try on"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
     /// <see href="https://xivapi.com/LogMessage/4309?pretty=true">You cast a glamour …</see>
     public static readonly LocalizedStrings TryOnGlamourCast = new()
     {
@@ -96,6 +104,62 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["stored as", "outfit glamour"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/?pretty=true">Outfit glamour created in the dresser (7.1+).</see>
+    public static readonly LocalizedStrings GlamourOutfitInto = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["into", "outfit glamour"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4380?pretty=true">Projection added to glamour dresser.</see>
+    public static readonly LocalizedStrings GlamourDresserProjectionAdded = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["projection", "added", "glamour dresser"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4381?pretty=true">Projection removed from glamour dresser.</see>
+    public static readonly LocalizedStrings GlamourDresserProjectionRemoved = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["projection", "removed", "glamour dresser"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/4383?pretty=true">Projection restored and removed from glamour dresser.</see>
+    public static readonly LocalizedStrings GlamourDresserProjectionRestored = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["projection", "restored", "glamour dresser"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/?pretty=true">Other glamour dresser projection lines (7.1+).</see>
+    public static readonly LocalizedStrings GlamourDresserProjection = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["projection", "glamour dresser"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/624?pretty=true">You store … in the armoire.</see>
+    public static readonly LocalizedStrings GlamourArmoireStore = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["store", "armoire"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/625?pretty=true">You withdraw … from the armoire.</see>
+    public static readonly LocalizedStrings GlamourArmoireWithdraw = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["withdraw", "armoire"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -302,6 +366,15 @@ public static partial class ChatStrings
         Fra = ["éthérolysez"]
     };
     /// <see href="https://xivapi.com/LogMessage/5550?pretty=true">This location grants an increase to item collectability!</see>
+    /// <see href="https://xivapi.com/LogMessage/3563?pretty=true">You receive a double bonus!</see>
+    public static readonly LocalizedStrings AetherialReductionDoubleBonus = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["receive", "double", "bonus"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     public static readonly LocalizedStrings CollectabilityLocationBonus = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -348,6 +421,17 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/10787?pretty=true">A modest contribution to the exploration initiative has been recorded.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/10788?pretty=true">A respectable contribution…</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/10789?pretty=true">A generous contribution…</seealso>
+    public static readonly LocalizedStrings CosmicExplorationContribution = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["contribution", "exploration", "initiative", "recorded"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
     /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
     ///     Your meticulous actions prove effective. Integrity is not
     ///     reduced.
@@ -372,6 +456,15 @@ public static partial class ChatStrings
         Eng = ["containing", "found"],
         Deu = ["treffer", "inventar"],
         Fra = ["contenant", "inventaire"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1631?pretty=true">/isearch item name lines (>> …).</see>
+    public static readonly LocalizedStrings ItemSearchResultLine = new()
+    {
+        Jpn = [">>"],
+        Eng = [">>"],
+        Deu = [">>"],
+        Fra = [">>"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1438?pretty=true">/isearch location result lines (stowage).</see>

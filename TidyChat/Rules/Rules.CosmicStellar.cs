@@ -12,8 +12,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds =
             [
-                631, 10764, 10766, 10769, 10770, 10771, 10779, 10781, 10804, 10815, 10822, 10878, 10879,
-                10946, 11154, 11174, 11175, 11197, 11379, 11383, 10784
+                631, 10764, 10766, 10769, 10770, 10771, 10779, 10781, 10804, 10815, 10822, 10827, 10828, 10878,
+                10879, 10946, 11154, 11197, 11200, 11379, 11383, 10784
             ]
         },
         new()
@@ -183,7 +183,29 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowStellarMissionMessages",
+            Name = "ShowStellarGpRecovery",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11174],
+            StringChecks = [ChatStrings.StellarGpRecoverySelf],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowStellarGpRecovery",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11174],
+            StringChecks = [ChatStrings.StellarGpRecoveryOther],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowStellarGpRecovery",
             SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
@@ -227,6 +249,39 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowStellarMissionMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10828],
+            StringChecks = [ChatStrings.StellarMissionEvaluationComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowStellarMissionMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10827],
+            StringChecks = [ChatStrings.StellarReductionNoItemsLeft],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowStellarMissionMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11200],
+            StringChecks = [ChatStrings.StellarMissionGoldCountReset],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowCosmicExplorationMessages",
             SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
@@ -244,6 +299,17 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [10884, 10881, 10807, 11334, 11335],
             StringChecks = [ChatStrings.CosmicRedAlert],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicExplorationMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10787, 10788, 10789],
+            StringChecks = [ChatStrings.CosmicExplorationContribution],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -376,6 +442,17 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [10877],
             StringChecks = [ChatStrings.DailySuccessGoalAchieved],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicDailyProgress",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10876],
+            StringChecks = [ChatStrings.StellarSuccessAchieved],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

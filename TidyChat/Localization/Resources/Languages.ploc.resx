@@ -1846,7 +1846,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>LogMessage 33 — eg. You initiate trade with Raven Reaver.</value>
   </data>
   <data name="SystemTab_ShowNumberOfCoffersHelpMarker" xml:space="preserve">
-    <value>LogMessages 4233, 4238, 4246 — eg. 2 items in your glamour dresser are eligible for glamours you can store in your armoire.</value>
+    <value>LogMessages 4233, 4238, 4246 — eg. 2 of 4 party members are eligible for duty rewards. The number of coffers to appear will be 1 of a possible 2.</value>
   </data>
   <data name="MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 1953, 1954 — eg. You retrieve a Savage Aim Materia VI from your gear.</value>

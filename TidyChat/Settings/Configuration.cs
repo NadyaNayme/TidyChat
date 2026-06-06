@@ -155,12 +155,18 @@ public class Configuration : IPluginConfiguration
     public bool ShowFreeCompanyMessageBook { get; set; } = true;
     public bool ShowPersonalMessageBook { get; set; } = true;
     public bool ShowVistaMessages { get; set; } = true;
+    public bool ShowGlamourDresserMessages { get; set; } = true;
+    public bool ShowGlamourDresserOutfit { get; set; } = true;
+    public bool ShowGlamourDresserProjection { get; set; } = true;
+    public bool ShowGlamourArmoireMessages { get; set; } = true;
     public bool ShowTryOnGlamour { get; set; } = true;
+    public bool ShowTryOnGlamourPreview { get; set; } = true;
     public bool ShowTryOnGlamourCast { get; set; } = true;
     public bool ShowGlamourPlateProjected { get; set; } = true;
     public bool ShowGlamourPlatePartialApply { get; set; } = true;
     public bool ShowGearDyeApplied { get; set; } = true;
     public bool ShowGearsetGlamourRestoreFailed { get; set; } = true;
+    [Obsolete("Migrated to ShowGlamourDresserOutfit in config version 13.")]
     public bool ShowGlamourAltered { get; set; } = true;
     public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGearsetEquipped { get; set; } = false;
@@ -341,6 +347,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowStellarMissionMessages { get; set; } = false;
     public bool ShowStellarAbleToExecute { get; set; } = false;
     public bool ShowStellarBuffEffectGain { get; set; } = false;
+    public bool ShowStellarGpRecovery { get; set; } = false;
 
     public bool ShowCosmicExplorationMessages { get; set; } = false;
 

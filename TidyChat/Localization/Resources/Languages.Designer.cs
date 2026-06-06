@@ -557,7 +557,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 519, 520, 560 — eg. The enemy recovers 500 HP..
+        ///   Looks up a localized string similar to LogMessages 519, 520, 560 — eg. You recover 500 HP. / You are revived. Gathering GP recovery (LogMessages 11174, 11175) is separate — use Cosmic Exploration → Show stellar GP recovery instead..
         /// </summary>
         internal static string CombatTab_ShowCombatHealingMessagesHelpMarker {
             get {
@@ -1241,7 +1241,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 2174 — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Uses Filter System on General..
+        ///   Looks up a localized string similar to LogMessage 2174 (Error channel) — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Checked = hide..
         /// </summary>
         internal static string CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker {
             get {
@@ -2597,6 +2597,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show stellar GP recovery.
+        /// </summary>
+        internal static string GatheringTab_ShowStellarGpRecovery {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowStellarGpRecovery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP; use this option, not Combat → Show healing. 11175 covers mission-end GP refund..
+        /// </summary>
+        internal static string GatheringTab_ShowStellarGpRecoveryHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowStellarGpRecoveryHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show stellar mission messages.
         /// </summary>
         internal static string GatheringTab_ShowStellarMissionMessages {
@@ -2606,7 +2624,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Master toggle for stellar mission catch-all lines (LogMessages 631–11383, 21 IDs). When on, use nested options for able-to-execute (5533, 11365) and buff gain (11366). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate..
+        ///   Looks up a localized string similar to Master toggle for stellar mission catch-all lines (LogMessages 631–11383, 20 IDs). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate..
         /// </summary>
         internal static string GatheringTab_ShowStellarMissionMessagesHelpMarker {
             get {
@@ -3157,6 +3175,79 @@ namespace TidyChat.Localization.Resources {
         internal static string GlamourTab_FilteringNote {
             get {
                 return ResourceManager.GetString("GlamourTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourArmoireMessages {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourArmoireMessages", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourArmoireMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourArmoireMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        
+        internal static string GlamourTab_ShowGlamourDresserMessages {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourDresserMessages", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourDresserMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourDresserMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourDresserOutfit {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourDresserOutfit", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourDresserOutfitHelpMarker {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourDresserOutfitHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourDresserProjection {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourDresserProjection", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowGlamourDresserProjectionHelpMarker {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowGlamourDresserProjectionHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowTryOnEquipGlamourMessages {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowTryOnEquipGlamourMessages", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowTryOnEquipGlamourMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowTryOnEquipGlamourMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowTryOnGlamourPreview {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowTryOnGlamourPreview", resourceCulture);
+            }
+        }
+        
+        internal static string GlamourTab_ShowTryOnGlamourPreviewHelpMarker {
+            get {
+                return ResourceManager.GetString("GlamourTab_ShowTryOnGlamourPreviewHelpMarker", resourceCulture);
             }
         }
         

@@ -1,4 +1,7 @@
 using System.Text.RegularExpressions;
+using System.Threading;
+using TidyChat.Data;
+using TidyChat.Settings;
 using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat;
@@ -51,7 +54,7 @@ public sealed partial class TidyChatPlugin
 
         foreach (var entry in Configuration.Whitelist)
         {
-            if (string.IsNullOrWhiteSpace(entry.FirstName) || entry.IsLogMessageId)
+            if (!entry.IsGlobalWhitelistPlayerEntry)
             {
                 continue;
             }
@@ -208,5 +211,118 @@ public sealed partial class TidyChatPlugin
                 ? $"A message matching \"{playerOrMessage.FirstName}\" has been allowed."
                 : $"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
         }
+    }
+
+    private bool TryApplyLogMessageTextCustomFilters(ILogMessage message)
+    {
+        if (Configuration.Whitelist.Count == 0)
+        {
+            return false;
+        }
+
+        string extractedTextValue;
+        try
+        {
+            extractedTextValue = message.FormatLogMessageForDebugging().ExtractText();
+        }
+        catch
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(extractedTextValue))
+        {
+            return false;
+        }
+
+        var rawTextValue = extractedTextValue;
+        var normalizedText = extractedTextValue.ToLower(CultureInfo.CurrentCulture);
+        if (Configuration.PlayerName != "")
+        {
+            normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
+        }
+
+        var chatType = LogMessageCatalog.GetChatTypeForId(message.LogMessageId) ?? ChatType.System;
+
+        foreach (var entry in Configuration.Whitelist)
+        {
+            if (entry.IsLogMessageId || entry.AllowMessage)
+            {
+                continue;
+            }
+
+            if (!CustomFilterMatchesLogMessageText(entry, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                continue;
+            }
+
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug(
+                    $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+                try
+                {
+                    RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
+                }
+                catch
+                {
+                }
+
+                RememberLogMessageBlock(message.LogMessageId);
+                return true;
+            }
+
+            message.PreventOriginal();
+            Interlocked.Increment(ref _sessionBlockedMessages);
+            try
+            {
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
+            }
+            catch
+            {
+            }
+
+            RememberLogMessageBlock(message.LogMessageId);
+            return true;
+        }
+
+        foreach (var entry in Configuration.Whitelist)
+        {
+            if (entry.IsLogMessageId || !entry.AllowMessage)
+            {
+                continue;
+            }
+
+            if (!CustomFilterMatchesLogMessageText(entry, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                continue;
+            }
+
+            try
+            {
+                RememberLogMessageChatMatchTexts(_allowedByLogMessage, extractedTextValue);
+                RememberCustomFilterLogMessageAllow(message.LogMessageId);
+            }
+            catch
+            {
+            }
+
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug(
+                    $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool CustomFilterMatchesLogMessageText(PlayerName entry, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
+    {
+        var empty = new SeString();
+        return CustomFilterMatches(empty, empty, entry, chatType, rawTextValue, extractedTextValue, normalizedText);
     }
 }

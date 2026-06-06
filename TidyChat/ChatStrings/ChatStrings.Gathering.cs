@@ -3,13 +3,13 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
-    /// <see href="https://xivapi.com/LogMessage/1096?pretty=true">Location gathering buffs (1096, 1098)</see>
+    /// <see href="https://xivapi.com/LogMessage/1096?pretty=true">Location affects gathering rate (1096).</see>
     public static readonly LocalizedStrings LocationAffects = new()
     {
-        Jpn = ["採集場所", "特徴"],
-        Eng = ["the", "location", "affects", "your"],
-        Deu = ["sammelstelle", "beeinflusst"],
-        Fra = ["propriétés", "lieu", "vous", "conférent"]
+        Jpn = ["採集場所", "特質", "獲得率"],
+        Eng = ["location", "affects", "gathering", "rate"],
+        Deu = ["sammelstelle", "beeinflusst", "sammelrate"],
+        Fra = ["propriétés", "lieu", "bonus", "récolte"]
     };
 
 
@@ -140,10 +140,14 @@ public static partial class ChatStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/1103?pretty=true">
+    /// <see href="https://xivapi.com/LogMessage/1102?pretty=true">
+    ///     You have been granted an additional gathering attempt at
+    ///     this mineral deposit.
+    /// </see>
+    /// <seealso href="https://xivapi.com/LogMessage/1103?pretty=true">
     ///     You have been granted an additional gathering attempt at
     ///     this rocky outcropping.
-    /// </see>
+    /// </seealso>
     public static readonly LocalizedStrings GatheringAttemptGranted = new()
     {
         Jpn = ["採集回数", "復し"],
@@ -321,6 +325,54 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+
+    /// <see href="https://xivapi.com/LogMessage/10828?pretty=true">Mission evaluation complete.</see>
+    public static readonly LocalizedStrings StellarMissionEvaluationComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["mission", "evaluation", "complete"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
+    /// <see href="https://xivapi.com/LogMessage/10827?pretty=true">You have no more items left for stellar reduction.</see>
+    public static readonly LocalizedStrings StellarReductionNoItemsLeft = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["no", "more", "items", "stellar", "reduction"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
+    /// <see href="https://xivapi.com/LogMessage/11200?pretty=true">A mission below class A has been undertaken. Your gold count has been reset.</see>
+    public static readonly LocalizedStrings StellarMissionGoldCountReset = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["mission", "below", "class", "gold", "count", "reset"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
+    /// <see href="https://xivapi.com/LogMessage/11174?pretty=true">You recover N GP.</see>
+    public static readonly LocalizedStrings StellarGpRecoverySelf = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["you", "recover", "gp"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11174?pretty=true">PlayerName recovers N GP.</see>
+    public static readonly LocalizedStrings StellarGpRecoveryOther = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["recovers", "gp"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
 
     public static readonly LocalizedStrings StellarGpRecovered = new()
     {

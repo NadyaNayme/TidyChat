@@ -58,6 +58,26 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/7739?pretty=true">Unable to execute command while occupied.</see>
+    public static readonly LocalizedStrings UnableToExecuteWhileOccupied = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["unable", "execute", "command", "occupied"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
+    /// <see href="https://xivapi.com/LogMessage/585?pretty=true">Cannot use while gathering.</see>
+    public static readonly LocalizedStrings CannotUseWhileGathering = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["cannot", "use", "while", "gathering"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
     public static readonly LocalizedStrings UnableToConvertPartySave = new()
     {
         Jpn = ["マッチングパーティ", "コンバート"],
