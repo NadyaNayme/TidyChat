@@ -20,6 +20,8 @@ internal static class MateriaTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker);
+
         var showOvermeldFailure = configuration.ShowOvermeldFailure;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaOvermeldFailuresMessages,
                 ref showOvermeldFailure))
@@ -27,6 +29,8 @@ internal static class MateriaTab
             configuration.ShowOvermeldFailure = showOvermeldFailure;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker);
 
         var showMateriaRetrieved = configuration.ShowMateriaRetrieved;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowSuccesfullyRetrievedMateriaMessages,
@@ -36,6 +40,8 @@ internal static class MateriaTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker);
+
         var showMateriaShatters = configuration.ShowMateriaShatters;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaShattersMessages, ref showMateriaShatters))
         {
@@ -43,11 +49,15 @@ internal static class MateriaTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.MateriaTab_ShowMateriaShattersMessagesHelpMarker);
+
         var showMateriaExtract = configuration.ShowMateriaExtract;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaExtractedMessages, ref showMateriaExtract))
         {
             configuration.ShowMateriaExtract = showMateriaExtract;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowMateriaExtractedMessagesHelpMarker);
     }
 }

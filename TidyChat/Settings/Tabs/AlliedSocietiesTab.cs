@@ -16,23 +16,23 @@ internal static class AlliedSocietiesTab
         }
 
         var hideObtainedMaterials = configuration.HideObtainedMaterials;
-        if (ImGui.Checkbox(Languages.AlliedSocietiesTab_ShowBeastTribeCraftingMaterialsMessages,
+        if (ImGui.Checkbox(Languages.AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessages,
                 ref hideObtainedMaterials))
         {
             configuration.HideObtainedMaterials = hideObtainedMaterials;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessagesHelpMarker);
 
         var hideObtainedTribalCurrency = configuration.HideObtainedTribalCurrency;
-        if (ImGui.Checkbox(Languages.AlliedSocietiesTab_ShowBeastTribeCurrenciesMessages, ref hideObtainedTribalCurrency))
+        if (ImGui.Checkbox(Languages.AlliedSocietiesTab_HideBeastTribeCurrenciesMessages, ref hideObtainedTribalCurrency))
         {
             configuration.HideObtainedTribalCurrency = hideObtainedTribalCurrency;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker);
 
         if (TidyChatPlugin.TribalCurrencies.Count == 0)
         {
@@ -50,6 +50,8 @@ internal static class AlliedSocietiesTab
                         configuration.HideTribalCurrencyById[currency.RowId] = hide;
                         configuration.OnSettingChanged();
                     }
+
+                    UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker);
                 }
             });
         }

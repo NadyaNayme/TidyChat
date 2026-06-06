@@ -199,37 +199,37 @@ internal static class SystemTab
     private static void DrawOrchestrion(Configuration configuration)
     {
         var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowOrchestrionPlaying, ref hideOrchestrionPlaying))
+        if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
         {
             configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowOrchestrionPlayingHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
     }
 
     private static void DrawCrackedClusters(Configuration configuration)
     {
         var hideObtainedClusters = configuration.HideObtainedClusters;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowCrackedClustersMessages, ref hideObtainedClusters))
+        if (ImGui.Checkbox(Languages.SystemTab_HideCrackedClustersMessages, ref hideObtainedClusters))
         {
             configuration.HideObtainedClusters = hideObtainedClusters;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.SystemTab_ShowCrackedClustersMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.SystemTab_HideCrackedClustersMessagesHelpMarker);
     }
 
     private static void DrawErrorMessages(Configuration configuration)
     {
         var hideFateLevelSync = configuration.HideFateLevelSync;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowFateLevelSyncMessages, ref hideFateLevelSync))
+        if (ImGui.Checkbox(Languages.SystemTab_HideFateLevelSyncMessages, ref hideFateLevelSync))
         {
             configuration.HideFateLevelSync = hideFateLevelSync;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowFateLevelSyncMessagesHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideFateLevelSyncMessagesHelpMarker);
 
         var showActiveHelpEntry = configuration.ShowActiveHelpEntry;
         if (ImGui.Checkbox(Languages.SystemTab_ShowActiveHelpEntryMessages, ref showActiveHelpEntry))

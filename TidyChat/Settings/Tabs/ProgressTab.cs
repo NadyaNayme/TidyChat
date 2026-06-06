@@ -23,7 +23,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
         var showGainPvpExp = configuration.ShowGainPvpExp;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowPvpExpGainMessages, ref showGainPvpExp))
@@ -32,7 +32,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPvpExpGainMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowPvpExpGainMessagesHelpMarker);
 
         var showGainPvpRank = configuration.ShowGainPvpRank;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowPvpRankMessages, ref showGainPvpRank))
@@ -41,7 +41,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowPvpRankMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowPvpRankMessagesHelpMarker);
 
         var showGainSeriesExp = configuration.ShowGainSeriesExp;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowSeriesProgressMessages, ref showGainSeriesExp))
@@ -50,7 +50,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowSeriesProgressMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowSeriesProgressMessagesHelpMarker);
 
         var showPvpZoneAnnouncements = configuration.ShowPvpZoneAnnouncements;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowPvpZoneAnnouncements, ref showPvpZoneAnnouncements))
@@ -68,7 +68,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker);
 
         var showOtherLevelUps = configuration.ShowOtherLevelUps;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
@@ -89,6 +89,8 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowFirstClearAwardHelpMarker);
+
         var showSecondChanceAward = configuration.ShowSecondChanceAward;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowSecondChanceAward, ref showSecondChanceAward))
         {
@@ -96,24 +98,26 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowSecondChanceAwardHelpMarker);
+
         var hideRouletteBonus = configuration.HideRouletteBonus;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages,
+        if (ImGui.Checkbox(Languages.ProgressTab_HideBonusAwardForDutyRouletteMessages,
                 ref hideRouletteBonus))
         {
             configuration.HideRouletteBonus = hideRouletteBonus;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.ProgressTab_HideBonusAwardForDutyRouletteMessagesHelpMarker);
 
         var hideAdventurerInNeedBonus = configuration.HideAdventurerInNeedBonus;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
+        if (ImGui.Checkbox(Languages.ProgressTab_HideAdventurerInNeedAwardMessages, ref hideAdventurerInNeedBonus))
         {
             configuration.HideAdventurerInNeedBonus = hideAdventurerInNeedBonus;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.ProgressTab_ShowAdventurerInNeedAwardMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.ProgressTab_HideAdventurerInNeedAwardMessagesHelpMarker);
     }
 
     private static void DrawQuestAndAchievements(Configuration configuration)
@@ -134,7 +138,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker);
 
         var showOtherEarnedAchievement = configuration.ShowOtherEarnedAchievement;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessages,
@@ -144,7 +148,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker);
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker);
     }
 
     private static void DrawUnlocks(Configuration configuration)
@@ -156,7 +160,7 @@ internal static class ProgressTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
+        UiHelp.ProgressAndSystemFilterMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
 
         var showMountMessages = configuration.ShowMountMessages;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowMountMessages, ref showMountMessages))

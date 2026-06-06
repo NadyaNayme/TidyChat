@@ -20,6 +20,8 @@ internal static class DesynthesisTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.ProgressFilterMarker(Languages.DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker);
+
         var showDesynthedItem = configuration.ShowDesynthedItem;
         if (ImGui.Checkbox(Languages.DesynthesisTab_ShowItemBeingDesynthesized,
                 ref showDesynthedItem))
@@ -28,6 +30,8 @@ internal static class DesynthesisTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DesynthesisTab_ShowItemBeingDesynthesizedHelpMarker);
+
         var showDesynthesisObtains = configuration.ShowDesynthesisObtains;
         if (ImGui.Checkbox(Languages.DesynthesisTab_ShowObtainedItemsFromDesynthesisMessages,
                 ref showDesynthesisObtains))
@@ -35,5 +39,7 @@ internal static class DesynthesisTab
             configuration.ShowDesynthesisObtains = showDesynthesisObtains;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker);
     }
 }

@@ -25,12 +25,16 @@ internal static class GlamourTab
                 configuration.OnSettingChanged();
             }
 
+            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSpiritboundMessagesHelpMarker);
+
             var showEligibleForCoffers = configuration.ShowEligibleForCoffers;
             if (ImGui.Checkbox(Languages.SystemTab_ShowNumberOfCoffers, ref showEligibleForCoffers))
             {
                 configuration.ShowEligibleForCoffers = showEligibleForCoffers;
                 configuration.OnSettingChanged();
             }
+
+            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowNumberOfCoffersHelpMarker);
         });
 
         var showGearsetEquipped = configuration.ShowGearsetEquipped;

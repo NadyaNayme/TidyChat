@@ -1,4 +1,6 @@
-﻿namespace TidyChat.Settings.Tabs;
+﻿using Dalamud.Interface.Components;
+
+namespace TidyChat.Settings.Tabs;
 
 internal static class FreeCompanyTab
 {
@@ -21,12 +23,16 @@ internal static class FreeCompanyTab
             configuration.OnSettingChanged();
         }
 
+        ImGuiComponents.HelpMarker(Languages.FreeCompanyTab_ShowLoginMessagesHelpMarker);
+
         var showUserLogouts = configuration.ShowUserLogouts;
         if (ImGui.Checkbox(Languages.FreeCompanyTab_ShowLogoutMessages, ref showUserLogouts))
         {
             configuration.ShowUserLogouts = showUserLogouts;
             configuration.OnSettingChanged();
         }
+
+        ImGuiComponents.HelpMarker(Languages.FreeCompanyTab_ShowLogoutMessagesHelpMarker);
     }
 
     private static void DrawMessageBook(Configuration configuration)
@@ -38,6 +44,8 @@ internal static class FreeCompanyTab
             configuration.ShowFreeCompanyMessageBook = showFreeCompanyMessageBook;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker);
     }
 
     private static void DrawWorkshop(Configuration configuration)

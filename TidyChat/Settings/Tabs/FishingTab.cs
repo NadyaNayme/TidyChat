@@ -1,5 +1,3 @@
-using Dalamud.Interface.Components;
-
 namespace TidyChat.Settings.Tabs;
 
 internal static class FishingTab
@@ -15,6 +13,8 @@ internal static class FishingTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishAddedToGuideMessagesHelpMarker);
+
         var showMooching = configuration.ShowMooching;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowMooching, ref showMooching))
         {
@@ -22,12 +22,16 @@ internal static class FishingTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowMoochingHelpMarker);
+
         var showMeasuringIlms = configuration.ShowMeasuringIlms;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishSizeMessages, ref showMeasuringIlms))
         {
             configuration.ShowMeasuringIlms = showMeasuringIlms;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishSizeMessagesHelpMarker);
 
         var showCurrentFishingHole = configuration.ShowCurrentFishingHole;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingHoleName,
@@ -37,6 +41,8 @@ internal static class FishingTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishingHoleNameHelpMarker);
+
         var showDiscoveredFishingHole = configuration.ShowDiscoveredFishingHole;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingHoleDiscovered,
                 ref showDiscoveredFishingHole))
@@ -45,6 +51,8 @@ internal static class FishingTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishingHoleDiscoveredHelpMarker);
+
         var showLureMessages = configuration.ShowLureMessages;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowLureMessages, ref showLureMessages))
         {
@@ -52,7 +60,7 @@ internal static class FishingTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowLureMessagesHelpMarker);
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowLureMessagesHelpMarker);
 
         var showFishingFlavorText = configuration.ShowFishingFlavorText;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingFlavorText, ref showFishingFlavorText))
@@ -61,6 +69,6 @@ internal static class FishingTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowFishingFlavorTextHelpMarker);
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowFishingFlavorTextHelpMarker);
     }
 }

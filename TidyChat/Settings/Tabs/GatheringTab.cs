@@ -1,5 +1,4 @@
-using Dalamud.Interface.Components;
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class GatheringTab
 {
@@ -23,6 +22,8 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowGatheringSensesLabelHelpMarker);
+
         var showGatheringStartEnd = configuration.ShowGatheringStartEnd;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowGatheringStartEnd,
                 ref showGatheringStartEnd))
@@ -30,6 +31,8 @@ internal static class GatheringTab
             configuration.ShowGatheringStartEnd = showGatheringStartEnd;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowGatheringStartEndHelpMarker);
 
         var showLocationAffects = configuration.ShowLocationAffects;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowLocationGatheringEffectMessages,
@@ -39,6 +42,8 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker);
+
         var hideGatheringYield = !configuration.ShowGatheringYield;
         if (ImGui.Checkbox(Languages.GatheringTab_HideGatheringYieldLocationMessages,
                 ref hideGatheringYield))
@@ -47,7 +52,7 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.GatheringHideFilterMarker(string.Empty);
+        UiHelp.GatheringHideFilterMarker(Languages.GatheringTab_HideGatheringYieldLocationMessagesHelpMarker);
 
         var hideGatheringAttempts = !configuration.ShowGatheringAttempts;
         if (ImGui.Checkbox(Languages.GatheringTab_HideGatheringAttemptsLocationMessages,
@@ -57,7 +62,7 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.GatheringHideFilterMarker(string.Empty);
+        UiHelp.GatheringHideFilterMarker(Languages.GatheringTab_HideGatheringAttemptsLocationMessagesHelpMarker);
 
         var hideGatherersBoon = !configuration.ShowGatherersBoon;
         if (ImGui.Checkbox(Languages.GatheringTab_HideGatheringBoonLocationMessages,
@@ -67,7 +72,7 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.GatheringHideFilterMarker(string.Empty);
+        UiHelp.GatheringHideFilterMarker(Languages.GatheringTab_HideGatheringBoonLocationMessagesHelpMarker);
 
         var showGatheringCollectableObtains = configuration.ShowGatheringCollectableObtains;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowGatheringCollectableObtainMessages,
@@ -77,7 +82,7 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker);
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker);
 
         var showAllOtherGathering = configuration.ShowAllOtherGathering;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowAllOtherGathering, ref showAllOtherGathering))
@@ -111,6 +116,8 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker);
+
         var showAetherialReductionSuccess = configuration.ShowAetherialReductionSuccess;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowAetherialReductionSuccessMessages,
                 ref showAetherialReductionSuccess))
@@ -118,6 +125,8 @@ internal static class GatheringTab
             configuration.ShowAetherialReductionSuccess = showAetherialReductionSuccess;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker);
 
         var showAetherialReductionMinigame = configuration.ShowAetherialReductionMinigame;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowAetherialReductionMinigameMessages,
@@ -127,20 +136,20 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker);
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker);
     }
 
     private static void DrawElementalShards(Configuration configuration)
     {
         var hideObtainedShards = configuration.HideObtainedShards;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowElementalShardsCrystalsClustersMessages,
+        if (ImGui.Checkbox(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessages,
                 ref hideObtainedShards))
         {
             configuration.HideObtainedShards = hideObtainedShards;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker);
     }
 
 }

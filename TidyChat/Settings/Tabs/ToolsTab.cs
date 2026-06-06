@@ -1,3 +1,5 @@
+using Dalamud.Interface.Components;
+
 namespace TidyChat.Settings.Tabs;
 
 internal static class ToolsTab
@@ -21,11 +23,15 @@ internal static class ToolsTab
             configuration.OnSettingChanged();
         }
 
+        ImGuiComponents.HelpMarker(Languages.ToolsTab_EnableDebugModeHelpMarker);
+
         var debugIncludeChannel = configuration.DebugIncludeChannel;
         if (ImGui.Checkbox(Languages.ToolsTab_DebugIncludeChannel, ref debugIncludeChannel))
         {
             configuration.DebugIncludeChannel = debugIncludeChannel;
             configuration.OnSettingChanged();
         }
+
+        ImGuiComponents.HelpMarker(Languages.ToolsTab_DebugIncludeChannelHelpMarker);
     }
 }

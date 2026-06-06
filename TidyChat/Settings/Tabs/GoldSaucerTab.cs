@@ -1,4 +1,4 @@
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class GoldSaucerTab
 {
@@ -7,13 +7,13 @@ internal static class GoldSaucerTab
         SettingsTabLayout.DrawTabNote(Languages.GoldSaucerTab_FilteringNote);
 
         var hideObtainedMgp = configuration.HideObtainedMGP;
-        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowMGPMessages, ref hideObtainedMgp))
+        if (ImGui.Checkbox(Languages.GoldSaucerTab_HideMGPMessages, ref hideObtainedMgp))
         {
             configuration.HideObtainedMGP = hideObtainedMgp;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.GoldSaucerTab_ShowMGPMessagesHelpMarker);
+        UiHelp.ObtainedAndSystemHideFilterMarker(Languages.GoldSaucerTab_HideMGPMessagesHelpMarker);
 
         var showGoldSaucerSwingMinigames = configuration.ShowGoldSaucerSwingMinigames;
         if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowSwingMinigames, ref showGoldSaucerSwingMinigames))

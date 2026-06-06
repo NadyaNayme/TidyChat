@@ -1,5 +1,4 @@
-﻿using Dalamud.Interface.Components;
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class CraftingTab
 {
@@ -20,7 +19,7 @@ internal static class CraftingTab
             configuration.OnSettingChanged();
         }
 
-        ImGuiComponents.HelpMarker(Languages.CraftingTab_ShowCraftingSynthesisCompleteHelpMarker);
+        UiHelp.CraftingFilterMarker(Languages.CraftingTab_ShowCraftingSynthesisCompleteHelpMarker);
 
         var showTrialMessages = configuration.ShowTrialMessages;
         if (ImGui.Checkbox(Languages.CraftingTab_ShowTrialSynthesisMessages, ref showTrialMessages))
@@ -29,6 +28,8 @@ internal static class CraftingTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.CraftingFilterMarker(Languages.CraftingTab_ShowTrialSynthesisMessagesHelpMarker);
+
         var showOtherSynthesis = configuration.ShowOtherSynthesis;
         if (ImGui.Checkbox(Languages.CraftingTab_ShowOtherPlayerCompletedSynthesisMessages,
                 ref showOtherSynthesis))
@@ -36,6 +37,8 @@ internal static class CraftingTab
             configuration.ShowOtherSynthesis = showOtherSynthesis;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.CraftingFilterMarker(Languages.CraftingTab_ShowOtherPlayerCompletedSynthesisMessagesHelpMarker);
 
         var showAllOtherCrafting = configuration.ShowAllOtherCrafting;
         if (ImGui.Checkbox(Languages.CraftingTab_ShowAllOtherCrafting, ref showAllOtherCrafting))
@@ -64,7 +67,7 @@ internal static class CraftingTab
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.GatheringFilterMarker(Languages.CraftingTab_ShowCraftingAbleToExecuteHelpMarker);
+            UiHelp.CraftingFilterMarker(Languages.CraftingTab_ShowCraftingAbleToExecuteHelpMarker);
         });
     }
 }

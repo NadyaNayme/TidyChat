@@ -5494,6 +5494,798 @@ namespace TidyChat.Localization.Resources {
             get {
                 return ResourceManager.GetString("WhitelistTab_WhitelistedPlayerServerName", resourceCulture);
             }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessages {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AlliedSocietiesTab_HideBeastTribeCurrenciesMessages {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_HideBeastTribeCurrenciesMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker {
+            get {
+                return ResourceManager.GetString("AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Bitmap1 {
+            get {
+                return ResourceManager.GetString("Bitmap1", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Color1 {
+            get {
+                return ResourceManager.GetString("Color1", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ConfigWindow_SearchHideTomestoneHelp {
+            get {
+                return ResourceManager.GetString("ConfigWindow_SearchHideTomestoneHelp", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CraftingTab_ShowOtherPlayerCompletedSynthesisMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingTab_ShowOtherPlayerCompletedSynthesisMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CraftingTab_ShowTrialSynthesisMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CraftingTab_ShowTrialSynthesisMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideAlliedSealsMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideAlliedSealsMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideAlliedSealsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideAlliedSealsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideCenturioSealsMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideCenturioSealsMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideCenturioSealsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideCenturioSealsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideGilMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideGilMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideGilMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideGilMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideGrandCompanySealsMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideGrandCompanySealsMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideGrandCompanySealsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideGrandCompanySealsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideSacksOfNutsMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideSacksOfNutsMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideSacksOfNutsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideSacksOfNutsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideTomestoneByIdHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideTomestoneByIdHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideVentureMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideVentureMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideVentureMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideVentureMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideWolfMarksMessages {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideWolfMarksMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string CurrenciesTab_HideWolfMarksMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_HideWolfMarksMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowAccursedHoardDiscoveredMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowAccursedHoardDiscoveredMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowAccursedHoardNotSensedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowAccursedHoardNotSensedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowAccursedHoardSensedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowAccursedHoardSensedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowAetherpoolIncreasesMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowAetherpoolIncreasesMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowAetherpoolRemainsUnchangedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowAetherpoolRemainsUnchangedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowCairnOfPassageActivatedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowCairnOfPassageActivatedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowCairnOfPassageGlowsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowCairnOfPassageGlowsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowCairnOfReturnUsedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowCairnOfReturnUsedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowFloorNumberMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowFloorNumberMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowObtainedPomanderMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowObtainedPomanderMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowPomanderEffectsMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowPomanderEffectsMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DeepDungeonsTab_ShowTransferenceMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DeepDungeonsTab_ShowTransferenceMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DesynthesisTab_ShowItemBeingDesynthesizedHelpMarker {
+            get {
+                return ResourceManager.GetString("DesynthesisTab_ShowItemBeingDesynthesizedHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string EconomyTab_ShowTradeAwaitingConfirmationHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeAwaitingConfirmationHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string EconomyTab_ShowTradeCanceledHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeCanceledHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string EconomyTab_ShowTradeCompleteHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeCompleteHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string EconomyTab_ShowTradeRequestSentHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeRequestSentHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string FreeCompanyTab_ShowLoginMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_ShowLoginMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string FreeCompanyTab_ShowLogoutMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_ShowLogoutMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_HideElementalShardsCrystalsClustersMessages {
+            get {
+                return ResourceManager.GetString("GatheringTab_HideElementalShardsCrystalsClustersMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_HideGatheringAttemptsLocationMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_HideGatheringAttemptsLocationMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_HideGatheringBoonLocationMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_HideGatheringBoonLocationMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_HideGatheringYieldLocationMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_HideGatheringYieldLocationMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowFishAddedToGuideMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowFishAddedToGuideMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowFishingHoleDiscoveredHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowFishingHoleDiscoveredHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowFishingHoleNameHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowFishingHoleNameHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowFishSizeMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowFishSizeMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowGatheringSensesLabelHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowGatheringSensesLabelHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowGatheringStartEndHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowGatheringStartEndHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowMoochingHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowMoochingHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GoldSaucerTab_HideMGPMessages {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_HideMGPMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string GoldSaucerTab_HideMGPMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GoldSaucerTab_HideMGPMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Icon1 {
+            get {
+                return ResourceManager.GetString("Icon1", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string MateriaTab_ShowMateriaExtractedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("MateriaTab_ShowMateriaExtractedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string MateriaTab_ShowMateriaShattersMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("MateriaTab_ShowMateriaShattersMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Name1 {
+            get {
+                return ResourceManager.GetString("Name1", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_HideAnotherPlayerObtainsItemMessages {
+            get {
+                return ResourceManager.GetString("PartyTab_HideAnotherPlayerObtainsItemMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowDisbandAndDissolveMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowDisbandAndDissolveMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowJoinedCrossworldPartyMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowJoinedCrossworldPartyMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowJoiningPartyMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowJoiningPartyMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowLeftPartyMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowLeftPartyMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowPartyObjectiveOnJoinHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowPartyObjectiveOnJoinHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowReceivedPartyInvitationMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowReceivedPartyInvitationMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowSentPartyInviteMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowSentPartyInviteMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ProgressTab_HideAdventurerInNeedAwardMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_HideAdventurerInNeedAwardMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ProgressTab_HideAdventurerInNeedAwardMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_HideAdventurerInNeedAwardMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ProgressTab_HideBonusAwardForDutyRouletteMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_HideBonusAwardForDutyRouletteMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ProgressTab_HideBonusAwardForDutyRouletteMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_HideBonusAwardForDutyRouletteMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ProgressTab_ShowFirstClearAwardHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowFirstClearAwardHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ProgressTab_ShowSecondChanceAwardHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowSecondChanceAwardHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Shared_RequiresObtainedAndSystemHideFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresObtainedAndSystemHideFilteringNote", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string Shared_RequiresProgressFilteringNote {
+            get {
+                return ResourceManager.GetString("Shared_RequiresProgressFilteringNote", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_HideCrackedClustersMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideCrackedClustersMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_HideCrackedClustersMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideCrackedClustersMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessages", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideFateLevelSyncMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_HideOrchestrionPlaying {
+            get {
+                return ResourceManager.GetString("SystemTab_HideOrchestrionPlaying", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_HideOrchestrionPlayingHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_HideOrchestrionPlayingHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_ShowNumberOfCoffersHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowNumberOfCoffersHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SystemTab_ShowSpiritboundMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowSpiritboundMessagesHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ToolsTab_DebugIncludeChannelHelpMarker {
+            get {
+                return ResourceManager.GetString("ToolsTab_DebugIncludeChannelHelpMarker", resourceCulture);
+            }
+        }        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string ToolsTab_EnableDebugModeHelpMarker {
+            get {
+                return ResourceManager.GetString("ToolsTab_EnableDebugModeHelpMarker", resourceCulture);
+            }
         }
     }
 }

@@ -23,12 +23,16 @@ internal static class EconomyTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeRequestSentHelpMarker);
+
         var showTradeCanceled = configuration.ShowTradeCanceled;
         if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeCanceled, ref showTradeCanceled))
         {
             configuration.ShowTradeCanceled = showTradeCanceled;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeCanceledHelpMarker);
 
         var showAwaitingTradeConfirmation = configuration.ShowAwaitingTradeConfirmation;
         if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeAwaitingConfirmation, ref showAwaitingTradeConfirmation))
@@ -37,12 +41,16 @@ internal static class EconomyTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeAwaitingConfirmationHelpMarker);
+
         var showTradeComplete = configuration.ShowTradeComplete;
         if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeComplete, ref showTradeComplete))
         {
             configuration.ShowTradeComplete = showTradeComplete;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeCompleteHelpMarker);
     }
 
     private static void DrawVendor(Configuration configuration)

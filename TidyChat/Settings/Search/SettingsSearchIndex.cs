@@ -14,6 +14,16 @@ internal static class SettingsSearchIndex
         "Enabled"
     };
 
+    /// <summary>
+    ///     Tab UI binds these Show* properties to Hide labels (checked = hide).
+    /// </summary>
+    private static readonly HashSet<string> InvertedHideLabelProperties = new(StringComparer.Ordinal)
+    {
+        "ShowGatheringYield",
+        "ShowGatheringAttempts",
+        "ShowGatherersBoon"
+    };
+
     private static readonly PropertyInfo[] LanguageProperties =
         typeof(Languages).GetProperties(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
@@ -170,7 +180,7 @@ internal static class SettingsSearchIndex
             matches.Add(new(
                 $"tomestone-{tomestone.RowId}",
                 label,
-                null,
+                Languages.ConfigWindow_SearchHideTomestoneHelp,
                 Languages.ConfigWindow_CurrenciesTabHeader,
                 null,
                 [],
@@ -200,6 +210,7 @@ internal static class SettingsSearchIndex
                                ? FormatRuleLocation(ruleMeta.SettingsTab)
                                : Languages.ConfigWindow_GeneralTabHeader);
 
+            var inverted = InvertedHideLabelProperties.Contains(property.Name);
             entries.Add(new(
                 property.Name,
                 label,
@@ -210,8 +221,12 @@ internal static class SettingsSearchIndex
                 ruleMeta?.LogMessageIds ?? [],
                 !AlwaysOnSettings.Contains(property.Name),
                 AlwaysOnSettings.Contains(property.Name),
-                config => (bool)property.GetValue(config)!,
-                (config, value) => property.SetValue(config, value)));
+                inverted
+                    ? config => !(bool)property.GetValue(config)!
+                    : config => (bool)property.GetValue(config)!,
+                inverted
+                    ? (config, value) => property.SetValue(config, !value)
+                    : (config, value) => property.SetValue(config, value)));
         }
 
         return entries.ToArray();
@@ -277,32 +292,9 @@ internal static class SettingsSearchIndex
         var label = (string)labelProperty.GetValue(null)!;
         var helpProperty = FindPairedHelpProperty(labelProperty.Name);
         var help = helpProperty is null ? null : (string)helpProperty.GetValue(null)!;
-        if (help is not null)
+        if (help is not null && helpProperty is not null)
         {
-            if (UiHelp.ShouldAppendLootFilterNote(helpProperty!.Name))
-            {
-                help = UiHelp.WithLootFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendObtainedHideFilterNote(helpProperty!.Name))
-            {
-                help = UiHelp.WithObtainedHideFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendSystemHideFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithSystemHideFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendGatheringHideFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithGatheringHideFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendObtainedFilterNote(helpProperty!.Name))
-            {
-                help = UiHelp.WithObtainedFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendSystemFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithSystemFilterNote(help);
-            }
+            help = AppendConfiguredHelpNotes(help, helpProperty.Name);
         }
 
         return (label, help);
@@ -325,34 +317,75 @@ internal static class SettingsSearchIndex
         var helpProperty = FindPairedHelpProperty(labelProperty.Name);
         if (helpProperty is not null)
         {
-            help = (string)helpProperty.GetValue(null)!;
-            if (UiHelp.ShouldAppendLootFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithLootFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendObtainedHideFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithObtainedHideFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendSystemHideFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithSystemHideFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendGatheringHideFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithGatheringHideFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendObtainedFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithObtainedFilterNote(help);
-            }
-            else if (UiHelp.ShouldAppendSystemFilterNote(helpProperty.Name))
-            {
-                help = UiHelp.WithSystemFilterNote(help);
-            }
+            help = AppendConfiguredHelpNotes((string)helpProperty.GetValue(null)!, helpProperty.Name);
         }
 
         return true;
+    }
+
+    private static string AppendConfiguredHelpNotes(string help, string helpPropertyName)
+    {
+        if (UiHelp.ShouldAppendLootFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithLootFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendLootAndObtainedHideFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithLootAndObtainedHideFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendObtainedAndSystemHideFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithObtainedAndSystemHideFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendObtainedHideFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithObtainedHideFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendSystemHideFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithSystemHideFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendGatheringHideFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithGatheringHideFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendObtainedFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithObtainedFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendGatheringFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithGatheringFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendCraftingFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithCraftingFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendProgressAndSystemFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithProgressAndSystemFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendProgressFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithProgressFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendSystemFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithSystemFilterNote(help);
+        }
+
+        return help;
     }
 
     private static PropertyInfo? FindPairedHelpProperty(string labelPropertyName)
@@ -509,7 +542,6 @@ internal static class SettingsSearchIndex
             "ShowObtainedItems" or
             "ShowObtainedQuestItems" or
             "HideInventoryItemAdded" or
-            "ShowInventoryItemAdded" or
             "HideObtainedWolfMarks" or
             "HideTomestoneWeeklyCap" or
             "HideObtainedAlliedSeals" or
@@ -521,12 +553,27 @@ internal static class SettingsSearchIndex
 
         if (propertyName is "HideRouletteBonus" or
             "HideAdventurerInNeedBonus" or
+            "ShowGainExperience" or
             "ShowGainPvpExp" or
             "ShowGainPvpRank" or
             "ShowGainSeriesExp" or
-            "ShowPvpZoneAnnouncements")
+            "ShowPvpZoneAnnouncements" or
+            "ShowLevelUps" or
+            "ShowOtherLevelUps" or
+            "ShowEarnAchievement" or
+            "ShowOtherEarnedAchievement" or
+            "ShowAbilityUnlocks" or
+            "ShowMountMessages" or
+            "ShowQuestProgress" or
+            "ShowFirstClearAward" or
+            "ShowSecondChanceAward")
         {
             return Languages.ConfigWindow_ProgressTabHeader;
+        }
+
+        if (propertyName.StartsWith("ShowCombat", StringComparison.Ordinal))
+        {
+            return Languages.ConfigWindow_CombatTabHeader;
         }
 
         if (propertyName is "HideFateLevelSync" or "HideOrchestrionPlaying")

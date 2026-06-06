@@ -19,12 +19,16 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowCairnOfPassageGlowsMessagesHelpMarker);
+
         var showRestoresLifeToFallen = configuration.ShowRestoresLifeToFallen;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowCairnOfReturnUsedMessages, ref showRestoresLifeToFallen))
         {
             configuration.ShowRestoresLifeToFallen = showRestoresLifeToFallen;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowCairnOfReturnUsedMessagesHelpMarker);
 
         var showCairnActivates = configuration.ShowCairnActivates;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowCairnOfPassageActivatedMessages, ref showCairnActivates))
@@ -33,6 +37,8 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowCairnOfPassageActivatedMessagesHelpMarker);
+
         var showTransference = configuration.ShowTransference;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowTransferenceMessages, ref showTransference))
         {
@@ -40,12 +46,16 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowTransferenceMessagesHelpMarker);
+
         var showAetherpoolIncrease = configuration.ShowAetherpoolIncrease;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowAetherpoolIncreasesMessages, ref showAetherpoolIncrease))
         {
             configuration.ShowAetherpoolIncrease = showAetherpoolIncrease;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowAetherpoolIncreasesMessagesHelpMarker);
 
         var showAetherpoolUnchanged = configuration.ShowAetherpoolUnchanged;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowAetherpoolRemainsUnchangedMessages,
@@ -55,12 +65,16 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowAetherpoolRemainsUnchangedMessagesHelpMarker);
+
         var showObtainedPomander = configuration.ShowObtainedPomander;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowObtainedPomanderMessages, ref showObtainedPomander))
         {
             configuration.ShowObtainedPomander = showObtainedPomander;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowObtainedPomanderMessagesHelpMarker);
 
         var showTrapTriggered = configuration.ShowTrapTriggered;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowTrapTriggeredMessages, ref showTrapTriggered))
@@ -78,6 +92,8 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowPomanderEffectsMessagesHelpMarker);
+
         var showFloorNumber = configuration.ShowFloorNumber;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowFloorNumberMessages, ref showFloorNumber))
         {
@@ -85,12 +101,16 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowFloorNumberMessagesHelpMarker);
+
         var showSenseAccursedHoard = configuration.ShowSenseAccursedHoard;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowAccursedHoardSensedMessages, ref showSenseAccursedHoard))
         {
             configuration.ShowSenseAccursedHoard = showSenseAccursedHoard;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowAccursedHoardSensedMessagesHelpMarker);
 
         var showDoNotSenseAccursedHoard = configuration.ShowDoNotSenseAccursedHoard;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowAccursedHoardNotSensedMessages,
@@ -100,6 +120,8 @@ internal static class DeepDungeonsTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowAccursedHoardNotSensedMessagesHelpMarker);
+
         var showDiscoverAccursedHoard = configuration.ShowDiscoverAccursedHoard;
         if (ImGui.Checkbox(Languages.DeepDungeonsTab_ShowAccursedHoardDiscoveredMessages,
                 ref showDiscoverAccursedHoard))
@@ -107,5 +129,7 @@ internal static class DeepDungeonsTab
             configuration.ShowDiscoverAccursedHoard = showDiscoverAccursedHoard;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.DeepDungeonsTab_ShowAccursedHoardDiscoveredMessagesHelpMarker);
     }
 }

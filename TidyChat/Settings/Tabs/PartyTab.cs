@@ -1,4 +1,6 @@
-﻿namespace TidyChat.Settings.Tabs;
+﻿using Dalamud.Interface.Components;
+
+namespace TidyChat.Settings.Tabs;
 
 internal static class PartyTab
 {
@@ -22,6 +24,8 @@ internal static class PartyTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowSentPartyInviteMessagesHelpMarker);
+
         var showInviteeJoins = configuration.ShowInviteeJoins;
         if (ImGui.Checkbox(Languages.PartyTab_ShowJoiningPartyMessages, ref showInviteeJoins))
         {
@@ -29,12 +33,16 @@ internal static class PartyTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowJoiningPartyMessagesHelpMarker);
+
         var showLeftParty = configuration.ShowLeftParty;
         if (ImGui.Checkbox(Languages.PartyTab_ShowLeftPartyMessages, ref showLeftParty))
         {
             configuration.ShowLeftParty = showLeftParty;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowLeftPartyMessagesHelpMarker);
 
         var showPartyDisband = configuration.ShowPartyDisband;
         if (ImGui.Checkbox(Languages.PartyTab_ShowDisbandAndDissolveMessages, ref showPartyDisband))
@@ -44,12 +52,16 @@ internal static class PartyTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowDisbandAndDissolveMessagesHelpMarker);
+
         var showInvitedBy = configuration.ShowInvitedBy;
         if (ImGui.Checkbox(Languages.PartyTab_ShowReceivedPartyInvitationMessages, ref showInvitedBy))
         {
             configuration.ShowInvitedBy = showInvitedBy;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowReceivedPartyInvitationMessagesHelpMarker);
 
         var showJoinParty = configuration.ShowJoinParty;
         if (ImGui.Checkbox(Languages.PartyTab_ShowJoinedCrossworldPartyMessages, ref showJoinParty))
@@ -58,6 +70,8 @@ internal static class PartyTab
             configuration.OnSettingChanged();
         }
 
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowJoinedCrossworldPartyMessagesHelpMarker);
+
         var showPartyInformation = configuration.ShowPartyInformation;
         if (ImGui.Checkbox(Languages.PartyTab_ShowPartyObjectiveOnJoin, ref showPartyInformation))
         {
@@ -65,12 +79,16 @@ internal static class PartyTab
             configuration.OnSettingChanged();
         }
 
+        ImGuiComponents.HelpMarker(Languages.PartyTab_ShowPartyObjectiveOnJoinHelpMarker);
+
         var showOfferedTeleport = configuration.ShowOfferedTeleport;
         if (ImGui.Checkbox(Languages.PartyTab_ShowTeleportOfferFromPartyMessages, ref showOfferedTeleport))
         {
             configuration.ShowOfferedTeleport = showOfferedTeleport;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker);
     }
 
     private static void DrawPartyTools(Configuration configuration)
@@ -168,13 +186,13 @@ internal static class PartyTab
         SettingsTabLayout.DrawIndependentOptions(() =>
         {
             var hideOthersObtain = configuration.HideOthersObtain;
-            if (ImGui.Checkbox(Languages.PartyTab_ShowAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
+            if (ImGui.Checkbox(Languages.PartyTab_HideAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
             {
                 configuration.HideOthersObtain = hideOthersObtain;
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.ObtainedHideFilterMarker(Languages.PartyTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+            UiHelp.LootAndObtainedHideFilterMarker(Languages.PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker);
         });
     }
 }

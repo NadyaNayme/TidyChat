@@ -267,7 +267,7 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/501?pretty=true">You ready …</see>
+    /// <see href="https://xivapi.com/LogMessage/501?pretty=true">You ready … (stance / instant ability)</see>
     public static readonly LocalizedStrings CombatReady = new()
     {
         Jpn = ["NeedsLocalization"],

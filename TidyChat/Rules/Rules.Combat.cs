@@ -83,6 +83,17 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowCombatAbilities",
+            SettingsTab = "Combat",
+            Channel = ChatType.Action,
+            IsActive = true,
+            LogMessageIds = [501],
+            StringChecks = [ChatStrings.CombatReady],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowCombatDamage",
             SettingsTab = "Combat",
             Channel = ChatType.Healing,
@@ -331,17 +342,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [558],
             StringChecks = [ChatStrings.CombatDefeatedBy],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowCombatEnemyReady",
-            SettingsTab = "Combat",
-            Channel = ChatType.Action,
-            IsActive = true,
-            LogMessageIds = [501],
-            StringChecks = [ChatStrings.CombatReady],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

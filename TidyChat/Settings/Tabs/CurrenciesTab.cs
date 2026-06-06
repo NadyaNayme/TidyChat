@@ -43,31 +43,31 @@ internal static class CurrenciesTab
         UiHelp.ObtainedFilterMarker(Languages.CurrenciesTab_ShowObtainedQuestItemsHelpMarker);
 
         var hideObtainedgil = configuration.HideObtainedGil;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowGil, ref hideObtainedgil))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideGilMessages, ref hideObtainedgil))
         {
             configuration.HideObtainedGil = hideObtainedgil;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowGilHelpMarker);
+        UiHelp.ObtainedAndSystemHideFilterMarker(Languages.CurrenciesTab_HideGilMessagesHelpMarker);
 
         var hideObtainedSeals = configuration.HideObtainedSeals;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowGrandCompanySealsMessages, ref hideObtainedSeals))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideGrandCompanySealsMessages, ref hideObtainedSeals))
         {
             configuration.HideObtainedSeals = hideObtainedSeals;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowGrandCompanySealsMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideGrandCompanySealsMessagesHelpMarker);
 
         var hideObtainedVenture = configuration.HideObtainedVenture;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowVentureMessages, ref hideObtainedVenture))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideVentureMessages, ref hideObtainedVenture))
         {
             configuration.HideObtainedVenture = hideObtainedVenture;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowVentureMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideVentureMessagesHelpMarker);
 
         if (TidyChatPlugin.Tomestones.Count == 0)
         {
@@ -83,6 +83,8 @@ internal static class CurrenciesTab
                     configuration.HideTomestoneById[tomestone.RowId] = hide;
                     configuration.OnSettingChanged();
                 }
+
+                UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideTomestoneByIdHelpMarker);
             }
         }
 
@@ -96,39 +98,39 @@ internal static class CurrenciesTab
         UiHelp.SystemHideFilterMarker(Languages.CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker);
 
         var hideObtainedWolfMarks = configuration.HideObtainedWolfMarks;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowWolfMarksMessages, ref hideObtainedWolfMarks))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideWolfMarksMessages, ref hideObtainedWolfMarks))
         {
             configuration.HideObtainedWolfMarks = hideObtainedWolfMarks;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowWolfMarksMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideWolfMarksMessagesHelpMarker);
 
         var hideObtainedAlliedSeals = configuration.HideObtainedAlliedSeals;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowAlliedSealsMessages, ref hideObtainedAlliedSeals))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideAlliedSealsMessages, ref hideObtainedAlliedSeals))
         {
             configuration.HideObtainedAlliedSeals = hideObtainedAlliedSeals;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowAlliedSealsMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideAlliedSealsMessagesHelpMarker);
 
         var hideObtainedCenturioSeals = configuration.HideObtainedCenturioSeals;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowCenturioSealsMessages, ref hideObtainedCenturioSeals))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideCenturioSealsMessages, ref hideObtainedCenturioSeals))
         {
             configuration.HideObtainedCenturioSeals = hideObtainedCenturioSeals;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowCenturioSealsMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideCenturioSealsMessagesHelpMarker);
 
         var hideObtainedNuts = configuration.HideObtainedNuts;
-        if (ImGui.Checkbox(Languages.CurrenciesTab_ShowSacksOfNutsMessages, ref hideObtainedNuts))
+        if (ImGui.Checkbox(Languages.CurrenciesTab_HideSacksOfNutsMessages, ref hideObtainedNuts))
         {
             configuration.HideObtainedNuts = hideObtainedNuts;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_ShowSacksOfNutsMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.CurrenciesTab_HideSacksOfNutsMessagesHelpMarker);
     }
 }
