@@ -313,4 +313,14 @@ public static partial class ChatStrings
         Deu = ["hat", "errungenschaft"],
         Fra = ["avez", "accompli", "haut", "fait"] // a accompli le haut fait “ Élémentaliste légendaire”!,
     };
+
+
+    /// <see href="https://xivapi.com/LogMessage/7975?pretty=true">Second Chance points added …</see>
+    public static readonly LocalizedStrings SecondChanceAward = new()
+    {
+        Jpn = ["チャンスポイント"],
+        Eng = ["second", "chance"],
+        Deu = ["chance-punkte"],
+        Fra = ["points", "chance"]
+    };
 }

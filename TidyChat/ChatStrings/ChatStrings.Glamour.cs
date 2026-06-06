@@ -115,4 +115,80 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
+
+
+    /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with … is complete!</see>
+    public static readonly LocalizedStrings SpiritboundGear = new()
+    {
+        Jpn = ["錬精度"],
+        Eng = ["spiritbond"],
+        Deu = ["bindung"],
+        Fra = ["symbiose"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/1388?pretty=true">N items repaired.</see>
+    public static readonly LocalizedStrings GearItemsRepairedBulk = new()
+    {
+        Jpn = ["修理"],
+        Eng = ["items", "repaired"],
+        Deu = ["gegenstände", "repariert"],
+        Fra = ["objets", "réparé"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/755?pretty=true">"…" equipped.</seealso>
+    public static readonly LocalizedStrings GearsetEquipped = new()
+    {
+        Jpn = ["装備"],
+        Eng = ["equipped"],
+        Deu = ["angelegt"],
+        Fra = ["équipez"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/765?pretty=true">Unable to equip gear set.</see>
+    public static readonly LocalizedStrings GearsetUnableToEquip = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["unable", "equip", "gear", "set"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/5865?pretty=true">Portrait set as instant portrait.</see>
+    public static readonly LocalizedStrings PortraitSetInstant = new()
+    {
+        Jpn = ["ポートレート"],
+        Eng = ["portrait", "instant"],
+        Deu = ["portrait", "schnellportrait"],
+        Fra = ["portrait", "instantané"]
+    };
+
+
+    public static readonly LocalizedStrings JobChange = new()
+    {
+        Jpn = ["チェンジ"],
+        Eng = ["change to"],
+        Deu = ["bist", "nun"],
+        Fra = ["maintenant"]
+    };
+
+    public static readonly LocalizedStrings ArmouryChestPlacement = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["armoury", "chest"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings JobRegistered = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["registered"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings JobSpecialistChange = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["change to", "specialist"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
 }

@@ -225,7 +225,7 @@ public static partial class Rules
     private static List<LocalizedFilterRule> CreateRules()
     {
         var rules = new List<LocalizedFilterRule>(400);
-        rules.AddRange(SystemRules);
+        AddSystemRules(rules);
         rules.AddRange(DutyCommenceRules);
         rules.AddRange(ErrorMessageRules);
         rules.AddRange(EmotesRules);
@@ -233,13 +233,13 @@ public static partial class Rules
         rules.AddRange(CraftingMessageRules);
         rules.AddRange(MateriaSystemChannelRules);
         rules.AddRange(GatheringAetherialReductionRules);
-        rules.AddRange(GatheringRules);
+        AddGatheringRules(rules);
         rules.AddRange(CosmicExplorationRules);
         rules.AddRange(CombatRules);
         rules.AddRange(FreeCompanyRules);
         rules.AddRange(OrchestrionRules);
-        rules.AddRange(LootRules);
-        rules.AddRange(ObtainRules);
+        AddLootRules(rules);
+        AddObtainRules(rules);
         rules.AddRange(GoldSaucerRules);
         rules.AddRange(ProgressRules);
         return rules;

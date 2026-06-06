@@ -34,4 +34,62 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
+
+
+    public static readonly LocalizedStrings CosmicContainerObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "cosmic", "container"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings CosmicFortuneObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "cosmic", "fortune"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings CosmocreditObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "cosmocredit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10859?pretty=true">You will receive additional cosmocredits.</see>
+    public static readonly LocalizedStrings CosmocreditReceived = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["receive", "cosmocredit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings OizysCreditObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "oizys", "credit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings AuxesiaCreditObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "auxesia"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings OizysDronebitsObtain = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "oizys", "dronebit"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
 }

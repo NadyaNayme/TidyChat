@@ -335,4 +335,51 @@ public static partial class Rules
             PreferLogMessageCatalog = true
         }
     ];
+    private static readonly LocalizedFilterRule[] ProgressAwardRules =
+    [
+        new()
+        {
+            Name = "ShowFirstClearAward",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4225],
+            StringChecks = [ChatStrings.FirstClearBonus],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSecondChanceAward",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [7975],
+            StringChecks = [ChatStrings.SecondChanceAward],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
+    private static readonly LocalizedFilterRule[] ObtainProgressHideRules =
+    [
+        new()
+        {
+            Name = "HideRouletteBonus",
+            SettingsTab = "Progress",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [2246]
+        },
+        new()
+        {
+            Name = "HideAdventurerInNeedBonus",
+            SettingsTab = "Progress",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [2244]
+        },
+    ];
 }

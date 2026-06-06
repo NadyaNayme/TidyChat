@@ -233,11 +233,11 @@ public static partial class Rules
         },
     ];
 
-    private static readonly LocalizedFilterRule[] GatheringRules =
-    [
-        ..GatheringCoreRules,
-        ..FishingRulesEarly,
-        ..GatheringMiscRules,
-        ..FishingRulesLate
-    ];
+    private static void AddGatheringRules(List<LocalizedFilterRule> rules)
+    {
+        rules.AddRange(GatheringCoreRules);
+        rules.AddRange(FishingRulesEarly);
+        rules.AddRange(GatheringMiscRules);
+        rules.AddRange(FishingRulesLate);
+    }
 }
