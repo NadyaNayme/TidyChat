@@ -176,6 +176,17 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [1312],
+            StringChecks = [ChatStrings.ActionCanceledTargetChanged],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCannotExecuteMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
             LogMessageIds = [1314],
             StringChecks = [ChatStrings.ActionCanceledUnderAttack],
             Pattern = PatternKind.StringMatch,

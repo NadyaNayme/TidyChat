@@ -186,6 +186,16 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/1312?pretty=true">Action canceled. Target changed.</see>
+    public static readonly LocalizedStrings ActionCanceledTargetChanged = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["action", "canceled", "target", "changed"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
     public static readonly LocalizedStrings ActionCanceledUnderAttack = new()
     {
         Jpn = ["NeedsLocalization"],

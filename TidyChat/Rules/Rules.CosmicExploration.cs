@@ -12,8 +12,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds =
             [
-                631, 10764, 10766, 10769, 10770, 10771, 10779, 10781, 10804, 10815, 10822, 10827, 10828, 10878,
-                10879, 10946, 11154, 11197, 11200, 11379, 11383, 10784
+                631, 10764, 10766, 10769, 10770, 10771, 10779, 10781, 10804, 10815, 10822, 10827, 10828,
+                10878, 10879, 10946, 11154, 11165, 11197, 11200, 11379, 11383, 10784
             ]
         },
         new()
@@ -277,6 +277,28 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [11200],
             StringChecks = [ChatStrings.StellarMissionGoldCountReset],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowStellarMissionMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11165],
+            StringChecks = [ChatStrings.StellarMissionTimeRemaining],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowStellarMissionMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.Error,
+            IsActive = true,
+            LogMessageIds = [10763],
+            StringChecks = [ChatStrings.StellarMissionRequirementsNotMet],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

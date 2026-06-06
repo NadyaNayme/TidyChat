@@ -54,7 +54,7 @@ public static partial class Rules
             SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [11172],
+            LogMessageIds = [11172, 11173],
             StringChecks = [ChatStrings.GatherersBoonScore],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
