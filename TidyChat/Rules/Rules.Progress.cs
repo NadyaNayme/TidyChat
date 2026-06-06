@@ -61,6 +61,94 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowGainPvpRank",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [660],
+            StringChecks = [ChatStrings.GainPvpRank],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainSeriesExp",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [7556],
+            StringChecks = [ChatStrings.GainSeriesExp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainSeriesExp",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [7557],
+            StringChecks = [ChatStrings.GainSeriesLevel],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11308],
+            StringChecks = [ChatStrings.WorqorTriumphReduced],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11311],
+            StringChecks = [ChatStrings.WorqorLimitGauge],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11312],
+            StringChecks = [ChatStrings.WorqorAuroras],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11313],
+            StringChecks = [ChatStrings.WorqorHighRankTriumphs],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11368],
+            StringChecks = [ChatStrings.WorqorSnowStopped],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowEarnAchievement",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
@@ -89,6 +177,17 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [590],
             StringChecks = [ChatStrings.LevelUp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLevelUps",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [591],
+            StringChecks = [ChatStrings.OtherLevelUp],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

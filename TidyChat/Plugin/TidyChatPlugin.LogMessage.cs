@@ -64,6 +64,22 @@ public sealed partial class TidyChatPlugin
             }
         }
 
+        if (TryGetNormalizedLogMessageText(message, out var normalizedTomestoneText) &&
+            ObtainCurrencyHelper.TryResolveTomestoneLogMessage(normalizedTomestoneText, Tomestones,
+                Configuration.HideTomestoneById, out var tomestoneAllow, out var tomestoneRule))
+        {
+            if (tomestoneAllow)
+            {
+                RememberLogMessageAllowDecision(message, tomestoneRule);
+            }
+            else
+            {
+                ApplyLogMessageBlock(message, tomestoneRule);
+            }
+
+            return;
+        }
+
         if (!Rules.LogMessageIdToRules.TryGetValue(message.LogMessageId, out var matchingRules))
         {
             if (TryBlockHiddenTomestoneLogMessage(message) || TryBlockHiddenTribalCurrencyLogMessage(message))
@@ -167,6 +183,11 @@ public sealed partial class TidyChatPlugin
 
         foreach (var rule in matchingRules)
         {
+            if (FilterMasterAccessors.IsDisabledByMasterToggle(rule, configuration))
+            {
+                continue;
+            }
+
             if (!LogMessageRuleApplies(logMessageId, normalizedText, rule, configuration.EnableDebugMode))
             {
                 continue;

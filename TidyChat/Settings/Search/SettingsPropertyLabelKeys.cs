@@ -1,0 +1,163 @@
+using System.Collections.Generic;
+
+namespace TidyChat.Settings.Search;
+
+/// <summary>
+///     Maps configuration property names to exact Languages label keys used in settings tabs.
+///     Prevents fuzzy search from pairing the wrong checkbox label with a setting.
+/// </summary>
+internal static class SettingsPropertyLabelKeys
+{
+    private static readonly Dictionary<string, string> ByPropertyName = new(StringComparer.Ordinal)
+    {
+        ["HideAdventurerInNeedBonus"] = nameof(Languages.ProgressTab_ShowAdventurerInNeedAwardMessages),
+        ["HideFateLevelSync"] = nameof(Languages.SystemTab_ShowFateLevelSyncMessages),
+        ["HideInventoryItemAdded"] = nameof(Languages.CurrenciesTab_HideInventoryItemAddedMessages),
+        ["HideOrchestrionPlaying"] = nameof(Languages.SystemTab_ShowOrchestrionPlaying),
+        ["HideRouletteBonus"] = nameof(Languages.ProgressTab_ShowBonusAwardForDutyRouletteMessages),
+        ["HideObtainedAlliedSeals"] = nameof(Languages.CurrenciesTab_ShowAlliedSealsMessages),
+        ["HideObtainedCenturioSeals"] = nameof(Languages.CurrenciesTab_ShowCenturioSealsMessages),
+        ["HideObtainedGil"] = nameof(Languages.CurrenciesTab_ShowGil),
+        ["HideObtainedNuts"] = nameof(Languages.CurrenciesTab_ShowSacksOfNutsMessages),
+        ["HideObtainedSeals"] = nameof(Languages.CurrenciesTab_ShowGrandCompanySealsMessages),
+        ["HideObtainedVenture"] = nameof(Languages.CurrenciesTab_ShowVentureMessages),
+        ["HideObtainedWolfMarks"] = nameof(Languages.CurrenciesTab_ShowWolfMarksMessages),
+        ["HideTomestoneWeeklyCap"] = nameof(Languages.CurrenciesTab_HideTomestoneWeeklyCapMessages),
+        ["ShowGainPvpExp"] = nameof(Languages.ProgressTab_ShowPvpExpGainMessages),
+        ["ShowGainPvpRank"] = nameof(Languages.ProgressTab_ShowPvpRankMessages),
+        ["ShowGainSeriesExp"] = nameof(Languages.ProgressTab_ShowSeriesProgressMessages),
+        ["ShowPvpZoneAnnouncements"] = nameof(Languages.ProgressTab_ShowPvpZoneAnnouncements),
+        ["ShowObtainedItems"] = nameof(Languages.CurrenciesTab_ShowGeneralItemObtains),
+        ["ShowObtainedQuestItems"] = nameof(Languages.CurrenciesTab_ShowObtainedQuestItems),
+
+        ["HideObtainedMaterials"] = nameof(Languages.AlliedSocietiesTab_ShowBeastTribeCraftingMaterialsMessages),
+        ["HideObtainedTribalCurrency"] = nameof(Languages.AlliedSocietiesTab_ShowBeastTribeCurrenciesMessages),
+
+        ["ShowDutyFinder"] = nameof(Languages.DutyTab_ShowDutyFinderMessages),
+        ["ShowCompletionTime"] = nameof(Languages.DutyTab_ShowCompletionTimeForUnrestrictedParty),
+
+        ["HideObtainedMGP"] = nameof(Languages.GoldSaucerTab_ShowMGPMessages),
+        ["ShowGoldSaucerSwingMinigames"] = nameof(Languages.GoldSaucerTab_ShowSwingMinigames),
+        ["ShowTripleTriadAllowed"] = nameof(Languages.GoldSaucerTab_ShowTripleTriadAllowed),
+        ["ShowTripleTriadNotAllowed"] = nameof(Languages.GoldSaucerTab_ShowTripleTriadNotAllowed),
+
+        ["ShowEligibleForCoffers"] = nameof(Languages.SystemTab_ShowNumberOfCoffers),
+        ["ShowGearDyeApplied"] = nameof(Languages.SystemTab_ShowGearDyeApplied),
+        ["ShowGearItemsRepaired"] = nameof(Languages.SystemTab_ShowGearItemsRepaired),
+        ["ShowGearsetEquipped"] = nameof(Languages.SystemTab_ShowGearsetChangingMessages),
+        ["ShowGearsetGlamourRestoreFailed"] = nameof(Languages.SystemTab_ShowGearsetGlamourRestoreFailed),
+        ["ShowGlamourAltered"] = nameof(Languages.SystemTab_ShowGlamourAltered),
+        ["ShowGlamourPlatePartialApply"] = nameof(Languages.SystemTab_ShowGlamourPlatePartialApply),
+        ["ShowGlamourPlateProjected"] = nameof(Languages.SystemTab_ShowGlamourPlateProjected),
+        ["ShowJobChange"] = nameof(Languages.SystemTab_ShowJobChangeMessages),
+        ["ShowPortraitMessages"] = nameof(Languages.SystemTab_ShowPortraitMessages),
+        ["ShowSpiritboundGear"] = nameof(Languages.SystemTab_ShowSpiritboundMessages),
+        ["ShowTryOnGlamour"] = nameof(Languages.SystemTab_ShowTryOnGlamourMessages),
+        ["ShowTryOnGlamourCast"] = nameof(Languages.SystemTab_ShowTryOnGlamourCast),
+
+        ["ShowCastLot"] = nameof(Languages.PartyTab_CastYourLotMessages),
+        ["ShowCountdownTime"] = nameof(Languages.PartyTab_ShowCountdownMessages),
+        ["ShowInvitedBy"] = nameof(Languages.PartyTab_ShowReceivedPartyInvitationMessages),
+        ["ShowInviteeJoins"] = nameof(Languages.PartyTab_ShowJoiningPartyMessages),
+        ["ShowInviteSent"] = nameof(Languages.PartyTab_ShowSentPartyInviteMessages),
+        ["ShowJoinParty"] = nameof(Languages.PartyTab_ShowJoinedCrossworldPartyMessages),
+        ["ShowLeftParty"] = nameof(Languages.PartyTab_ShowLeftPartyMessages),
+        ["ShowLootRoll"] = nameof(Languages.PartyTab_ShowYouRolledMessages),
+        ["ShowNowLeaderOf"] = nameof(Languages.PartyTab_ShowNowALeader),
+        ["ShowOfferedTeleport"] = nameof(Languages.PartyTab_ShowTeleportOfferFromPartyMessages),
+        ["ShowOnlyPartyMemberRolls"] = nameof(Languages.PartyTab_ShowOnlyPartyMemberRolls),
+        ["ShowOthersCastLot"] = nameof(Languages.PartyTab_ShowAnotherPlayerCastsLotMessages),
+        ["ShowOthersLootRoll"] = nameof(Languages.PartyTab_ShowAnotherPlayerRollsMessages),
+        ["ShowPartyDisband"] = nameof(Languages.PartyTab_ShowDisbandAndDissolveMessages),
+        ["ShowPartyDissolved"] = nameof(Languages.PartyTab_ShowDisbandAndDissolveMessages),
+        ["ShowPartyInformation"] = nameof(Languages.PartyTab_ShowPartyObjectiveOnJoin),
+        ["ShowReadyChecks"] = nameof(Languages.PartyTab_ShowReadycheckMessages),
+        ["ShowSealedOff"] = nameof(Languages.PartyTab_ShowSealedOffMessages),
+        ["HideOthersObtain"] = nameof(Languages.PartyTab_ShowAnotherPlayerObtainsItemMessages),
+
+        ["ShowAetherialReductionMinigame"] = nameof(Languages.GatheringTab_ShowAetherialReductionMinigameMessages),
+        ["ShowAetherialReductionSands"] = nameof(Languages.GatheringTab_ShowObtainedSandsFromAetherialReductionMessages),
+        ["ShowAetherialReductionSuccess"] = nameof(Languages.GatheringTab_ShowAetherialReductionSuccessMessages),
+        ["ShowAllOtherGathering"] = nameof(Languages.GatheringTab_ShowAllOtherGathering),
+        ["ShowGatherersBoon"] = nameof(Languages.GatheringTab_HideGatheringBoonLocationMessages),
+        ["ShowGatheringAttempts"] = nameof(Languages.GatheringTab_HideGatheringAttemptsLocationMessages),
+        ["ShowGatheringBuffEffectGain"] = nameof(Languages.GatheringTab_ShowGatheringBuffEffectGain),
+        ["ShowGatheringCollectableObtains"] = nameof(Languages.GatheringTab_ShowGatheringCollectableObtainMessages),
+        ["ShowGatheringSenses"] = nameof(Languages.GatheringTab_ShowGatheringSensesLabel),
+        ["ShowGatheringStartEnd"] = nameof(Languages.GatheringTab_ShowGatheringStartEnd),
+        ["ShowGatheringYield"] = nameof(Languages.GatheringTab_HideGatheringYieldLocationMessages),
+        ["ShowLocationAffects"] = nameof(Languages.GatheringTab_ShowLocationGatheringEffectMessages),
+        ["HideObtainedShards"] = nameof(Languages.GatheringTab_ShowElementalShardsCrystalsClustersMessages),
+
+        ["ShowCaughtFish"] = nameof(Languages.GatheringTab_ShowFishAddedToGuideMessages),
+        ["ShowCurrentFishingHole"] = nameof(Languages.GatheringTab_ShowFishingHoleName),
+        ["ShowDiscoveredFishingHole"] = nameof(Languages.GatheringTab_ShowFishingHoleDiscovered),
+        ["ShowFishingFlavorText"] = nameof(Languages.GatheringTab_ShowFishingFlavorText),
+        ["ShowLureMessages"] = nameof(Languages.GatheringTab_ShowLureMessages),
+        ["ShowMeasuringIlms"] = nameof(Languages.GatheringTab_ShowFishSizeMessages),
+        ["ShowMooching"] = nameof(Languages.GatheringTab_ShowMooching),
+
+        ["ShowCosmicClassPointsAndDataset"] = nameof(Languages.GatheringTab_ShowCosmicClassPointsAndDataset),
+        ["ShowCosmicContainers"] = nameof(Languages.GatheringTab_ShowCosmicContainers),
+        ["ShowCosmicDailyProgress"] = nameof(Languages.GatheringTab_ShowCosmicDailyProgress),
+        ["ShowCosmicExplorationMessages"] = nameof(Languages.GatheringTab_ShowCosmicExplorationMessages),
+        ["ShowCosmicRewards"] = nameof(Languages.GatheringTab_ShowCosmicRewards),
+        ["ShowStellarAbleToExecute"] = nameof(Languages.GatheringTab_ShowStellarAbleToExecute),
+        ["ShowStellarBuffEffectGain"] = nameof(Languages.GatheringTab_ShowStellarBuffEffectGain),
+        ["ShowStellarMissionMessages"] = nameof(Languages.GatheringTab_ShowStellarMissionMessages),
+
+        ["ShowCompletedVenture"] = nameof(Languages.EconomyTab_ShowCompletedVenture),
+        ["ShowMarketGilEntrustedToRetainer"] = nameof(Languages.EconomyTab_ShowMarketGilEntrustedToRetainer),
+        ["ShowRetainerVentureMessages"] = nameof(Languages.EconomyTab_ShowRetainerVentureMessages),
+
+        ["ShowExploratoryVoyage"] = nameof(Languages.FreeCompanyTab_ShowAirshipVoyageMessages),
+        ["ShowFreeCompanyMessageBook"] = nameof(Languages.FreeCompanyTab_ShowFreeCompanyMessageBookMessages),
+        ["ShowSubaquaticVoyage"] = nameof(Languages.FreeCompanyTab_ShowSubmarineVoyageMessages),
+        ["ShowSubaquaticVoyageEmbarked"] = nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageEmbarked),
+        ["ShowSubaquaticVoyageFinalized"] = nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageFinalized),
+        ["ShowSubaquaticVoyageOtherFinalized"] = nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageOtherFinalized),
+        ["ShowSubaquaticVoyageReturned"] = nameof(Languages.FreeCompanyTab_ShowSubaquaticVoyageReturned),
+        ["ShowSubmarineAttainsRank"] = nameof(Languages.FreeCompanyTab_ShowSubmarineAttainsRank),
+        ["ShowSubmarinePartRepaired"] = nameof(Languages.FreeCompanyTab_ShowSubmarinePartRepaired),
+        ["ShowSubmarineRetrievalLevelsIncreased"] =
+            nameof(Languages.FreeCompanyTab_ShowSubmarineRetrievalLevelsIncreased),
+        ["ShowUserLogins"] = nameof(Languages.FreeCompanyTab_ShowLoginMessages),
+        ["ShowUserLogouts"] = nameof(Languages.FreeCompanyTab_ShowLogoutMessages),
+
+        ["ShowCommendations"] = nameof(Languages.SystemTab_ShowReceivedCommendations),
+        ["ShowInstanceMessage"] = nameof(Languages.SystemTab_ShowInstanceMessage),
+        ["ShowAttachToMail"] = nameof(Languages.SystemTab_ShowMailAttachmentMessages),
+        ["ShowRelicBookComplete"] = nameof(Languages.SystemTab_ShowARRRelicBookStepMessages),
+        ["ShowRelicBookStep"] = nameof(Languages.SystemTab_ShowARRRelicProgressMessages),
+        ["ShowOnlineStatus"] = nameof(Languages.SystemTab_ShowOnlineStatusMessages),
+        ["ShowSearchForItemResults"] = nameof(Languages.SystemTab_ShowItemSearchResultsMessage),
+        ["ShowItemSearchResults"] = nameof(Languages.SystemTab_ShowInventoryItemSearchResults),
+        ["ShowLocationSearchResults"] = nameof(Languages.SystemTab_ShowLocationSearchResults),
+        ["ShowPersonalMessageBook"] = nameof(Languages.SystemTab_ShowPersonalMessageBookMessages),
+        ["HideObtainedClusters"] = nameof(Languages.SystemTab_ShowCrackedClustersMessages),
+        ["HideFateLevelSync"] = nameof(Languages.SystemTab_ShowFateLevelSyncMessages),
+        ["HideOrchestrionPlaying"] = nameof(Languages.SystemTab_ShowOrchestrionPlaying),
+        ["ShowAetheryteTicket"] = nameof(Languages.SystemTab_ShowAetheryteTicketMessage),
+        ["ShowAttuneAetheryte"] = nameof(Languages.SystemTab_ShowAttuneAetheryteMessage),
+
+        ["ShowSRankHunt"] = nameof(Languages.SystemTab_ShowSRankSpawnAnnouncement),
+        ["ShowSSRankHunt"] = nameof(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncement),
+        ["ShowHuntSlain"] = nameof(Languages.SystemTab_ShowHuntMarkSlainMessages),
+        ["ShowQuestReminder"] = nameof(Languages.SystemTab_ShowSayReminder),
+        ["ShowSpideySenses"] = nameof(Languages.SystemTab_ShowYouSenseSomethingMessages),
+        ["ShowLocationDiscovered"] = nameof(Languages.SystemTab_ShowLocationDiscoveredMessages),
+        ["ShowHostilePresence"] = nameof(Languages.SystemTab_ShowHostilePresenceMessages),
+        ["ShowAetherCompass"] = nameof(Languages.SystemTab_ShowAetherCompassMessages),
+        ["ShowVistaMessages"] = nameof(Languages.SystemTab_ShowVistaMessages),
+
+        ["ShowCraftingSynthesisComplete"] = nameof(Languages.CraftingTab_ShowCraftingSynthesisComplete),
+        ["ShowTrialMessages"] = nameof(Languages.CraftingTab_ShowTrialSynthesisMessages),
+        ["ShowOtherSynthesis"] = nameof(Languages.CraftingTab_ShowOtherPlayerCompletedSynthesisMessages),
+        ["ShowAllOtherCrafting"] = nameof(Languages.CraftingTab_ShowAllOtherCrafting),
+        ["ShowCraftingBuffEffectGain"] = nameof(Languages.CraftingTab_ShowCraftingBuffEffectGain),
+        ["ShowCraftingAbleToExecute"] = nameof(Languages.CraftingTab_ShowCraftingAbleToExecute),
+    };
+
+    public static string? TryGet(string propertyName) =>
+        ByPropertyName.GetValueOrDefault(propertyName);
+}

@@ -7,7 +7,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds =
@@ -19,7 +19,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11154],
@@ -30,7 +30,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10764],
@@ -41,7 +41,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10804],
@@ -52,7 +52,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarAbleToExecute",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5533, 11365],
@@ -63,7 +63,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarBuffEffectGain",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.GatheringSystem,
             IsActive = true,
             LogMessageIds = [11366],
@@ -74,7 +74,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10770],
@@ -85,7 +85,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10771],
@@ -96,7 +96,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10766],
@@ -107,7 +107,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10822],
@@ -118,7 +118,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10769],
@@ -129,7 +129,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10815],
@@ -140,7 +140,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10779],
@@ -151,7 +151,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11197],
@@ -162,7 +162,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10878],
@@ -173,7 +173,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10879],
@@ -184,7 +184,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11175],
@@ -195,7 +195,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10946],
@@ -206,7 +206,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11379],
@@ -217,7 +217,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowStellarMissionMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11383],
@@ -228,7 +228,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicExplorationMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10830],
@@ -239,7 +239,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicExplorationMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10884, 10881, 10807, 11334, 11335],
@@ -250,7 +250,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [10800],
@@ -261,7 +261,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicContainers",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.LootNotice,
             IsActive = true,
             LogMessageIds = [10750],
@@ -272,7 +272,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10872],
@@ -283,7 +283,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10859],
@@ -294,7 +294,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10873],
@@ -305,7 +305,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10873],
@@ -316,7 +316,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11331],
@@ -327,7 +327,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicRewards",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10883],
@@ -338,7 +338,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicClassPointsAndDataset",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10874],
@@ -349,7 +349,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicDailyProgress",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10875],
@@ -360,7 +360,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicDailyProgress",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [11156],
@@ -371,7 +371,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicDailyProgress",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [10877],
@@ -382,7 +382,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCosmicClassPointsAndDataset",
-            SettingsTab = "Gathering",
+            SettingsTab = "Cosmic Exploration",
             Channel = ChatType.Progress,
             IsActive = true,
             LogMessageIds = [10803],

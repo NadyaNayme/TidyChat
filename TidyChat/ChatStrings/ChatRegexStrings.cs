@@ -126,14 +126,25 @@ public static class ChatRegexStrings
 
 
     /// <see href="https://xivapi.com/LogMessage/657?pretty=true">Shared obtain template (tomestone lines)</see>
+    /// <seealso href="https://xivapi.com/LogMessage/2164?pretty=true">Tomestone obtain (alternate template)</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/2165?pretty=true">Tomestone obtain (alternate template)</seealso>
     public static readonly LocalizedRegex ObtainedTomestones = new()
     {
         Jpn = new(@"^アラガントームストーン:([^を]+)を(\d{1,3}個手に入れた|入手した)。$", regexOptions, regexTimeout),
-        Eng = new(@"^you (obtain|obtains) \d{1,3} Allagan tomestones of", regexOptions, regexTimeout),
+        Eng = new(@"^you (obtain|obtains) (\d{1,3},)?\d{1,3} allagan tomestones of", regexOptions, regexTimeout),
         Deu = new(
-            @"(du|you) hast \d{1,3} (Allagischer|Allagisch|Allagische|Allagischa) (Stein|Steine) (der|des) \w+ erhalten\.$",
+            @"(du|you) hast (\d{1,3},)?\d{1,3} (Allagischer|Allagisch|Allagische|Allagischa) (Stein|Steine) (der|des) \w+ erhalten\.$",
             regexOptions, regexTimeout),
-        Fra = new(@"(vous|you) obtenez \d{1,3} Mémoquartz allagois (\w+)", regexOptions, regexTimeout)
+        Fra = new(@"(vous|you) obtenez (\d{1,3},)?\d{1,3} Mémoquartz allagois (\w+)", regexOptions, regexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/2174?pretty=true">Tomestone weekly cap reached</see>
+    public static readonly LocalizedRegex TomestoneWeeklyCap = new()
+    {
+        Jpn = new(@"NeedsLocalization", regexOptions, regexTimeout),
+        Eng = new(@"^you cannot receive any more allagan tomestones", regexOptions, regexTimeout),
+        Deu = new(@"NeedsLocalization", regexOptions, regexTimeout),
+        Fra = new(@"NeedsLocalization", regexOptions, regexTimeout)
     };
 
 

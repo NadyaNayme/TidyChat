@@ -66,6 +66,78 @@ public static partial class ChatStrings
         Fra = ["vous", "jcj"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/660?pretty=true">You attain PvP rank N!</see>
+    public static readonly LocalizedStrings GainPvpRank = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["attain", "pvp", "rank"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11308?pretty=true">Triumph count reduced after 10 minutes.</see>
+    public static readonly LocalizedStrings WorqorTriumphReduced = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["triumphs", "reduced"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11311?pretty=true">The limit gauge has begun to fill!</see>
+    public static readonly LocalizedStrings WorqorLimitGauge = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["limit", "gauge"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11312?pretty=true">Auroras are beginning to form…</see>
+    public static readonly LocalizedStrings WorqorAuroras = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["auroras"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11313?pretty=true">High rank triumphs are now more likely to manifest!</see>
+    public static readonly LocalizedStrings WorqorHighRankTriumphs = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["triumphs", "manifest"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/11368?pretty=true">The snow has stopped falling…</see>
+    public static readonly LocalizedStrings WorqorSnowStopped = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["snow", "stopped"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7556?pretty=true">You acquire N Series EXP.</see>
+    public static readonly LocalizedStrings GainSeriesExp = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["you", "acquire", "series", "exp"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/7557?pretty=true">You attain Series level N!</see>
+    public static readonly LocalizedStrings GainSeriesLevel = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["attain", "series", "level"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/549?pretty=true">EXP chain #N! Chain expires in N seconds.</see>
     public static readonly LocalizedStrings ExpChainBonus = new()
     {

@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace TidyChat.Settings.Tabs;
 
 /// <summary>
@@ -8,6 +10,14 @@ internal static class SettingsTabLayout
     public static void DrawTabNote(string note)
     {
         ImGui.TextWrapped(note);
+        ImGui.Spacing();
+    }
+
+    public static void DrawMasterChannelDisabledWarning(string warning)
+    {
+        ImGui.PushStyleColor(ImGuiCol.Text, new Vector4(1f, 0.78f, 0.25f, 1f));
+        ImGui.TextWrapped(warning);
+        ImGui.PopStyleColor();
         ImGui.Spacing();
     }
 

@@ -10,9 +10,7 @@ internal static class GatheringTab
         SettingsTabLayout.DrawSections(true,
             (Languages.GatheringTab_GatheringLocationsDropdownHeader, () => DrawGatheringLocations(configuration)),
             (Languages.GatheringTab_AetherialReductionDropdownHeader, () => DrawAetherialReduction(configuration)),
-            (Languages.GatheringTab_FishingDropdownHeader, () => DrawFishing(configuration)),
-            (Languages.GatheringTab_ElementalShardsDropdownHeader, () => DrawElementalShards(configuration)),
-            (Languages.GatheringTab_StellarMissionsDropdownHeader, () => DrawStellarMissions(configuration)));
+            (Languages.GatheringTab_ElementalShardsDropdownHeader, () => DrawElementalShards(configuration)));
     }
 
     private static void DrawGatheringLocations(Configuration configuration)
@@ -41,29 +39,35 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        var showGatheringYield = configuration.ShowGatheringYield;
+        var hideGatheringYield = !configuration.ShowGatheringYield;
         if (ImGui.Checkbox(Languages.GatheringTab_HideGatheringYieldLocationMessages,
-                ref showGatheringYield))
+                ref hideGatheringYield))
         {
-            configuration.ShowGatheringYield = showGatheringYield;
+            configuration.ShowGatheringYield = !hideGatheringYield;
             configuration.OnSettingChanged();
         }
 
-        var showGatheringAttempts = configuration.ShowGatheringAttempts;
+        UiHelp.GatheringHideFilterMarker(string.Empty);
+
+        var hideGatheringAttempts = !configuration.ShowGatheringAttempts;
         if (ImGui.Checkbox(Languages.GatheringTab_HideGatheringAttemptsLocationMessages,
-                ref showGatheringAttempts))
+                ref hideGatheringAttempts))
         {
-            configuration.ShowGatheringAttempts = showGatheringAttempts;
+            configuration.ShowGatheringAttempts = !hideGatheringAttempts;
             configuration.OnSettingChanged();
         }
 
-        var showGatherersBoon = configuration.ShowGatherersBoon;
+        UiHelp.GatheringHideFilterMarker(string.Empty);
+
+        var hideGatherersBoon = !configuration.ShowGatherersBoon;
         if (ImGui.Checkbox(Languages.GatheringTab_HideGatheringBoonLocationMessages,
-                ref showGatherersBoon))
+                ref hideGatherersBoon))
         {
-            configuration.ShowGatherersBoon = showGatherersBoon;
+            configuration.ShowGatherersBoon = !hideGatherersBoon;
             configuration.OnSettingChanged();
         }
+
+        UiHelp.GatheringHideFilterMarker(string.Empty);
 
         var showGatheringCollectableObtains = configuration.ShowGatheringCollectableObtains;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowGatheringCollectableObtainMessages,
@@ -126,64 +130,6 @@ internal static class GatheringTab
         ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker);
     }
 
-    private static void DrawFishing(Configuration configuration)
-    {
-        var showCaughtFish = configuration.ShowCaughtFish;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowFishAddedToGuideMessages, ref showCaughtFish))
-        {
-            configuration.ShowCaughtFish = showCaughtFish;
-            configuration.OnSettingChanged();
-        }
-
-        var showMooching = configuration.ShowMooching;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowMooching, ref showMooching))
-        {
-            configuration.ShowMooching = showMooching;
-            configuration.OnSettingChanged();
-        }
-
-        var showMeasuringIlms = configuration.ShowMeasuringIlms;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowFishSizeMessages, ref showMeasuringIlms))
-        {
-            configuration.ShowMeasuringIlms = showMeasuringIlms;
-            configuration.OnSettingChanged();
-        }
-
-        var showCurrentFishingHole = configuration.ShowCurrentFishingHole;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingHoleName,
-                ref showCurrentFishingHole))
-        {
-            configuration.ShowCurrentFishingHole = showCurrentFishingHole;
-            configuration.OnSettingChanged();
-        }
-
-        var showDiscoveredFishingHole = configuration.ShowDiscoveredFishingHole;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingHoleDiscovered,
-                ref showDiscoveredFishingHole))
-        {
-            configuration.ShowDiscoveredFishingHole = showDiscoveredFishingHole;
-            configuration.OnSettingChanged();
-        }
-
-        var showLureMessages = configuration.ShowLureMessages;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowLureMessages, ref showLureMessages))
-        {
-            configuration.ShowLureMessages = showLureMessages;
-            configuration.OnSettingChanged();
-        }
-
-        ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowLureMessagesHelpMarker);
-
-        var showFishingFlavorText = configuration.ShowFishingFlavorText;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowFishingFlavorText, ref showFishingFlavorText))
-        {
-            configuration.ShowFishingFlavorText = showFishingFlavorText;
-            configuration.OnSettingChanged();
-        }
-
-        ImGuiComponents.HelpMarker(Languages.GatheringTab_ShowFishingFlavorTextHelpMarker);
-    }
-
     private static void DrawElementalShards(Configuration configuration)
     {
         var hideObtainedShards = configuration.HideObtainedShards;
@@ -194,94 +140,7 @@ internal static class GatheringTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedFilterMarker(Languages.GatheringTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_ShowElementalShardsCrystalsClustersMessagesHelpMarker);
     }
 
-    private static void DrawStellarMissions(Configuration configuration)
-    {
-        ImGui.TextWrapped(Languages.GatheringTab_StellarSectionFilteringNote);
-        ImGui.Spacing();
-
-        var showStellarMissionMessages = configuration.ShowStellarMissionMessages;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarMissionMessages,
-                ref showStellarMissionMessages))
-        {
-            configuration.ShowStellarMissionMessages = showStellarMissionMessages;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarMissionMessagesHelpMarker);
-
-        SettingsTabLayout.DrawNestedOptions(configuration.ShowStellarMissionMessages, () =>
-        {
-            var showStellarExecute = configuration.ShowStellarAbleToExecute;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarAbleToExecute, ref showStellarExecute))
-            {
-                configuration.ShowStellarAbleToExecute = showStellarExecute;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarAbleToExecuteHelpMarker);
-
-            var showStellarBuff = configuration.ShowStellarBuffEffectGain;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarBuffEffectGain, ref showStellarBuff))
-            {
-                configuration.ShowStellarBuffEffectGain = showStellarBuff;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarBuffEffectGainHelpMarker);
-        });
-
-        SettingsTabLayout.DrawIndependentOptions(() =>
-        {
-            var showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicExplorationMessages,
-                    ref showCosmicExplorationMessages))
-            {
-                configuration.ShowCosmicExplorationMessages = showCosmicExplorationMessages;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicExplorationMessagesHelpMarker);
-
-            var showCosmicRewards = configuration.ShowCosmicRewards;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicRewards, ref showCosmicRewards))
-            {
-                configuration.ShowCosmicRewards = showCosmicRewards;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicRewardsHelpMarker);
-
-            var showCosmicContainers = configuration.ShowCosmicContainers;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicContainers, ref showCosmicContainers))
-            {
-                configuration.ShowCosmicContainers = showCosmicContainers;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicContainersHelpMarker);
-
-            var showCosmicClassPointsAndDataset = configuration.ShowCosmicClassPointsAndDataset;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicClassPointsAndDataset,
-                    ref showCosmicClassPointsAndDataset))
-            {
-                configuration.ShowCosmicClassPointsAndDataset = showCosmicClassPointsAndDataset;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker);
-
-            var showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicDailyProgress,
-                    ref showCosmicDailyProgress))
-            {
-                configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
-                configuration.OnSettingChanged();
-            }
-
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicDailyProgressHelpMarker);
-        });
-    }
 }

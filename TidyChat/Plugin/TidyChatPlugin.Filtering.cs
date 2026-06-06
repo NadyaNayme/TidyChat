@@ -106,6 +106,11 @@ public sealed partial class TidyChatPlugin
         Rules.UpdateIsActiveStates(Configuration);
         foreach (var rule in Rules.AllRules)
         {
+            if (FilterMasterAccessors.IsDisabledByMasterToggle(rule, Configuration))
+            {
+                continue;
+            }
+
             if (rule.ShouldBlock)
             {
                 continue;
@@ -170,6 +175,12 @@ public sealed partial class TidyChatPlugin
             if (rule.Error is not null)
             {
                 Log.Error($"Error: {rule.Error}");
+            }
+
+            if (FilterMasterAccessors.IsDisabledByMasterToggle(rule, Configuration))
+            {
+                rulesSkipped?.Add(rule.Name);
+                continue;
             }
 
             if (!rule.IsActive && !rule.BlockWhenActive && rule.LogMessageIds is { Length: > 0 } &&
@@ -376,12 +387,21 @@ public sealed partial class TidyChatPlugin
             isHandled = false;
         }
 
-        if (chatType is ChatType.LootNotice &&
-            ObtainCurrencyHelper.ShouldHideTomestone(normalizedText, Tomestones, Configuration.HideTomestoneById))
+        if (ObtainCurrencyHelper.ShouldHideTomestone(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
             if (Configuration.EnableDebugMode)
             {
                 Log.Debug($"BLOCKED (tomestone): {message.Message}");
+            }
+            isHandled = true;
+        }
+
+        if (Configuration.HideTomestoneWeeklyCap &&
+            ObtainCurrencyHelper.IsTomestoneWeeklyCapMessage(normalizedText))
+        {
+            if (Configuration.EnableDebugMode)
+            {
+                Log.Debug($"BLOCKED (tomestone weekly cap): {message.Message}");
             }
             isHandled = true;
         }

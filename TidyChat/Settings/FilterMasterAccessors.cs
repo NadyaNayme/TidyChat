@@ -91,6 +91,18 @@ internal static class FilterMasterAccessors
     public static bool CraftingBuffEffectGain(Configuration c) =>
         c.ShowAllOtherCrafting && c.ShowCraftingBuffEffectGain;
 
+    /// <summary>
+    ///     Nested crafting/gathering/stellar rules must not filter chat when their master toggle is off.
+    /// </summary>
+    public static bool IsDisabledByMasterToggle(LocalizedFilterRule rule, Configuration config) =>
+        rule.Name switch
+        {
+            "ShowCraftingBuffEffectGain" or "ShowCraftingAbleToExecute" => !config.ShowAllOtherCrafting,
+            "ShowGatheringBuffEffectGain" => !config.ShowAllOtherGathering,
+            "ShowStellarAbleToExecute" or "ShowStellarBuffEffectGain" => !config.ShowStellarMissionMessages,
+            _ => false
+        };
+
     public static bool CraftingAbleToExecute(Configuration c) =>
         c.ShowAllOtherCrafting && c.ShowCraftingAbleToExecute;
 

@@ -34,6 +34,8 @@ internal class PluginUI : Window, IDisposable
         (() => Languages.ConfigWindow_CombatTabHeader, CombatTab.Draw),
         (() => Languages.ConfigWindow_CraftingTabHeader, CraftingTab.Draw),
         (() => Languages.ConfigWindow_DesynthesisTabHeader, DesynthesisTab.Draw),
+        (() => Languages.ConfigWindow_CosmicExplorationTabHeader, CosmicExplorationTab.Draw),
+        (() => Languages.ConfigWindow_FishingTabHeader, FishingTab.Draw),
         (() => Languages.ConfigWindow_GatheringTabHeader, GatheringTab.Draw),
         (() => Languages.ConfigWindow_MateriaTabHeader, MateriaTab.Draw),
         (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw)

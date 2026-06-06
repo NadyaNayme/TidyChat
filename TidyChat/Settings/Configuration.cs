@@ -265,8 +265,12 @@ public class Configuration : IPluginConfiguration
     public bool HideRouletteBonus { get; set; } = false;
     public bool HideAdventurerInNeedBonus { get; set; } = false;
     public bool ShowGainPvpExp { get; set; } = false;
+    public bool ShowGainPvpRank { get; set; } = false;
+    public bool ShowGainSeriesExp { get; set; } = false;
+    public bool ShowPvpZoneAnnouncements { get; set; } = false;
     public bool ShowEarnAchievement { get; set; } = false;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
+    public bool HideTomestoneWeeklyCap { get; set; } = true;
     public IDictionary<uint, bool> HideTomestoneById { get; set; } = new Dictionary<uint, bool>();
     public IDictionary<uint, bool> HideTribalCurrencyById { get; set; } = new Dictionary<uint, bool>();
 

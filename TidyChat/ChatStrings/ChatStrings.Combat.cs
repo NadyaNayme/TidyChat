@@ -12,6 +12,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <seealso href="https://xivapi.com/LogMessage/533?pretty=true">The enemy uses … / … uses …</seealso>
+    public static readonly LocalizedStrings AbilityUseMessageOther = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["uses"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/526?pretty=true">You gain the effect of …</see>
     public static readonly LocalizedStrings BuffGainEffect = new()
     {
@@ -26,6 +35,15 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["lose", "effect"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/607?pretty=true">… nullifies the effect of …</see>
+    public static readonly LocalizedStrings BuffEffectNullify = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["nullifies", "effect"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -80,10 +98,19 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/612?pretty=true">… is unaffected.</see>
     public static readonly LocalizedStrings CombatUnaffected = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["効果なし"],
         Eng = ["unaffected"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["unbeeinflusst"],
+        Fra = ["affect"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/515?pretty=true">The attack misses you.</see>
+    public static readonly LocalizedStrings CombatAttackMissesYou = new()
+    {
+        Jpn = ["ミス"],
+        Eng = ["misses", "you"],
+        Deu = ["verfehlt"],
+        Fra = ["manque"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/504?pretty=true">You hit … for N damage.</see>
@@ -240,11 +267,20 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/501?pretty=true">You ready … / … readies …</see>
+    /// <see href="https://xivapi.com/LogMessage/501?pretty=true">You ready …</see>
     public static readonly LocalizedStrings CombatReady = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["ready", "readies"],
+        Eng = ["you", "ready"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <seealso href="https://xivapi.com/LogMessage/501?pretty=true">… readies …</seealso>
+    public static readonly LocalizedStrings CombatReadies = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["readies"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

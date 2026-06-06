@@ -453,7 +453,7 @@
     <value>Allied society currency data unavailable</value>
   </data>
   <data name="AlliedSocietiesTab_FilteringNote" xml:space="preserve">
-    <value>Loot rolls use Filter Loot Roll on General. Item and currency obtains use Filter Obtained. Options labeled Hide … hide those lines when checked. Tools → Custom Filters can Block or Allow specific obtain text on the channels you select.</value>
+    <value>Allied society material and currency obtains use Filter Obtained on General. Options labeled Hide … hide those lines when checked. Per-society currency toggles appear when the master hide is off. Tools → Custom Filters can Block or Allow specific obtain text.</value>
   </data>
   <data name="AlliedSocietiesTab_MaterialsDropdownHeader" xml:space="preserve">
     <value>Crafting materials</value>
@@ -563,7 +563,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show combat ability usage messages</value>
   </data>
   <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 533 — eg. The enemy uses Attack.</value>
+    <value>LogMessage 533 — eg. You use Attack. / The enemy uses Attack.</value>
   </data>
   <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
     <value>Show adds calling for help messages</value>
@@ -593,13 +593,13 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show combat status effect messages</value>
   </data>
   <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 526–640 (11 IDs) — eg. The enemy suffers the effect of Poison.</value>
+    <value>LogMessages 526–551, 528, 596, 604, 607, 617, 640, 603 (13 IDs) — eg. The enemy suffers the effect of Poison. / … nullifies the effect of … (607).</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
     <value>Show enemy ready messages</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 501 — eg. The enemy is ready to act!</value>
+    <value>LogMessage 501 — eg. You ready Iron Will. / The enemy readies Attack.</value>
   </data>
   <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
     <value>Show combat enmity messages</value>
@@ -617,7 +617,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show combat miss and evade messages</value>
   </data>
   <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 506, 515, 600, 612 — eg. The enemy evades your attack.</value>
+    <value>LogMessages 506, 515, 600, 612 — eg. The attack misses you. / Raven is unaffected.</value>
   </data>
   <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
     <value>Advanced</value>
@@ -627,6 +627,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
     <value>Combat</value>
+  </data>
+  <data name="ConfigWindow_CosmicExplorationTabHeader" xml:space="preserve">
+    <value>Cosmic &amp; Stellar Exploration</value>
   </data>
   <data name="ConfigWindow_CraftingTabHeader" xml:space="preserve">
     <value>Crafting</value>
@@ -654,6 +657,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_FreeCompanyTabHeader" xml:space="preserve">
     <value>Free Company</value>
+  </data>
+  <data name="ConfigWindow_FishingTabHeader" xml:space="preserve">
+    <value>Fishing</value>
   </data>
   <data name="ConfigWindow_GatheringTabHeader" xml:space="preserve">
     <value>Gathering</value>
@@ -761,7 +767,10 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Common currencies</value>
   </data>
   <data name="CurrenciesTab_FilteringNote" xml:space="preserve">
-    <value>Loot rolls use Filter Loot Roll on General. Item and currency obtains use Filter Obtained. Options labeled Hide … hide those lines when checked. Tools → Custom Filters can Block or Allow specific obtain text on the channels you select.</value>
+    <value>Most options use Filter Obtained on General. Gil receive lines also need Filter System. Options labeled Hide … hide those lines when checked; Show … allow when checked. Per-tomestone toggles hide individual tomestones. Tools → Custom Filters can Block or Allow specific obtain text.</value>
+  </data>
+  <data name="Shared_FilterObtainedDisabledWarning" xml:space="preserve">
+    <value>Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat.</value>
   </data>
   <data name="CurrenciesTab_HideInventoryItemAddedMessages" xml:space="preserve">
     <value>Hide "added to your inventory" messages</value>
@@ -828,6 +837,12 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="CurrenciesTab_TomestoneDataUnavailable" xml:space="preserve">
     <value>Tomestone data unavailable</value>
+  </data>
+  <data name="CurrenciesTab_HideTomestoneWeeklyCapMessages" xml:space="preserve">
+    <value>Hide tomestone weekly cap messages</value>
+  </data>
+  <data name="CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 2174 — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Uses Filter System on General.</value>
   </data>
   <data name="DeepDungeonsTab_DeepDungeonsDropdownHeader" xml:space="preserve">
     <value>Deep dungeons</value>
@@ -1145,8 +1160,14 @@ eg. You gently pat &amp;lt;user&amp;gt;</value>
   <data name="GatheringTab_ElementalShardsDropdownHeader" xml:space="preserve">
     <value>Elemental shards</value>
   </data>
+  <data name="FishingTab_FilteringNote" xml:space="preserve">
+    <value>Fishing lines need Filter Gathering channels on General.</value>
+  </data>
+  <data name="CosmicExplorationTab_FilteringNote" xml:space="preserve">
+    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic lines further.</value>
+  </data>
   <data name="GatheringTab_FilteringNote" xml:space="preserve">
-    <value>Gathering and fishing lines need Filter Gathering channels on General. Elemental shard obtains also need Filter Obtained. Cosmic and Stellar options include extra notes in that section.</value>
+    <value>Gathering lines need Filter Gathering channels on General. Elemental shard obtains also need Filter Obtained.</value>
   </data>
   <data name="GatheringTab_FishingDropdownHeader" xml:space="preserve">
     <value>Fishing</value>
@@ -1664,7 +1685,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Experience &amp; levels</value>
   </data>
   <data name="ProgressTab_FilteringNote" xml:space="preserve">
-    <value>Quest &amp; achievements, duty bonuses, and most unlocks use the System channel (see each help). XP and PVP EXP use Filter Progress on General. Mount unlocks use the Action channel. Custom Filters on Tools can Allow or Block specific Progress or System text.</value>
+    <value>Quest &amp; achievements and most unlocks use the System channel (see each help). Duty roulette and adventurer-in-need bonus awards use Filter Obtained. XP and PVP EXP use Filter Progress on General. Mount unlocks use the Action channel. Custom Filters on Tools can Allow or Block specific Progress or System text.</value>
   </data>
   <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
     <value>Quests &amp; achievements</value>
@@ -1706,8 +1727,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Show Your level-ups</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 590 — This will show the message that occurs when you level up.
-It can be considered spammy in deep dungeons.</value>
+    <value>LogMessages 590, 591 — eg. You attain level 90! / Raven attains astrologian level 69!</value>
   </data>
   <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
     <value>Show mount unlock messages</value>
@@ -1727,11 +1747,29 @@ It can be considered spammy in deep dungeons.</value>
   <data name="ProgressTab_ShowOtherPlayersLevelUpMessages" xml:space="preserve">
     <value>Show other player's level up messages</value>
   </data>
-  <data name="ProgressTab_ShowPVPExpGainMessages" xml:space="preserve">
-    <value>Show PVP EXP gain messages</value>
+  <data name="ProgressTab_ShowPvpExpGainMessages" xml:space="preserve">
+    <value>Show PvP EXP gain messages</value>
   </data>
-  <data name="ProgressTab_ShowPVPExpGainMessagesHelpMarker" xml:space="preserve">
+  <data name="ProgressTab_ShowPvpExpGainMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 659 — eg. You acquire 500 PvP EXP.</value>
+  </data>
+  <data name="ProgressTab_ShowPvpRankMessages" xml:space="preserve">
+    <value>Show PvP rank-up messages</value>
+  </data>
+  <data name="ProgressTab_ShowPvpRankMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 660 — eg. You attain PvP rank 17!</value>
+  </data>
+  <data name="ProgressTab_ShowSeriesProgressMessages" xml:space="preserve">
+    <value>Show PvP Series EXP and level messages</value>
+  </data>
+  <data name="ProgressTab_ShowSeriesProgressMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 7556, 7557 — eg. You acquire 1,500 Series EXP. / You attain Series level 2!</value>
+  </data>
+  <data name="ProgressTab_ShowPvpZoneAnnouncements" xml:space="preserve">
+    <value>Show PvP zone triumph and gauge messages</value>
+  </data>
+  <data name="ProgressTab_ShowPvpZoneAnnouncementsHelpMarker" xml:space="preserve">
+    <value>LogMessages 11308, 11311–11313, 11368 — Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
   </data>
   <data name="ProgressTab_ShowQuestProgressMessages" xml:space="preserve">
     <value>Show quest progress messages</value>
@@ -1760,14 +1798,23 @@ It can be considered spammy in deep dungeons.</value>
   <data name="Shared_RequiresGatheringFilteringNote" xml:space="preserve">
     <value>Requires Filter Gathering channels on the General tab. Checked = show; unchecked = hide.</value>
   </data>
+  <data name="Shared_RequiresGatheringHideFilteringNote" xml:space="preserve">
+    <value>Requires Filter Gathering channels on the General tab. Checked = hide; unchecked = show.</value>
+  </data>
   <data name="Shared_RequiresLootFilteringNote" xml:space="preserve">
     <value>Requires Filter Loot Roll channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
   <data name="Shared_RequiresObtainedFilteringNote" xml:space="preserve">
     <value>Requires Filter Obtained channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
+  <data name="Shared_RequiresObtainedHideFilteringNote" xml:space="preserve">
+    <value>Requires Filter Obtained channel on the General tab. Checked = hide; unchecked = show.</value>
+  </data>
   <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
     <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
+  </data>
+  <data name="Shared_RequiresSystemHideFilteringNote" xml:space="preserve">
+    <value>Requires Filter System channel on the General tab. Checked = hide; unchecked = show.</value>
   </data>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>

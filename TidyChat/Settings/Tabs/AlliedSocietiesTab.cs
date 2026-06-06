@@ -6,13 +6,15 @@ internal static class AlliedSocietiesTab
     {
         SettingsTabLayout.DrawTabNote(Languages.AlliedSocietiesTab_FilteringNote);
 
-        SettingsTabLayout.DrawSections(true,
-            (Languages.AlliedSocietiesTab_MaterialsDropdownHeader, () => DrawMaterials(configuration)),
-            (Languages.AlliedSocietiesTab_CurrenciesDropdownHeader, () => DrawCurrencies(configuration)));
-    }
+        if (!configuration.FilterObtainedSpam)
+        {
+            SettingsTabLayout.DrawMasterChannelDisabledWarning(string.Format(
+                CultureInfo.CurrentCulture,
+                Languages.Shared_FilterObtainedDisabledWarning,
+                Languages.GeneralTab_FilterObtainedSpam,
+                Languages.ConfigWindow_GeneralTabHeader));
+        }
 
-    private static void DrawMaterials(Configuration configuration)
-    {
         var hideObtainedMaterials = configuration.HideObtainedMaterials;
         if (ImGui.Checkbox(Languages.AlliedSocietiesTab_ShowBeastTribeCraftingMaterialsMessages,
                 ref hideObtainedMaterials))
@@ -21,11 +23,8 @@ internal static class AlliedSocietiesTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedFilterMarker(Languages.AlliedSocietiesTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
-    }
+        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_ShowBeastTribeCraftingMaterialsMessagesHelpMarker);
 
-    private static void DrawCurrencies(Configuration configuration)
-    {
         var hideObtainedTribalCurrency = configuration.HideObtainedTribalCurrency;
         if (ImGui.Checkbox(Languages.AlliedSocietiesTab_ShowBeastTribeCurrenciesMessages, ref hideObtainedTribalCurrency))
         {
@@ -33,7 +32,7 @@ internal static class AlliedSocietiesTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedFilterMarker(Languages.AlliedSocietiesTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_ShowBeastTribeCurrenciesMessagesHelpMarker);
 
         if (TidyChatPlugin.TribalCurrencies.Count == 0)
         {

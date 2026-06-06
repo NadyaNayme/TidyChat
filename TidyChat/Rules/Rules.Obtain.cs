@@ -128,7 +128,7 @@ public static partial class Rules
         new()
         {
             Name = "HideRouletteBonus",
-            SettingsTab = "Currencies",
+            SettingsTab = "Progress",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -137,7 +137,7 @@ public static partial class Rules
         new()
         {
             Name = "HideAdventurerInNeedBonus",
-            SettingsTab = "Currencies",
+            SettingsTab = "Progress",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,
@@ -307,6 +307,18 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerMaterials = true
+        },
+        new()
+        {
+            Name = "HideTomestoneWeeklyCap",
+            SettingsTab = "Currencies",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [2174],
+            RegexChecks = [ChatRegexStrings.TomestoneWeeklyCap],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
         }
     ];
 }

@@ -205,7 +205,7 @@ internal static class SystemTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowOrchestrionPlayingHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowOrchestrionPlayingHelpMarker);
     }
 
     private static void DrawCrackedClusters(Configuration configuration)
@@ -217,7 +217,7 @@ internal static class SystemTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedFilterMarker(Languages.SystemTab_ShowCrackedClustersMessagesHelpMarker);
+        UiHelp.ObtainedHideFilterMarker(Languages.SystemTab_ShowCrackedClustersMessagesHelpMarker);
     }
 
     private static void DrawErrorMessages(Configuration configuration)
@@ -229,7 +229,7 @@ internal static class SystemTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowFateLevelSyncMessagesHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowFateLevelSyncMessagesHelpMarker);
 
         var showActiveHelpEntry = configuration.ShowActiveHelpEntry;
         if (ImGui.Checkbox(Languages.SystemTab_ShowActiveHelpEntryMessages, ref showActiveHelpEntry))

@@ -60,6 +60,34 @@ internal static class ObtainCurrencyHelper
         return hideTomestoneById.TryGetValue(tomestone.RowId, out var hide) && hide;
     }
 
+    public static bool IsTomestoneWeeklyCapMessage(string normalizedText) =>
+        L10N.Get(ChatRegexStrings.TomestoneWeeklyCap).IsMatch(normalizedText);
+
+    public static bool TryResolveTomestoneLogMessage(
+        string normalizedText,
+        IReadOnlyList<TomestoneInfo> tomestones,
+        IDictionary<uint, bool> hideTomestoneById,
+        out bool shouldAllow,
+        out string? decidingRuleName)
+    {
+        shouldAllow = false;
+        decidingRuleName = null;
+        if (!TryGetMatchedTomestone(normalizedText, tomestones, out _))
+        {
+            return false;
+        }
+
+        if (ShouldHideTomestone(normalizedText, tomestones, hideTomestoneById))
+        {
+            decidingRuleName = "tomestone hide";
+            return true;
+        }
+
+        shouldAllow = true;
+        decidingRuleName = "Tomestone (hide off)";
+        return true;
+    }
+
     public static bool ShouldHideTribalCurrency(
         Configuration config,
         string normalizedText,

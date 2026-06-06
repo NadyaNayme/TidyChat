@@ -72,6 +72,17 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowCombatAbilities",
+            SettingsTab = "Combat",
+            Channel = ChatType.Action,
+            IsActive = true,
+            LogMessageIds = [533],
+            StringChecks = [ChatStrings.AbilityUseMessageOther],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowCombatDamage",
             SettingsTab = "Combat",
             Channel = ChatType.Healing,
@@ -131,7 +142,10 @@ public static partial class Rules
             SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
-            LogMessageIds = [506, 600, 515, 612]
+            LogMessageIds = [506],
+            StringChecks = [ChatStrings.CombatMiss],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -139,8 +153,8 @@ public static partial class Rules
             SettingsTab = "Combat",
             Channel = ChatType.Miss,
             IsActive = true,
-            LogMessageIds = [506],
-            StringChecks = [ChatStrings.CombatMiss],
+            LogMessageIds = [515],
+            StringChecks = [ChatStrings.CombatAttackMissesYou],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -236,10 +250,32 @@ public static partial class Rules
         {
             Name = "ShowCombatEffects",
             SettingsTab = "Combat",
+            Channel = ChatType.GainBuff,
+            IsActive = true,
+            LogMessageIds = [603],
+            StringChecks = [ChatStrings.BuffEffectGain],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCombatEffects",
+            SettingsTab = "Combat",
             Channel = ChatType.LoseBuff,
             IsActive = true,
             LogMessageIds = [531, 550],
             StringChecks = [ChatStrings.BuffLossEffect],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCombatEffects",
+            SettingsTab = "Combat",
+            Channel = ChatType.LoseBuff,
+            IsActive = true,
+            LogMessageIds = [607],
+            StringChecks = [ChatStrings.BuffEffectNullify],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
@@ -306,6 +342,17 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [501],
             StringChecks = [ChatStrings.CombatReady],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCombatEnemyReady",
+            SettingsTab = "Combat",
+            Channel = ChatType.Action,
+            IsActive = true,
+            LogMessageIds = [501],
+            StringChecks = [ChatStrings.CombatReadies],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

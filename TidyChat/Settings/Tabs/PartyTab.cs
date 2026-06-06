@@ -174,7 +174,7 @@ internal static class PartyTab
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.ObtainedFilterMarker(Languages.PartyTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
+            UiHelp.ObtainedHideFilterMarker(Languages.PartyTab_ShowAnotherPlayerObtainsItemMessagesHelpMarker);
         });
     }
 }

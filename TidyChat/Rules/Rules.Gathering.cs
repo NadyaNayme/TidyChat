@@ -200,7 +200,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCaughtFish",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1116, 1117, 3511, 5584, 11333]
@@ -208,7 +208,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCaughtFish",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1116],
@@ -219,7 +219,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCaughtFish",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5584, 3511],
@@ -230,7 +230,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCaughtFish",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [11333],
@@ -271,7 +271,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMooching",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1121],
@@ -282,7 +282,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowCurrentFishingHole",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1110],
@@ -293,7 +293,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDiscoveredFishingHole",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1130, 3513, 3579],
@@ -304,7 +304,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowMeasuringIlms",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [3512, 3559],
@@ -315,7 +315,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowLureMessages",
-            SettingsTab = "Gathering",
+            SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [5566, 5565, 5569, 5570, 5571, 5572],

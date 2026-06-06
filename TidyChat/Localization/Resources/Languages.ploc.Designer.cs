@@ -3056,18 +3056,18 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show PVP EXP gain messages.
         /// </summary>
-        internal static string ProgressTab_ShowPVPExpGainMessages {
+        internal static string ProgressTab_ShowPvpExpGainMessages {
             get {
-                return ResourceManager.GetString("ProgressTab_ShowPVPExpGainMessages", resourceCulture);
+                return ResourceManager.GetString("ProgressTab_ShowPvpExpGainMessages", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessage 659 — eg. You acquire 500 PvP EXP..
         /// </summary>
-        internal static string ProgressTab_ShowPVPExpGainMessagesHelpMarker {
+        internal static string ProgressTab_ShowPvpExpGainMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("ProgressTab_ShowPVPExpGainMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("ProgressTab_ShowPvpExpGainMessagesHelpMarker", resourceCulture);
             }
         }
         

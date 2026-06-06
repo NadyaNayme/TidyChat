@@ -251,10 +251,15 @@ internal static class RuleMatcher
             return true;
         }
 
-        matched = LogMessageCatalog.MatchesSharedObtain(normalizedText, rule.ObtainMarkerItemId!.Value, markerFallback);
+        var itemId = rule.ObtainMarkerItemId!.Value;
+        matched = LogMessageCatalog.MatchesSharedObtain(normalizedText, itemId, markerFallback)
+                  || ItemMarkerCatalog.Matches(itemId, normalizedText, markerFallback);
         if (debugMode && matched)
         {
-            TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | LUMINA shared obtain + item marker");
+            var via = LogMessageCatalog.MatchesSharedObtain(normalizedText, itemId, markerFallback)
+                ? "LUMINA shared obtain + item marker"
+                : "dedicated obtain + item marker";
+            TidyChatPlugin.Log.Debug($"MATCHED: {rule.Name} | {via}");
         }
         return true;
     }

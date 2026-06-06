@@ -5,18 +5,14 @@ internal static class GlamourTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.GlamourTab_FilteringNote);
-        SettingsTabLayout.DrawSections(true,
-            (Languages.SystemTab_GlamourAndGearDropdownHeader, () => DrawGlamourSection(configuration)),
-            (Languages.SystemTab_CharacterAndGearDropdownHeader, () => DrawCharacterSection(configuration)));
-    }
-    private static void DrawGlamourSection(Configuration configuration)
-    {
+
         var showTryOnGlamour = configuration.ShowTryOnGlamour;
         if (ImGui.Checkbox(Languages.SystemTab_ShowTryOnGlamourMessages, ref showTryOnGlamour))
         {
             configuration.ShowTryOnGlamour = showTryOnGlamour;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTryOnGlamourMessagesHelpMarker);
         SettingsTabLayout.DrawNestedOptions(configuration.ShowTryOnGlamour,
             () => DrawGlamourSubOptions(configuration));
@@ -28,6 +24,7 @@ internal static class GlamourTab
                 configuration.ShowSpiritboundGear = showSpiritboundGear;
                 configuration.OnSettingChanged();
             }
+
             var showEligibleForCoffers = configuration.ShowEligibleForCoffers;
             if (ImGui.Checkbox(Languages.SystemTab_ShowNumberOfCoffers, ref showEligibleForCoffers))
             {
@@ -35,38 +32,44 @@ internal static class GlamourTab
                 configuration.OnSettingChanged();
             }
         });
-    }
-    private static void DrawCharacterSection(Configuration configuration)
-    {
+
         var showGearsetEquipped = configuration.ShowGearsetEquipped;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
         {
             configuration.ShowGearsetEquipped = showGearsetEquipped;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
+
         var showGearItemsRepaired = configuration.ShowGearItemsRepaired;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
         {
             configuration.ShowGearItemsRepaired = showGearItemsRepaired;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearItemsRepairedHelpMarker);
+
         var showJobChange = configuration.ShowJobChange;
         if (ImGui.Checkbox(Languages.SystemTab_ShowJobChangeMessages, ref showJobChange))
         {
             configuration.ShowJobChange = showJobChange;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowJobChangeMessagesHelpMarker);
+
         var showPortraitMessages = configuration.ShowPortraitMessages;
         if (ImGui.Checkbox(Languages.SystemTab_ShowPortraitMessages, ref showPortraitMessages))
         {
             configuration.ShowPortraitMessages = showPortraitMessages;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowPortraitMessagesHelpMarker);
     }
+
     private static void DrawGlamourSubOptions(Configuration configuration)
     {
         var showTryOnCast = configuration.ShowTryOnGlamourCast;
@@ -75,41 +78,52 @@ internal static class GlamourTab
             configuration.ShowTryOnGlamourCast = showTryOnCast;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowTryOnGlamourCastHelpMarker);
+
         var showPlateProjected = configuration.ShowGlamourPlateProjected;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlateProjected, ref showPlateProjected))
         {
             configuration.ShowGlamourPlateProjected = showPlateProjected;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlateProjectedHelpMarker);
+
         var showPartialApply = configuration.ShowGlamourPlatePartialApply;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlatePartialApply, ref showPartialApply))
         {
             configuration.ShowGlamourPlatePartialApply = showPartialApply;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlatePartialApplyHelpMarker);
+
         var showGearDye = configuration.ShowGearDyeApplied;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearDyeApplied, ref showGearDye))
         {
             configuration.ShowGearDyeApplied = showGearDye;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearDyeAppliedHelpMarker);
+
         var showRestoreFailed = configuration.ShowGearsetGlamourRestoreFailed;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetGlamourRestoreFailed, ref showRestoreFailed))
         {
             configuration.ShowGearsetGlamourRestoreFailed = showRestoreFailed;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetGlamourRestoreFailedHelpMarker);
+
         var showGlamourAltered = configuration.ShowGlamourAltered;
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourAltered, ref showGlamourAltered))
         {
             configuration.ShowGlamourAltered = showGlamourAltered;
             configuration.OnSettingChanged();
         }
+
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourAlteredHelpMarker);
     }
 }
