@@ -1,6 +1,5 @@
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
-using System.Collections.Generic;
 using System.Threading;
 using Timer = System.Timers.Timer;
 using TidyStrings = TidyChat.Utility.InternalStrings;

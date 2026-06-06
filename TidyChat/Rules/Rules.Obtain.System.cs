@@ -17,6 +17,6 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
             ObtainMarkerClustersOnly = true
-        },
+        }
     ];
 }

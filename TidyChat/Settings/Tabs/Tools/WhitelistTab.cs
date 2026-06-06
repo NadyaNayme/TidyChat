@@ -1,7 +1,6 @@
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
-using System.Collections.Generic;
 using System.Numerics;
 using Flags = TidyChat.Utility.ChatFlags;
 namespace TidyChat.Settings.Tabs;
@@ -260,39 +259,39 @@ internal static class WhitelistTab
         }
 
         var labels = new List<string>();
-        if ((channelFlags & (int)Flags.Channels.System) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.System) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_SystemChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.PlayerChannels) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.PlayerChannels) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_TalkingChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.Emotes) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.Emotes) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_EmotesChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.Progress) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.Progress) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_ProgressChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.Loot) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.Loot) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_LootChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.Obtain) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.Obtain) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_LootRollsChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.FreeCompany) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.FreeCompany) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_LoginLogoutChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.Crafting) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.Crafting) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_CraftingChannel);
         }
-        if ((channelFlags & (int)Flags.Channels.Gathering) != 0)
+        if ((channelFlags & (int)ChatFlags.Channels.Gathering) != 0)
         {
             labels.Add(Languages.ChatHistoryTab_GatheringChannel);
         }

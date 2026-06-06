@@ -24,7 +24,10 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/10787?pretty=true">A modest contribution to the exploration initiative has been recorded.</see>
+    /// <see href="https://xivapi.com/LogMessage/10787?pretty=true">
+    ///     A modest contribution to the exploration initiative has
+    ///     been recorded.
+    /// </see>
     /// <seealso href="https://xivapi.com/LogMessage/10788?pretty=true">A respectable contribution…</seealso>
     /// <seealso href="https://xivapi.com/LogMessage/10789?pretty=true">A generous contribution…</seealso>
     public static readonly LocalizedStrings CosmicExplorationContribution = new()

@@ -80,6 +80,4 @@ public static partial class ChatStrings
         Deu = ["ilme"],
         Fra = ["ilm"]
     };
-
-
 }

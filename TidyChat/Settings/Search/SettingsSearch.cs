@@ -1,6 +1,5 @@
 using Dalamud.Interface;
 using Dalamud.Interface.Components;
-
 namespace TidyChat.Settings.Search;
 
 internal static class SettingsSearch
@@ -36,7 +35,7 @@ internal static class SettingsSearch
         ImGui.SameLine(0f, 0f);
         ImGui.SetCursorPosX(ImGui.GetCursorPosX() - buttonSize);
         ImGui.PushID("settingsSearchClear");
-        if (ImGuiComponents.IconButton(FontAwesomeIcon.Times, new System.Numerics.Vector2(buttonSize, buttonSize)))
+        if (ImGuiComponents.IconButton(FontAwesomeIcon.Times, new(buttonSize, buttonSize)))
         {
             s_clearNextFrame = true;
         }

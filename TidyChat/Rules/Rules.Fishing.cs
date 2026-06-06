@@ -47,7 +47,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.MultihookBonusFish],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] FishingRulesLate =

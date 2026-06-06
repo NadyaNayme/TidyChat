@@ -1,4 +1,5 @@
 using System.Threading;
+using System.Timers;
 using Timer = System.Timers.Timer;
 
 namespace TidyChat;
@@ -8,9 +9,9 @@ public sealed partial class TidyChatPlugin
     private const int LogMessageDebugDedupFlushMs = 500;
 
     private readonly Lock _logMessageDebugDedupLock = new();
-    private string? _logMessageDebugDedupKey;
     private int _logMessageDebugDedupCount;
     private Timer? _logMessageDebugDedupFlushTimer;
+    private string? _logMessageDebugDedupKey;
 
     private void EmitDedupedLogMessageDebug(string line)
     {
@@ -47,12 +48,12 @@ public sealed partial class TidyChatPlugin
         _logMessageDebugDedupFlushTimer = null;
     }
 
-    private void OnLogMessageDebugDedupFlushElapsed(object? sender, System.Timers.ElapsedEventArgs e) =>
+    private void OnLogMessageDebugDedupFlushElapsed(object? sender, ElapsedEventArgs e) =>
         FlushLogMessageDebugDedup();
 
     private void ScheduleLogMessageDebugDedupFlush()
     {
-        _logMessageDebugDedupFlushTimer ??= new Timer
+        _logMessageDebugDedupFlushTimer ??= new()
         {
             Interval = LogMessageDebugDedupFlushMs,
             AutoReset = false

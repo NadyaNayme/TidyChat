@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TidyChat.Localization.Data;
 namespace TidyChat;
 

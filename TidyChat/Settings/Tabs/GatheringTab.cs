@@ -151,5 +151,4 @@ internal static class GatheringTab
 
         UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker);
     }
-
 }

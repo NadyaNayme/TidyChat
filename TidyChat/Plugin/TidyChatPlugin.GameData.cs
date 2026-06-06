@@ -1,5 +1,4 @@
 using Lumina.Excel.Sheets;
-using System.Collections.Generic;
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

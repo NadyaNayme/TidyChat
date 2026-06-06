@@ -1,5 +1,4 @@
 using Lumina.Text.ReadOnly;
-using System.Collections.Generic;
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin

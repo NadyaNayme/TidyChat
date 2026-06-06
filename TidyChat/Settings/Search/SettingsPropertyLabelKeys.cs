@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace TidyChat.Settings.Search;
 
 /// <summary>
@@ -268,7 +266,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowHousingWardMessage"] = nameof(Languages.SystemTab_ShowHousingWardMessage),
 
         ["ShowSelfUsedEmotes"] = nameof(Languages.EmotesTab_ShowSelfCustomEmotes),
-        ["ShowOtherCustomEmotes"] = nameof(Languages.EmotesTab_ShowOtherCustomEmotes),
+        ["ShowOtherCustomEmotes"] = nameof(Languages.EmotesTab_ShowOtherCustomEmotes)
     };
 
     public static string? TryGet(string propertyName) =>

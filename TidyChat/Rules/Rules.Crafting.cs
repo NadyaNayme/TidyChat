@@ -177,6 +177,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.AbleToExecute],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 }

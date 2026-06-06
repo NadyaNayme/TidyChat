@@ -15,7 +15,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyTribal = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] AlliedSocietiesMaterialsHideRules =
@@ -32,6 +32,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerMaterials = true
-        },
+        }
     ];
 }

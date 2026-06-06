@@ -194,6 +194,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.DiscoverAccursedHoard],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 }

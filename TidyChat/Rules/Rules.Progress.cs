@@ -380,6 +380,6 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [2244]
-        },
+        }
     ];
 }

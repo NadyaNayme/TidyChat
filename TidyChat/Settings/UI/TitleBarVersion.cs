@@ -47,7 +47,7 @@ internal static class TitleBarVersion
             ImGui.GetFont(),
             ImGui.GetFontSize(),
             position,
-            ImGui.ColorConvertFloat4ToU32(new Vector4(0.75f, 0.75f, 0.75f, 1f)),
+            ImGui.ColorConvertFloat4ToU32(new(0.75f, 0.75f, 0.75f, 1f)),
             cachedText);
     }
 

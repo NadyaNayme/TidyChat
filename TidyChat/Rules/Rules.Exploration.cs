@@ -20,7 +20,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [9332]
         }
-
     ];
 
     private static readonly LocalizedFilterRule[] ExplorationHuntSlainRules =
@@ -32,8 +31,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4411]
-        },
-
+        }
     ];
 
     private static readonly LocalizedFilterRule[] ExplorationHuntMarkBillRules =
@@ -70,8 +68,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.MarkBillAbandon],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 
     private static readonly LocalizedFilterRule[] ExplorationDiscoveryRules =
@@ -120,7 +117,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         }
-
     ];
 
     private static readonly LocalizedFilterRule[] ExplorationVistaRules =
@@ -132,8 +128,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1272, 1273]
-        },
-
+        }
     ];
 
     private static readonly LocalizedFilterRule[] ExplorationQuestReminderRules =
@@ -147,6 +142,5 @@ public static partial class Rules
             StringChecks = [ChatStrings.SayQuestReminder],
             Pattern = PatternKind.StringMatch
         }
-
     ];
 }

@@ -1,7 +1,4 @@
 using Dalamud.Interface.Components;
-
-using System.Collections.Generic;
-
 namespace TidyChat.Settings;
 
 internal static class UiHelp
@@ -138,7 +135,7 @@ internal static class UiHelp
             _ when helpPropertyName.StartsWith("FreeCompanyTab_ShowSubmarine", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("FreeCompanyTab_ShowSubaquatic", StringComparison.Ordinal) => true,
             _ when helpPropertyName is nameof(Languages.SystemTab_HideFateLevelSyncMessagesHelpMarker) or
-                   nameof(Languages.SystemTab_HideOrchestrionPlayingHelpMarker) => false,
+                nameof(Languages.SystemTab_HideOrchestrionPlayingHelpMarker) => false,
             _ when helpPropertyName.StartsWith("SystemTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("PartyTab_", StringComparison.Ordinal) =>
                 helpPropertyName is not nameof(Languages.PartyTab_ShowPartyObjectiveOnJoinHelpMarker),
@@ -148,7 +145,7 @@ internal static class UiHelp
             _ when helpPropertyName.StartsWith("GatheringTab_ShowCosmic", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("GatheringTab_ShowStellar", StringComparison.Ordinal) => true,
             _ when helpPropertyName is nameof(Languages.GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker) or
-                   nameof(Languages.GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker) => true,
+                nameof(Languages.GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker) => true,
             _ when helpPropertyName.StartsWith("MateriaTab_", StringComparison.Ordinal) =>
                 helpPropertyName.Contains("Retrieved", StringComparison.Ordinal) ||
                 helpPropertyName.Contains("Shatters", StringComparison.Ordinal),
@@ -156,7 +153,7 @@ internal static class UiHelp
                 helpPropertyName is not nameof(Languages.DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker),
             _ when helpPropertyName is nameof(Languages.FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker) => true,
             _ when helpPropertyName is nameof(Languages.FreeCompanyTab_ShowLoginMessagesHelpMarker) or
-                   nameof(Languages.FreeCompanyTab_ShowLogoutMessagesHelpMarker) => false,
+                nameof(Languages.FreeCompanyTab_ShowLogoutMessagesHelpMarker) => false,
             _ => ProgressSystemFilterHelpMarkers.Contains(helpPropertyName)
         };
 

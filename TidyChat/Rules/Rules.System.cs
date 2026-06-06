@@ -71,8 +71,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.DutyObjectiveBonus],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemRelicAndStatusRules =
@@ -114,8 +113,7 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [672, 673]
-        },
-
+        }
     ];
 
     private static readonly LocalizedFilterRule[] SystemEligibleForCoffersRules =
@@ -128,7 +126,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [4233, 4238, 4246]
         }
-
     ];
 
     private static readonly LocalizedFilterRule[] SystemMessageBookRules =
@@ -141,7 +138,6 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [6066]
         }
-
     ];
 
     private static readonly LocalizedFilterRule[] SystemVolumeControlRules =
@@ -156,7 +152,6 @@ public static partial class Rules
             LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866],
             PreferLogMessageCatalog = true
         }
-
     ];
 
     private static readonly LocalizedFilterRule[] SystemUtilityRules =

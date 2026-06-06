@@ -196,7 +196,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.CollectabilityMeticulousIntuition],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] GatheringMiscRules =
@@ -230,7 +230,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.PutAwayRod],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static void AddGatheringRules(List<LocalizedFilterRule> rules)

@@ -76,5 +76,4 @@ public static partial class ChatStrings
             "url"
         ]
     };
-
 }

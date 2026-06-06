@@ -77,6 +77,6 @@ public static partial class Rules
             PreferLogMessageCatalog = true,
             ObtainMarkerAnyElemental = true,
             ObtainMarkerRequireSharedTemplate = false
-        },
+        }
     ];
 }

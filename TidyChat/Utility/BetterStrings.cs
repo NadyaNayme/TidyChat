@@ -1,6 +1,5 @@
 using Dalamud.Game;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Timers;
 using TextCopy;

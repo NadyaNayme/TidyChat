@@ -1,5 +1,4 @@
 using Dalamud.Interface.Components;
-using System.Collections.Generic;
 using System.Numerics;
 using System.Reflection;
 using System.Text;
@@ -11,7 +10,10 @@ internal static class SettingsSearchIndex
 
     private static readonly HashSet<string> SkippedProperties = new(StringComparer.Ordinal)
     {
-        "Enabled"
+        "Enabled",
+        "ShowGlamourAltered",
+        "ShowLureMessages",
+        "ShowPartyDissolved"
     };
 
     /// <summary>
@@ -669,28 +671,28 @@ internal static class SettingsSearchIndex
         }
 
         if (propertyName is "ShowCaughtFish" or
-                "ShowReelInLine" or
-                "ShowLoseBait" or
-                "ShowMooching" or
-                "ShowMeasuringIlms" or
-                "ShowCurrentFishingHole" or
-                "ShowDiscoveredFishingHole" or
-                "ShowLureAttemptMessages" or
-                "ShowLureBiteFeelingMessages" or
-                "ShowFishingFlavorText")
+            "ShowReelInLine" or
+            "ShowLoseBait" or
+            "ShowMooching" or
+            "ShowMeasuringIlms" or
+            "ShowCurrentFishingHole" or
+            "ShowDiscoveredFishingHole" or
+            "ShowLureAttemptMessages" or
+            "ShowLureBiteFeelingMessages" or
+            "ShowFishingFlavorText")
         {
             return Languages.ConfigWindow_FishingTabHeader;
         }
 
         if (propertyName is "ShowStellarMissionMessages" or
-                "ShowStellarAbleToExecute" or
-                "ShowStellarBuffEffectGain" or
-                "ShowStellarGpRecovery" or
-                "ShowCosmicExplorationMessages" or
-                "ShowCosmicRewards" or
-                "ShowCosmicContainers" or
-                "ShowCosmicClassPointsAndDataset" or
-                "ShowCosmicDailyProgress")
+            "ShowStellarAbleToExecute" or
+            "ShowStellarBuffEffectGain" or
+            "ShowStellarGpRecovery" or
+            "ShowCosmicExplorationMessages" or
+            "ShowCosmicRewards" or
+            "ShowCosmicContainers" or
+            "ShowCosmicClassPointsAndDataset" or
+            "ShowCosmicDailyProgress")
         {
             return Languages.ConfigWindow_CosmicExplorationTabHeader;
         }
@@ -823,7 +825,10 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.SystemTab_ExplorationDropdownHeader}";
         }
 
-        if (propertyName is "ShowAetheryteTicket" or "ShowAttuneAetheryte")
+        if (propertyName is "ShowCommendations" or
+            "ShowPersonalMessageBook" or
+            "ShowAetheryteTicket" or
+            "ShowAttuneAetheryte")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
         }

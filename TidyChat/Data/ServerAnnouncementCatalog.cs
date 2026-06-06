@@ -1,7 +1,6 @@
 using Dalamud.Game;
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 namespace TidyChat.Data;
 

@@ -26,7 +26,6 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         }
-
     ];
 
     private static readonly LocalizedFilterRule[] GlamourDresserRules =
@@ -187,8 +186,7 @@ public static partial class Rules
             IsActive = true,
             StringChecks = [ChatStrings.GlamourPlateProjected],
             Pattern = PatternKind.StringMatch
-        },
-
+        }
     ];
 
     private static readonly LocalizedFilterRule[] GlamourGearsetAndJobRules =
@@ -277,7 +275,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.JobSpecialistChange],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 }

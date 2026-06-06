@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TidyChat.Localization.Data;
 namespace TidyChat;
 
@@ -163,7 +162,7 @@ internal static class ObtainCurrencyHelper
 
     public static bool IsDedicatedObtainConfirmedForMarker(LocalizedStrings marker, string normalizedText)
     {
-        foreach (var (dedicatedMarker, regex) in DedicatedObtainRegexByMarker)
+        foreach ((var dedicatedMarker, var regex) in DedicatedObtainRegexByMarker)
         {
             if (marker.Equals(dedicatedMarker) && L10N.Get(regex).IsMatch(normalizedText))
             {

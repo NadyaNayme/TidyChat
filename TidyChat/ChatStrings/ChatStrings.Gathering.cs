@@ -76,7 +76,10 @@ public static partial class ChatStrings
 
 
     /// <see href="https://xivapi.com/LogMessage/11172?pretty=true">You earn a score of N from Gatherer's Boon.</see>
-    /// <see href="https://xivapi.com/LogMessage/11173?pretty=true">You earn a score of N for achieving M successive chains and a score of P from Gatherer's Boon.</see>
+    /// <see href="https://xivapi.com/LogMessage/11173?pretty=true">
+    ///     You earn a score of N for achieving M successive chains and
+    ///     a score of P from Gatherer's Boon.
+    /// </see>
     public static readonly LocalizedStrings GatherersBoonScore = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -313,7 +316,10 @@ public static partial class ChatStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/11200?pretty=true">A mission below class A has been undertaken. Your gold count has been reset.</see>
+    /// <see href="https://xivapi.com/LogMessage/11200?pretty=true">
+    ///     A mission below class A has been undertaken. Your gold
+    ///     count has been reset.
+    /// </see>
     public static readonly LocalizedStrings StellarMissionGoldCountReset = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -333,7 +339,10 @@ public static partial class ChatStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/10763?pretty=true">You do not meet the requirements to accept this stellar mission.</see>
+    /// <see href="https://xivapi.com/LogMessage/10763?pretty=true">
+    ///     You do not meet the requirements to accept this stellar
+    ///     mission.
+    /// </see>
     public static readonly LocalizedStrings StellarMissionRequirementsNotMet = new()
     {
         Jpn = ["NeedsLocalization"],

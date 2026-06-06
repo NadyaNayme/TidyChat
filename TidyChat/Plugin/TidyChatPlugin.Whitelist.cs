@@ -1,7 +1,5 @@
 using System.Text.RegularExpressions;
 using System.Threading;
-using TidyChat.Data;
-using TidyChat.Settings;
 using Flags = TidyChat.Utility.ChatFlags;
 
 namespace TidyChat;
@@ -265,8 +263,7 @@ public sealed partial class TidyChatPlugin
                     RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
                 }
                 catch
-                {
-                }
+                { }
 
                 RememberLogMessageBlock(message.LogMessageId);
                 return true;
@@ -279,8 +276,7 @@ public sealed partial class TidyChatPlugin
                 RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
             }
             catch
-            {
-            }
+            { }
 
             RememberLogMessageBlock(message.LogMessageId);
             return true;
@@ -304,8 +300,7 @@ public sealed partial class TidyChatPlugin
                 RememberCustomFilterLogMessageAllow(message.LogMessageId);
             }
             catch
-            {
-            }
+            { }
 
             if (Configuration.EnableDebugMode)
             {

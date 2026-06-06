@@ -101,7 +101,7 @@ internal static class RuleMatcher
     }
 
     public static bool MatchesText(LocalizedFilterRule rule, string normalizedText, bool _) =>
-        MatchesText(rule, normalizedText, out string? _);
+        MatchesText(rule, normalizedText, out var _);
 
     private static bool RequiresLogMessageCatalog(LocalizedFilterRule rule) =>
         rule.PreferLogMessageCatalog && rule.LogMessageIds is { Length: > 0 };

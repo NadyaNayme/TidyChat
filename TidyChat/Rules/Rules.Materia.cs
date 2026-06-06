@@ -36,7 +36,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.MateriaExtract],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] MateriaSystemChannelRules =
@@ -89,6 +89,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.MateriaShatters],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 }

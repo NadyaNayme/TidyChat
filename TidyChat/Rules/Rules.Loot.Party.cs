@@ -25,7 +25,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.CastLot],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] LootPartyLateRules =

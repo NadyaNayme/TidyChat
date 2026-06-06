@@ -1,7 +1,5 @@
 namespace TidyChat.Settings.Tabs;
 
-
-
 internal static class GlamourTab
 
 {
@@ -9,7 +7,6 @@ internal static class GlamourTab
     public static void Draw(Configuration configuration)
 
     {
-
         SettingsTabLayout.DrawTabNote(Languages.GlamourTab_FilteringNote);
 
 
@@ -19,11 +16,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourDresserMessages, ref showGlamourDresser))
 
         {
-
             configuration.ShowGlamourDresserMessages = showGlamourDresser;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -31,7 +26,6 @@ internal static class GlamourTab
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourDresserMessagesHelpMarker);
 
         SettingsTabLayout.DrawNestedOptions(configuration.ShowGlamourDresserMessages,
-
             () => DrawGlamourDresserSubOptions(configuration));
 
 
@@ -41,11 +35,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.GlamourTab_ShowTryOnEquipGlamourMessages, ref showTryOnGlamour))
 
         {
-
             configuration.ShowTryOnGlamour = showTryOnGlamour;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -53,7 +45,6 @@ internal static class GlamourTab
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowTryOnEquipGlamourMessagesHelpMarker);
 
         SettingsTabLayout.DrawNestedOptions(configuration.ShowTryOnGlamour,
-
             () => DrawTryOnEquipSubOptions(configuration));
 
 
@@ -61,17 +52,14 @@ internal static class GlamourTab
         SettingsTabLayout.DrawIndependentOptions(() =>
 
         {
-
             var showSpiritboundGear = configuration.ShowSpiritboundGear;
 
             if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
 
             {
-
                 configuration.ShowSpiritboundGear = showSpiritboundGear;
 
                 configuration.OnSettingChanged();
-
             }
 
 
@@ -83,17 +71,14 @@ internal static class GlamourTab
             if (ImGui.Checkbox(Languages.GlamourTab_ShowPersonalEffectAcquired, ref showPersonalEffectAcquired))
 
             {
-
                 configuration.ShowPersonalEffectAcquired = showPersonalEffectAcquired;
 
                 configuration.OnSettingChanged();
-
             }
 
 
 
             UiHelp.ProgressFilterMarker(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker);
-
         });
 
 
@@ -103,11 +88,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
 
         {
-
             configuration.ShowGearsetEquipped = showGearsetEquipped;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -121,11 +104,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
 
         {
-
             configuration.ShowGearItemsRepaired = showGearItemsRepaired;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -139,11 +120,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowJobChangeMessages, ref showJobChange))
 
         {
-
             configuration.ShowJobChange = showJobChange;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -157,17 +136,14 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowPortraitMessages, ref showPortraitMessages))
 
         {
-
             configuration.ShowPortraitMessages = showPortraitMessages;
 
             configuration.OnSettingChanged();
-
         }
 
 
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowPortraitMessagesHelpMarker);
-
     }
 
 
@@ -175,17 +151,14 @@ internal static class GlamourTab
     private static void DrawGlamourDresserSubOptions(Configuration configuration)
 
     {
-
         var showDresserOutfit = configuration.ShowGlamourDresserOutfit;
 
         if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourDresserOutfit, ref showDresserOutfit))
 
         {
-
             configuration.ShowGlamourDresserOutfit = showDresserOutfit;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -199,11 +172,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourDresserProjection, ref showDresserProjection))
 
         {
-
             configuration.ShowGlamourDresserProjection = showDresserProjection;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -217,17 +188,14 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourArmoireMessages, ref showArmoire))
 
         {
-
             configuration.ShowGlamourArmoireMessages = showArmoire;
 
             configuration.OnSettingChanged();
-
         }
 
 
 
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourArmoireMessagesHelpMarker);
-
     }
 
 
@@ -235,17 +203,14 @@ internal static class GlamourTab
     private static void DrawTryOnEquipSubOptions(Configuration configuration)
 
     {
-
         var showTryOnPreview = configuration.ShowTryOnGlamourPreview;
 
         if (ImGui.Checkbox(Languages.GlamourTab_ShowTryOnGlamourPreview, ref showTryOnPreview))
 
         {
-
             configuration.ShowTryOnGlamourPreview = showTryOnPreview;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -259,11 +224,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowTryOnGlamourCast, ref showTryOnCast))
 
         {
-
             configuration.ShowTryOnGlamourCast = showTryOnCast;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -277,11 +240,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlateProjected, ref showPlateProjected))
 
         {
-
             configuration.ShowGlamourPlateProjected = showPlateProjected;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -295,11 +256,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlatePartialApply, ref showPartialApply))
 
         {
-
             configuration.ShowGlamourPlatePartialApply = showPartialApply;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -313,11 +272,9 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearDyeApplied, ref showGearDye))
 
         {
-
             configuration.ShowGearDyeApplied = showGearDye;
 
             configuration.OnSettingChanged();
-
         }
 
 
@@ -331,19 +288,13 @@ internal static class GlamourTab
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetGlamourRestoreFailed, ref showRestoreFailed))
 
         {
-
             configuration.ShowGearsetGlamourRestoreFailed = showRestoreFailed;
 
             configuration.OnSettingChanged();
-
         }
 
 
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetGlamourRestoreFailedHelpMarker);
-
     }
-
 }
-
-

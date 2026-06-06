@@ -1,5 +1,4 @@
 using System.Numerics;
-
 namespace TidyChat.Settings.Tabs;
 
 /// <summary>

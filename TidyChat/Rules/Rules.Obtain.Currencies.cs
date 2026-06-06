@@ -215,7 +215,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerItemId = ItemMarkerCatalog.Items.Venture
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] ObtainCurrenciesMarkerHideRules =
@@ -288,7 +288,7 @@ public static partial class Rules
             BlockWhenActive = true,
             LogMessageIds = [5202],
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] ObtainCurrenciesTomestoneHideRules =

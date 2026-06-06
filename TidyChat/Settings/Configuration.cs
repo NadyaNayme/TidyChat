@@ -1,6 +1,5 @@
 using Dalamud.Configuration;
 using Dalamud.Plugin;
-using System.Collections.Generic;
 namespace TidyChat.Settings;
 
 [Serializable]
@@ -167,8 +166,10 @@ public class Configuration : IPluginConfiguration
     public bool ShowGlamourPlatePartialApply { get; set; } = true;
     public bool ShowGearDyeApplied { get; set; } = true;
     public bool ShowGearsetGlamourRestoreFailed { get; set; } = true;
+
     [Obsolete("Migrated to ShowGlamourDresserOutfit in config version 13.")]
     public bool ShowGlamourAltered { get; set; } = true;
+
     public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowGearItemsRepaired { get; set; } = true;
@@ -342,8 +343,10 @@ public class Configuration : IPluginConfiguration
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;
+
     [Obsolete("Migrated to ShowLureAttemptMessages and ShowLureBiteFeelingMessages in config version 14.")]
     public bool ShowLureMessages { get; set; } = true;
+
     public bool ShowLureAttemptMessages { get; set; } = true;
     public bool ShowLureBiteFeelingMessages { get; set; } = true;
     public bool ShowReelInLine { get; set; } = true;

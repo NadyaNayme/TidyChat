@@ -1,6 +1,5 @@
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
-using System.Collections.Generic;
 using TidyChat.Localization.Data;
 namespace TidyChat.Data;
 

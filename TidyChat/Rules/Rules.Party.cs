@@ -153,7 +153,7 @@ public static partial class Rules
             StringChecks = [ChatStrings.CrossWorldPartyFormed],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
+        }
     ];
 
     private static readonly LocalizedFilterRule[] PartyCountdownRules =

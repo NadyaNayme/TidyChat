@@ -25,7 +25,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.HousingWardMessage],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-
+        }
     ];
 }

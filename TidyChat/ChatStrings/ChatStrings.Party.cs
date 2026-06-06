@@ -119,5 +119,4 @@ public static partial class ChatStrings
         Deu = ["teleport"],
         Fra = ["téléporter"]
     };
-
 }
