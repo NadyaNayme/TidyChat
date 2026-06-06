@@ -791,13 +791,13 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Hide Allied Seals</value>
   </data>
   <data name="CurrenciesTab_HideAlliedSealsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 100 Allied Seals.</value>
+    <value>LogMessages 4413, 657, 1259 — eg. You obtain 8 Allied Seals.</value>
   </data>
   <data name="CurrenciesTab_HideCenturioSealsMessages" xml:space="preserve">
     <value>Hide Centurio Seals</value>
   </data>
   <data name="CurrenciesTab_HideCenturioSealsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 40 Centurio Seals.</value>
+    <value>LogMessages 5200, 657, 1259 — eg. You obtain 3 Centurio Seals.</value>
   </data>
   <data name="CurrenciesTab_ShowGeneralItemObtains" xml:space="preserve">
     <value>Show General item obtains</value>
@@ -827,7 +827,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Hide sacks of Nuts</value>
   </data>
   <data name="CurrenciesTab_HideSacksOfNutsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 100 sacks of Nuts.</value>
+    <value>LogMessages 5202, 657, 1259 — eg. You obtain 100 sacks of Nuts.</value>
   </data>
   <data name="CurrenciesTab_HideVentureMessages" xml:space="preserve">
     <value>Hide Ventures</value>
@@ -1594,6 +1594,12 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GlamourTab_ShowTryOnGlamourPreviewHelpMarker" xml:space="preserve">
     <value>LogMessage 3911 — eg. You try on … (preview in wardrobe or try-on window, not casting a glamour onto gear).</value>
   </data>
+  <data name="GlamourTab_ShowPersonalEffectAcquired" xml:space="preserve">
+    <value>Show personal effect acquired messages</value>
+  </data>
+  <data name="GlamourTab_ShowPersonalEffectAcquiredHelpMarker" xml:space="preserve">
+    <value>LogMessage 5701 — eg. You acquire the Senor Otter Pack personal effect. Uses the Progress channel (Filter Progress channel on General).</value>
+  </data>
   <data name="GoldSaucerTab_FilteringNote" xml:space="preserve">
     <value>MGP obtain lines use Filter Obtained on General. Minigame and Triple Triad lines use Filter System. Options labeled Hide … hide those lines when checked.</value>
   </data>
@@ -2145,6 +2151,12 @@ eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="SystemTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 4411 — eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
+  </data>
+  <data name="SystemTab_ShowMarkBillMessages" xml:space="preserve">
+    <value>Show mark bill messages</value>
+  </data>
+  <data name="SystemTab_ShowMarkBillMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4412, 4415, 4416 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt.</value>
   </data>
   <data name="SystemTab_ShowInstancedAreaMessages" xml:space="preserve">
     <value>Show /instance and instanced area messages</value>
