@@ -1230,7 +1230,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Hide only locations that affect Gatherer's Boon</value>
   </data>
   <data name="GatheringTab_HideGatheringBoonLocationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1097 (GatheringSystem), 11172 (System) — Gatherer's Boon rate lines. Checked = hide.</value>
+    <value>LogMessages 1097 (GatheringSystem), 11172–11173 (System) — Gatherer's Boon rate and chain score lines. Checked = hide.</value>
   </data>
   <data name="GatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
     <value>Hide only locations that affect gathering yield</value>
@@ -1384,7 +1384,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show stellar mission messages</value>
   </data>
   <data name="GatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for stellar mission catch-all lines (LogMessages 631–11383 incl. 10827–10828, 11200). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate.</value>
+    <value>Master toggle for stellar mission catch-all lines (LogMessages 631–11383 incl. 10763 (Error), 10827–10828, 11165, 11200). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate.</value>
   </data>
   <data name="GatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
     <value>Cosmic &amp; Stellar Exploration</value>
