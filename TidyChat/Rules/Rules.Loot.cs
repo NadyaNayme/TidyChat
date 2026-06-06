@@ -89,6 +89,19 @@ public static partial class Rules
         },
         new()
         {
+            Name = "HideObtainedShards",
+            SettingsTab = "Gathering",
+            Channel = ChatType.System,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [4322, 4323],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerAnyElemental = true,
+            ObtainMarkerRequireSharedTemplate = false
+        },
+        new()
+        {
             Name = "ShowOthersLootRoll",
             SettingsTab = "Party",
             Channel = ChatType.LootRoll,

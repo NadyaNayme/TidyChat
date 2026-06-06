@@ -6,6 +6,7 @@ namespace TidyChat.Settings.Search;
 internal static class SettingsSearch
 {
     private static string s_query = string.Empty;
+    private static bool s_clearNextFrame;
 
     public static string Query => s_query;
 
@@ -13,17 +14,15 @@ internal static class SettingsSearch
 
     public static void DrawSearchBar()
     {
-        var style = ImGui.GetStyle();
-        var clearButtonWidth = ImGui.GetFrameHeight();
-        var showClear = s_query.Length > 0;
-        var inputWidth = ImGui.GetContentRegionAvail().X;
-
-        if (showClear)
+        if (s_clearNextFrame)
         {
-            inputWidth -= clearButtonWidth + style.ItemInnerSpacing.X;
+            s_query = string.Empty;
+            s_clearNextFrame = false;
         }
 
-        ImGui.SetNextItemWidth(inputWidth);
+        var showClear = s_query.Length > 0;
+
+        ImGui.SetNextItemWidth(-1f);
         ImGui.InputTextWithHint("##settingsSearch", Languages.ConfigWindow_SearchPlaceholder, ref s_query, 256);
 
         if (!showClear)
@@ -31,15 +30,22 @@ internal static class SettingsSearch
             return;
         }
 
-        ImGui.SameLine(0f, style.ItemInnerSpacing.X);
-        if (ImGuiComponents.IconButton(FontAwesomeIcon.Times))
+        ImGui.SetItemAllowOverlap();
+
+        var buttonSize = ImGui.GetFrameHeight();
+        ImGui.SameLine(0f, 0f);
+        ImGui.SetCursorPosX(ImGui.GetCursorPosX() - buttonSize);
+        ImGui.PushID("settingsSearchClear");
+        if (ImGuiComponents.IconButton(FontAwesomeIcon.Times, new System.Numerics.Vector2(buttonSize, buttonSize)))
         {
-            s_query = string.Empty;
+            s_clearNextFrame = true;
         }
 
         if (ImGui.IsItemHovered())
         {
             ImGui.SetTooltip(Languages.ConfigWindow_SearchClear);
         }
+
+        ImGui.PopID();
     }
 }

@@ -1019,7 +1019,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Hide elemental shards, crystals, and clusters</value>
   </data>
   <data name="GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
-    <value>Hides obtain messages for elemental shards, crystals, and clusters from gathering, loot rolls, and loot notices.
+    <value>Hides obtain messages for elemental shards, crystals, and clusters from gathering, loot rolls, loot notices, and desynthesis (LogMessages 4322, 4323).
 eg. You obtain 30 ice shards</value>
   </data>
   <data name="GatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
