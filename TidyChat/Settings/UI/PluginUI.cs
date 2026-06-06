@@ -81,7 +81,14 @@ internal class PluginUI : Window, IDisposable
     public override void OnClose()
     {
         configuration.PersistIfDirty();
+        TitleBarVersion.ClearCache();
         base.OnClose();
+    }
+
+    public override void PostDraw()
+    {
+        TitleBarVersion.DrawCached();
+        base.PostDraw();
     }
 
     public override void PreDraw()
@@ -120,6 +127,7 @@ internal class PluginUI : Window, IDisposable
         {
             SettingsSearchIndex.DrawResults(configuration);
             TabFooter.Display(configuration);
+            TitleBarVersion.CachePosition(TitleBarButtons.Count, AllowPinning || AllowClickthrough);
             return;
         }
 
@@ -154,6 +162,8 @@ internal class PluginUI : Window, IDisposable
         tabs[selectedIndex].Draw(configuration);
         TabFooter.Display(configuration);
         ImGui.EndChild();
+
+        TitleBarVersion.CachePosition(TitleBarButtons.Count, AllowPinning || AllowClickthrough);
     }
 
     private (string Label, Action<Configuration> Draw)[] GetTabs()
