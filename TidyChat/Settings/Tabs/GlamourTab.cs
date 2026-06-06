@@ -78,6 +78,22 @@ internal static class GlamourTab
 
             UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSpiritboundMessagesHelpMarker);
 
+            var showPersonalEffectAcquired = configuration.ShowPersonalEffectAcquired;
+
+            if (ImGui.Checkbox(Languages.GlamourTab_ShowPersonalEffectAcquired, ref showPersonalEffectAcquired))
+
+            {
+
+                configuration.ShowPersonalEffectAcquired = showPersonalEffectAcquired;
+
+                configuration.OnSettingChanged();
+
+            }
+
+
+
+            UiHelp.ProgressFilterMarker(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker);
+
         });
 
 

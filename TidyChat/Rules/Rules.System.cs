@@ -1,4 +1,4 @@
-﻿namespace TidyChat;
+namespace TidyChat;
 
 public static partial class Rules
 {
@@ -352,6 +352,7 @@ public static partial class Rules
         rules.AddRange(ExplorationQuestReminderRules);
         rules.AddRange(PartySocialRules);
         rules.AddRange(ExplorationHuntSlainRules);
+        rules.AddRange(ExplorationHuntMarkBillRules);
         rules.AddRange(SystemRelicAndStatusRules);
         rules.AddRange(DesynthesisRules);
         rules.AddRange(DutyFinderRules);

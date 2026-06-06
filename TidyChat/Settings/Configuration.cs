@@ -134,6 +134,7 @@ public class Configuration : IPluginConfiguration
 
 
     public bool ShowSpiritboundGear { get; set; } = true;
+    public bool ShowPersonalEffectAcquired { get; set; } = true;
 
     public bool ShowSpideySenses { get; set; } = true;
     public bool ShowLocationDiscovered { get; set; } = true;
@@ -208,6 +209,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowSealedOff { get; set; } = false;
 
     public bool ShowHuntSlain { get; set; } = false;
+    public bool ShowMarkBillMessages { get; set; } = true;
     public bool ShowCompletionTime { get; set; } = false;
     public bool ShowRelicBookStep { get; set; } = false;
     public bool ShowRelicBookComplete { get; set; } = false;

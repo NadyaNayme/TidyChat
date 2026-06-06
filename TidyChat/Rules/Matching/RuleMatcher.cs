@@ -207,10 +207,12 @@ internal static class RuleMatcher
 
         if (rule.ObtainMarkerAnySeal)
         {
-            matched = LogMessageCatalog.MatchesSharedObtainSeal(normalizedText);
+            matched = LogMessageCatalog.MatchesGrandCompanySealObtain(normalizedText);
             if (matched)
             {
-                matchDetail = "LUMINA shared obtain + GC seal marker";
+                matchDetail = LogMessageCatalog.Matches(1300, normalizedText)
+                    ? "LUMINA 1300 + GC seal marker"
+                    : "LUMINA shared obtain + GC seal marker";
             }
             return true;
         }

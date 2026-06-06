@@ -36,6 +36,44 @@ public static partial class Rules
 
     ];
 
+    private static readonly LocalizedFilterRule[] ExplorationHuntMarkBillRules =
+    [
+        new()
+        {
+            Name = "ShowMarkBillMessages",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4412],
+            StringChecks = [ChatStrings.MarkBillComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMarkBillMessages",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4415],
+            StringChecks = [ChatStrings.MarkBillObtain],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMarkBillMessages",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4416],
+            StringChecks = [ChatStrings.MarkBillAbandon],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+
+    ];
+
     private static readonly LocalizedFilterRule[] ExplorationDiscoveryRules =
     [
         new()

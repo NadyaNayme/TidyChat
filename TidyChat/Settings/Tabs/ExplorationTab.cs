@@ -32,6 +32,13 @@ internal static class ExplorationTab
             configuration.OnSettingChanged();
         }
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHuntMarkSlainMessagesHelpMarker);
+        var showMarkBillMessages = configuration.ShowMarkBillMessages;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowMarkBillMessages, ref showMarkBillMessages))
+        {
+            configuration.ShowMarkBillMessages = showMarkBillMessages;
+            configuration.OnSettingChanged();
+        }
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMarkBillMessagesHelpMarker);
     }
     private static void DrawExplorationMessages(Configuration configuration)
     {

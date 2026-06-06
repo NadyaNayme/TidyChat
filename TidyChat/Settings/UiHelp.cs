@@ -1,4 +1,4 @@
-﻿using Dalamud.Interface.Components;
+using Dalamud.Interface.Components;
 
 using System.Collections.Generic;
 
@@ -28,7 +28,8 @@ internal static class UiHelp
         nameof(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker),
-        nameof(Languages.DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker)
+        nameof(Languages.DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker),
+        nameof(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker)
     };
 
     private static readonly HashSet<string> ProgressObtainedHideFilterHelpMarkers = new(StringComparer.Ordinal)

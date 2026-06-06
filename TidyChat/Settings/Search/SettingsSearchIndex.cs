@@ -1,4 +1,4 @@
-﻿using Dalamud.Interface.Components;
+using Dalamud.Interface.Components;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Reflection;
@@ -765,7 +765,8 @@ internal static class SettingsSearchIndex
             "ShowGlamourPlatePartialApply" or
             "ShowGearDyeApplied" or
             "ShowGearsetGlamourRestoreFailed" or
-            "ShowSpiritboundGear")
+            "ShowSpiritboundGear" or
+            "ShowPersonalEffectAcquired")
         {
             return Languages.ConfigWindow_GlamourTabHeader;
         }
@@ -780,7 +781,7 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_HousingTabHeader;
         }
 
-        if (propertyName is "ShowSRankHunt" or "ShowSSRankHunt" or "ShowHuntSlain")
+        if (propertyName is "ShowSRankHunt" or "ShowSSRankHunt" or "ShowHuntSlain" or "ShowMarkBillMessages")
         {
             return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.SystemTab_HuntMessagesDropdownHeader}";
         }

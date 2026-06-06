@@ -235,6 +235,16 @@ public static partial class Rules
         },
         new()
         {
+            Name = "HideObtainedAlliedSeals",
+            SettingsTab = "Currencies",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [4413],
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "HideObtainedCenturioSeals",
             SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
@@ -248,6 +258,16 @@ public static partial class Rules
         },
         new()
         {
+            Name = "HideObtainedCenturioSeals",
+            SettingsTab = "Currencies",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [5200],
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "HideObtainedNuts",
             SettingsTab = "Currencies",
             Channel = ChatType.LootNotice,
@@ -258,6 +278,16 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,
             ObtainMarkerItemId = ItemMarkerCatalog.Items.Nuts
+        },
+        new()
+        {
+            Name = "HideObtainedNuts",
+            SettingsTab = "Currencies",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [5202],
+            PreferLogMessageCatalog = true
         },
     ];
 

@@ -117,6 +117,15 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/5701?pretty=true">You acquire the … personal effect.</see>
+    public static readonly LocalizedStrings PersonalEffectAcquired = new()
+    {
+        Jpn = ["修得", "呼び出し"],
+        Eng = ["acquire", "personal effect"],
+        Deu = ["freigeschaltet"],
+        Fra = ["appris"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with … is complete!</see>
     public static readonly LocalizedStrings SpiritboundGear = new()
     {

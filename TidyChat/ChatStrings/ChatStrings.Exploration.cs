@@ -37,6 +37,33 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">You obtain a stack of mark bills.</see>
+    public static readonly LocalizedStrings MarkBillObtain = new()
+    {
+        Jpn = ["受注"],
+        Eng = ["obtain", "mark bills"],
+        Deu = ["angenommen", "Jagdlizenz"],
+        Fra = ["obtenu"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4412?pretty=true">Stack of … mark bills objectives complete!</see>
+    public static readonly LocalizedStrings MarkBillComplete = new()
+    {
+        Jpn = ["コンプリート", "モブハント"],
+        Eng = ["objectives", "complete"],
+        Deu = ["abgeschlossen"],
+        Fra = ["objectifs", "réussis"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/4416?pretty=true">You destroy the stack of mark bills and abandon the hunt.</see>
+    public static readonly LocalizedStrings MarkBillAbandon = new()
+    {
+        Jpn = ["破棄"],
+        Eng = ["destroy", "abandon", "hunt"],
+        Deu = ["entfernt"],
+        Fra = ["jeté"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage">Matched via formatted chat text (not a LogMessage row)</see>
     public static readonly LocalizedStrings SayQuestReminder = new()
     {

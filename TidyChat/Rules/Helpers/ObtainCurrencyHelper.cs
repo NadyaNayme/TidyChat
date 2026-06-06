@@ -36,6 +36,25 @@ internal static class ObtainCurrencyHelper
         ChatStrings.CosmicFortuneObtain
     ];
 
+    private static readonly (LocalizedStrings Marker, LocalizedRegex Regex)[] DedicatedObtainRegexByMarker =
+    [
+        (ChatStrings.ObtainWolfMarks, ChatStrings.ObtainedWolfMarks),
+        (ChatStrings.ObtainAlliedSealsMarker, ChatStrings.ObtainedAlliedSeals),
+        (ChatStrings.ObtainCenturioSealsMarker, ChatStrings.ObtainedCenturioSeals),
+        (ChatStrings.ObtainNutsMarker, ChatStrings.ObtainedNuts)
+    ];
+
+    private static readonly LocalizedStrings[] SharedTemplateCurrencyMarkers =
+    [
+        ChatStrings.ObtainedGilMarker,
+        ChatStrings.ObtainedMgpMarker,
+        ChatStrings.ObtainVentureMarker,
+        ChatStrings.ObtainNutsMarker,
+        ChatStrings.ObtainMaterialsMarker,
+        ChatStrings.ObtainClusterMarker,
+        ChatStrings.ReceivedGilMarker
+    ];
+
     public static bool ShouldAllowLootNoticeObtain(
         Configuration config,
         string normalizedText,
@@ -133,6 +152,37 @@ internal static class ObtainCurrencyHelper
         return ItemMarkerCatalog.IsLoaded && ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText);
     }
 
+    public static bool IsDedicatedObtainLine(string normalizedText) =>
+        L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedWolfMarks).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedAlliedSeals).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedCenturioSeals).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedNuts).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedTribalCurrency).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedTomestones).IsMatch(normalizedText);
+
+    public static bool IsDedicatedObtainConfirmedForMarker(LocalizedStrings marker, string normalizedText)
+    {
+        foreach (var (dedicatedMarker, regex) in DedicatedObtainRegexByMarker)
+        {
+            if (marker.Equals(dedicatedMarker) && L10N.Get(regex).IsMatch(normalizedText))
+            {
+                return true;
+            }
+        }
+
+        // Shared templates 657/1259/1300 often omit the currency name even when chat text includes it.
+        foreach (var sharedMarker in SharedTemplateCurrencyMarkers)
+        {
+            if (marker.Equals(sharedMarker))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static bool TemplateMissingDedicatedObtainMarkers(string normalizedText, string[] templateTokens)
     {
         foreach (var marker in DedicatedObtainTypeMarkers)
@@ -142,17 +192,33 @@ internal static class ObtainCurrencyHelper
                 continue;
             }
 
+            if (IsDedicatedObtainConfirmedForMarker(marker, normalizedText))
+            {
+                return false;
+            }
+
             if (L10N.Get(marker).Any(token => !templateTokens.Contains(token)))
             {
                 return true;
             }
         }
 
-        if (ItemMarkerCatalog.IsLoaded &&
-            ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText) &&
-            !templateTokens.Any(token => token.Contains("seal", StringComparison.Ordinal)))
+        if (ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText))
         {
-            return true;
+            if (L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText))
+            {
+                return false;
+            }
+
+            if (!templateTokens.Any(token => token.Contains("seal", StringComparison.Ordinal)))
+            {
+                return true;
+            }
+        }
+
+        if (IsDedicatedObtainLine(normalizedText))
+        {
+            return false;
         }
 
         return false;

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 namespace TidyChat;
 
 public static partial class Rules
@@ -32,6 +32,7 @@ public static partial class Rules
         ["ShowJoinParty"] = c => c.ShowJoinParty,
         ["ShowDutyFinder"] = c => c.ShowDutyFinder,
         ["ShowHuntSlain"] = c => c.ShowHuntSlain,
+        ["ShowMarkBillMessages"] = c => c.ShowMarkBillMessages,
         ["ShowRelicBookStep"] = c => c.ShowRelicBookStep,
         ["ShowRelicBookComplete"] = c => c.ShowRelicBookComplete,
         ["ShowOnlineStatus"] = c => c.ShowOnlineStatus,
@@ -58,6 +59,7 @@ public static partial class Rules
         ["ShowAetherCompass"] = c => c.ShowAetherCompass,
         ["ShowCountdownTime"] = c => c.ShowCountdownTime,
         ["ShowSpiritboundGear"] = c => c.ShowSpiritboundGear,
+        ["ShowPersonalEffectAcquired"] = c => c.ShowPersonalEffectAcquired,
         ["ShowExploratoryVoyage"] = c => c.ShowExploratoryVoyage,
         ["ShowSubaquaticVoyageEmbarked"] = FilterMasterAccessors.SubaquaticVoyageEmbarked,
         ["ShowSubaquaticVoyageFinalized"] = FilterMasterAccessors.SubaquaticVoyageFinalized,

@@ -14,6 +14,17 @@ public static partial class Rules
             StringChecks = [ChatStrings.SpiritboundGear],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPersonalEffectAcquired",
+            SettingsTab = "Glamour",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [5701],
+            StringChecks = [ChatStrings.PersonalEffectAcquired],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         }
 
     ];

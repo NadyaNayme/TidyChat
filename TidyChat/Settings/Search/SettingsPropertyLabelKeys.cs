@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace TidyChat.Settings.Search;
 
@@ -76,6 +76,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowJobChange"] = nameof(Languages.SystemTab_ShowJobChangeMessages),
         ["ShowPortraitMessages"] = nameof(Languages.SystemTab_ShowPortraitMessages),
         ["ShowSpiritboundGear"] = nameof(Languages.SystemTab_ShowSpiritboundMessages),
+        ["ShowPersonalEffectAcquired"] = nameof(Languages.GlamourTab_ShowPersonalEffectAcquired),
         ["ShowTryOnGlamour"] = nameof(Languages.GlamourTab_ShowTryOnEquipGlamourMessages),
         ["ShowTryOnGlamourCast"] = nameof(Languages.SystemTab_ShowTryOnGlamourCast),
         ["ShowTryOnGlamourPreview"] = nameof(Languages.GlamourTab_ShowTryOnGlamourPreview),
@@ -170,6 +171,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowSRankHunt"] = nameof(Languages.SystemTab_ShowSRankSpawnAnnouncement),
         ["ShowSSRankHunt"] = nameof(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncement),
         ["ShowHuntSlain"] = nameof(Languages.SystemTab_ShowHuntMarkSlainMessages),
+        ["ShowMarkBillMessages"] = nameof(Languages.SystemTab_ShowMarkBillMessages),
         ["ShowQuestReminder"] = nameof(Languages.SystemTab_ShowSayReminder),
         ["ShowSpideySenses"] = nameof(Languages.SystemTab_ShowYouSenseSomethingMessages),
         ["ShowLocationDiscovered"] = nameof(Languages.SystemTab_ShowLocationDiscoveredMessages),

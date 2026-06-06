@@ -173,6 +173,14 @@ public static class LogMessageCatalog
 
     public static bool MatchesSharedObtain(string normalizedText, uint markerItemId, LocalizedStrings? markerFallback = null)
     {
+        if (ItemMarkerCatalog.Matches(markerItemId, normalizedText, markerFallback) &&
+            ContainsObtainVerb(normalizedText) &&
+            (ObtainCurrencyHelper.IsDedicatedObtainLine(normalizedText) ||
+             (markerFallback is { } fb && ObtainCurrencyHelper.IsDedicatedObtainConfirmedForMarker(fb, normalizedText))))
+        {
+            return true;
+        }
+
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
         {
             return false;
@@ -189,28 +197,61 @@ public static class LogMessageCatalog
         return ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText);
     }
 
+    /// <summary>
+    ///     LogMessage 1300 (GC seals) and shared obtain templates 657/1259 all use different Lumina rows
+    ///     but the same style of "You obtain N Storm/Flame/Serpent Seals" chat lines.
+    /// </summary>
+    public static bool MatchesGrandCompanySealObtain(string normalizedText)
+    {
+        if (!ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText))
+        {
+            return false;
+        }
+
+        if (L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText))
+        {
+            return true;
+        }
+
+        return Matches(1300, normalizedText) || MatchesAny(SharedObtainTemplateIds, normalizedText);
+    }
+
     public static bool MatchesSharedObtainGil(string normalizedText, LocalizedStrings? markerFallback = null)
     {
+        if (markerFallback is { } fb &&
+            ObtainCurrencyHelper.IsDedicatedObtainConfirmedForMarker(fb, normalizedText) &&
+            ContainsObtainVerb(normalizedText))
+        {
+            return true;
+        }
+
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
         {
             return false;
         }
-        if (markerFallback is { } fb)
+        if (markerFallback is { } fb2)
         {
-            return TextMatchHelper.MatchesAllTokens(normalizedText, fb);
+            return TextMatchHelper.MatchesAllTokens(normalizedText, fb2);
         }
         return normalizedText.Contains("gil", StringComparison.Ordinal);
     }
 
     public static bool MatchesSharedObtainMgp(string normalizedText, LocalizedStrings? markerFallback = null)
     {
+        if (markerFallback is { } fb &&
+            ObtainCurrencyHelper.IsDedicatedObtainConfirmedForMarker(fb, normalizedText) &&
+            ContainsObtainVerb(normalizedText))
+        {
+            return true;
+        }
+
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
         {
             return false;
         }
-        if (markerFallback is { } fb)
+        if (markerFallback is { } fb2)
         {
-            return TextMatchHelper.MatchesAllTokens(normalizedText, fb);
+            return TextMatchHelper.MatchesAllTokens(normalizedText, fb2);
         }
         return normalizedText.Contains("mgp", StringComparison.Ordinal);
     }
@@ -228,6 +269,12 @@ public static class LogMessageCatalog
 
     public static bool MatchesSharedObtainTribal(string normalizedText, LocalizedStrings? markerFallback = null)
     {
+        if (L10N.Get(ChatStrings.ObtainedTribalCurrency).IsMatch(normalizedText) &&
+            ItemMarkerCatalog.MatchesAny(ItemMarkerCatalog.Items.TribalCurrency, normalizedText, markerFallback))
+        {
+            return true;
+        }
+
         if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
         {
             return false;
@@ -252,10 +299,16 @@ public static class LogMessageCatalog
 
         if (requireSharedTemplate)
         {
+            if (markerFallback is { } confirmed &&
+                ObtainCurrencyHelper.IsDedicatedObtainConfirmedForMarker(confirmed, normalizedText) &&
+                ContainsObtainVerb(normalizedText))
+            {
+                return true;
+            }
+
             return MatchesAny(SharedObtainTemplateIds, normalizedText);
         }
-        return normalizedText.Contains("you obtain", StringComparison.Ordinal) ||
-               normalizedText.Contains("you obtains", StringComparison.Ordinal);
+        return ContainsObtainVerb(normalizedText);
     }
 
     public static bool IsPlayerObtainMessage(string normalizedText) =>
@@ -368,4 +421,8 @@ public static class LogMessageCatalog
                 $"for LogMessage ID(s): {string.Join(", ", rule.LogMessageIds)}");
         }
     }
+
+    private static bool ContainsObtainVerb(string normalizedText) =>
+        normalizedText.Contains("you obtain", StringComparison.Ordinal) ||
+        normalizedText.Contains("you obtains", StringComparison.Ordinal);
 }
