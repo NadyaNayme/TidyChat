@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using TidyChat.Translation.Data;
+using TidyChat.Localization.Data;
 namespace TidyChat;
 
 /// <summary>
@@ -61,7 +61,7 @@ internal static class ObtainCurrencyHelper
     }
 
     public static bool IsTomestoneWeeklyCapMessage(string normalizedText) =>
-        L10N.Get(ChatRegexStrings.TomestoneWeeklyCap).IsMatch(normalizedText);
+        L10N.Get(ChatStrings.TomestoneWeeklyCap).IsMatch(normalizedText);
 
     public static bool TryResolveTomestoneLogMessage(
         string normalizedText,
@@ -238,7 +238,7 @@ internal static class ObtainCurrencyHelper
             return true;
         }
 
-        if (!L10N.Get(ChatRegexStrings.ObtainedTribalCurrency).IsMatch(normalizedText))
+        if (!L10N.Get(ChatStrings.ObtainedTribalCurrency).IsMatch(normalizedText))
         {
             return false;
         }
@@ -281,7 +281,7 @@ internal static class ObtainCurrencyHelper
         {
             return false;
         }
-        if (!L10N.Get(ChatRegexStrings.ObtainedTomestones).IsMatch(normalizedText))
+        if (!L10N.Get(ChatStrings.ObtainedTomestones).IsMatch(normalizedText))
         {
             return false;
         }
@@ -304,19 +304,19 @@ internal static class ObtainCurrencyHelper
     }
 
     private static bool MatchesNuts(string normalizedText) =>
-        L10N.Get(ChatRegexStrings.ObtainedNuts).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedNuts).IsMatch(normalizedText) ||
         TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainNutsMarker);
 
     private static bool MatchesWolfMarks(string normalizedText) =>
-        L10N.Get(ChatRegexStrings.ObtainedWolfMarks).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedWolfMarks).IsMatch(normalizedText) ||
         TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainWolfMarks);
 
     private static bool MatchesAlliedSeals(string normalizedText) =>
-        L10N.Get(ChatRegexStrings.ObtainedAlliedSeals).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedAlliedSeals).IsMatch(normalizedText) ||
         TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainAlliedSealsMarker);
 
     private static bool MatchesCenturioSeals(string normalizedText) =>
-        L10N.Get(ChatRegexStrings.ObtainedCenturioSeals).IsMatch(normalizedText) ||
+        L10N.Get(ChatStrings.ObtainedCenturioSeals).IsMatch(normalizedText) ||
         TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainCenturioSealsMarker);
 
     private static bool MatchesGrandCompanySeals(string normalizedText)
@@ -326,6 +326,6 @@ internal static class ObtainCurrencyHelper
             return true;
         }
 
-        return L10N.Get(ChatRegexStrings.ObtainedSeals).IsMatch(normalizedText);
+        return L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText);
     }
 }

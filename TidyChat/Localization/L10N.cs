@@ -1,6 +1,6 @@
-﻿using Dalamud.Game;
+using Dalamud.Game;
 using System.Text.RegularExpressions;
-using TidyChat.Translation.Data;
+using TidyChat.Localization.Data;
 namespace TidyChat;
 
 internal static class L10N

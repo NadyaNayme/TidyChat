@@ -1,7 +1,7 @@
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
 using System.Collections.Generic;
-using TidyChat.Translation.Data;
+using TidyChat.Localization.Data;
 namespace TidyChat.Data;
 
 public static class ItemMarkerCatalog
@@ -94,7 +94,7 @@ public static class ItemMarkerCatalog
             return true;
         }
 
-        return L10N.Get(ChatRegexStrings.ObtainedSeals).IsMatch(normalizedText);
+        return L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText);
     }
 
     public static class Items

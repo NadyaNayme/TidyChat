@@ -5,12 +5,12 @@ internal static class MarketBoardSaleHelper
 {
     public static bool IsMarketItemSoldText(string normalizedText) =>
         LogMessageCatalog.MatchesWithFallback(748, normalizedText, ChatStrings.MarketItemSold) ||
-        L10N.Get(ChatRegexStrings.MarketItemSold).IsMatch(normalizedText);
+        L10N.Get(ChatStrings.MarketItemSoldRegex).IsMatch(normalizedText);
 
     public static bool TryParseSaleGilAmount(string normalizedText, out string gilAmount)
     {
         gilAmount = string.Empty;
-        var gilMatch = L10N.Get(ChatRegexStrings.MarketItemSold).Match(normalizedText);
+        var gilMatch = L10N.Get(ChatStrings.MarketItemSoldRegex).Match(normalizedText);
         if (!gilMatch.Success || !gilMatch.Groups["gil"].Success)
         {
             return false;

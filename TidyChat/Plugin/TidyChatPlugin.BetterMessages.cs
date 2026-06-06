@@ -7,7 +7,7 @@ public sealed partial class TidyChatPlugin
 {
     private bool HandleTemporaryFilterDisables(string normalizedText)
     {
-        if (L10N.Get(ChatRegexStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
+        if (L10N.Get(ChatStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
         {
             Better.TemporarilyDisableSystemFilter(Configuration);
             return true;
@@ -82,16 +82,16 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.BetterTreasureDungeonMessage && chatType is ChatType.System)
         {
-            if (L10N.Get(ChatRegexStrings.ChamberOpens).IsMatch(normalizedText))
+            if (L10N.Get(ChatStrings.ChamberOpens).IsMatch(normalizedText))
             {
-                var match = L10N.Get(ChatRegexStrings.ChamberOpens).Match(normalizedText);
+                var match = L10N.Get(ChatStrings.ChamberOpens).Match(normalizedText);
                 if (match.Groups["chamber"].Success)
                 {
                     TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
                 }
                 return true;
             }
-            if (L10N.Get(ChatRegexStrings.TrapTriggered).IsMatch(normalizedText))
+            if (L10N.Get(ChatStrings.TrapTriggered).IsMatch(normalizedText))
             {
                 if (TidyStrings.LastTreasureDungeonChamber.Length > 0)
                 {

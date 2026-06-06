@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-namespace TidyChat.Translation.Data;
+namespace TidyChat.Localization.Data;
 
 public readonly record struct LocalizedRegex : IEnumerable<Regex>
 {

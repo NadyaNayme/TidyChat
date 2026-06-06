@@ -1,4 +1,4 @@
-using TidyChat.Translation.Data;
+using TidyChat.Localization.Data;
 namespace TidyChat;
 
 public static partial class ChatStrings
@@ -452,5 +452,75 @@ public static partial class ChatStrings
         Eng = ["lure"],
         Deu = ["angelockt"],
         Fra = ["attirez"]
+    };
+
+
+    /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">N … sands are obtained.</see>
+    public static readonly LocalizedStrings AetherialReductionSands = new()
+    {
+        Jpn = ["手に入れ"],
+        Eng = ["obtained"],
+        Deu = ["erhalten"],
+        Fra = ["obtenez"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/3553?pretty=true">You successfully reduce … (Collectability: N).</see>
+    public static readonly LocalizedStrings AetherialReductionSuccess = new()
+    {
+        Jpn = ["精選"],
+        Eng = ["successfully", "reduce"],
+        Deu = ["raffiniert"],
+        Fra = ["éthérolysez"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/5550?pretty=true">This location grants an increase to item collectability!</see>
+    /// <see href="https://xivapi.com/LogMessage/3563?pretty=true">You receive a double bonus!</see>
+    public static readonly LocalizedStrings AetherialReductionDoubleBonus = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["receive", "double", "bonus"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings CollectabilityLocationBonus = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["location", "collectability", "increase"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/3549?pretty=true">You use Brazen Woodsman. Collectability increases by N.</see>
+    public static readonly LocalizedStrings BrazenWoodsman = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["brazen", "woodsman", "collectability"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/3569?pretty=true">
+    ///     You use Meticulous Woodsman. Collector's intuition guides
+    ///     your hand.
+    /// </see>
+    public static readonly LocalizedStrings MeticulousWoodsman = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["meticulous", "woodsman", "collectability"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
+    ///     Your meticulous actions prove effective. Integrity is not
+    ///     reduced.
+    /// </see>
+    /// <see href="https://xivapi.com/LogMessage/5514?pretty=true">
+    ///     Your meticulous actions prove effective. Integrity is not
+    ///     reduced.
+    /// </see>
+    /// <seealso href="https://xivapi.com/LogMessage/5574?pretty=true">Revisit restored GP and granted integrity.</seealso>
+    public static readonly LocalizedStrings AetherialReductionIntegrity = new()
+    {
+        Jpn = ["耐久", "減少"],
+        Eng = ["integrity", "not", "reduced", "revisit", "gathering point"],
+        Deu = ["belastbarkeit"],
+        Fra = ["diminué"]
     };
 }

@@ -107,7 +107,7 @@ public static partial class Rules
             Channel = ChatType.LootRoll,
             IsActive = true,
             LogMessageIds = [1231],
-            RegexChecks = [ChatRegexStrings.NotStartWithYou, ChatRegexStrings.OthersRollNeedOrGreed],
+            RegexChecks = [ChatStrings.NotStartWithYou, ChatStrings.OthersRollNeedOrGreed],
             Pattern = PatternKind.RegexMatch
         },
         new()
@@ -117,7 +117,7 @@ public static partial class Rules
             Channel = ChatType.LootRoll,
             IsActive = true,
             LogMessageIds = [5180],
-            RegexChecks = [ChatRegexStrings.OthersCastLot],
+            RegexChecks = [ChatStrings.OthersCastLot],
             Pattern = PatternKind.RegexMatch
         },
         new()

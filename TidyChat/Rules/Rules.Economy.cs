@@ -2,7 +2,7 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    private static readonly LocalizedFilterRule[] EconomyRulesSegment0 =
+    private static readonly LocalizedFilterRule[] EconomyTradeStatusRules =
     [
         new()
         {
@@ -30,7 +30,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] EconomyRulesSegment1 =
+    private static readonly LocalizedFilterRule[] EconomyTradeCompleteRules =
     [
         new()
         {
@@ -42,7 +42,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] EconomyRulesSegment2 =
+    private static readonly LocalizedFilterRule[] EconomyMarketBoardRules =
     [
         new()
         {
@@ -156,7 +156,7 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] EconomyRulesRetainer =
+    private static readonly LocalizedFilterRule[] EconomyRetainerRules =
     [
         new()
         {

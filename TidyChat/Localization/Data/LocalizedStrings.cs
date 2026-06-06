@@ -1,4 +1,4 @@
-﻿namespace TidyChat.Translation.Data;
+﻿namespace TidyChat.Localization.Data;
 
 public readonly record struct LocalizedStrings
 {

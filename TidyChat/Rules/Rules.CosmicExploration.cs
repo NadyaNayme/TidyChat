@@ -2,7 +2,7 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    private static readonly LocalizedFilterRule[] CosmicStellarRules =
+    private static readonly LocalizedFilterRule[] CosmicExplorationRules =
     [
         new()
         {

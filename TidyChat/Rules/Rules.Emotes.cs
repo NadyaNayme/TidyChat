@@ -2,7 +2,7 @@ namespace TidyChat;
 
 public static partial class Rules
 {
-    private static readonly LocalizedFilterRule[] EmoteRules =
+    private static readonly LocalizedFilterRule[] EmotesRules =
     [
         new()
         {
@@ -10,7 +10,7 @@ public static partial class Rules
             SettingsTab = "Emotes",
             Channel = ChatType.StandardEmote,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.ContainsPlayerName],
+            RegexChecks = [ChatStrings.ContainsPlayerName],
             Pattern = PatternKind.RegexMatch
         },
         new()
@@ -19,7 +19,7 @@ public static partial class Rules
             SettingsTab = "Emotes",
             Channel = ChatType.CustomEmote,
             IsActive = true,
-            RegexChecks = [ChatRegexStrings.PlayerTargetedEmote],
+            RegexChecks = [ChatStrings.PlayerTargetedEmote],
             Pattern = PatternKind.RegexMatch
         }
     ];

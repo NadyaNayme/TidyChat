@@ -67,7 +67,7 @@ internal static class BetterStrings
             {
                 continue;
             }
-            var match = L10N.Get(ChatRegexStrings.DutyHasBegun).Match(candidate);
+            var match = L10N.Get(ChatStrings.DutyHasBegunRegex).Match(candidate);
             if (match.Success && match.Groups["duty"].Success)
             {
                 var duty = match.Groups["duty"].Value.Trim();

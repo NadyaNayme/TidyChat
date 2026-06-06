@@ -1,4 +1,4 @@
-using TidyChat.Translation.Data;
+using TidyChat.Localization.Data;
 namespace TidyChat;
 
 internal static class TextMatchHelper

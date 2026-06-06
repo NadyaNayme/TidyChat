@@ -1,5 +1,5 @@
-﻿using System.Reflection;
-using TidyChat.Translation.Data;
+using System.Reflection;
+using TidyChat.Localization.Data;
 namespace TidyChat.Utility;
 
 internal static class InternalStrings

@@ -316,7 +316,7 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [2174],
-            RegexChecks = [ChatRegexStrings.TomestoneWeeklyCap],
+            RegexChecks = [ChatStrings.TomestoneWeeklyCap],
             Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         }

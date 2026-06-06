@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using TidyChat.Translation.Data;
+using TidyChat.Localization.Data;
 namespace TidyChat;
 
 #pragma warning disable MA0048

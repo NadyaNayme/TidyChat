@@ -228,10 +228,13 @@ public static partial class Rules
         rules.AddRange(SystemRules);
         rules.AddRange(DutyCommenceRules);
         rules.AddRange(ErrorMessageRules);
-        rules.AddRange(EmoteRules);
-        rules.AddRange(CraftingRules);
+        rules.AddRange(EmotesRules);
+        rules.AddRange(MateriaCraftChannelRules);
+        rules.AddRange(CraftingMessageRules);
+        rules.AddRange(MateriaSystemChannelRules);
+        rules.AddRange(GatheringAetherialReductionRules);
         rules.AddRange(GatheringRules);
-        rules.AddRange(CosmicStellarRules);
+        rules.AddRange(CosmicExplorationRules);
         rules.AddRange(CombatRules);
         rules.AddRange(FreeCompanyRules);
         rules.AddRange(OrchestrionRules);
