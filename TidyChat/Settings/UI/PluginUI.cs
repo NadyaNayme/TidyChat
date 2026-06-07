@@ -41,8 +41,11 @@ internal class PluginUI : Window, IDisposable
         (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw)
     ];
 
+    private const string WindowId = "TidyChat";
+
     private readonly Configuration configuration;
     private bool appliedDefaultWidth;
+    private bool drewTitleBarVersion;
     private string? cachedCultureName;
 
     private float cachedLayoutScale = -1f;
@@ -50,7 +53,7 @@ internal class PluginUI : Window, IDisposable
     private Action<Configuration> selectedTab = GeneralTab.Draw;
     private (string Label, Action<Configuration> Draw)[]? sortedTabs;
     private string? sortedTabsCulture;
-    public PluginUI(Configuration configuration) : base("Tidy Chat")
+    public PluginUI(Configuration configuration) : base($"Tidy Chat###{WindowId}")
     {
         this.configuration = configuration;
         SizeCondition = ImGuiCond.FirstUseEver;
@@ -87,7 +90,15 @@ internal class PluginUI : Window, IDisposable
 
     public override void PostDraw()
     {
-        TitleBarVersion.DrawCached();
+        if (!drewTitleBarVersion)
+        {
+            TitleBarVersion.DrawFromWindowLookup(
+                TitleBarButtons.Count,
+                AllowPinning || AllowClickthrough,
+                WindowName);
+        }
+
+        drewTitleBarVersion = false;
         base.PostDraw();
     }
 
@@ -120,6 +131,12 @@ internal class PluginUI : Window, IDisposable
 
     public override void Draw()
     {
+        TitleBarVersion.DrawFromContext(
+            TitleBarButtons.Count,
+            AllowPinning || AllowClickthrough,
+            WindowName);
+        drewTitleBarVersion = true;
+
         SettingsSearch.DrawSearchBar();
         ImGui.Spacing();
 
@@ -127,7 +144,6 @@ internal class PluginUI : Window, IDisposable
         {
             SettingsSearchIndex.DrawResults(configuration);
             TabFooter.Display(configuration);
-            TitleBarVersion.CachePosition(TitleBarButtons.Count, AllowPinning || AllowClickthrough);
             return;
         }
 
@@ -162,8 +178,6 @@ internal class PluginUI : Window, IDisposable
         tabs[selectedIndex].Draw(configuration);
         TabFooter.Display(configuration);
         ImGui.EndChild();
-
-        TitleBarVersion.CachePosition(TitleBarButtons.Count, AllowPinning || AllowClickthrough);
     }
 
     private (string Label, Action<Configuration> Draw)[] GetTabs()

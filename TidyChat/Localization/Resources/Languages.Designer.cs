@@ -953,7 +953,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Master toggle for step-by-step crafting log lines (LogMessages 1150, 1154, 5912, 1162, 1164, 1167, 1168, 1169, 5918). eg. You begin synthesizing a Linen Bandana. When on, use nested options for buff effect gain (603) and able to execute (5533). Unchecking hides all nested lines until you turn this back on (nested checkboxes keep their settings)..
+        ///   Looks up a localized string similar to Master toggle for step-by-step crafting log lines (LogMessages 1150, 1154–1155, 5912–5913, 1162, 1164, 1167, 1168, 1169, 5918). eg. You begin synthesizing a Linen Bandana. When on, use nested options for buff effect gain (603) and able to execute (5533). Unchecking hides all nested lines until you turn this back on (nested checkboxes keep their settings)..
         /// </summary>
         internal static string CraftingTab_ShowAllOtherCraftingHelpMarker {
             get {

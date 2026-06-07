@@ -1,23 +1,65 @@
 using System.Numerics;
-using TidyStrings = TidyChat.Utility.InternalStrings;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace TidyChat.Settings.UI;
 
-internal static class TitleBarVersion
+internal static unsafe partial class TitleBarVersion
 {
-    private static Vector2? cachedPosition;
-    private static string cachedText = string.Empty;
+    private const int DefaultPosOffset = 0x68;
+    private const int DefaultSizeOffset = 0x70;
 
-    public static void CachePosition(int customTitleBarButtonCount, bool showAdditionalOptionsButton)
+    private static int posOffset = DefaultPosOffset;
+    private static int sizeOffset = DefaultSizeOffset;
+    private static bool offsetsCalibrated;
+
+    public static void DrawFromContext(int customTitleBarButtonCount, bool showAdditionalOptionsButton, string windowName)
     {
-        var style = ImGui.GetStyle();
-        var fontSize = ImGui.GetFontSize();
-        var buttonSize = fontSize;
-        cachedText = $"v{TidyStrings.Version}";
-        var textSize = ImGui.CalcTextSize(cachedText);
+        var windowPos = ImGui.GetWindowPos();
+        var windowSize = ImGui.GetWindowSize();
+        if (windowSize.X <= 0f || windowSize.Y <= 0f)
+        {
+            return;
+        }
 
-        var padRight = style.FramePadding.X;
-        padRight += buttonSize + style.ItemInnerSpacing.X;
+        TryCalibrateOffsets(windowName, windowPos, windowSize);
+        DrawAt(windowPos, windowSize, customTitleBarButtonCount, showAdditionalOptionsButton);
+    }
+
+    public static void DrawFromWindowLookup(int customTitleBarButtonCount, bool showAdditionalOptionsButton,
+        string windowName)
+    {
+        if (!TryResolveWindowRect(windowName, out var windowPos, out var windowSize))
+        {
+            return;
+        }
+
+        DrawAt(windowPos, windowSize, customTitleBarButtonCount, showAdditionalOptionsButton);
+    }
+
+    public static void ClearCache()
+    {
+        offsetsCalibrated = false;
+        posOffset = DefaultPosOffset;
+        sizeOffset = DefaultSizeOffset;
+    }
+
+    private static void DrawAt(
+        Vector2 windowPos,
+        Vector2 windowSize,
+        int customTitleBarButtonCount,
+        bool showAdditionalOptionsButton)
+    {
+        var text = GetVersionLabel();
+        if (string.IsNullOrEmpty(text))
+        {
+            return;
+        }
+
+        var textSize = ImGui.CalcTextSize(text);
+        var style = ImGui.GetStyle();
+        var buttonSize = ImGui.GetFontSize();
+        var padRight = style.FramePadding.X + buttonSize + style.ItemInnerSpacing.X;
 
         if (style.WindowMenuButtonPosition == ImGuiDir.Right)
         {
@@ -28,28 +70,110 @@ internal static class TitleBarVersion
         padRight += extraButtons * (buttonSize + style.ItemInnerSpacing.X);
         padRight += style.ItemInnerSpacing.X;
 
-        var windowPos = ImGui.GetWindowPos();
-        var windowSize = ImGui.GetWindowSize();
-        cachedPosition = new Vector2(
+        var position = new Vector2(
             windowPos.X + windowSize.X - padRight - textSize.X,
             windowPos.Y + style.FramePadding.Y);
+
+        ImGui.GetForegroundDrawList().AddText(
+            ImGui.GetFont(),
+            ImGui.GetFontSize(),
+            position,
+            ImGui.ColorConvertFloat4ToU32(new Vector4(0.75f, 0.75f, 0.75f, 1f)),
+            text);
     }
 
-    public static void DrawCached()
+    private static void TryCalibrateOffsets(string windowName, Vector2 expectedPos, Vector2 expectedSize)
     {
-        if (cachedPosition is not { } position || string.IsNullOrEmpty(cachedText))
+        if (offsetsCalibrated || string.IsNullOrWhiteSpace(windowName))
         {
             return;
         }
 
-        var drawList = ImGui.GetForegroundDrawList();
-        drawList.AddText(
-            ImGui.GetFont(),
-            ImGui.GetFontSize(),
-            position,
-            ImGui.ColorConvertFloat4ToU32(new(0.75f, 0.75f, 0.75f, 1f)),
-            cachedText);
+        var window = FindWindowByName(windowName);
+        if (window == null)
+        {
+            return;
+        }
+
+        var basePtr = (byte*)window;
+        for (var offset = 0; offset < 512; offset += 4)
+        {
+            var candidatePos = ReadVector2(basePtr + offset);
+            if (Vector2.Distance(candidatePos, expectedPos) > 1f)
+            {
+                continue;
+            }
+
+            var candidateSize = ReadVector2(basePtr + offset + 8);
+            if (MathF.Abs(candidateSize.X - expectedSize.X) > 2f ||
+                MathF.Abs(candidateSize.Y - expectedSize.Y) > 2f)
+            {
+                continue;
+            }
+
+            posOffset = offset;
+            sizeOffset = offset + 8;
+            offsetsCalibrated = true;
+            return;
+        }
     }
 
-    public static void ClearCache() => cachedPosition = null;
+    private static bool TryResolveWindowRect(string windowName, out Vector2 windowPos, out Vector2 windowSize)
+    {
+        windowPos = default;
+        windowSize = default;
+
+        if (string.IsNullOrWhiteSpace(windowName))
+        {
+            return false;
+        }
+
+        var window = FindWindowByName(windowName);
+        if (window == null)
+        {
+            return false;
+        }
+
+        var basePtr = (byte*)window;
+        windowPos = ReadVector2(basePtr + posOffset);
+        windowSize = ReadVector2(basePtr + sizeOffset);
+        return windowSize.X > 0f && windowSize.Y > 0f;
+    }
+
+    private static Vector2 ReadVector2(byte* ptr) =>
+        new(*(float*)ptr, *(float*)(ptr + 4));
+
+    private static ImGuiWindow* FindWindowByName(string windowName)
+    {
+        var namePtr = Marshal.StringToCoTaskMemUTF8(windowName);
+        try
+        {
+            return (ImGuiWindow*)igFindWindowByName((byte*)namePtr);
+        }
+        finally
+        {
+            Marshal.FreeCoTaskMem(namePtr);
+        }
+    }
+
+    [LibraryImport("cimgui")]
+    [UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    private static partial nint igFindWindowByName(byte* name);
+
+    private static string GetVersionLabel()
+    {
+        var manifestVersion = TidyChatPlugin.PluginInterface.Manifest.AssemblyVersion;
+        if (manifestVersion != null)
+        {
+            return "v" + FormatVersion(manifestVersion);
+        }
+
+        var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
+        return assemblyVersion != null ? "v" + FormatVersion(assemblyVersion) : "v?.?.?.?";
+    }
+
+    private static string FormatVersion(Version version) =>
+        version.Revision >= 0 ? version.ToString(4) : version.ToString(3);
+
+    private struct ImGuiWindow;
 }
