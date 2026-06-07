@@ -1,65 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-                  Microsoft ResX Schema 
-                  
-                  Version 2.0
-                  
-                  The primary goals of this format is to allow a simple XML format 
-                  that is mostly human readable. The generation and parsing of the 
-                  various data types are done through the TypeConverter classes 
-                  associated with the data types.
-                  
-                  Example:
-                  
-                  ... ado.net/XML headers & schema ...
-                  <resheader name="resmimetype">text/microsoft-resx</resheader>
-                  <resheader name="version">2.0</resheader>
-                  <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-                  <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-                  <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-                  <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-                  <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-                      <value>[base64 mime encoded serialized .NET Framework object]</value>
-                  </data>
-                  <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-                      <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-                      <comment>This is a comment</comment>
-                  </data>
-                  
-                  There are any number of "resheader" rows that contain simple 
-                  name/value pairs.
-                  
-                  Each data row contains a name, and value. The row also contains a 
-                  type or mimetype. Type corresponds to a .NET class that support 
-                  text/value conversion through the TypeConverter architecture. 
-                  Classes that don't support this are serialized and stored with the 
-                  mimetype set.
-                  
-                  The mimetype is used for serialized objects, and tells the 
-                  ResXResourceReader how to depersist the object. This is currently not 
-                  extensible. For a given mimetype the value must be set accordingly:
-                  
-                  Note - application/x-microsoft.net.object.binary.base64 is the format 
-                  that the ResXResourceWriter will generate, however the reader can 
-                  read any of the formats listed below.
-                  
-                  mimetype: application/x-microsoft.net.object.binary.base64
-                  value   : The object must be serialized with 
-                          : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                          : and then encoded with base64 encoding.
-                  
-                  mimetype: application/x-microsoft.net.object.soap.base64
-                  value   : The object must be serialized with 
-                          : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                          : and then encoded with base64 encoding.
-                  
-                  mimetype: application/x-microsoft.net.object.bytearray.base64
-                  value   : The object must be serialized into a byte array 
-                          : using a System.ComponentModel.TypeConverter
-                          : and then encoded with base64 encoding.
-                  -->
+                    Microsoft ResX Schema 
+                    
+                    Version 2.0
+                    
+                    The primary goals of this format is to allow a simple XML format 
+                    that is mostly human readable. The generation and parsing of the 
+                    various data types are done through the TypeConverter classes 
+                    associated with the data types.
+                    
+                    Example:
+                    
+                    ... ado.net/XML headers & schema ...
+                    <resheader name="resmimetype">text/microsoft-resx</resheader>
+                    <resheader name="version">2.0</resheader>
+                    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+                    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+                    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+                    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+                    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+                        <value>[base64 mime encoded serialized .NET Framework object]</value>
+                    </data>
+                    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+                        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+                        <comment>This is a comment</comment>
+                    </data>
+                    
+                    There are any number of "resheader" rows that contain simple 
+                    name/value pairs.
+                    
+                    Each data row contains a name, and value. The row also contains a 
+                    type or mimetype. Type corresponds to a .NET class that support 
+                    text/value conversion through the TypeConverter architecture. 
+                    Classes that don't support this are serialized and stored with the 
+                    mimetype set.
+                    
+                    The mimetype is used for serialized objects, and tells the 
+                    ResXResourceReader how to depersist the object. This is currently not 
+                    extensible. For a given mimetype the value must be set accordingly:
+                    
+                    Note - application/x-microsoft.net.object.binary.base64 is the format 
+                    that the ResXResourceWriter will generate, however the reader can 
+                    read any of the formats listed below.
+                    
+                    mimetype: application/x-microsoft.net.object.binary.base64
+                    value   : The object must be serialized with 
+                            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+                            : and then encoded with base64 encoding.
+                    
+                    mimetype: application/x-microsoft.net.object.soap.base64
+                    value   : The object must be serialized with 
+                            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+                            : and then encoded with base64 encoding.
+                    
+                    mimetype: application/x-microsoft.net.object.bytearray.base64
+                    value   : The object must be serialized into a byte array 
+                            : using a System.ComponentModel.TypeConverter
+                            : and then encoded with base64 encoding.
+                    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -455,9 +501,6 @@
   <data name="AlliedSocietiesTab_FilteringNote" xml:space="preserve">
     <value>Allied society material and currency obtains use Filter Obtained on General. Options labeled Hide … hide those lines when checked. Per-society currency toggles appear when the master hide is off. Tools → Custom Filters can Block or Allow specific obtain text.</value>
   </data>
-  <data name="AlliedSocietiesTab_MaterialsDropdownHeader" xml:space="preserve">
-    <value>Crafting materials</value>
-  </data>
   <data name="AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessages" xml:space="preserve">
     <value>Hide allied society crafting materials</value>
   </data>
@@ -470,6 +513,12 @@ eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
     <value>Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward.</value>
+  </data>
+  <data name="AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker" xml:space="preserve">
+    <value>Checked = hide obtain messages for this allied society currency.</value>
+  </data>
+  <data name="AlliedSocietiesTab_MaterialsDropdownHeader" xml:space="preserve">
+    <value>Crafting materials</value>
   </data>
   <data name="AllMessagesWillBeLowercased" xml:space="preserve">
     <value>all messages will be lowercased.</value>
@@ -655,11 +704,11 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_ExplorationTabHeader" xml:space="preserve">
     <value>Exploration</value>
   </data>
-  <data name="ConfigWindow_FreeCompanyTabHeader" xml:space="preserve">
-    <value>Free Company</value>
-  </data>
   <data name="ConfigWindow_FishingTabHeader" xml:space="preserve">
     <value>Fishing</value>
+  </data>
+  <data name="ConfigWindow_FreeCompanyTabHeader" xml:space="preserve">
+    <value>Free Company</value>
   </data>
   <data name="ConfigWindow_GatheringTabHeader" xml:space="preserve">
     <value>Gathering</value>
@@ -697,6 +746,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_SearchHideTomestone" xml:space="preserve">
     <value>Hide {0}</value>
   </data>
+  <data name="ConfigWindow_SearchHideTomestoneHelp" xml:space="preserve">
+    <value>Checked = hide this tomestone type. Requires Filter Obtained on General.</value>
+  </data>
   <data name="ConfigWindow_SearchLogMessageIdsLabel" xml:space="preserve">
     <value>LogMessage IDs</value>
   </data>
@@ -723,6 +775,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_ToolsTabHeader" xml:space="preserve">
     <value>Tools</value>
+  </data>
+  <data name="CosmicExplorationTab_FilteringNote" xml:space="preserve">
+    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic lines further.</value>
   </data>
   <data name="CraftingTab_CraftingDropdownHeader" xml:space="preserve">
     <value>Crafting</value>
@@ -775,35 +830,17 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CurrenciesTab_FilteringNote" xml:space="preserve">
     <value>Most options use Filter Obtained on General. Gil receive lines also need Filter System. Tomestone weekly cap (Error channel) hides independently when checked. Options labeled Hide … hide those lines when checked; Show … allow when checked. Per-tomestone toggles hide individual tomestones. Tools → Custom Filters can Block or Allow specific obtain text.</value>
   </data>
-  <data name="Shared_FilterObtainedDisabledWarning" xml:space="preserve">
-    <value>Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat.</value>
-  </data>
-  <data name="CurrenciesTab_HideInventoryItemAddedMessages" xml:space="preserve">
-    <value>Hide "added to your inventory" messages</value>
-  </data>
-  <data name="CurrenciesTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 789 — eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates "You obtain …" on retainer ventures.)</value>
-  </data>
-  <data name="CurrenciesTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
-    <value>Other obtain</value>
-  </data>
   <data name="CurrenciesTab_HideAlliedSealsMessages" xml:space="preserve">
     <value>Hide Allied Seals</value>
   </data>
   <data name="CurrenciesTab_HideAlliedSealsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 100 Allied Seals.</value>
+    <value>LogMessages 4413, 657, 1259 — eg. You obtain 8 Allied Seals.</value>
   </data>
   <data name="CurrenciesTab_HideCenturioSealsMessages" xml:space="preserve">
     <value>Hide Centurio Seals</value>
   </data>
   <data name="CurrenciesTab_HideCenturioSealsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 40 Centurio Seals.</value>
-  </data>
-  <data name="CurrenciesTab_ShowGeneralItemObtains" xml:space="preserve">
-    <value>Show General item obtains</value>
-  </data>
-  <data name="CurrenciesTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
-    <value>LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on LootNotice (1606, 1607, 750, 751, 3208) and System (720, 743, 3617, 3208) channels (excluding currency-specific filters below).</value>
+    <value>LogMessages 5200, 657, 1259 — eg. You obtain 3 Centurio Seals.</value>
   </data>
   <data name="CurrenciesTab_HideGilMessages" xml:space="preserve">
     <value>Hide Gil</value>
@@ -817,17 +854,26 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CurrenciesTab_HideGrandCompanySealsMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 1300 — eg. You obtain 420 Flame Seals. Grand Company seals (Flame, Storm, Serpent) only—not Allied Society or Centurio seals (separate Hide options below).</value>
   </data>
-  <data name="CurrenciesTab_ShowObtainedQuestItems" xml:space="preserve">
-    <value>Show quest item obtain messages</value>
+  <data name="CurrenciesTab_HideInventoryItemAddedMessages" xml:space="preserve">
+    <value>Hide "added to your inventory" messages</value>
   </data>
-  <data name="CurrenciesTab_ShowObtainedQuestItemsHelpMarker" xml:space="preserve">
-    <value>LogMessage 1232 — eg. You obtain the mysterious artifact.</value>
+  <data name="CurrenciesTab_HideInventoryItemAddedMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 789 — eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates "You obtain …" on retainer ventures.)</value>
   </data>
   <data name="CurrenciesTab_HideSacksOfNutsMessages" xml:space="preserve">
     <value>Hide sacks of Nuts</value>
   </data>
   <data name="CurrenciesTab_HideSacksOfNutsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 100 sacks of Nuts.</value>
+    <value>LogMessages 5202, 657, 1259 — eg. You obtain 100 sacks of Nuts.</value>
+  </data>
+  <data name="CurrenciesTab_HideTomestoneByIdHelpMarker" xml:space="preserve">
+    <value>Checked = hide obtain messages for this tomestone type.</value>
+  </data>
+  <data name="CurrenciesTab_HideTomestoneWeeklyCapMessages" xml:space="preserve">
+    <value>Hide tomestone weekly cap messages</value>
+  </data>
+  <data name="CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 2174 (Error channel) — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Checked = hide.</value>
   </data>
   <data name="CurrenciesTab_HideVentureMessages" xml:space="preserve">
     <value>Hide Ventures</value>
@@ -841,17 +887,23 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CurrenciesTab_HideWolfMarksMessagesHelpMarker" xml:space="preserve">
     <value>eg. You obtain 1,000 Wolf Marks.</value>
   </data>
+  <data name="CurrenciesTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
+    <value>Other obtain</value>
+  </data>
+  <data name="CurrenciesTab_ShowGeneralItemObtains" xml:space="preserve">
+    <value>Show General item obtains</value>
+  </data>
+  <data name="CurrenciesTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
+    <value>LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on LootNotice (1606, 1607, 750, 751, 3208) and System (720, 743, 3617, 3208) channels (excluding currency-specific filters below).</value>
+  </data>
+  <data name="CurrenciesTab_ShowObtainedQuestItems" xml:space="preserve">
+    <value>Show quest item obtain messages</value>
+  </data>
+  <data name="CurrenciesTab_ShowObtainedQuestItemsHelpMarker" xml:space="preserve">
+    <value>LogMessage 1232 — eg. You obtain the mysterious artifact.</value>
+  </data>
   <data name="CurrenciesTab_TomestoneDataUnavailable" xml:space="preserve">
     <value>Tomestone data unavailable</value>
-  </data>
-  <data name="CurrenciesTab_HideTomestoneWeeklyCapMessages" xml:space="preserve">
-    <value>Hide tomestone weekly cap messages</value>
-  </data>
-  <data name="CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 2174 (Error channel) — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Checked = hide.</value>
-  </data>
-  <data name="CurrenciesTab_HideTomestoneByIdHelpMarker" xml:space="preserve">
-    <value>Checked = hide obtain messages for this tomestone type.</value>
   </data>
   <data name="DeepDungeonsTab_DeepDungeonsDropdownHeader" xml:space="preserve">
     <value>Deep dungeons</value>
@@ -946,14 +998,23 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="DesynthesisTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
     <value>Show desynthesis level increases messages</value>
   </data>
+  <data name="DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 4325 — eg. Desynthesis level rises to 100.</value>
+  </data>
   <data name="DesynthesisTab_ShowDesynthesisMessages" xml:space="preserve">
     <value>Show desynthesis messages</value>
   </data>
   <data name="DesynthesisTab_ShowItemBeingDesynthesized" xml:space="preserve">
     <value>Show item being desynthesized</value>
   </data>
+  <data name="DesynthesisTab_ShowItemBeingDesynthesizedHelpMarker" xml:space="preserve">
+    <value>LogMessage 4321 — eg. You desynthesize the Boarskin Ring.</value>
+  </data>
   <data name="DesynthesisTab_ShowObtainedItemsFromDesynthesisMessages" xml:space="preserve">
     <value>Show obtained items from desynthesis</value>
+  </data>
+  <data name="DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4322, 4323 — eg. You obtain undyed boarskin.</value>
   </data>
   <data name="DutyTab_DutyCompletionDropdownHeader" xml:space="preserve">
     <value>Duty completion</value>
@@ -1056,14 +1117,26 @@ System channel. Independent of “Show market board sales” and its nested sale
   <data name="EconomyTab_ShowTradeAwaitingConfirmation" xml:space="preserve">
     <value>Show Awaiting trade confirmation</value>
   </data>
+  <data name="EconomyTab_ShowTradeAwaitingConfirmationHelpMarker" xml:space="preserve">
+    <value>LogMessage 32 — eg. Awaiting trade confirmation from Raven Reaver.</value>
+  </data>
   <data name="EconomyTab_ShowTradeCanceled" xml:space="preserve">
     <value>Show Trade canceled</value>
+  </data>
+  <data name="EconomyTab_ShowTradeCanceledHelpMarker" xml:space="preserve">
+    <value>LogMessage 36 — eg. Raven Reaver cancels the trade.</value>
   </data>
   <data name="EconomyTab_ShowTradeComplete" xml:space="preserve">
     <value>Show Trade complete</value>
   </data>
+  <data name="EconomyTab_ShowTradeCompleteHelpMarker" xml:space="preserve">
+    <value>LogMessage 38 — eg. You complete the trade with Raven Reaver.</value>
+  </data>
   <data name="EconomyTab_ShowTradeRequestSent" xml:space="preserve">
     <value>Show Trade request sent</value>
+  </data>
+  <data name="EconomyTab_ShowTradeRequestSentHelpMarker" xml:space="preserve">
+    <value>LogMessage 33 — eg. You initiate trade with Raven Reaver.</value>
   </data>
   <data name="EconomyTab_ShowVendorPurchaseMessages" xml:space="preserve">
     <value>Show Items bought from vendor</value>
@@ -1118,6 +1191,9 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="ExplorationTab_FilteringNote" xml:space="preserve">
     <value>Hunt and exploration lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
   </data>
+  <data name="FishingTab_FilteringNote" xml:space="preserve">
+    <value>Fishing lines need Filter Gathering channels on General.</value>
+  </data>
   <data name="FreeCompanyTab_FilteringNote" xml:space="preserve">
     <value>Workshop and message-book lines use Filter System on General. FC login/logout uses the FC login/logout channel (no extra General toggle).</value>
   </data>
@@ -1136,11 +1212,20 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="FreeCompanyTab_ShowFreeCompanyMessageBookMessages" xml:space="preserve">
     <value>Show Message book entries</value>
   </data>
+  <data name="FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3087, 6065, 3127 — eg. A company message has been added to the message book.</value>
+  </data>
   <data name="FreeCompanyTab_ShowLoginMessages" xml:space="preserve">
     <value>Show FC member login</value>
   </data>
+  <data name="FreeCompanyTab_ShowLoginMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 3085 — eg. Raven Reaver logs in. Uses the FC login/logout channel (no Filter System toggle).</value>
+  </data>
   <data name="FreeCompanyTab_ShowLogoutMessages" xml:space="preserve">
     <value>Show FC member logout</value>
+  </data>
+  <data name="FreeCompanyTab_ShowLogoutMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3086, 84 — eg. Raven Reaver logs out. Uses the FC login/logout channel or System.</value>
   </data>
   <data name="FreeCompanyTab_ShowSubaquaticVoyageEmbarked" xml:space="preserve">
     <value>Show subaquatic voyage embarked</value>
@@ -1205,12 +1290,6 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="GatheringTab_ElementalShardsDropdownHeader" xml:space="preserve">
     <value>Elemental shards</value>
   </data>
-  <data name="FishingTab_FilteringNote" xml:space="preserve">
-    <value>Fishing lines need Filter Gathering channels on General.</value>
-  </data>
-  <data name="CosmicExplorationTab_FilteringNote" xml:space="preserve">
-    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic lines further.</value>
-  </data>
   <data name="GatheringTab_FilteringNote" xml:space="preserve">
     <value>Gathering lines need Filter Gathering channels on General. Elemental shard obtains also need Filter Obtained.</value>
   </data>
@@ -1219,6 +1298,12 @@ eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
     <value>Gathering</value>
+  </data>
+  <data name="GatheringTab_HideElementalShardsCrystalsClustersMessages" xml:space="preserve">
+    <value>Hide elemental shards, crystals, and clusters</value>
+  </data>
+  <data name="GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
+    <value>Hides elemental shards, crystals, and clusters from gathering, loot rolls, loot notices (shared obtain templates 657, 1259, 1233, 1606, 1607, 750, 751), and desynthesis (LogMessages 4322, 4323). eg. You obtain 30 ice shards</value>
   </data>
   <data name="GatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
     <value>Hide only locations that affect gathering attempts</value>
@@ -1246,6 +1331,9 @@ eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
     <value>Show message when you successfully reduce a collectable item</value>
+  </data>
+  <data name="GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 3553 — eg. Aetherial reduction succeeds.</value>
   </data>
   <data name="GatheringTab_ShowAllOtherGathering" xml:space="preserve">
     <value>Show All other gathering (catch-all)</value>
@@ -1285,14 +1373,11 @@ You can also block container lines with Tools → Custom Filters (Block, pattern
   <data name="GatheringTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
     <value>LogMessages 10800, 10859, 10872, 10873, 10883, 11331 — cosmocredits, Auxesia/Oizys credits, fortunes, dronebits (not containers or class points).</value>
   </data>
-  <data name="GatheringTab_HideElementalShardsCrystalsClustersMessages" xml:space="preserve">
-    <value>Hide elemental shards, crystals, and clusters</value>
-  </data>
-  <data name="GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
-    <value>Hides elemental shards, crystals, and clusters from gathering, loot rolls, loot notices (shared obtain templates 657, 1259, 1233, 1606, 1607, 750, 751), and desynthesis (LogMessages 4322, 4323). eg. You obtain 30 ice shards</value>
-  </data>
   <data name="GatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
     <value>Show message when a fish is added to the fish guide</value>
+  </data>
+  <data name="GatheringTab_ShowFishAddedToGuideMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 1116, 11333 — eg. Something bites! / multihook bonus fish lines.</value>
   </data>
   <data name="GatheringTab_ShowFishingFlavorText" xml:space="preserve">
     <value>Show Fisher's Intuition flavor text</value>
@@ -1305,11 +1390,20 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
     <value>Show message when a fishing location is discovered</value>
   </data>
+  <data name="GatheringTab_ShowFishingHoleDiscoveredHelpMarker" xml:space="preserve">
+    <value>LogMessages 1130, 3513, 3579 — eg. You discover a fishing hole!</value>
+  </data>
   <data name="GatheringTab_ShowFishingHoleName" xml:space="preserve">
     <value>Show name of fishing hole when line is cast</value>
   </data>
+  <data name="GatheringTab_ShowFishingHoleNameHelpMarker" xml:space="preserve">
+    <value>LogMessage 1110 — eg. You cast your line at the Jade Zigzag.</value>
+  </data>
   <data name="GatheringTab_ShowFishSizeMessages" xml:space="preserve">
     <value>Show caught fish measuring [size] ilms</value>
+  </data>
+  <data name="GatheringTab_ShowFishSizeMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3512, 3559 — eg. You measure 12.3 ilms.</value>
   </data>
   <data name="GatheringTab_ShowGatheringBuffEffectGain" xml:space="preserve">
     <value>Show gathering buff effect gain</value>
@@ -1326,11 +1420,26 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
     <value>Show "You sense..." messages for gathering locations</value>
   </data>
+  <data name="GatheringTab_ShowGatheringSensesLabelHelpMarker" xml:space="preserve">
+    <value>LogMessages 1086, 3501, 3502, 3518, 3519 — eg. You sense the fertile presence of minerals.</value>
+  </data>
   <data name="GatheringTab_ShowGatheringStartEnd" xml:space="preserve">
     <value>Show the begin/end gathering messages</value>
   </data>
+  <data name="GatheringTab_ShowGatheringStartEndHelpMarker" xml:space="preserve">
+    <value>LogMessages 1063–1070 — eg. You begin gathering. / You finish gathering.</value>
+  </data>
   <data name="GatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
     <value>Show message when location affects gathering (integrity, collectability, senses)</value>
+  </data>
+  <data name="GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 1096, 5550, 5551 (GatheringSystem) — gathering rate, collectability, and meticulous integrity. Attempt line 1098 and yield/boon lines have separate options below.</value>
+  </data>
+  <data name="GatheringTab_ShowLoseBaitMessages" xml:space="preserve">
+    <value>Show "You lose your bait…" messages</value>
+  </data>
+  <data name="GatheringTab_ShowLoseBaitMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1117 — eg. You lose your bait…</value>
   </data>
   <data name="GatheringTab_ShowLureAttemptMessages" xml:space="preserve">
     <value>Show Modest/Ambitious Lure attempt messages</value>
@@ -1344,23 +1453,23 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GatheringTab_ShowLureBiteFeelingMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 5565, 5569 — eg. You have a feeling your next cast will land a large-sized fish!</value>
   </data>
-  <data name="GatheringTab_ShowLoseBaitMessages" xml:space="preserve">
-    <value>Show "You lose your bait…" messages</value>
+  <data name="GatheringTab_ShowMooching" xml:space="preserve">
+    <value>Show message after recasting with a moochable fish</value>
   </data>
-  <data name="GatheringTab_ShowLoseBaitMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1117 — eg. You lose your bait…</value>
+  <data name="GatheringTab_ShowMoochingHelpMarker" xml:space="preserve">
+    <value>LogMessage 1121 — eg. You mooch a fish!</value>
+  </data>
+  <data name="GatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
+    <value>Show the number of obtained sands after using aetherial reduction</value>
+  </data>
+  <data name="GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 3555 — eg. You obtain aetherial reduction sand.</value>
   </data>
   <data name="GatheringTab_ShowReelInLineMessages" xml:space="preserve">
     <value>Show "You reel in your line" messages</value>
   </data>
   <data name="GatheringTab_ShowReelInLineMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3511, 5584 — eg. You reel in your line.</value>
-  </data>
-  <data name="GatheringTab_ShowMooching" xml:space="preserve">
-    <value>Show message after recasting with a moochable fish</value>
-  </data>
-  <data name="GatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
-    <value>Show the number of obtained sands after using aetherial reduction</value>
   </data>
   <data name="GatheringTab_ShowStellarAbleToExecute" xml:space="preserve">
     <value>Show stellar "able to execute"</value>
@@ -1582,6 +1691,12 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GlamourTab_ShowGlamourDresserProjectionHelpMarker" xml:space="preserve">
     <value>Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383 — eg. A projection of … is added to your glamour dresser.</value>
   </data>
+  <data name="GlamourTab_ShowPersonalEffectAcquired" xml:space="preserve">
+    <value>Show personal effect acquired messages</value>
+  </data>
+  <data name="GlamourTab_ShowPersonalEffectAcquiredHelpMarker" xml:space="preserve">
+    <value>LogMessage 5701 — eg. You acquire the Senor Otter Pack personal effect. Uses the Progress channel (Filter Progress channel on General).</value>
+  </data>
   <data name="GlamourTab_ShowTryOnEquipGlamourMessages" xml:space="preserve">
     <value>Show try-on / cast / equip glamour messages</value>
   </data>
@@ -1597,17 +1712,17 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GoldSaucerTab_FilteringNote" xml:space="preserve">
     <value>MGP obtain lines use Filter Obtained on General. Minigame and Triple Triad lines use Filter System. Options labeled Hide … hide those lines when checked.</value>
   </data>
-  <data name="GoldSaucerTab_MgpDropdownHeader" xml:space="preserve">
-    <value>MGP</value>
-  </data>
-  <data name="GoldSaucerTab_MinigamesDropdownHeader" xml:space="preserve">
-    <value>Swing minigames</value>
-  </data>
   <data name="GoldSaucerTab_HideMGPMessages" xml:space="preserve">
     <value>Hide MGP</value>
   </data>
   <data name="GoldSaucerTab_HideMGPMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel).</value>
+  </data>
+  <data name="GoldSaucerTab_MgpDropdownHeader" xml:space="preserve">
+    <value>MGP</value>
+  </data>
+  <data name="GoldSaucerTab_MinigamesDropdownHeader" xml:space="preserve">
+    <value>Swing minigames</value>
   </data>
   <data name="GoldSaucerTab_ShowSwingMinigames" xml:space="preserve">
     <value>Show Out on a Limb / The Finer Miner swing feedback</value>
@@ -1645,17 +1760,32 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="MateriaTab_ShowMateriaExtractedMessages" xml:space="preserve">
     <value>Show message when materia is extracted from spiritbonded gear</value>
   </data>
+  <data name="MateriaTab_ShowMateriaExtractedMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1200 — eg. You extract a Savage Aim Materia VI from your gear.</value>
+  </data>
   <data name="MateriaTab_ShowMateriaOvermeldFailuresMessages" xml:space="preserve">
     <value>Show message when materia fails to be overmelded onto gear</value>
+  </data>
+  <data name="MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1202 — eg. You fail to attach a Savage Aim Materia VII to your gear.</value>
   </data>
   <data name="MateriaTab_ShowMateriaShattersMessages" xml:space="preserve">
     <value>Show message when materia shatters during retrieval</value>
   </data>
+  <data name="MateriaTab_ShowMateriaShattersMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1955 — eg. The materia shatters as you attempt to retrieve it.</value>
+  </data>
   <data name="MateriaTab_ShowMateriaSuccesfullyAttachedMessages" xml:space="preserve">
     <value>Show message when materia is successfully attached to gear</value>
   </data>
+  <data name="MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1201 — eg. You attach a Savage Aim Materia VI.</value>
+  </data>
   <data name="MateriaTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
     <value>Show message when you successfully retrieve materia from gear</value>
+  </data>
+  <data name="MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 1953, 1954 — eg. You retrieve a Savage Aim Materia VI from your gear.</value>
   </data>
   <data name="NormalizeSpecialCharactersExceptInPartyOrAllianceChannels" xml:space="preserve">
     <value>Normalize special characters - except in Party or Alliance channels</value>
@@ -1669,6 +1799,12 @@ eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="PartyTab_FilteringNote" xml:space="preserve">
     <value>Party invites and tools use Filter System on General. Loot rolls use Filter Loot Roll; other-player obtains use Filter Obtained. Checked = show; unchecked = hide. Tools → Custom Filters can refine matching lines.</value>
+  </data>
+  <data name="PartyTab_HideAnotherPlayerObtainsItemMessages" xml:space="preserve">
+    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
+  </data>
+  <data name="PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
+    <value>Hides loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General. Checked = hide.</value>
   </data>
   <data name="PartyTab_LootingAndRollingDropdownHeader" xml:space="preserve">
     <value>Loot rolls</value>
@@ -1689,12 +1825,6 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>LogMessage 5180 — when another player casts lot on loot (not your roll result).
 eg. Some player casts her lot for &lt;item&gt;.</value>
   </data>
-  <data name="PartyTab_HideAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
-  </data>
-  <data name="PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-    <value>Hides loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General. Checked = hide.</value>
-  </data>
   <data name="PartyTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
     <value>Show "Another Player rolls Greed..." messages</value>
   </data>
@@ -1711,14 +1841,26 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
   <data name="PartyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
     <value>Show Disband &amp; dissolve</value>
   </data>
+  <data name="PartyTab_ShowDisbandAndDissolveMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 72, 73, 7447 — eg. The party is dissolved.</value>
+  </data>
   <data name="PartyTab_ShowJoinedCrossworldPartyMessages" xml:space="preserve">
     <value>Show Joined party (incl. cross-world)</value>
+  </data>
+  <data name="PartyTab_ShowJoinedCrossworldPartyMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 61, 7444 — eg. You have joined a cross-world party with Raven Reaver.</value>
   </data>
   <data name="PartyTab_ShowJoiningPartyMessages" xml:space="preserve">
     <value>Show Players joining</value>
   </data>
+  <data name="PartyTab_ShowJoiningPartyMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 60 — eg. Raven Reaver joins the party.</value>
+  </data>
   <data name="PartyTab_ShowLeftPartyMessages" xml:space="preserve">
     <value>Show Players leaving</value>
+  </data>
+  <data name="PartyTab_ShowLeftPartyMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4, 69 — eg. Raven Reaver leaves the party.</value>
   </data>
   <data name="PartyTab_ShowNowALeader" xml:space="preserve">
     <value>Show Leader promoted or demoted</value>
@@ -1741,6 +1883,9 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
   <data name="PartyTab_ShowPartyObjectiveOnJoin" xml:space="preserve">
     <value>Show Party objective &amp; comment on join</value>
   </data>
+  <data name="PartyTab_ShowPartyObjectiveOnJoinHelpMarker" xml:space="preserve">
+    <value>Companion to Show joined cross-world party messages. Temporarily bypasses Filter System so the join line can include the party objective and comment.</value>
+  </data>
   <data name="PartyTab_ShowReadycheckMessages" xml:space="preserve">
     <value>Show /readycheck</value>
   </data>
@@ -1749,6 +1894,9 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
   </data>
   <data name="PartyTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Show Received invitations</value>
+  </data>
+  <data name="PartyTab_ShowReceivedPartyInvitationMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3, 1885, 1895 — eg. Raven Reaver invites you to a party.</value>
   </data>
   <data name="PartyTab_ShowSealedOffMessages" xml:space="preserve">
     <value>Show area sealed/unsealed messages</value>
@@ -1759,8 +1907,14 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
   <data name="PartyTab_ShowSentPartyInviteMessages" xml:space="preserve">
     <value>Show Sent party invites</value>
   </data>
+  <data name="PartyTab_ShowSentPartyInviteMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 1 — eg. You invite Raven Reaver to a party.</value>
+  </data>
   <data name="PartyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
     <value>Show Teleport offers from party</value>
+  </data>
+  <data name="PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 440 — eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver.</value>
   </data>
   <data name="PartyTab_ShowYourLootRolls" xml:space="preserve">
     <value>Show your loot rolls</value>
@@ -1781,9 +1935,6 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_FilteringNote" xml:space="preserve">
     <value>Quest &amp; achievements and most unlocks use the System channel (see each help). Duty roulette and adventurer-in-need bonus awards use Filter Obtained (checked = hide). XP, PvP EXP, Series EXP, and level-ups use Filter Progress on General (checked = show). PvP zone announcements use Filter System. Mount unlocks use the Action channel. Custom Filters on Tools can Allow or Block specific Progress or System text.</value>
   </data>
-  <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
-    <value>Quests &amp; achievements</value>
-  </data>
   <data name="ProgressTab_HideAdventurerInNeedAwardMessages" xml:space="preserve">
     <value>Hide adventurer-in-need bonus awards</value>
   </data>
@@ -1795,6 +1946,9 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="ProgressTab_HideBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 2246 — eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
+  </data>
+  <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
+    <value>Quests &amp; achievements</value>
   </data>
   <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
     <value>Show your earned achievements</value>
@@ -1856,12 +2010,6 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_ShowPvpRankMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 660 — eg. You attain PvP rank 17!</value>
   </data>
-  <data name="ProgressTab_ShowSeriesProgressMessages" xml:space="preserve">
-    <value>Show PvP Series EXP and level messages</value>
-  </data>
-  <data name="ProgressTab_ShowSeriesProgressMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 7556, 7557 — eg. You acquire 1,500 Series EXP. / You attain Series level 2!</value>
-  </data>
   <data name="ProgressTab_ShowPvpZoneAnnouncements" xml:space="preserve">
     <value>Show PvP zone triumph and gauge messages</value>
   </data>
@@ -1880,6 +2028,12 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_ShowSecondChanceAwardHelpMarker" xml:space="preserve">
     <value>LogMessage 7975 — Second Chance roulette reward lines.</value>
   </data>
+  <data name="ProgressTab_ShowSeriesProgressMessages" xml:space="preserve">
+    <value>Show PvP Series EXP and level messages</value>
+  </data>
+  <data name="ProgressTab_ShowSeriesProgressMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 7556, 7557 — eg. You acquire 1,500 Series EXP. / You attain Series level 2!</value>
+  </data>
   <data name="ProgressTab_UnlocksDropdownHeader" xml:space="preserve">
     <value>Unlocks</value>
   </data>
@@ -1891,6 +2045,9 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Page</value>
+  </data>
+  <data name="Shared_FilterObtainedDisabledWarning" xml:space="preserve">
+    <value>Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat.</value>
   </data>
   <data name="Shared_RequiresCraftingFilteringNote" xml:space="preserve">
     <value>Requires Filter Crafting Channels on the General tab. Checked = show; unchecked = hide.</value>
@@ -1904,26 +2061,23 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="Shared_RequiresLootFilteringNote" xml:space="preserve">
     <value>Requires Filter Loot Roll channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
+  <data name="Shared_RequiresObtainedAndSystemHideFilteringNote" xml:space="preserve">
+    <value>Obtain lines require Filter Obtained on General (checked = hide). Receive or spend lines require Filter System on General (checked = hide).</value>
+  </data>
   <data name="Shared_RequiresObtainedFilteringNote" xml:space="preserve">
     <value>Requires Filter Obtained channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
   <data name="Shared_RequiresObtainedHideFilteringNote" xml:space="preserve">
     <value>Requires Filter Obtained channel on the General tab. Checked = hide; unchecked = show.</value>
   </data>
+  <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
+    <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
+  </data>
   <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
     <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
   </data>
   <data name="Shared_RequiresSystemHideFilteringNote" xml:space="preserve">
     <value>Requires Filter System channel on the General tab. Checked = hide; unchecked = show.</value>
-  </data>
-  <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
-    <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="Shared_RequiresObtainedAndSystemHideFilteringNote" xml:space="preserve">
-    <value>Obtain lines require Filter Obtained on General (checked = hide). Receive or spend lines require Filter System on General (checked = hide).</value>
-  </data>
-  <data name="ConfigWindow_SearchHideTomestoneHelp" xml:space="preserve">
-    <value>Checked = hide this tomestone type. Requires Filter Obtained on General.</value>
   </data>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>
@@ -1945,6 +2099,25 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
     <value>Glamour &amp; gear</value>
+  </data>
+  <data name="SystemTab_HideCrackedClustersMessages" xml:space="preserve">
+    <value>Hide cracked clusters</value>
+  </data>
+  <data name="SystemTab_HideCrackedClustersMessagesHelpMarker" xml:space="preserve">
+    <value>Hides cracked cluster obtain messages such as Dendroclusters and Anthoclusters.
+eg. You obtain a cracked dendrocluster</value>
+  </data>
+  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
+    <value>Hide FATE level sync messages</value>
+  </data>
+  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 2070, 2166 — eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
+  </data>
+  <data name="SystemTab_HideOrchestrionPlaying" xml:space="preserve">
+    <value>Hide "Orchestrion now plays" messages</value>
+  </data>
+  <data name="SystemTab_HideOrchestrionPlayingHelpMarker" xml:space="preserve">
+    <value>LogMessage 3433 — eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_HuntMessagesDropdownHeader" xml:space="preserve">
     <value>Hunt marks</value>
@@ -2043,13 +2216,6 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowChangesLostHelpMarker" xml:space="preserve">
     <value>LogMessage 802 — e.g. Unsaved changes have been lost.</value>
   </data>
-  <data name="SystemTab_HideCrackedClustersMessages" xml:space="preserve">
-    <value>Hide cracked clusters</value>
-  </data>
-  <data name="SystemTab_HideCrackedClustersMessagesHelpMarker" xml:space="preserve">
-    <value>Hides cracked cluster obtain messages such as Dendroclusters and Anthoclusters.
-eg. You obtain a cracked dendrocluster</value>
-  </data>
   <data name="SystemTab_ShowDutyEndedMessage" xml:space="preserve">
     <value>Show duty will end soon</value>
   </data>
@@ -2073,12 +2239,6 @@ eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Master toggle for the four specific system messages below (not a catch-all for all system chat). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
-  </data>
-  <data name="SystemTab_HideFateLevelSyncMessages" xml:space="preserve">
-    <value>Hide FATE level sync messages</value>
-  </data>
-  <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 2070, 2166 — eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_ShowGearDyeApplied" xml:space="preserve">
     <value>Show gear dye applied</value>
@@ -2200,20 +2360,23 @@ eg. You obtain a cracked dendrocluster</value>
   <data name="SystemTab_ShowMailAttachmentMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 672, 673 — eg. You attach 2 pots of Dalamud Red Dye to the letter.</value>
   </data>
+  <data name="SystemTab_ShowMarkBillMessages" xml:space="preserve">
+    <value>Show mark bill messages</value>
+  </data>
+  <data name="SystemTab_ShowMarkBillMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4412, 4415, 4416 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt.</value>
+  </data>
   <data name="SystemTab_ShowNumberOfCoffers" xml:space="preserve">
     <value>Show number of available coffers messages</value>
+  </data>
+  <data name="SystemTab_ShowNumberOfCoffersHelpMarker" xml:space="preserve">
+    <value>LogMessages 4233, 4238, 4246 — eg. 2 of 4 party members are eligible for duty rewards. The number of coffers to appear will be 1 of a possible 2.</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessages" xml:space="preserve">
     <value>Show online status updates</value>
   </data>
   <data name="SystemTab_ShowOnlineStatusMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 97 — eg. Updating online status to Away from Keyboard.</value>
-  </data>
-  <data name="SystemTab_HideOrchestrionPlaying" xml:space="preserve">
-    <value>Hide "Orchestrion now plays" messages</value>
-  </data>
-  <data name="SystemTab_HideOrchestrionPlayingHelpMarker" xml:space="preserve">
-    <value>LogMessage 3433 — eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message.</value>
   </data>
   <data name="SystemTab_ShowPersonalMessageBookMessages" xml:space="preserve">
     <value>Show personal message book new entry messages</value>
@@ -2247,6 +2410,9 @@ eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="SystemTab_ShowSpiritboundMessages" xml:space="preserve">
     <value>Show gear reaching 100% spiritbound messages</value>
+  </data>
+  <data name="SystemTab_ShowSpiritboundMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 744 — eg. Your gear has reached 100% spiritbond.</value>
   </data>
   <data name="SystemTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Show S Rank Hunt spawn announcement</value>
@@ -2306,8 +2472,14 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="ToolsTab_DebugIncludeChannel" xml:space="preserve">
     <value>channel in debug lines</value>
   </data>
+  <data name="ToolsTab_DebugIncludeChannelHelpMarker" xml:space="preserve">
+    <value>Prefixes each debug line with the chat channel type.</value>
+  </data>
   <data name="ToolsTab_EnableDebugMode" xml:space="preserve">
     <value>Debug mode (dry-run filtering)</value>
+  </data>
+  <data name="ToolsTab_EnableDebugModeHelpMarker" xml:space="preserve">
+    <value>Dry-run: matching lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Turn this off to actually hide blocked messages. LogMessage blocks also skip PreventOriginal while debug is on.</value>
   </data>
   <data name="ToolsTab_FilteringNote" xml:space="preserve">
     <value>Debug mode logs rule matches to chat. Chat History and Custom Filters are optional extras; Custom Filters run after all other rules.</value>
@@ -2385,119 +2557,5 @@ LogMessage ID — prefix with # and one or more IDs, e.g. #588 or #748,4578. All
   </data>
   <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
     <value>Server Name: </value>
-  </data>
-  <data name="DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4322, 4323 — eg. You obtain undyed boarskin.</value>
-  </data>
-  <data name="MateriaTab_ShowMateriaExtractedMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1200 — eg. You extract a Savage Aim Materia VI from your gear.</value>
-  </data>
-  <data name="FreeCompanyTab_ShowLoginMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 3085 — eg. Raven Reaver logs in. Uses the FC login/logout channel (no Filter System toggle).</value>
-  </data>
-  <data name="MateriaTab_ShowMateriaShattersMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1955 — eg. The materia shatters as you attempt to retrieve it.</value>
-  </data>
-  <data name="MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1202 — eg. You fail to attach a Savage Aim Materia VII to your gear.</value>
-  </data>
-  <data name="MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1201 — eg. You attach a Savage Aim Materia VI.</value>
-  </data>
-  <data name="GatheringTab_ShowFishingHoleDiscoveredHelpMarker" xml:space="preserve">
-    <value>LogMessages 1130, 3513, 3579 — eg. You discover a fishing hole!</value>
-  </data>
-  <data name="PartyTab_ShowReceivedPartyInvitationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3, 1885, 1895 — eg. Raven Reaver invites you to a party.</value>
-  </data>
-  <data name="EconomyTab_ShowTradeRequestSentHelpMarker" xml:space="preserve">
-    <value>LogMessage 33 — eg. You initiate trade with Raven Reaver.</value>
-  </data>
-  <data name="SystemTab_ShowNumberOfCoffersHelpMarker" xml:space="preserve">
-    <value>LogMessages 4233, 4238, 4246 — eg. 2 of 4 party members are eligible for duty rewards. The number of coffers to appear will be 1 of a possible 2.</value>
-  </data>
-  <data name="MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1953, 1954 — eg. You retrieve a Savage Aim Materia VI from your gear.</value>
-  </data>
-  <data name="GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1096, 5550, 5551 (GatheringSystem) — gathering rate, collectability, and meticulous integrity. Attempt line 1098 and yield/boon lines have separate options below.</value>
-  </data>
-  <data name="EconomyTab_ShowTradeCompleteHelpMarker" xml:space="preserve">
-    <value>LogMessage 38 — eg. You complete the trade with Raven Reaver.</value>
-  </data>
-  <data name="AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker" xml:space="preserve">
-    <value>Checked = hide obtain messages for this allied society currency.</value>
-  </data>
-  <data name="GatheringTab_ShowFishSizeMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3512, 3559 — eg. You measure 12.3 ilms.</value>
-  </data>
-  <data name="PartyTab_ShowDisbandAndDissolveMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 72, 73, 7447 — eg. The party is dissolved.</value>
-  </data>
-  <data name="FreeCompanyTab_ShowLogoutMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3086, 84 — eg. Raven Reaver logs out. Uses the FC login/logout channel or System.</value>
-  </data>
-  <data name="ToolsTab_EnableDebugModeHelpMarker" xml:space="preserve">
-    <value>Dry-run: matching lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Turn this off to actually hide blocked messages. LogMessage blocks also skip PreventOriginal while debug is on.</value>
-  </data>
-  <data name="PartyTab_ShowJoinedCrossworldPartyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 61, 7444 — eg. You have joined a cross-world party with Raven Reaver.</value>
-  </data>
-  <data name="EconomyTab_ShowTradeCanceledHelpMarker" xml:space="preserve">
-    <value>LogMessage 36 — eg. Raven Reaver cancels the trade.</value>
-  </data>
-  <data name="FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3087, 6065, 3127 — eg. A company message has been added to the message book.</value>
-  </data>
-  <data name="PartyTab_ShowSentPartyInviteMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1 — eg. You invite Raven Reaver to a party.</value>
-  </data>
-  <data name="PartyTab_ShowPartyObjectiveOnJoinHelpMarker" xml:space="preserve">
-    <value>Companion to Show joined cross-world party messages. Temporarily bypasses Filter System so the join line can include the party objective and comment.</value>
-  </data>
-  <data name="GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 3553 — eg. Aetherial reduction succeeds.</value>
-  </data>
-  <data name="ToolsTab_DebugIncludeChannelHelpMarker" xml:space="preserve">
-    <value>Prefixes each debug line with the chat channel type.</value>
-  </data>
-  <data name="DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 4325 — eg. Desynthesis level rises to 100.</value>
-  </data>
-  <data name="PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 440 — eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver.</value>
-  </data>
-  <data name="GatheringTab_ShowGatheringStartEndHelpMarker" xml:space="preserve">
-    <value>LogMessages 1063–1070 — eg. You begin gathering. / You finish gathering.</value>
-  </data>
-  <data name="GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 3555 — eg. You obtain aetherial reduction sand.</value>
-  </data>
-  <data name="PartyTab_ShowJoiningPartyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 60 — eg. Raven Reaver joins the party.</value>
-  </data>
-  <data name="GatheringTab_ShowGatheringSensesLabelHelpMarker" xml:space="preserve">
-    <value>LogMessages 1086, 3501, 3502, 3518, 3519 — eg. You sense the fertile presence of minerals.</value>
-  </data>
-  <data name="DesynthesisTab_ShowItemBeingDesynthesizedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4321 — eg. You desynthesize the Boarskin Ring.</value>
-  </data>
-  <data name="EconomyTab_ShowTradeAwaitingConfirmationHelpMarker" xml:space="preserve">
-    <value>LogMessage 32 — eg. Awaiting trade confirmation from Raven Reaver.</value>
-  </data>
-  <data name="PartyTab_ShowLeftPartyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4, 69 — eg. Raven Reaver leaves the party.</value>
-  </data>
-  <data name="GatheringTab_ShowFishAddedToGuideMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1116, 11333 — eg. Something bites! / multihook bonus fish lines.</value>
-  </data>
-  <data name="GatheringTab_ShowMoochingHelpMarker" xml:space="preserve">
-    <value>LogMessage 1121 — eg. You mooch a fish!</value>
-  </data>
-  <data name="SystemTab_ShowSpiritboundMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 744 — eg. Your gear has reached 100% spiritbond.</value>
-  </data>
-  <data name="GatheringTab_ShowFishingHoleNameHelpMarker" xml:space="preserve">
-    <value>LogMessage 1110 — eg. You cast your line at the Jade Zigzag.</value>
   </data>
 </root>
