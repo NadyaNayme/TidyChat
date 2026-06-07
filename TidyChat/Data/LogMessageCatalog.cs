@@ -76,6 +76,11 @@ public static class LogMessageCatalog
 
     public static bool HasTemplate(uint logMessageId) => TemplateTextById.ContainsKey(logMessageId);
 
+    public static bool IsRuntimeOnly(uint logMessageId) => RuntimeOnlyIds.Contains(logMessageId);
+
+    public static bool TryGetTemplateText(uint logMessageId, out string templateText) =>
+        TemplateTextById.TryGetValue(logMessageId, out templateText!);
+
     public static bool TryGetCompactLine(uint logMessageId, out string line)
     {
         line = string.Empty;

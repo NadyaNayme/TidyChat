@@ -2,7 +2,6 @@ using Dalamud.Interface;
 using Dalamud.Interface.Components;
 using Dalamud.Interface.Utility;
 using System.Numerics;
-using Flags = TidyChat.Utility.ChatFlags;
 namespace TidyChat.Settings.Tabs;
 
 internal static class WhitelistTab

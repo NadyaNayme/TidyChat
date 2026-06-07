@@ -77,6 +77,17 @@ public static partial class Rules
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,
             IsActive = true,
+            LogMessageIds = [1155, 5913],
+            StringChecks = [ChatStrings.CraftingAbilityFailure],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAllOtherCrafting",
+            SettingsTab = "Crafting",
+            Channel = ChatType.Crafting,
+            IsActive = true,
             LogMessageIds = [1162],
             StringChecks = [ChatStrings.CraftingProgressIncrease],
             Pattern = PatternKind.StringMatch,

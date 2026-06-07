@@ -42,6 +42,16 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/1155?pretty=true">You use … Failure!</see>
+    /// <seealso href="https://xivapi.com/LogMessage/5913?pretty=true">You use … Failure!</seealso>
+    public static readonly LocalizedStrings CraftingAbilityFailure = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["you", "use", "failure"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1162?pretty=true">Progress increases …</see>
     public static readonly LocalizedStrings CraftingProgressIncrease = new()
     {

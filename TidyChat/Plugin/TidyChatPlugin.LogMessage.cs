@@ -5,6 +5,18 @@ public sealed partial class TidyChatPlugin
 {
     private void OnLogMessage(ILogMessage message)
     {
+        try
+        {
+            OnLogMessageInner(message);
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "TidyChat failed to handle LogMessage {LogMessageId}", message.LogMessageId);
+        }
+    }
+
+    private void OnLogMessageInner(ILogMessage message)
+    {
         if (!Configuration.Enabled || message.IsHandled)
         {
             return;
@@ -40,22 +52,26 @@ public sealed partial class TidyChatPlugin
 
                 if (!entry.AllowMessage)
                 {
+                    if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+                    {
+                        RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+                    }
+                    RememberLogMessageBlock(message.LogMessageId);
                     if (Configuration.EnableDebugMode)
                     {
                         EmitDedupedLogMessageDebug(
                             $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+                        return;
                     }
                     message.PreventOriginal();
                     Interlocked.Increment(ref _sessionBlockedMessages);
                     return;
                 }
-                try
+                if (LogMessageTextHelper.TryExtractText(message, out var allowedText))
                 {
-                    var text = message.FormatLogMessageForDebugging().ExtractText();
-                    RememberLogMessageChatMatchTexts(_allowedByLogMessage, text);
-                    RememberCustomFilterLogMessageAllow(message.LogMessageId);
+                    RememberLogMessageChatMatchTexts(_allowedByLogMessage, allowedText);
                 }
-                catch { }
+                RememberCustomFilterLogMessageAllow(message.LogMessageId);
                 if (Configuration.EnableDebugMode)
                 {
                     EmitDedupedLogMessageDebug(
@@ -95,12 +111,12 @@ public sealed partial class TidyChatPlugin
 
             if (Configuration.EnableDebugMode && _loggedUnmatchedLogMessageIds.Add(message.LogMessageId))
             {
-                try
+                if (LogMessageTextHelper.TryExtractText(message, out var unmatchedText))
                 {
-                    var formatted = message.FormatLogMessageForDebugging();
-                    Log.Debug($"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount} | Text: {formatted.ExtractText()}");
+                    Log.Debug(
+                        $"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount} | Text: {unmatchedText}");
                 }
-                catch
+                else
                 {
                     Log.Debug($"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount}");
                 }
@@ -311,12 +327,10 @@ public sealed partial class TidyChatPlugin
 
     private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName, string? matchDetail = null)
     {
-        try
+        if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
         {
-            var text = message.FormatLogMessageForDebugging().ExtractText();
-            RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
         }
-        catch { }
 
         RememberLogMessageBlock(message.LogMessageId);
 
@@ -377,13 +391,11 @@ public sealed partial class TidyChatPlugin
     private void RememberLogMessageAllowDecision(ILogMessage message, string? decidingRuleName,
         string? matchDetail = null)
     {
-        try
+        if (LogMessageTextHelper.TryExtractText(message, out var allowedText))
         {
-            var text = message.FormatLogMessageForDebugging().ExtractText();
-            RememberLogMessageChatMatchTexts(_allowedByLogMessage, text);
-            RememberLogMessageAllow(message.LogMessageId);
+            RememberLogMessageChatMatchTexts(_allowedByLogMessage, allowedText);
         }
-        catch { }
+        RememberLogMessageAllow(message.LogMessageId);
 
         if (Configuration.EnableDebugMode)
         {
@@ -726,20 +738,8 @@ public sealed partial class TidyChatPlugin
 
         return false;
     }
-    private static bool TryGetNormalizedLogMessageText(ILogMessage message, out string normalizedText)
-    {
-        normalizedText = string.Empty;
-        try
-        {
-            normalizedText = message.FormatLogMessageForDebugging().ExtractText()
-                .ToLower(CultureInfo.CurrentCulture);
-            return normalizedText.Length > 0;
-        }
-        catch
-        {
-            return false;
-        }
-    }
+    private static bool TryGetNormalizedLogMessageText(ILogMessage message, out string normalizedText) =>
+        LogMessageTextHelper.TryExtractNormalizedText(message, out normalizedText);
 
     private bool TryBlockHiddenTomestoneLogMessage(ILogMessage message)
     {
@@ -755,13 +755,10 @@ public sealed partial class TidyChatPlugin
         if (Configuration.EnableDebugMode)
         {
             EmitDedupedLogMessageDebug($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
-            try
+            if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
             {
-                var text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
             }
-            catch { }
-
             return true;
         }
 
@@ -787,13 +784,10 @@ public sealed partial class TidyChatPlugin
         {
             EmitDedupedLogMessageDebug(
                 $"[LogMessage] BLOCKED by allied society currency hide (ID: {message.LogMessageId})");
-            try
+            if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
             {
-                var text = message.FormatLogMessageForDebugging().ExtractText();
-                RememberLogMessageChatMatchTexts(_blockedByLogMessage, text);
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
             }
-            catch { }
-
             return true;
         }
 

@@ -218,12 +218,7 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        string extractedTextValue;
-        try
-        {
-            extractedTextValue = message.FormatLogMessageForDebugging().ExtractText();
-        }
-        catch
+        if (!LogMessageTextHelper.TryExtractText(message, out var extractedTextValue))
         {
             return false;
         }
