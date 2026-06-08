@@ -205,6 +205,96 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Only highlight messages on the selected channels..
+        /// </summary>
+        internal static string ChatHighlightsTab_ChannelsHelpMarker {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_ChannelsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color.
+        /// </summary>
+        internal static string ChatHighlightsTab_ColorHeader {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_ColorHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable chat highlights.
+        /// </summary>
+        internal static string ChatHighlightsTab_EnableChatHighlights {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_EnableChatHighlights", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colors matching chat lines so they stand out. Highlights apply after filtering — blocked messages are not colored..
+        /// </summary>
+        internal static string ChatHighlightsTab_EnableChatHighlightsHelpMarker {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_EnableChatHighlightsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add words or phrases to highlight in chat. The first matching rule wins. Matching lines are recolored as plain text (item links are not preserved)..
+        /// </summary>
+        internal static string ChatHighlightsTab_ExplanationMessage {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_ExplanationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to message contains.
+        /// </summary>
+        internal static string ChatHighlightsTab_MessageContains {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_MessageContains", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Match text.
+        /// </summary>
+        internal static string ChatHighlightsTab_PatternHeader {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_PatternHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain text (case-insensitive) or /regex/. Example: obtain.
+        /// </summary>
+        internal static string ChatHighlightsTab_PatternHelpMarker {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_PatternHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regex patterns use /pattern/ syntax, same as Custom Filters..
+        /// </summary>
+        internal static string ChatHighlightsTab_RegexExplanation {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_RegexExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Channels.
+        /// </summary>
+        internal static string ChatHighlightsTab_SelectChannelsHeader {
+            get {
+                return ResourceManager.GetString("ChatHighlightsTab_SelectChannelsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number of seconds to keep messages in chat history.
         /// </summary>
         internal static string ChatHistoryTab_ChatHistoryTimer {
@@ -5960,6 +6050,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chat Highlights.
+        /// </summary>
+        internal static string ToolsTab_ChatHighlightsDropdownHeader {
+            get {
+                return ResourceManager.GetString("ToolsTab_ChatHighlightsDropdownHeader", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Chat History.
         /// </summary>
         internal static string ToolsTab_ChatHistoryDropdownHeader {
@@ -5967,7 +6066,7 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("ToolsTab_ChatHistoryDropdownHeader", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Custom Filters.
         /// </summary>

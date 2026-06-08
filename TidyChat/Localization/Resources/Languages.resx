@@ -2573,6 +2573,39 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
     <value>World &amp; instances</value>
   </data>
+  <data name="ChatHighlightsTab_ChannelsHelpMarker" xml:space="preserve">
+    <value>Only highlight messages on the selected channels.</value>
+  </data>
+  <data name="ChatHighlightsTab_ColorHeader" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ChatHighlightsTab_EnableChatHighlights" xml:space="preserve">
+    <value>Enable chat highlights</value>
+  </data>
+  <data name="ChatHighlightsTab_EnableChatHighlightsHelpMarker" xml:space="preserve">
+    <value>Colors matching chat lines so they stand out. Highlights apply after filtering — blocked messages are not colored.</value>
+  </data>
+  <data name="ChatHighlightsTab_ExplanationMessage" xml:space="preserve">
+    <value>Add words or phrases to highlight in chat. The first matching rule wins. Matching lines are recolored as plain text (item links are not preserved).</value>
+  </data>
+  <data name="ChatHighlightsTab_MessageContains" xml:space="preserve">
+    <value>message contains</value>
+  </data>
+  <data name="ChatHighlightsTab_PatternHeader" xml:space="preserve">
+    <value>Match text</value>
+  </data>
+  <data name="ChatHighlightsTab_PatternHelpMarker" xml:space="preserve">
+    <value>Plain text (case-insensitive) or /regex/. Example: obtain</value>
+  </data>
+  <data name="ChatHighlightsTab_RegexExplanation" xml:space="preserve">
+    <value>Regex patterns use /pattern/ syntax, same as Custom Filters.</value>
+  </data>
+  <data name="ChatHighlightsTab_SelectChannelsHeader" xml:space="preserve">
+    <value>Channels</value>
+  </data>
+  <data name="ToolsTab_ChatHighlightsDropdownHeader" xml:space="preserve">
+    <value>Chat Highlights</value>
+  </data>
   <data name="ToolsTab_ChatHistoryDropdownHeader" xml:space="preserve">
     <value>Chat History</value>
   </data>

@@ -26,6 +26,9 @@ public static class ChatFlags
     public static bool CheckFlags(Configuration configuration, ChatType chatType)
         => CheckChannelFlags((Channels)configuration.ChatHistoryChannels, chatType);
 
+    public static bool CheckFlags(int channelFlags, ChatType chatType)
+        => CheckChannelFlags((Channels)channelFlags, chatType);
+
     private static bool CheckChannelFlags(Channels channels, ChatType chatType)
     {
         if (channels.HasFlag(Channels.Debug) && chatType is ChatType.Debug)

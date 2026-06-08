@@ -82,6 +82,11 @@ public sealed partial class TidyChatPlugin
             isHandled = false;
         }
 
+        if (!isHandled)
+        {
+            TryApplyChatHighlight(message, chatType, rawTextValue, extractedTextValue, normalizedText);
+        }
+
         if (isHandled)
         {
             Interlocked.Increment(ref _sessionBlockedMessages);

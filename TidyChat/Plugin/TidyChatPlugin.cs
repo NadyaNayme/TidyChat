@@ -149,6 +149,8 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
         Rules.UpdateIsActiveStates(Configuration);
 
+        MigrateLegacyHighlightColors(Configuration.ChatHighlights);
+
         ReloadGameDataCaches(validateRuleIds: true);
 
         if (Configuration.InstanceInDtrBar)

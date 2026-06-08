@@ -10,7 +10,8 @@ internal static class ToolsTab
         SettingsTabLayout.DrawSections(true,
             (Languages.ToolsTab_DebugDropdownHeader, () => DrawDebug(configuration)),
             (Languages.ToolsTab_ChatHistoryDropdownHeader, () => ChatHistoryTab.DrawContent(configuration)),
-            (Languages.ToolsTab_CustomFiltersDropdownHeader, () => WhitelistTab.DrawContent(configuration)));
+            (Languages.ToolsTab_CustomFiltersDropdownHeader, () => WhitelistTab.DrawContent(configuration)),
+            (Languages.ToolsTab_ChatHighlightsDropdownHeader, () => ChatHighlightsTab.DrawContent(configuration)));
     }
 
     private static void DrawDebug(Configuration configuration)

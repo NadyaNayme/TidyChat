@@ -19,6 +19,8 @@ public class Configuration : IPluginConfiguration
     public bool IncludeChatTag { get; set; } = true;
     public string PlayerName { get; set; } = "";
     public IList<PlayerName> Whitelist { get; set; } = [];
+    public bool EnableChatHighlights { get; set; } = false;
+    public IList<ChatHighlight> ChatHighlights { get; set; } = [];
     public bool SentByWhitelistPlayer { get; set; } = true;
     public bool TargetingWhitelistPlayer { get; set; } = true;
     public bool ChatHistoryFilter { get; set; } = false;
