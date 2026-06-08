@@ -1,65 +1,111 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-                      Microsoft ResX Schema 
-                      
-                      Version 2.0
-                      
-                      The primary goals of this format is to allow a simple XML format 
-                      that is mostly human readable. The generation and parsing of the 
-                      various data types are done through the TypeConverter classes 
-                      associated with the data types.
-                      
-                      Example:
-                      
-                      ... ado.net/XML headers & schema ...
-                      <resheader name="resmimetype">text/microsoft-resx</resheader>
-                      <resheader name="version">2.0</resheader>
-                      <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-                      <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-                      <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-                      <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-                      <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-                          <value>[base64 mime encoded serialized .NET Framework object]</value>
-                      </data>
-                      <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-                          <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-                          <comment>This is a comment</comment>
-                      </data>
-                      
-                      There are any number of "resheader" rows that contain simple 
-                      name/value pairs.
-                      
-                      Each data row contains a name, and value. The row also contains a 
-                      type or mimetype. Type corresponds to a .NET class that support 
-                      text/value conversion through the TypeConverter architecture. 
-                      Classes that don't support this are serialized and stored with the 
-                      mimetype set.
-                      
-                      The mimetype is used for serialized objects, and tells the 
-                      ResXResourceReader how to depersist the object. This is currently not 
-                      extensible. For a given mimetype the value must be set accordingly:
-                      
-                      Note - application/x-microsoft.net.object.binary.base64 is the format 
-                      that the ResXResourceWriter will generate, however the reader can 
-                      read any of the formats listed below.
-                      
-                      mimetype: application/x-microsoft.net.object.binary.base64
-                      value   : The object must be serialized with 
-                              : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                              : and then encoded with base64 encoding.
-                      
-                      mimetype: application/x-microsoft.net.object.soap.base64
-                      value   : The object must be serialized with 
-                              : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                              : and then encoded with base64 encoding.
-                      
-                      mimetype: application/x-microsoft.net.object.bytearray.base64
-                      value   : The object must be serialized into a byte array 
-                              : using a System.ComponentModel.TypeConverter
-                              : and then encoded with base64 encoding.
-                      -->
+                        Microsoft ResX Schema 
+                        
+                        Version 2.0
+                        
+                        The primary goals of this format is to allow a simple XML format 
+                        that is mostly human readable. The generation and parsing of the 
+                        various data types are done through the TypeConverter classes 
+                        associated with the data types.
+                        
+                        Example:
+                        
+                        ... ado.net/XML headers & schema ...
+                        <resheader name="resmimetype">text/microsoft-resx</resheader>
+                        <resheader name="version">2.0</resheader>
+                        <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+                        <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+                        <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+                        <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+                        <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+                            <value>[base64 mime encoded serialized .NET Framework object]</value>
+                        </data>
+                        <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+                            <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+                            <comment>This is a comment</comment>
+                        </data>
+                        
+                        There are any number of "resheader" rows that contain simple 
+                        name/value pairs.
+                        
+                        Each data row contains a name, and value. The row also contains a 
+                        type or mimetype. Type corresponds to a .NET class that support 
+                        text/value conversion through the TypeConverter architecture. 
+                        Classes that don't support this are serialized and stored with the 
+                        mimetype set.
+                        
+                        The mimetype is used for serialized objects, and tells the 
+                        ResXResourceReader how to depersist the object. This is currently not 
+                        extensible. For a given mimetype the value must be set accordingly:
+                        
+                        Note - application/x-microsoft.net.object.binary.base64 is the format 
+                        that the ResXResourceWriter will generate, however the reader can 
+                        read any of the formats listed below.
+                        
+                        mimetype: application/x-microsoft.net.object.binary.base64
+                        value   : The object must be serialized with 
+                                : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+                                : and then encoded with base64 encoding.
+                        
+                        mimetype: application/x-microsoft.net.object.soap.base64
+                        value   : The object must be serialized with 
+                                : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+                                : and then encoded with base64 encoding.
+                        
+                        mimetype: application/x-microsoft.net.object.bytearray.base64
+                        value   : The object must be serialized into a byte array 
+                                : using a System.ComponentModel.TypeConverter
+                                : and then encoded with base64 encoding.
+                        -->
   <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -555,10 +601,10 @@
 eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="AlliedSocietiesTab_HideBeastTribeCurrenciesMessages" xml:space="preserve">
-    <value>Hide allied society currencies</value>
+    <value>Show allied society currencies</value>
   </data>
   <data name="AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
-    <value>Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward.</value>
+    <value>Checked = show allied society currency obtain messages (Pelu Pelplume, Mamool Ja Nanook, Yok Huy Ward, etc.) — you can still hide individual currencies below. Unchecked = hide them all, including any allied societies added in future patches.</value>
   </data>
   <data name="AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker" xml:space="preserve">
     <value>Checked = hide obtain messages for this allied society currency.</value>
@@ -822,8 +868,14 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_ToolsTabHeader" xml:space="preserve">
     <value>Tools</value>
   </data>
+  <data name="CosmicExplorationTab_BaseCampDropdownHeader" xml:space="preserve">
+    <value>Base camp &amp; rewards</value>
+  </data>
   <data name="CosmicExplorationTab_FilteringNote" xml:space="preserve">
     <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic lines further.</value>
+  </data>
+  <data name="CosmicExplorationTab_StellarMissionsDropdownHeader" xml:space="preserve">
+    <value>Stellar missions</value>
   </data>
   <data name="CraftingTab_CraftingDropdownHeader" xml:space="preserve">
     <value>Crafting</value>
@@ -872,6 +924,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="CurrenciesTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
     <value>Common currencies</value>
+  </data>
+  <data name="CurrenciesTab_CraftingMaterialsDropdownHeader" xml:space="preserve">
+    <value>Crafting materials</value>
   </data>
   <data name="CurrenciesTab_FilteringNote" xml:space="preserve">
     <value>Most options use Filter Obtained on General. Gil receive lines also need Filter System. Tomestone weekly cap (Error channel) hides independently when checked. Options labeled Hide … hide those lines when checked; Show … allow when checked. Per-tomestone toggles hide individual tomestones. Tools → Custom Filters can Block or Allow specific obtain text.</value>
@@ -937,7 +992,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Other obtain</value>
   </data>
   <data name="CurrenciesTab_ShowGeneralItemObtains" xml:space="preserve">
-    <value>Show General item obtains</value>
+    <value>Show general item obtains</value>
   </data>
   <data name="CurrenciesTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
     <value>LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on LootNotice (1606, 1607, 750, 751, 3208) and System (720, 743, 3617, 3208) channels (excluding currency-specific filters below).</value>
@@ -1200,10 +1255,10 @@ System channel. Independent of “Show market board sales” and its nested sale
     <value>Player trade</value>
   </data>
   <data name="EconomyTab_VendorSectionHeader" xml:space="preserve">
-    <value>Vendor &amp; retainer (NPC)</value>
+    <value>Vendor</value>
   </data>
   <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
-    <value>Filter Custom Emote Channel</value>
+    <value>Filter custom emote channel</value>
   </data>
   <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
     <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
@@ -1218,14 +1273,14 @@ System channel. Independent of “Show market board sales” and its nested sale
     <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
   </data>
   <data name="EmotesTab_ShowOtherCustomEmotes" xml:space="preserve">
-    <value>Show Other players' custom emotes</value>
+    <value>Show other players' custom emotes</value>
   </data>
   <data name="EmotesTab_ShowOtherCustomEmotesHelpMarker" xml:space="preserve">
     <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
 eg. Another Player leans over and gives you a big bear hug.</value>
   </data>
   <data name="EmotesTab_ShowSelfCustomEmotes" xml:space="preserve">
-    <value>Show Your own custom emotes</value>
+    <value>Show your own custom emotes</value>
   </data>
   <data name="EmotesTab_ShowSelfCustomEmotesHelpMarker" xml:space="preserve">
     <value>When emote filtering is enabled, keep messages for emotes you use yourself.
@@ -1239,6 +1294,9 @@ eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="FishingTab_FilteringNote" xml:space="preserve">
     <value>Fishing lines need Filter Gathering channels on General.</value>
+  </data>
+  <data name="FreeCompanyTab_AirshipsDropdownHeader" xml:space="preserve">
+    <value>Airships</value>
   </data>
   <data name="FreeCompanyTab_FilteringNote" xml:space="preserve">
     <value>Workshop and message-book lines use Filter System on General. FC login/logout uses the FC login/logout channel (no extra General toggle).</value>
@@ -1324,6 +1382,9 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="FreeCompanyTab_SocialDropdownHeader" xml:space="preserve">
     <value>Login &amp; logout</value>
   </data>
+  <data name="FreeCompanyTab_SubmarinesDropdownHeader" xml:space="preserve">
+    <value>Submarines</value>
+  </data>
   <data name="FreeCompanyTab_WorkshopDropdownHeader" xml:space="preserve">
     <value>Airship &amp; submarine</value>
   </data>
@@ -1370,7 +1431,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>LogMessages 3537, 1099 (Gathering) — location lines that change gathering yield. Checked = hide.</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
-    <value>Show collectable reduction minigame messages (integrity, woodsman actions, etc.)</value>
+    <value>Show collectables appraisal messages (Integrity, Woodsman, etc.)</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3549, 3563, 3569, 5514, 5516, 5550, 5573, 5574 — eg. integrity lines, double bonus, and woodsman actions.</value>
@@ -1560,7 +1621,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Automatically copy improved /say message to clipboard</value>
   </data>
   <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-    <value>Requires Improved /Say message for quests to be enabled</value>
+    <value>Requires Improved /say messages for quests to be enabled</value>
   </data>
   <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
     <value>Display</value>
@@ -1681,10 +1742,10 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
   </data>
   <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
-    <value>Improved /Say message for quests</value>
+    <value>Improved /say messages for quests</value>
   </data>
   <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-    <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
+    <value>When a quest requires you to /say something in chat, change the message into one that can be copy and pasted easily</value>
   </data>
   <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
     <value>Improved Treasure Dungeon Messages</value>
@@ -1847,10 +1908,10 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Party invites and tools use Filter System on General. Loot rolls use Filter Loot Roll; other-player obtains use Filter Obtained. Checked = show; unchecked = hide. Tools → Custom Filters can refine matching lines.</value>
   </data>
   <data name="PartyTab_HideAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
+    <value>Show other players' item obtains</value>
   </data>
   <data name="PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-    <value>Hides loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General. Checked = hide.</value>
+    <value>Checked = show loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). Unchecked = hide them. LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General.</value>
   </data>
   <data name="PartyTab_LootingAndRollingDropdownHeader" xml:space="preserve">
     <value>Loot rolls</value>
@@ -1885,7 +1946,7 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
     <value>LogMessages 5255, 5256, 5260, 5264 — eg. Battle commencing in 18 seconds!</value>
   </data>
   <data name="PartyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-    <value>Show Disband &amp; dissolve</value>
+    <value>Show party disband and dissolve messages</value>
   </data>
   <data name="PartyTab_ShowDisbandAndDissolveMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 72, 73, 7447 — eg. The party is dissolved.</value>
@@ -1909,7 +1970,7 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
     <value>LogMessages 4, 69 — eg. Raven Reaver leaves the party.</value>
   </data>
   <data name="PartyTab_ShowNowALeader" xml:space="preserve">
-    <value>Show Leader promoted or demoted</value>
+    <value>Show leader promoted or demoted</value>
   </data>
   <data name="PartyTab_ShowNowALeaderHelpMarker" xml:space="preserve">
     <value>LogMessages 15–9298 (12 IDs) — These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
@@ -1927,7 +1988,7 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
     <value>Shows when other players cast lot or roll on loot.</value>
   </data>
   <data name="PartyTab_ShowPartyObjectiveOnJoin" xml:space="preserve">
-    <value>Show Party objective &amp; comment on join</value>
+    <value>Show party objective and comment on join</value>
   </data>
   <data name="PartyTab_ShowPartyObjectiveOnJoinHelpMarker" xml:space="preserve">
     <value>Companion to Show joined cross-world party messages. Temporarily bypasses Filter System so the join line can include the party objective and comment.</value>
@@ -1957,7 +2018,7 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
     <value>LogMessage 1 — eg. You invite Raven Reaver to a party.</value>
   </data>
   <data name="PartyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-    <value>Show Teleport offers from party</value>
+    <value>Show teleport offers from party</value>
   </data>
   <data name="PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 440 — eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver.</value>
@@ -1996,6 +2057,9 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
     <value>Quests &amp; achievements</value>
   </data>
+  <data name="ProgressTab_RelicsDropdownHeader" xml:space="preserve">
+    <value>Relics</value>
+  </data>
   <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
     <value>Show your earned achievements</value>
   </data>
@@ -2027,7 +2091,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>LogMessages 590, 591 — eg. You attain level 90! / Raven attains astrologian level 69!</value>
   </data>
   <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
-    <value>Show mount unlock messages</value>
+    <value>Show mount messages (unlocks, mount up, flying speed)</value>
   </data>
   <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 646 (Action), 1306 (System) — eg. You have unlocked the ability to summon this mount / flying speed increased.</value>
@@ -2094,6 +2158,9 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="Shared_FilterObtainedDisabledWarning" xml:space="preserve">
     <value>Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat.</value>
+  </data>
+  <data name="Shared_HideNamedItemFormat" xml:space="preserve">
+    <value>Hide {0}</value>
   </data>
   <data name="Shared_RequiresCraftingFilteringNote" xml:space="preserve">
     <value>Requires Filter Crafting Channels on the General tab. Checked = show; unchecked = hide.</value>
@@ -2245,7 +2312,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>LogMessage 4402 — eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
   </data>
   <data name="SystemTab_ShowAttuneAetheryteMessage" xml:space="preserve">
-    <value>Show attune to aetheryte</value>
+    <value>Show aetheryte attunement messages</value>
   </data>
   <data name="SystemTab_ShowAttuneAetheryteMessageHelpMarker" xml:space="preserve">
     <value>LogMessage 1341 — attune confirmation, separate from ticket ready (503) and used (535).</value>
