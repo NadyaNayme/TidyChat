@@ -148,44 +148,38 @@ internal static class GeneralTab
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedPlayerCommendationsHelpMarker);
 
-        var includeDutyNameInComms = configuration.IncludeDutyNameInComms;
-        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
+        SettingsTabLayout.DrawNestedOptions(configuration.BetterCommendationMessage, () =>
         {
-            configuration.IncludeDutyNameInComms = includeDutyNameInComms;
-            if (!configuration.BetterCommendationMessage && configuration.IncludeDutyNameInComms)
+            var includeDutyNameInComms = configuration.IncludeDutyNameInComms;
+            if (ImGui.Checkbox(Languages.GeneralTab_ImprovedCommendationsDutyName, ref includeDutyNameInComms))
             {
-                configuration.BetterCommendationMessage = true;
+                configuration.IncludeDutyNameInComms = includeDutyNameInComms;
+                configuration.OnSettingChanged();
             }
-            configuration.OnSettingChanged();
-        }
 
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedCommendationsDutyNameHelpMarker);
+        });
 
         var betterSayReminder = configuration.BetterSayReminder;
         if (ImGui.Checkbox(Languages.GeneralTab_ImprovedSayMessages, ref betterSayReminder))
         {
             configuration.BetterSayReminder = betterSayReminder;
-            if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
-            {
-                configuration.CopyBetterSayReminder = false;
-            }
             configuration.OnSettingChanged();
         }
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedSayMessagesHelpMarker);
 
-        var copyBetterSayReminder = configuration.CopyBetterSayReminder;
-        if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
+        SettingsTabLayout.DrawNestedOptions(configuration.BetterSayReminder, () =>
         {
-            configuration.CopyBetterSayReminder = copyBetterSayReminder;
-            if (!configuration.BetterSayReminder && configuration.CopyBetterSayReminder)
+            var copyBetterSayReminder = configuration.CopyBetterSayReminder;
+            if (ImGui.Checkbox(Languages.GeneralTab_CopySayMessage, ref copyBetterSayReminder))
             {
-                configuration.BetterSayReminder = true;
+                configuration.CopyBetterSayReminder = copyBetterSayReminder;
+                configuration.OnSettingChanged();
             }
-            configuration.OnSettingChanged();
-        }
 
-        ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_CopySayMessageHelpMarker);
+        });
 
         var betterNoviceNetworkMessage = configuration.BetterNoviceNetworkMessage;
         if (ImGui.Checkbox(Languages.GeneralTab_ImprovedNoviceNetworkMessages, ref betterNoviceNetworkMessage))

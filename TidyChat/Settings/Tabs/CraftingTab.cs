@@ -67,7 +67,7 @@ internal static class CraftingTab
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.GatheringFilterMarker(Languages.CraftingTab_ShowCraftingAbleToExecuteHelpMarker);
+            UiHelp.CraftingFilterMarker(Languages.CraftingTab_ShowCraftingAbleToExecuteHelpMarker);
         });
     }
 }

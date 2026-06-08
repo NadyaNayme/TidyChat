@@ -5,9 +5,7 @@ internal static class HousingTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.HousingTab_FilteringNote);
-
-        SettingsTabLayout.DrawSections(true,
-            (Languages.SystemTab_WorldAndInstancesDropdownHeader, () => DrawHousingOptions(configuration)));
+        DrawHousingOptions(configuration);
     }
 
     private static void DrawHousingOptions(Configuration configuration)

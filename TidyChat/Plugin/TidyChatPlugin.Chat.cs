@@ -1,4 +1,5 @@
 using Lumina.Text.ReadOnly;
+using System.Threading;
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
@@ -35,6 +36,11 @@ public sealed partial class TidyChatPlugin
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
             {
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
+            }
+            else
+            {
+                Interlocked.Increment(ref _sessionBlockedMessages);
+                message.PreventOriginal();
             }
             return;
         }

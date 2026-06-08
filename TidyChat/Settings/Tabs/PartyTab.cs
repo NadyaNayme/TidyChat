@@ -10,49 +10,12 @@ internal static class PartyTab
         SettingsTabLayout.DrawSections(true,
             (Languages.PartyTab_PartyAndInviteDropdownHeader, () => DrawPartyAndInvite(configuration)),
             (Languages.PartyTab_PartyToolsDropdownHeader, () => DrawPartyTools(configuration)),
-            (Languages.PartyTab_PartyLeadershipDropdownHeader, () => DrawPartyLeadership(configuration)),
             (Languages.PartyTab_LootingAndRollingDropdownHeader, () => DrawLootingAndRolling(configuration)));
     }
 
     private static void DrawPartyAndInvite(Configuration configuration)
     {
-        var showInviteSent = configuration.ShowInviteSent;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowSentPartyInviteMessages, ref showInviteSent))
-        {
-            configuration.ShowInviteSent = showInviteSent;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowSentPartyInviteMessagesHelpMarker);
-
-        var showInviteeJoins = configuration.ShowInviteeJoins;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowJoiningPartyMessages, ref showInviteeJoins))
-        {
-            configuration.ShowInviteeJoins = showInviteeJoins;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowJoiningPartyMessagesHelpMarker);
-
-        var showLeftParty = configuration.ShowLeftParty;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowLeftPartyMessages, ref showLeftParty))
-        {
-            configuration.ShowLeftParty = showLeftParty;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowLeftPartyMessagesHelpMarker);
-
-        var showPartyDisband = configuration.ShowPartyDisband;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowDisbandAndDissolveMessages, ref showPartyDisband))
-        {
-            configuration.ShowPartyDisband = showPartyDisband;
-            configuration.ShowPartyDissolved = showPartyDisband;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowDisbandAndDissolveMessagesHelpMarker);
-
+        // Joining a party
         var showInvitedBy = configuration.ShowInvitedBy;
         if (ImGui.Checkbox(Languages.PartyTab_ShowReceivedPartyInvitationMessages, ref showInvitedBy))
         {
@@ -80,6 +43,26 @@ internal static class PartyTab
 
         ImGuiComponents.HelpMarker(Languages.PartyTab_ShowPartyObjectiveOnJoinHelpMarker);
 
+        // Inviting others
+        var showInviteSent = configuration.ShowInviteSent;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowSentPartyInviteMessages, ref showInviteSent))
+        {
+            configuration.ShowInviteSent = showInviteSent;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowSentPartyInviteMessagesHelpMarker);
+
+        var showInviteeJoins = configuration.ShowInviteeJoins;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowJoiningPartyMessages, ref showInviteeJoins))
+        {
+            configuration.ShowInviteeJoins = showInviteeJoins;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowJoiningPartyMessagesHelpMarker);
+
+        // Mid-party events
         var showOfferedTeleport = configuration.ShowOfferedTeleport;
         if (ImGui.Checkbox(Languages.PartyTab_ShowTeleportOfferFromPartyMessages, ref showOfferedTeleport))
         {
@@ -88,6 +71,25 @@ internal static class PartyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker);
+
+        var showLeftParty = configuration.ShowLeftParty;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowLeftPartyMessages, ref showLeftParty))
+        {
+            configuration.ShowLeftParty = showLeftParty;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowLeftPartyMessagesHelpMarker);
+
+        var showPartyDisband = configuration.ShowPartyDisband;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowDisbandAndDissolveMessages, ref showPartyDisband))
+        {
+            configuration.ShowPartyDisband = showPartyDisband;
+            configuration.ShowPartyDissolved = showPartyDisband;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowDisbandAndDissolveMessagesHelpMarker);
     }
 
     private static void DrawPartyTools(Configuration configuration)
@@ -109,10 +111,7 @@ internal static class PartyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.PartyTab_ShowReadycheckMessagesHelpMarker);
-    }
 
-    private static void DrawPartyLeadership(Configuration configuration)
-    {
         var showNowLeaderOf = configuration.ShowNowLeaderOf;
         if (ImGui.Checkbox(Languages.PartyTab_ShowNowALeader, ref showNowLeaderOf))
         {
@@ -121,15 +120,6 @@ internal static class PartyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.PartyTab_ShowNowALeaderHelpMarker);
-
-        var showSealedOff = configuration.ShowSealedOff;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowSealedOffMessages, ref showSealedOff))
-        {
-            configuration.ShowSealedOff = showSealedOff;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowSealedOffMessagesHelpMarker);
     }
 
     private static void DrawLootingAndRolling(Configuration configuration)
@@ -184,14 +174,14 @@ internal static class PartyTab
 
         SettingsTabLayout.DrawIndependentOptions(() =>
         {
-            var hideOthersObtain = configuration.HideOthersObtain;
-            if (ImGui.Checkbox(Languages.PartyTab_HideAnotherPlayerObtainsItemMessages, ref hideOthersObtain))
+            var showOthersObtain = !configuration.HideOthersObtain;
+            if (ImGui.Checkbox(Languages.PartyTab_HideAnotherPlayerObtainsItemMessages, ref showOthersObtain))
             {
-                configuration.HideOthersObtain = hideOthersObtain;
+                configuration.HideOthersObtain = !showOthersObtain;
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.LootAndObtainedHideFilterMarker(Languages.PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker);
+            UiHelp.LootFilterMarker(Languages.PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker);
         });
     }
 }

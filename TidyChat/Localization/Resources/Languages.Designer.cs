@@ -115,7 +115,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide allied society currencies.
+        ///   Looks up a localized string similar to Show allied society currencies.
         /// </summary>
         internal static string AlliedSocietiesTab_HideBeastTribeCurrenciesMessages {
             get {
@@ -124,7 +124,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward..
+        ///   Looks up a localized string similar to Checked = show allied society currency obtain messages (Pelu Pelplume, Mamool Ja Nanook, Yok Huy Ward, etc.) — you can still hide individual currencies below. Unchecked = hide them all, including any allied societies added in future patches..
         /// </summary>
         internal static string AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker {
             get {
@@ -917,11 +917,29 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Base camp &amp; rewards.
+        /// </summary>
+        internal static string CosmicExplorationTab_BaseCampDropdownHeader {
+            get {
+                return ResourceManager.GetString("CosmicExplorationTab_BaseCampDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic lines further..
         /// </summary>
         internal static string CosmicExplorationTab_FilteringNote {
             get {
                 return ResourceManager.GetString("CosmicExplorationTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stellar missions.
+        /// </summary>
+        internal static string CosmicExplorationTab_StellarMissionsDropdownHeader {
+            get {
+                return ResourceManager.GetString("CosmicExplorationTab_StellarMissionsDropdownHeader", resourceCulture);
             }
         }
         
@@ -1066,6 +1084,15 @@ namespace TidyChat.Localization.Resources {
         internal static string CurrenciesTab_CommonCurrenciesDropdownHeader {
             get {
                 return ResourceManager.GetString("CurrenciesTab_CommonCurrenciesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crafting materials.
+        /// </summary>
+        internal static string CurrenciesTab_CraftingMaterialsDropdownHeader {
+            get {
+                return ResourceManager.GetString("CurrenciesTab_CraftingMaterialsDropdownHeader", resourceCulture);
             }
         }
         
@@ -1259,7 +1286,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show General item obtains.
+        ///   Looks up a localized string similar to Show general item obtains.
         /// </summary>
         internal static string CurrenciesTab_ShowGeneralItemObtains {
             get {
@@ -2032,7 +2059,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vendor &amp; retainer (NPC).
+        ///   Looks up a localized string similar to Vendor.
         /// </summary>
         internal static string EconomyTab_VendorSectionHeader {
             get {
@@ -2041,7 +2068,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Filter Custom Emote Channel.
+        ///   Looks up a localized string similar to Filter custom emote channel.
         /// </summary>
         internal static string EmotesTab_FilterCustomEmoteChannel {
             get {
@@ -2086,7 +2113,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Other players&apos; custom emotes.
+        ///   Looks up a localized string similar to Show other players&apos; custom emotes.
         /// </summary>
         internal static string EmotesTab_ShowOtherCustomEmotes {
             get {
@@ -2105,7 +2132,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Your own custom emotes.
+        ///   Looks up a localized string similar to Show your own custom emotes.
         /// </summary>
         internal static string EmotesTab_ShowSelfCustomEmotes {
             get {
@@ -2147,6 +2174,15 @@ namespace TidyChat.Localization.Resources {
         internal static string FishingTab_FilteringNote {
             get {
                 return ResourceManager.GetString("FishingTab_FilteringNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Airships.
+        /// </summary>
+        internal static string FreeCompanyTab_AirshipsDropdownHeader {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_AirshipsDropdownHeader", resourceCulture);
             }
         }
         
@@ -2403,6 +2439,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Submarines.
+        /// </summary>
+        internal static string FreeCompanyTab_SubmarinesDropdownHeader {
+            get {
+                return ResourceManager.GetString("FreeCompanyTab_SubmarinesDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Airship &amp; submarine.
         /// </summary>
         internal static string FreeCompanyTab_WorkshopDropdownHeader {
@@ -2538,7 +2583,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show collectable reduction minigame messages (integrity, woodsman actions, etc.).
+        ///   Looks up a localized string similar to Show collectables appraisal messages (Integrity, Woodsman, etc.).
         /// </summary>
         internal static string GatheringTab_ShowAetherialReductionMinigameMessages {
             get {
@@ -3100,7 +3145,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Requires Improved /Say message for quests to be enabled.
+        ///   Looks up a localized string similar to Requires Improved /say messages for quests to be enabled.
         /// </summary>
         internal static string GeneralTab_CopySayMessageHelpMarker {
             get {
@@ -3455,7 +3500,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Improved /Say message for quests.
+        ///   Looks up a localized string similar to Improved /say messages for quests.
         /// </summary>
         internal static string GeneralTab_ImprovedSayMessages {
             get {
@@ -3464,7 +3509,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily.
+        ///   Looks up a localized string similar to When a quest requires you to /say something in chat, change the message into one that can be copy and pasted easily.
         /// </summary>
         internal static string GeneralTab_ImprovedSayMessagesHelpMarker {
             get {
@@ -3951,7 +3996,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hide &quot;Another Player obtains &lt;item&gt;&quot; messages.
+        ///   Looks up a localized string similar to Show other players&apos; item obtains.
         /// </summary>
         internal static string PartyTab_HideAnotherPlayerObtainsItemMessages {
             get {
@@ -3960,7 +4005,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hides loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General. Checked = hide..
+        ///   Looks up a localized string similar to Checked = show loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). Unchecked = hide them. LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General..
         /// </summary>
         internal static string PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker {
             get {
@@ -4061,7 +4106,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Disband &amp; dissolve.
+        ///   Looks up a localized string similar to Show party disband and dissolve messages.
         /// </summary>
         internal static string PartyTab_ShowDisbandAndDissolveMessages {
             get {
@@ -4133,7 +4178,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Leader promoted or demoted.
+        ///   Looks up a localized string similar to Show leader promoted or demoted.
         /// </summary>
         internal static string PartyTab_ShowNowALeader {
             get {
@@ -4187,7 +4232,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Party objective &amp; comment on join.
+        ///   Looks up a localized string similar to Show party objective and comment on join.
         /// </summary>
         internal static string PartyTab_ShowPartyObjectiveOnJoin {
             get {
@@ -4277,7 +4322,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show Teleport offers from party.
+        ///   Looks up a localized string similar to Show teleport offers from party.
         /// </summary>
         internal static string PartyTab_ShowTeleportOfferFromPartyMessages {
             get {
@@ -4395,6 +4440,15 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Relics.
+        /// </summary>
+        internal static string ProgressTab_RelicsDropdownHeader {
+            get {
+                return ResourceManager.GetString("ProgressTab_RelicsDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show your earned achievements.
         /// </summary>
         internal static string ProgressTab_ShowEarnedAchievementMessages {
@@ -4485,7 +4539,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show mount unlock messages.
+        ///   Looks up a localized string similar to Show mount messages (unlocks, mount up, flying speed).
         /// </summary>
         internal static string ProgressTab_ShowMountMessages {
             get {
@@ -4688,6 +4742,15 @@ namespace TidyChat.Localization.Resources {
         internal static string Shared_FilterObtainedDisabledWarning {
             get {
                 return ResourceManager.GetString("Shared_FilterObtainedDisabledWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide {0}.
+        /// </summary>
+        internal static string Shared_HideNamedItemFormat {
+            get {
+                return ResourceManager.GetString("Shared_HideNamedItemFormat", resourceCulture);
             }
         }
         
@@ -5113,7 +5176,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show attune to aetheryte.
+        ///   Looks up a localized string similar to Show aetheryte attunement messages.
         /// </summary>
         internal static string SystemTab_ShowAttuneAetheryteMessage {
             get {

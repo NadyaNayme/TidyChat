@@ -8,8 +8,7 @@ internal static class GatheringTab
 
         SettingsTabLayout.DrawSections(true,
             (Languages.GatheringTab_GatheringLocationsDropdownHeader, () => DrawGatheringLocations(configuration)),
-            (Languages.GatheringTab_AetherialReductionDropdownHeader, () => DrawAetherialReduction(configuration)),
-            (Languages.GatheringTab_ElementalShardsDropdownHeader, () => DrawElementalShards(configuration)));
+            (Languages.GatheringTab_AetherialReductionDropdownHeader, () => DrawAetherialReduction(configuration)));
     }
 
     private static void DrawGatheringLocations(Configuration configuration)
@@ -137,18 +136,5 @@ internal static class GatheringTab
         }
 
         UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker);
-    }
-
-    private static void DrawElementalShards(Configuration configuration)
-    {
-        var hideObtainedShards = configuration.HideObtainedShards;
-        if (ImGui.Checkbox(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessages,
-                ref hideObtainedShards))
-        {
-            configuration.HideObtainedShards = hideObtainedShards;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker);
     }
 }

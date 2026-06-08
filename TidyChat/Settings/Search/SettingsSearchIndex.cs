@@ -23,7 +23,9 @@ internal static class SettingsSearchIndex
     {
         "ShowGatheringYield",
         "ShowGatheringAttempts",
-        "ShowGatherersBoon"
+        "ShowGatherersBoon",
+        "HideObtainedTribalCurrency",
+        "HideOthersObtain"
     };
 
     private static readonly PropertyInfo[] LanguageProperties =
@@ -603,14 +605,9 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_PartyTabHeader;
         }
 
-        if (propertyName is "HideObtainedClusters")
+        if (propertyName is "HideObtainedClusters" or "HideObtainedShards")
         {
-            return Languages.ConfigWindow_SystemTabHeader;
-        }
-
-        if (propertyName is "HideObtainedShards")
-        {
-            return Languages.ConfigWindow_GatheringTabHeader;
+            return Languages.ConfigWindow_CurrenciesTabHeader;
         }
 
         if (propertyName is "HideObtainedMGP" or
@@ -766,16 +763,29 @@ internal static class SettingsSearchIndex
             "ShowGlamourPlateProjected" or
             "ShowGlamourPlatePartialApply" or
             "ShowGearDyeApplied" or
-            "ShowGearsetGlamourRestoreFailed" or
-            "ShowSpiritboundGear" or
-            "ShowPersonalEffectAcquired")
+            "ShowGearsetGlamourRestoreFailed")
         {
             return Languages.ConfigWindow_GlamourTabHeader;
         }
 
-        if (propertyName is "ShowGearsetEquipped" or "ShowGearItemsRepaired" or "ShowJobChange" or "ShowPortraitMessages")
+        if (propertyName is "ShowPersonalEffectAcquired" or "ShowRelicBookStep" or "ShowRelicBookComplete")
+        {
+            return Languages.ConfigWindow_ProgressTabHeader;
+        }
+
+        if (propertyName is "ShowGearsetEquipped" or "ShowJobChange" or "ShowPortraitMessages")
         {
             return Languages.ConfigWindow_GlamourTabHeader;
+        }
+
+        if (propertyName is "ShowSpiritboundGear")
+        {
+            return Languages.ConfigWindow_MateriaTabHeader;
+        }
+
+        if (propertyName is "ShowGearItemsRepaired")
+        {
+            return Languages.ConfigWindow_EconomyTabHeader;
         }
 
         if (propertyName is "ShowSanctuaryMessage" or "ShowHousingWardMessage")
@@ -835,12 +845,7 @@ internal static class SettingsSearchIndex
 
         if (propertyName is "ShowAttachToMail")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_MailDropdownHeader}";
-        }
-
-        if (propertyName is "ShowRelicBookStep" or "ShowRelicBookComplete")
-        {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_RelicDropdownHeader}";
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
         }
 
         if (propertyName is "ShowTradeSent" or
@@ -884,10 +889,14 @@ internal static class SettingsSearchIndex
             propertyName is "ShowOfferedTeleport" or
                 "ShowCountdownTime" or
                 "ShowReadyChecks" or
-                "ShowNowLeaderOf" or
-                "ShowSealedOff")
+                "ShowNowLeaderOf")
         {
             return Languages.ConfigWindow_PartyTabHeader;
+        }
+
+        if (propertyName is "ShowSealedOff")
+        {
+            return Languages.ConfigWindow_SystemTabHeader;
         }
 
         return null;

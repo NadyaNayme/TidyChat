@@ -10,7 +10,8 @@ internal static class FreeCompanyTab
         SettingsTabLayout.DrawSections(true,
             (Languages.FreeCompanyTab_SocialDropdownHeader, () => DrawSocial(configuration)),
             (Languages.FreeCompanyTab_MessageBookDropdownHeader, () => DrawMessageBook(configuration)),
-            (Languages.FreeCompanyTab_WorkshopDropdownHeader, () => DrawWorkshop(configuration)));
+            (Languages.FreeCompanyTab_AirshipsDropdownHeader, () => DrawAirships(configuration)),
+            (Languages.FreeCompanyTab_SubmarinesDropdownHeader, () => DrawSubmarines(configuration)));
     }
 
     private static void DrawSocial(Configuration configuration)
@@ -47,7 +48,7 @@ internal static class FreeCompanyTab
         UiHelp.SystemFilterMarker(Languages.FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker);
     }
 
-    private static void DrawWorkshop(Configuration configuration)
+    private static void DrawAirships(Configuration configuration)
     {
         var showExploratoryVoyage = configuration.ShowExploratoryVoyage;
         if (ImGui.Checkbox(Languages.FreeCompanyTab_ShowAirshipVoyageMessages, ref showExploratoryVoyage))
@@ -57,9 +58,10 @@ internal static class FreeCompanyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.FreeCompanyTab_ShowAirshipVoyageMessagesHelpMarker);
+    }
 
-        SettingsTabLayout.DrawSectionSeparator();
-
+    private static void DrawSubmarines(Configuration configuration)
+    {
         var showSubaquaticVoyage = configuration.ShowSubaquaticVoyage;
         if (ImGui.Checkbox(Languages.FreeCompanyTab_ShowSubmarineVoyageMessages, ref showSubaquaticVoyage))
         {

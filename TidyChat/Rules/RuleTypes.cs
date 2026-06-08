@@ -25,6 +25,12 @@ public class LocalizedFilterRule
 
     public bool PreferLogMessageCatalog { get; set; }
 
+    /// <summary>
+    ///     When blocking on the LogMessage path, hide in chat only — do not call
+    ///     <see cref="Dalamud.Game.Chat.ILogMessage.PreventOriginal" /> so other plugins can still observe the event.
+    /// </summary>
+    public bool SoftHideLogMessage { get; set; }
+
     public uint? ObtainMarkerItemId { get; set; }
 
     public bool ObtainMarkerAnySeal { get; set; }

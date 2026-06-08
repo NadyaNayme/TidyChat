@@ -11,7 +11,8 @@ internal static class ProgressTab
             (Languages.ProgressTab_ExperienceAndLevelsDropdownHeader, () => DrawExperienceAndLevels(configuration)),
             (Languages.ProgressTab_DutyRewardsDropdownHeader, () => DrawDutyRewards(configuration)),
             (Languages.ProgressTab_QuestAndAchievementsDropdownHeader, () => DrawQuestAndAchievements(configuration)),
-            (Languages.ProgressTab_UnlocksDropdownHeader, () => DrawUnlocks(configuration)));
+            (Languages.ProgressTab_UnlocksDropdownHeader, () => DrawUnlocks(configuration)),
+            (Languages.ProgressTab_RelicsDropdownHeader, () => DrawRelics(configuration)));
     }
 
     private static void DrawExperienceAndLevels(Configuration configuration)
@@ -170,5 +171,35 @@ internal static class ProgressTab
         }
 
         ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowMountMessagesHelpMarker);
+
+        var showPersonalEffectAcquired = configuration.ShowPersonalEffectAcquired;
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowPersonalEffectAcquired, ref showPersonalEffectAcquired))
+        {
+            configuration.ShowPersonalEffectAcquired = showPersonalEffectAcquired;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.ProgressFilterMarker(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker);
+    }
+
+    private static void DrawRelics(Configuration configuration)
+    {
+        var showRelicBookStep = configuration.ShowRelicBookStep;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
+        {
+            configuration.ShowRelicBookStep = showRelicBookStep;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicProgressMessagesHelpMarker);
+
+        var showRelicBookComplete = configuration.ShowRelicBookComplete;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
+        {
+            configuration.ShowRelicBookComplete = showRelicBookComplete;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicBookStepMessagesHelpMarker);
     }
 }

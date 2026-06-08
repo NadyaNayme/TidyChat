@@ -14,6 +14,8 @@ internal class PluginUI : Window, IDisposable
     private const float WindowChromePadding = 28f;
     private const float SidebarExtraPadding = 12f;
 
+    private const string WindowId = "TidyChat";
+
     private static readonly (Func<string> GetLabel, Action<Configuration> Draw)[] TabDefinitions =
     [
         (() => Languages.ConfigWindow_GeneralTabHeader, GeneralTab.Draw),
@@ -41,15 +43,13 @@ internal class PluginUI : Window, IDisposable
         (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw)
     ];
 
-    private const string WindowId = "TidyChat";
-
     private readonly Configuration configuration;
     private bool appliedDefaultWidth;
-    private bool drewTitleBarVersion;
     private string? cachedCultureName;
 
     private float cachedLayoutScale = -1f;
     private float? cachedMinWindowWidth;
+    private bool drewTitleBarVersion;
     private Action<Configuration> selectedTab = GeneralTab.Draw;
     private (string Label, Action<Configuration> Draw)[]? sortedTabs;
     private string? sortedTabsCulture;

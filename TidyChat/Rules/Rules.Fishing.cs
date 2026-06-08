@@ -72,7 +72,8 @@ public static partial class Rules
             LogMessageIds = [1110],
             StringChecks = [ChatStrings.CurrentFishingHole],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         },
         new()
         {

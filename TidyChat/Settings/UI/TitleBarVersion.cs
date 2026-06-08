@@ -1,7 +1,7 @@
 using System.Numerics;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-
 namespace TidyChat.Settings.UI;
 
 internal static unsafe partial class TitleBarVersion
@@ -78,7 +78,7 @@ internal static unsafe partial class TitleBarVersion
             ImGui.GetFont(),
             ImGui.GetFontSize(),
             position,
-            ImGui.ColorConvertFloat4ToU32(new Vector4(0.75f, 0.75f, 0.75f, 1f)),
+            ImGui.ColorConvertFloat4ToU32(new(0.75f, 0.75f, 0.75f, 1f)),
             text);
     }
 
@@ -157,7 +157,7 @@ internal static unsafe partial class TitleBarVersion
     }
 
     [LibraryImport("cimgui")]
-    [UnmanagedCallConv(CallConvs = [typeof(System.Runtime.CompilerServices.CallConvCdecl)])]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint igFindWindowByName(byte* name);
 
     private static string GetVersionLabel()

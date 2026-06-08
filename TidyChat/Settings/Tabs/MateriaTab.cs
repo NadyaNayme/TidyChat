@@ -1,4 +1,4 @@
-﻿namespace TidyChat.Settings.Tabs;
+namespace TidyChat.Settings.Tabs;
 
 internal static class MateriaTab
 {
@@ -12,6 +12,24 @@ internal static class MateriaTab
 
     private static void DrawMateriaOptions(Configuration configuration)
     {
+        var showSpiritboundGear = configuration.ShowSpiritboundGear;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
+        {
+            configuration.ShowSpiritboundGear = showSpiritboundGear;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSpiritboundMessagesHelpMarker);
+
+        var showMateriaExtract = configuration.ShowMateriaExtract;
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaExtractedMessages, ref showMateriaExtract))
+        {
+            configuration.ShowMateriaExtract = showMateriaExtract;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowMateriaExtractedMessagesHelpMarker);
+
         var showAttachedMateria = configuration.ShowAttachedMateria;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaSuccesfullyAttachedMessages,
                 ref showAttachedMateria))
@@ -40,7 +58,7 @@ internal static class MateriaTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker);
+        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker);
 
         var showMateriaShatters = configuration.ShowMateriaShatters;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaShattersMessages, ref showMateriaShatters))
@@ -49,15 +67,6 @@ internal static class MateriaTab
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.MateriaTab_ShowMateriaShattersMessagesHelpMarker);
-
-        var showMateriaExtract = configuration.ShowMateriaExtract;
-        if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaExtractedMessages, ref showMateriaExtract))
-        {
-            configuration.ShowMateriaExtract = showMateriaExtract;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowMateriaExtractedMessagesHelpMarker);
+        UiHelp.CraftingFilterMarker(Languages.MateriaTab_ShowMateriaShattersMessagesHelpMarker);
     }
 }

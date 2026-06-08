@@ -25,14 +25,14 @@ internal static class AlliedSocietiesTab
 
         UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_HideBeastTribeCraftingMaterialsMessagesHelpMarker);
 
-        var hideObtainedTribalCurrency = configuration.HideObtainedTribalCurrency;
-        if (ImGui.Checkbox(Languages.AlliedSocietiesTab_HideBeastTribeCurrenciesMessages, ref hideObtainedTribalCurrency))
+        var showAlliedSocietyCurrencies = !configuration.HideObtainedTribalCurrency;
+        if (ImGui.Checkbox(Languages.AlliedSocietiesTab_HideBeastTribeCurrenciesMessages, ref showAlliedSocietyCurrencies))
         {
-            configuration.HideObtainedTribalCurrency = hideObtainedTribalCurrency;
+            configuration.HideObtainedTribalCurrency = !showAlliedSocietyCurrencies;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.ObtainedHideFilterMarker(Languages.AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker);
+        UiHelp.ObtainedFilterMarker(Languages.AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker);
 
         if (TidyChatPlugin.TribalCurrencies.Count == 0)
         {
@@ -40,12 +40,12 @@ internal static class AlliedSocietiesTab
         }
         else
         {
-            SettingsTabLayout.DrawNestedOptions(!hideObtainedTribalCurrency, () =>
+            SettingsTabLayout.DrawNestedOptions(showAlliedSocietyCurrencies, () =>
             {
                 foreach (var currency in TidyChatPlugin.TribalCurrencies)
                 {
                     configuration.HideTribalCurrencyById.TryGetValue(currency.RowId, out var hide);
-                    if (ImGui.Checkbox($"Hide {currency.Name}", ref hide))
+                    if (ImGui.Checkbox(string.Format(CultureInfo.CurrentCulture, Languages.Shared_HideNamedItemFormat, currency.Name), ref hide))
                     {
                         configuration.HideTribalCurrencyById[currency.RowId] = hide;
                         configuration.OnSettingChanged();

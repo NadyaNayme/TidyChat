@@ -1,4 +1,4 @@
-﻿namespace TidyChat.Settings.Tabs;
+namespace TidyChat.Settings.Tabs;
 
 internal static class GoldSaucerTab
 {
@@ -6,6 +6,14 @@ internal static class GoldSaucerTab
     {
         SettingsTabLayout.DrawTabNote(Languages.GoldSaucerTab_FilteringNote);
 
+        SettingsTabLayout.DrawSections(true,
+            (Languages.GoldSaucerTab_MgpDropdownHeader, () => DrawMgp(configuration)),
+            (Languages.GoldSaucerTab_TripleTriadDropdownHeader, () => DrawTripleTriad(configuration)),
+            (Languages.GoldSaucerTab_MinigamesDropdownHeader, () => DrawMinigames(configuration)));
+    }
+
+    private static void DrawMgp(Configuration configuration)
+    {
         var hideObtainedMgp = configuration.HideObtainedMGP;
         if (ImGui.Checkbox(Languages.GoldSaucerTab_HideMGPMessages, ref hideObtainedMgp))
         {
@@ -14,16 +22,10 @@ internal static class GoldSaucerTab
         }
 
         UiHelp.ObtainedAndSystemHideFilterMarker(Languages.GoldSaucerTab_HideMGPMessagesHelpMarker);
+    }
 
-        var showGoldSaucerSwingMinigames = configuration.ShowGoldSaucerSwingMinigames;
-        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowSwingMinigames, ref showGoldSaucerSwingMinigames))
-        {
-            configuration.ShowGoldSaucerSwingMinigames = showGoldSaucerSwingMinigames;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowSwingMinigamesHelpMarker);
-
+    private static void DrawTripleTriad(Configuration configuration)
+    {
         var showTripleTriadAllowed = configuration.ShowTripleTriadAllowed;
         if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowTripleTriadAllowed, ref showTripleTriadAllowed))
         {
@@ -41,5 +43,17 @@ internal static class GoldSaucerTab
         }
 
         UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker);
+    }
+
+    private static void DrawMinigames(Configuration configuration)
+    {
+        var showGoldSaucerSwingMinigames = configuration.ShowGoldSaucerSwingMinigames;
+        if (ImGui.Checkbox(Languages.GoldSaucerTab_ShowSwingMinigames, ref showGoldSaucerSwingMinigames))
+        {
+            configuration.ShowGoldSaucerSwingMinigames = showGoldSaucerSwingMinigames;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.GoldSaucerTab_ShowSwingMinigamesHelpMarker);
     }
 }

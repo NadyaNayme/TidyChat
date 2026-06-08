@@ -127,7 +127,13 @@ public sealed partial class TidyChatPlugin
 
         if (!TryGetNormalizedLogMessageText(message, out var normalizedLogText))
         {
-            if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
+            if (TryResolveLogMessageAllow(message.LogMessageId, string.Empty, matchingRules,
+                    out var idOnlyShouldAllow, out var idOnlyRuleName, out var idOnlyMatchDetail) &&
+                !idOnlyShouldAllow)
+            {
+                ApplyLogMessageBlock(message, idOnlyRuleName, idOnlyMatchDetail);
+            }
+            else if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
             {
                 ApplyLogMessageBlock(message, "Show rule off (ID-only)");
             }
@@ -338,11 +344,39 @@ public sealed partial class TidyChatPlugin
         {
             EmitDedupedLogMessageDebug(
                 FormatLogMessageDecision("BLOCKED", decidingRuleName, message.LogMessageId, matchDetail));
+        }
+
+        if (RuleUsesSoftLogMessageHide(decidingRuleName))
+        {
+            return;
+        }
+
+        if (Configuration.EnableDebugMode)
+        {
             return;
         }
 
         message.PreventOriginal();
         Interlocked.Increment(ref _sessionBlockedMessages);
+    }
+
+    private static bool RuleUsesSoftLogMessageHide(string? decidingRuleName)
+    {
+        if (string.IsNullOrEmpty(decidingRuleName))
+        {
+            return false;
+        }
+
+        foreach (var rule in Rules.AllRules)
+        {
+            if (rule.SoftHideLogMessage &&
+                string.Equals(rule.Name, decidingRuleName, StringComparison.Ordinal))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private static bool HasDedicatedShowRuleForLogMessageId(uint logMessageId,

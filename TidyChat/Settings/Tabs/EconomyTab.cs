@@ -72,15 +72,6 @@ internal static class EconomyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowVendorPurchaseMessagesHelpMarker);
-
-        var showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
-        if (ImGui.Checkbox(Languages.EconomyTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
-        {
-            configuration.ShowGilWithdrawnMessage = showGilWithdrawnMessage;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
     }
 
     private static void DrawMarketBoard(Configuration configuration)
@@ -153,6 +144,15 @@ internal static class EconomyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker);
+
+        var showGilWithdrawnMessage = configuration.ShowGilWithdrawnMessage;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowGilWithdrawnMessage, ref showGilWithdrawnMessage))
+        {
+            configuration.ShowGilWithdrawnMessage = showGilWithdrawnMessage;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilWithdrawnMessageHelpMarker);
     }
 
     private static void DrawGil(Configuration configuration)
@@ -165,5 +165,14 @@ internal static class EconomyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
+
+        var showGearItemsRepaired = configuration.ShowGearItemsRepaired;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
+        {
+            configuration.ShowGearItemsRepaired = showGearItemsRepaired;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearItemsRepairedHelpMarker);
     }
 }

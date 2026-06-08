@@ -1,4 +1,4 @@
-﻿using Dalamud.Interface.Components;
+using Dalamud.Interface.Components;
 namespace TidyChat.Settings.Tabs;
 
 internal static class SystemTab
@@ -11,12 +11,8 @@ internal static class SystemTab
             (Languages.SystemTab_ServerAnnouncementsDropdownHeader, () => DrawServerAnnouncements(configuration)),
             (Languages.SystemTab_WorldAndInstancesDropdownHeader, () => DrawWorldAndInstances(configuration)),
             (Languages.SystemTab_SocialAndMiscDropdownHeader, () => DrawSocialAndMisc(configuration)),
-            (Languages.SystemTab_MailDropdownHeader, () => DrawMail(configuration)),
-            (Languages.SystemTab_RelicDropdownHeader, () => DrawRelic(configuration)),
             (Languages.SystemTab_SocialStatusDropdownHeader, () => DrawSocialStatus(configuration)),
             (Languages.SystemTab_CatchAllDropdownHeader, () => DrawCatchAll(configuration)),
-            (Languages.SystemTab_OrchestrionDropdownHeader, () => DrawOrchestrion(configuration)),
-            (Languages.SystemTab_CrackedClustersDropdownHeader, () => DrawCrackedClusters(configuration)),
             (Languages.SystemTab_ErrorMessagesDropdownHeader, () => DrawErrorMessages(configuration)));
     }
 
@@ -104,10 +100,7 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAttuneAetheryteMessageHelpMarker);
-    }
 
-    private static void DrawMail(Configuration configuration)
-    {
         var showAttachToMail = configuration.ShowAttachToMail;
         if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
         {
@@ -116,27 +109,15 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
-    }
 
-    private static void DrawRelic(Configuration configuration)
-    {
-        var showRelicBookStep = configuration.ShowRelicBookStep;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
+        var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
+        if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
         {
-            configuration.ShowRelicBookStep = showRelicBookStep;
+            configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicProgressMessagesHelpMarker);
-
-        var showRelicBookComplete = configuration.ShowRelicBookComplete;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
-        {
-            configuration.ShowRelicBookComplete = showRelicBookComplete;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicBookStepMessagesHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
     }
 
     private static void DrawSocialStatus(Configuration configuration)
@@ -194,30 +175,6 @@ internal static class SystemTab
 
         SettingsTabLayout.DrawNestedOptions(configuration.ShowEverythingElse,
             () => DrawMiscSystemSubOptions(configuration));
-    }
-
-    private static void DrawOrchestrion(Configuration configuration)
-    {
-        var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
-        if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
-        {
-            configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
-    }
-
-    private static void DrawCrackedClusters(Configuration configuration)
-    {
-        var hideObtainedClusters = configuration.HideObtainedClusters;
-        if (ImGui.Checkbox(Languages.SystemTab_HideCrackedClustersMessages, ref hideObtainedClusters))
-        {
-            configuration.HideObtainedClusters = hideObtainedClusters;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.ObtainedHideFilterMarker(Languages.SystemTab_HideCrackedClustersMessagesHelpMarker);
     }
 
     private static void DrawErrorMessages(Configuration configuration)
@@ -287,6 +244,15 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyMechanicMessagesHelpMarker);
+
+        var showSealedOff = configuration.ShowSealedOff;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowSealedOffMessages, ref showSealedOff))
+        {
+            configuration.ShowSealedOff = showSealedOff;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowSealedOffMessagesHelpMarker);
 
         var showDutyObjectiveBonus = configuration.ShowDutyObjectiveBonus;
         if (ImGui.Checkbox(Languages.SystemTab_ShowDutyObjectiveBonus, ref showDutyObjectiveBonus))

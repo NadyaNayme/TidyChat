@@ -49,71 +49,16 @@ internal static class GlamourTab
 
 
 
-        SettingsTabLayout.DrawIndependentOptions(() =>
-
-        {
-            var showSpiritboundGear = configuration.ShowSpiritboundGear;
-
-            if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
-
-            {
-                configuration.ShowSpiritboundGear = showSpiritboundGear;
-
-                configuration.OnSettingChanged();
-            }
-
-
-
-            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSpiritboundMessagesHelpMarker);
-
-            var showPersonalEffectAcquired = configuration.ShowPersonalEffectAcquired;
-
-            if (ImGui.Checkbox(Languages.GlamourTab_ShowPersonalEffectAcquired, ref showPersonalEffectAcquired))
-
-            {
-                configuration.ShowPersonalEffectAcquired = showPersonalEffectAcquired;
-
-                configuration.OnSettingChanged();
-            }
-
-
-
-            UiHelp.ProgressFilterMarker(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker);
-        });
-
-
+        SettingsTabLayout.DrawSectionSeparator();
 
         var showGearsetEquipped = configuration.ShowGearsetEquipped;
-
         if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
-
         {
             configuration.ShowGearsetEquipped = showGearsetEquipped;
-
             configuration.OnSettingChanged();
         }
-
-
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
-
-
-
-        var showGearItemsRepaired = configuration.ShowGearItemsRepaired;
-
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
-
-        {
-            configuration.ShowGearItemsRepaired = showGearItemsRepaired;
-
-            configuration.OnSettingChanged();
-        }
-
-
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearItemsRepairedHelpMarker);
-
-
 
         var showJobChange = configuration.ShowJobChange;
 
