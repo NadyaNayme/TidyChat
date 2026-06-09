@@ -158,26 +158,28 @@ internal class PluginUI : Window, IDisposable
         var sidebarWidth = GetSidebarWidth(tabs);
         var avail = ImGui.GetContentRegionAvail();
 
-        ImGui.BeginChild("##tidychatConfigSidebar", new(sidebarWidth, avail.Y), true);
-        ImGui.PushStyleVar(ImGuiStyleVar.ItemSpacing, new Vector2(0f, 2f));
-        for (var i = 0; i < tabs.Length; i++)
+        using (ImRaii.Child("##tidychatConfigSidebar", new(sidebarWidth, avail.Y), true))
         {
-            if (ImGui.Selectable(tabs[i].Label, selectedIndex == i, ImGuiSelectableFlags.None,
-                    new(sidebarWidth - ImGui.GetStyle().WindowPadding.X * 2f, 0f)))
+            using (ImRaii.PushStyle(ImGuiStyleVar.ItemSpacing, new Vector2(0f, 2f)))
             {
-                selectedTab = tabs[i].Draw;
+                for (var i = 0; i < tabs.Length; i++)
+                {
+                    if (ImGui.Selectable(tabs[i].Label, selectedIndex == i, ImGuiSelectableFlags.None,
+                            new(sidebarWidth - ImGui.GetStyle().WindowPadding.X * 2f, 0f)))
+                    {
+                        selectedTab = tabs[i].Draw;
+                    }
+                }
             }
         }
 
-        ImGui.PopStyleVar();
-        ImGui.EndChild();
-
         ImGui.SameLine(0f, ImGui.GetStyle().ItemInnerSpacing.X);
 
-        ImGui.BeginChild("##tidychatConfigContent", new(0f, avail.Y));
-        tabs[selectedIndex].Draw(configuration);
-        TabFooter.Display(configuration);
-        ImGui.EndChild();
+        using (ImRaii.Child("##tidychatConfigContent", new(0f, avail.Y)))
+        {
+            tabs[selectedIndex].Draw(configuration);
+            TabFooter.Display(configuration);
+        }
     }
 
     private (string Label, Action<Configuration> Draw)[] GetTabs()

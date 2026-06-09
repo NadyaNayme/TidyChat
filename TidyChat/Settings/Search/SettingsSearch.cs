@@ -34,17 +34,17 @@ internal static class SettingsSearch
         var buttonSize = ImGui.GetFrameHeight();
         ImGui.SameLine(0f, 0f);
         ImGui.SetCursorPosX(ImGui.GetCursorPosX() - buttonSize);
-        ImGui.PushID("settingsSearchClear");
-        if (ImGuiComponents.IconButton(FontAwesomeIcon.Times, new(buttonSize, buttonSize)))
+        using (ImRaii.PushId("settingsSearchClear"))
         {
-            s_clearNextFrame = true;
-        }
+            if (ImGuiComponents.IconButton(FontAwesomeIcon.Times, new(buttonSize, buttonSize)))
+            {
+                s_clearNextFrame = true;
+            }
 
-        if (ImGui.IsItemHovered())
-        {
-            ImGui.SetTooltip(Languages.ConfigWindow_SearchClear);
+            if (ImGui.IsItemHovered())
+            {
+                ImGui.SetTooltip(Languages.ConfigWindow_SearchClear);
+            }
         }
-
-        ImGui.PopID();
     }
 }

@@ -34,9 +34,10 @@ internal static class ChatHighlightsTab
         ImGui.Spacing();
 
         var outerHeight = new Vector2(640f, 400f);
-        if (!ImGui.BeginTable("##chatHighlightsTable", 4,
-                ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
-                ImGuiTableFlags.RowBg, outerHeight))
+        using var highlightsTable = ImRaii.Table("##chatHighlightsTable", 4,
+            ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
+            ImGuiTableFlags.RowBg, outerHeight);
+        if (!highlightsTable)
         {
             return;
         }
@@ -92,17 +93,16 @@ internal static class ChatHighlightsTab
 
             ImGui.TableNextColumn();
             ImGui.Spacing();
-            ImGui.PushID($"DeleteHighlight{i}");
-            if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+            using (ImRaii.PushId($"DeleteHighlight{i}"))
             {
-                configuration.ChatHighlights.Remove(list[i]);
-                configuration.OnSettingChanged();
+                if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+                {
+                    configuration.ChatHighlights.Remove(list[i]);
+                    configuration.OnSettingChanged();
+                }
             }
-
-            ImGui.PopID();
         }
 
-        ImGui.EndTable();
         ImGui.NewLine();
         ImGui.TextWrapped(Languages.ChatHighlightsTab_RegexExplanation);
     }

@@ -14,9 +14,11 @@ internal static class SettingsTabLayout
 
     public static void DrawMasterChannelDisabledWarning(string warning)
     {
-        ImGui.PushStyleColor(ImGuiCol.Text, new Vector4(1f, 0.78f, 0.25f, 1f));
-        ImGui.TextWrapped(warning);
-        ImGui.PopStyleColor();
+        using (ImRaii.PushColor(ImGuiCol.Text, new Vector4(1f, 0.78f, 0.25f, 1f)))
+        {
+            ImGui.TextWrapped(warning);
+        }
+
         ImGui.Spacing();
     }
 

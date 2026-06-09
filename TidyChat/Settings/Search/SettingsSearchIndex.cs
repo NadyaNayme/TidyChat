@@ -60,7 +60,8 @@ internal static class SettingsSearchIndex
             matches.Count.ToString(CultureInfo.CurrentCulture)));
         ImGui.Spacing();
 
-        if (!ImGui.BeginChild("##settingsSearchResults", new(0, 0)))
+        using var resultsChild = ImRaii.Child("##settingsSearchResults", new(0, 0));
+        if (!resultsChild)
         {
             return;
         }
@@ -70,63 +71,63 @@ internal static class SettingsSearchIndex
         {
             DrawEntry(configuration, entry);
         }
-
-        ImGui.EndChild();
     }
 
     private static void DrawEntry(Configuration configuration, Entry entry)
     {
-        ImGui.PushID(entry.Id);
-
-        if (entry.CanToggle)
+        using (ImRaii.PushId(entry.Id))
         {
-            var value = entry.GetBool(configuration);
-            if (ImGui.Checkbox(entry.Label, ref value))
+            if (entry.CanToggle)
             {
-                entry.SetBool(configuration, value);
-                configuration.OnSettingChanged();
+                var value = entry.GetBool(configuration);
+                if (ImGui.Checkbox(entry.Label, ref value))
+                {
+                    entry.SetBool(configuration, value);
+                    configuration.OnSettingChanged();
+                }
             }
-        }
-        else if (entry.AlwaysOn)
-        {
-            ImGui.BeginDisabled();
-            var value = true;
-            ImGui.Checkbox(entry.Label, ref value);
-            ImGui.EndDisabled();
-            ImGuiComponents.HelpMarker(Languages.ConfigWindow_SettingAlwaysOn);
-        }
-        else
-        {
-            ImGui.TextUnformatted(entry.Label);
-        }
+            else if (entry.AlwaysOn)
+            {
+                using (ImRaii.Disabled())
+                {
+                    var value = true;
+                    ImGui.Checkbox(entry.Label, ref value);
+                }
 
-        if (!string.IsNullOrEmpty(entry.Help))
-        {
-            ImGui.SameLine();
-            ImGuiComponents.HelpMarker(entry.Help);
+                ImGuiComponents.HelpMarker(Languages.ConfigWindow_SettingAlwaysOn);
+            }
+            else
+            {
+                ImGui.TextUnformatted(entry.Label);
+            }
+
+            if (!string.IsNullOrEmpty(entry.Help))
+            {
+                ImGui.SameLine();
+                ImGuiComponents.HelpMarker(entry.Help);
+            }
+
+            ImGui.TextColored(new Vector4(0.55f, 0.55f, 0.55f, 1f), entry.Location);
+
+            if (!string.IsNullOrEmpty(entry.RuleName))
+            {
+                ImGui.TextDisabled($"{Languages.ConfigWindow_SearchRuleLabel}: {entry.RuleName}");
+            }
+
+            if (entry.Examples.Count > 0)
+            {
+                var examples = string.Join(" / ", entry.Examples.Take(3));
+                ImGui.TextWrapped($"{Languages.ConfigWindow_SearchExamplesLabel}: {examples}");
+            }
+
+            if (entry.LogMessageIds.Count > 0)
+            {
+                var ids = string.Join(", ", entry.LogMessageIds.OrderBy(id => id));
+                ImGui.TextDisabled($"{Languages.ConfigWindow_SearchLogMessageIdsLabel}: {ids}");
+            }
+
+            ImGui.Spacing();
         }
-
-        ImGui.TextColored(new Vector4(0.55f, 0.55f, 0.55f, 1f), entry.Location);
-
-        if (!string.IsNullOrEmpty(entry.RuleName))
-        {
-            ImGui.TextDisabled($"{Languages.ConfigWindow_SearchRuleLabel}: {entry.RuleName}");
-        }
-
-        if (entry.Examples.Count > 0)
-        {
-            var examples = string.Join(" / ", entry.Examples.Take(3));
-            ImGui.TextWrapped($"{Languages.ConfigWindow_SearchExamplesLabel}: {examples}");
-        }
-
-        if (entry.LogMessageIds.Count > 0)
-        {
-            var ids = string.Join(", ", entry.LogMessageIds.OrderBy(id => id));
-            ImGui.TextDisabled($"{Languages.ConfigWindow_SearchLogMessageIdsLabel}: {ids}");
-        }
-
-        ImGui.Spacing();
-        ImGui.PopID();
     }
 
     private static void AppendTribalCurrencyMatches(Configuration configuration, string query, List<Entry> matches)

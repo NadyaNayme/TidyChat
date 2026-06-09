@@ -31,7 +31,7 @@ internal static class SystemTab
             Math.Clamp((int)configuration.ServerAnnouncementMode, 0, serverAnnouncementModes.Length - 1);
         ImGui.TextUnformatted(Languages.SystemTab_ServerAnnouncementsLabel);
         ImGui.SetNextItemWidth(320f);
-        if (ImGui.BeginCombo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
+        using (ImRaii.Combo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
         {
             for (var i = 0; i < serverAnnouncementModes.Length; i++)
             {
@@ -41,8 +41,6 @@ internal static class SystemTab
                     configuration.OnSettingChanged();
                 }
             }
-
-            ImGui.EndCombo();
         }
 
         ImGuiComponents.HelpMarker(Languages.SystemTab_ServerAnnouncementsHelpMarker);
