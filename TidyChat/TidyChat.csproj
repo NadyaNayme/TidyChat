@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
-        <Version>3.1.0.9</Version>
+        <Version>3.1.0.10</Version>
         <Platforms>AnyCPU</Platforms>
         <PlatformTarget>x64</PlatformTarget>
         <Description>Trim the messages FFXIV dumps into your chat log.
