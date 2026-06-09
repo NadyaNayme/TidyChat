@@ -213,6 +213,7 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowHuntSlain { get; set; } = false;
     public bool ShowMarkBillMessages { get; set; } = true;
+    public bool BetterMarkBillMessage { get; set; } = true;
     public bool ShowCompletionTime { get; set; } = false;
     public bool ShowRelicBookStep { get; set; } = false;
     public bool ShowRelicBookComplete { get; set; } = false;

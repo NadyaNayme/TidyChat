@@ -3545,6 +3545,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Improved mark bill obtain lines.
+        /// </summary>
+        internal static string GeneralTab_ImprovedMarkBillMessages {
+            get {
+                return ResourceManager.GetString("GeneralTab_ImprovedMarkBillMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 4415 — rewrites obtain lines such as “You obtain a stack of elite Dawn Hunt bills.” into a single short line and hides the follow-up “Mark details can viewed at any time…” reminder..
+        /// </summary>
+        internal static string GeneralTab_ImprovedMarkBillMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_ImprovedMarkBillMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Message rewrites.
         /// </summary>
         internal static string GeneralTab_ImprovedMessagesHeader {

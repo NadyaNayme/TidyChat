@@ -50,7 +50,7 @@ public sealed partial class TidyChatPlugin
             LogMessageCatalog.MatchesWithFallback(1531, normalizedText, ChatStrings.DutyHasBegun))
         {
             message.Message = Better.DutyCommence(message.Message, Configuration, normalizedText);
-            return true;
+            return false;
         }
 
         if (Configuration.BetterInstanceMessage && chatType is ChatType.System &&
@@ -61,7 +61,24 @@ public sealed partial class TidyChatPlugin
             {
                 InstanceDtrBarUpdate(Configuration);
             }
-            return true;
+            return false;
+        }
+
+        if (Configuration.BetterMarkBillMessage && chatType is ChatType.System)
+        {
+            if (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.MarkBillDetails))
+            {
+                message.PreventOriginal();
+                Interlocked.Increment(ref _sessionBlockedMessages);
+                return true;
+            }
+
+            if (LogMessageCatalog.MatchesWithFallback(4415, normalizedText, ChatStrings.MarkBillObtain) ||
+                L10N.Get(ChatStrings.MarkBillObtainRegex).IsMatch(normalizedText))
+            {
+                message.Message = Better.MarkBillObtain(message.Message, Configuration, normalizedText);
+                return false;
+            }
         }
 
         if (Configuration.BetterCommendationMessage && chatType is ChatType.System &&
@@ -77,7 +94,7 @@ public sealed partial class TidyChatPlugin
             TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.SayQuestReminder))
         {
             message.Message = Better.SayReminder(message.Message, Configuration);
-            return true;
+            return false;
         }
 
         if (Configuration.BetterTreasureDungeonMessage && chatType is ChatType.System)
@@ -89,7 +106,7 @@ public sealed partial class TidyChatPlugin
                 {
                     TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
                 }
-                return true;
+                return false;
             }
             if (L10N.Get(ChatStrings.TrapTriggered).IsMatch(normalizedText))
             {
@@ -97,7 +114,7 @@ public sealed partial class TidyChatPlugin
                 {
                     message.Message = Better.TreasureDungeon(Configuration);
                 }
-                return true;
+                return false;
             }
         }
 

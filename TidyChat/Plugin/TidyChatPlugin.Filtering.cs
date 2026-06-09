@@ -40,6 +40,11 @@ public sealed partial class TidyChatPlugin
             return LogMessageChatEffect.PreserveHidden;
         }
 
+        if (TryConsumeInventoryAddedLogMessageBlock(normalizedText))
+        {
+            return LogMessageChatEffect.PreserveHidden;
+        }
+
         if (TryConsumePendingLogMessageAllow(normalizedText))
         {
             return LogMessageChatEffect.PreserveVisible;

@@ -715,33 +715,41 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    private static bool PendingLogMessageTextMatches(uint logMessageId, string normalizedText)
-    {
-        if (LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId) &&
-            LogMessageCatalog.Matches(logMessageId, normalizedText))
-        {
-            return true;
-        }
+    private static bool PendingLogMessageTextMatches(uint logMessageId, string normalizedText) =>
+        LogMessageChatSync.StrictCatalogMatch(logMessageId, normalizedText);
 
-        if (!Rules.LogMessageIdToRules.TryGetValue(logMessageId, out var matchingRules))
+    private bool TryConsumeInventoryAddedLogMessageBlock(string normalizedText)
+    {
+        if (!Configuration.HideInventoryItemAdded ||
+            !LogMessageChatSync.MatchesInventoryAddedLine(normalizedText))
         {
             return false;
         }
 
-        foreach (var rule in matchingRules)
+        lock (_logMessageLock)
         {
-            if (LogMessageCatalog.IsLoaded && rule.LogMessageIds is not null &&
-                LogMessageCatalog.Matches(logMessageId, normalizedText))
-            {
-                return true;
-            }
-            if (RuleMatcher.MatchesText(rule, normalizedText, false))
-            {
-                return true;
-            }
+            return TryConsumePendingLogMessageId(_pendingBlockedLogMessageIds,
+                LogMessageChatSync.InventoryItemAddedLogMessageId);
+        }
+    }
+
+    private static bool TryConsumePendingLogMessageId(Dictionary<uint, int> pendingById, uint logMessageId)
+    {
+        if (!pendingById.TryGetValue(logMessageId, out var count) || count <= 0)
+        {
+            return false;
         }
 
-        return false;
+        if (count == 1)
+        {
+            pendingById.Remove(logMessageId);
+        }
+        else
+        {
+            pendingById[logMessageId] = count - 1;
+        }
+
+        return true;
     }
 
     private static bool TryRemoveFromLogMessageSet(HashSet<string> target, IReadOnlyList<string> candidates)

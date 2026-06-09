@@ -1,5 +1,4 @@
 using Dalamud.Utility;
-using Lumina.Text;
 using Lumina.Text.Parse;
 using Lumina.Text.ReadOnly;
 using System.Text;
@@ -13,8 +12,8 @@ internal static class ChatHighlightHelper
         ExceptionMode = MacroStringParseExceptionMode.Throw
     };
 
-    public static Dalamud.Game.Text.SeStringHandling.SeString ApplyForeground(
-        Dalamud.Game.Text.SeStringHandling.SeString message, uint rgbaColor)
+    public static SeString ApplyForeground(
+        SeString message, uint rgbaColor)
     {
         string text;
         try

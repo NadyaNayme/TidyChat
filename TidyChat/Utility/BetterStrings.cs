@@ -30,6 +30,49 @@ internal static class BetterStrings
         return $"/say {containingPhrase}";
     }
 
+    public static SeString MarkBillObtain(SeString message, Configuration configuration, string normalizedText)
+    {
+        var billName = ExtractMarkBillName(normalizedText, message.TextValue);
+        if (string.IsNullOrWhiteSpace(billName))
+        {
+            billName = message.TextValue.Trim();
+        }
+
+        var stringBuilder = new SeStringBuilder();
+        if (configuration.IncludeChatTag)
+        {
+            AddTidyChatTag(stringBuilder);
+        }
+
+        stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.MarkBillObtainFormat),
+            billName));
+        return stringBuilder.BuiltString;
+    }
+
+    private static string ExtractMarkBillName(string normalizedText, string rawText)
+    {
+        var strippedRaw = StripItemLinkNoise(rawText);
+        foreach (var candidate in new[] { strippedRaw, normalizedText })
+        {
+            if (string.IsNullOrWhiteSpace(candidate))
+            {
+                continue;
+            }
+
+            var match = L10N.Get(ChatStrings.MarkBillObtainRegex).Match(candidate);
+            if (match.Success && match.Groups["bill"].Success)
+            {
+                var bill = match.Groups["bill"].Value.Trim();
+                if (bill.Length > 0)
+                {
+                    return bill;
+                }
+            }
+        }
+
+        return string.Empty;
+    }
+
     public static SeString DutyCommence(SeString message, Configuration configuration, string normalizedText)
     {
         var dutyName = ExtractDutyNameFromCommence(normalizedText, message.TextValue);

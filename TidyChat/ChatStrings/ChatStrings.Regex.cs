@@ -150,6 +150,16 @@ public static partial class ChatStrings
         Fra = new(@"NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">You obtain a stack of mark bills.</see>
+    public static readonly LocalizedRegex MarkBillObtainRegex = new()
+    {
+        Jpn = new(@"^(?:you obtain(?:ed)?)\s+(?:a stack of\s+)?(?<bill>.+?)\.?$", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:you obtain(?:ed)?)\s+(?:a stack of\s+)?(?<bill>.+?)\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^(?:du hast|ihr habt)\s+(?:eine jagdlizenz für\s+)?(?<bill>.+?)\s+angenommen\.?$", RegexOptions,
+            RegexTimeout),
+        Fra = new(@"^(?:vous avez obtenu)\s+(?:une pile de\s+)?(?<bill>.+?)\.?$", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
     public static readonly LocalizedRegex DutyHasBegunRegex = new()
     {

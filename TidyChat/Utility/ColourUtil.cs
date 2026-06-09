@@ -1,19 +1,18 @@
 using System.Numerics;
-
 namespace TidyChat.Utility;
 
 internal static class ColourUtil
 {
     internal static Vector3 RgbaToVector3(uint rgba)
     {
-        var (r, g, b, _) = RgbaToRgbaComponents(rgba);
-        return new Vector3(r / 255f, g / 255f, b / 255f);
+        (var r, var g, var b, _) = RgbaToRgbaComponents(rgba);
+        return new(r / 255f, g / 255f, b / 255f);
     }
 
     internal static Vector4 RgbaToVector4(uint rgba)
     {
-        var (r, g, b, a) = RgbaToRgbaComponents(rgba);
-        return new Vector4(r / 255f, g / 255f, b / 255f, a / 255f);
+        (var r, var g, var b, var a) = RgbaToRgbaComponents(rgba);
+        return new(r / 255f, g / 255f, b / 255f, a / 255f);
     }
 
     internal static uint Vector3ToRgba(Vector3 col)
@@ -27,7 +26,7 @@ internal static class ColourUtil
 
     internal static uint RgbaToArgb(uint rgba)
     {
-        var (r, g, b, a) = RgbaToRgbaComponents(rgba);
+        (var r, var g, var b, var a) = RgbaToRgbaComponents(rgba);
         return (uint)(a << 24 | r << 16 | g << 8 | b);
     }
 

@@ -170,6 +170,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowSSRankHunt"] = nameof(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncement),
         ["ShowHuntSlain"] = nameof(Languages.SystemTab_ShowHuntMarkSlainMessages),
         ["ShowMarkBillMessages"] = nameof(Languages.SystemTab_ShowMarkBillMessages),
+        ["BetterMarkBillMessage"] = nameof(Languages.GeneralTab_ImprovedMarkBillMessages),
         ["ShowQuestReminder"] = nameof(Languages.SystemTab_ShowSayReminder),
         ["ShowSpideySenses"] = nameof(Languages.SystemTab_ShowYouSenseSomethingMessages),
         ["ShowLocationDiscovered"] = nameof(Languages.SystemTab_ShowLocationDiscoveredMessages),

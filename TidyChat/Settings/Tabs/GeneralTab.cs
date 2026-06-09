@@ -207,5 +207,14 @@ internal static class GeneralTab
         }
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarketBoardSaleHelpMarker);
+
+        var betterMarkBillMessage = configuration.BetterMarkBillMessage;
+        if (ImGui.Checkbox(Languages.GeneralTab_ImprovedMarkBillMessages, ref betterMarkBillMessage))
+        {
+            configuration.BetterMarkBillMessage = betterMarkBillMessage;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarkBillMessagesHelpMarker);
     }
 }

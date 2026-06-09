@@ -37,6 +37,15 @@ public static partial class ChatStrings
     };
 
 
+    /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">Mark details can viewed at any time… (second line).</see>
+    public static readonly LocalizedStrings MarkBillDetails = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["mark", "details", "key items"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">You obtain a stack of mark bills.</see>
     public static readonly LocalizedStrings MarkBillObtain = new()
     {

@@ -81,6 +81,14 @@ internal static class InternalStrings
         Fra = new("{0} a commencé.")
     };
 
+    public static readonly LocalizedTidyStrings MarkBillObtainFormat = new()
+    {
+        Jpn = new("{0}を受注しました。"),
+        Eng = new("You obtained {0}."),
+        Deu = new("Du hast {0} angenommen."),
+        Fra = new("Vous avez obtenu {0}.")
+    };
+
     public static string LastDuty { get; set; } = "";
     public static short CommendationsEarned { get; set; } = 0;
     public static short LastCommendations { get; set; } = 0;
