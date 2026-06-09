@@ -153,11 +153,11 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">You obtain a stack of mark bills.</see>
     public static readonly LocalizedRegex MarkBillObtainRegex = new()
     {
-        Jpn = new(@"^(?:you obtain(?:ed)?)\s+(?:a stack of\s+)?(?<bill>.+?)\.?$", RegexOptions, RegexTimeout),
-        Eng = new(@"^(?:you obtain(?:ed)?)\s+(?:a stack of\s+)?(?<bill>.+?)\.?$", RegexOptions, RegexTimeout),
-        Deu = new(@"^(?:du hast|ihr habt)\s+(?:eine jagdlizenz für\s+)?(?<bill>.+?)\s+angenommen\.?$", RegexOptions,
+        Jpn = new(@"^(?:you obtain(?:ed)?)\s+a stack of\s+(?<bill>.+?\s+bills?)\.?$", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:you obtain(?:ed)?)\s+a stack of\s+(?<bill>.+?\s+bills?)\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^(?:du hast|ihr habt)\s+eine jagdlizenz für\s+(?<bill>.+?)\s+angenommen\.?$", RegexOptions,
             RegexTimeout),
-        Fra = new(@"^(?:vous avez obtenu)\s+(?:une pile de\s+)?(?<bill>.+?)\.?$", RegexOptions, RegexTimeout)
+        Fra = new(@"^(?:vous avez obtenu)\s+une pile de\s+(?<bill>.+?\s+bills?)\.?$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
