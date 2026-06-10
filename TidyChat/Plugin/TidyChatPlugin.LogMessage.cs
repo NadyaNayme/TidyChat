@@ -305,6 +305,16 @@ public sealed partial class TidyChatPlugin
                 return true;
             }
 
+            if (configuration.ShowObtainedItems &&
+                ObtainCurrencyHelper.IsGenericItemObtainLine(normalizedText) &&
+                inactiveShowRule is not null &&
+                RuleFallbackHelper.DefersObtainRuleToGeneral(inactiveShowRule))
+            {
+                shouldAllow = true;
+                decidingRuleName = "ShowObtainedItems";
+                return true;
+            }
+
             shouldAllow = false;
             decidingRuleName = inactiveShowRule;
             decidingMatchDetail = inactiveShowMatchDetail;

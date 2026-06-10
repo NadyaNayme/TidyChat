@@ -34,76 +34,78 @@ internal static class ChatHighlightsTab
         ImGui.Spacing();
 
         var outerHeight = new Vector2(640f, 400f);
-        using var highlightsTable = ImRaii.Table("##chatHighlightsTable", 4,
-            ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
-            ImGuiTableFlags.RowBg, outerHeight);
-        if (!highlightsTable)
+        using (var highlightsTable = ImRaii.Table("##chatHighlightsTable", 4,
+                   ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
+                   ImGuiTableFlags.RowBg, outerHeight))
         {
-            return;
-        }
-
-        ImGui.TableSetupScrollFreeze(0, 1);
-        ImGui.TableSetupColumn(Languages.ChatHighlightsTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed, 148f);
-        ImGui.TableSetupColumn(Languages.ChatHighlightsTab_PatternHeader, ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn(Languages.ChatHighlightsTab_ColorHeader, ImGuiTableColumnFlags.WidthFixed, 48f);
-        ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed, 36f);
-        ImGui.TableHeadersRow();
-
-        var list = configuration.ChatHighlights.ToList();
-        for (var i = -1; i < list.Count; i++)
-        {
-            ImGui.TableNextRow();
-            var entry = i < 0 ? _placeholder : list[i];
-
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            if (ImGui.CollapsingHeader($"{FormatChannelSummary(entry.Channels)}##chatHighlight{i}ChannelsHeader"))
+            if (!highlightsTable)
             {
-                DrawChannelCheckboxes(configuration, entry, i);
+                return;
             }
 
-            ImGui.Spacing();
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            if (i == -1)
-            {
-                ImGui.TextUnformatted(Languages.ChatHighlightsTab_MessageContains);
-            }
+            ImGui.TableSetupScrollFreeze(0, 1);
+            ImGui.TableSetupColumn(Languages.ChatHighlightsTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed, 148f);
+            ImGui.TableSetupColumn(Languages.ChatHighlightsTab_PatternHeader, ImGuiTableColumnFlags.WidthStretch);
+            ImGui.TableSetupColumn(Languages.ChatHighlightsTab_ColorHeader, ImGuiTableColumnFlags.WidthFixed, 48f);
+            ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed, 36f);
+            ImGui.TableHeadersRow();
 
-            ImGui.SetNextItemWidth(-1);
-            if (ImGui.InputText($"##chatHighlight{i}PatternInput", ref entry.Pattern, 120,
-                    ImGuiInputTextFlags.EnterReturnsTrue))
+            var list = configuration.ChatHighlights.ToList();
+            for (var i = -1; i < list.Count; i++)
             {
+                ImGui.TableNextRow();
+                var entry = i < 0 ? _placeholder : list[i];
+
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
+                if (ImGui.CollapsingHeader($"{FormatChannelSummary(entry.Channels)}##chatHighlight{i}ChannelsHeader"))
+                {
+                    DrawChannelCheckboxes(configuration, entry, i);
+                }
+
+                ImGui.Spacing();
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
                 if (i == -1)
                 {
-                    configuration.ChatHighlights.Insert(0, entry);
-                    _placeholder = new();
+                    ImGui.TextUnformatted(Languages.ChatHighlightsTab_MessageContains);
                 }
 
-                configuration.OnSettingChanged();
-            }
-
-            ImGuiHelpers.ScaledDummy(10f);
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            if (i != -1)
-            {
-                DrawColorPicker(configuration, entry, i);
-            }
-
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            using (ImRaii.PushId($"DeleteHighlight{i}"))
-            {
-                if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+                ImGui.SetNextItemWidth(-1);
+                if (ImGui.InputText($"##chatHighlight{i}PatternInput", ref entry.Pattern, 120,
+                        ImGuiInputTextFlags.EnterReturnsTrue))
                 {
-                    configuration.ChatHighlights.Remove(list[i]);
+                    if (i == -1)
+                    {
+                        configuration.ChatHighlights.Insert(0, entry);
+                        _placeholder = new();
+                    }
+
                     configuration.OnSettingChanged();
+                }
+
+                ImGuiHelpers.ScaledDummy(10f);
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
+                if (i != -1)
+                {
+                    DrawColorPicker(configuration, entry, i);
+                }
+
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
+                using (ImRaii.PushId($"DeleteHighlight{i}"))
+                {
+                    if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+                    {
+                        configuration.ChatHighlights.Remove(list[i]);
+                        configuration.OnSettingChanged();
+                    }
                 }
             }
         }
 
-        ImGui.NewLine();
+        ImGui.Spacing();
         ImGui.TextWrapped(Languages.ChatHighlightsTab_RegexExplanation);
     }
 

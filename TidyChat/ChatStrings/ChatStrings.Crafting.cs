@@ -148,7 +148,7 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings BuffEffectGain = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["effect"],
+        Eng = ["gain", "effect"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

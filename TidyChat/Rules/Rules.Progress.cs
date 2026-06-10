@@ -297,8 +297,8 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1601],
-            StringChecks = [ChatStrings.QuestAccepted],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.QuestAcceptedRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
@@ -308,8 +308,8 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1602],
-            StringChecks = [ChatStrings.QuestComplete],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.QuestCompleteRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()

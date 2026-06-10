@@ -18,10 +18,10 @@ internal static class L10N
 
     public static Regex Get(LocalizedRegex regex) => Language switch
     {
-        ClientLanguage.Japanese => regex.Jpn,
+        ClientLanguage.Japanese => FallbackRegexIfMissing(regex.Jpn, regex.Eng),
         ClientLanguage.English => regex.Eng,
-        ClientLanguage.German => regex.Deu,
-        ClientLanguage.French => regex.Fra,
+        ClientLanguage.German => FallbackRegexIfMissing(regex.Deu, regex.Eng),
+        ClientLanguage.French => FallbackRegexIfMissing(regex.Fra, regex.Eng),
         _ => regex.Eng // Won't work for J/F/D but at least it's not a crash
     };
 
@@ -42,6 +42,11 @@ internal static class L10N
     private static string[] FallbackIfMissing(string[] primary, string[] fallback)
         => primary is null || primary.Length == 0 ||
            (primary.Length == 1 && string.Equals(primary[0], "NeedsLocalization", StringComparison.Ordinal))
+            ? fallback
+            : primary;
+
+    private static Regex FallbackRegexIfMissing(Regex primary, Regex fallback) =>
+        string.Equals(primary.ToString(), "NeedsLocalization", StringComparison.Ordinal)
             ? fallback
             : primary;
 }

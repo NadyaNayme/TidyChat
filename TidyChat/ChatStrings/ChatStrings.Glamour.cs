@@ -27,7 +27,7 @@ public static partial class ChatStrings
         Deu = ["projizierst"],
         Fra = ["un mirage"]
     };
-    /// <see href="https://xivapi.com/LogMessage/?pretty=true">Outfit glamour stored in dresser (7.1+).</see>
+    /// <see href="https://xivapi.com/LogMessage/4529?pretty=true">Outfit glamour stored in dresser (7.1+).</see>
     public static readonly LocalizedStrings GlamourOutfitStored = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -43,7 +43,7 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-    /// <see href="https://xivapi.com/LogMessage/4380?pretty=true">Projection added to glamour dresser.</see>
+    /// <see href="https://xivapi.com/LogMessage/4380?pretty=true">Projection added to glamour dresser (4380, 4534).</see>
     public static readonly LocalizedStrings GlamourDresserProjectionAdded = new()
     {
         Jpn = ["NeedsLocalization"],

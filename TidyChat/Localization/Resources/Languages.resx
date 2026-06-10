@@ -1534,9 +1534,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Show cosmic container obtains</value>
   </data>
   <data name="GatheringTab_ShowCosmicContainersHelpMarker" xml:space="preserve">
-    <value>LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General.
-
-You can also block container lines with Tools → Custom Filters (Block, pattern such as /cosmic container/i, Loot + System channels) while leaving currency obtains on.</value>
+    <value>LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General.</value>
   </data>
   <data name="GatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
     <value>Show cosmic daily progress</value>
@@ -1598,7 +1596,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show collectable gather obtain messages</value>
   </data>
   <data name="GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) plus text match on Gathering channel — eg. You obtain a chunk of rare gold artichoke ore or cosmic node materials. Needs Filter Obtained and/or Filter Gathering on General.</value>
+    <value>LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) — eg. You obtain a chunk of rare gold artichoke ore or cosmic node materials. Needs Filter Obtained on General.</value>
   </data>
   <data name="GatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
     <value>Show "You sense..." messages for gathering locations</value>
@@ -1872,13 +1870,13 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Show outfit glamour in dresser</value>
   </data>
   <data name="GlamourTab_ShowGlamourDresserOutfitHelpMarker" xml:space="preserve">
-    <value>Outfit glamour stored or converted in the glamour dresser (eg. stored as … outfit glamour, changed into … outfit glamour). Uses text matching.</value>
+    <value>Outfit glamour stored or converted in the glamour dresser. LogMessage 4529 — eg. … has been removed from your inventory and stored as … outfit glamour. Also matches similar text without a catalog ID.</value>
   </data>
   <data name="GlamourTab_ShowGlamourDresserProjection" xml:space="preserve">
     <value>Show glamour dresser projections</value>
   </data>
   <data name="GlamourTab_ShowGlamourDresserProjectionHelpMarker" xml:space="preserve">
-    <value>Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383 — eg. A projection of … is added to your glamour dresser.</value>
+    <value>Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383, 4534 — eg. A projection of … is added to your glamour dresser.</value>
   </data>
   <data name="GlamourTab_ShowPersonalEffectAcquired" xml:space="preserve">
     <value>Show personal effect acquired messages</value>

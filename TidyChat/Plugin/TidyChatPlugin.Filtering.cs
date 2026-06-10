@@ -37,6 +37,11 @@ public sealed partial class TidyChatPlugin
         }
         if (wasBlockedByLog)
         {
+            if (Configuration.ShowObtainedItems && ObtainCurrencyHelper.IsGenericItemObtainLine(normalizedText))
+            {
+                return LogMessageChatEffect.None;
+            }
+
             return LogMessageChatEffect.PreserveHidden;
         }
 
@@ -201,6 +206,7 @@ public sealed partial class TidyChatPlugin
                 LogMessageCatalog.IsLoaded &&
                 LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText) &&
                 RuleMatcher.MatchesText(rule, normalizedText, false) &&
+                !RuleFallbackHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText) &&
                 !(chatType is ChatType.LootNotice &&
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
                       Configuration.HideTomestoneById, TribalCurrencies, Configuration.HideTribalCurrencyById)))
@@ -249,6 +255,15 @@ public sealed partial class TidyChatPlugin
 
             if (RuleMatcher.MatchesText(rule, normalizedText, out _))
             {
+                if (RuleFallbackHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText))
+                {
+                    if (Configuration.EnableDebugMode)
+                    {
+                        rulesFailed?.Add(rule.Name);
+                    }
+                    continue;
+                }
+
                 if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
                     !StellarGpShowRuleHelper.IsStellarGpRuleName(rule.Name) &&
                     (CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText) ||

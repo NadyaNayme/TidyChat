@@ -7,7 +7,7 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings LocationDiscovered = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["discovered"],
+        Eng = ["been", "discovered"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
@@ -15,7 +15,7 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings SpideySenses = new()
     {
         Jpn = ["感じ"],
-        Eng = ["sense"],
+        Eng = ["you", "sense", "foul"],
         Deu = ["spürst"],
         Fra = ["percevez"]
     };

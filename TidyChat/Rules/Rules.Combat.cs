@@ -77,8 +77,8 @@ public static partial class Rules
             Channel = ChatType.Action,
             IsActive = true,
             LogMessageIds = [533],
-            StringChecks = [ChatStrings.AbilityUseMessageOther],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.AbilityUseMessageOtherRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()

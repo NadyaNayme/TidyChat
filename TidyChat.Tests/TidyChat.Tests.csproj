@@ -17,6 +17,13 @@
         <ProjectReference Include="..\TidyChat\TidyChat.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Reference Include="Dalamud">
+            <HintPath>$(DalamudLibPath)\Dalamud.dll</HintPath>
+            <Private>false</Private>
+        </Reference>
+    </ItemGroup>
+
     <PropertyGroup>
         <DalamudLibPath Condition="'$(DalamudLibPath)' == ''">$(APPDATA)\XIVLauncher\addon\Hooks\dev</DalamudLibPath>
     </PropertyGroup>

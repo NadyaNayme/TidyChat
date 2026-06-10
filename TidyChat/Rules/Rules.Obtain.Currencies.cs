@@ -139,7 +139,8 @@ public static partial class Rules
             LogMessageIds = [1605, 1258, 1417],
             StringChecks = [ChatStrings.ObtainedGilMarker],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            ObtainMarkerGil = true
         },
         new()
         {

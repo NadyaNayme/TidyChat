@@ -14,6 +14,20 @@ internal static class ObtainCurrencyHelper
         "ShowGatheringCollectableObtains"
     };
 
+    private static readonly HashSet<string> SpecializedObtainShowRuleNames = new(StringComparer.Ordinal)
+    {
+        "ShowDesynthesisObtains",
+        "ShowCosmicRewards"
+    };
+
+    private static readonly LocalizedStrings[] GenericObtainStringChecks =
+    [
+        ChatStrings.ObtainedSingleItem,
+        ChatStrings.QuestItemObtain,
+        ChatStrings.ObtainedItemQuantity,
+        ChatStrings.DesynthesisObtain
+    ];
+
     private static readonly LocalizedStrings[] DedicatedObtainTypeMarkers =
     [
         ChatStrings.ObtainedMgpMarker,
@@ -137,6 +151,23 @@ internal static class ObtainCurrencyHelper
 
     public static bool ShouldExcludeGenericObtainShowRule(LocalizedFilterRule rule, string normalizedText) =>
         GenericObtainShowRuleNames.Contains(rule.Name) && HasDedicatedObtainType(normalizedText);
+
+    public static bool IsSpecializedObtainShowRuleName(string ruleName) =>
+        SpecializedObtainShowRuleNames.Contains(ruleName);
+
+    public static bool IsSpecializedObtainShowRule(LocalizedFilterRule rule) =>
+        IsSpecializedObtainShowRuleName(rule.Name);
+
+    public static bool IsGenericObtainShowRule(LocalizedFilterRule rule) =>
+        GenericObtainShowRuleNames.Contains(rule.Name);
+
+    public static bool UsesGenericObtainStringCheck(LocalizedFilterRule rule) =>
+        rule.StringChecks is { Count: > 0 } &&
+        rule.StringChecks.Any(check => GenericObtainStringChecks.Contains(check));
+
+    public static bool IsGenericItemObtainLine(string normalizedText) =>
+        TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainedSingleItem) &&
+        !HasDedicatedObtainType(normalizedText);
 
     public static bool HasDedicatedObtainType(string normalizedText)
     {

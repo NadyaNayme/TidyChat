@@ -36,6 +36,17 @@ public static partial class Rules
             SettingsTab = "Glamour",
             Channel = ChatType.System,
             IsActive = true,
+            LogMessageIds = [4529],
+            StringChecks = [ChatStrings.GlamourOutfitStored],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGlamourDresserOutfit",
+            SettingsTab = "Glamour",
+            Channel = ChatType.System,
+            IsActive = true,
             StringChecks = [ChatStrings.GlamourOutfitStored],
             Pattern = PatternKind.StringMatch
         },
@@ -54,7 +65,7 @@ public static partial class Rules
             SettingsTab = "Glamour",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [4380],
+            LogMessageIds = [4380, 4534],
             StringChecks = [ChatStrings.GlamourDresserProjectionAdded],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true

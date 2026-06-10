@@ -93,6 +93,33 @@ public static partial class ChatStrings
         Fra = new(@"^(?!you)", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">"Quest name" accepted.</see>
+    public static readonly LocalizedRegex QuestAcceptedRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@""" accepted\.?$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1602?pretty=true">"Quest name" complete!</see>
+    public static readonly LocalizedRegex QuestCompleteRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@""" complete!?$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <seealso href="https://xivapi.com/LogMessage/533?pretty=true">The enemy uses … / Name uses …</seealso>
+    public static readonly LocalizedRegex AbilityUseMessageOtherRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?!you ).+ uses ", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
     public static readonly LocalizedRegex SpideySensesRegex = new()
     {
