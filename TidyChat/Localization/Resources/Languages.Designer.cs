@@ -2754,9 +2754,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General.
-        ///
-        ///You can also block container lines with Tools → Custom Filters (Block, pattern such as /cosmic container/i, Loot + System channels) while leaving currency obtains on..
+        ///   Looks up a localized string similar to LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General..
         /// </summary>
         internal static string GatheringTab_ShowCosmicContainersHelpMarker {
             get {
@@ -2938,7 +2936,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) plus text match on Gathering channel — eg. You obtain a chunk of rare gold artichoke ore or cosmic node materials. Needs Filter Obtained and/or Filter Gathering on General..
+        ///   Looks up a localized string similar to LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) — eg. You obtain a chunk of rare gold artichoke ore or cosmic node materials. Needs Filter Obtained on General..
         /// </summary>
         internal static string GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker {
             get {
@@ -3752,7 +3750,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Outfit glamour stored or converted in the glamour dresser (eg. stored as … outfit glamour, changed into … outfit glamour). Uses text matching..
+        ///   Looks up a localized string similar to Outfit glamour stored or converted in the glamour dresser. LogMessage 4529 — eg. … has been removed from your inventory and stored as … outfit glamour. Also matches similar text without a catalog ID..
         /// </summary>
         internal static string GlamourTab_ShowGlamourDresserOutfitHelpMarker {
             get {
@@ -3770,7 +3768,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383 — eg. A projection of … is added to your glamour dresser..
+        ///   Looks up a localized string similar to Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383, 4534 — eg. A projection of … is added to your glamour dresser..
         /// </summary>
         internal static string GlamourTab_ShowGlamourDresserProjectionHelpMarker {
             get {
@@ -5176,7 +5174,7 @@ namespace TidyChat.Localization.Resources {
         ///Hide all — suppress the whole block.
         ///Condensed — keep only the per-world &quot;Welcome to &lt;world&gt;!&quot; line; hide the generic &quot;Welcome to FINAL FANTASY XIV&quot; title and event promos.
         ///Login only — full block on login (including the FFXIV title), nothing on world-hops.
-        ///Login full, condensed on world-hop — full block on login; on world-hops, only the  [rest of string was truncated]&quot;;.
+        ///Login full, condensed on world-hop — full block on login; on world-hops, onl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SystemTab_ServerAnnouncementsHelpMarker {
             get {
