@@ -98,7 +98,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <InternalsVisibleTo Include="TidyChat.Tests" />
+        <InternalsVisibleTo Include="TidyChat.Tests"/>
     </ItemGroup>
 </Project>
 

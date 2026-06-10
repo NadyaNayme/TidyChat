@@ -1,5 +1,4 @@
 using TidyChat.Localization.Data;
-
 namespace TidyChat;
 
 /// <summary>
