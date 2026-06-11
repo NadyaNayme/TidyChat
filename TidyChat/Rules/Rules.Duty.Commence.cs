@@ -11,9 +11,10 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1531],
-            StringChecks = [ChatStrings.DutyHasBegun],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            // Anchored regex instead of token matching: the 1531 template tokens are just
+            // "has begun", which also matches event lines like the aramitama Lifestream FATE.
+            RegexChecks = [ChatStrings.DutyHasBegunRegex],
+            Pattern = PatternKind.RegexMatch
         },
         new()
         {

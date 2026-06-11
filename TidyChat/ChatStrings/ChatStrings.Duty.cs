@@ -11,14 +11,6 @@ public static partial class ChatStrings
         Deu = ["wurde", "beendet"],
         Fra = ["prend", "fin"]
     };
-    /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
-    public static readonly LocalizedStrings DutyHasBegun = new()
-    {
-        Jpn = ["開始"],
-        Eng = ["has", "begun"],
-        Deu = ["hat", "begonnen"],
-        Fra = ["commencé"]
-    };
     /// <see href="https://xivapi.com/LogMessage/9602?pretty=true">This duty is level synced…</see>
     public static readonly LocalizedStrings DutyLevelSyncedBriefing = new()
     {

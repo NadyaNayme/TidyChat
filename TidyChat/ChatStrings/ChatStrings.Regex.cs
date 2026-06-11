@@ -197,12 +197,16 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
+    /// <remarks>
+    ///     Anchored to the full line so event lines that merely contain the words
+    ///     (eg. "The aramitama has begun to disrupt the Lifestream.") do not match.
+    /// </remarks>
     public static readonly LocalizedRegex DutyHasBegunRegex = new()
     {
-        Jpn = new(@"^(?<duty>.+?)が開始", RegexOptions, RegexTimeout),
+        Jpn = new(@"^「(?<duty>.+?)」の攻略を開始した。?$", RegexOptions, RegexTimeout),
         Eng = new(@"^(?<duty>.+?)\s+has\s+begun\.?$", RegexOptions, RegexTimeout),
-        Deu = new(@"^(?<duty>.+?)\s+hat\s+begonnen\.?$", RegexOptions, RegexTimeout),
-        Fra = new(@"^(?<duty>.+?)\s+a\s+commencé\.?$", RegexOptions, RegexTimeout)
+        Deu = new(@"^[„""]?(?<duty>.+?)[“""]?\s+hat\s+begonnen\.?$", RegexOptions, RegexTimeout),
+        Fra = new(@"^la mission [«""“]?(?<duty>.+?)[»""”]? commence\.?$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/748?pretty=true">Market board item sold (after fees).</see>

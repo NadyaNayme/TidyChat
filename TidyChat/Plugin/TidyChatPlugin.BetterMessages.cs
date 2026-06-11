@@ -46,8 +46,10 @@ public sealed partial class TidyChatPlugin
 
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
+        // Anchored regex rather than 1531 catalog tokens: the template tokens are just
+        // "has begun", which also matches event lines that continue past the verb.
         if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&
-            LogMessageCatalog.MatchesWithFallback(1531, normalizedText, ChatStrings.DutyHasBegun))
+            L10N.Get(ChatStrings.DutyHasBegunRegex).IsMatch(normalizedText))
         {
             message.Message = Better.DutyCommence(message.Message, Configuration, normalizedText);
             return false;
