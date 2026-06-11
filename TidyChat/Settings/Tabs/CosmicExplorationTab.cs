@@ -5,6 +5,7 @@ internal static class CosmicExplorationTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.CosmicExplorationTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.CosmicExplorationTab_StellarMissionsDropdownHeader, () => DrawStellarMissions(configuration)),

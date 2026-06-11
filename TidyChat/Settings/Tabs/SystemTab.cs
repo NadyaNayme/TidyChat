@@ -6,6 +6,7 @@ internal static class SystemTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.SystemTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.SystemTab_ServerAnnouncementsDropdownHeader, () => DrawServerAnnouncements(configuration)),

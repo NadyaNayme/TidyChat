@@ -5,6 +5,7 @@ internal static class DeepDungeonsTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.DeepDungeonsTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.DeepDungeonsTab_DeepDungeonsDropdownHeader, () => DrawDeepDungeonOptions(configuration)));

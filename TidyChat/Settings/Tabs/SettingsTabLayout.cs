@@ -23,6 +23,24 @@ internal static class SettingsTabLayout
     }
 
     /// <summary>
+    ///     Warns when the General tab master toggle gating most of a tab's options is off,
+    ///     so users are not left wondering why their checkboxes do nothing.
+    /// </summary>
+    public static void WarnIfChannelMasterDisabled(bool masterEnabled, string masterLabel)
+    {
+        if (masterEnabled)
+        {
+            return;
+        }
+
+        DrawMasterChannelDisabledWarning(string.Format(
+            CultureInfo.CurrentCulture,
+            Languages.Shared_MasterChannelDisabledWarning,
+            masterLabel,
+            Languages.ConfigWindow_GeneralTabHeader));
+    }
+
+    /// <summary>
     ///     Renders tab sections. A single section is shown flat without a collapsing header.
     /// </summary>
     public static void DrawSections(bool defaultOpenFirstSection, params (string Header, Action Draw)[] sections)

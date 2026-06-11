@@ -5,6 +5,7 @@ internal static class GatheringTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.GatheringTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterGatheringSpam, Languages.GeneralTab_FilterGatheringSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.GatheringTab_GatheringLocationsDropdownHeader, () => DrawGatheringLocations(configuration)),

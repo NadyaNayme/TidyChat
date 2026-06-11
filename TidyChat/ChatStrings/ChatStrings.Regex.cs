@@ -59,14 +59,14 @@ public static partial class ChatStrings
 
     public static readonly LocalizedRegex ObtainedTribalCurrency = new()
     {
-        Jpn = new(@"NeedsTranslation", RegexOptions, RegexTimeout),
+        Jpn = new(@"NeedsLocalization", RegexOptions, RegexTimeout),
         Eng = new(
             @"^you (obtain|obtains) (a|an|\d{1,3}) (Steel (Amalj'ok|Amalj'oks)|Sylphic (Goldleaf|Goldleaves)|Titan (Cobaltpiece|Cobaltpieces)|(Rainbowtide Psashp|Psashps)|Ixali (oaknot|oaknots)|Vanu (Whitebone|Whitebones)|Black Copper (Gil|Gils)|Carved Kupo (Nut|Nuts)|Kojin (Sango|Sangos)|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu (Koban|Kobans)|Fae (Fancy|Fancies)|Qitari (Compliment|Compliments)|Hammered (Frogment|Fragments)|Arkasodara (Pana|Panas)|Pelu (Pelplume|Pelplumes)|Mamool Ja (Nanook|Nanooks)|Yok Huy (Ward|Wards))\.$",
             RegexOptions, RegexTimeout),
         Deu = new(
             @"^(du|you) hast (einen|\d{1,3}) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze|Flügelmünze|Mamool Ja-Nanook|Yok Huy-Brosche) erhalten\.$",
             RegexOptions, RegexTimeout),
-        Fra = new(@"NeedsTranslation", RegexOptions, RegexTimeout)
+        Fra = new(@"NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
     public static readonly LocalizedRegex PlayerTargetedEmote = new()
@@ -116,6 +116,15 @@ public static partial class ChatStrings
     {
         Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
         Eng = new(@"^(?!you ).+ uses ", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/10922?pretty=true">You receive N … (trade window item preview).</see>
+    public static readonly LocalizedRegex TradeReceiveItemsRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^you receive \d+ ", RegexOptions, RegexTimeout),
         Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };

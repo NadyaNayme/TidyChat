@@ -710,6 +710,9 @@ eg. You obtain Starboard Hull Component Materials</value>
   <data name="AlwaysNormalizeSpecialCharacters" xml:space="preserve">
     <value>Always normalize special characters</value>
   </data>
+  <data name="AlwaysNormalizeSpecialCharactersHelpMarker" xml:space="preserve">
+    <value>Checked = replace special characters (such as boxed letters) everywhere, including party and alliance chat. Unchecked = party and alliance messages keep the original characters.</value>
+  </data>
   <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
     <value>from completing</value>
   </data>
@@ -1361,6 +1364,18 @@ System channel. Independent of “Show market board sales” and its nested sale
   <data name="EconomyTab_ShowTradeRequestSentHelpMarker" xml:space="preserve">
     <value>LogMessage 33 — eg. You initiate trade with Raven Reaver.</value>
   </data>
+  <data name="EconomyTab_ShowTradeRequestReceived" xml:space="preserve">
+    <value>Show incoming trade requests</value>
+  </data>
+  <data name="EconomyTab_ShowTradeRequestReceivedHelpMarker" xml:space="preserve">
+    <value>LogMessage 34 — eg. Lucan Beltz wishes to trade with you.</value>
+  </data>
+  <data name="EconomyTab_ShowTradeReceiveItems" xml:space="preserve">
+    <value>Show trade item preview lines</value>
+  </data>
+  <data name="EconomyTab_ShowTradeReceiveItemsHelpMarker" xml:space="preserve">
+    <value>LogMessage 10922 — eg. You receive 4 extravagant salvaged bracelets (items offered in the trade window).</value>
+  </data>
   <data name="EconomyTab_ShowVendorPurchaseMessages" xml:space="preserve">
     <value>Show Items bought from vendor</value>
   </data>
@@ -1785,24 +1800,6 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GeneralTab_FilterObtainedSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Obtained (loot notice) messages are hidden unless an Obtain tab option allows them. Show … = allow when checked; Hide … = hide when checked. When disabled, Obtained is not filtered here.</value>
   </data>
-  <data name="GeneralTab_FilterProfileApply" xml:space="preserve">
-    <value>Apply profile</value>
-  </data>
-  <data name="GeneralTab_FilterProfileLabel" xml:space="preserve">
-    <value>Filter profile</value>
-  </data>
-  <data name="GeneralTab_FilterProfile_Balanced" xml:space="preserve">
-    <value>Balanced (recommended)</value>
-  </data>
-  <data name="GeneralTab_FilterProfile_Custom" xml:space="preserve">
-    <value>Custom (current settings)</value>
-  </data>
-  <data name="GeneralTab_FilterProfile_Minimal" xml:space="preserve">
-    <value>Minimal</value>
-  </data>
-  <data name="GeneralTab_FilterProfile_VanillaPlus" xml:space="preserve">
-    <value>Vanilla+</value>
-  </data>
   <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
     <value>Filter Progress channel</value>
   </data>
@@ -1881,6 +1878,9 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   </data>
   <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
     <value>Display current instance in DTR Bar</value>
+  </data>
+  <data name="GeneralTab_InstanceInDTRBarHelpMarker" xml:space="preserve">
+    <value>Shows your current instance number in the server info bar (the icon row next to the in-game clock).</value>
   </data>
   <data name="GeneralTab_InstanceMessagesGroup" xml:space="preserve">
     <value>Instance messages</value>
@@ -2287,6 +2287,12 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="Shared_HideNamedItemFormat" xml:space="preserve">
     <value>Hide {0}</value>
+  </data>
+  <data name="Shared_CombatToggleNote" xml:space="preserve">
+    <value>Checked = show; unchecked = hide. Battle channels are always filtered, so no General tab toggle is required.</value>
+  </data>
+  <data name="Shared_MasterChannelDisabledWarning" xml:space="preserve">
+    <value>Enable {0} on the {1} tab. While it is off, most options below do not filter anything — those messages simply stay in chat.</value>
   </data>
   <data name="Shared_RequiresCraftingFilteringNote" xml:space="preserve">
     <value>Requires Filter Crafting Channels on the General tab. Checked = show; unchecked = hide.</value>

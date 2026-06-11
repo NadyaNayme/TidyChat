@@ -5,6 +5,7 @@ internal static class ExplorationTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.ExplorationTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
         SettingsTabLayout.DrawSections(true,
             (Languages.SystemTab_HuntMessagesDropdownHeader, () => DrawHuntMessages(configuration)),
             (Languages.SystemTab_ExplorationDropdownHeader, () => DrawExplorationMessages(configuration)));

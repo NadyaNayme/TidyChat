@@ -5,6 +5,7 @@ internal static class DutyTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.DutyTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         var showDutyFinder = configuration.ShowDutyFinder;
         if (ImGui.Checkbox(Languages.DutyTab_ShowDutyFinderMessages, ref showDutyFinder))

@@ -6,6 +6,7 @@ internal static class ProgressTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.ProgressTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterProgressSpam, Languages.GeneralTab_FilterProgressSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.ProgressTab_ExperienceAndLevelsDropdownHeader, () => DrawExperienceAndLevels(configuration)),

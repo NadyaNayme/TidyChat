@@ -51,7 +51,7 @@ public static partial class ChatStrings
     {
         Jpn = ["受注"],
         Eng = ["obtain", "mark bills"],
-        Deu = ["angenommen", "Jagdlizenz"],
+        Deu = ["angenommen", "jagdlizenz"],
         Fra = ["obtenu"]
     };
 

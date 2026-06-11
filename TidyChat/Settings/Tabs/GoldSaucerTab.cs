@@ -5,6 +5,8 @@ internal static class GoldSaucerTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.GoldSaucerTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterObtainedSpam, Languages.GeneralTab_FilterObtainedSpam);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.GoldSaucerTab_MgpDropdownHeader, () => DrawMgp(configuration)),

@@ -19,14 +19,14 @@ internal static class CombatTab
             configuration.ShowCombatCasting = showCombatCasting;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatCastingMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatCastingMessagesHelpMarker);
         var showCombatAbilities = configuration.ShowCombatAbilities;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatAbilitiesMessages, ref showCombatAbilities))
         {
             configuration.ShowCombatAbilities = showCombatAbilities;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatAbilitiesMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatAbilitiesMessagesHelpMarker);
     }
     private static void DrawDamageHealingAndEffects(Configuration configuration)
     {
@@ -36,28 +36,28 @@ internal static class CombatTab
             configuration.ShowCombatDamage = showCombatDamage;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatDamageMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatDamageMessagesHelpMarker);
         var showCombatMisses = configuration.ShowCombatMisses;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatMissesMessages, ref showCombatMisses))
         {
             configuration.ShowCombatMisses = showCombatMisses;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatMissesMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatMissesMessagesHelpMarker);
         var showCombatHealing = configuration.ShowCombatHealing;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatHealingMessages, ref showCombatHealing))
         {
             configuration.ShowCombatHealing = showCombatHealing;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatHealingMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatHealingMessagesHelpMarker);
         var showCombatEffects = configuration.ShowCombatEffects;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatEffectsMessages, ref showCombatEffects))
         {
             configuration.ShowCombatEffects = showCombatEffects;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatEffectsMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatEffectsMessagesHelpMarker);
     }
     private static void DrawDefeatAndAdds(Configuration configuration)
     {
@@ -67,27 +67,27 @@ internal static class CombatTab
             configuration.ShowCombatDefeat = showCombatDefeat;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatDefeatMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatDefeatMessagesHelpMarker);
         var showCombatEnemyReady = configuration.ShowCombatEnemyReady;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatEnemyReadyMessages, ref showCombatEnemyReady))
         {
             configuration.ShowCombatEnemyReady = showCombatEnemyReady;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatEnemyReadyMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatEnemyReadyMessagesHelpMarker);
         var showCombatAdds = configuration.ShowCombatAdds;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatAddsMessages, ref showCombatAdds))
         {
             configuration.ShowCombatAdds = showCombatAdds;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatAddsMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatAddsMessagesHelpMarker);
         var showCombatEnmity = configuration.ShowCombatEnmity;
         if (ImGui.Checkbox(Languages.CombatTab_ShowCombatEnmityMessages, ref showCombatEnmity))
         {
             configuration.ShowCombatEnmity = showCombatEnmity;
             configuration.OnSettingChanged();
         }
-        ImGuiComponents.HelpMarker(Languages.CombatTab_ShowCombatEnmityMessagesHelpMarker);
+        UiHelp.CombatFilterMarker(Languages.CombatTab_ShowCombatEnmityMessagesHelpMarker);
     }
 }

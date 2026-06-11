@@ -110,6 +110,8 @@ internal static class GeneralTab
             configuration.AlwaysNormalizeBlocks = alwaysNormalizeBlocks;
             configuration.OnSettingChanged();
         }
+
+        ImGuiComponents.HelpMarker(Languages.AlwaysNormalizeSpecialCharactersHelpMarker);
     }
 
     private static void DrawImprovedMessages(Configuration configuration)
@@ -138,6 +140,8 @@ internal static class GeneralTab
             configuration.InstanceInDtrBar = instanceInDtrBar;
             configuration.OnSettingChanged();
         }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_InstanceInDTRBarHelpMarker);
 
         var betterCommendationMessage = configuration.BetterCommendationMessage;
         if (ImGui.Checkbox(Languages.GeneralTab_ImprovedPlayerCommendations, ref betterCommendationMessage))

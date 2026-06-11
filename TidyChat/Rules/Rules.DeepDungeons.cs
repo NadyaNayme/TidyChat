@@ -99,7 +99,6 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [7224, 7225, 7226, 7227, 7228, 7229],
-            Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
         new()

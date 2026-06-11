@@ -85,6 +85,8 @@ public static partial class Rules
         ["ShowTradeSent"] = c => c.ShowTradeSent,
         ["ShowTradeCanceled"] = c => c.ShowTradeCanceled,
         ["ShowAwaitingTradeConfirmation"] = c => c.ShowAwaitingTradeConfirmation,
+        ["ShowTradeRequestReceived"] = c => c.ShowTradeRequestReceived,
+        ["ShowTradeReceiveItems"] = c => c.ShowTradeReceiveItems,
         ["ShowTradeComplete"] = c => c.ShowTradeComplete,
         ["ShowNowLeaderOf"] = c => c.ShowNowLeaderOf,
         ["ShowFirstClearAward"] = c => c.ShowFirstClearAward,

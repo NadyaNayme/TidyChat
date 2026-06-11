@@ -5,6 +5,7 @@ internal static class EconomyTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.EconomyTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.EconomyTab_TradingSectionHeader, () => DrawTrading(configuration)),
@@ -42,6 +43,24 @@ internal static class EconomyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeAwaitingConfirmationHelpMarker);
+
+        var showTradeRequestReceived = configuration.ShowTradeRequestReceived;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeRequestReceived, ref showTradeRequestReceived))
+        {
+            configuration.ShowTradeRequestReceived = showTradeRequestReceived;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeRequestReceivedHelpMarker);
+
+        var showTradeReceiveItems = configuration.ShowTradeReceiveItems;
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeReceiveItems, ref showTradeReceiveItems))
+        {
+            configuration.ShowTradeReceiveItems = showTradeReceiveItems;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowTradeReceiveItemsHelpMarker);
 
         var showTradeComplete = configuration.ShowTradeComplete;
         if (ImGui.Checkbox(Languages.EconomyTab_ShowTradeComplete, ref showTradeComplete))

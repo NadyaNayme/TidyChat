@@ -161,7 +161,7 @@ public sealed partial class TidyChatPlugin
         }
 
         if ((chatType is ChatType.System or ChatType.RetainerSale && !Configuration.FilterSystemMessages) ||
-            (chatType is ChatType.Progress && !Configuration.FilterProgressSpam) ||
+            (chatType is ChatType.Progress or ChatType.BattleSystem && !Configuration.FilterProgressSpam) ||
             (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) ||
             (chatType is ChatType.LootNotice && !Configuration.FilterObtainedSpam) ||
             (chatType is ChatType.Gathering or ChatType.GatheringSystem && !Configuration.FilterGatheringSpam) ||

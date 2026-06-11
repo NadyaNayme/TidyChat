@@ -5,6 +5,7 @@ internal static class CraftingTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.CraftingTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterCraftingSpam, Languages.GeneralTab_FilterCraftingSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.CraftingTab_CraftingDropdownHeader, () => DrawCraftingOptions(configuration)));

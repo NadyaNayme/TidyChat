@@ -8,6 +8,7 @@ internal static class GlamourTab
 
     {
         SettingsTabLayout.DrawTabNote(Languages.GlamourTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
 
 

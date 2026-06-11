@@ -209,6 +209,7 @@ internal static class SettingsPropertyLabelKeys
         ["BetterTreasureDungeonMessage"] = nameof(Languages.GeneralTab_ImprovedTreasureDungeonMessages),
         ["BetterMarketBoardSaleMessage"] = nameof(Languages.GeneralTab_ImprovedMarketBoardSale),
 
+        ["EnableChatHighlights"] = nameof(Languages.ChatHighlightsTab_EnableChatHighlights),
         ["EnableDebugMode"] = nameof(Languages.ToolsTab_EnableDebugMode),
         ["DebugIncludeChannel"] = nameof(Languages.ToolsTab_DebugIncludeChannel),
         ["ChatHistoryFilter"] = nameof(Languages.ChatHistoryTab_EnableChatHistoryFilter),
@@ -227,6 +228,8 @@ internal static class SettingsPropertyLabelKeys
         ["ShowTradeSent"] = nameof(Languages.EconomyTab_ShowTradeRequestSent),
         ["ShowTradeCanceled"] = nameof(Languages.EconomyTab_ShowTradeCanceled),
         ["ShowAwaitingTradeConfirmation"] = nameof(Languages.EconomyTab_ShowTradeAwaitingConfirmation),
+        ["ShowTradeRequestReceived"] = nameof(Languages.EconomyTab_ShowTradeRequestReceived),
+        ["ShowTradeReceiveItems"] = nameof(Languages.EconomyTab_ShowTradeReceiveItems),
         ["ShowTradeComplete"] = nameof(Languages.EconomyTab_ShowTradeComplete),
 
         ["ShowObtainedPomander"] = nameof(Languages.DeepDungeonsTab_ShowObtainedPomanderMessages),

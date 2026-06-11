@@ -5,6 +5,8 @@ internal static class MateriaTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.MateriaTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterCraftingSpam, Languages.GeneralTab_FilterCraftingSpam);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.MateriaTab_MateriaDropdownHeader, () => DrawMateriaOptions(configuration)));

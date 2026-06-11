@@ -183,7 +183,9 @@ public class Configuration : IPluginConfiguration
     public bool ShowTradeSent { get; set; } = false;
     public bool ShowTradeCanceled { get; set; } = false;
     public bool ShowAwaitingTradeConfirmation { get; set; } = false;
-    public bool ShowTradeComplete { get; set; } = false;
+    public bool ShowTradeRequestReceived { get; set; } = false;
+    public bool ShowTradeReceiveItems { get; set; } = false;
+    public bool ShowTradeComplete { get; set; } = true;
     public bool ShowInviteSent { get; set; } = false;
     public bool ShowInviteeJoins { get; set; } = false;
     public bool ShowLeftParty { get; set; } = false;
@@ -220,7 +222,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowOnlineStatus { get; set; } = false;
     public bool ShowAttachToMail { get; set; } = false;
     public bool ShowNowLeaderOf { get; set; } = false;
-    public bool ShowFirstClearAward { get; set; } = false;
+    public bool ShowFirstClearAward { get; set; } = true;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = false;
     public bool ShowAttuneAetheryte { get; set; } = false;
@@ -280,7 +282,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGainPvpRank { get; set; } = false;
     public bool ShowGainSeriesExp { get; set; } = false;
     public bool ShowPvpZoneAnnouncements { get; set; } = false;
-    public bool ShowEarnAchievement { get; set; } = false;
+    public bool ShowEarnAchievement { get; set; } = true;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
     public bool HideTomestoneWeeklyCap { get; set; } = true;
     public IDictionary<uint, bool> HideTomestoneById { get; set; } = new Dictionary<uint, bool>();

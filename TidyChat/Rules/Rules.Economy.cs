@@ -10,7 +10,10 @@ public static partial class Rules
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [33]
+            LogMessageIds = [33],
+            StringChecks = [ChatStrings.TradeAwaitingConfirmation],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -18,7 +21,10 @@ public static partial class Rules
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [36]
+            LogMessageIds = [36],
+            StringChecks = [ChatStrings.TradeCanceled],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         },
         new()
         {
@@ -26,7 +32,32 @@ public static partial class Rules
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [32]
+            LogMessageIds = [32],
+            StringChecks = [ChatStrings.TradeRequestSent],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTradeRequestReceived",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [34],
+            StringChecks = [ChatStrings.TradeRequestReceived],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTradeReceiveItems",
+            SettingsTab = "Economy",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10922],
+            RegexChecks = [ChatStrings.TradeReceiveItemsRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
         }
     ];
 
@@ -38,7 +69,10 @@ public static partial class Rules
             SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [38]
+            LogMessageIds = [38],
+            StringChecks = [ChatStrings.TradeComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
         }
     ];
 

@@ -134,4 +134,49 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/32?pretty=true">Trade request sent to …</see>
+    public static readonly LocalizedStrings TradeRequestSent = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["trade", "request", "sent"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/33?pretty=true">Awaiting trade confirmation from …</see>
+    public static readonly LocalizedStrings TradeAwaitingConfirmation = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["awaiting", "trade", "confirmation"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/34?pretty=true">… wishes to trade with you.</see>
+    public static readonly LocalizedStrings TradeRequestReceived = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["wishes", "trade", "you"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/36?pretty=true">… cancels the trade.</see>
+    public static readonly LocalizedStrings TradeCanceled = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["cancels", "trade"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/38?pretty=true">You complete the trade with …</see>
+    public static readonly LocalizedStrings TradeComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["complete", "trade"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
 }

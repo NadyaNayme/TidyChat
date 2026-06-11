@@ -6,6 +6,7 @@ internal static class FreeCompanyTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.FreeCompanyTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.FreeCompanyTab_SocialDropdownHeader, () => DrawSocial(configuration)),

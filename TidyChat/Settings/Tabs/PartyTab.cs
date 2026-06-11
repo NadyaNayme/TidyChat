@@ -6,6 +6,7 @@ internal static class PartyTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.PartyTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
         SettingsTabLayout.DrawSections(true,
             (Languages.PartyTab_PartyAndInviteDropdownHeader, () => DrawPartyAndInvite(configuration)),

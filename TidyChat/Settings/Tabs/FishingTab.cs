@@ -5,6 +5,7 @@ internal static class FishingTab
     public static void Draw(Configuration configuration)
     {
         SettingsTabLayout.DrawTabNote(Languages.FishingTab_FilteringNote);
+        SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterGatheringSpam, Languages.GeneralTab_FilterGatheringSpam);
 
         var showCaughtFish = configuration.ShowCaughtFish;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishAddedToGuideMessages, ref showCaughtFish))

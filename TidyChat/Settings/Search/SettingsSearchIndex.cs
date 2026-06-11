@@ -43,11 +43,12 @@ internal static class SettingsSearchIndex
     public static void DrawResults(Configuration configuration)
     {
         var query = SettingsSearch.Query.Trim();
+        var terms = SplitQueryTerms(query);
         var entries = s_entries ??= BuildEntries();
 
-        var matches = entries.Where(e => e.Matches(query)).ToList();
-        AppendTomestoneMatches(configuration, query, matches);
-        AppendTribalCurrencyMatches(configuration, query, matches);
+        var matches = entries.Where(e => e.Matches(terms)).ToList();
+        AppendTomestoneMatches(configuration, terms, matches);
+        AppendTribalCurrencyMatches(configuration, terms, matches);
 
         ImGui.Spacing();
         if (matches.Count == 0)
@@ -130,7 +131,7 @@ internal static class SettingsSearchIndex
         }
     }
 
-    private static void AppendTribalCurrencyMatches(Configuration configuration, string query, List<Entry> matches)
+    private static void AppendTribalCurrencyMatches(Configuration configuration, string[] terms, List<Entry> matches)
     {
         if (TidyChatPlugin.TribalCurrencies.Count == 0)
         {
@@ -139,10 +140,10 @@ internal static class SettingsSearchIndex
 
         foreach (var currency in TidyChatPlugin.TribalCurrencies)
         {
-            if (!Contains(query, currency.Name) &&
-                !Contains(query, "allied society") &&
-                !Contains(query, "beast tribe") &&
-                !Contains(query, "tribal"))
+            if (!terms.All(term => Contains(term, currency.Name) ||
+                                   Contains(term, "allied society") ||
+                                   Contains(term, "beast tribe") ||
+                                   Contains(term, "tribal")))
             {
                 continue;
             }
@@ -165,7 +166,7 @@ internal static class SettingsSearchIndex
         }
     }
 
-    private static void AppendTomestoneMatches(Configuration configuration, string query, List<Entry> matches)
+    private static void AppendTomestoneMatches(Configuration configuration, string[] terms, List<Entry> matches)
     {
         if (TidyChatPlugin.Tomestones.Count == 0)
         {
@@ -174,7 +175,7 @@ internal static class SettingsSearchIndex
 
         foreach (var tomestone in TidyChatPlugin.Tomestones)
         {
-            if (!Contains(query, tomestone.Name) && !Contains(query, "tomestone") && !Contains(query, "tomestones"))
+            if (!terms.All(term => Contains(term, tomestone.Name) || Contains(term, "tomestones")))
             {
                 continue;
             }
@@ -373,6 +374,11 @@ internal static class SettingsSearchIndex
         if (UiHelp.ShouldAppendCraftingFilterNote(helpPropertyName))
         {
             return UiHelp.WithCraftingFilterNote(help);
+        }
+
+        if (UiHelp.ShouldAppendCombatFilterNote(helpPropertyName))
+        {
+            return UiHelp.WithCombatFilterNote(help);
         }
 
         if (UiHelp.ShouldAppendProgressAndSystemFilterNote(helpPropertyName))
@@ -722,6 +728,11 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_ChatHistoryDropdownHeader}";
         }
 
+        if (propertyName is "EnableChatHighlights")
+        {
+            return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_ChatHighlightsDropdownHeader}";
+        }
+
         if (propertyName is "SentByWhitelistPlayer" or "TargetingWhitelistPlayer")
         {
             return $"{Languages.ConfigWindow_ToolsTabHeader} > {Languages.ToolsTab_CustomFiltersDropdownHeader}";
@@ -852,6 +863,8 @@ internal static class SettingsSearchIndex
         if (propertyName is "ShowTradeSent" or
             "ShowTradeCanceled" or
             "ShowAwaitingTradeConfirmation" or
+            "ShowTradeRequestReceived" or
+            "ShowTradeReceiveItems" or
             "ShowTradeComplete" or
             "ShowVendorSellMessages" or
             "ShowVendorPurchaseMessages" or
@@ -903,9 +916,12 @@ internal static class SettingsSearchIndex
         return null;
     }
 
-    private static bool Contains(string query, string? value) =>
+    private static string[] SplitQueryTerms(string query) =>
+        query.Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+
+    private static bool Contains(string term, string? value) =>
         !string.IsNullOrEmpty(value) &&
-        value.Contains(query, StringComparison.OrdinalIgnoreCase);
+        value.Contains(term, StringComparison.OrdinalIgnoreCase);
 
     private sealed record RuleMetadata(string SettingsTab, List<string> Examples, List<uint> LogMessageIds);
 
@@ -923,20 +939,22 @@ internal static class SettingsSearchIndex
         Func<Configuration, bool> GetBool,
         Action<Configuration, bool> SetBool)
     {
-        public bool Matches(string query)
+        public bool Matches(string[] queryTerms) => queryTerms.All(MatchesTerm);
+
+        private bool MatchesTerm(string term)
         {
-            if (Contains(query, Label) ||
-                Contains(query, Help) ||
-                Contains(query, Location) ||
-                Contains(query, RuleName) ||
-                Contains(query, Id))
+            if (Contains(term, Label) ||
+                Contains(term, Help) ||
+                Contains(term, Location) ||
+                Contains(term, RuleName) ||
+                Contains(term, Id))
             {
                 return true;
             }
 
             foreach (var example in Examples)
             {
-                if (Contains(query, example))
+                if (Contains(term, example))
                 {
                     return true;
                 }
@@ -944,15 +962,15 @@ internal static class SettingsSearchIndex
 
             foreach (var id in LogMessageIds)
             {
-                if (id.ToString(CultureInfo.InvariantCulture).Contains(query, StringComparison.Ordinal))
+                if (id.ToString(CultureInfo.InvariantCulture).Contains(term, StringComparison.Ordinal))
                 {
                     return true;
                 }
             }
 
-            foreach (var term in ExtractTerms(Id))
+            foreach (var idTerm in ExtractTerms(Id))
             {
-                if (term.Length >= 3 && Contains(query, term))
+                if (idTerm.Length >= 3 && Contains(term, idTerm))
                 {
                     return true;
                 }

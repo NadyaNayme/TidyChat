@@ -472,20 +472,16 @@ public sealed partial class TidyChatPlugin
 
         if (rule.Pattern == PatternKind.None)
         {
-            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType sheetChannel)
-            {
-                if (rule.Channel == sheetChannel)
-                {
-                    matchDetail = "ID match";
-                    return true;
-                }
-
-                return false;
-            }
-
             if (rule.LogMessageIds?.Contains(logMessageId) == true)
             {
                 matchDetail = "ID match";
+                return true;
+            }
+
+            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType sheetChannel &&
+                rule.Channel == sheetChannel)
+            {
+                matchDetail = "channel match";
                 return true;
             }
 

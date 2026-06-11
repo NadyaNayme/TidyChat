@@ -167,6 +167,15 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("AlwaysNormalizeSpecialCharacters", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Checked = replace special characters (such as boxed letters) everywhere, including party and alliance chat..
+        /// </summary>
+        internal static string AlwaysNormalizeSpecialCharactersHelpMarker {
+            get {
+                return ResourceManager.GetString("AlwaysNormalizeSpecialCharactersHelpMarker", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to from completing.
@@ -2104,6 +2113,42 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show incoming trade requests.
+        /// </summary>
+        internal static string EconomyTab_ShowTradeRequestReceived {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeRequestReceived", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 34 — eg. Lucan Beltz wishes to trade with you..
+        /// </summary>
+        internal static string EconomyTab_ShowTradeRequestReceivedHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeRequestReceivedHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show trade item preview lines.
+        /// </summary>
+        internal static string EconomyTab_ShowTradeReceiveItems {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeReceiveItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 10922 — eg. You receive 4 extravagant salvaged bracelets (items offered in the trade window)..
+        /// </summary>
+        internal static string EconomyTab_ShowTradeReceiveItemsHelpMarker {
+            get {
+                return ResourceManager.GetString("EconomyTab_ShowTradeReceiveItemsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show Items bought from vendor.
         /// </summary>
         internal static string EconomyTab_ShowVendorPurchaseMessages {
@@ -3368,60 +3413,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Balanced (recommended).
-        /// </summary>
-        internal static string GeneralTab_FilterProfile_Balanced {
-            get {
-                return ResourceManager.GetString("GeneralTab_FilterProfile_Balanced", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Custom (current settings).
-        /// </summary>
-        internal static string GeneralTab_FilterProfile_Custom {
-            get {
-                return ResourceManager.GetString("GeneralTab_FilterProfile_Custom", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minimal.
-        /// </summary>
-        internal static string GeneralTab_FilterProfile_Minimal {
-            get {
-                return ResourceManager.GetString("GeneralTab_FilterProfile_Minimal", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Vanilla+.
-        /// </summary>
-        internal static string GeneralTab_FilterProfile_VanillaPlus {
-            get {
-                return ResourceManager.GetString("GeneralTab_FilterProfile_VanillaPlus", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Apply profile.
-        /// </summary>
-        internal static string GeneralTab_FilterProfileApply {
-            get {
-                return ResourceManager.GetString("GeneralTab_FilterProfileApply", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filter profile.
-        /// </summary>
-        internal static string GeneralTab_FilterProfileLabel {
-            get {
-                return ResourceManager.GetString("GeneralTab_FilterProfileLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Filter Progress channel.
         /// </summary>
         internal static string GeneralTab_FilterProgressSpam {
@@ -3647,6 +3638,15 @@ namespace TidyChat.Localization.Resources {
         internal static string GeneralTab_InstanceInDTRBar {
             get {
                 return ResourceManager.GetString("GeneralTab_InstanceInDTRBar", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Shows your current instance number in the server info bar (the icon row next to the in-game clock)..
+        /// </summary>
+        internal static string GeneralTab_InstanceInDTRBarHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_InstanceInDTRBarHelpMarker", resourceCulture);
             }
         }
         
@@ -4860,6 +4860,24 @@ namespace TidyChat.Localization.Resources {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Checked = show; unchecked = hide. Battle channels are always filtered, so no General tab toggle is required..
+        /// </summary>
+        internal static string Shared_CombatToggleNote {
+            get {
+                return ResourceManager.GetString("Shared_CombatToggleNote", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enable {0} on the {1} tab. While it is off, most options below do not filter anything — those messages simply stay in chat..
+        /// </summary>
+        internal static string Shared_MasterChannelDisabledWarning {
+            get {
+                return ResourceManager.GetString("Shared_MasterChannelDisabledWarning", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Requires Filter Crafting Channels on the General tab. Checked = show; unchecked = hide..
         /// </summary>
