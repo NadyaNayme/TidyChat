@@ -4,7 +4,8 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled)
+    private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled,
+        List<string> rulesMatched)
     {
         if (!Configuration.ChatHistoryFilter || isHandled)
         {
@@ -52,7 +53,11 @@ public sealed partial class TidyChatPlugin
 
                 if (isDuplicate)
                 {
-                    Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
+                    if (Configuration.EnableDebugMode)
+                    {
+                        Log.Verbose($"Found message in chat history and blocked: {currentMessage}");
+                    }
+                    TrackMatchedRule(rulesMatched, "ChatHistory");
                     isHandled = true;
                 }
                 else

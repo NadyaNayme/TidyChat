@@ -13,7 +13,25 @@ public sealed partial class TidyChatPlugin
     private Timer? _logMessageDebugDedupFlushTimer;
     private string? _logMessageDebugDedupKey;
 
-    private void EmitDedupedLogMessageDebug(string line)
+    /// <summary>Writes at Log.Debug — visible in /xllog when the Debug filter is enabled.</summary>
+    private void LogBlockedChat(IReadOnlyList<string> rules, string messageText)
+    {
+        var rulePart = rules.Count > 0 ? string.Join(", ", rules) : "filter";
+        EmitBlockedXllog($"BLOCKED ({rulePart}): {messageText}");
+    }
+
+    /// <summary>Dry-run diagnostics — only when Tools → Enable debug mode is on.</summary>
+    private void EmitDebugXllog(string line)
+    {
+        if (!Configuration.EnableDebugMode)
+        {
+            return;
+        }
+
+        EmitBlockedXllog(line);
+    }
+
+    private void EmitBlockedXllog(string line)
     {
         lock (_logMessageDebugDedupLock)
         {

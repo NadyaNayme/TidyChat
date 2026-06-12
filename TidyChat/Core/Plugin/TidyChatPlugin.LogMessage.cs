@@ -57,10 +57,10 @@ public sealed partial class TidyChatPlugin
                         RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
                     }
                     RememberLogMessageBlock(message.LogMessageId);
+                    EmitBlockedXllog(
+                        $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
                     if (Configuration.EnableDebugMode)
                     {
-                        EmitDedupedLogMessageDebug(
-                            $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
                         return;
                     }
                     message.PreventOriginal();
@@ -72,11 +72,8 @@ public sealed partial class TidyChatPlugin
                     RememberLogMessageChatMatchTexts(_allowedByLogMessage, allowedText);
                 }
                 RememberCustomFilterLogMessageAllow(message.LogMessageId);
-                if (Configuration.EnableDebugMode)
-                {
-                    EmitDedupedLogMessageDebug(
-                        $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
-                }
+                EmitDebugXllog(
+                    $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
                 return;
             }
         }
@@ -350,11 +347,8 @@ public sealed partial class TidyChatPlugin
 
         RememberLogMessageBlock(message.LogMessageId);
 
-        if (Configuration.EnableDebugMode)
-        {
-            EmitDedupedLogMessageDebug(
-                FormatLogMessageDecision("BLOCKED", decidingRuleName, message.LogMessageId, matchDetail));
-        }
+        EmitBlockedXllog(
+            FormatLogMessageDecision("BLOCKED", decidingRuleName, message.LogMessageId, matchDetail));
 
         if (RuleUsesSoftLogMessageHide(decidingRuleName))
         {
@@ -441,11 +435,8 @@ public sealed partial class TidyChatPlugin
         }
         RememberLogMessageAllow(message.LogMessageId);
 
-        if (Configuration.EnableDebugMode)
-        {
-            EmitDedupedLogMessageDebug(
-                FormatLogMessageDecision("ALLOWED", decidingRuleName, message.LogMessageId, matchDetail));
-        }
+        EmitDebugXllog(
+            FormatLogMessageDecision("ALLOWED", decidingRuleName, message.LogMessageId, matchDetail));
     }
 
     private static string FormatLogMessageDecision(string verb, string? ruleName, uint logMessageId,
@@ -800,13 +791,14 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
+        if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+        {
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+        }
+
+        EmitBlockedXllog($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
         if (Configuration.EnableDebugMode)
         {
-            EmitDedupedLogMessageDebug($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
-            if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
-            {
-                RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
-            }
             return true;
         }
 
@@ -828,14 +820,15 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
+        if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+        {
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+        }
+
+        EmitBlockedXllog(
+            $"[LogMessage] BLOCKED by allied society currency hide (ID: {message.LogMessageId})");
         if (Configuration.EnableDebugMode)
         {
-            EmitDedupedLogMessageDebug(
-                $"[LogMessage] BLOCKED by allied society currency hide (ID: {message.LogMessageId})");
-            if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
-            {
-                RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
-            }
             return true;
         }
 

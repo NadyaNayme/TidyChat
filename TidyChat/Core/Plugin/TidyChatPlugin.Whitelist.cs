@@ -249,23 +249,8 @@ public sealed partial class TidyChatPlugin
                 continue;
             }
 
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug(
-                    $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
-                try
-                {
-                    RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
-                }
-                catch
-                { }
-
-                RememberLogMessageBlock(message.LogMessageId);
-                return true;
-            }
-
-            message.PreventOriginal();
-            Interlocked.Increment(ref _sessionBlockedMessages);
+            EmitBlockedXllog(
+                $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
             try
             {
                 RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
@@ -274,6 +259,13 @@ public sealed partial class TidyChatPlugin
             { }
 
             RememberLogMessageBlock(message.LogMessageId);
+            if (Configuration.EnableDebugMode)
+            {
+                return true;
+            }
+
+            message.PreventOriginal();
+            Interlocked.Increment(ref _sessionBlockedMessages);
             return true;
         }
 
@@ -297,11 +289,8 @@ public sealed partial class TidyChatPlugin
             catch
             { }
 
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug(
-                    $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
-            }
+            EmitDebugXllog(
+                $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
 
             return true;
         }

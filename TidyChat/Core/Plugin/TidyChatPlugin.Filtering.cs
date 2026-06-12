@@ -66,14 +66,14 @@ public sealed partial class TidyChatPlugin
     private bool FinishChatHandling(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText, ref bool isHandled, List<string> rulesMatched)
     {
-        ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled);
+        ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled, rulesMatched);
         var handledBeforeWhitelist = isHandled;
         ApplyWhitelist(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled);
         if (handledBeforeWhitelist != isHandled)
         {
             TrackMatchedRule(rulesMatched, isHandled ? "CustomFilter (Block)" : "CustomFilter (Allow)");
         }
-        if (CheckChatHistory(message, chatType, ref isHandled))
+        if (CheckChatHistory(message, chatType, ref isHandled, rulesMatched))
         {
             return true;
         }
@@ -100,6 +100,7 @@ public sealed partial class TidyChatPlugin
         if (isHandled)
         {
             Interlocked.Increment(ref _sessionBlockedMessages);
+            LogBlockedChat(rulesMatched, message.Message.TextValue);
             message.PreventOriginal();
         }
 
@@ -170,6 +171,7 @@ public sealed partial class TidyChatPlugin
             if (IsWhitelistedBlocked(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
                     normalizedText))
             {
+                LogBlockedChat(["CustomFilter (Block)"], message.Message.TextValue);
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
@@ -352,7 +354,7 @@ public sealed partial class TidyChatPlugin
 
         var isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
 
-        if (Configuration.EnableDebugMode && (matchedRules.Count > 0 || isHandled))
+        if (Configuration.EnableDebugMode && matchedRules.Count > 0)
         {
             Log.Debug($"{matchedRules.Count} Rules Matched: {string.Join(", ", matchedRules)}");
             if (rulesSkipped!.Count > 0)
@@ -363,22 +365,24 @@ public sealed partial class TidyChatPlugin
             {
                 Log.Debug($"{rulesFailed.Count} Rules Failed: {string.Join(", ", rulesFailed)}");
             }
-            Log.Debug($"{(isHandled ? "BLOCKED" : "ALLOWED")}: {message.Message}");
+        }
+
+        if (Configuration.EnableDebugMode && !isHandled)
+        {
+            Log.Debug($"ALLOWED: {message.Message}");
         }
 
         rulesMatched = matchedRules;
         return isHandled;
     }
 
-    private void ApplyFilterOverrides(IHandleableChatMessage message, ChatType chatType, string normalizedText, ref bool isHandled)
+    private void ApplyFilterOverrides(IHandleableChatMessage message, ChatType chatType, string normalizedText,
+        ref bool isHandled, List<string> rulesMatched)
     {
         if (chatType is ChatType.System or ChatType.RetainerSale &&
             MarketBoardSaleHelper.ShouldBlockGilEntrusted(Configuration, normalizedText))
         {
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug("BLOCKED (market gil entrusted): " + message.Message);
-            }
+            TrackMatchedRule(rulesMatched, "MarketGilEntrusted");
             isHandled = true;
         }
 
@@ -396,6 +400,7 @@ public sealed partial class TidyChatPlugin
             chatType is ChatType.StandardEmote or ChatType.CustomEmote &&
             string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
         {
+            TrackMatchedRule(rulesMatched, "HideSelfUsedEmotes");
             isHandled = true;
         }
 
@@ -409,10 +414,7 @@ public sealed partial class TidyChatPlugin
                     StringComparison.Ordinal));
             if (!isPartyMember)
             {
-                if (Configuration.EnableDebugMode)
-                {
-                    Log.Debug($"BLOCKED (non-party loot): {message.Message}");
-                }
+                TrackMatchedRule(rulesMatched, "OnlyPartyMemberLootRolls");
                 isHandled = true;
             }
         }
@@ -429,20 +431,14 @@ public sealed partial class TidyChatPlugin
 
         if (ObtainCurrencyHelper.ShouldHideTomestone(normalizedText, Tomestones, Configuration.HideTomestoneById))
         {
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug($"BLOCKED (tomestone): {message.Message}");
-            }
+            TrackMatchedRule(rulesMatched, "HideTomestone");
             isHandled = true;
         }
 
         if (Configuration.HideTomestoneWeeklyCap &&
             ObtainCurrencyHelper.IsTomestoneWeeklyCapMessage(normalizedText))
         {
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug($"BLOCKED (tomestone weekly cap): {message.Message}");
-            }
+            TrackMatchedRule(rulesMatched, "HideTomestoneWeeklyCap");
             isHandled = true;
         }
 
@@ -450,10 +446,7 @@ public sealed partial class TidyChatPlugin
             ObtainCurrencyHelper.ShouldHideTribalCurrency(Configuration, normalizedText, TribalCurrencies,
                 Configuration.HideTribalCurrencyById))
         {
-            if (Configuration.EnableDebugMode)
-            {
-                Log.Debug($"BLOCKED (allied society currency): {message.Message}");
-            }
+            TrackMatchedRule(rulesMatched, "HideTribalCurrency");
             isHandled = true;
         }
     }

@@ -51,9 +51,9 @@ public sealed partial class TidyChatPlugin
 
         if (suppress)
         {
+            LogBlockedChat(["ServerAnnouncement"], message.Message.TextValue);
             if (Configuration.EnableDebugMode)
             {
-                Log.Debug($"BLOCKED (server announcement): {message.Message}");
                 if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 {
                     message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, true);

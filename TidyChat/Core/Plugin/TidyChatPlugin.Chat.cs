@@ -33,6 +33,7 @@ public sealed partial class TidyChatPlugin
             ResolveLogMessageChatEffect(rawTextValue, extractedTextValue, normalizedText);
         if (logEffect == LogMessageChatEffect.PreserveHidden)
         {
+            LogBlockedChat(["LogMessage"], message.Message.TextValue);
             if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
             {
                 message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);

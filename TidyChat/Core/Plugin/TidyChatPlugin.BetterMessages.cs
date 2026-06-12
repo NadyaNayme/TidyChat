@@ -70,6 +70,7 @@ public sealed partial class TidyChatPlugin
         {
             if (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.MarkBillDetails))
             {
+                LogBlockedChat(["BetterMarkBillMessage"], message.Message.TextValue);
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
                 return true;
@@ -86,6 +87,7 @@ public sealed partial class TidyChatPlugin
         if (Configuration.BetterCommendationMessage && chatType is ChatType.System &&
             LogMessageCatalog.MatchesWithFallback(926, normalizedText, ChatStrings.PlayerCommendation))
         {
+            LogBlockedChat(["BetterCommendationMessage"], message.Message.TextValue);
             message.PreventOriginal();
             Interlocked.Increment(ref _sessionBlockedMessages);
             return true;

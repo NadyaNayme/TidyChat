@@ -12,6 +12,7 @@ public sealed partial class TidyChatPlugin
             if (IsWhitelistedBlocked(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
                     normalizedText))
             {
+                LogBlockedChat(["CustomFilter (Block)"], message.Message.TextValue);
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
@@ -25,10 +26,7 @@ public sealed partial class TidyChatPlugin
             if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
                     normalizedText))
             {
-                if (Configuration.EnableDebugMode)
-                {
-                    Log.Verbose($"Filtered an emote: {message.Message}");
-                }
+                LogBlockedChat(["HideOtherCustomEmotes"], message.Message.TextValue);
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
             }
