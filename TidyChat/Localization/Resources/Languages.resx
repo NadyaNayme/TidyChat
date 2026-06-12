@@ -1,65 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-                              Microsoft ResX Schema 
-                              
-                              Version 2.0
-                              
-                              The primary goals of this format is to allow a simple XML format 
-                              that is mostly human readable. The generation and parsing of the 
-                              various data types are done through the TypeConverter classes 
-                              associated with the data types.
-                              
-                              Example:
-                              
-                              ... ado.net/XML headers & schema ...
-                              <resheader name="resmimetype">text/microsoft-resx</resheader>
-                              <resheader name="version">2.0</resheader>
-                              <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-                              <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-                              <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-                              <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-                              <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-                                  <value>[base64 mime encoded serialized .NET Framework object]</value>
-                              </data>
-                              <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-                                  <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-                                  <comment>This is a comment</comment>
-                              </data>
-                              
-                              There are any number of "resheader" rows that contain simple 
-                              name/value pairs.
-                              
-                              Each data row contains a name, and value. The row also contains a 
-                              type or mimetype. Type corresponds to a .NET class that support 
-                              text/value conversion through the TypeConverter architecture. 
-                              Classes that don't support this are serialized and stored with the 
-                              mimetype set.
-                              
-                              The mimetype is used for serialized objects, and tells the 
-                              ResXResourceReader how to depersist the object. This is currently not 
-                              extensible. For a given mimetype the value must be set accordingly:
-                              
-                              Note - application/x-microsoft.net.object.binary.base64 is the format 
-                              that the ResXResourceWriter will generate, however the reader can 
-                              read any of the formats listed below.
-                              
-                              mimetype: application/x-microsoft.net.object.binary.base64
-                              value   : The object must be serialized with 
-                                      : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                                      : and then encoded with base64 encoding.
-                              
-                              mimetype: application/x-microsoft.net.object.soap.base64
-                              value   : The object must be serialized with 
-                                      : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                                      : and then encoded with base64 encoding.
-                              
-                              mimetype: application/x-microsoft.net.object.bytearray.base64
-                              value   : The object must be serialized into a byte array 
-                                      : using a System.ComponentModel.TypeConverter
-                                      : and then encoded with base64 encoding.
-                              -->
+                                Microsoft ResX Schema 
+                                
+                                Version 2.0
+                                
+                                The primary goals of this format is to allow a simple XML format 
+                                that is mostly human readable. The generation and parsing of the 
+                                various data types are done through the TypeConverter classes 
+                                associated with the data types.
+                                
+                                Example:
+                                
+                                ... ado.net/XML headers & schema ...
+                                <resheader name="resmimetype">text/microsoft-resx</resheader>
+                                <resheader name="version">2.0</resheader>
+                                <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+                                <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+                                <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+                                <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+                                <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+                                    <value>[base64 mime encoded serialized .NET Framework object]</value>
+                                </data>
+                                <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+                                    <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+                                    <comment>This is a comment</comment>
+                                </data>
+                                
+                                There are any number of "resheader" rows that contain simple 
+                                name/value pairs.
+                                
+                                Each data row contains a name, and value. The row also contains a 
+                                type or mimetype. Type corresponds to a .NET class that support 
+                                text/value conversion through the TypeConverter architecture. 
+                                Classes that don't support this are serialized and stored with the 
+                                mimetype set.
+                                
+                                The mimetype is used for serialized objects, and tells the 
+                                ResXResourceReader how to depersist the object. This is currently not 
+                                extensible. For a given mimetype the value must be set accordingly:
+                                
+                                Note - application/x-microsoft.net.object.binary.base64 is the format 
+                                that the ResXResourceWriter will generate, however the reader can 
+                                read any of the formats listed below.
+                                
+                                mimetype: application/x-microsoft.net.object.binary.base64
+                                value   : The object must be serialized with 
+                                        : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+                                        : and then encoded with base64 encoding.
+                                
+                                mimetype: application/x-microsoft.net.object.soap.base64
+                                value   : The object must be serialized with 
+                                        : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+                                        : and then encoded with base64 encoding.
+                                
+                                mimetype: application/x-microsoft.net.object.bytearray.base64
+                                value   : The object must be serialized into a byte array 
+                                        : using a System.ComponentModel.TypeConverter
+                                        : and then encoded with base64 encoding.
+                                -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -1195,11 +1241,11 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
   </data>
-  <data name="EconomyTab_RepairsSectionHeader" xml:space="preserve">
-    <value>Repairs</value>
-  </data>
   <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
+  </data>
+  <data name="EconomyTab_RepairsSectionHeader" xml:space="preserve">
+    <value>Repairs</value>
   </data>
   <data name="EconomyTab_RetainerSectionHeader" xml:space="preserve">
     <value>Retainer</value>
@@ -1209,6 +1255,12 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="EconomyTab_ShowCompletedVentureHelpMarker" xml:space="preserve">
     <value>LogMessages 4332, 4335, 4341 — eg. RetainerName has completed a venture!</value>
+  </data>
+  <data name="EconomyTab_ShowGearItemsRepaired" xml:space="preserve">
+    <value>Show gear repair messages</value>
+  </data>
+  <data name="EconomyTab_ShowGearItemsRepairedHelpMarker" xml:space="preserve">
+    <value>LogMessages 1385, 1388 (System) — eg. Linen Cowl is repaired. / 2 items repaired.</value>
   </data>
   <data name="EconomyTab_ShowGilSpentMessage" xml:space="preserve">
     <value>Show Gil spent confirmation</value>
@@ -1352,8 +1404,75 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="EnableTinyChat" xml:space="preserve">
     <value>Tiny chat (lowercase)</value>
   </data>
+  <data name="ExplorationTab_ExplorationDropdownHeader" xml:space="preserve">
+    <value>Exploration</value>
+  </data>
   <data name="ExplorationTab_FilteringNote" xml:space="preserve">
     <value>Hunt and exploration lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="ExplorationTab_HuntMessagesDropdownHeader" xml:space="preserve">
+    <value>Hunt marks</value>
+  </data>
+  <data name="ExplorationTab_ShowAetherCompassMessages" xml:space="preserve">
+    <value>Show Aether Compass message</value>
+  </data>
+  <data name="ExplorationTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 3712 — eg. The compass detects a current approximately 143 yalms to the West...</value>
+  </data>
+  <data name="ExplorationTab_ShowHostilePresenceMessages" xml:space="preserve">
+    <value>Show hostile presence (Battle System)</value>
+  </data>
+  <data name="ExplorationTab_ShowHostilePresenceMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 3240 — hostile presence sensed on the Battle System channel. Independent of “You sense something…” above.</value>
+  </data>
+  <data name="ExplorationTab_ShowHuntMarkSlainMessages" xml:space="preserve">
+    <value>Show hunt mark slain messages</value>
+  </data>
+  <data name="ExplorationTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 4411 — eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
+  </data>
+  <data name="ExplorationTab_ShowLocationDiscoveredMessages" xml:space="preserve">
+    <value>Show location discovered</value>
+  </data>
+  <data name="ExplorationTab_ShowLocationDiscoveredMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 88 — e.g. New location discovered! Independent of “You sense something…” above.</value>
+  </data>
+  <data name="ExplorationTab_ShowMarkBillMessages" xml:space="preserve">
+    <value>Show mark bill messages</value>
+  </data>
+  <data name="ExplorationTab_ShowMarkBillMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 4412, 4415, 4416 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt.</value>
+  </data>
+  <data name="ExplorationTab_ShowSayReminder" xml:space="preserve">
+    <value>Show reminders of what to /say in chat during quests</value>
+  </data>
+  <data name="ExplorationTab_ShowSayReminderHelpMarker" xml:space="preserve">
+    <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+  </data>
+  <data name="ExplorationTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
+    <value>Show S Rank Hunt spawn announcement</value>
+  </data>
+  <data name="ExplorationTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
+    <value>LogMessage 9331 — eg. You sense the presence of a powerful mark...</value>
+  </data>
+  <data name="ExplorationTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
+    <value>Show SS Rank Minion announcements</value>
+  </data>
+  <data name="ExplorationTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
+    <value>LogMessage 9332 — eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
+The minions of an extraordinarily powerful mark have withdrawn...</value>
+  </data>
+  <data name="ExplorationTab_ShowVistaMessages" xml:space="preserve">
+    <value>Show vista arrival and stray messages</value>
+  </data>
+  <data name="ExplorationTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 1272, 1273 — eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
+  </data>
+  <data name="ExplorationTab_ShowYouSenseSomethingMessages" xml:space="preserve">
+    <value>Show "You sense something..." messages</value>
+  </data>
+  <data name="ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 2600 — spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
   </data>
   <data name="FishingTab_FilteringNote" xml:space="preserve">
     <value>Fishing lines need Filter Gathering channels on General.</value>
@@ -1778,6 +1897,24 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GlamourTab_FilteringNote" xml:space="preserve">
     <value>Glamour and character gear lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
   </data>
+  <data name="GlamourTab_ShowGearDyeApplied" xml:space="preserve">
+    <value>Show gear dye applied</value>
+  </data>
+  <data name="GlamourTab_ShowGearDyeAppliedHelpMarker" xml:space="preserve">
+    <value>LogMessage 10508 — eg. You use a pot of Dalamud Red Dye to change Dye 1 of …</value>
+  </data>
+  <data name="GlamourTab_ShowGearsetChangingMessages" xml:space="preserve">
+    <value>Show gearset equipped messages</value>
+  </data>
+  <data name="GlamourTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 700, 755, 788 — eg. “Red Mage” equipped.</value>
+  </data>
+  <data name="GlamourTab_ShowGearsetGlamourRestoreFailed" xml:space="preserve">
+    <value>Show gearset glamour restore failed</value>
+  </data>
+  <data name="GlamourTab_ShowGearsetGlamourRestoreFailedHelpMarker" xml:space="preserve">
+    <value>LogMessage 1900 — eg. Gearset equipped, but glamours could not be restored.</value>
+  </data>
   <data name="GlamourTab_ShowGlamourArmoireMessages" xml:space="preserve">
     <value>Show armoire messages</value>
   </data>
@@ -1802,11 +1939,41 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GlamourTab_ShowGlamourDresserProjectionHelpMarker" xml:space="preserve">
     <value>Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383, 4534 — eg. A projection of … is added to your glamour dresser.</value>
   </data>
+  <data name="GlamourTab_ShowGlamourPlatePartialApply" xml:space="preserve">
+    <value>Show glamour plate partial apply errors</value>
+  </data>
+  <data name="GlamourTab_ShowGlamourPlatePartialApplyHelpMarker" xml:space="preserve">
+    <value>LogMessage 4378 (Error channel) — eg. Glamour plate could only be partially applied. Checked = show; unchecked = hide.</value>
+  </data>
+  <data name="GlamourTab_ShowGlamourPlateProjected" xml:space="preserve">
+    <value>Show glamour plate projected</value>
+  </data>
+  <data name="GlamourTab_ShowGlamourPlateProjectedHelpMarker" xml:space="preserve">
+    <value>LogMessage 4364 (System) and glamour notification channel text match — eg. Glamours projected from plate 1.</value>
+  </data>
+  <data name="GlamourTab_ShowJobChangeMessages" xml:space="preserve">
+    <value>Show job change messages</value>
+  </data>
+  <data name="GlamourTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 561, 756, 1281 — eg. You change to Scholar., Paladin registered.</value>
+  </data>
+  <data name="GlamourTab_ShowPortraitMessages" xml:space="preserve">
+    <value>Show portrait messages</value>
+  </data>
+  <data name="GlamourTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 5865 — eg. Portrait set as instant portrait., Portrait has expired.</value>
+  </data>
   <data name="GlamourTab_ShowTryOnEquipGlamourMessages" xml:space="preserve">
     <value>Show try-on / cast / equip glamour messages</value>
   </data>
   <data name="GlamourTab_ShowTryOnEquipGlamourMessagesHelpMarker" xml:space="preserve">
     <value>Master toggle for trying on, casting, and applying glamours to equipped gear (not dresser/armoire storage). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Spiritbound below is separate.</value>
+  </data>
+  <data name="GlamourTab_ShowTryOnGlamourCast" xml:space="preserve">
+    <value>Show try-on / cast glamour</value>
+  </data>
+  <data name="GlamourTab_ShowTryOnGlamourCastHelpMarker" xml:space="preserve">
+    <value>LogMessage 4309 (Glamour Notifications channel) — eg. You cast a glamour. Does not require Filter System on General.</value>
   </data>
   <data name="GlamourTab_ShowTryOnGlamourPreview" xml:space="preserve">
     <value>Show wardrobe try-on</value>
@@ -1853,6 +2020,18 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="HousingTab_FilteringNote" xml:space="preserve">
     <value>Sanctuary and housing ward lines use Filter System on General. Checked = show; unchecked = hide.</value>
   </data>
+  <data name="HousingTab_ShowHousingWardMessage" xml:space="preserve">
+    <value>Show housing ward messages</value>
+  </data>
+  <data name="HousingTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
+    <value>LogMessage 3379 — eg. Shirogane, Ward 15</value>
+  </data>
+  <data name="HousingTab_ShowSanctuaryMessage" xml:space="preserve">
+    <value>Show sanctuary enter/leave messages</value>
+  </data>
+  <data name="HousingTab_ShowSanctuaryMessageHelpMarker" xml:space="preserve">
+    <value>LogMessages 732, 733 — eg. You have entered a sanctuary. / You have left the sanctuary.</value>
+  </data>
   <data name="MateriaTab_FilteringNote" xml:space="preserve">
     <value>Attach, extract, and overmeld lines use Filter Crafting Channels on General. Retrieve and shatter lines use Filter System on General. Checked = show; unchecked = hide.</value>
   </data>
@@ -1882,6 +2061,12 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   </data>
   <data name="MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 1201 — eg. You attach a Savage Aim Materia VI.</value>
+  </data>
+  <data name="MateriaTab_ShowSpiritboundMessages" xml:space="preserve">
+    <value>Show gear reaching 100% spiritbound messages</value>
+  </data>
+  <data name="MateriaTab_ShowSpiritboundMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 744 — eg. Your gear has reached 100% spiritbond.</value>
   </data>
   <data name="MateriaTab_ShowSuccesfullyRetrievedMateriaMessages" xml:space="preserve">
     <value>Show message when you successfully retrieve materia from gear</value>
@@ -1967,6 +2152,12 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
   <data name="PartyTab_ShowPartyObjectiveOnJoinHelpMarker" xml:space="preserve">
     <value>Companion to Show joined cross-world party messages. Temporarily bypasses Filter System so the join line can include the party objective and comment.</value>
   </data>
+  <data name="PartyTab_ShowReceivedCommendations" xml:space="preserve">
+    <value>Show received commendations</value>
+  </data>
+  <data name="PartyTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
+    <value>LogMessage 926 — eg. You received a player commendation!</value>
+  </data>
   <data name="PartyTab_ShowReceivedPartyInvitationMessages" xml:space="preserve">
     <value>Show Received invitations</value>
   </data>
@@ -2018,6 +2209,18 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="ProgressTab_RelicsDropdownHeader" xml:space="preserve">
     <value>Relics</value>
+  </data>
+  <data name="ProgressTab_ShowARRRelicBookStepMessages" xml:space="preserve">
+    <value>Show ARR Relic book step completed messages</value>
+  </data>
+  <data name="ProgressTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 4400 — eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
+  </data>
+  <data name="ProgressTab_ShowARRRelicProgressMessages" xml:space="preserve">
+    <value>Show ARR Relic book step progress messages</value>
+  </data>
+  <data name="ProgressTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 4402 — eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
   </data>
   <data name="ProgressTab_ShowEarnedAchievementMessages" xml:space="preserve">
     <value>Show your earned achievements</value>
@@ -2155,6 +2358,15 @@ eg. You obtain a cracked dendrocluster</value>
   <data name="SystemTab_HideOrchestrionPlayingHelpMarker" xml:space="preserve">
     <value>LogMessage 3433 — eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message.</value>
   </data>
+  <data name="SystemTab_ItemSearchDropdownHeader" xml:space="preserve">
+    <value>Item &amp; location search</value>
+  </data>
+  <data name="SystemTab_MailDropdownHeader" xml:space="preserve">
+    <value>Mail</value>
+  </data>
+  <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
+    <value>Orchestrion</value>
+  </data>
   <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
     <value>Condensed (world line only)</value>
   </data>
@@ -2276,8 +2488,11 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowPersonalMessageBookMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 6066 — eg. A new entry has been added to your message book. Uses the message-book channel.</value>
   </data>
-  <data name="SystemTab_ItemSearchDropdownHeader" xml:space="preserve">
-    <value>Item &amp; location search</value>
+  <data name="SystemTab_SocialDropdownHeader" xml:space="preserve">
+    <value>Social</value>
+  </data>
+  <data name="SystemTab_TravelDropdownHeader" xml:space="preserve">
+    <value>Travel</value>
   </data>
   <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
     <value>World &amp; instances</value>
@@ -2370,174 +2585,5 @@ LogMessage ID — prefix with # and one or more IDs, e.g. #588 or #748,4578. All
   </data>
   <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayerHelpMarker" xml:space="preserve">
     <value>Bypass all filters when an Allow row set to exact sender match appears in the message text (not regex, #ID, or sender/message-contains custom filter rows).</value>
-  </data>
-  <data name="ExplorationTab_HuntMessagesDropdownHeader" xml:space="preserve">
-    <value>Hunt marks</value>
-  </data>
-  <data name="ExplorationTab_ExplorationDropdownHeader" xml:space="preserve">
-    <value>Exploration</value>
-  </data>
-  <data name="ExplorationTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
-    <value>Show S Rank Hunt spawn announcement</value>
-  </data>
-  <data name="ExplorationTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-    <value>LogMessage 9331 — eg. You sense the presence of a powerful mark...</value>
-  </data>
-  <data name="ExplorationTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
-    <value>Show SS Rank Minion announcements</value>
-  </data>
-  <data name="ExplorationTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
-    <value>LogMessage 9332 — eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
-The minions of an extraordinarily powerful mark have withdrawn...</value>
-  </data>
-  <data name="ExplorationTab_ShowHuntMarkSlainMessages" xml:space="preserve">
-    <value>Show hunt mark slain messages</value>
-  </data>
-  <data name="ExplorationTab_ShowHuntMarkSlainMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 4411 — eg. Hunt mark &lt;mark&gt; slain! 1/3</value>
-  </data>
-  <data name="ExplorationTab_ShowMarkBillMessages" xml:space="preserve">
-    <value>Show mark bill messages</value>
-  </data>
-  <data name="ExplorationTab_ShowMarkBillMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4412, 4415, 4416 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt.</value>
-  </data>
-  <data name="ExplorationTab_ShowSayReminder" xml:space="preserve">
-    <value>Show reminders of what to /say in chat during quests</value>
-  </data>
-  <data name="ExplorationTab_ShowSayReminderHelpMarker" xml:space="preserve">
-    <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
-  </data>
-  <data name="ExplorationTab_ShowYouSenseSomethingMessages" xml:space="preserve">
-    <value>Show "You sense something..." messages</value>
-  </data>
-  <data name="ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 2600 — spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
-  </data>
-  <data name="ExplorationTab_ShowLocationDiscoveredMessages" xml:space="preserve">
-    <value>Show location discovered</value>
-  </data>
-  <data name="ExplorationTab_ShowLocationDiscoveredMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 88 — e.g. New location discovered! Independent of “You sense something…” above.</value>
-  </data>
-  <data name="ExplorationTab_ShowHostilePresenceMessages" xml:space="preserve">
-    <value>Show hostile presence (Battle System)</value>
-  </data>
-  <data name="ExplorationTab_ShowHostilePresenceMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 3240 — hostile presence sensed on the Battle System channel. Independent of “You sense something…” above.</value>
-  </data>
-  <data name="ExplorationTab_ShowAetherCompassMessages" xml:space="preserve">
-    <value>Show Aether Compass message</value>
-  </data>
-  <data name="ExplorationTab_ShowAetherCompassMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 3712 — eg. The compass detects a current approximately 143 yalms to the West...</value>
-  </data>
-  <data name="ExplorationTab_ShowVistaMessages" xml:space="preserve">
-    <value>Show vista arrival and stray messages</value>
-  </data>
-  <data name="ExplorationTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1272, 1273 — eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
-  </data>
-  <data name="GlamourTab_ShowGearsetChangingMessages" xml:space="preserve">
-    <value>Show gearset equipped messages</value>
-  </data>
-  <data name="GlamourTab_ShowGearsetChangingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 700, 755, 788 — eg. “Red Mage” equipped.</value>
-  </data>
-  <data name="GlamourTab_ShowJobChangeMessages" xml:space="preserve">
-    <value>Show job change messages</value>
-  </data>
-  <data name="GlamourTab_ShowJobChangeMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 561, 756, 1281 — eg. You change to Scholar., Paladin registered.</value>
-  </data>
-  <data name="GlamourTab_ShowPortraitMessages" xml:space="preserve">
-    <value>Show portrait messages</value>
-  </data>
-  <data name="GlamourTab_ShowPortraitMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 5865 — eg. Portrait set as instant portrait., Portrait has expired.</value>
-  </data>
-  <data name="GlamourTab_ShowTryOnGlamourCast" xml:space="preserve">
-    <value>Show try-on / cast glamour</value>
-  </data>
-  <data name="GlamourTab_ShowTryOnGlamourCastHelpMarker" xml:space="preserve">
-    <value>LogMessage 4309 (Glamour Notifications channel) — eg. You cast a glamour. Does not require Filter System on General.</value>
-  </data>
-  <data name="GlamourTab_ShowGlamourPlateProjected" xml:space="preserve">
-    <value>Show glamour plate projected</value>
-  </data>
-  <data name="GlamourTab_ShowGlamourPlateProjectedHelpMarker" xml:space="preserve">
-    <value>LogMessage 4364 (System) and glamour notification channel text match — eg. Glamours projected from plate 1.</value>
-  </data>
-  <data name="GlamourTab_ShowGlamourPlatePartialApply" xml:space="preserve">
-    <value>Show glamour plate partial apply errors</value>
-  </data>
-  <data name="GlamourTab_ShowGlamourPlatePartialApplyHelpMarker" xml:space="preserve">
-    <value>LogMessage 4378 (Error channel) — eg. Glamour plate could only be partially applied. Checked = show; unchecked = hide.</value>
-  </data>
-  <data name="GlamourTab_ShowGearDyeApplied" xml:space="preserve">
-    <value>Show gear dye applied</value>
-  </data>
-  <data name="GlamourTab_ShowGearDyeAppliedHelpMarker" xml:space="preserve">
-    <value>LogMessage 10508 — eg. You use a pot of Dalamud Red Dye to change Dye 1 of …</value>
-  </data>
-  <data name="GlamourTab_ShowGearsetGlamourRestoreFailed" xml:space="preserve">
-    <value>Show gearset glamour restore failed</value>
-  </data>
-  <data name="GlamourTab_ShowGearsetGlamourRestoreFailedHelpMarker" xml:space="preserve">
-    <value>LogMessage 1900 — eg. Gearset equipped, but glamours could not be restored.</value>
-  </data>
-  <data name="HousingTab_ShowSanctuaryMessage" xml:space="preserve">
-    <value>Show sanctuary enter/leave messages</value>
-  </data>
-  <data name="HousingTab_ShowSanctuaryMessageHelpMarker" xml:space="preserve">
-    <value>LogMessages 732, 733 — eg. You have entered a sanctuary. / You have left the sanctuary.</value>
-  </data>
-  <data name="HousingTab_ShowHousingWardMessage" xml:space="preserve">
-    <value>Show housing ward messages</value>
-  </data>
-  <data name="HousingTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
-    <value>LogMessage 3379 — eg. Shirogane, Ward 15</value>
-  </data>
-  <data name="MateriaTab_ShowSpiritboundMessages" xml:space="preserve">
-    <value>Show gear reaching 100% spiritbound messages</value>
-  </data>
-  <data name="MateriaTab_ShowSpiritboundMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 744 — eg. Your gear has reached 100% spiritbond.</value>
-  </data>
-  <data name="ProgressTab_ShowARRRelicProgressMessages" xml:space="preserve">
-    <value>Show ARR Relic book step progress messages</value>
-  </data>
-  <data name="ProgressTab_ShowARRRelicProgressMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 4402 — eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2.</value>
-  </data>
-  <data name="ProgressTab_ShowARRRelicBookStepMessages" xml:space="preserve">
-    <value>Show ARR Relic book step completed messages</value>
-  </data>
-  <data name="ProgressTab_ShowARRRelicBookStepMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 4400 — eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!</value>
-  </data>
-  <data name="PartyTab_ShowReceivedCommendations" xml:space="preserve">
-    <value>Show received commendations</value>
-  </data>
-  <data name="PartyTab_ShowReceivedCommendationsHelpMarker" xml:space="preserve">
-    <value>LogMessage 926 — eg. You received a player commendation!</value>
-  </data>
-  <data name="EconomyTab_ShowGearItemsRepaired" xml:space="preserve">
-    <value>Show gear repair messages</value>
-  </data>
-  <data name="EconomyTab_ShowGearItemsRepairedHelpMarker" xml:space="preserve">
-    <value>LogMessages 1385, 1388 (System) — eg. Linen Cowl is repaired. / 2 items repaired.</value>
-  </data>
-  <data name="SystemTab_TravelDropdownHeader" xml:space="preserve">
-    <value>Travel</value>
-  </data>
-  <data name="SystemTab_SocialDropdownHeader" xml:space="preserve">
-    <value>Social</value>
-  </data>
-  <data name="SystemTab_MailDropdownHeader" xml:space="preserve">
-    <value>Mail</value>
-  </data>
-  <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
-    <value>Orchestrion</value>
   </data>
 </root>

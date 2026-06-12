@@ -249,5 +249,4 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLevelNoLongerSyncedHelpMarker);
     }
-
 }

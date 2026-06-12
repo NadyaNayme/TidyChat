@@ -170,5 +170,4 @@ public static partial class Rules
             PreferLogMessageCatalog = true
         }
     ];
-
 }

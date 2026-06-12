@@ -33,6 +33,8 @@ public class Configuration : IPluginConfiguration
     public bool HideFateLevelSync { get; set; } = false;
 
     #endregion
+
+    public bool ShowObtainedQuestItems { get; set; } = false;
     public int Version { get; set; } = 0;
 
     public void Initialize(IDalamudPluginInterface pluginInterface) => this.pluginInterface = pluginInterface;
@@ -352,6 +354,4 @@ public class Configuration : IPluginConfiguration
     public bool ShowCosmicDailyProgress { get; set; } = false;
 
     #endregion
-
-    public bool ShowObtainedQuestItems { get; set; } = false;
 }
