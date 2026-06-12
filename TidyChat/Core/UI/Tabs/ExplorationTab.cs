@@ -7,86 +7,106 @@ internal static class ExplorationTab
         SettingsTabLayout.DrawTabNote(Languages.ExplorationTab_FilteringNote);
         SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
         SettingsTabLayout.DrawSections(true,
-            (Languages.SystemTab_HuntMessagesDropdownHeader, () => DrawHuntMessages(configuration)),
-            (Languages.SystemTab_ExplorationDropdownHeader, () => DrawExplorationMessages(configuration)));
+            (Languages.ExplorationTab_HuntMessagesDropdownHeader, () => DrawHuntMessages(configuration)),
+            (Languages.ExplorationTab_ExplorationDropdownHeader, () => DrawExplorationMessages(configuration)));
     }
+
     private static void DrawHuntMessages(Configuration configuration)
     {
         var sRankHunt = configuration.ShowSRankHunt;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowSRankSpawnAnnouncement, ref sRankHunt))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowSRankSpawnAnnouncement, ref sRankHunt))
         {
             configuration.ShowSRankHunt = sRankHunt;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSRankSpawnAnnouncementHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowSRankSpawnAnnouncementHelpMarker);
+
         var ssRankHunt = configuration.ShowSSRankHunt;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncement, ref ssRankHunt))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowSSRankMinionSpawnAnnouncement, ref ssRankHunt))
         {
             configuration.ShowSSRankHunt = ssRankHunt;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncementHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowSSRankMinionSpawnAnnouncementHelpMarker);
+
         var showHuntSlain = configuration.ShowHuntSlain;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowHuntMarkSlainMessages, ref showHuntSlain))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowHuntMarkSlainMessages, ref showHuntSlain))
         {
             configuration.ShowHuntSlain = showHuntSlain;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHuntMarkSlainMessagesHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowHuntMarkSlainMessagesHelpMarker);
+
         var showMarkBillMessages = configuration.ShowMarkBillMessages;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowMarkBillMessages, ref showMarkBillMessages))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowMarkBillMessages, ref showMarkBillMessages))
         {
             configuration.ShowMarkBillMessages = showMarkBillMessages;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMarkBillMessagesHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowMarkBillMessagesHelpMarker);
     }
+
     private static void DrawExplorationMessages(Configuration configuration)
     {
         var showQuestReminder = configuration.ShowQuestReminder;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowSayReminder, ref showQuestReminder))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowSayReminder, ref showQuestReminder))
         {
             configuration.ShowQuestReminder = showQuestReminder;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSayReminderHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowSayReminderHelpMarker);
+
         var showSpideySenses = configuration.ShowSpideySenses;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowYouSenseSomethingMessages, ref showSpideySenses))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowYouSenseSomethingMessages, ref showSpideySenses))
         {
             configuration.ShowSpideySenses = showSpideySenses;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowYouSenseSomethingMessagesHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker);
+
         SettingsTabLayout.DrawIndependentOptions(() =>
         {
             var showLocationDiscovered = configuration.ShowLocationDiscovered;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowLocationDiscoveredMessages, ref showLocationDiscovered))
+            if (ImGui.Checkbox(Languages.ExplorationTab_ShowLocationDiscoveredMessages, ref showLocationDiscovered))
             {
                 configuration.ShowLocationDiscovered = showLocationDiscovered;
                 configuration.OnSettingChanged();
             }
-            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLocationDiscoveredMessagesHelpMarker);
+
+            UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowLocationDiscoveredMessagesHelpMarker);
+
             var showHostilePresence = configuration.ShowHostilePresence;
-            if (ImGui.Checkbox(Languages.SystemTab_ShowHostilePresenceMessages, ref showHostilePresence))
+            if (ImGui.Checkbox(Languages.ExplorationTab_ShowHostilePresenceMessages, ref showHostilePresence))
             {
                 configuration.ShowHostilePresence = showHostilePresence;
                 configuration.OnSettingChanged();
             }
-            UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHostilePresenceMessagesHelpMarker);
+
+            UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowHostilePresenceMessagesHelpMarker);
         });
+
         var showAetherCompass = configuration.ShowAetherCompass;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowAetherCompassMessages, ref showAetherCompass))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowAetherCompassMessages, ref showAetherCompass))
         {
             configuration.ShowAetherCompass = showAetherCompass;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetherCompassMessagesHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowAetherCompassMessagesHelpMarker);
+
         var showVistaMessages = configuration.ShowVistaMessages;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowVistaMessages, ref showVistaMessages))
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowVistaMessages, ref showVistaMessages))
         {
             configuration.ShowVistaMessages = showVistaMessages;
             configuration.OnSettingChanged();
         }
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowVistaMessagesHelpMarker);
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowVistaMessagesHelpMarker);
     }
 }

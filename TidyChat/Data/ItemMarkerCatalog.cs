@@ -131,6 +131,8 @@ public static class ItemMarkerCatalog
             28187, // Qitari Compliment (Qitari)
             28188, // Hammered Frogment (Dwarves)
             36657, // Arkasodara Pana (Arkasodara)
+            37854, // Omicron Omnitoken (Omicron)
+            38952, // Loporrit Carat (Loporrit)
             44472, // Pelu Pelplume (Pelupelu)
             48084, // Mamool Ja Nanook (Mamool Ja)
             46178 // Yok Huy Ward (Yok Huy)

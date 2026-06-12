@@ -10,7 +10,6 @@ internal static class PartyTab
 
         SettingsTabLayout.DrawSections(true,
             (Languages.PartyTab_PartyAndInviteDropdownHeader, () => DrawPartyAndInvite(configuration)),
-            (Languages.PartyTab_PartyToolsDropdownHeader, () => DrawPartyTools(configuration)),
             (Languages.PartyTab_LootingAndRollingDropdownHeader, () => DrawLootingAndRolling(configuration)));
     }
 
@@ -91,36 +90,15 @@ internal static class PartyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.PartyTab_ShowDisbandAndDissolveMessagesHelpMarker);
-    }
 
-    private static void DrawPartyTools(Configuration configuration)
-    {
-        var showCountdownTime = configuration.ShowCountdownTime;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowCountdownMessages, ref showCountdownTime))
+        var commendations = configuration.ShowCommendations;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowReceivedCommendations, ref commendations))
         {
-            configuration.ShowCountdownTime = showCountdownTime;
+            configuration.ShowCommendations = commendations;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowCountdownMessagesHelpMarker);
-
-        var showReadyChecks = configuration.ShowReadyChecks;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowReadycheckMessages, ref showReadyChecks))
-        {
-            configuration.ShowReadyChecks = showReadyChecks;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowReadycheckMessagesHelpMarker);
-
-        var showNowLeaderOf = configuration.ShowNowLeaderOf;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowNowALeader, ref showNowLeaderOf))
-        {
-            configuration.ShowNowLeaderOf = showNowLeaderOf;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowNowALeaderHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowReceivedCommendationsHelpMarker);
     }
 
     private static void DrawLootingAndRolling(Configuration configuration)

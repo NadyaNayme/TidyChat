@@ -5,16 +5,12 @@ internal static class UiHelp
 {
     private static readonly HashSet<string> ProgressSystemFilterHelpMarkers = new(StringComparer.Ordinal)
     {
-        nameof(Languages.ProgressTab_ShowQuestProgressMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowFirstClearAwardHelpMarker),
         nameof(Languages.ProgressTab_ShowSecondChanceAwardHelpMarker)
     };
 
-    private static readonly HashSet<string> ProgressAndSystemFilterHelpMarkers = new(StringComparer.Ordinal)
-    {
-        nameof(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker)
-    };
+    private static readonly HashSet<string> ProgressAndSystemFilterHelpMarkers = new(StringComparer.Ordinal);
 
     private static readonly HashSet<string> ProgressFilterHelpMarkers = new(StringComparer.Ordinal)
     {
@@ -25,8 +21,7 @@ internal static class UiHelp
         nameof(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker),
-        nameof(Languages.DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker),
-        nameof(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker)
+        nameof(Languages.DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker)
     };
 
     private static readonly HashSet<string> ProgressObtainedHideFilterHelpMarkers = new(StringComparer.Ordinal)
@@ -139,7 +134,6 @@ internal static class UiHelp
             _ when helpPropertyName.StartsWith("SystemTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("PartyTab_", StringComparison.Ordinal) =>
                 helpPropertyName is not nameof(Languages.PartyTab_ShowPartyObjectiveOnJoinHelpMarker),
-            _ when helpPropertyName.StartsWith("DutyTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("DeepDungeonsTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("EconomyTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("GatheringTab_ShowCosmic", StringComparison.Ordinal) => true,

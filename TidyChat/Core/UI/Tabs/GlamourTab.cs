@@ -53,17 +53,17 @@ internal static class GlamourTab
         SettingsTabLayout.DrawSectionSeparator();
 
         var showGearsetEquipped = configuration.ShowGearsetEquipped;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowGearsetChangingMessages, ref showGearsetEquipped))
         {
             configuration.ShowGearsetEquipped = showGearsetEquipped;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetChangingMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGearsetChangingMessagesHelpMarker);
 
         var showJobChange = configuration.ShowJobChange;
 
-        if (ImGui.Checkbox(Languages.SystemTab_ShowJobChangeMessages, ref showJobChange))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowJobChangeMessages, ref showJobChange))
 
         {
             configuration.ShowJobChange = showJobChange;
@@ -73,13 +73,13 @@ internal static class GlamourTab
 
 
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowJobChangeMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowJobChangeMessagesHelpMarker);
 
 
 
         var showPortraitMessages = configuration.ShowPortraitMessages;
 
-        if (ImGui.Checkbox(Languages.SystemTab_ShowPortraitMessages, ref showPortraitMessages))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowPortraitMessages, ref showPortraitMessages))
 
         {
             configuration.ShowPortraitMessages = showPortraitMessages;
@@ -89,7 +89,7 @@ internal static class GlamourTab
 
 
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowPortraitMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowPortraitMessagesHelpMarker);
     }
 
 
@@ -167,7 +167,7 @@ internal static class GlamourTab
 
         var showTryOnCast = configuration.ShowTryOnGlamourCast;
 
-        if (ImGui.Checkbox(Languages.SystemTab_ShowTryOnGlamourCast, ref showTryOnCast))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowTryOnGlamourCast, ref showTryOnCast))
 
         {
             configuration.ShowTryOnGlamourCast = showTryOnCast;
@@ -177,13 +177,13 @@ internal static class GlamourTab
 
 
 
-        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowTryOnGlamourCastHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.GlamourTab_ShowTryOnGlamourCastHelpMarker);
 
 
 
         var showPlateProjected = configuration.ShowGlamourPlateProjected;
 
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlateProjected, ref showPlateProjected))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourPlateProjected, ref showPlateProjected))
 
         {
             configuration.ShowGlamourPlateProjected = showPlateProjected;
@@ -193,20 +193,20 @@ internal static class GlamourTab
 
 
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlateProjectedHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourPlateProjectedHelpMarker);
 
         var showPartialApply = configuration.ShowGlamourPlatePartialApply;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlatePartialApply, ref showPartialApply))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourPlatePartialApply, ref showPartialApply))
         {
             configuration.ShowGlamourPlatePartialApply = showPartialApply;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowGlamourPlatePartialApplyHelpMarker);
+        UiHelp.StandaloneHideFilterMarker(Languages.GlamourTab_ShowGlamourPlatePartialApplyHelpMarker);
 
         var showGearDye = configuration.ShowGearDyeApplied;
 
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGearDyeApplied, ref showGearDye))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowGearDyeApplied, ref showGearDye))
 
         {
             configuration.ShowGearDyeApplied = showGearDye;
@@ -216,13 +216,13 @@ internal static class GlamourTab
 
 
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearDyeAppliedHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGearDyeAppliedHelpMarker);
 
 
 
         var showRestoreFailed = configuration.ShowGearsetGlamourRestoreFailed;
 
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGearsetGlamourRestoreFailed, ref showRestoreFailed))
+        if (ImGui.Checkbox(Languages.GlamourTab_ShowGearsetGlamourRestoreFailed, ref showRestoreFailed))
 
         {
             configuration.ShowGearsetGlamourRestoreFailed = showRestoreFailed;
@@ -232,6 +232,6 @@ internal static class GlamourTab
 
 
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearsetGlamourRestoreFailedHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGearsetGlamourRestoreFailedHelpMarker);
     }
 }

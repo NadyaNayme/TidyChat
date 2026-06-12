@@ -7,22 +7,11 @@ public static partial class Rules
         new()
         {
             Name = "ShowSpiritboundGear",
-            SettingsTab = "Glamour",
+            SettingsTab = "Materia",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [744],
             StringChecks = [ChatStrings.SpiritboundGear],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowPersonalEffectAcquired",
-            SettingsTab = "Glamour",
-            Channel = ChatType.Progress,
-            IsActive = true,
-            LogMessageIds = [5701],
-            StringChecks = [ChatStrings.PersonalEffectAcquired],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         }
@@ -224,7 +213,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowGearItemsRepaired",
-            SettingsTab = "Glamour",
+            SettingsTab = "Economy",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1385, 1388],

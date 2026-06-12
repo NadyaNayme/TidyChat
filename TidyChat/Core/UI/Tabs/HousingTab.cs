@@ -12,21 +12,21 @@ internal static class HousingTab
     private static void DrawHousingOptions(Configuration configuration)
     {
         var sanctuaryMessage = configuration.ShowSanctuaryMessage;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowSanctuaryMessage, ref sanctuaryMessage))
+        if (ImGui.Checkbox(Languages.HousingTab_ShowSanctuaryMessage, ref sanctuaryMessage))
         {
             configuration.ShowSanctuaryMessage = sanctuaryMessage;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSanctuaryMessageHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.HousingTab_ShowSanctuaryMessageHelpMarker);
 
         var housingWardMessage = configuration.ShowHousingWardMessage;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowHousingWardMessage, ref housingWardMessage))
+        if (ImGui.Checkbox(Languages.HousingTab_ShowHousingWardMessage, ref housingWardMessage))
         {
             configuration.ShowHousingWardMessage = housingWardMessage;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowHousingWardMessageHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.HousingTab_ShowHousingWardMessageHelpMarker);
     }
 }

@@ -523,7 +523,6 @@ internal static class SettingsSearchIndex
         "General" => Languages.ConfigWindow_GeneralTabHeader,
         "Emotes" => Languages.ConfigWindow_EmotesTabHeader,
         "Party" => Languages.ConfigWindow_PartyTabHeader,
-        "Duty" => Languages.ConfigWindow_DutyTabHeader,
         "Free Company" => Languages.ConfigWindow_FreeCompanyTabHeader,
         "Economy" => Languages.ConfigWindow_EconomyTabHeader,
         _ => settingsTab
@@ -567,16 +566,13 @@ internal static class SettingsSearchIndex
             "ShowOtherLevelUps" or
             "ShowEarnAchievement" or
             "ShowOtherEarnedAchievement" or
-            "ShowAbilityUnlocks" or
-            "ShowMountMessages" or
-            "ShowQuestProgress" or
             "ShowFirstClearAward" or
             "ShowSecondChanceAward")
         {
             return Languages.ConfigWindow_ProgressTabHeader;
         }
 
-        if (propertyName is "HideFateLevelSync" or "HideOrchestrionPlaying")
+        if (propertyName is "HideFateLevelSync")
         {
             return Languages.ConfigWindow_SystemTabHeader;
         }
@@ -746,10 +742,7 @@ internal static class SettingsSearchIndex
             "ShowInstancedAreaMessages" or
             "ShowDutyEndedMessage" or
             "ShowGuildhestEndedMessage" or
-            "ShowLevelNoLongerSynced" or
-            "ShowDutyMechanicMessages" or
-            "ShowDutyObjectiveBonus" or
-            "ShowEligibleForCoffers")
+            "ShowLevelNoLongerSynced")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_WorldAndInstancesDropdownHeader}";
         }
@@ -764,29 +757,27 @@ internal static class SettingsSearchIndex
             "ShowGlamourPlateProjected" or
             "ShowGlamourPlatePartialApply" or
             "ShowGearDyeApplied" or
-            "ShowGearsetGlamourRestoreFailed")
+            "ShowGearsetGlamourRestoreFailed" or
+            "ShowGearsetEquipped" or
+            "ShowJobChange" or
+            "ShowPortraitMessages")
         {
             return Languages.ConfigWindow_GlamourTabHeader;
         }
 
-        if (propertyName is "ShowPersonalEffectAcquired" or "ShowRelicBookStep" or "ShowRelicBookComplete")
+        if (propertyName is "ShowRelicBookStep" or "ShowRelicBookComplete")
         {
-            return Languages.ConfigWindow_ProgressTabHeader;
-        }
-
-        if (propertyName is "ShowGearsetEquipped" or "ShowJobChange" or "ShowPortraitMessages")
-        {
-            return Languages.ConfigWindow_GlamourTabHeader;
+            return $"{Languages.ConfigWindow_ProgressTabHeader} > {Languages.ProgressTab_RelicsDropdownHeader}";
         }
 
         if (propertyName is "ShowSpiritboundGear")
         {
-            return Languages.ConfigWindow_MateriaTabHeader;
+            return $"{Languages.ConfigWindow_MateriaTabHeader} > {Languages.MateriaTab_MateriaDropdownHeader}";
         }
 
         if (propertyName is "ShowGearItemsRepaired")
         {
-            return Languages.ConfigWindow_EconomyTabHeader;
+            return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_RepairsSectionHeader}";
         }
 
         if (propertyName is "ShowSanctuaryMessage" or "ShowHousingWardMessage")
@@ -796,7 +787,7 @@ internal static class SettingsSearchIndex
 
         if (propertyName is "ShowSRankHunt" or "ShowSSRankHunt" or "ShowHuntSlain" or "ShowMarkBillMessages")
         {
-            return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.SystemTab_HuntMessagesDropdownHeader}";
+            return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.ExplorationTab_HuntMessagesDropdownHeader}";
         }
 
         if (propertyName is "ShowSearchForItemResults" or
@@ -806,7 +797,7 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_ItemSearchDropdownHeader}";
         }
 
-        if (propertyName is "ShowEverythingElse" or "ShowChangesDiscarded" or "ShowChangesLost")
+        if (propertyName is "ShowEverythingElse")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CatchAllDropdownHeader}";
         }
@@ -833,20 +824,32 @@ internal static class SettingsSearchIndex
             "ShowAetherCompass" or
             "ShowVistaMessages")
         {
-            return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.SystemTab_ExplorationDropdownHeader}";
+            return $"{Languages.ConfigWindow_ExplorationTabHeader} > {Languages.ExplorationTab_ExplorationDropdownHeader}";
         }
 
-        if (propertyName is "ShowCommendations" or
-            "ShowPersonalMessageBook" or
-            "ShowAetheryteTicket" or
-            "ShowOnlineStatus")
+        if (propertyName is "ShowCommendations")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
+            return Languages.ConfigWindow_PartyTabHeader;
+        }
+
+        if (propertyName is "ShowPersonalMessageBook" or "ShowOnlineStatus")
+        {
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialDropdownHeader}";
+        }
+
+        if (propertyName is "ShowAetheryteTicket")
+        {
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_TravelDropdownHeader}";
         }
 
         if (propertyName is "ShowAttachToMail")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_MailDropdownHeader}";
+        }
+
+        if (propertyName is "HideOrchestrionPlaying")
+        {
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_OrchestrionDropdownHeader}";
         }
 
         if (propertyName is "ShowTradeSent" or
@@ -880,26 +883,13 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_DeepDungeonsTabHeader;
         }
 
-        if (propertyName is "ShowDutyFinder" or "ShowCompletionTime")
-        {
-            return Languages.ConfigWindow_DutyTabHeader;
-        }
-
         if (propertyName.StartsWith("ShowInvite", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowJoin", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowLeft", StringComparison.Ordinal) ||
             propertyName.StartsWith("ShowParty", StringComparison.Ordinal) ||
-            propertyName is "ShowOfferedTeleport" or
-                "ShowCountdownTime" or
-                "ShowReadyChecks" or
-                "ShowNowLeaderOf")
+            propertyName is "ShowOfferedTeleport")
         {
             return Languages.ConfigWindow_PartyTabHeader;
-        }
-
-        if (propertyName is "ShowSealedOff")
-        {
-            return Languages.ConfigWindow_SystemTabHeader;
         }
 
         return null;

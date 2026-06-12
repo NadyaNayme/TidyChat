@@ -15,13 +15,13 @@ internal static class MateriaTab
     private static void DrawMateriaOptions(Configuration configuration)
     {
         var showSpiritboundGear = configuration.ShowSpiritboundGear;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowSpiritboundMessages, ref showSpiritboundGear))
+        if (ImGui.Checkbox(Languages.MateriaTab_ShowSpiritboundMessages, ref showSpiritboundGear))
         {
             configuration.ShowSpiritboundGear = showSpiritboundGear;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowSpiritboundMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.MateriaTab_ShowSpiritboundMessagesHelpMarker);
 
         var showMateriaExtract = configuration.ShowMateriaExtract;
         if (ImGui.Checkbox(Languages.MateriaTab_ShowMateriaExtractedMessages, ref showMateriaExtract))

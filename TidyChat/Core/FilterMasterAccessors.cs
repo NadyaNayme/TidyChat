@@ -27,15 +27,6 @@ internal static class FilterMasterAccessors
     public static bool LevelNoLongerSynced(Configuration c) =>
         c.ShowInstanceMessage && c.ShowLevelNoLongerSynced;
 
-    public static bool DutyMechanicMessages(Configuration c) =>
-        c.ShowInstanceMessage && c.ShowDutyMechanicMessages;
-
-    public static bool DutyObjectiveBonus(Configuration c) =>
-        c.ShowInstanceMessage && c.ShowDutyObjectiveBonus;
-
-    public static bool EligibleForCoffers(Configuration c) =>
-        c.ShowInstanceMessage && c.ShowEligibleForCoffers;
-
     public static bool GlamourDresserOutfit(Configuration c) =>
         c.ShowGlamourDresserMessages && c.ShowGlamourDresserOutfit;
 
@@ -68,12 +59,6 @@ internal static class FilterMasterAccessors
 
     public static bool LocationSearchResults(Configuration c) =>
         c.ShowSearchForItemResults && c.ShowLocationSearchResults;
-
-    public static bool ChangesDiscarded(Configuration c) =>
-        c.ShowEverythingElse && c.ShowChangesDiscarded;
-
-    public static bool ChangesLost(Configuration c) =>
-        c.ShowEverythingElse && c.ShowChangesLost;
 
     public static bool TripleTriadAllowed(Configuration c) => c.ShowTripleTriadAllowed;
 

@@ -13,7 +13,10 @@ internal static class SystemTab
 
         SettingsTabLayout.DrawSections(true,
             (Languages.SystemTab_WorldAndInstancesDropdownHeader, () => DrawWorldAndInstances(configuration)),
-            (Languages.SystemTab_SocialAndMiscDropdownHeader, () => DrawSocialAndMisc(configuration)),
+            (Languages.SystemTab_TravelDropdownHeader, () => DrawTravel(configuration)),
+            (Languages.SystemTab_SocialDropdownHeader, () => DrawSocial(configuration)),
+            (Languages.SystemTab_MailDropdownHeader, () => DrawMail(configuration)),
+            (Languages.SystemTab_OrchestrionDropdownHeader, () => DrawOrchestrion(configuration)),
             (Languages.SystemTab_ItemSearchDropdownHeader, () => DrawItemSearch(configuration)),
             (Languages.SystemTab_CatchAllDropdownHeader, () => DrawCatchAll(configuration)),
             (Languages.SystemTab_ErrorMessagesDropdownHeader, () => DrawErrorMessages(configuration)));
@@ -40,7 +43,15 @@ internal static class SystemTab
         ImGui.SameLine();
         ImGuiComponents.HelpMarker(Languages.SystemTab_ServerAnnouncementsHelpMarker);
 
-        ImGui.SetNextItemWidth(-1f);
+        var comboWidth = 0f;
+        foreach (var mode in serverAnnouncementModes)
+        {
+            comboWidth = Math.Max(comboWidth, ImGui.CalcTextSize(mode).X);
+        }
+
+        var style = ImGui.GetStyle();
+        comboWidth += style.FramePadding.X * 2f + ImGui.GetFrameHeight();
+        ImGui.SetNextItemWidth(comboWidth);
         if (ImGui.BeginCombo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
         {
             for (var i = 0; i < serverAnnouncementModes.Length; i++)
@@ -77,17 +88,20 @@ internal static class SystemTab
             () => DrawInstanceMessageSubOptions(configuration));
     }
 
-    private static void DrawSocialAndMisc(Configuration configuration)
+    private static void DrawTravel(Configuration configuration)
     {
-        var commendations = configuration.ShowCommendations;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowReceivedCommendations, ref commendations))
+        var showAetheryteTicket = configuration.ShowAetheryteTicket;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowAetheryteTicketMessage, ref showAetheryteTicket))
         {
-            configuration.ShowCommendations = commendations;
+            configuration.ShowAetheryteTicket = showAetheryteTicket;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowReceivedCommendationsHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
+    }
 
+    private static void DrawSocial(Configuration configuration)
+    {
         var showPersonalMessageBook = configuration.ShowPersonalMessageBook;
         if (ImGui.Checkbox(Languages.SystemTab_ShowPersonalMessageBookMessages, ref showPersonalMessageBook))
         {
@@ -97,33 +111,6 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowPersonalMessageBookMessagesHelpMarker);
 
-        var showAetheryteTicket = configuration.ShowAetheryteTicket;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowAetheryteTicketMessage, ref showAetheryteTicket))
-        {
-            configuration.ShowAetheryteTicket = showAetheryteTicket;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
-
-        var showAttachToMail = configuration.ShowAttachToMail;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
-        {
-            configuration.ShowAttachToMail = showAttachToMail;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
-
-        var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
-        if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
-        {
-            configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
-
         var showOnlineStatus = configuration.ShowOnlineStatus;
         if (ImGui.Checkbox(Languages.SystemTab_ShowOnlineStatusMessages, ref showOnlineStatus))
         {
@@ -132,6 +119,30 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowOnlineStatusMessagesHelpMarker);
+    }
+
+    private static void DrawMail(Configuration configuration)
+    {
+        var showAttachToMail = configuration.ShowAttachToMail;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
+        {
+            configuration.ShowAttachToMail = showAttachToMail;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
+    }
+
+    private static void DrawOrchestrion(Configuration configuration)
+    {
+        var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
+        if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
+        {
+            configuration.HideOrchestrionPlaying = hideOrchestrionPlaying;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
     }
 
     private static void DrawItemSearch(Configuration configuration)
@@ -177,9 +188,6 @@ internal static class SystemTab
         }
 
         ImGuiComponents.HelpMarker(Languages.SystemTab_ShowEverythingElseHelpMarker);
-
-        SettingsTabLayout.DrawNestedOptions(configuration.ShowEverythingElse,
-            () => DrawMiscSystemSubOptions(configuration));
     }
 
     private static void DrawErrorMessages(Configuration configuration)
@@ -240,62 +248,6 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLevelNoLongerSyncedHelpMarker);
-
-        var showDutyMechanic = configuration.ShowDutyMechanicMessages;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowDutyMechanicMessages, ref showDutyMechanic))
-        {
-            configuration.ShowDutyMechanicMessages = showDutyMechanic;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyMechanicMessagesHelpMarker);
-
-        var showSealedOff = configuration.ShowSealedOff;
-        if (ImGui.Checkbox(Languages.PartyTab_ShowSealedOffMessages, ref showSealedOff))
-        {
-            configuration.ShowSealedOff = showSealedOff;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowSealedOffMessagesHelpMarker);
-
-        var showDutyObjectiveBonus = configuration.ShowDutyObjectiveBonus;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowDutyObjectiveBonus, ref showDutyObjectiveBonus))
-        {
-            configuration.ShowDutyObjectiveBonus = showDutyObjectiveBonus;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyObjectiveBonusHelpMarker);
-
-        var showEligibleForCoffers = configuration.ShowEligibleForCoffers;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowNumberOfCoffers, ref showEligibleForCoffers))
-        {
-            configuration.ShowEligibleForCoffers = showEligibleForCoffers;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowNumberOfCoffersHelpMarker);
     }
 
-    private static void DrawMiscSystemSubOptions(Configuration configuration)
-    {
-        var showChangesDiscarded = configuration.ShowChangesDiscarded;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowChangesDiscarded, ref showChangesDiscarded))
-        {
-            configuration.ShowChangesDiscarded = showChangesDiscarded;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesDiscardedHelpMarker);
-
-        var showChangesLost = configuration.ShowChangesLost;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowChangesLost, ref showChangesLost))
-        {
-            configuration.ShowChangesLost = showChangesLost;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowChangesLostHelpMarker);
-    }
 }

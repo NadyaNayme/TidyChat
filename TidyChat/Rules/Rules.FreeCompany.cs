@@ -143,28 +143,6 @@ public static partial class Rules
             IsActive = true,
             StringChecks = [ChatStrings.CompanyActionExpired],
             Pattern = PatternKind.StringMatch
-        },
-        new()
-        {
-            Name = "ShowMountMessages",
-            SettingsTab = "System",
-            Channel = ChatType.Action,
-            IsActive = true,
-            LogMessageIds = [646],
-            StringChecks = [ChatStrings.MountMessage],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowMountMessages",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [1306],
-            StringChecks = [ChatStrings.MountSpeedIncreased],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
         }
     ];
 }

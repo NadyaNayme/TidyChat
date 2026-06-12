@@ -1,5 +1,4 @@
-﻿using Dalamud.Interface.Components;
-namespace TidyChat.Settings.Tabs;
+﻿namespace TidyChat.Settings.Tabs;
 
 internal static class ProgressTab
 {
@@ -12,7 +11,6 @@ internal static class ProgressTab
             (Languages.ProgressTab_ExperienceAndLevelsDropdownHeader, () => DrawExperienceAndLevels(configuration)),
             (Languages.ProgressTab_DutyRewardsDropdownHeader, () => DrawDutyRewards(configuration)),
             (Languages.ProgressTab_QuestAndAchievementsDropdownHeader, () => DrawQuestAndAchievements(configuration)),
-            (Languages.ProgressTab_UnlocksDropdownHeader, () => DrawUnlocks(configuration)),
             (Languages.ProgressTab_RelicsDropdownHeader, () => DrawRelics(configuration)));
     }
 
@@ -124,15 +122,6 @@ internal static class ProgressTab
 
     private static void DrawQuestAndAchievements(Configuration configuration)
     {
-        var showQuestProgress = configuration.ShowQuestProgress;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowQuestProgressMessages, ref showQuestProgress))
-        {
-            configuration.ShowQuestProgress = showQuestProgress;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowQuestProgressMessagesHelpMarker);
-
         var showEarnAchievement = configuration.ShowEarnAchievement;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowEarnedAchievementMessages, ref showEarnAchievement))
         {
@@ -153,54 +142,24 @@ internal static class ProgressTab
         UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker);
     }
 
-    private static void DrawUnlocks(Configuration configuration)
-    {
-        var showAbilityUnlocks = configuration.ShowAbilityUnlocks;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowLearnedAbilityMessages, ref showAbilityUnlocks))
-        {
-            configuration.ShowAbilityUnlocks = showAbilityUnlocks;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.ProgressAndSystemFilterMarker(Languages.ProgressTab_ShowLearnedAbilityMessagesHelpMarker);
-
-        var showMountMessages = configuration.ShowMountMessages;
-        if (ImGui.Checkbox(Languages.ProgressTab_ShowMountMessages, ref showMountMessages))
-        {
-            configuration.ShowMountMessages = showMountMessages;
-            configuration.OnSettingChanged();
-        }
-
-        ImGuiComponents.HelpMarker(Languages.ProgressTab_ShowMountMessagesHelpMarker);
-
-        var showPersonalEffectAcquired = configuration.ShowPersonalEffectAcquired;
-        if (ImGui.Checkbox(Languages.GlamourTab_ShowPersonalEffectAcquired, ref showPersonalEffectAcquired))
-        {
-            configuration.ShowPersonalEffectAcquired = showPersonalEffectAcquired;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.ProgressFilterMarker(Languages.GlamourTab_ShowPersonalEffectAcquiredHelpMarker);
-    }
-
     private static void DrawRelics(Configuration configuration)
     {
         var showRelicBookStep = configuration.ShowRelicBookStep;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowARRRelicProgressMessages, ref showRelicBookStep))
         {
             configuration.ShowRelicBookStep = showRelicBookStep;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicProgressMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowARRRelicProgressMessagesHelpMarker);
 
         var showRelicBookComplete = configuration.ShowRelicBookComplete;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowARRRelicBookStepMessages, ref showRelicBookComplete))
         {
             configuration.ShowRelicBookComplete = showRelicBookComplete;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowARRRelicBookStepMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowARRRelicBookStepMessagesHelpMarker);
     }
 }

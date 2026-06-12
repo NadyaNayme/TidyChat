@@ -32,9 +32,9 @@ public class RuleFallbackTests
     [Test]
     public void Allows_specific_regex_fallback_for_catalog_rules()
     {
-        var questAccepted = FindRuleByRegex("ShowQuestProgress", ChatStrings.QuestAcceptedRegex);
+        var dutyCommence = FindRuleByRegex("ShowDutyCommenceMessage", ChatStrings.DutyHasBegunRegex);
 
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(questAccepted), Is.False);
+        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(dutyCommence), Is.False);
     }
 
     [Test]
@@ -58,18 +58,6 @@ public class RuleFallbackTests
         Assert.That(
             RuleMatcher.MatchesText(spidey, "you sense the fertile presence of minerals.", out _),
             Is.False);
-    }
-
-    [Test]
-    public void Quest_regex_matches_quoted_progress_lines_only()
-    {
-        var accepted = FindRuleByRegex("ShowQuestProgress", ChatStrings.QuestAcceptedRegex);
-        var complete = FindRuleByRegex("ShowQuestProgress", ChatStrings.QuestCompleteRegex);
-
-        Assert.That(RuleMatcher.MatchesText(accepted, @"""starting from scrap"" accepted.", out _), Is.True);
-        Assert.That(RuleMatcher.MatchesText(accepted, "challenge log entry complete!", out _), Is.False);
-        Assert.That(RuleMatcher.MatchesText(complete, @"""starting from scrap"" complete!", out _), Is.True);
-        Assert.That(RuleMatcher.MatchesText(complete, @"""starting from scrap"" accepted.", out _), Is.False);
     }
 
     [Test]

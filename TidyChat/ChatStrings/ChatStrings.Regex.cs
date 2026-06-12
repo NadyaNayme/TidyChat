@@ -61,10 +61,10 @@ public static partial class ChatStrings
     {
         Jpn = new(@"NeedsLocalization", RegexOptions, RegexTimeout),
         Eng = new(
-            @"^you (obtain|obtains) (a|an|\d{1,3}) (Steel (Amalj'ok|Amalj'oks)|Sylphic (Goldleaf|Goldleaves)|Titan (Cobaltpiece|Cobaltpieces)|(Rainbowtide Psashp|Psashps)|Ixali (oaknot|oaknots)|Vanu (Whitebone|Whitebones)|Black Copper (Gil|Gils)|Carved Kupo (Nut|Nuts)|Kojin (Sango|Sangos)|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu (Koban|Kobans)|Fae (Fancy|Fancies)|Qitari (Compliment|Compliments)|Hammered (Frogment|Fragments)|Arkasodara (Pana|Panas)|Pelu (Pelplume|Pelplumes)|Mamool Ja (Nanook|Nanooks)|Yok Huy (Ward|Wards))\.$",
+            @"^you (obtain|obtains) (a|an|\d{1,3}) (Steel (Amalj'ok|Amalj'oks)|Sylphic (Goldleaf|Goldleaves)|Titan (Cobaltpiece|Cobaltpieces)|(Rainbowtide Psashp|Psashps)|Ixali (oaknot|oaknots)|Vanu (Whitebone|Whitebones)|Black Copper (Gil|Gils)|Carved Kupo (Nut|Nuts)|Kojin (Sango|Sangos)|Ananta Dreamstaves|Ananta Dreamstaffs|Namazu (Koban|Kobans)|Fae (Fancy|Fancies)|Qitari (Compliment|Compliments)|Hammered (Frogment|Fragments)|Arkasodara (Pana|Panas)|Omicron (omnitoken|omnitokens)|Loporrit (carat|carats)|Pelu (Pelplume|Pelplumes)|Mamool Ja (Nanook|Nanooks)|Yok Huy (Ward|Wards))\.$",
             RegexOptions, RegexTimeout),
         Deu = new(
-            @"^(du|you) hast (einen|\d{1,3}) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze|Flügelmünze|Mamool Ja-Nanook|Yok Huy-Brosche) erhalten\.$",
+            @"^(du|you) hast (einen|\d{1,3}) (Stahl-Amalj'ok|Sylphen-goldblatt|Titan-koboldeistenstück|Regenbogenwellen-Psashp|Ixal-eichenmünze|Vanu-Weißknochen|Schwarzkupfer-Gil|Kupo-Schnitznuss|Kohin-Koralle|Ananta-Traumstab|Namazuo-Koban|Pixie-Glitter|Qitari-Kastanienkreuzer|Zwergenmünze|Flügelmünze|Omnikoin|Möhrenmark|Mamool Ja-Nanook|Yok Huy-Brosche) erhalten\.$",
             RegexOptions, RegexTimeout),
         Fra = new(@"NeedsLocalization", RegexOptions, RegexTimeout)
     };

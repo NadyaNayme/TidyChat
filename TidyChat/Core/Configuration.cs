@@ -113,29 +113,20 @@ public class Configuration : IPluginConfiguration
     public bool ShowDutyEndedMessage { get; set; } = true;
     public bool ShowGuildhestEndedMessage { get; set; } = true;
     public bool ShowLevelNoLongerSynced { get; set; } = true;
-    public bool ShowDutyMechanicMessages { get; set; } = true;
-    public bool ShowDutyObjectiveBonus { get; set; } = true;
 
     public bool ShowSanctuaryMessage { get; set; } = false;
 
     public bool ShowHousingWardMessage { get; set; } = false;
     public bool ShowQuestReminder { get; set; } = true;
 
-    public bool ShowQuestProgress { get; set; } = false;
-
-    public bool ShowMountMessages { get; set; } = false;
     public bool ShowSelfUsedEmotes { get; set; } = true;
     public bool ShowOtherCustomEmotes { get; set; } = true;
-
-    public bool ShowReadyChecks { get; set; } = true;
-    public bool ShowCountdownTime { get; set; } = true;
 
     public bool ShowUserLogins { get; set; } = true;
     public bool ShowUserLogouts { get; set; } = true;
 
 
     public bool ShowSpiritboundGear { get; set; } = true;
-    public bool ShowPersonalEffectAcquired { get; set; } = true;
 
     public bool ShowSpideySenses { get; set; } = true;
     public bool ShowLocationDiscovered { get; set; } = true;
@@ -172,7 +163,6 @@ public class Configuration : IPluginConfiguration
     [Obsolete("Migrated to ShowGlamourDresserOutfit in config version 13.")]
     public bool ShowGlamourAltered { get; set; } = true;
 
-    public bool ShowEligibleForCoffers { get; set; } = true;
     public bool ShowGearsetEquipped { get; set; } = false;
     public bool ShowGearItemsRepaired { get; set; } = true;
     public bool ShowJobChange { get; set; } = false;
@@ -198,7 +188,6 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowPartyInformation { get; set; } = true;
 
-    public bool ShowDutyFinder { get; set; } = false;
     public bool ShowOfferedTeleport { get; set; } = false;
     public bool ShowVendorSellMessages { get; set; } = false;
     public bool ShowVendorPurchaseMessages { get; set; } = false;
@@ -211,25 +200,19 @@ public class Configuration : IPluginConfiguration
     public bool ShowGilWithdrawnMessage { get; set; } = false;
     public bool ShowGilSpentMessage { get; set; } = false;
 
-    public bool ShowSealedOff { get; set; } = false;
-
     public bool ShowHuntSlain { get; set; } = false;
     public bool ShowMarkBillMessages { get; set; } = true;
     public bool BetterMarkBillMessage { get; set; } = true;
-    public bool ShowCompletionTime { get; set; } = false;
     public bool ShowRelicBookStep { get; set; } = false;
     public bool ShowRelicBookComplete { get; set; } = false;
     public bool ShowOnlineStatus { get; set; } = false;
     public bool ShowAttachToMail { get; set; } = false;
-    public bool ShowNowLeaderOf { get; set; } = false;
     public bool ShowFirstClearAward { get; set; } = true;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = false;
     public bool ShowActiveHelpEntry { get; set; } = false;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
-    public bool ShowChangesDiscarded { get; set; } = false;
-    public bool ShowChangesLost { get; set; } = false;
     public bool ShowTripleTriadAllowed { get; set; } = false;
     public bool ShowTripleTriadNotAllowed { get; set; } = false;
     public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
@@ -304,8 +287,6 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowLevelUps { get; set; } = true;
     public bool ShowOtherLevelUps { get; set; } = false;
-
-    public bool ShowAbilityUnlocks { get; set; } = true;
 
     #endregion
 

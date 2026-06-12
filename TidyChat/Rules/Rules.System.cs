@@ -38,39 +38,6 @@ public static partial class Rules
             StringChecks = [ChatStrings.LevelNoLongerSynced],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowDutyMechanicMessages",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [605],
-            StringChecks = [ChatStrings.DutyMechanicEvent],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowDutyMechanicMessages",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [2119],
-            StringChecks = [ChatStrings.DutyMechanicCalmPocket],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowDutyObjectiveBonus",
-            SettingsTab = "System",
-            Channel = ChatType.LootNotice,
-            IsActive = true,
-            LogMessageIds = [2163],
-            StringChecks = [ChatStrings.DutyObjectiveBonus],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
         }
     ];
 
@@ -79,7 +46,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRelicBookStep",
-            SettingsTab = "System",
+            SettingsTab = "Progress",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4402],
@@ -90,7 +57,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowRelicBookComplete",
-            SettingsTab = "System",
+            SettingsTab = "Progress",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4400],
@@ -113,18 +80,6 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [672, 673]
-        }
-    ];
-
-    private static readonly LocalizedFilterRule[] SystemEligibleForCoffersRules =
-    [
-        new()
-        {
-            Name = "ShowEligibleForCoffers",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4233, 4238, 4246]
         }
     ];
 
@@ -264,28 +219,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowChangesDiscarded",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [4242],
-            StringChecks = [ChatStrings.ChangesDiscarded],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowChangesLost",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [802],
-            StringChecks = [ChatStrings.ChangesLost],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "BetterNoviceNetworkMessage",
             SettingsTab = "System",
             Channel = ChatType.NoviceNetworkSystem,
@@ -325,25 +258,19 @@ public static partial class Rules
         rules.AddRange(ExplorationHuntMarkBillRules);
         rules.AddRange(SystemRelicAndStatusRules);
         rules.AddRange(DesynthesisRules);
-        rules.AddRange(DutyFinderRules);
         rules.AddRange(DeepDungeonRules);
-        rules.AddRange(PartyReadyCheckRules);
         rules.AddRange(ExplorationDiscoveryRules);
-        rules.AddRange(PartyCountdownRules);
         rules.AddRange(GlamourSpiritboundRules);
         rules.AddRange(ExplorationVistaRules);
         rules.AddRange(GlamourDresserRules);
-        rules.AddRange(SystemEligibleForCoffersRules);
         rules.AddRange(SystemMessageBookRules);
         rules.AddRange(EconomyTradeStatusRules);
-        rules.AddRange(PartyLeadershipRules);
         rules.AddRange(ProgressAwardRules);
         rules.AddRange(EconomyTradeCompleteRules);
         rules.AddRange(PartyTeleportRules);
         rules.AddRange(EconomyMarketBoardRules);
         rules.AddRange(EconomyRetainerRules);
         rules.AddRange(GlamourGearsetAndJobRules);
-        rules.AddRange(PartySealedOffRules);
         rules.AddRange(SystemUtilityRules);
     }
 }

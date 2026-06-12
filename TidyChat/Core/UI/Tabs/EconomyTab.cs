@@ -12,6 +12,7 @@ internal static class EconomyTab
             (Languages.EconomyTab_VendorSectionHeader, () => DrawVendor(configuration)),
             (Languages.EconomyTab_MarketBoardSectionHeader, () => DrawMarketBoard(configuration)),
             (Languages.EconomyTab_RetainerSectionHeader, () => DrawRetainer(configuration)),
+            (Languages.EconomyTab_RepairsSectionHeader, () => DrawRepairs(configuration)),
             (Languages.EconomyTab_GilSectionHeader, () => DrawGil(configuration)));
     }
 
@@ -184,14 +185,17 @@ internal static class EconomyTab
         }
 
         UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGilSpentMessageHelpMarker);
+    }
 
+    private static void DrawRepairs(Configuration configuration)
+    {
         var showGearItemsRepaired = configuration.ShowGearItemsRepaired;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
+        if (ImGui.Checkbox(Languages.EconomyTab_ShowGearItemsRepaired, ref showGearItemsRepaired))
         {
             configuration.ShowGearItemsRepaired = showGearItemsRepaired;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGearItemsRepairedHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.EconomyTab_ShowGearItemsRepairedHelpMarker);
     }
 }

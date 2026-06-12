@@ -20,7 +20,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInstancedAreaMessages",
-            SettingsTab = "Party",
+            SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1350, 2055, 2056, 2059],
@@ -156,33 +156,6 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] PartyCountdownRules =
-    [
-        new()
-        {
-            Name = "ShowCountdownTime",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [5260, 5264, 5255, 5256],
-            StringChecks = [ChatStrings.CountdownTime],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        }
-    ];
-
-    private static readonly LocalizedFilterRule[] PartyLeadershipRules =
-    [
-        new()
-        {
-            Name = "ShowNowLeaderOf",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [15, 16, 23, 24, 367, 383, 9284, 9285, 9289, 9290, 9291, 9298]
-        }
-    ];
-
     private static readonly LocalizedFilterRule[] PartyTeleportRules =
     [
         new()
@@ -198,52 +171,4 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] PartyReadyCheckRules =
-    [
-        new()
-        {
-            Name = "ShowReadyChecks",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3790, 3794],
-            StringChecks = [ChatStrings.ReadyCheck],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowReadyChecks",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3791],
-            StringChecks = [ChatStrings.ReadyCheckInitiated],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        }
-    ];
-
-    private static readonly LocalizedFilterRule[] PartySealedOffRules =
-    [
-        new()
-        {
-            Name = "ShowSealedOff",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [2012, 2013, 2014]
-        },
-        new()
-        {
-            Name = "ShowSealedOff",
-            SettingsTab = "Party",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [2012, 2013, 2014],
-            StringChecks = [ChatStrings.SealedOff],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        }
-    ];
 }
