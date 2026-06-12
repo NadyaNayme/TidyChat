@@ -16,9 +16,9 @@ $migrations = @(
 )
 
 $tabFiles = @{
-    'EmotesTab_FilterStandardEmotes' = Join-Path $root '..\Settings\Tabs\EmotesTab.cs'
-    'ToolsTab_EnableDebugMode' = Join-Path $root '..\Settings\Tabs\ToolsTab.cs'
-    'ProgressTab_ShowFirstClearAward' = Join-Path $root '..\Settings\Tabs\ProgressTab.cs'
+    'EmotesTab_FilterStandardEmotes' = Join-Path $root '..\Core\UI\Tabs\EmotesTab.cs'
+    'ToolsTab_EnableDebugMode' = Join-Path $root '..\Core\UI\Tabs\ToolsTab.cs'
+    'ProgressTab_ShowFirstClearAward' = Join-Path $root '..\Core\UI\Tabs\ProgressTab.cs'
 }
 
 $content = Get-Content $ResxPath -Raw
@@ -62,9 +62,9 @@ $replacements = @{
 }
 
 foreach ($file in @(
-    (Join-Path $root '..\Settings\Tabs\EmotesTab.cs'),
-    (Join-Path $root '..\Settings\Tabs\ToolsTab.cs'),
-    (Join-Path $root '..\Settings\Tabs\ProgressTab.cs')
+    (Join-Path $root '..\Core\UI\Tabs\EmotesTab.cs'),
+    (Join-Path $root '..\Core\UI\Tabs\ToolsTab.cs'),
+    (Join-Path $root '..\Core\UI\Tabs\ProgressTab.cs')
 )) {
     if (-not (Test-Path $file)) { continue }
     $t = Get-Content $file -Raw

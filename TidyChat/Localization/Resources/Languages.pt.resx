@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
                             Microsoft ResX Schema 
@@ -673,9 +673,6 @@
             PublicKeyToken=b77a5c561934e089
         </value>
   </resheader>
-  <data name="AlliedSocietiesTab_BeastTribeQuestsDropdownHeader" xml:space="preserve">
-    <value>Allied Society</value>
-  </data>
   <data name="AlliedSocietiesTab_FilteringNote" xml:space="preserve">
     <value>Allied society material and currency obtains use Filter Obtained on General. Options labeled Hide … hide those lines when checked. Per-society currency toggles appear when the master hide is off. Tools → Custom Filters can Block or Allow specific obtain text.</value>
   </data>
@@ -771,9 +768,6 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
     <value>Casting &amp; abilities</value>
   </data>
-  <data name="CombatTab_CombatLogDropdownHeader" xml:space="preserve">
-    <value>Combat log</value>
-  </data>
   <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
     <value>Damage, healing &amp; effects</value>
   </data>
@@ -840,9 +834,6 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 506, 515, 600, 612 — eg. The attack misses you. / The attack misses. / You are unaffected.</value>
   </data>
-  <data name="ConfigWindow_AdvancedSettingsTabHeader" xml:space="preserve">
-    <value>Advanced</value>
-  </data>
   <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
     <value>Combat</value>
   </data>
@@ -887,9 +878,6 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_SettingAlwaysOn" xml:space="preserve">
     <value>This message type is always shown and cannot be toggled.</value>
-  </data>
-  <data name="ConfigWindow_SettingsTabHeader" xml:space="preserve">
-    <value>Settings</value>
   </data>
   <data name="ConfigWindow_SystemTabHeader" xml:space="preserve">
     <value>System</value>
@@ -1050,9 +1038,6 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 4325 — eg. Desynthesis level rises to 100.</value>
   </data>
-  <data name="DesynthesisTab_ShowDesynthesisMessages" xml:space="preserve">
-    <value>Show desynthesis messages</value>
-  </data>
   <data name="DesynthesisTab_ShowItemBeingDesynthesized" xml:space="preserve">
     <value>Show item being desynthesized</value>
   </data>
@@ -1064,12 +1049,6 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4322, 4323 — eg. You obtain undyed boarskin.</value>
-  </data>
-  <data name="DutyTab_DutyCompletionDropdownHeader" xml:space="preserve">
-    <value>Duty completion</value>
-  </data>
-  <data name="DutyTab_DutyFinderDropdownHeader" xml:space="preserve">
-    <value>Duty Finder</value>
   </data>
   <data name="DutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
     <value>Show Unrestricted clear time</value>
@@ -1088,9 +1067,6 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
-  </data>
-  <data name="EconomyTab_RetainerAndVentureDropdownHeader" xml:space="preserve">
-    <value>Retainer ventures</value>
   </data>
   <data name="EconomyTab_ShowCompletedVenture" xml:space="preserve">
     <value>Show Venture complete</value>
@@ -1203,9 +1179,6 @@ eg. You gently pat &lt;user&gt;</value>
   <data name="EnableTinyChat" xml:space="preserve">
     <value>Tiny chat (lowercase)</value>
   </data>
-  <data name="FreeCompanyTab_FreeCompanyDropdownHeader" xml:space="preserve">
-    <value>Free Company</value>
-  </data>
   <data name="FreeCompanyTab_ShowAirshipVoyageMessages" xml:space="preserve">
     <value>Show Airship expedition</value>
   </data>
@@ -1238,12 +1211,6 @@ eg. You gently pat &lt;user&gt;</value>
   </data>
   <data name="GatheringTab_AetherialReductionDropdownHeader" xml:space="preserve">
     <value>Aetherial Reduction</value>
-  </data>
-  <data name="GatheringTab_CosmicExplorationHeader" xml:space="preserve">
-    <value>Cosmic Exploration</value>
-  </data>
-  <data name="GatheringTab_FishingDropdownHeader" xml:space="preserve">
-    <value>Fishing</value>
   </data>
   <data name="GatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
     <value>Gathering</value>
@@ -1380,20 +1347,11 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 631–11383 (21 IDs) — stellar mission catch-all; use nested options for able-to-execute (5533, 11365) and buff gain (11366).</value>
   </data>
-  <data name="GatheringTab_StellarMissionsDropdownHeader" xml:space="preserve">
-    <value>Stellar Missions / Cosmic Exploration</value>
-  </data>
-  <data name="GatheringTab_StellarSectionFilteringNote" xml:space="preserve">
-    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic or fishing lines further.</value>
-  </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
   </data>
   <data name="GeneralTab_BlockedMessages" xml:space="preserve">
     <value>Tidy Chat bloqueou {0:n0} mensagens até agora.</value>
-  </data>
-  <data name="GeneralTab_CommendationsGroup" xml:space="preserve">
-    <value>Commendations</value>
   </data>
   <data name="GeneralTab_CopySayMessage" xml:space="preserve">
     <value>Copiar automaticamente mensagem de /say melhorada para a área de transferência</value>
@@ -1404,23 +1362,11 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
     <value>Display</value>
   </data>
-  <data name="GeneralTab_EmoteFiltersHeaderDropdown" xml:space="preserve">
-    <value>Filtros de Emotes</value>
-  </data>
   <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
     <value>Filtrar spam de Crafting</value>
   </data>
   <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Crafting channel messages are hidden unless a Show option on the Crafting/Gathering tab allows them. When disabled, Crafting is not filtered here.</value>
-  </data>
-  <data name="GeneralTab_FilterCustomEmotes" xml:space="preserve">
-    <value>Filtrar spam de emotes personalizados</value>
-  </data>
-  <data name="GeneralTab_FilterEmoteChannelsHeader" xml:space="preserve">
-    <value>Filter emote channels</value>
-  </data>
-  <data name="GeneralTab_FilterEmotes" xml:space="preserve">
-    <value>Filtrar spam de emotes</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
     <value>Filtrar spam de Gathering</value>
@@ -1463,9 +1409,6 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   </data>
   <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Crafting/Gathering: cosmic dataset submissions). Progress tab quest lines use the System channel—also enable Filter System channel. When disabled, Progress and Battle System are not filtered here.</value>
-  </data>
-  <data name="GeneralTab_FilterSelfEmotes" xml:space="preserve">
-    <value>Filtrar emotes usados por você mesmo</value>
   </data>
   <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
     <value>Filter System channel</value>
@@ -1534,23 +1477,11 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
     <value>Mostra instãncia atual na barra de data e hora (DTR)</value>
   </data>
-  <data name="GeneralTab_InstanceMessagesGroup" xml:space="preserve">
-    <value>Instance messages</value>
-  </data>
-  <data name="GeneralTab_NormalizeSpecialCharactersHeader" xml:space="preserve">
-    <value>Normalize special characters</value>
-  </data>
-  <data name="GeneralTab_SayRemindersGroup" xml:space="preserve">
-    <value>Say reminders</value>
-  </data>
   <data name="GeneralTab_TidyChatTag" xml:space="preserve">
     <value>Adiciona a etiqueta [TidyChat] a qualquer mensagem modificada</value>
   </data>
   <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
     <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
-  </data>
-  <data name="IncludeChannelTagInDryRunMode" xml:space="preserve">
-    <value>Include [Channel] tag in debug mode</value>
   </data>
   <data name="MateriaTab_MateriaDropdownHeader" xml:space="preserve">
     <value>Materia</value>
@@ -1606,9 +1537,6 @@ eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="PartyTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Party &amp; invites</value>
-  </data>
-  <data name="PartyTab_PartyLeadershipDropdownHeader" xml:space="preserve">
-    <value>Leadership &amp; lockouts</value>
   </data>
   <data name="PartyTab_PartyToolsDropdownHeader" xml:space="preserve">
     <value>Party tools</value>
@@ -1666,9 +1594,6 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
     <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
 Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
   </data>
-  <data name="PartyTab_ShowOtherPlayersLootRolls" xml:space="preserve">
-    <value>Show other players' loot rolls</value>
-  </data>
   <data name="PartyTab_ShowOtherPlayersLootRollsHelpMarker" xml:space="preserve">
     <value>Shows when other players cast lot or roll on loot.</value>
   </data>
@@ -1707,9 +1632,6 @@ Requires "Show Another Player rolls" to be enabled and only takes effect while i
   </data>
   <data name="PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 440 — eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver.</value>
-  </data>
-  <data name="PartyTab_ShowYourLootRolls" xml:space="preserve">
-    <value>Show your loot rolls</value>
   </data>
   <data name="PartyTab_ShowYouRolledMessages" xml:space="preserve">
     <value>Show "You rolled..." messages</value>
@@ -1826,14 +1748,8 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
   <data name="ReplacesSpecialCharactersSuchAsWithA" xml:space="preserve">
     <value>Replaces block-letter and special UI font characters with normal letters (A–Z, 0–9) in chat text.</value>
   </data>
-  <data name="SettingsTabFooter_SupportOnKofiButtonText" xml:space="preserve">
-    <value>Support on Ko-Fi</value>
-  </data>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Page</value>
-  </data>
-  <data name="Shared_RequiresObtainedAndSystemHideFilteringNote" xml:space="preserve">
-    <value>Obtain lines require Filter Obtained on General (checked = hide). Receive or spend lines require Filter System on General (checked = hide).</value>
   </data>
   <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
     <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
@@ -1844,17 +1760,11 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
   <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>
   </data>
-  <data name="SystemTab_CharacterAndGearDropdownHeader" xml:space="preserve">
-    <value>Character &amp; gearsets</value>
-  </data>
   <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
     <value>Error Messages</value>
   </data>
   <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
     <value>Exploration</value>
-  </data>
-  <data name="SystemTab_GlamourAndGearDropdownHeader" xml:space="preserve">
-    <value>Glamour &amp; gear</value>
   </data>
   <data name="SystemTab_HideCrackedClustersMessages" xml:space="preserve">
     <value>Hide cracked clusters</value>
@@ -1877,15 +1787,6 @@ eg. You obtain a cracked dendrocluster</value>
   </data>
   <data name="SystemTab_HuntMessagesDropdownHeader" xml:space="preserve">
     <value>Hunt marks</value>
-  </data>
-  <data name="SystemTab_MailDropdownHeader" xml:space="preserve">
-    <value>Mail</value>
-  </data>
-  <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
-    <value>Orchestrion</value>
-  </data>
-  <data name="SystemTab_RelicDropdownHeader" xml:space="preserve">
-    <value>ARR relic book</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
     <value>Condensed (world line only)</value>
@@ -2066,12 +1967,6 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>LogMessage 9332 — eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
 The minions of an extraordinarily powerful mark have withdrawn...</value>
   </data>
-  <data name="SystemTab_ShowTryOnGlamourMessages" xml:space="preserve">
-    <value>Show glamour and dye messages</value>
-  </data>
-  <data name="SystemTab_ShowTryOnGlamourMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for glamour cast, plates, dye, and related system lines below.</value>
-  </data>
   <data name="SystemTab_ShowVistaMessages" xml:space="preserve">
     <value>Show vista arrival and stray messages</value>
   </data>
@@ -2141,9 +2036,6 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="WhitelistTab_MessageContains" xml:space="preserve">
     <value>Message contains:</value>
   </data>
-  <data name="WhitelistTab_PlayerInformationTableHeader" xml:space="preserve">
-    <value>Player Information</value>
-  </data>
   <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
     <value>Select Channels</value>
   </data>
@@ -2152,14 +2044,5 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   </data>
   <data name="WhitelistTab_ShowAllMessagesTargetingWhitelistedPlayer" xml:space="preserve">
     <value>Show all messages targeting a whitelisted player</value>
-  </data>
-  <data name="WhitelistTab_WhitelistedPlayerFirstName" xml:space="preserve">
-    <value>First Name: </value>
-  </data>
-  <data name="WhitelistTab_WhitelistedPlayerLastName" xml:space="preserve">
-    <value>Last Name: </value>
-  </data>
-  <data name="WhitelistTab_WhitelistedPlayerServerName" xml:space="preserve">
-    <value>Server Name: </value>
   </data>
 </root>
