@@ -12,7 +12,6 @@ internal static class SystemTab
         SettingsTabLayout.DrawSectionSeparator();
 
         SettingsTabLayout.DrawSections(true,
-            (Languages.SystemTab_WorldAndInstancesDropdownHeader, () => DrawWorldAndInstances(configuration)),
             (Languages.SystemTab_TravelDropdownHeader, () => DrawTravel(configuration)),
             (Languages.SystemTab_SocialDropdownHeader, () => DrawSocial(configuration)),
             (Languages.SystemTab_MailDropdownHeader, () => DrawMail(configuration)),
@@ -71,21 +70,6 @@ internal static class SystemTab
 
             ImGui.EndCombo();
         }
-    }
-
-    private static void DrawWorldAndInstances(Configuration configuration)
-    {
-        var instanceMessage = configuration.ShowInstanceMessage;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowInstanceMessage, ref instanceMessage))
-        {
-            configuration.ShowInstanceMessage = instanceMessage;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInstanceMessageHelpMarker);
-
-        SettingsTabLayout.DrawNestedOptions(configuration.ShowInstanceMessage,
-            () => DrawInstanceMessageSubOptions(configuration));
     }
 
     private static void DrawTravel(Configuration configuration)
@@ -209,44 +193,5 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowActiveHelpEntryMessagesHelpMarker);
-    }
-
-    private static void DrawInstanceMessageSubOptions(Configuration configuration)
-    {
-        var showInstancedArea = configuration.ShowInstancedAreaMessages;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowInstancedAreaMessages, ref showInstancedArea))
-        {
-            configuration.ShowInstancedAreaMessages = showInstancedArea;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowInstancedAreaMessagesHelpMarker);
-
-        var showDutyEnded = configuration.ShowDutyEndedMessage;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowDutyEndedMessage, ref showDutyEnded))
-        {
-            configuration.ShowDutyEndedMessage = showDutyEnded;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowDutyEndedMessageHelpMarker);
-
-        var showGuildhestEnded = configuration.ShowGuildhestEndedMessage;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowGuildhestEndedMessage, ref showGuildhestEnded))
-        {
-            configuration.ShowGuildhestEndedMessage = showGuildhestEnded;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGuildhestEndedMessageHelpMarker);
-
-        var showLevelNoLongerSynced = configuration.ShowLevelNoLongerSynced;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowLevelNoLongerSynced, ref showLevelNoLongerSynced))
-        {
-            configuration.ShowLevelNoLongerSynced = showLevelNoLongerSynced;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowLevelNoLongerSyncedHelpMarker);
     }
 }

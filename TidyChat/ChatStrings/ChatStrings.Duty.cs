@@ -173,6 +173,22 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
+    /// <see href="https://xivapi.com/LogMessage/890?pretty=true">Your registration is withdrawn.</see>
+    public static readonly LocalizedStrings DutyRegistrationWithdrawn = new()
+    {
+        Jpn = ["参加申請", "取り消し"],
+        Eng = ["registration", "withdrawn"],
+        Deu = ["registrierung", "zurückgezogen"],
+        Fra = ["enregistrement", "annulé"]
+    };
+    /// <see href="https://xivapi.com/LogMessage/902?pretty=true">A party member has withdrawn from the duty.</see>
+    public static readonly LocalizedStrings PartyMemberDutyWithdrawn = new()
+    {
+        Jpn = ["パーティメンバー", "取り消"],
+        Eng = ["party", "member", "withdrawn", "duty"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
     /// <see href="https://xivapi.com/LogMessage/897?pretty=true">Duty registration complete.</see>
     public static readonly LocalizedStrings DutyRegistrationComplete = new()
     {

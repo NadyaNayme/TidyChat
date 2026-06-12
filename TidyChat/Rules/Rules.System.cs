@@ -9,7 +9,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowDutyEndedMessage",
-            SettingsTab = "System",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1534],
@@ -20,7 +20,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowGuildhestEndedMessage",
-            SettingsTab = "System",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1530],
@@ -31,7 +31,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowLevelNoLongerSynced",
-            SettingsTab = "System",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [619],
@@ -258,6 +258,7 @@ public static partial class Rules
         rules.AddRange(ExplorationHuntMarkBillRules);
         rules.AddRange(SystemRelicAndStatusRules);
         rules.AddRange(DesynthesisRules);
+        rules.AddRange(DutyFinderRules);
         rules.AddRange(DeepDungeonRules);
         rules.AddRange(ExplorationDiscoveryRules);
         rules.AddRange(GlamourSpiritboundRules);

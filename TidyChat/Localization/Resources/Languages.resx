@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
                                 Microsoft ResX Schema 
@@ -950,6 +950,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_PartyTabHeader" xml:space="preserve">
     <value>Party</value>
   </data>
+  <data name="ConfigWindow_DutyTabHeader" xml:space="preserve">
+    <value>Duty</value>
+  </data>
   <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
     <value>Progress</value>
   </data>
@@ -1213,6 +1216,27 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="DesynthesisTab_DesynthesisDropdownHeader" xml:space="preserve">
     <value>Desynthesis</value>
+  </data>
+  <data name="DutyTab_FilteringNote" xml:space="preserve">
+    <value>Duty Finder, instance, and duty status lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="DutyTab_DutyFinderDropdownHeader" xml:space="preserve">
+    <value>Duty Finder</value>
+  </data>
+  <data name="DutyTab_InstanceAndDutyDropdownHeader" xml:space="preserve">
+    <value>Instance &amp; duty status</value>
+  </data>
+  <data name="DutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
+    <value>Show Unrestricted clear time</value>
+  </data>
+  <data name="DutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
+    <value>LogMessage 4679 — eg. &lt;Duty&gt; completion time: 00:30</value>
+  </data>
+  <data name="DutyTab_ShowDutyFinderMessages" xml:space="preserve">
+    <value>Show Duty Finder notifications</value>
+  </data>
+  <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 94–4682 — duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
   </data>
   <data name="DesynthesisTab_FilteringNote" xml:space="preserve">
     <value>Desynthesis item and obtain lines use Filter System on General. Level increases use Filter Progress on General. Checked = show; unchecked = hide.</value>
@@ -2416,10 +2440,10 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
     <value>LogMessages 503, 535 (Item), 4591 (System) — eg. You used an aetheryte ticket. (Remaining: 674).</value>
   </data>
-  <data name="SystemTab_ShowDutyEndedMessage" xml:space="preserve">
+  <data name="DutyTab_ShowDutyEndedMessage" xml:space="preserve">
     <value>Show duty will end soon</value>
   </data>
-  <data name="SystemTab_ShowDutyEndedMessageHelpMarker" xml:space="preserve">
+  <data name="DutyTab_ShowDutyEndedMessageHelpMarker" xml:space="preserve">
     <value>LogMessage 1534 — e.g. The duty will end in 5 minutes.</value>
   </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
@@ -2428,23 +2452,23 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Master toggle for the four specific system messages below (not a catch-all for all system chat). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
-  <data name="SystemTab_ShowGuildhestEndedMessage" xml:space="preserve">
+  <data name="DutyTab_ShowGuildhestEndedMessage" xml:space="preserve">
     <value>Show guildhest will end soon</value>
   </data>
-  <data name="SystemTab_ShowGuildhestEndedMessageHelpMarker" xml:space="preserve">
+  <data name="DutyTab_ShowGuildhestEndedMessageHelpMarker" xml:space="preserve">
     <value>LogMessage 1530 — guildhest ending soon.</value>
   </data>
-  <data name="SystemTab_ShowInstancedAreaMessages" xml:space="preserve">
+  <data name="DutyTab_ShowInstancedAreaMessages" xml:space="preserve">
     <value>Show /instance and instanced area messages</value>
   </data>
-  <data name="SystemTab_ShowInstancedAreaMessagesHelpMarker" xml:space="preserve">
+  <data name="DutyTab_ShowInstancedAreaMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 1350, 2055, 2056, 2059 — e.g. You are now in the instanced area…</value>
   </data>
-  <data name="SystemTab_ShowInstanceMessage" xml:space="preserve">
+  <data name="DutyTab_ShowInstanceMessage" xml:space="preserve">
     <value>Show /instance message</value>
   </data>
-  <data name="SystemTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
-    <value>Master toggle for duty and instance system messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Housing ward below is separate.</value>
+  <data name="DutyTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
+    <value>Master toggle for instance and duty status messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
   <data name="SystemTab_ShowInventoryItemSearchResults" xml:space="preserve">
     <value>Show inventory item search results</value>
@@ -2458,10 +2482,10 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>Master toggle for inventory item search and location search lines below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
-  <data name="SystemTab_ShowLevelNoLongerSynced" xml:space="preserve">
+  <data name="DutyTab_ShowLevelNoLongerSynced" xml:space="preserve">
     <value>Show level sync ended</value>
   </data>
-  <data name="SystemTab_ShowLevelNoLongerSyncedHelpMarker" xml:space="preserve">
+  <data name="DutyTab_ShowLevelNoLongerSyncedHelpMarker" xml:space="preserve">
     <value>LogMessage 619 — level is no longer synced.</value>
   </data>
   <data name="SystemTab_ShowLocationSearchResults" xml:space="preserve">
@@ -2493,9 +2517,6 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   </data>
   <data name="SystemTab_TravelDropdownHeader" xml:space="preserve">
     <value>Travel</value>
-  </data>
-  <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">
-    <value>World &amp; instances</value>
   </data>
   <data name="ToolsTab_ChatHighlightsDropdownHeader" xml:space="preserve">
     <value>Chat Highlights</value>

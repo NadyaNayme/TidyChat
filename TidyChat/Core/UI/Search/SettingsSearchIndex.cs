@@ -523,6 +523,7 @@ internal static class SettingsSearchIndex
         "General" => Languages.ConfigWindow_GeneralTabHeader,
         "Emotes" => Languages.ConfigWindow_EmotesTabHeader,
         "Party" => Languages.ConfigWindow_PartyTabHeader,
+        "Duty" => Languages.ConfigWindow_DutyTabHeader,
         "Free Company" => Languages.ConfigWindow_FreeCompanyTabHeader,
         "Economy" => Languages.ConfigWindow_EconomyTabHeader,
         _ => settingsTab
@@ -738,13 +739,17 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_EconomyTabHeader;
         }
 
-        if (propertyName is "ShowInstanceMessage" or
-            "ShowInstancedAreaMessages" or
+        if (propertyName is "ShowInstanceMessage")
+        {
+            return Languages.ConfigWindow_DutyTabHeader;
+        }
+
+        if (propertyName is "ShowInstancedAreaMessages" or
             "ShowDutyEndedMessage" or
             "ShowGuildhestEndedMessage" or
             "ShowLevelNoLongerSynced")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_WorldAndInstancesDropdownHeader}";
+            return $"{Languages.ConfigWindow_DutyTabHeader} > {Languages.DutyTab_InstanceAndDutyDropdownHeader}";
         }
 
         if (propertyName is "ShowGlamourDresserMessages" or
@@ -890,6 +895,11 @@ internal static class SettingsSearchIndex
             propertyName is "ShowOfferedTeleport")
         {
             return Languages.ConfigWindow_PartyTabHeader;
+        }
+
+        if (propertyName is "ShowDutyFinder" or "ShowCompletionTime")
+        {
+            return $"{Languages.ConfigWindow_DutyTabHeader} > {Languages.DutyTab_DutyFinderDropdownHeader}";
         }
 
         return null;

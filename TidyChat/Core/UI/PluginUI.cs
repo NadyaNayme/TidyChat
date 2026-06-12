@@ -25,6 +25,7 @@ internal class PluginUI : Window, IDisposable
         (() => Languages.ConfigWindow_HousingTabHeader, HousingTab.Draw),
         (() => Languages.ConfigWindow_GlamourTabHeader, GlamourTab.Draw),
         (() => Languages.ConfigWindow_PartyTabHeader, PartyTab.Draw),
+        (() => Languages.ConfigWindow_DutyTabHeader, DutyTab.Draw),
         (() => Languages.ConfigWindow_DeepDungeonsTabHeader, DeepDungeonsTab.Draw),
         (() => Languages.ConfigWindow_FreeCompanyTabHeader, FreeCompanyTab.Draw),
         (() => Languages.ConfigWindow_EconomyTabHeader, EconomyTab.Draw),

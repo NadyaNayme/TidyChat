@@ -6,6 +6,17 @@ public static partial class Rules
     [
         new()
         {
+            Name = "ShowCompletionTime",
+            SettingsTab = "Duty",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [4679],
+            StringChecks = [ChatStrings.CompletionTime],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowGainExperience",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,

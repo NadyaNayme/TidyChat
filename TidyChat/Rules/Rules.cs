@@ -25,6 +25,8 @@ public static partial class Rules
         ["ShowPartyDissolved"] = c => c.ShowPartyDissolved,
         ["ShowInvitedBy"] = c => c.ShowInvitedBy,
         ["ShowJoinParty"] = c => c.ShowJoinParty,
+        ["ShowDutyFinder"] = c => c.ShowDutyFinder,
+        ["ShowCompletionTime"] = c => c.ShowCompletionTime,
         ["ShowHuntSlain"] = c => c.ShowHuntSlain,
         ["ShowMarkBillMessages"] = c => c.ShowMarkBillMessages,
         ["ShowRelicBookStep"] = c => c.ShowRelicBookStep,

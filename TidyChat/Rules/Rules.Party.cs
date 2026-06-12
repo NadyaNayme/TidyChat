@@ -20,7 +20,7 @@ public static partial class Rules
         new()
         {
             Name = "ShowInstancedAreaMessages",
-            SettingsTab = "System",
+            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1350, 2055, 2056, 2059],

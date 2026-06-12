@@ -46,7 +46,7 @@ public class WiringAuditTests
     [
         "System", "Currencies", "Allied Societies", "Gold Saucer", "Progress", "Crafting",
         "Cosmic Exploration", "Desynthesis", "Fishing", "Gathering", "Materia", "Exploration", "Housing",
-        "Glamour", "Deep Dungeons", "General", "Emotes", "Party", "Free Company", "Economy"
+        "Glamour", "Deep Dungeons", "General", "Emotes", "Party", "Duty", "Free Company", "Economy"
     ];
 
     private static Dictionary<string, Func<Configuration, bool>> GetConfigAccessors()

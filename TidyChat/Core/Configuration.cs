@@ -113,6 +113,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowInstanceMessage { get; set; } = true;
     public bool ShowInstancedAreaMessages { get; set; } = true;
     public bool ShowDutyEndedMessage { get; set; } = true;
+    public bool ShowDutyFinder { get; set; } = false;
+    public bool ShowCompletionTime { get; set; } = false;
     public bool ShowGuildhestEndedMessage { get; set; } = true;
     public bool ShowLevelNoLongerSynced { get; set; } = true;
 
