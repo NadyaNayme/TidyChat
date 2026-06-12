@@ -1,708 +1,650 @@
-<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!--
-                              Microsoft ResX Schema 
-                              
-                              Version 2.0
-                              
-                              The primary goals of this format is to allow a simple XML format 
-                              that is mostly human readable. The generation and parsing of the 
-                              various data types are done through the TypeConverter classes 
-                              associated with the data types.
-                              
-                              Example:
-                              
-                              ... ado.net/XML headers & schema ...
-                              <resheader name="resmimetype">text/microsoft-resx</resheader>
-                              <resheader name="version">2.0</resheader>
-                              <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-                              <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-                              <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-                              <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-                              <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-                                  <value>[base64 mime encoded serialized .NET Framework object]</value>
-                              </data>
-                              <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-                                  <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-                                  <comment>This is a comment</comment>
-                              </data>
-                              
-                              There are any number of "resheader" rows that contain simple 
-                              name/value pairs.
-                              
-                              Each data row contains a name, and value. The row also contains a 
-                              type or mimetype. Type corresponds to a .NET class that support 
-                              text/value conversion through the TypeConverter architecture. 
-                              Classes that don't support this are serialized and stored with the 
-                              mimetype set.
-                              
-                              The mimetype is used for serialized objects, and tells the 
-                              ResXResourceReader how to depersist the object. This is currently not 
-                              extensible. For a given mimetype the value must be set accordingly:
-                              
-                              Note - application/x-microsoft.net.object.binary.base64 is the format 
-                              that the ResXResourceWriter will generate, however the reader can 
-                              read any of the formats listed below.
-                              
-                              mimetype: application/x-microsoft.net.object.binary.base64
-                              value   : The object must be serialized with 
-                                      : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                                      : and then encoded with base64 encoding.
-                              
-                              mimetype: application/x-microsoft.net.object.soap.base64
-                              value   : The object must be serialized with 
-                                      : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                                      : and then encoded with base64 encoding.
-                              
-                              mimetype: application/x-microsoft.net.object.bytearray.base64
-                              value   : The object must be serialized into a byte array 
-                                      : using a System.ComponentModel.TypeConverter
-                                      : and then encoded with base64 encoding.
-                              -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
+<?xml version='1.0' encoding='utf-8'?>
+<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <xs:schema id="root">
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xs:element name="root" ns1:IsDataSet="true">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="metadata">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" />
+              </xs:sequence>
+              <xs:attribute name="name" use="required" type="xsd:string" />
+              <xs:attribute name="type" type="xsd:string" />
+              <xs:attribute name="mimetype" type="xsd:string" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="assembly">
+            <xs:complexType>
+              <xs:attribute name="alias" type="xsd:string" />
+              <xs:attribute name="name" type="xsd:string" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="data">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
+              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
+              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
+              <xs:attribute ref="xml:space" />
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="resheader">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
+              </xs:sequence>
+              <xs:attribute name="name" type="xsd:string" use="required" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -730,10 +672,10 @@
 eg. You obtain Starboard Hull Component Materials</value>
   </data>
   <data name="AlliedSocietiesTab_HideBeastTribeCurrenciesMessages" xml:space="preserve">
-    <value>Hide allied society currencies</value>
+    <value>Show allied society currencies</value>
   </data>
   <data name="AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker" xml:space="preserve">
-    <value>Hides allied society currency obtain messages for all 18 allied societies (through Yok Huy in Dawntrail), including Pelu Pelplume, Mamool Ja Nanook, and Yok Huy Ward.</value>
+    <value>Checked = show allied society currency obtain messages (Pelu Pelplume, Mamool Ja Nanook, Yok Huy Ward, etc.) — you can still hide individual currencies below. Unchecked = hide them all, including any allied societies added in future patches.</value>
   </data>
   <data name="AlliedSocietiesTab_HideTribalCurrencyByIdHelpMarker" xml:space="preserve">
     <value>Checked = hide obtain messages for this allied society currency.</value>
@@ -745,19 +687,19 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Always normalize special characters</value>
   </data>
   <data name="BetterStrings_CommendationsFromCompletingDuty" xml:space="preserve">
-    <value>per aver completato</value>
+    <value>from completing</value>
   </data>
   <data name="BetterStrings_CommendationSingular" xml:space="preserve">
     <value>commendation</value>
   </data>
   <data name="BetterStrings_CommendationsPlural" xml:space="preserve">
-    <value>commendation</value>
+    <value>commendations</value>
   </data>
   <data name="BetterStrings_ReceivedCommendationsMessages" xml:space="preserve">
-    <value>Hai ricevuto {0}{1}{2}</value>
+    <value>You received {0} {1}{2}</value>
   </data>
   <data name="ChatHistoryTab_ChatHistoryTimer" xml:space="preserve">
-    <value>Imposta il numero di secondi in cui i messaggi vengono mantenuti nella cronologia della chat</value>
+    <value>Number of seconds to keep messages in chat history</value>
   </data>
   <data name="ChatHistoryTab_ChatHistoryTimerHelpMarker" xml:space="preserve">
     <value>Set to 0 to disable</value>
@@ -766,10 +708,10 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Crafting</value>
   </data>
   <data name="ChatHistoryTab_EmotesChannel" xml:space="preserve">
-    <value>Emote</value>
+    <value>Emotes</value>
   </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilter" xml:space="preserve">
-    <value>Attiva il filtro sulla cronologia della chat</value>
+    <value>Enable Chat History Filter</value>
   </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
     <value>If a message was sent within the last {0} messages it will be filtered</value>
@@ -778,20 +720,20 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Gathering</value>
   </data>
   <data name="ChatHistoryTab_IgnoreMessagesSentByPlayer" xml:space="preserve">
-    <value>Ignora i messaggi inviati da un giocatore</value>
+    <value>Ignore messages sent by player</value>
   </data>
   <data name="ChatHistoryTab_IgnoreMessagesSentByPlayerHelpMarker" xml:space="preserve">
     <value>Filters duplicate messages sent by the player, enable if you want duplicate messages you sent to be filtered from your view.</value>
   </data>
   <data name="ChatHistoryTab_LengthOfChatHistory" xml:space="preserve">
-    <value>Numero di messaggi da mantenere nella cronologia della chat</value>
+    <value>Number of messages to keep in chat history</value>
   </data>
   <data name="ChatHistoryTab_LengthOfChatHistoryWarningMessage" xml:space="preserve">
-    <value>ATTENZIONE: Esagerare con la lunghezza della cronologia della chat potrebbe influire sulle performance del gioco.
-E' consigliabile tenerla a 50 o meno.</value>
+    <value>WARNING: Having the history length set too high may impact game performance.
+It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ChatHistoryTab_LoginLogoutChannel" xml:space="preserve">
-    <value>Login e Logout</value>
+    <value>Login/Logout</value>
   </data>
   <data name="ChatHistoryTab_LootChannel" xml:space="preserve">
     <value>Loot</value>
@@ -800,16 +742,16 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Loot rolls</value>
   </data>
   <data name="ChatHistoryTab_ProgressChannel" xml:space="preserve">
-    <value>Progresso</value>
+    <value>Progress</value>
   </data>
   <data name="ChatHistoryTab_SelectChannels" xml:space="preserve">
-    <value>Seleziona i canali della cronologia chat da filtrare:</value>
+    <value>Select channels for Chat History to filter:</value>
   </data>
   <data name="ChatHistoryTab_SystemChannel" xml:space="preserve">
-    <value>Sistema</value>
+    <value>System</value>
   </data>
   <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
-    <value>Parlare</value>
+    <value>Talking</value>
   </data>
   <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
     <value>Casting &amp; abilities</value>
@@ -842,7 +784,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Show combat damage messages</value>
   </data>
   <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 447–523 (13 IDs) — eg. You hit the enemy for 1,234 damage. / Direct hit! You hit the enemy for 12,345 damage.</value>
+    <value>LogMessages 447, 448, 450, 451, 504, 505, 508, 509, 510, 511, 517, 518, 523 (13 IDs) — Damage and Healing channels. eg. You hit the enemy for 1,234 damage. / 523 is absorption (Healing channel).</value>
   </data>
   <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
     <value>Show enemy defeated messages</value>
@@ -854,7 +796,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Show combat status effect messages</value>
   </data>
   <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 526–551, 528, 596, 604, 607, 617, 640, 603 (13 IDs) — eg. You gain the effect of Regen. / You recover from the effect of Poison.</value>
+    <value>LogMessages 526, 527, 528, 531, 532, 550, 551, 596, 603, 604, 607, 617, 640 (13 IDs) — GainBuff, LoseBuff, GainDebuff, LoseDebuff, Miss, BattleSystem, and System channels. eg. You gain the effect of Regen. / … nullifies the effect of … (607, Miss).</value>
   </data>
   <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
     <value>Show enemy ready messages</value>
@@ -872,7 +814,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Show combat healing messages</value>
   </data>
   <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 519, 520, 560 — eg. You recover 500 HP. / You are revived.</value>
+    <value>LogMessages 519, 520, 560 — eg. You recover 500 HP. / You are revived. Gathering GP recovery (LogMessages 11174, 11175) is separate — use Cosmic Exploration → Show stellar GP recovery instead.</value>
   </data>
   <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
     <value>Show combat miss and evade messages</value>
@@ -950,25 +892,25 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Show final status messages upon finishing a Trial synthesis</value>
   </data>
   <data name="CurrenciesTab_BattleCurrenciesDropdownHeader" xml:space="preserve">
-    <value>Valute di battaglia</value>
+    <value>Battle currencies</value>
   </data>
   <data name="CurrenciesTab_CommonCurrenciesDropdownHeader" xml:space="preserve">
-    <value>Valute comuni</value>
+    <value>Common currencies</value>
   </data>
   <data name="CurrenciesTab_FilteringNote" xml:space="preserve">
-    <value>Most options use Filter Obtained on General. Gil receive lines also need Filter System. Options labeled Hide … hide those lines when checked; Show … allow when checked. Per-tomestone toggles hide individual tomestones. Tools → Custom Filters can Block or Allow specific obtain text.</value>
+    <value>Most options use Filter Obtained on General. Gil receive lines also need Filter System. Tomestone weekly cap (Error channel) hides independently when checked. Options labeled Hide … hide those lines when checked; Show … allow when checked. Per-tomestone toggles hide individual tomestones. Tools → Custom Filters can Block or Allow specific obtain text.</value>
   </data>
   <data name="CurrenciesTab_HideAlliedSealsMessages" xml:space="preserve">
     <value>Hide Allied Seals</value>
   </data>
   <data name="CurrenciesTab_HideAlliedSealsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 100 Allied Seals.</value>
+    <value>LogMessages 4413, 657, 1259 — eg. You obtain 8 Allied Seals.</value>
   </data>
   <data name="CurrenciesTab_HideCenturioSealsMessages" xml:space="preserve">
     <value>Hide Centurio Seals</value>
   </data>
   <data name="CurrenciesTab_HideCenturioSealsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 40 Centurio Seals.</value>
+    <value>LogMessages 5200, 657, 1259 — eg. You obtain 3 Centurio Seals.</value>
   </data>
   <data name="CurrenciesTab_HideGilMessages" xml:space="preserve">
     <value>Hide Gil</value>
@@ -992,13 +934,13 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Hide sacks of Nuts</value>
   </data>
   <data name="CurrenciesTab_HideSacksOfNutsMessagesHelpMarker" xml:space="preserve">
-    <value>eg. You obtain 100 sacks of Nuts.</value>
+    <value>LogMessages 5202, 657, 1259 — eg. You obtain 100 sacks of Nuts.</value>
   </data>
   <data name="CurrenciesTab_HideTomestoneWeeklyCapMessages" xml:space="preserve">
     <value>Hide tomestone weekly cap messages</value>
   </data>
   <data name="CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 2174 — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Uses Filter System on General.</value>
+    <value>LogMessage 2174 (Error channel) — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Checked = hide.</value>
   </data>
   <data name="CurrenciesTab_HideVentureMessages" xml:space="preserve">
     <value>Hide Ventures</value>
@@ -1013,13 +955,13 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>eg. You obtain 1,000 Wolf Marks.</value>
   </data>
   <data name="CurrenciesTab_OtherObtainMessagesDropdownHeader" xml:space="preserve">
-    <value>Altri messaggi Hai ricevuto</value>
+    <value>Other obtain</value>
   </data>
   <data name="CurrenciesTab_ShowGeneralItemObtains" xml:space="preserve">
-    <value>Show General item obtains</value>
+    <value>Show general item obtains</value>
   </data>
   <data name="CurrenciesTab_ShowGeneralItemObtainsHelpMarker" xml:space="preserve">
-    <value>LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on the LootNotice channel (excluding currency-specific filters below).</value>
+    <value>LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on LootNotice (1606, 1607, 750, 751, 3208) and System (720, 743, 3617, 3208) channels (excluding currency-specific filters below).</value>
   </data>
   <data name="CurrenciesTab_ShowObtainedQuestItems" xml:space="preserve">
     <value>Show quest item obtain messages</value>
@@ -1076,7 +1018,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>LogMessages 7224, 7225, 7226, 7227, 7228, 7229 — eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!</value>
   </data>
   <data name="DesynthesisTab_DesynthesisDropdownHeader" xml:space="preserve">
-    <value>Desintesi</value>
+    <value>Desynthesis</value>
   </data>
   <data name="DesynthesisTab_ShowDesynthesisLevelIncreasesMessages" xml:space="preserve">
     <value>Show desynthesis level increases messages</value>
@@ -1106,7 +1048,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Show Duty Finder notifications</value>
   </data>
   <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 94–4676 (9 IDs) — eg. Duty registration complete. Participation requirements, unrestricted party notices. Mostly system channel; withdrawal notices use the error channel.</value>
+    <value>LogMessages 94–4682 — duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
   </data>
   <data name="EconomyTab_GilSectionHeader" xml:space="preserve">
     <value>Gil</value>
@@ -1136,7 +1078,7 @@ E' consigliabile tenerla a 50 o meno.</value>
     <value>Show market board sales</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for retainer sale lines. Use the nested options for per-item sold (748), all-items-sold summary (384), and listing started/stopped (398/399). Gil entrusted to retainer is separate below. Improved market board lines on General only affect per-item sold (748).</value>
+    <value>Master toggle for retainer sale lines. When on, use the nested options for per-item sold (748), all-items-sold summary (384), and listing started/stopped (398/399). Unchecking disables all nested sale lines in chat until you turn this back on (nested checkboxes keep their settings for next time). Improved market board lines on General only affect per-item sold (748).</value>
   </data>
   <data name="EconomyTab_ShowMarketBoardSellingStatus" xml:space="preserve">
     <value>Show Listing started and stopped</value>
@@ -1194,10 +1136,10 @@ System channel. Shown only when Show market board item sales is enabled. Require
     <value>Player trade</value>
   </data>
   <data name="EconomyTab_VendorSectionHeader" xml:space="preserve">
-    <value>Vendor &amp; retainer (NPC)</value>
+    <value>Vendor</value>
   </data>
   <data name="EmotesTab_FilterCustomEmoteChannel" xml:space="preserve">
-    <value>Filter Custom Emote Channel</value>
+    <value>Filter custom emote channel</value>
   </data>
   <data name="EmotesTab_FilterCustomEmoteChannelHelpMarker" xml:space="preserve">
     <value>This will hide all Custom Emotes unless it is an emote targeting you or an emote you used.</value>
@@ -1209,14 +1151,14 @@ System channel. Shown only when Show market board item sales is enabled. Require
     <value>This will hide all emote text unless it is an emote targeting you or an emote you used.</value>
   </data>
   <data name="EmotesTab_ShowOtherCustomEmotes" xml:space="preserve">
-    <value>Show Other players' custom emotes</value>
+    <value>Show other players' custom emotes</value>
   </data>
   <data name="EmotesTab_ShowOtherCustomEmotesHelpMarker" xml:space="preserve">
     <value>This will hide all "/em" messages unless it mentions you or is a custom emote you used.
 eg. Another Player leans over and gives you a big bear hug.</value>
   </data>
   <data name="EmotesTab_ShowSelfCustomEmotes" xml:space="preserve">
-    <value>Show Your own custom emotes</value>
+    <value>Show your own custom emotes</value>
   </data>
   <data name="EmotesTab_ShowSelfCustomEmotesHelpMarker" xml:space="preserve">
     <value>When emote filtering is enabled, keep messages for emotes you use yourself.
@@ -1253,7 +1195,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Show Submarine voyage</value>
   </data>
   <data name="FreeCompanyTab_ShowSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for submarine voyage, repair, and rank messages below.</value>
+    <value>Master toggle for submarine voyage, repair, and rank messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Airship voyage above is separate.</value>
   </data>
   <data name="GatheringTab_AetherialReductionDropdownHeader" xml:space="preserve">
     <value>Aetherial Reduction</value>
@@ -1265,32 +1207,31 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Hide elemental shards, crystals, and clusters</value>
   </data>
   <data name="GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker" xml:space="preserve">
-    <value>Hides obtain messages for elemental shards, crystals, and clusters from gathering, loot rolls, loot notices, and desynthesis (LogMessages 4322, 4323).
-eg. You obtain 30 ice shards</value>
+    <value>Hides elemental shards, crystals, and clusters from gathering, loot rolls, loot notices (shared obtain templates 657, 1259, 1233, 1606, 1607, 750, 751), and desynthesis (LogMessages 4322, 4323). eg. You obtain 30 ice shards</value>
   </data>
   <data name="GatheringTab_HideGatheringAttemptsLocationMessages" xml:space="preserve">
     <value>Hide only locations that affect gathering attempts</value>
   </data>
   <data name="GatheringTab_HideGatheringAttemptsLocationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1116 — location lines that change gathering attempt counts. Checked = hide.</value>
+    <value>LogMessages 1098, 1102, 1103, 1105 (GatheringSystem) — granted additional gathering attempts. Checked = hide.</value>
   </data>
   <data name="GatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
     <value>Hide only locations that affect Gatherer's Boon</value>
   </data>
   <data name="GatheringTab_HideGatheringBoonLocationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1117 — location lines that change Gatherer's Boon rate. Checked = hide.</value>
+    <value>LogMessages 1097 (GatheringSystem), 11172–11173 (System) — Gatherer's Boon rate and chain score lines. Checked = hide.</value>
   </data>
   <data name="GatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
     <value>Hide only locations that affect gathering yield</value>
   </data>
   <data name="GatheringTab_HideGatheringYieldLocationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 1115 — location lines that change gathering yield. Checked = hide.</value>
+    <value>LogMessages 3537, 1099 (Gathering) — location lines that change gathering yield. Checked = hide.</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
-    <value>Show collectable reduction minigame messages (integrity, woodsman actions, etc.)</value>
+    <value>Show collectables appraisal messages (Integrity, Woodsman, etc.)</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3549, 3569, 5514, 5516, 5550, 5573, 5574 — eg. Your meticulous actions prove effective. Integrity is not reduced.</value>
+    <value>LogMessages 3549, 3563, 3569, 5514, 5516, 5550, 5573, 5574 — eg. integrity lines, double bonus, and woodsman actions.</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionSuccessMessages" xml:space="preserve">
     <value>Show message when you successfully reduce a collectable item</value>
@@ -1305,13 +1246,13 @@ eg. You obtain 30 ice shards</value>
     <value>Show cosmic daily progress</value>
   </data>
   <data name="GatheringTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
-    <value>LogMessages 10875, 10877, 11156 — daily points and daily success lines (System). Needs Filter Progress on General.</value>
+    <value>LogMessages 10875, 10876, 10877, 11156 — daily points, stellar success, and daily success lines (System). Needs Filter System on General.</value>
   </data>
   <data name="GatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
     <value>Show cosmic exploration messages</value>
   </data>
   <data name="GatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 10807, 10830, 10881, 10884, 11334, 11335 — mech-op directives and red-alert lines. Needs Filter System on General.</value>
+    <value>LogMessages 10787–10789, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions, mech-op directives, and red-alert lines. Needs Filter System on General.</value>
   </data>
   <data name="GatheringTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency obtains</value>
@@ -1323,7 +1264,7 @@ eg. You obtain 30 ice shards</value>
     <value>Show message when a fish is added to the fish guide</value>
   </data>
   <data name="GatheringTab_ShowFishAddedToGuideMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1116, 3511, 5584, 11333 — eg. Something bites! / You reel in your line.</value>
+    <value>LogMessages 1116, 11333 — eg. Something bites! / multihook bonus fish lines.</value>
   </data>
   <data name="GatheringTab_ShowFishingFlavorText" xml:space="preserve">
     <value>Show Fisher's Intuition flavor text</value>
@@ -1364,10 +1305,10 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>LogMessages 1063–1070 — eg. You begin gathering. / You finish gathering.</value>
   </data>
   <data name="GatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
-    <value>Show message when location affects gathering yield, receiving Gatherer's Boon, or gathering attempts</value>
+    <value>Show message when location affects gathering (integrity, collectability, senses)</value>
   </data>
   <data name="GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1096, 1098, 5550, 5551 — eg. Location effects your gathering yield.</value>
+    <value>LogMessages 1096, 5550, 5551 (GatheringSystem) — gathering rate, collectability, and meticulous integrity. Attempt line 1098 and yield/boon lines have separate options below.</value>
   </data>
   <data name="GatheringTab_ShowLureMessages" xml:space="preserve">
     <value>Show Modest/Ambitious Lure and bite feeling messages</value>
@@ -1391,37 +1332,37 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show stellar mission messages</value>
   </data>
   <data name="GatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 631–11383 (21 IDs) — stellar mission catch-all; use nested options for able-to-execute (5533, 11365) and buff gain (11366).</value>
+    <value>Master toggle for stellar mission catch-all lines (LogMessages 631–11383 incl. 10763 (Error), 10827–10828, 11165, 11200). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate.</value>
   </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
   </data>
   <data name="GeneralTab_BlockedMessages" xml:space="preserve">
-    <value>Tidy Chat ha bloccato {0:n0} messaggi finora.</value>
+    <value>Tidy Chat has blocked {0:n0} messages so far</value>
   </data>
   <data name="GeneralTab_CopySayMessage" xml:space="preserve">
-    <value>Copia automaticamente il messaggio /say nella clipboard</value>
+    <value>Automatically copy improved /say message to clipboard</value>
   </data>
   <data name="GeneralTab_CopySayMessageHelpMarker" xml:space="preserve">
-    <value>Requires Improved /Say message for quests to be enabled</value>
+    <value>Requires Improved /say messages for quests to be enabled</value>
   </data>
   <data name="GeneralTab_DisplayOptionsHeader" xml:space="preserve">
     <value>Display</value>
   </data>
   <data name="GeneralTab_FilterCraftingSpam" xml:space="preserve">
-    <value>Filtra lo spam del crafting</value>
+    <value>Filter Crafting channel</value>
   </data>
   <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Crafting channel messages are hidden unless a Show option on the Crafting/Gathering tab allows them. When disabled, Crafting is not filtered here.</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
-    <value>Filtra lo spam del Gathering</value>
+    <value>Filter Gathering channels</value>
   </data>
   <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here—Custom Filter Allow rules on Gathering will not take effect.</value>
   </data>
   <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
-    <value>Filtra lo spam dei roll del Loot</value>
+    <value>Filter Loot Roll channel</value>
   </data>
   <data name="GeneralTab_FilterLootSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Loot Roll messages are hidden unless a Show option on the Obtain tab allows them (cast lot, your rolls, party rolls). Item obtained lines use the Obtained channel. When disabled, Loot Roll is not filtered here.</value>
@@ -1451,7 +1392,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Vanilla+</value>
   </data>
   <data name="GeneralTab_FilterProgressSpam" xml:space="preserve">
-    <value>Filtro spam di progresso</value>
+    <value>Filter Progress channel</value>
   </data>
   <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
     <value>When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Crafting/Gathering: cosmic dataset submissions). Progress tab quest lines use the System channel—also enable Filter System channel. When disabled, Progress and Battle System are not filtered here.</value>
@@ -1460,13 +1401,13 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Filter System channel</value>
   </data>
   <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party &amp; Duty, Progress tab quest lines, Crafting/Gathering stellar/cosmic system lines, and similar). When disabled, those channels are not filtered here.</value>
+    <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party, Duty, Progress tab quest lines, Crafting/Gathering stellar/cosmic system lines, and similar). When disabled, those channels are not filtered here.</value>
   </data>
   <data name="GeneralTab_HideKofiButton" xml:space="preserve">
     <value>Hide ko-fi button</value>
   </data>
   <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
-    <value>Unisce la duty completata al messaggio delle commendation</value>
+    <value>Include completed duty with commendations message</value>
   </data>
   <data name="GeneralTab_ImprovedCommendationsDutyNameHelpMarker" xml:space="preserve">
     <value>Requires Improved Player Commendations to be enabled</value>
@@ -1475,10 +1416,10 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Improved duty commence messaging</value>
   </data>
   <data name="GeneralTab_ImprovedDutyCommenceMessagingHelpMarker" xml:space="preserve">
-    <value>Replaces duty entry spam with a single line: Duty Name has begun. Hides level sync, item level sync, alliance reform, and Echo briefing lines.</value>
+    <value>LogMessage 1531 — replaces duty entry spam with a single line: Duty Name has begun. Hides level sync (618, 9602), item level sync (4224, 9606), alliance reform (9795), and Echo briefing (4217) lines.</value>
   </data>
   <data name="GeneralTab_ImprovedInstanceMessaging" xml:space="preserve">
-    <value>Migliorata la messaggistica di /instance</value>
+    <value>Improved /instance messaging</value>
   </data>
   <data name="GeneralTab_ImprovedInstanceMessagingHelpMarker" xml:space="preserve">
     <value>Changes the instance text to: You are now in instance: #</value>
@@ -1494,25 +1435,25 @@ Example: Pair of titanium gold saberfangs sold for 757 gil.
 Shows those sold lines when enabled (Filter System channel on General). Does not show “gil entrusted to your retainer”—turn on Show market sale gil entrusted to retainer on Economy only if you want that follow-up line.</value>
   </data>
   <data name="GeneralTab_ImprovedMessagesHeader" xml:space="preserve">
-    <value>Messaggi migliorati</value>
+    <value>Message rewrites</value>
   </data>
   <data name="GeneralTab_ImprovedNoviceNetworkMessages" xml:space="preserve">
-    <value>Messaggi di entrata ed uscita dal Novice Network migliorati</value>
+    <value>Improved Novice Network join and leave messages</value>
   </data>
   <data name="GeneralTab_ImprovedNoviceNetworkMessagesHelpMarker" xml:space="preserve">
     <value>Reduces the amount of Novice Network text when the Novice Network is joined and changes the leave message to be consistently worded.</value>
   </data>
   <data name="GeneralTab_ImprovedPlayerCommendations" xml:space="preserve">
-    <value>Commendation dei giocatori migliorate</value>
+    <value>Improved Player Commendations</value>
   </data>
   <data name="GeneralTab_ImprovedPlayerCommendationsHelpMarker" xml:space="preserve">
     <value>Disables System message for received commendations and instead logs a single message to your Dalamud General Chat Channel (check your Dalamud General Settings for which channel that is - it is Debug by default)</value>
   </data>
   <data name="GeneralTab_ImprovedSayMessages" xml:space="preserve">
-    <value>Messaggio /say migliorato per le quest</value>
+    <value>Improved /say messages for quests</value>
   </data>
   <data name="GeneralTab_ImprovedSayMessagesHelpMarker" xml:space="preserve">
-    <value>When a quest requires you to /Say something in chat, change the message into one that can be copy and pasted easily</value>
+    <value>When a quest requires you to /say something in chat, change the message into one that can be copy and pasted easily</value>
   </data>
   <data name="GeneralTab_ImprovedTreasureDungeonMessages" xml:space="preserve">
     <value>Improved Treasure Dungeon Messages</value>
@@ -1521,10 +1462,10 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>When kicked from a treasure dungeon, replaces the trap message with a concise message showing which floor you were kicked on.</value>
   </data>
   <data name="GeneralTab_InstanceInDTRBar" xml:space="preserve">
-    <value>Visualizza l'istanza corrente nella barra DTR</value>
+    <value>Display current instance in DTR Bar</value>
   </data>
   <data name="GeneralTab_TidyChatTag" xml:space="preserve">
-    <value>Aggiungi il tag [TidyChat] ai messaggi modificati</value>
+    <value>Add [TidyChat] tag to any modified messages</value>
   </data>
   <data name="GeneralTab_TidyChatTagHelpMarker" xml:space="preserve">
     <value>Prepends messages sent or modified by Tidy Chat with [TidyChat]</value>
@@ -1566,20 +1507,20 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Normalize special characters - except in Party or Alliance channels</value>
   </data>
   <data name="PartyTab_CastYourLotHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when you roll on loot.
+    <value>LogMessage 5180 — when you cast your lot on loot.
 eg. You cast your lot for the &lt;item&gt;</value>
   </data>
   <data name="PartyTab_CastYourLotMessages" xml:space="preserve">
-    <value>Visualizza il messaggio "Hai tentato la fortuna"</value>
+    <value>"You cast your lot" messages</value>
   </data>
   <data name="PartyTab_HideAnotherPlayerObtainsItemMessages" xml:space="preserve">
-    <value>Hide "Another Player obtains &lt;item&gt;" messages</value>
+    <value>Show other players' item obtains</value>
   </data>
   <data name="PartyTab_HideAnotherPlayerObtainsItemMessagesHelpMarker" xml:space="preserve">
-    <value>Hides loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General. Checked = hide.</value>
+    <value>Checked = show loot obtain messages for other players in your party (eg. Some player obtains an &lt;item&gt;!). Unchecked = hide them. LootNotice lines need Filter Obtained; LootRoll lines need Filter Loot Roll on General.</value>
   </data>
   <data name="PartyTab_LootingAndRollingDropdownHeader" xml:space="preserve">
-    <value>Loot e Roll</value>
+    <value>Loot rolls</value>
   </data>
   <data name="PartyTab_PartyAndInviteDropdownHeader" xml:space="preserve">
     <value>Party &amp; invites</value>
@@ -1591,7 +1532,7 @@ eg. You cast your lot for the &lt;item&gt;</value>
     <value>Show "Another Player casts his/her lot &lt;item&gt;" messages</value>
   </data>
   <data name="PartyTab_ShowAnotherPlayerCastsLotMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs when another player in the party rolls for a loot drop.
+    <value>LogMessage 5180 — when another player casts lot on loot (not your roll result).
 eg. Some player casts her lot for &lt;item&gt;.</value>
   </data>
   <data name="PartyTab_ShowAnotherPlayerRollsMessages" xml:space="preserve">
@@ -1604,7 +1545,7 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
     <value>LogMessages 5255, 5256, 5260, 5264 — eg. Battle commencing in 18 seconds!</value>
   </data>
   <data name="PartyTab_ShowDisbandAndDissolveMessages" xml:space="preserve">
-    <value>Show Disband &amp; dissolve</value>
+    <value>Show party disband and dissolve messages</value>
   </data>
   <data name="PartyTab_ShowDisbandAndDissolveMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 72, 73, 7447 — eg. The party is dissolved.</value>
@@ -1628,7 +1569,7 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
     <value>LogMessages 4, 69 — eg. Raven Reaver leaves the party.</value>
   </data>
   <data name="PartyTab_ShowNowALeader" xml:space="preserve">
-    <value>Show Leader promoted or demoted</value>
+    <value>Show leader promoted or demoted</value>
   </data>
   <data name="PartyTab_ShowNowALeaderHelpMarker" xml:space="preserve">
     <value>LogMessages 15–9298 (12 IDs) — These messages occur when made the leader of a party, Free Company, PvP party, Linkshell, or Cross-world Linkshell.</value>
@@ -1637,14 +1578,13 @@ eg. Some player casts her lot for &lt;item&gt;.</value>
     <value>Show only rolls from party members</value>
   </data>
   <data name="PartyTab_ShowOnlyPartyMemberRollsHelpMarker" xml:space="preserve">
-    <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid).
-Requires "Show Another Player rolls" to be enabled and only takes effect while in a party.</value>
+    <value>When enabled, hides loot roll messages from players outside your party (e.g. other alliance parties in a 24-man raid). Only applies when “Show Another Player rolls” is enabled. When that master is off, this filter does not run.</value>
   </data>
   <data name="PartyTab_ShowOtherPlayersLootRollsHelpMarker" xml:space="preserve">
     <value>Shows when other players cast lot or roll on loot.</value>
   </data>
   <data name="PartyTab_ShowPartyObjectiveOnJoin" xml:space="preserve">
-    <value>Show Party objective &amp; comment on join</value>
+    <value>Show party objective and comment on join</value>
   </data>
   <data name="PartyTab_ShowPartyObjectiveOnJoinHelpMarker" xml:space="preserve">
     <value>Companion to Show joined cross-world party messages. Temporarily bypasses Filter System so the join line can include the party objective and comment.</value>
@@ -1674,7 +1614,7 @@ Requires "Show Another Player rolls" to be enabled and only takes effect while i
     <value>LogMessage 1 — eg. You invite Raven Reaver to a party.</value>
   </data>
   <data name="PartyTab_ShowTeleportOfferFromPartyMessages" xml:space="preserve">
-    <value>Show Teleport offers from party</value>
+    <value>Show teleport offers from party</value>
   </data>
   <data name="PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 440 — eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver.</value>
@@ -1683,8 +1623,8 @@ Requires "Show Another Player rolls" to be enabled and only takes effect while i
     <value>Show "You rolled..." messages</value>
   </data>
   <data name="PartyTab_ShowYouRolledMessagesHelpMarker" xml:space="preserve">
-    <value>This will show the message that occurs after everyone has rolled on loot and you are given the result of your roll.
-eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
+    <value>LogMessage 1231 — your Need/Greed/Pass roll result only (not other players' rolls).
+eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="ProgressTab_DutyRewardsDropdownHeader" xml:space="preserve">
     <value>Duty rewards</value>
@@ -1738,10 +1678,10 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>LogMessages 590, 591 — eg. You attain level 90! / Raven attains astrologian level 69!</value>
   </data>
   <data name="ProgressTab_ShowMountMessages" xml:space="preserve">
-    <value>Show mount unlock messages</value>
+    <value>Show mount messages (unlocks, mount up, flying speed)</value>
   </data>
   <data name="ProgressTab_ShowMountMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 646, 1306 — eg. You have unlocked the ability to summon this mount. Uses the action channel (not System filtering).</value>
+    <value>LogMessages 646 (Action), 1306 (System) — eg. You have unlocked the ability to summon this mount / flying speed increased.</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3921, 9454 — eg. Player attains level 33! Uses the system channel.</value>
@@ -1795,7 +1735,7 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>Replaces block-letter and special UI font characters with normal letters (A–Z, 0–9) in chat text.</value>
   </data>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
-    <value>Pagina Wiki</value>
+    <value>Wiki Page</value>
   </data>
   <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
     <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
@@ -1807,7 +1747,7 @@ eg. You roll Need/Greed on the &lt;item&gt;. 63!</value>
     <value>Catch-all</value>
   </data>
   <data name="SystemTab_ErrorMessagesDropdownHeader" xml:space="preserve">
-    <value>Messaggi di errore</value>
+    <value>Error messages</value>
   </data>
   <data name="SystemTab_ExplorationDropdownHeader" xml:space="preserve">
     <value>Exploration</value>
@@ -1844,10 +1784,10 @@ eg. You obtain a cracked dendrocluster</value>
     <value>Hide phishing warning only</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_LoginOnly" xml:space="preserve">
-    <value>Solo accesso (nascondi al cambio mondo)</value>
+    <value>Login only (hide on world-hop)</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_LoginThenCondensed" xml:space="preserve">
-    <value>Completo all'accesso, condensato in viaggio</value>
+    <value>Login full, condensed on world-hop</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_ShowAll" xml:space="preserve">
     <value>Show all</value>
@@ -1887,7 +1827,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show Aetheryte Ticket usage message</value>
   </data>
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
-    <value>LogMessages 503, 535 — eg. You used an aetheryte ticket. (Remaining: 5). Often appears on the System line in chat even though LogMessage 535 is Item-type.</value>
+    <value>LogMessages 503, 535 (Item), 4591 (System) — eg. You used an aetheryte ticket. (Remaining: 674).</value>
   </data>
   <data name="SystemTab_ShowARRRelicBookStepMessages" xml:space="preserve">
     <value>Show ARR Relic book step completed messages</value>
@@ -1905,7 +1845,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show miscellaneous system messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
-    <value>Master toggle for the four specific system messages below (not a catch-all for all system chat).</value>
+    <value>Master toggle for the four specific system messages below (not a catch-all for all system chat). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
   <data name="SystemTab_ShowGearsetChangingMessages" xml:space="preserve">
     <value>Show gearset equipped messages</value>
@@ -1932,13 +1872,13 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show /instance message</value>
   </data>
   <data name="SystemTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
-    <value>Master toggle for duty and instance system messages below. Unchecking hides all nested options.</value>
+    <value>Master toggle for duty and instance system messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Housing ward below is separate.</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
     <value>Show /isearch result messages</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
-    <value>Master toggle for inventory item search and location search lines below.</value>
+    <value>Master toggle for inventory item search and location search lines below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
   <data name="SystemTab_ShowJobChangeMessages" xml:space="preserve">
     <value>Show job change messages</value>
@@ -2029,7 +1969,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Show "You sense something..." messages</value>
   </data>
   <data name="SystemTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 2600, 4791 — LogMessage 2600 / 4791 — spidey-senses lines on the System channel. Location discovered (88) and hostile presence (3240) are nested options below.</value>
+    <value>LogMessage 2600 — spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
   </data>
   <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
     <value>Social &amp; misc</value>
@@ -2059,31 +1999,31 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Debug mode (dry-run filtering)</value>
   </data>
   <data name="ToolsTab_EnableDebugModeHelpMarker" xml:space="preserve">
-    <value>Logs which filter rules would match without blocking messages (dry-run). Does not change actual filtering behavior.</value>
+    <value>Dry-run: matching lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Turn this off to actually hide blocked messages. LogMessage blocks also skip PreventOriginal while debug is on.</value>
   </data>
   <data name="WhitelistTab_Allow" xml:space="preserve">
-    <value>Consenti</value>
+    <value>Allow</value>
   </data>
   <data name="WhitelistTab_Block" xml:space="preserve">
-    <value>Blocca</value>
+    <value>Block</value>
   </data>
   <data name="WhitelistTab_ChannelsHeader" xml:space="preserve">
-    <value>Canali</value>
+    <value>Channels</value>
   </data>
   <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
     <value>Player names must match chat exactly (including periods): Example N., E. Name, or E. N. Use /pattern/ for regex. Use #588 or #588,589 for LogMessage IDs (see Filters help above).</value>
   </data>
   <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-    <value>Add a row and press Enter. Custom filters run after normal TidyChat rules and override the result for matching lines.</value>
+    <value>Add a row and press Enter. The Filters column accepts plain text, /pattern/ for regex, or #123 / #123,456 for LogMessage IDs — hover the Filters header for details. Custom filters run after normal TidyChat rules and override the result for matching lines.</value>
   </data>
   <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
-    <value>Filtri</value>
+    <value>Filters</value>
   </data>
   <data name="WhitelistTab_MessageContains" xml:space="preserve">
-    <value>Il messaggio contiene:</value>
+    <value>Message contains:</value>
   </data>
   <data name="WhitelistTab_SelectChannelsHeader" xml:space="preserve">
-    <value>Selezione canali</value>
+    <value>Select Channels</value>
   </data>
   <data name="WhitelistTab_ShowAllMessagesByWhitelistedPlayer" xml:space="preserve">
     <value>Show all messages sent by whitelisted player</value>
