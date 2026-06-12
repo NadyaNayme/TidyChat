@@ -8,11 +8,13 @@ internal static class SystemTab
         SettingsTabLayout.DrawTabNote(Languages.SystemTab_FilteringNote);
         SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
+        DrawServerAnnouncements(configuration);
+        SettingsTabLayout.DrawSectionSeparator();
+
         SettingsTabLayout.DrawSections(true,
-            (Languages.SystemTab_ServerAnnouncementsDropdownHeader, () => DrawServerAnnouncements(configuration)),
             (Languages.SystemTab_WorldAndInstancesDropdownHeader, () => DrawWorldAndInstances(configuration)),
             (Languages.SystemTab_SocialAndMiscDropdownHeader, () => DrawSocialAndMisc(configuration)),
-            (Languages.SystemTab_SocialStatusDropdownHeader, () => DrawSocialStatus(configuration)),
+            (Languages.SystemTab_ItemSearchDropdownHeader, () => DrawItemSearch(configuration)),
             (Languages.SystemTab_CatchAllDropdownHeader, () => DrawCatchAll(configuration)),
             (Languages.SystemTab_ErrorMessagesDropdownHeader, () => DrawErrorMessages(configuration)));
     }
@@ -30,21 +32,34 @@ internal static class SystemTab
         ];
         var serverAnnouncementMode =
             Math.Clamp((int)configuration.ServerAnnouncementMode, 0, serverAnnouncementModes.Length - 1);
+
+        ImGui.TextUnformatted(Languages.SystemTab_ServerAnnouncementsDropdownHeader);
+        ImGui.Spacing();
+
         ImGui.TextUnformatted(Languages.SystemTab_ServerAnnouncementsLabel);
-        ImGui.SetNextItemWidth(320f);
-        using (ImRaii.Combo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
+        ImGui.SameLine();
+        ImGuiComponents.HelpMarker(Languages.SystemTab_ServerAnnouncementsHelpMarker);
+
+        ImGui.SetNextItemWidth(-1f);
+        if (ImGui.BeginCombo("##serverAnnouncementMode", serverAnnouncementModes[serverAnnouncementMode]))
         {
             for (var i = 0; i < serverAnnouncementModes.Length; i++)
             {
-                if (ImGui.Selectable(serverAnnouncementModes[i], serverAnnouncementMode == i))
+                var isSelected = serverAnnouncementMode == i;
+                if (ImGui.Selectable(serverAnnouncementModes[i], isSelected))
                 {
                     configuration.ServerAnnouncementMode = (ServerAnnouncementMode)i;
                     configuration.OnSettingChanged();
                 }
-            }
-        }
 
-        ImGuiComponents.HelpMarker(Languages.SystemTab_ServerAnnouncementsHelpMarker);
+                if (isSelected)
+                {
+                    ImGui.SetItemDefaultFocus();
+                }
+            }
+
+            ImGui.EndCombo();
+        }
     }
 
     private static void DrawWorldAndInstances(Configuration configuration)
@@ -91,15 +106,6 @@ internal static class SystemTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAetheryteTicketMessageHelpMarker);
 
-        var showAttuneAetheryte = configuration.ShowAttuneAetheryte;
-        if (ImGui.Checkbox(Languages.SystemTab_ShowAttuneAetheryteMessage, ref showAttuneAetheryte))
-        {
-            configuration.ShowAttuneAetheryte = showAttuneAetheryte;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowAttuneAetheryteMessageHelpMarker);
-
         var showAttachToMail = configuration.ShowAttachToMail;
         if (ImGui.Checkbox(Languages.SystemTab_ShowMailAttachmentMessages, ref showAttachToMail))
         {
@@ -117,10 +123,7 @@ internal static class SystemTab
         }
 
         UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_HideOrchestrionPlayingHelpMarker);
-    }
 
-    private static void DrawSocialStatus(Configuration configuration)
-    {
         var showOnlineStatus = configuration.ShowOnlineStatus;
         if (ImGui.Checkbox(Languages.SystemTab_ShowOnlineStatusMessages, ref showOnlineStatus))
         {
@@ -129,7 +132,10 @@ internal static class SystemTab
         }
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowOnlineStatusMessagesHelpMarker);
+    }
 
+    private static void DrawItemSearch(Configuration configuration)
+    {
         var showSearchForItemResults = configuration.ShowSearchForItemResults;
         if (ImGui.Checkbox(Languages.SystemTab_ShowItemSearchResultsMessage, ref showSearchForItemResults))
         {

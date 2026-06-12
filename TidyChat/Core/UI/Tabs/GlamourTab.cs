@@ -195,23 +195,14 @@ internal static class GlamourTab
 
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowGlamourPlateProjectedHelpMarker);
 
-
-
         var showPartialApply = configuration.ShowGlamourPlatePartialApply;
-
         if (ImGui.Checkbox(Languages.SystemTab_ShowGlamourPlatePartialApply, ref showPartialApply))
-
         {
             configuration.ShowGlamourPlatePartialApply = showPartialApply;
-
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.StandaloneHideFilterMarker(Languages.SystemTab_ShowGlamourPlatePartialApplyHelpMarker);
-
-
 
         var showGearDye = configuration.ShowGearDyeApplied;
 

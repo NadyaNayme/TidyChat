@@ -269,7 +269,7 @@ public sealed partial class TidyChatPlugin
                 if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
                     !StellarGpShowRuleHelper.IsStellarGpRuleName(rule.Name) &&
                     (CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText) ||
-                     StellarGpShowRuleHelper.ShouldDeferCombatRules(Configuration, normalizedText)))
+                     StellarGpShowRuleHelper.ShouldDeferToStellarGpRecovery(Configuration, normalizedText)))
                 {
                     if (Configuration.EnableDebugMode)
                     {
@@ -298,8 +298,10 @@ public sealed partial class TidyChatPlugin
                 }
                 else
                 {
-                    // Show-rule matched on a non-LootNotice channel: flip the default for this line.
-                    isBlocked = !defaultBlocked;
+                    // Show-rule matched: allow the line. Spammy channels default to hidden (flip via false);
+                    // non-spammy combat channels (GainBuff, etc.) also land here — !defaultBlocked was wrong
+                    // and hid lines when a show toggle was enabled.
+                    isBlocked = false;
                 }
             }
             else if (!matchedRules.Contains(rule.Name))

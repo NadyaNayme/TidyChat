@@ -293,17 +293,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowStellarMissionMessages",
-            SettingsTab = "Cosmic Exploration",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [10763],
-            StringChecks = [ChatStrings.StellarMissionRequirementsNotMet],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "ShowCosmicExplorationMessages",
             SettingsTab = "Cosmic Exploration",
             Channel = ChatType.System,

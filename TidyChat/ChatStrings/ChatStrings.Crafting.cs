@@ -3,15 +3,6 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
-    /// <see href="https://xivapi.com/LogMessage/1147?pretty=true">Unable to craft. You have not selected all of the materials.</see>
-    public static readonly LocalizedStrings UnableToCraft = new()
-    {
-        Jpn = ["製作", "行えません"],
-        Eng = ["unable", "to", "craft"],
-        Deu = ["synthese", "nicht", "möglich"],
-        Fra = ["synthèse", "impossible"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/1156?pretty=true">You synthesize …</see>
     /// <see href="https://xivapi.com/LogMessage/1157?pretty=true">You synthesize ×N …</see>
     /// <see href="https://xivapi.com/LogMessage/1158?pretty=true">You synthesize.</see>

@@ -811,78 +811,6 @@ eg. You obtain Starboard Hull Component Materials</value>
   <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
     <value>Ţàļķîñĝ</value>
   </data>
-  <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
-    <value>Casting &amp; abilities</value>
-  </data>
-  <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
-    <value>Damage, healing &amp; effects</value>
-  </data>
-  <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
-    <value>Defeat &amp; adds</value>
-  </data>
-  <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
-    <value>Show combat ability usage messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 501, 533 — eg. You ready Iron Will. / You use Heavy Swing. / The enemy uses Fire.</value>
-  </data>
-  <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
-    <value>Show adds calling for help messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatAddsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 555 — eg. The goblin calls for help!</value>
-  </data>
-  <data name="CombatTab_ShowCombatCastingMessages" xml:space="preserve">
-    <value>Show Combat casting</value>
-  </data>
-  <data name="CombatTab_ShowCombatCastingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 502, 534, 537, 538, 540, 541, 542, 1472 — eg. The enemy begins casting Fire.</value>
-  </data>
-  <data name="CombatTab_ShowCombatDamageMessages" xml:space="preserve">
-    <value>Show combat damage messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 447–523 (13 IDs) — eg. You hit the enemy for 1,234 damage. / Direct hit! You hit the enemy for 12,345 damage.</value>
-  </data>
-  <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
-    <value>Show enemy defeated messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatDefeatMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 557, 558 — eg. The enemy is defeated.</value>
-  </data>
-  <data name="CombatTab_ShowCombatEffectsMessages" xml:space="preserve">
-    <value>Show combat status effect messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 526–551, 528, 596, 604, 607, 617, 640, 603 (13 IDs) — eg. You gain the effect of Regen. / You recover from the effect of Poison.</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
-    <value>Show enemy ready messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 501 — eg. The enemy readies Spinning Slash.</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
-    <value>Show combat enmity messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 536 — eg. The enemy's enmity toward you increases!</value>
-  </data>
-  <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
-    <value>Show combat healing messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 519, 520, 560 — eg. You recover 500 HP. / You are revived.</value>
-  </data>
-  <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
-    <value>Show combat miss and evade messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 506, 515, 600, 612 — eg. The attack misses you. / The attack misses. / You are unaffected.</value>
-  </data>
-  <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
-    <value>Combat</value>
-  </data>
   <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
     <value>Economy</value>
   </data>
@@ -1869,7 +1797,7 @@ Hide phishing warning only — keeps greeting and event text, removes the phishi
 Uses localized matching for all supported client languages (EN/DE/FR/JP).</value>
   </data>
   <data name="SystemTab_ServerAnnouncementsLabel" xml:space="preserve">
-    <value>Server announcements (login / world travel)</value>
+    <value>Login / world travel</value>
   </data>
   <data name="SystemTab_ShowActiveHelpEntryMessages" xml:space="preserve">
     <value>Show Active Help entry messages</value>
@@ -2019,12 +1947,6 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_ShowVistaMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 1272, 1273 — eg. You have arrived at a vista! and You have strayed too far from the vista.</value>
   </data>
-  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
-    <value>Show volume control messages</value>
-  </data>
-  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
-    <value>eg. Master Volume muted, BGM volume set to 50.</value>
-  </data>
   <data name="SystemTab_ShowYouSenseSomethingMessages" xml:space="preserve">
     <value>Show "You sense something..." messages</value>
   </data>
@@ -2034,7 +1956,9 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
     <value>Social &amp; misc</value>
   </data>
-  <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_ItemSearchDropdownHeader" xml:space="preserve">
+    <value>Item &amp; location search</value>
+  </data>  <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
     <value>Social status</value>
   </data>
   <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">

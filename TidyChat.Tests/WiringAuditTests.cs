@@ -23,12 +23,7 @@ public class WiringAuditTests
         ["ShowDutyCommenceMessage"] = nameof(Configuration.BetterDutyCommenceMessage),
         ["HideDutyCommenceBriefing"] = nameof(Configuration.BetterDutyCommenceMessage),
         ["ShowInventoryItemAdded"] = nameof(Configuration.HideInventoryItemAdded),
-        ["ShowMgpSpending"] = nameof(Configuration.HideObtainedMGP),
-        ["ShowCannotExecuteMessages"] = "<always on>",
-        ["ShowFateDiscovery"] = "<always on>",
-        ["ShowVolumeControlMessages"] = "<always on>",
-        ["AlwaysShowCraftingErrors"] = "<always on>",
-        ["ShowFriendList"] = "<always on>"
+        ["ShowMgpSpending"] = nameof(Configuration.HideObtainedMGP)
     };
 
     /// <summary>Master toggles that gate child rules; enabled so child accessors can respond.</summary>
@@ -49,7 +44,7 @@ public class WiringAuditTests
 
     private static readonly string[] KnownSettingsTabs =
     [
-        "System", "Currencies", "Allied Societies", "Gold Saucer", "Progress", "Combat", "Crafting",
+        "System", "Currencies", "Allied Societies", "Gold Saucer", "Progress", "Crafting",
         "Cosmic Exploration", "Desynthesis", "Fishing", "Gathering", "Materia", "Exploration", "Housing",
         "Glamour", "Deep Dungeons", "General", "Emotes", "Party", "Duty", "Free Company", "Economy"
     ];

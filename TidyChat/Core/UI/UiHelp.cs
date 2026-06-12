@@ -185,16 +185,6 @@ internal static class UiHelp
     public static void LootFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(WithLootFilterNote(help));
 
-    public static string WithCombatFilterNote(string help) =>
-        AppendNote(help, Languages.Shared_CombatToggleNote);
-
-    public static bool ShouldAppendCombatFilterNote(string helpPropertyName) =>
-        helpPropertyName.StartsWith("CombatTab_", StringComparison.Ordinal) &&
-        helpPropertyName.EndsWith("HelpMarker", StringComparison.Ordinal);
-
-    public static void CombatFilterMarker(string help) =>
-        ImGuiComponents.HelpMarker(WithCombatFilterNote(help));
-
     public static string WithCraftingFilterNote(string help) =>
         AppendNote(help, Languages.Shared_RequiresCraftingFilteringNote);
 

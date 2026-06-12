@@ -147,17 +147,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "AlwaysShowCraftingErrors",
-            SettingsTab = "Crafting",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [1147],
-            StringChecks = [ChatStrings.UnableToCraft],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "ShowAllOtherCrafting",
             SettingsTab = "Crafting",
             Channel = ChatType.Crafting,

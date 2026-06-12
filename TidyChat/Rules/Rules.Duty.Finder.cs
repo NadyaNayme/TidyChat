@@ -85,28 +85,6 @@ public static partial class Rules
         {
             Name = "ShowDutyFinder",
             SettingsTab = "Duty",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [890],
-            StringChecks = [ChatStrings.DutyRegistrationWithdrawn],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowDutyFinder",
-            SettingsTab = "Duty",
-            Channel = ChatType.Error,
-            IsActive = true,
-            LogMessageIds = [902],
-            StringChecks = [ChatStrings.PartyMemberDutyWithdrawn],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "ShowDutyFinder",
-            SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4676],

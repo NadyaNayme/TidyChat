@@ -33,29 +33,18 @@ public class RuleFallbackTests
     public void Allows_specific_regex_fallback_for_catalog_rules()
     {
         var questAccepted = FindRuleByRegex("ShowQuestProgress", ChatStrings.QuestAcceptedRegex);
-        var abilityOther = FindRuleByRegex("ShowCombatAbilities", ChatStrings.AbilityUseMessageOtherRegex);
 
         Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(questAccepted), Is.False);
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(abilityOther), Is.False);
     }
 
     [Test]
     public void Allows_tightened_buff_effect_fallback_on_catalog_rules()
     {
-        var buff = FindRuleByString("ShowCombatEffects", ChatStrings.BuffEffectGain);
+        var buff = FindRuleByString("ShowCraftingBuffEffectGain", ChatStrings.BuffEffectGain);
 
         Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(buff), Is.False);
         Assert.That(RuleMatcher.MatchesText(buff, "you gain the effect of inner quiet.", out _), Is.True);
         Assert.That(RuleMatcher.MatchesText(buff, "a special effect occurs.", out _), Is.False);
-    }
-
-    [Test]
-    public void Ability_other_regex_matches_non_player_uses_only()
-    {
-        var abilityOther = FindRuleByRegex("ShowCombatAbilities", ChatStrings.AbilityUseMessageOtherRegex);
-
-        Assert.That(RuleMatcher.MatchesText(abilityOther, "the goblin uses fire.", out _), Is.True);
-        Assert.That(RuleMatcher.MatchesText(abilityOther, "you use fire.", out _), Is.False);
     }
 
     [Test]

@@ -66,14 +66,6 @@ public static partial class ChatStrings
         Deu = ["ätheryt", "ticket", "verwendet"],
         Fra = ["téléportation", "utilise"]
     };
-    /// <see href="https://xivapi.com/LogMessage/1341?pretty=true">You attune to the aetheryte.</see>
-    public static readonly LocalizedStrings AttuneAetheryte = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["attune", "aetheryte"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
     /// <see href="https://xivapi.com/LogMessage/4242?pretty=true">Changes discarded.</see>
     public static readonly LocalizedStrings ChangesDiscarded = new()
     {

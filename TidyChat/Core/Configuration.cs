@@ -225,7 +225,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowFirstClearAward { get; set; } = true;
     public bool ShowSecondChanceAward { get; set; } = false;
     public bool ShowAetheryteTicket { get; set; } = false;
-    public bool ShowAttuneAetheryte { get; set; } = false;
     public bool ShowActiveHelpEntry { get; set; } = false;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
@@ -373,22 +372,5 @@ public class Configuration : IPluginConfiguration
 
     #endregion
 
-    #region Combat
-
-    public bool ShowCombatCasting { get; set; } = false;
-    public bool ShowCombatAbilities { get; set; } = false;
-    public bool ShowCombatDamage { get; set; } = false;
-    public bool ShowCombatMisses { get; set; } = false;
-    public bool ShowCombatHealing { get; set; } = false;
-    public bool ShowCombatEffects { get; set; } = false;
-    public bool ShowCombatDefeat { get; set; } = false;
-    public bool ShowCombatEnemyReady { get; set; } = false;
-
-    public bool ShowCombatAdds { get; set; } = false;
-
-    public bool ShowCombatEnmity { get; set; } = false;
-
     public bool ShowObtainedQuestItems { get; set; } = false;
-
-    #endregion
 }

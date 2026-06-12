@@ -140,20 +140,6 @@ public static partial class Rules
         }
     ];
 
-    private static readonly LocalizedFilterRule[] SystemVolumeControlRules =
-    [
-        // Always shown when System filtering is on — no user toggle.,
-        new()
-        {
-            Name = "ShowVolumeControlMessages",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866],
-            PreferLogMessageCatalog = true
-        }
-    ];
-
     private static readonly LocalizedFilterRule[] SystemUtilityRules =
     [
         new()
@@ -278,17 +264,6 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowAttuneAetheryte",
-            SettingsTab = "System",
-            Channel = ChatType.System,
-            IsActive = true,
-            LogMessageIds = [1341],
-            StringChecks = [ChatStrings.AttuneAetheryte],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
             Name = "ShowChangesDiscarded",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -368,7 +343,6 @@ public static partial class Rules
         rules.AddRange(EconomyMarketBoardRules);
         rules.AddRange(EconomyRetainerRules);
         rules.AddRange(GlamourGearsetAndJobRules);
-        rules.AddRange(SystemVolumeControlRules);
         rules.AddRange(PartySealedOffRules);
         rules.AddRange(SystemUtilityRules);
     }

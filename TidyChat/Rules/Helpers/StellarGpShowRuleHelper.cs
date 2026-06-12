@@ -17,7 +17,7 @@ internal static class StellarGpShowRuleHelper
     public static bool IsGpRecoveryAllowed(Configuration config, string normalizedText) =>
         FilterMasterAccessors.StellarGpRecovery(config) && MatchesGpRecoveryText(normalizedText);
 
-    public static bool ShouldDeferCombatRules(Configuration config, string normalizedText) =>
+    public static bool ShouldDeferToStellarGpRecovery(Configuration config, string normalizedText) =>
         IsGpRecoveryAllowed(config, normalizedText);
 
     public static bool MatchesGpRecoveryText(string normalizedText) =>

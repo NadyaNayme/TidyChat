@@ -376,11 +376,6 @@ internal static class SettingsSearchIndex
             return UiHelp.WithCraftingFilterNote(help);
         }
 
-        if (UiHelp.ShouldAppendCombatFilterNote(helpPropertyName))
-        {
-            return UiHelp.WithCombatFilterNote(help);
-        }
-
         if (UiHelp.ShouldAppendProgressAndSystemFilterNote(helpPropertyName))
         {
             return UiHelp.WithProgressAndSystemFilterNote(help);
@@ -515,7 +510,6 @@ internal static class SettingsSearchIndex
         "Allied Societies" => Languages.ConfigWindow_AlliedSocietiesTabHeader,
         "Gold Saucer" => Languages.ConfigWindow_GoldSaucerTabHeader,
         "Progress" => Languages.ConfigWindow_ProgressTabHeader,
-        "Combat" => Languages.ConfigWindow_CombatTabHeader,
         "Crafting" => Languages.ConfigWindow_CraftingTabHeader,
         "Cosmic Exploration" => Languages.ConfigWindow_CosmicExplorationTabHeader,
         "Desynthesis" => Languages.ConfigWindow_DesynthesisTabHeader,
@@ -580,11 +574,6 @@ internal static class SettingsSearchIndex
             "ShowSecondChanceAward")
         {
             return Languages.ConfigWindow_ProgressTabHeader;
-        }
-
-        if (propertyName.StartsWith("ShowCombat", StringComparison.Ordinal))
-        {
-            return Languages.ConfigWindow_CombatTabHeader;
         }
 
         if (propertyName is "HideFateLevelSync" or "HideOrchestrionPlaying")
@@ -814,7 +803,7 @@ internal static class SettingsSearchIndex
             "ShowItemSearchResults" or
             "ShowLocationSearchResults")
         {
-            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialStatusDropdownHeader}";
+            return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_ItemSearchDropdownHeader}";
         }
 
         if (propertyName is "ShowEverythingElse" or "ShowChangesDiscarded" or "ShowChangesLost")
@@ -850,7 +839,7 @@ internal static class SettingsSearchIndex
         if (propertyName is "ShowCommendations" or
             "ShowPersonalMessageBook" or
             "ShowAetheryteTicket" or
-            "ShowAttuneAetheryte")
+            "ShowOnlineStatus")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_SocialAndMiscDropdownHeader}";
         }

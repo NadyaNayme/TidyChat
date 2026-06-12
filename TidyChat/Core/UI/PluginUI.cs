@@ -33,7 +33,6 @@ internal class PluginUI : Window, IDisposable
         (() => Languages.ConfigWindow_AlliedSocietiesTabHeader, AlliedSocietiesTab.Draw),
         (() => Languages.ConfigWindow_GoldSaucerTabHeader, GoldSaucerTab.Draw),
         (() => Languages.ConfigWindow_ProgressTabHeader, ProgressTab.Draw),
-        (() => Languages.ConfigWindow_CombatTabHeader, CombatTab.Draw),
         (() => Languages.ConfigWindow_CraftingTabHeader, CraftingTab.Draw),
         (() => Languages.ConfigWindow_DesynthesisTabHeader, DesynthesisTab.Draw),
         (() => Languages.ConfigWindow_CosmicExplorationTabHeader, CosmicExplorationTab.Draw),

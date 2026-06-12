@@ -3,8 +3,8 @@ namespace TidyChat.Tests;
 internal static class RuleOrderSnapshot
 {
     /// <summary>Update when rule evaluation order intentionally changes.</summary>
-    public const int ExpectedRuleCount = 429;
+    public const int ExpectedRuleCount = 359;
 
     /// <summary>SHA-256 hex of newline-joined <see cref="RuleOrderFingerprint.Format"/> lines.</summary>
-    public const string ExpectedOrderHash = "A7E3E30FD70169D12D8477C85A064F659A0F181580D3B843377ED37C82E36371";
+    public const string ExpectedOrderHash = "FA6922C873A2B3ADE10206A43B5EAD1D0713C637EA71DC7A63561FE454DE620F";
 }

@@ -440,236 +440,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Casting &amp; abilities.
-        /// </summary>
-        internal static string CombatTab_CastingAndAbilitiesDropdownHeader {
-            get {
-                return ResourceManager.GetString("CombatTab_CastingAndAbilitiesDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Damage, healing &amp; effects.
-        /// </summary>
-        internal static string CombatTab_DamageHealingAndEffectsDropdownHeader {
-            get {
-                return ResourceManager.GetString("CombatTab_DamageHealingAndEffectsDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Defeat &amp; adds.
-        /// </summary>
-        internal static string CombatTab_DefeatAndAddsDropdownHeader {
-            get {
-                return ResourceManager.GetString("CombatTab_DefeatAndAddsDropdownHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Combat log options use LogMessage rules on Action, Damage, Healing, Miss, GainBuff, LoseBuff, GainDebuff, LoseDebuff, Battle System, and System channels—there is no separate General master toggle. Checked = show; unchecked = hide. Tools → Custom Filters can override..
-        /// </summary>
-        internal static string CombatTab_FilteringNote {
-            get {
-                return ResourceManager.GetString("CombatTab_FilteringNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show combat ability usage messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatAbilitiesMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatAbilitiesMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 501, 533 — eg. You ready Iron Will. / You use Heavy Swing. / The enemy uses Fire..
-        /// </summary>
-        internal static string CombatTab_ShowCombatAbilitiesMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatAbilitiesMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show adds calling for help messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatAddsMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatAddsMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessage 555 — eg. The goblin calls for help!.
-        /// </summary>
-        internal static string CombatTab_ShowCombatAddsMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatAddsMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show Combat casting.
-        /// </summary>
-        internal static string CombatTab_ShowCombatCastingMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatCastingMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 502, 534, 537, 538, 540, 541, 542, 1472 — eg. The enemy begins casting Fire..
-        /// </summary>
-        internal static string CombatTab_ShowCombatCastingMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatCastingMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show combat damage messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatDamageMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatDamageMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 447, 448, 450, 451, 504, 505, 508, 509, 510, 511, 517, 518, 523 (13 IDs) — Damage and Healing channels. eg. You hit the enemy for 1,234 damage. / 523 is absorption (Healing channel)..
-        /// </summary>
-        internal static string CombatTab_ShowCombatDamageMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatDamageMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show enemy defeated messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatDefeatMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatDefeatMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 557, 558 — eg. The enemy is defeated..
-        /// </summary>
-        internal static string CombatTab_ShowCombatDefeatMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatDefeatMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show combat status effect messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatEffectsMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatEffectsMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 526, 527, 528, 531, 532, 550, 551, 596, 603, 604, 607, 617, 640 (13 IDs) — GainBuff, LoseBuff, GainDebuff, LoseDebuff, Miss, BattleSystem, and System channels. eg. You gain the effect of Regen. / … nullifies the effect of … (607, Miss)..
-        /// </summary>
-        internal static string CombatTab_ShowCombatEffectsMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatEffectsMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show enemy ready messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatEnemyReadyMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatEnemyReadyMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessage 501 — eg. The enemy readies Spinning Slash..
-        /// </summary>
-        internal static string CombatTab_ShowCombatEnemyReadyMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatEnemyReadyMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show combat enmity messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatEnmityMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatEnmityMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessage 536 — eg. The enemy&apos;s enmity toward you increases!.
-        /// </summary>
-        internal static string CombatTab_ShowCombatEnmityMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatEnmityMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show combat healing messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatHealingMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatHealingMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 519, 520, 560 — eg. You recover 500 HP. / You are revived. Gathering GP recovery (LogMessages 11174, 11175) is separate — use Cosmic Exploration → Show stellar GP recovery instead..
-        /// </summary>
-        internal static string CombatTab_ShowCombatHealingMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatHealingMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Show combat miss and evade messages.
-        /// </summary>
-        internal static string CombatTab_ShowCombatMissesMessages {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatMissesMessages", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to LogMessages 506, 515, 600, 612 — eg. The attack misses you. / The attack misses. / You are unaffected..
-        /// </summary>
-        internal static string CombatTab_ShowCombatMissesMessagesHelpMarker {
-            get {
-                return ResourceManager.GetString("CombatTab_ShowCombatMissesMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Allied Societies.
         /// </summary>
         internal static string ConfigWindow_AlliedSocietiesTabHeader {
             get {
                 return ResourceManager.GetString("ConfigWindow_AlliedSocietiesTabHeader", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Combat.
-        /// </summary>
-        internal static string ConfigWindow_CombatTabHeader {
-            get {
-                return ResourceManager.GetString("ConfigWindow_CombatTabHeader", resourceCulture);
             }
         }
         
@@ -3062,7 +2837,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP; use this option, not Combat → Show healing. 11175 covers mission-end GP refund..
+        ///   Looks up a localized string similar to LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP recovery. 11175 covers mission-end GP refund..
         /// </summary>
         internal static string GatheringTab_ShowStellarGpRecoveryHelpMarker {
             get {
@@ -4564,15 +4339,6 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checked = show; unchecked = hide. Battle channels are always filtered, so no General tab toggle is required..
-        /// </summary>
-        internal static string Shared_CombatToggleNote {
-            get {
-                return ResourceManager.GetString("Shared_CombatToggleNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat..
         /// </summary>
         internal static string Shared_FilterObtainedDisabledWarning {
@@ -4859,7 +4625,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Server announcements (login / world travel).
+        ///   Looks up a localized string similar to Login / world travel.
         /// </summary>
         internal static string SystemTab_ServerAnnouncementsLabel {
             get {
@@ -5684,6 +5450,15 @@ namespace TidyChat.Localization.Resources {
         internal static string SystemTab_SocialAndMiscDropdownHeader {
             get {
                 return ResourceManager.GetString("SystemTab_SocialAndMiscDropdownHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Item &amp; location search.
+        /// </summary>
+        internal static string SystemTab_ItemSearchDropdownHeader {
+            get {
+                return ResourceManager.GetString("SystemTab_ItemSearchDropdownHeader", resourceCulture);
             }
         }
         

@@ -35,17 +35,6 @@ internal static class SettingsPropertyLabelKeys
         ["ShowQuestProgress"] = nameof(Languages.ProgressTab_ShowQuestProgressMessages),
         ["ShowFirstClearAward"] = nameof(Languages.ProgressTab_ShowFirstClearAward),
         ["ShowSecondChanceAward"] = nameof(Languages.ProgressTab_ShowSecondChanceAward),
-
-        ["ShowCombatCasting"] = nameof(Languages.CombatTab_ShowCombatCastingMessages),
-        ["ShowCombatAbilities"] = nameof(Languages.CombatTab_ShowCombatAbilitiesMessages),
-        ["ShowCombatDamage"] = nameof(Languages.CombatTab_ShowCombatDamageMessages),
-        ["ShowCombatMisses"] = nameof(Languages.CombatTab_ShowCombatMissesMessages),
-        ["ShowCombatHealing"] = nameof(Languages.CombatTab_ShowCombatHealingMessages),
-        ["ShowCombatEffects"] = nameof(Languages.CombatTab_ShowCombatEffectsMessages),
-        ["ShowCombatDefeat"] = nameof(Languages.CombatTab_ShowCombatDefeatMessages),
-        ["ShowCombatEnemyReady"] = nameof(Languages.CombatTab_ShowCombatEnemyReadyMessages),
-        ["ShowCombatAdds"] = nameof(Languages.CombatTab_ShowCombatAddsMessages),
-        ["ShowCombatEnmity"] = nameof(Languages.CombatTab_ShowCombatEnmityMessages),
         ["ShowObtainedItems"] = nameof(Languages.CurrenciesTab_ShowGeneralItemObtains),
         ["ShowObtainedQuestItems"] = nameof(Languages.CurrenciesTab_ShowObtainedQuestItems),
 
@@ -164,7 +153,6 @@ internal static class SettingsPropertyLabelKeys
         ["ShowPersonalMessageBook"] = nameof(Languages.SystemTab_ShowPersonalMessageBookMessages),
         ["HideObtainedClusters"] = nameof(Languages.SystemTab_HideCrackedClustersMessages),
         ["ShowAetheryteTicket"] = nameof(Languages.SystemTab_ShowAetheryteTicketMessage),
-        ["ShowAttuneAetheryte"] = nameof(Languages.SystemTab_ShowAttuneAetheryteMessage),
 
         ["ShowSRankHunt"] = nameof(Languages.SystemTab_ShowSRankSpawnAnnouncement),
         ["ShowSSRankHunt"] = nameof(Languages.SystemTab_ShowSSRankMinionSpawnAnnouncement),

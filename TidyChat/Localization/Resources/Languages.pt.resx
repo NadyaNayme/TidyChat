@@ -1,6 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  
   <xs:schema id="root">
     <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xs:element name="root" ns1:IsDataSet="true">
@@ -789,83 +788,8 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ChatHistoryTab_TalkingChannel" xml:space="preserve">
     <value>Talking</value>
   </data>
-  <data name="CombatTab_CastingAndAbilitiesDropdownHeader" xml:space="preserve">
-    <value>Casting &amp; abilities</value>
-  </data>
-  <data name="CombatTab_DamageHealingAndEffectsDropdownHeader" xml:space="preserve">
-    <value>Damage, healing &amp; effects</value>
-  </data>
-  <data name="CombatTab_DefeatAndAddsDropdownHeader" xml:space="preserve">
-    <value>Defeat &amp; adds</value>
-  </data>
-  <data name="CombatTab_FilteringNote" xml:space="preserve">
-    <value>Combat log options use LogMessage rules on Action, Damage, Healing, Miss, GainBuff, LoseBuff, GainDebuff, LoseDebuff, Battle System, and System channels—there is no separate General master toggle. Checked = show; unchecked = hide. Tools → Custom Filters can override.</value>
-  </data>
-  <data name="CombatTab_ShowCombatAbilitiesMessages" xml:space="preserve">
-    <value>Show combat ability usage messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatAbilitiesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 501, 533 — eg. You ready Iron Will. / You use Heavy Swing. / The enemy uses Fire.</value>
-  </data>
-  <data name="CombatTab_ShowCombatAddsMessages" xml:space="preserve">
-    <value>Show adds calling for help messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatAddsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 555 — eg. The goblin calls for help!</value>
-  </data>
-  <data name="CombatTab_ShowCombatCastingMessages" xml:space="preserve">
-    <value>Show Combat casting</value>
-  </data>
-  <data name="CombatTab_ShowCombatCastingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 502, 534, 537, 538, 540, 541, 542, 1472 — eg. The enemy begins casting Fire.</value>
-  </data>
-  <data name="CombatTab_ShowCombatDamageMessages" xml:space="preserve">
-    <value>Show combat damage messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatDamageMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 447, 448, 450, 451, 504, 505, 508, 509, 510, 511, 517, 518, 523 (13 IDs) — Damage and Healing channels. eg. You hit the enemy for 1,234 damage. / 523 is absorption (Healing channel).</value>
-  </data>
-  <data name="CombatTab_ShowCombatDefeatMessages" xml:space="preserve">
-    <value>Show enemy defeated messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatDefeatMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 557, 558 — eg. The enemy is defeated.</value>
-  </data>
-  <data name="CombatTab_ShowCombatEffectsMessages" xml:space="preserve">
-    <value>Show combat status effect messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatEffectsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 526, 527, 528, 531, 532, 550, 551, 596, 603, 604, 607, 617, 640 (13 IDs) — GainBuff, LoseBuff, GainDebuff, LoseDebuff, Miss, BattleSystem, and System channels. eg. You gain the effect of Regen. / … nullifies the effect of … (607, Miss).</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnemyReadyMessages" xml:space="preserve">
-    <value>Show enemy ready messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnemyReadyMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 501 — eg. The enemy readies Spinning Slash.</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnmityMessages" xml:space="preserve">
-    <value>Show combat enmity messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatEnmityMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 536 — eg. The enemy's enmity toward you increases!</value>
-  </data>
-  <data name="CombatTab_ShowCombatHealingMessages" xml:space="preserve">
-    <value>Show combat healing messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatHealingMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 519, 520, 560 — eg. You recover 500 HP. / You are revived. Gathering GP recovery (LogMessages 11174, 11175) is separate — use Cosmic Exploration → Show stellar GP recovery instead.</value>
-  </data>
-  <data name="CombatTab_ShowCombatMissesMessages" xml:space="preserve">
-    <value>Show combat miss and evade messages</value>
-  </data>
-  <data name="CombatTab_ShowCombatMissesMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 506, 515, 600, 612 — eg. The attack misses you. / The attack misses. / You are unaffected.</value>
-  </data>
   <data name="ConfigWindow_AlliedSocietiesTabHeader" xml:space="preserve">
     <value>Allied Societies</value>
-  </data>
-  <data name="ConfigWindow_CombatTabHeader" xml:space="preserve">
-    <value>Combat</value>
   </data>
   <data name="ConfigWindow_CosmicExplorationTabHeader" xml:space="preserve">
     <value>Cosmic &amp; Stellar Exploration</value>
@@ -1672,7 +1596,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show stellar GP recovery</value>
   </data>
   <data name="GatheringTab_ShowStellarGpRecoveryHelpMarker" xml:space="preserve">
-    <value>LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP; use this option, not Combat → Show healing. 11175 covers mission-end GP refund.</value>
+    <value>LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP recovery. 11175 covers mission-end GP refund.</value>
   </data>
   <data name="GatheringTab_ShowStellarMissionMessages" xml:space="preserve">
     <value>Show stellar mission messages</value>
@@ -2177,9 +2101,6 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Page</value>
   </data>
-  <data name="Shared_CombatToggleNote" xml:space="preserve">
-    <value>Checked = show; unchecked = hide. Battle channels are always filtered, so no General tab toggle is required.</value>
-  </data>
   <data name="Shared_FilterObtainedDisabledWarning" xml:space="preserve">
     <value>Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat.</value>
   </data>
@@ -2285,7 +2206,7 @@ Hide phishing warning only — keeps greeting and event text, removes the phishi
 Uses localized matching for all supported client languages (EN/DE/FR/JP).</value>
   </data>
   <data name="SystemTab_ServerAnnouncementsLabel" xml:space="preserve">
-    <value>Server announcements (login / world travel)</value>
+    <value>Login / world travel</value>
   </data>
   <data name="SystemTab_ShowActiveHelpEntryMessages" xml:space="preserve">
     <value>Show Active Help entry messages</value>
@@ -2561,7 +2482,9 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="SystemTab_SocialAndMiscDropdownHeader" xml:space="preserve">
     <value>Social &amp; misc</value>
   </data>
-  <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
+  <data name="SystemTab_ItemSearchDropdownHeader" xml:space="preserve">
+    <value>Item &amp; location search</value>
+  </data>  <data name="SystemTab_SocialStatusDropdownHeader" xml:space="preserve">
     <value>Social status</value>
   </data>
   <data name="SystemTab_WorldAndInstancesDropdownHeader" xml:space="preserve">

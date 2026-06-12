@@ -92,8 +92,6 @@ public static partial class Rules
         ["ShowFirstClearAward"] = c => c.ShowFirstClearAward,
         ["ShowSecondChanceAward"] = c => c.ShowSecondChanceAward,
         ["HideFateLevelSync"] = c => c.HideFateLevelSync,
-        ["ShowCannotExecuteMessages"] = _ => true,
-        ["ShowFateDiscovery"] = _ => true,
         ["ShowActiveHelpEntry"] = c => c.ShowActiveHelpEntry,
         ["ShowOfferedTeleport"] = c => c.ShowOfferedTeleport,
         ["ShowVendorSellMessages"] = c => c.ShowVendorSellMessages,
@@ -110,7 +108,6 @@ public static partial class Rules
         ["ShowGearItemsRepaired"] = c => c.ShowGearItemsRepaired,
         ["ShowMateriaRetrieved"] = c => c.ShowMateriaRetrieved,
         ["ShowMateriaShatters"] = c => c.ShowMateriaShatters,
-        ["ShowVolumeControlMessages"] = _ => true,
         ["ShowAetherialReductionSands"] = c => c.ShowAetherialReductionSands,
         ["ShowAetherialReductionSuccess"] = c => c.ShowAetherialReductionSuccess,
         ["ShowAetherialReductionMinigame"] = c => c.ShowAetherialReductionMinigame,
@@ -118,7 +115,6 @@ public static partial class Rules
         ["ShowItemSearchResults"] = FilterMasterAccessors.ItemSearchResults,
         ["ShowLocationSearchResults"] = FilterMasterAccessors.LocationSearchResults,
         ["ShowAetheryteTicket"] = c => c.ShowAetheryteTicket,
-        ["ShowAttuneAetheryte"] = c => c.ShowAttuneAetheryte,
         ["BetterNoviceNetworkMessage"] = c => c.BetterNoviceNetworkMessage,
         ["FilterEmoteChannel"] = c => c.FilterEmoteChannel,
         ["ShowOtherCustomEmotes"] = c => c.ShowOtherCustomEmotes,
@@ -131,7 +127,6 @@ public static partial class Rules
         ["ShowAllOtherCrafting"] = c => c.ShowAllOtherCrafting,
         ["ShowCraftingBuffEffectGain"] = FilterMasterAccessors.CraftingBuffEffectGain,
         ["ShowCraftingAbleToExecute"] = FilterMasterAccessors.CraftingAbleToExecute,
-        ["AlwaysShowCraftingErrors"] = _ => true,
         ["ShowGatheringYield"] = c => c.ShowGatheringYield,
         ["ShowGatheringAttempts"] = c => c.ShowGatheringAttempts,
         ["ShowGatherersBoon"] = c => c.ShowGatherersBoon,
@@ -159,23 +154,12 @@ public static partial class Rules
         ["ShowCosmicContainers"] = c => c.ShowCosmicContainers,
         ["ShowCosmicClassPointsAndDataset"] = c => c.ShowCosmicClassPointsAndDataset,
         ["ShowCosmicDailyProgress"] = c => c.ShowCosmicDailyProgress,
-        ["ShowCombatCasting"] = c => c.ShowCombatCasting,
-        ["ShowCombatAbilities"] = c => c.ShowCombatAbilities,
-        ["ShowCombatDamage"] = c => c.ShowCombatDamage,
-        ["ShowCombatMisses"] = c => c.ShowCombatMisses,
-        ["ShowCombatHealing"] = c => c.ShowCombatHealing,
-        ["ShowCombatEffects"] = c => c.ShowCombatEffects,
-        ["ShowCombatDefeat"] = c => c.ShowCombatDefeat,
-        ["ShowCombatEnemyReady"] = c => c.ShowCombatEnemyReady,
-        ["ShowCombatAdds"] = c => c.ShowCombatAdds,
-        ["ShowCombatEnmity"] = c => c.ShowCombatEnmity,
         ["ShowObtainedQuestItems"] = c => c.ShowObtainedQuestItems,
         ["ShowObtainedItems"] = c => c.ShowObtainedItems,
         ["HideInventoryItemAdded"] = c => c.HideInventoryItemAdded,
         ["ShowInventoryItemAdded"] = c => !c.HideInventoryItemAdded,
         ["ShowUserLogins"] = c => c.ShowUserLogins,
         ["ShowUserLogouts"] = c => c.ShowUserLogouts,
-        ["ShowFriendList"] = _ => true,
         ["HideOrchestrionPlaying"] = c => c.HideOrchestrionPlaying,
         ["ShowLootRoll"] = c => c.ShowLootRoll,
         ["ShowCastLot"] = c => c.ShowCastLot,
@@ -241,7 +225,6 @@ public static partial class Rules
         rules.AddRange(GatheringAetherialReductionRules);
         AddGatheringRules(rules);
         rules.AddRange(CosmicExplorationRules);
-        rules.AddRange(CombatRules);
         rules.AddRange(FreeCompanyRules);
         rules.AddRange(OrchestrionRules);
         AddLootRules(rules);

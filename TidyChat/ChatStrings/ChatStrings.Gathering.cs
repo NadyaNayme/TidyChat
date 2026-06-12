@@ -339,19 +339,6 @@ public static partial class ChatStrings
     };
 
 
-    /// <see href="https://xivapi.com/LogMessage/10763?pretty=true">
-    ///     You do not meet the requirements to accept this stellar
-    ///     mission.
-    /// </see>
-    public static readonly LocalizedStrings StellarMissionRequirementsNotMet = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["do", "not", "meet", "requirements", "accept", "stellar", "mission"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-
     /// <see href="https://xivapi.com/LogMessage/11174?pretty=true">You recover N GP.</see>
     public static readonly LocalizedStrings StellarGpRecoverySelf = new()
     {
