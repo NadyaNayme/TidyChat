@@ -1,65 +1,111 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-                                Microsoft ResX Schema 
-                                
-                                Version 2.0
-                                
-                                The primary goals of this format is to allow a simple XML format 
-                                that is mostly human readable. The generation and parsing of the 
-                                various data types are done through the TypeConverter classes 
-                                associated with the data types.
-                                
-                                Example:
-                                
-                                ... ado.net/XML headers & schema ...
-                                <resheader name="resmimetype">text/microsoft-resx</resheader>
-                                <resheader name="version">2.0</resheader>
-                                <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-                                <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-                                <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-                                <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-                                <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-                                    <value>[base64 mime encoded serialized .NET Framework object]</value>
-                                </data>
-                                <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-                                    <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-                                    <comment>This is a comment</comment>
-                                </data>
-                                
-                                There are any number of "resheader" rows that contain simple 
-                                name/value pairs.
-                                
-                                Each data row contains a name, and value. The row also contains a 
-                                type or mimetype. Type corresponds to a .NET class that support 
-                                text/value conversion through the TypeConverter architecture. 
-                                Classes that don't support this are serialized and stored with the 
-                                mimetype set.
-                                
-                                The mimetype is used for serialized objects, and tells the 
-                                ResXResourceReader how to depersist the object. This is currently not 
-                                extensible. For a given mimetype the value must be set accordingly:
-                                
-                                Note - application/x-microsoft.net.object.binary.base64 is the format 
-                                that the ResXResourceWriter will generate, however the reader can 
-                                read any of the formats listed below.
-                                
-                                mimetype: application/x-microsoft.net.object.binary.base64
-                                value   : The object must be serialized with 
-                                        : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                                        : and then encoded with base64 encoding.
-                                
-                                mimetype: application/x-microsoft.net.object.soap.base64
-                                value   : The object must be serialized with 
-                                        : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                                        : and then encoded with base64 encoding.
-                                
-                                mimetype: application/x-microsoft.net.object.bytearray.base64
-                                value   : The object must be serialized into a byte array 
-                                        : using a System.ComponentModel.TypeConverter
-                                        : and then encoded with base64 encoding.
-                                -->
+                                  Microsoft ResX Schema 
+                                  
+                                  Version 2.0
+                                  
+                                  The primary goals of this format is to allow a simple XML format 
+                                  that is mostly human readable. The generation and parsing of the 
+                                  various data types are done through the TypeConverter classes 
+                                  associated with the data types.
+                                  
+                                  Example:
+                                  
+                                  ... ado.net/XML headers & schema ...
+                                  <resheader name="resmimetype">text/microsoft-resx</resheader>
+                                  <resheader name="version">2.0</resheader>
+                                  <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+                                  <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+                                  <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+                                  <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+                                  <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+                                      <value>[base64 mime encoded serialized .NET Framework object]</value>
+                                  </data>
+                                  <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+                                      <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+                                      <comment>This is a comment</comment>
+                                  </data>
+                                  
+                                  There are any number of "resheader" rows that contain simple 
+                                  name/value pairs.
+                                  
+                                  Each data row contains a name, and value. The row also contains a 
+                                  type or mimetype. Type corresponds to a .NET class that support 
+                                  text/value conversion through the TypeConverter architecture. 
+                                  Classes that don't support this are serialized and stored with the 
+                                  mimetype set.
+                                  
+                                  The mimetype is used for serialized objects, and tells the 
+                                  ResXResourceReader how to depersist the object. This is currently not 
+                                  extensible. For a given mimetype the value must be set accordingly:
+                                  
+                                  Note - application/x-microsoft.net.object.binary.base64 is the format 
+                                  that the ResXResourceWriter will generate, however the reader can 
+                                  read any of the formats listed below.
+                                  
+                                  mimetype: application/x-microsoft.net.object.binary.base64
+                                  value   : The object must be serialized with 
+                                          : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+                                          : and then encoded with base64 encoding.
+                                  
+                                  mimetype: application/x-microsoft.net.object.soap.base64
+                                  value   : The object must be serialized with 
+                                          : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+                                          : and then encoded with base64 encoding.
+                                  
+                                  mimetype: application/x-microsoft.net.object.bytearray.base64
+                                  value   : The object must be serialized into a byte array 
+                                          : using a System.ComponentModel.TypeConverter
+                                          : and then encoded with base64 encoding.
+                                  -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -911,6 +957,9 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="ConfigWindow_DesynthesisTabHeader" xml:space="preserve">
     <value>Desynthesis</value>
   </data>
+  <data name="ConfigWindow_DutyTabHeader" xml:space="preserve">
+    <value>Duty</value>
+  </data>
   <data name="ConfigWindow_EconomyTabHeader" xml:space="preserve">
     <value>Economy</value>
   </data>
@@ -949,9 +998,6 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="ConfigWindow_PartyTabHeader" xml:space="preserve">
     <value>Party</value>
-  </data>
-  <data name="ConfigWindow_DutyTabHeader" xml:space="preserve">
-    <value>Duty</value>
   </data>
   <data name="ConfigWindow_ProgressTabHeader" xml:space="preserve">
     <value>Progress</value>
@@ -1217,27 +1263,6 @@ It's recommended to keep it at 50 or lower.</value>
   <data name="DesynthesisTab_DesynthesisDropdownHeader" xml:space="preserve">
     <value>Desynthesis</value>
   </data>
-  <data name="DutyTab_FilteringNote" xml:space="preserve">
-    <value>Duty Finder, instance, and duty status lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
-  </data>
-  <data name="DutyTab_DutyFinderDropdownHeader" xml:space="preserve">
-    <value>Duty Finder</value>
-  </data>
-  <data name="DutyTab_InstanceAndDutyDropdownHeader" xml:space="preserve">
-    <value>Instance &amp; duty status</value>
-  </data>
-  <data name="DutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
-    <value>Show Unrestricted clear time</value>
-  </data>
-  <data name="DutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
-    <value>LogMessage 4679 — eg. &lt;Duty&gt; completion time: 00:30</value>
-  </data>
-  <data name="DutyTab_ShowDutyFinderMessages" xml:space="preserve">
-    <value>Show Duty Finder notifications</value>
-  </data>
-  <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 94–4682 — duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
-  </data>
   <data name="DesynthesisTab_FilteringNote" xml:space="preserve">
     <value>Desynthesis item and obtain lines use Filter System on General. Level increases use Filter Progress on General. Checked = show; unchecked = hide.</value>
   </data>
@@ -1258,6 +1283,57 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4322, 4323 — eg. You obtain undyed boarskin.</value>
+  </data>
+  <data name="DutyTab_DutyFinderDropdownHeader" xml:space="preserve">
+    <value>Duty Finder</value>
+  </data>
+  <data name="DutyTab_FilteringNote" xml:space="preserve">
+    <value>Duty Finder, instance, and duty status lines use Filter System on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+  </data>
+  <data name="DutyTab_InstanceAndDutyDropdownHeader" xml:space="preserve">
+    <value>Instance &amp; duty status</value>
+  </data>
+  <data name="DutyTab_ShowCompletionTimeForUnrestrictedParty" xml:space="preserve">
+    <value>Show Unrestricted clear time</value>
+  </data>
+  <data name="DutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker" xml:space="preserve">
+    <value>LogMessage 4679 — eg. &lt;Duty&gt; completion time: 00:30</value>
+  </data>
+  <data name="DutyTab_ShowDutyEndedMessage" xml:space="preserve">
+    <value>Show duty will end soon</value>
+  </data>
+  <data name="DutyTab_ShowDutyEndedMessageHelpMarker" xml:space="preserve">
+    <value>LogMessage 1534 — e.g. The duty will end in 5 minutes.</value>
+  </data>
+  <data name="DutyTab_ShowDutyFinderMessages" xml:space="preserve">
+    <value>Show Duty Finder notifications</value>
+  </data>
+  <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 94–4682 — duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
+  </data>
+  <data name="DutyTab_ShowGuildhestEndedMessage" xml:space="preserve">
+    <value>Show guildhest will end soon</value>
+  </data>
+  <data name="DutyTab_ShowGuildhestEndedMessageHelpMarker" xml:space="preserve">
+    <value>LogMessage 1530 — guildhest ending soon.</value>
+  </data>
+  <data name="DutyTab_ShowInstancedAreaMessages" xml:space="preserve">
+    <value>Show /instance and instanced area messages</value>
+  </data>
+  <data name="DutyTab_ShowInstancedAreaMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 1350, 2055, 2056, 2059 — e.g. You are now in the instanced area…</value>
+  </data>
+  <data name="DutyTab_ShowInstanceMessage" xml:space="preserve">
+    <value>Show /instance message</value>
+  </data>
+  <data name="DutyTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
+    <value>Master toggle for instance and duty status messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
+  </data>
+  <data name="DutyTab_ShowLevelNoLongerSynced" xml:space="preserve">
+    <value>Show level sync ended</value>
+  </data>
+  <data name="DutyTab_ShowLevelNoLongerSyncedHelpMarker" xml:space="preserve">
+    <value>LogMessage 619 — level is no longer synced.</value>
   </data>
   <data name="EconomyTab_FilteringNote" xml:space="preserve">
     <value>Vendor, trade, market board, repairs, and most gil lines use Filter System on General. Retainer sale completions use the Retainer Sale channel (under Filter System). Checked = show; unchecked = hide.</value>
@@ -2440,35 +2516,11 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
     <value>LogMessages 503, 535 (Item), 4591 (System) — eg. You used an aetheryte ticket. (Remaining: 674).</value>
   </data>
-  <data name="DutyTab_ShowDutyEndedMessage" xml:space="preserve">
-    <value>Show duty will end soon</value>
-  </data>
-  <data name="DutyTab_ShowDutyEndedMessageHelpMarker" xml:space="preserve">
-    <value>LogMessage 1534 — e.g. The duty will end in 5 minutes.</value>
-  </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
     <value>Show miscellaneous system messages</value>
   </data>
   <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
     <value>Master toggle for the four specific system messages below (not a catch-all for all system chat). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
-  </data>
-  <data name="DutyTab_ShowGuildhestEndedMessage" xml:space="preserve">
-    <value>Show guildhest will end soon</value>
-  </data>
-  <data name="DutyTab_ShowGuildhestEndedMessageHelpMarker" xml:space="preserve">
-    <value>LogMessage 1530 — guildhest ending soon.</value>
-  </data>
-  <data name="DutyTab_ShowInstancedAreaMessages" xml:space="preserve">
-    <value>Show /instance and instanced area messages</value>
-  </data>
-  <data name="DutyTab_ShowInstancedAreaMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1350, 2055, 2056, 2059 — e.g. You are now in the instanced area…</value>
-  </data>
-  <data name="DutyTab_ShowInstanceMessage" xml:space="preserve">
-    <value>Show /instance message</value>
-  </data>
-  <data name="DutyTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
-    <value>Master toggle for instance and duty status messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
   </data>
   <data name="SystemTab_ShowInventoryItemSearchResults" xml:space="preserve">
     <value>Show inventory item search results</value>
@@ -2481,12 +2533,6 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
     <value>Master toggle for inventory item search and location search lines below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
-  </data>
-  <data name="DutyTab_ShowLevelNoLongerSynced" xml:space="preserve">
-    <value>Show level sync ended</value>
-  </data>
-  <data name="DutyTab_ShowLevelNoLongerSyncedHelpMarker" xml:space="preserve">
-    <value>LogMessage 619 — level is no longer synced.</value>
   </data>
   <data name="SystemTab_ShowLocationSearchResults" xml:space="preserve">
     <value>Show location search results</value>
