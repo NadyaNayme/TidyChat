@@ -3,7 +3,7 @@ namespace TidyChat.Settings.UI;
 
 public static class TabFooter
 {
-    public static void Display(Configuration configuration)
+    public static void Display()
     {
         ImGui.Spacing();
         ImGui.Separator();

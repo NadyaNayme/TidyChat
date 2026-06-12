@@ -143,7 +143,7 @@ internal class PluginUI : Window, IDisposable
         if (SettingsSearch.IsActive)
         {
             SettingsSearchIndex.DrawResults(configuration);
-            TabFooter.Display(configuration);
+            TabFooter.Display();
             return;
         }
 
@@ -178,7 +178,7 @@ internal class PluginUI : Window, IDisposable
         using (ImRaii.Child("##tidychatConfigContent", new(0f, avail.Y)))
         {
             tabs[selectedIndex].Draw(configuration);
-            TabFooter.Display(configuration);
+            TabFooter.Display();
         }
     }
 

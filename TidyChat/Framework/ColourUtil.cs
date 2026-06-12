@@ -9,12 +9,6 @@ internal static class ColourUtil
         return new(r / 255f, g / 255f, b / 255f);
     }
 
-    internal static Vector4 RgbaToVector4(uint rgba)
-    {
-        (var r, var g, var b, var a) = RgbaToRgbaComponents(rgba);
-        return new(r / 255f, g / 255f, b / 255f, a / 255f);
-    }
-
     internal static uint Vector3ToRgba(Vector3 col)
         => ComponentsToRgba(
             (byte)Math.Round(col.X * 255),

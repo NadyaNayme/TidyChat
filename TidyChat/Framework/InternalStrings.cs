@@ -1,4 +1,3 @@
-using System.Reflection;
 using TidyChat.Localization.Data;
 namespace TidyChat.Utility;
 
@@ -7,7 +6,6 @@ internal static class InternalStrings
     public const string SettingsCommand = "/tidychat";
 
     public const string ShorthandCommand = "/tidy";
-    public static readonly string Version = Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? "Unknown";
 
     public static readonly string PluginName = "Tidy Chat";
 
