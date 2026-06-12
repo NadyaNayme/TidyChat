@@ -1,0 +1,394 @@
+using Dalamud.Configuration;
+using Dalamud.Plugin;
+namespace TidyChat.Settings;
+
+[Serializable]
+public class Configuration : IPluginConfiguration
+{
+    [NonSerialized] private bool _pendingPersist;
+
+    [NonSerialized] private IDalamudPluginInterface? pluginInterface;
+
+    public ulong TtlMessagesBlocked { get; set; } = 0;
+    public bool Enabled { get; set; } = true;
+    public bool EnableDebugMode { get; set; } = false;
+    public bool DebugIncludeChannel { get; set; } = false;
+    public bool EnableSmolMode { get; set; } = false;
+    public bool NormalizeBlocks { get; set; } = false;
+    public bool AlwaysNormalizeBlocks { get; set; } = false;
+    public bool IncludeChatTag { get; set; } = true;
+    public string PlayerName { get; set; } = "";
+    public IList<PlayerName> Whitelist { get; set; } = [];
+    public bool EnableChatHighlights { get; set; } = false;
+    public IList<ChatHighlight> ChatHighlights { get; set; } = [];
+    public bool SentByWhitelistPlayer { get; set; } = true;
+    public bool TargetingWhitelistPlayer { get; set; } = true;
+    public bool ChatHistoryFilter { get; set; } = false;
+    public int ChatHistoryChannels { get; set; } = 2;
+    public int ChatHistoryLength { get; set; } = 10;
+    public int ChatHistoryTimer { get; set; } = 10;
+    public bool DisableSelfChatHistory { get; set; } = true;
+    #region Error Messages
+
+    public bool HideFateLevelSync { get; set; } = false;
+
+    #endregion
+    public int Version { get; set; } = 0;
+
+    public void Initialize(IDalamudPluginInterface pluginInterface) => this.pluginInterface = pluginInterface;
+
+
+    public void Save()
+    {
+        WriteToDisk();
+        ApplyRuntimeSideEffects();
+        _pendingPersist = false;
+    }
+
+    public void OnSettingChanged()
+    {
+        ApplyRuntimeSideEffects();
+        _pendingPersist = true;
+    }
+
+    public void PersistIfDirty()
+    {
+        if (!_pendingPersist)
+        {
+            return;
+        }
+
+        WriteToDisk();
+        _pendingPersist = false;
+    }
+
+    public void FlushToDisk() => WriteToDisk();
+
+    private void WriteToDisk() => pluginInterface!.SavePluginConfig(this);
+
+    private void ApplyRuntimeSideEffects()
+    {
+        Rules.UpdateIsActiveStates(this);
+        TidyChatPlugin.ClearPendingLogMessageAllows();
+        TidyChatPlugin.InstanceDtrBarUpdate(this);
+    }
+
+    #region Chat Filters
+
+    public bool FilterSystemMessages { get; set; } = true;
+    public bool FilterEmoteChannel { get; set; } = false;
+    public bool FilterCustomEmoteChannel { get; set; } = false;
+    public bool FilterObtainedSpam { get; set; } = true;
+    public bool FilterLootSpam { get; set; } = true;
+    public bool FilterProgressSpam { get; set; } = true;
+    public bool FilterCraftingSpam { get; set; } = true;
+
+    #endregion
+
+    #region Better Messaging
+
+    public bool BetterInstanceMessage { get; set; } = true;
+    public bool InstanceInDtrBar { get; set; } = false;
+    public bool BetterSayReminder { get; set; } = false;
+    public bool CopyBetterSayReminder { get; set; } = false;
+    public bool BetterCommendationMessage { get; set; } = true;
+    public bool IncludeDutyNameInComms { get; set; } = true;
+    public bool BetterNoviceNetworkMessage { get; set; } = true;
+    public bool BetterTreasureDungeonMessage { get; set; } = true;
+    public bool BetterDutyCommenceMessage { get; set; } = false;
+
+    #endregion
+
+    #region Whitelisted System Messages
+
+    public bool ShowSRankHunt { get; set; } = true;
+    public bool ShowSSRankHunt { get; set; } = true;
+
+    public bool ShowCommendations { get; set; } = true;
+    public bool ShowCompletedVenture { get; set; } = true;
+    public bool ShowRetainerVentureMessages { get; set; } = false;
+
+    public bool ShowInstanceMessage { get; set; } = true;
+    public bool ShowInstancedAreaMessages { get; set; } = true;
+    public bool ShowDutyEndedMessage { get; set; } = true;
+    public bool ShowGuildhestEndedMessage { get; set; } = true;
+    public bool ShowLevelNoLongerSynced { get; set; } = true;
+    public bool ShowDutyMechanicMessages { get; set; } = true;
+    public bool ShowDutyObjectiveBonus { get; set; } = true;
+
+    public bool ShowSanctuaryMessage { get; set; } = false;
+
+    public bool ShowHousingWardMessage { get; set; } = false;
+    public bool ShowQuestReminder { get; set; } = true;
+
+    public bool ShowQuestProgress { get; set; } = false;
+
+    public bool ShowMountMessages { get; set; } = false;
+    public bool ShowSelfUsedEmotes { get; set; } = true;
+    public bool ShowOtherCustomEmotes { get; set; } = true;
+
+    public bool ShowReadyChecks { get; set; } = true;
+    public bool ShowCountdownTime { get; set; } = true;
+
+    public bool ShowUserLogins { get; set; } = true;
+    public bool ShowUserLogouts { get; set; } = true;
+
+
+    public bool ShowSpiritboundGear { get; set; } = true;
+    public bool ShowPersonalEffectAcquired { get; set; } = true;
+
+    public bool ShowSpideySenses { get; set; } = true;
+    public bool ShowLocationDiscovered { get; set; } = true;
+    public bool ShowHostilePresence { get; set; } = true;
+
+    public bool ShowAetherCompass { get; set; } = true;
+    public bool ShowSearchForItemResults { get; set; } = true;
+    public bool ShowItemSearchResults { get; set; } = true;
+    public bool ShowLocationSearchResults { get; set; } = true;
+    public bool ShowExploratoryVoyage { get; set; } = true;
+    public bool ShowSubaquaticVoyage { get; set; } = true;
+    public bool ShowSubaquaticVoyageEmbarked { get; set; } = true;
+    public bool ShowSubaquaticVoyageFinalized { get; set; } = true;
+    public bool ShowSubaquaticVoyageOtherFinalized { get; set; } = true;
+    public bool ShowSubaquaticVoyageReturned { get; set; } = true;
+    public bool ShowSubmarinePartRepaired { get; set; } = true;
+    public bool ShowSubmarineAttainsRank { get; set; } = true;
+    public bool ShowSubmarineRetrievalLevelsIncreased { get; set; } = true;
+    public bool ShowFreeCompanyMessageBook { get; set; } = true;
+    public bool ShowPersonalMessageBook { get; set; } = true;
+    public bool ShowVistaMessages { get; set; } = true;
+    public bool ShowGlamourDresserMessages { get; set; } = true;
+    public bool ShowGlamourDresserOutfit { get; set; } = true;
+    public bool ShowGlamourDresserProjection { get; set; } = true;
+    public bool ShowGlamourArmoireMessages { get; set; } = true;
+    public bool ShowTryOnGlamour { get; set; } = true;
+    public bool ShowTryOnGlamourPreview { get; set; } = true;
+    public bool ShowTryOnGlamourCast { get; set; } = true;
+    public bool ShowGlamourPlateProjected { get; set; } = true;
+    public bool ShowGlamourPlatePartialApply { get; set; } = true;
+    public bool ShowGearDyeApplied { get; set; } = true;
+    public bool ShowGearsetGlamourRestoreFailed { get; set; } = true;
+
+    [Obsolete("Migrated to ShowGlamourDresserOutfit in config version 13.")]
+    public bool ShowGlamourAltered { get; set; } = true;
+
+    public bool ShowEligibleForCoffers { get; set; } = true;
+    public bool ShowGearsetEquipped { get; set; } = false;
+    public bool ShowGearItemsRepaired { get; set; } = true;
+    public bool ShowJobChange { get; set; } = false;
+    public bool ShowPortraitMessages { get; set; } = false;
+    public bool ShowMateriaRetrieved { get; set; } = true;
+
+
+    public bool ShowTradeSent { get; set; } = false;
+    public bool ShowTradeCanceled { get; set; } = false;
+    public bool ShowAwaitingTradeConfirmation { get; set; } = false;
+    public bool ShowTradeRequestReceived { get; set; } = false;
+    public bool ShowTradeReceiveItems { get; set; } = false;
+    public bool ShowTradeComplete { get; set; } = true;
+    public bool ShowInviteSent { get; set; } = false;
+    public bool ShowInviteeJoins { get; set; } = false;
+    public bool ShowLeftParty { get; set; } = false;
+    public bool ShowPartyDisband { get; set; } = false;
+    public bool ShowPartyDissolved { get; set; } = false;
+
+    public bool ShowInvitedBy { get; set; } = false;
+
+    public bool ShowJoinParty { get; set; } = false;
+
+    public bool ShowPartyInformation { get; set; } = true;
+
+    public bool ShowDutyFinder { get; set; } = false;
+    public bool ShowOfferedTeleport { get; set; } = false;
+    public bool ShowVendorSellMessages { get; set; } = false;
+    public bool ShowVendorPurchaseMessages { get; set; } = false;
+    public bool ShowMarketBoardMessages { get; set; } = false;
+    public bool ShowMarketItemSold { get; set; } = false;
+    public bool ShowMarketAllItemsSold { get; set; } = false;
+    public bool ShowMarketGilEntrustedToRetainer { get; set; } = false;
+    public bool ShowMarketBoardSellingStatus { get; set; } = false;
+    public bool BetterMarketBoardSaleMessage { get; set; } = true;
+    public bool ShowGilWithdrawnMessage { get; set; } = false;
+    public bool ShowGilSpentMessage { get; set; } = false;
+
+    public bool ShowSealedOff { get; set; } = false;
+
+    public bool ShowHuntSlain { get; set; } = false;
+    public bool ShowMarkBillMessages { get; set; } = true;
+    public bool BetterMarkBillMessage { get; set; } = true;
+    public bool ShowCompletionTime { get; set; } = false;
+    public bool ShowRelicBookStep { get; set; } = false;
+    public bool ShowRelicBookComplete { get; set; } = false;
+    public bool ShowOnlineStatus { get; set; } = false;
+    public bool ShowAttachToMail { get; set; } = false;
+    public bool ShowNowLeaderOf { get; set; } = false;
+    public bool ShowFirstClearAward { get; set; } = true;
+    public bool ShowSecondChanceAward { get; set; } = false;
+    public bool ShowAetheryteTicket { get; set; } = false;
+    public bool ShowAttuneAetheryte { get; set; } = false;
+    public bool ShowActiveHelpEntry { get; set; } = false;
+    public bool HideOrchestrionPlaying { get; set; } = false;
+    public bool ShowEverythingElse { get; set; } = false;
+    public bool ShowChangesDiscarded { get; set; } = false;
+    public bool ShowChangesLost { get; set; } = false;
+    public bool ShowTripleTriadAllowed { get; set; } = false;
+    public bool ShowTripleTriadNotAllowed { get; set; } = false;
+    public ServerAnnouncementMode ServerAnnouncementMode { get; set; } = ServerAnnouncementMode.ShowAll;
+
+    #endregion
+
+    #region Deep Dungeons
+
+    public bool ShowObtainedPomander { get; set; } = true;
+
+    public bool ShowTrapTriggered { get; set; } = false;
+
+    public bool ShowCairnGlows { get; set; } = true;
+    public bool ShowRestoresLifeToFallen { get; set; } = false;
+    public bool ShowCairnActivates { get; set; } = true;
+    public bool ShowTransference { get; set; } = false;
+    public bool ShowAetherpoolIncrease { get; set; } = true;
+    public bool ShowAetherpoolUnchanged { get; set; } = false;
+    public bool ShowPomanderEffects { get; set; } = true;
+    public bool ShowFloorNumber { get; set; } = true;
+    public bool ShowSenseAccursedHoard { get; set; } = true;
+    public bool ShowDoNotSenseAccursedHoard { get; set; } = false;
+    public bool ShowDiscoverAccursedHoard { get; set; } = true;
+
+    #endregion Deep Dungeons
+
+    #region Obtained Items
+
+    public bool ShowObtainedItems { get; set; } = true;
+    public bool HideInventoryItemAdded { get; set; } = true;
+    public bool HideObtainedGil { get; set; } = false;
+    public bool HideObtainedMGP { get; set; } = false;
+    public bool ShowGoldSaucerSwingMinigames { get; set; } = true;
+    public bool HideObtainedClusters { get; set; } = false;
+    public bool HideObtainedWolfMarks { get; set; } = false;
+    public bool HideObtainedSeals { get; set; } = false;
+    public bool HideObtainedAlliedSeals { get; set; } = false;
+    public bool HideObtainedCenturioSeals { get; set; } = false;
+    public bool HideObtainedNuts { get; set; } = false;
+    public bool HideObtainedVenture { get; set; } = false;
+    public bool HideObtainedMaterials { get; set; } = false;
+    public bool HideObtainedTribalCurrency { get; set; } = false;
+    public bool HideObtainedShards { get; set; } = false;
+
+    public bool ShowGainExperience { get; set; } = false;
+    public bool HideRouletteBonus { get; set; } = false;
+    public bool HideAdventurerInNeedBonus { get; set; } = false;
+    public bool ShowGainPvpExp { get; set; } = false;
+    public bool ShowGainPvpRank { get; set; } = false;
+    public bool ShowGainSeriesExp { get; set; } = false;
+    public bool ShowPvpZoneAnnouncements { get; set; } = false;
+    public bool ShowEarnAchievement { get; set; } = true;
+    public bool ShowOtherEarnedAchievement { get; set; } = false;
+    public bool HideTomestoneWeeklyCap { get; set; } = true;
+    public IDictionary<uint, bool> HideTomestoneById { get; set; } = new Dictionary<uint, bool>();
+    public IDictionary<uint, bool> HideTribalCurrencyById { get; set; } = new Dictionary<uint, bool>();
+
+    #endregion
+
+    #region Loot Rolls
+
+    public bool ShowLootRoll { get; set; } = false;
+    public bool ShowCastLot { get; set; } = false;
+    public bool ShowOthersLootRoll { get; set; } = false;
+    public bool ShowOnlyPartyMemberRolls { get; set; } = false;
+    public bool ShowOthersCastLot { get; set; } = false;
+    public bool HideOthersObtain { get; set; } = false;
+
+    #endregion
+
+    #region Progression
+
+    public bool ShowLevelUps { get; set; } = true;
+    public bool ShowOtherLevelUps { get; set; } = false;
+
+    public bool ShowAbilityUnlocks { get; set; } = true;
+
+    #endregion
+
+    #region Crafting
+
+    public bool ShowAttachedMateria { get; set; } = true;
+
+    public bool ShowOvermeldFailure { get; set; } = true;
+    public bool ShowMateriaShatters { get; set; } = true;
+
+    public bool ShowMateriaExtract { get; set; } = true;
+    public bool ShowDesynthesisLevel { get; set; } = false;
+    public bool ShowDesynthedItem { get; set; } = false;
+    public bool ShowDesynthesisObtains { get; set; } = false;
+    public bool ShowTrialMessages { get; set; } = true;
+    public bool ShowOtherSynthesis { get; set; } = false;
+    public bool ShowCraftingSynthesisComplete { get; set; } = true;
+    public bool ShowAllOtherCrafting { get; set; } = false;
+    public bool ShowCraftingBuffEffectGain { get; set; } = false;
+    public bool ShowCraftingAbleToExecute { get; set; } = false;
+
+    #endregion
+
+    #region Gathering
+
+    public bool FilterGatheringSpam { get; set; } = true;
+    public bool ShowGatheringSenses { get; set; } = true;
+    public bool ShowAetherialReductionSands { get; set; } = true;
+    public bool ShowAetherialReductionSuccess { get; set; } = true;
+    public bool ShowAetherialReductionMinigame { get; set; } = true;
+    public bool ShowLocationAffects { get; set; } = true;
+    public bool ShowGatheringStartEnd { get; set; } = true;
+    public bool ShowGatheringYield { get; set; } = true;
+    public bool ShowGatherersBoon { get; set; } = true;
+    public bool ShowGatheringAttempts { get; set; } = true;
+    public bool ShowGatheringCollectableObtains { get; set; } = true;
+    public bool ShowCaughtFish { get; set; } = true;
+    public bool ShowMooching { get; set; } = true;
+    public bool ShowCurrentFishingHole { get; set; } = true;
+    public bool ShowDiscoveredFishingHole { get; set; } = true;
+    public bool ShowMeasuringIlms { get; set; } = true;
+
+    [Obsolete("Migrated to ShowLureAttemptMessages and ShowLureBiteFeelingMessages in config version 14.")]
+    public bool ShowLureMessages { get; set; } = true;
+
+    public bool ShowLureAttemptMessages { get; set; } = true;
+    public bool ShowLureBiteFeelingMessages { get; set; } = true;
+    public bool ShowReelInLine { get; set; } = true;
+    public bool ShowLoseBait { get; set; } = true;
+    public bool ShowFishingFlavorText { get; set; } = true;
+    public bool ShowAllOtherGathering { get; set; } = false;
+    public bool ShowGatheringBuffEffectGain { get; set; } = false;
+    public bool ShowStellarMissionMessages { get; set; } = false;
+    public bool ShowStellarAbleToExecute { get; set; } = false;
+    public bool ShowStellarBuffEffectGain { get; set; } = false;
+    public bool ShowStellarGpRecovery { get; set; } = false;
+
+    public bool ShowCosmicExplorationMessages { get; set; } = false;
+
+    public bool ShowCosmicRewards { get; set; } = false;
+    public bool ShowCosmicContainers { get; set; } = false;
+    public bool ShowCosmicClassPointsAndDataset { get; set; } = false;
+    public bool ShowCosmicDailyProgress { get; set; } = false;
+
+    #endregion
+
+    #region Combat
+
+    public bool ShowCombatCasting { get; set; } = false;
+    public bool ShowCombatAbilities { get; set; } = false;
+    public bool ShowCombatDamage { get; set; } = false;
+    public bool ShowCombatMisses { get; set; } = false;
+    public bool ShowCombatHealing { get; set; } = false;
+    public bool ShowCombatEffects { get; set; } = false;
+    public bool ShowCombatDefeat { get; set; } = false;
+    public bool ShowCombatEnemyReady { get; set; } = false;
+
+    public bool ShowCombatAdds { get; set; } = false;
+
+    public bool ShowCombatEnmity { get; set; } = false;
+
+    public bool ShowObtainedQuestItems { get; set; } = false;
+
+    #endregion
+}

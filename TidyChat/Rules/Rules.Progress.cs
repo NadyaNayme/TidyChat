@@ -1,0 +1,385 @@
+namespace TidyChat;
+
+public static partial class Rules
+{
+    private static readonly LocalizedFilterRule[] ProgressRules =
+    [
+        new()
+        {
+            Name = "ShowCompletionTime",
+            SettingsTab = "Duty",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [4679],
+            StringChecks = [ChatStrings.CompletionTime],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [588, 589, 4466, 7300, 10953],
+            StringChecks = [ChatStrings.GainExperience],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.BattleSystem,
+            IsActive = true,
+            LogMessageIds = [549],
+            StringChecks = [ChatStrings.GainExperience],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainExperience",
+            SettingsTab = "Progress",
+            Channel = ChatType.BattleSystem,
+            IsActive = true,
+            LogMessageIds = [549],
+            StringChecks = [ChatStrings.ExpChainBonus],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = false
+        },
+        new()
+        {
+            Name = "ShowGainPvpExp",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [659],
+            StringChecks = [ChatStrings.GainPvpExp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainPvpRank",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [660],
+            StringChecks = [ChatStrings.GainPvpRank],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainSeriesExp",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [7556],
+            StringChecks = [ChatStrings.GainSeriesExp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGainSeriesExp",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [7557],
+            StringChecks = [ChatStrings.GainSeriesLevel],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11308],
+            StringChecks = [ChatStrings.WorqorTriumphReduced],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11311],
+            StringChecks = [ChatStrings.WorqorLimitGauge],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11312],
+            StringChecks = [ChatStrings.WorqorAuroras],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11313],
+            StringChecks = [ChatStrings.WorqorHighRankTriumphs],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [11368],
+            StringChecks = [ChatStrings.WorqorSnowStopped],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowEarnAchievement",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [952],
+            StringChecks = [ChatStrings.PlayerEarnAchievement],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOtherEarnedAchievement",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [952],
+            StringChecks = [ChatStrings.OtherEarnAchievement],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLevelUps",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [590],
+            StringChecks = [ChatStrings.LevelUp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLevelUps",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [591],
+            StringChecks = [ChatStrings.OtherLevelUp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowOtherLevelUps",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3921, 9454],
+            StringChecks = [ChatStrings.OtherLevelUp],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAbilityUnlocks",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [552],
+            StringChecks = [ChatStrings.AbilityUnlock],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAbilityUnlocks",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [609],
+            StringChecks = [ChatStrings.MinionUnlock],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAbilityUnlocks",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3612],
+            StringChecks = [ChatStrings.JobWisdomBequeathed],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAbilityUnlocks",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3613],
+            StringChecks = [ChatStrings.JobMemoriesAwoken],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAbilityUnlocks",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1461],
+            StringChecks = [ChatStrings.OathGaugeExpanded],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [410],
+            StringChecks = [ChatStrings.ClassJobQuestAvailable],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3780],
+            StringChecks = [ChatStrings.ChallengeLogComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3783],
+            StringChecks = [ChatStrings.ChallengeLogAlmostComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1601],
+            RegexChecks = [ChatStrings.QuestAcceptedRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1602],
+            RegexChecks = [ChatStrings.QuestCompleteRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowQuestProgress",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [1603],
+            StringChecks = [ChatStrings.QuestObjectiveFulfilled],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowDesynthesisLevel",
+            SettingsTab = "Desynthesis",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [4325],
+            StringChecks = [ChatStrings.DesynthesisLevel],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+    private static readonly LocalizedFilterRule[] ProgressAwardRules =
+    [
+        new()
+        {
+            Name = "ShowFirstClearAward",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4225],
+            StringChecks = [ChatStrings.FirstClearBonus],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSecondChanceAward",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [7975],
+            StringChecks = [ChatStrings.SecondChanceAward],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
+    private static readonly LocalizedFilterRule[] ObtainProgressHideRules =
+    [
+        new()
+        {
+            Name = "HideRouletteBonus",
+            SettingsTab = "Progress",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [2246]
+        },
+        new()
+        {
+            Name = "HideAdventurerInNeedBonus",
+            SettingsTab = "Progress",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = [2244]
+        }
+    ];
+}

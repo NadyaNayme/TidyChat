@@ -1,36 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
     <PropertyGroup>
-        <Authors>Nadya</Authors>
+        <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
-        <Version>1.2.3</Version>
-        <Description>It is highly recommended to edit the default settings as you may disagree on which messages should be considered "spam"!
+        <Version>3.1.0.12</Version>
+        <Platforms>x64</Platforms>
+        <PlatformTarget>x64</PlatformTarget>
+        <Description>Trim the messages FFXIV dumps into your chat log.
 
-            Provides granular filter options to filter nearly all game-related spam, leaving only important game messages in your chat.
-
-            - Filters most spammy game messages
-            - Blocks emote spam from other players
-            - Condenses earned commendations into a single line
-            - Shortens lengthy messages such as joining Novice Network or entering an instanced zone
-            - Blocks repeated messages from appearing for a period of time
-            - Automatically copies most 'with your chat mode in /say' quest dialogue to your clipboard
-            - And more!
+            - Master filters for System, Progress, Loot, Obtained, Crafting, and Gathering
+            - Toggles for currencies, FC and retainer messages, level-ups, mount unlocks, orchestrion lines, deep dungeon pomanders, combat log categories, and more
+            - Shorter rewrites for instance entry, commendations, Novice Network, and treasure dungeon text
+            - Copies /say quest dialogue to your clipboard; can block emote spam from others
+            - Player whitelist, chat history deduplication, per-tomestone hides, and debug logging
         </Description>
         <Copyright></Copyright>
         <PackageProjectUrl>https://github.com/NadyaNayme/TidyChat/</PackageProjectUrl>
-        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-    </PropertyGroup>
-
-    <PropertyGroup>
-        <TargetFramework>net7.0-windows</TargetFramework>
-        <Platforms>x64</Platforms>
-        <Nullable>enable</Nullable>
-        <LangVersion>latest</LangVersion>
-        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-        <OutputPath>$(AppData)\XIVLauncher\devPlugins\TidyChat\</OutputPath>
-        <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -43,12 +28,6 @@
         </Content>
     </ItemGroup>
 
-    <PropertyGroup>
-        <DalamudLibPath>$(appdata)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
-        <PackageIcon>icon.png</PackageIcon>
-        <RepositoryUrl>https://github.com/NadyaNayme/TidyChat/</RepositoryUrl>
-    </PropertyGroup>
-
     <ItemGroup>
         <None Include="..\images\icon.png">
             <Pack>True</Pack>
@@ -57,54 +36,69 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="DalamudPackager" Version="2.1.10"/>
-        <PackageReference Include="TextCopy" Version="6.1.0"/>
+        <PackageReference Include="Meziantou.Analyzer" Version="3.0.96">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="TextCopy" Version="6.2.1"/>
+        <PackageReference Update="DotNet.ReproducibleBuilds" Version="2.0.2"/>
     </ItemGroup>
 
     <ItemGroup>
-        <Reference Include="FFXIVClientStructs">
-            <HintPath>$(DalamudLibPath)FFXIVClientStructs.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="Newtonsoft.Json">
-            <HintPath>$(DalamudLibPath)Newtonsoft.Json.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="Dalamud">
-            <HintPath>$(DalamudLibPath)Dalamud.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="ImGui.NET">
-            <HintPath>$(DalamudLibPath)ImGui.NET.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="ImGuiScene">
-            <HintPath>$(DalamudLibPath)ImGuiScene.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="Lumina">
-            <HintPath>$(DalamudLibPath)Lumina.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="Lumina.Excel">
-            <HintPath>$(DalamudLibPath)Lumina.Excel.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Update="Localization\Resources\localization.resx">
+        <EmbeddedResource Update="Localization\Resources\Languages.de.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.es.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.fr.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.it.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ja.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.nn.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ploc.resx">
             <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>localization.Designer.cs</LastGenOutput>
+            <LastGenOutput>Languages.ploc.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.pt.resx">
+            <Generator></Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+            <LastGenOutput>Languages.Designer.cs</LastGenOutput>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Localization\Resources\Languages.ru.resx">
+            <Generator></Generator>
         </EmbeddedResource>
     </ItemGroup>
 
+
     <ItemGroup>
-        <Compile Update="Localization\Resources\localization.Designer.cs">
+        <Compile Update="Localization\Resources\Languages.Designer.cs">
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
-            <DependentUpon>localization.resx</DependentUpon>
+            <DependentUpon>Languages.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Localization\Resources\Languages.ploc.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>Languages.ploc.resx</DependentUpon>
         </Compile>
     </ItemGroup>
 
+    <PropertyGroup>
+        <NoWarn>$(NoWarn);MA0051;MA0026;MA0195</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <InternalsVisibleTo Include="TidyChat.Tests"/>
+    </ItemGroup>
 </Project>
+

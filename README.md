@@ -1,4 +1,6 @@
-[![Download count](https://img.shields.io/endpoint?url=https://vz32sgcoal.execute-api.us-east-1.amazonaws.com/TidyChat)](https://github.com/NadyaNayme/TidyChat)
+[![Download count](https://img.shields.io/endpoint?url=https://qzysathwfhebdai6xgauhz4q7m0mzmrf.lambda-url.us-east-1.on.aws/TidyChat)](https://github.com/NadyaNayme/TidyChat)
+
+
 
 # Tidy Chat
 
@@ -11,6 +13,10 @@
 - Blocks spammy "You cast your lot" messages when rolling for loot
 - Blocks spammy crafting/synthesis messages other than "You synthesize <item>" (for use with `Chat Alerts`)
 - Blocks spammy gathering messages
+- Optionally show/hide fishing lure messages ("You attempt to lure..." / "You have a feeling you've attracted...")
+- Optionally show/hide Fisher's Intuition flavor text (big-fish window open/close messages, loaded from game data)
+- Optionally show/hide Aetheryte Ticket system messages
+- Optionally hide Orchestrion "now playing" messages
 - Blocks spammy progress messages like gaining experience or leveling up
 - Blocks Free Company Logout messages
 - Better Novice Network join/leave text

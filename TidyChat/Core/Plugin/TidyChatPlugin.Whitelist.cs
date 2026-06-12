@@ -1,0 +1,307 @@
+using System.Text.RegularExpressions;
+using System.Threading;
+using Flags = TidyChat.Utility.ChatFlags;
+
+namespace TidyChat;
+
+public sealed partial class TidyChatPlugin
+{
+    private void ApplyWhitelist(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText, ref bool isHandled)
+    {
+        if (Configuration.Whitelist.Count == 0)
+        {
+            return;
+        }
+        try
+        {
+            foreach (var p in Configuration.Whitelist)
+            {
+                if (!p.AllowMessage)
+                {
+                    CustomFilterCheck(message.Sender, message.Message, rawTextValue, extractedTextValue,
+                        normalizedText, ref isHandled, p, chatType);
+                }
+            }
+            foreach (var p in Configuration.Whitelist)
+            {
+                if (p.AllowMessage)
+                {
+                    CustomFilterCheck(message.Sender, message.Message, rawTextValue, extractedTextValue,
+                        normalizedText, ref isHandled, p, chatType);
+                }
+            }
+
+            ApplyGlobalWhitelistOverrides(message, ref isHandled);
+        }
+        catch (Exception ex)
+        {
+            Log.Error("Error: Failed to evaluate Whitelist - " + ex);
+        }
+    }
+
+    private void ApplyGlobalWhitelistOverrides(IHandleableChatMessage message, ref bool isHandled)
+    {
+        if (!Configuration.SentByWhitelistPlayer && !Configuration.TargetingWhitelistPlayer)
+        {
+            return;
+        }
+
+        var senderText = message.Sender.TextValue;
+        var messageText = message.Message.TextValue;
+
+        foreach (var entry in Configuration.Whitelist)
+        {
+            if (!entry.IsGlobalWhitelistPlayerEntry)
+            {
+                continue;
+            }
+
+            if (Configuration.SentByWhitelistPlayer && IsSentByWhitelistEntry(senderText, entry))
+            {
+                isHandled = false;
+                return;
+            }
+
+            if (Configuration.TargetingWhitelistPlayer && TargetsWhitelistEntry(messageText, entry))
+            {
+                isHandled = false;
+                return;
+            }
+        }
+    }
+
+    private static bool IsSentByWhitelistEntry(string senderText, PlayerName entry)
+    {
+        if (entry.IsRegex)
+        {
+            var regex = entry.GetCompiledRegex();
+            return regex != null && regex.IsMatch(senderText);
+        }
+
+        return string.Equals(senderText, entry.FirstName, StringComparison.Ordinal);
+    }
+
+    private static bool TargetsWhitelistEntry(string messageText, PlayerName entry)
+    {
+        if (entry.IsRegex)
+        {
+            var regex = entry.GetCompiledRegex();
+            return regex != null && regex.IsMatch(messageText);
+        }
+
+        return messageText.Contains(entry.FirstName, StringComparison.Ordinal);
+    }
+    private bool CustomFilterMatches(SeString sender, SeString message, PlayerName entry, ChatType chatType,
+        string rawTextValue, string extractedTextValue, string normalizedText)
+    {
+        if (string.IsNullOrWhiteSpace(entry.FirstName))
+        {
+            return false; // empty name would Contains-match everything
+        }
+
+        if (entry.IsLogMessageId)
+        {
+            return false;
+        }
+
+        var channels = (ChatFlags.Channels)entry.WhitelistedChannels;
+        if (channels == ChatFlags.Channels.None)
+        {
+            return false;
+        }
+        if (!Flags.CheckFlags(entry, chatType))
+        {
+            return false;
+        }
+
+        if (entry.IsRegex)
+        {
+            var regex = entry.GetCompiledRegex((src, ex) =>
+                Log.Warning($"[Whitelist] Invalid regex \"{src}\": {ex.Message}"));
+            try
+            {
+                return regex != null &&
+                       (regex.IsMatch(rawTextValue) || regex.IsMatch(extractedTextValue) ||
+                        regex.IsMatch(normalizedText));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                Log.Warning($"[Whitelist] Regex match timeout for \"{entry.FirstName}\"");
+                return false;
+            }
+        }
+
+        if (entry.MatchMode == PlayerNameMatchMode.ExactSender)
+        {
+            return string.Equals(sender.TextValue, entry.FirstName, StringComparison.Ordinal);
+        }
+
+        return string.Equals(sender.TextValue, entry.FirstName, StringComparison.OrdinalIgnoreCase) ||
+               ContainsIgnoreCase(rawTextValue, entry.FirstName) ||
+               ContainsIgnoreCase(extractedTextValue, entry.FirstName) ||
+               ContainsIgnoreCase(normalizedText, entry.FirstName);
+    }
+
+    private static bool ContainsIgnoreCase(string haystack, string needle) =>
+        !string.IsNullOrEmpty(needle) &&
+        haystack.Contains(needle, StringComparison.OrdinalIgnoreCase);
+
+    private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
+    {
+        if (Configuration.Whitelist.Count == 0)
+        {
+            return false;
+        }
+        foreach (var p in Configuration.Whitelist)
+        {
+            if (!p.AllowMessage)
+            {
+                continue;
+            }
+            if (CustomFilterMatches(sender, message, p, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private bool IsWhitelistedBlocked(SeString sender, SeString message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
+    {
+        if (Configuration.Whitelist.Count == 0)
+        {
+            return false;
+        }
+        foreach (var p in Configuration.Whitelist)
+        {
+            if (p.AllowMessage)
+            {
+                continue;
+            }
+            if (CustomFilterMatches(sender, message, p, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void CustomFilterCheck(SeString sender, SeString message, string rawTextValue, string extractedTextValue,
+        string normalizedText, ref bool isHandled, PlayerName playerOrMessage, ChatType chatType)
+    {
+        if (string.IsNullOrWhiteSpace(playerOrMessage.FirstName))
+        {
+            return;
+        }
+        if (!CustomFilterMatches(sender, message, playerOrMessage, chatType, rawTextValue, extractedTextValue,
+                normalizedText))
+        {
+            return;
+        }
+
+        isHandled = !playerOrMessage.AllowMessage;
+        if (Configuration.EnableDebugMode)
+        {
+            Log.Verbose(playerOrMessage.AllowMessage
+                ? $"A message matching \"{playerOrMessage.FirstName}\" has been allowed."
+                : $"A message matching \"{playerOrMessage.FirstName}\" has been blocked.");
+        }
+    }
+
+    private bool TryApplyLogMessageTextCustomFilters(ILogMessage message)
+    {
+        if (Configuration.Whitelist.Count == 0)
+        {
+            return false;
+        }
+
+        if (!LogMessageTextHelper.TryExtractText(message, out var extractedTextValue))
+        {
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(extractedTextValue))
+        {
+            return false;
+        }
+
+        var rawTextValue = extractedTextValue;
+        var normalizedText = extractedTextValue.ToLower(CultureInfo.CurrentCulture);
+        if (Configuration.PlayerName != "")
+        {
+            normalizedText = NormalizeInput.ReplaceName(normalizedText, Configuration);
+        }
+
+        var chatType = LogMessageCatalog.GetChatTypeForId(message.LogMessageId) ?? ChatType.System;
+
+        foreach (var entry in Configuration.Whitelist)
+        {
+            if (entry.IsLogMessageId || entry.AllowMessage)
+            {
+                continue;
+            }
+
+            if (!CustomFilterMatchesLogMessageText(entry, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                continue;
+            }
+
+            EmitBlockedXllog(
+                $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+            try
+            {
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
+            }
+            catch
+            { }
+
+            RememberLogMessageBlock(message.LogMessageId);
+            if (Configuration.EnableDebugMode)
+            {
+                return true;
+            }
+
+            message.PreventOriginal();
+            Interlocked.Increment(ref _sessionBlockedMessages);
+            return true;
+        }
+
+        foreach (var entry in Configuration.Whitelist)
+        {
+            if (entry.IsLogMessageId || !entry.AllowMessage)
+            {
+                continue;
+            }
+
+            if (!CustomFilterMatchesLogMessageText(entry, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                continue;
+            }
+
+            try
+            {
+                RememberLogMessageChatMatchTexts(_allowedByLogMessage, extractedTextValue);
+                RememberCustomFilterLogMessageAllow(message.LogMessageId);
+            }
+            catch
+            { }
+
+            EmitDebugXllog(
+                $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+
+            return true;
+        }
+
+        return false;
+    }
+
+    private bool CustomFilterMatchesLogMessageText(PlayerName entry, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
+    {
+        var empty = new SeString();
+        return CustomFilterMatches(empty, empty, entry, chatType, rawTextValue, extractedTextValue, normalizedText);
+    }
+}

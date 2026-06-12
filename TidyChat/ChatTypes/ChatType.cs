@@ -1,11 +1,4 @@
-/*
- * The following code was taken from Chat2 source code.
- * It is more comprehensive than XivChatType
- *
- */
-
 using System.Diagnostics.CodeAnalysis;
-
 namespace ChatTwo.Code;
 
 [SuppressMessage("Design", "CA1028:Enum Storage should be Int32")]
@@ -34,7 +27,6 @@ public enum ChatType : ushort
     StandardEmote = 29,
     Yell = 30,
 
-    // 31 - also party?
     CrossParty = 32,
     PvpTeam = 36,
     CrossLinkshell1 = 37,
@@ -47,6 +39,7 @@ public enum ChatType : ushort
     GainDebuff = 47,
     LoseBuff = 48,
     LoseDebuff = 49,
+    GlamourNotifications = 54,
     Alarm = 55,
     Echo = 56,
     System = 57,
