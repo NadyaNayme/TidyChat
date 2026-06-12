@@ -1,4 +1,3 @@
-using Dalamud.Interface.Components;
 namespace TidyChat.Settings.Tabs;
 
 internal static class CombatTab
