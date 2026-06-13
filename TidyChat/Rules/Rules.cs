@@ -62,6 +62,7 @@ public static partial class Rules
         ["ShowSubmarineAttainsRank"] = FilterMasterAccessors.SubmarineAttainsRank,
         ["ShowSubmarineRetrievalLevelsIncreased"] = FilterMasterAccessors.SubmarineRetrievalLevelsIncreased,
         ["ShowVistaMessages"] = c => c.ShowVistaMessages,
+        ["ShowVolumeControlMessages"] = c => c.ShowVolumeControlMessages,
         ["ShowGlamourDresserOutfit"] = FilterMasterAccessors.GlamourDresserOutfit,
         ["ShowGlamourDresserProjection"] = FilterMasterAccessors.GlamourDresserProjection,
         ["ShowGlamourArmoireMessages"] = FilterMasterAccessors.GlamourArmoireMessages,

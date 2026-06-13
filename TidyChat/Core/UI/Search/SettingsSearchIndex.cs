@@ -852,7 +852,7 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_MailDropdownHeader}";
         }
 
-        if (propertyName is "HideOrchestrionPlaying")
+        if (propertyName is "HideOrchestrionPlaying" or "ShowVolumeControlMessages")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_OrchestrionDropdownHeader}";
         }

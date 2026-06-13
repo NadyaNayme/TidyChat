@@ -19,7 +19,7 @@ internal static class EnemyCastLogHelper
         }
     }
 
-    internal static EnemyCastLogAction Handle(string normalizedText)
+    internal static EnemyCastLogAction Handle(string normalizedText, bool hideInstantUses = false)
     {
         if (TryMatchReadies(normalizedText, out var readiesActor, out var readiesAbility))
         {
@@ -28,7 +28,7 @@ internal static class EnemyCastLogHelper
         }
 
         if (TryMatchUses(normalizedText, out var usesActor, out var usesAbility) &&
-            ShouldSuppressUses(usesActor, usesAbility))
+            (ShouldSuppressUses(usesActor, usesAbility) || hideInstantUses))
         {
             return EnemyCastLogAction.SuppressUses;
         }

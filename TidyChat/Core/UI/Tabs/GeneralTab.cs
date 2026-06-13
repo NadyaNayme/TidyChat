@@ -229,5 +229,17 @@ internal static class GeneralTab
         }
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_CondenseEnemyCastLogHelpMarker);
+
+        SettingsTabLayout.DrawNestedOptions(configuration.BetterEnemyCastLog, () =>
+        {
+            var hideEnemyInstantCasts = configuration.HideEnemyInstantCasts;
+            if (ImGui.Checkbox(Languages.GeneralTab_HideEnemyInstantCasts, ref hideEnemyInstantCasts))
+            {
+                configuration.HideEnemyInstantCasts = hideEnemyInstantCasts;
+                configuration.OnSettingChanged();
+            }
+
+            ImGuiComponents.HelpMarker(Languages.GeneralTab_HideEnemyInstantCastsHelpMarker);
+        });
     }
 }

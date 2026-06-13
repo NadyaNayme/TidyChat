@@ -99,6 +99,7 @@ public class Configuration : IPluginConfiguration
     public bool BetterTreasureDungeonMessage { get; set; } = true;
     public bool BetterDutyCommenceMessage { get; set; } = false;
     public bool BetterEnemyCastLog { get; set; } = false;
+    public bool HideEnemyInstantCasts { get; set; } = false;
 
     #endregion
 
@@ -217,6 +218,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowAetheryteTicket { get; set; } = false;
     public bool ShowActiveHelpEntry { get; set; } = false;
     public bool HideOrchestrionPlaying { get; set; } = false;
+    public bool ShowVolumeControlMessages { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
     public bool ShowTripleTriadAllowed { get; set; } = false;
     public bool ShowTripleTriadNotAllowed { get; set; } = false;

@@ -95,6 +95,19 @@ public static partial class Rules
         }
     ];
 
+    private static readonly LocalizedFilterRule[] SystemVolumeControlRules =
+    [
+        new()
+        {
+            Name = "ShowVolumeControlMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866],
+            PreferLogMessageCatalog = true
+        }
+    ];
+
     private static readonly LocalizedFilterRule[] SystemUtilityRules =
     [
         new()
@@ -272,6 +285,7 @@ public static partial class Rules
         rules.AddRange(EconomyMarketBoardRules);
         rules.AddRange(EconomyRetainerRules);
         rules.AddRange(GlamourGearsetAndJobRules);
+        rules.AddRange(SystemVolumeControlRules);
         rules.AddRange(SystemUtilityRules);
     }
 }

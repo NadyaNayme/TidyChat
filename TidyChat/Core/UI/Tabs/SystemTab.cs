@@ -15,7 +15,7 @@ internal static class SystemTab
             (Languages.SystemTab_TravelDropdownHeader, () => DrawTravel(configuration)),
             (Languages.SystemTab_SocialDropdownHeader, () => DrawSocial(configuration)),
             (Languages.SystemTab_MailDropdownHeader, () => DrawMail(configuration)),
-            (Languages.SystemTab_OrchestrionDropdownHeader, () => DrawOrchestrion(configuration)),
+            (Languages.SystemTab_OrchestrionDropdownHeader, () => DrawAudio(configuration)),
             (Languages.SystemTab_ItemSearchDropdownHeader, () => DrawItemSearch(configuration)),
             (Languages.SystemTab_CatchAllDropdownHeader, () => DrawCatchAll(configuration)),
             (Languages.SystemTab_ErrorMessagesDropdownHeader, () => DrawErrorMessages(configuration)));
@@ -117,8 +117,17 @@ internal static class SystemTab
         UiHelp.SystemFilterMarker(Languages.SystemTab_ShowMailAttachmentMessagesHelpMarker);
     }
 
-    private static void DrawOrchestrion(Configuration configuration)
+    private static void DrawAudio(Configuration configuration)
     {
+        var showVolumeControlMessages = configuration.ShowVolumeControlMessages;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowVolumeControlMessages, ref showVolumeControlMessages))
+        {
+            configuration.ShowVolumeControlMessages = showVolumeControlMessages;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowVolumeControlMessagesHelpMarker);
+
         var hideOrchestrionPlaying = configuration.HideOrchestrionPlaying;
         if (ImGui.Checkbox(Languages.SystemTab_HideOrchestrionPlaying, ref hideOrchestrionPlaying))
         {

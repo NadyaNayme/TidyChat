@@ -37,10 +37,17 @@ public class EnemyCastLogTests
     }
 
     [Test]
-    public void Instant_uses_without_readies_is_not_suppressed()
+    public void Instant_uses_without_readies_is_not_suppressed_by_default()
     {
         var uses = EnemyCastLogHelper.Handle("kefka uses spellwave.");
         Assert.That(uses, Is.EqualTo(EnemyCastLogAction.None));
+    }
+
+    [Test]
+    public void Instant_uses_without_readies_is_suppressed_when_enabled()
+    {
+        var uses = EnemyCastLogHelper.Handle("kefka uses spellwave.", hideInstantUses: true);
+        Assert.That(uses, Is.EqualTo(EnemyCastLogAction.SuppressUses));
     }
 
     [Test]

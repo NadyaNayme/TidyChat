@@ -3448,6 +3448,24 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLogHelpMarker", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Also hide instant enemy abilities.
+        /// </summary>
+        internal static string GeneralTab_HideEnemyInstantCasts {
+            get {
+                return ResourceManager.GetString("GeneralTab_HideEnemyInstantCasts", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Hides enemy “uses …” lines that had no matching “readies …” telegraph first..
+        /// </summary>
+        internal static string GeneralTab_HideEnemyInstantCastsHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_HideEnemyInstantCastsHelpMarker", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Improved market board &amp; retainer sale lines.
@@ -4989,7 +5007,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Orchestrion.
+        ///   Looks up a localized string similar to Audio.
         /// </summary>
         internal static string SystemTab_OrchestrionDropdownHeader {
             get {
@@ -5245,7 +5263,25 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("SystemTab_ShowPersonalMessageBookMessagesHelpMarker", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show volume control messages.
+        /// </summary>
+        internal static string SystemTab_ShowVolumeControlMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowVolumeControlMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 3860–3866 — eg. Master volume muted, BGM volume set to 50%..
+        /// </summary>
+        internal static string SystemTab_ShowVolumeControlMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowVolumeControlMessagesHelpMarker", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Social.
         /// </summary>

@@ -10,7 +10,7 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        switch (EnemyCastLogHelper.Handle(normalizedText))
+        switch (EnemyCastLogHelper.Handle(normalizedText, Configuration.HideEnemyInstantCasts))
         {
             case EnemyCastLogAction.RecordReadies:
                 return false;
