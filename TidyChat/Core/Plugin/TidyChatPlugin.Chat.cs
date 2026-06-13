@@ -29,8 +29,9 @@ public sealed partial class TidyChatPlugin
 
         TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
 
-        var logEffect =
-            ResolveLogMessageChatEffect(rawTextValue, extractedTextValue, normalizedText);
+        var logEffect = LogMessageChatSync.ParticipatesInLogMessageChatSync(chatType)
+            ? ResolveLogMessageChatEffect(rawTextValue, extractedTextValue, normalizedText)
+            : LogMessageChatEffect.None;
         if (logEffect == LogMessageChatEffect.PreserveHidden)
         {
             LogBlockedChat(["LogMessage"], message.Message.TextValue);

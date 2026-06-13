@@ -46,22 +46,23 @@ internal static class WhitelistTab
         ImGui.Spacing();
 
         var outer_height = new Vector2(640f, 400f);
-        using var whitelistTable = ImRaii.Table("##whitelistTable", 4,
-            ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
-            ImGuiTableFlags.RowBg, outer_height);
-        if (!whitelistTable)
         {
-            return;
-        }
+            using var whitelistTable = ImRaii.Table("##whitelistTable", 4,
+                ImGuiTableFlags.NoHostExtendX | ImGuiTableFlags.ScrollY | ImGuiTableFlags.Borders |
+                ImGuiTableFlags.RowBg, outer_height);
+            if (!whitelistTable)
+            {
+                return;
+            }
 
-        ImGui.TableSetupScrollFreeze(0, 1);
-        ImGui.TableSetupColumn(Languages.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed, 148f);
-        ImGui.TableSetupColumn(Languages.WhitelistTab_FiltersHeader, ImGuiTableColumnFlags.WidthStretch);
-        ImGui.TableSetupColumn(Languages.WhitelistTab_Allow, ImGuiTableColumnFlags.WidthFixed, 96f);
-        ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed, 36f);
-        ImGui.TableHeadersRow();
-        var list = configuration.Whitelist.ToList();
-        for (var i = -1; i < list.Count; i++)
+            ImGui.TableSetupScrollFreeze(0, 1);
+            ImGui.TableSetupColumn(Languages.WhitelistTab_SelectChannelsHeader, ImGuiTableColumnFlags.WidthFixed, 148f);
+            ImGui.TableSetupColumn(Languages.WhitelistTab_FiltersHeader, ImGuiTableColumnFlags.WidthStretch);
+            ImGui.TableSetupColumn(Languages.WhitelistTab_Allow, ImGuiTableColumnFlags.WidthFixed, 128f);
+            ImGui.TableSetupColumn("##DeleteColumn", ImGuiTableColumnFlags.WidthFixed, 36f);
+            ImGui.TableHeadersRow();
+            var list = configuration.Whitelist.ToList();
+            for (var i = -1; i < list.Count; i++)
         {
             ImGui.TableNextRow();
             var alias = i < 0 ? m_placeholder : list[i];
@@ -179,9 +180,9 @@ internal static class WhitelistTab
             }
 
             #endregion Delete Column
+            }
         }
 
-        ImGui.NewLine();
         ImGui.Spacing();
         ImGui.TextWrapped(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
     }
