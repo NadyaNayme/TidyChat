@@ -3432,6 +3432,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Condense enemy cast log (readies / uses).
+        /// </summary>
+        internal static string GeneralTab_CondenseEnemyCastLog {
+            get {
+                return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Instant abilities with no prior readies still show. Does not affect your own casts..
+        /// </summary>
+        internal static string GeneralTab_CondenseEnemyCastLogHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLogHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Improved market board &amp; retainer sale lines.
         /// </summary>
         internal static string GeneralTab_ImprovedMarketBoardSale {

@@ -30,6 +30,7 @@ public sealed partial class TidyChatPlugin
 
     private void OnTerritoryChanged(uint e)
     {
+        EnemyCastLogHelper.Clear();
         FlushBlockedMessageCount(persist: false);
         byte newExclusiveType = 0;
         try

@@ -46,6 +46,11 @@ public sealed partial class TidyChatPlugin
 
     private bool HandleBetterMessages(IHandleableChatMessage message, ChatType chatType, string normalizedText)
     {
+        if (chatType is ChatType.Action && TryCondenseEnemyCastLog(message, normalizedText))
+        {
+            return true;
+        }
+
         // Anchored regex rather than 1531 catalog tokens: the template tokens are just
         // "has begun", which also matches event lines that continue past the verb.
         if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&

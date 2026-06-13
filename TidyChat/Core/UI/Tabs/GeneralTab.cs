@@ -220,5 +220,14 @@ internal static class GeneralTab
         }
 
         ImGuiComponents.HelpMarker(Languages.GeneralTab_ImprovedMarkBillMessagesHelpMarker);
+
+        var betterEnemyCastLog = configuration.BetterEnemyCastLog;
+        if (ImGui.Checkbox(Languages.GeneralTab_CondenseEnemyCastLog, ref betterEnemyCastLog))
+        {
+            configuration.BetterEnemyCastLog = betterEnemyCastLog;
+            configuration.OnSettingChanged();
+        }
+
+        ImGuiComponents.HelpMarker(Languages.GeneralTab_CondenseEnemyCastLogHelpMarker);
     }
 }

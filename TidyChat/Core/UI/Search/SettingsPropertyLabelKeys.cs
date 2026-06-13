@@ -147,6 +147,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowHuntSlain"] = nameof(Languages.ExplorationTab_ShowHuntMarkSlainMessages),
         ["ShowMarkBillMessages"] = nameof(Languages.ExplorationTab_ShowMarkBillMessages),
         ["BetterMarkBillMessage"] = nameof(Languages.GeneralTab_ImprovedMarkBillMessages),
+        ["BetterEnemyCastLog"] = nameof(Languages.GeneralTab_CondenseEnemyCastLog),
         ["ShowQuestReminder"] = nameof(Languages.ExplorationTab_ShowSayReminder),
         ["ShowSpideySenses"] = nameof(Languages.ExplorationTab_ShowYouSenseSomethingMessages),
         ["ShowLocationDiscovered"] = nameof(Languages.ExplorationTab_ShowLocationDiscoveredMessages),

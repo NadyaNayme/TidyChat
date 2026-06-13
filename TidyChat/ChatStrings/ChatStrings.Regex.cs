@@ -120,6 +120,24 @@ public static partial class ChatStrings
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/501?pretty=true">… readies …</see>
+    public static readonly LocalizedRegex CombatEnemyReadiesRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?<actor>(?!you\b).+?) readies (?<ability>.+?)\.?$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/533?pretty=true">… uses …</see>
+    public static readonly LocalizedRegex CombatEnemyUsesRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?<actor>(?!you\b).+?) uses (?<ability>.+?)(?:\.\s*(?:\(\d+x\))?)?$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/10922?pretty=true">You receive N … (trade window item preview).</see>
     public static readonly LocalizedRegex TradeReceiveItemsRegex = new()
     {

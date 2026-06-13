@@ -1945,6 +1945,12 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GeneralTab_ImprovedMarkBillMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 4415 — rewrites obtain lines such as “You obtain a stack of elite Dawn Hunt bills.” into a single short line and hides the follow-up “Mark details can viewed at any time…” reminder.</value>
   </data>
+  <data name="GeneralTab_CondenseEnemyCastLog" xml:space="preserve">
+    <value>Condense enemy cast log (readies / uses)</value>
+  </data>
+  <data name="GeneralTab_CondenseEnemyCastLogHelpMarker" xml:space="preserve">
+    <value>Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Instant abilities with no prior readies still show. Does not affect your own casts.</value>
+  </data>
   <data name="GeneralTab_ImprovedMarketBoardSale" xml:space="preserve">
     <value>Improved market board &amp; retainer sale lines</value>
   </data>

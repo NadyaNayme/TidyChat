@@ -98,6 +98,7 @@ public class Configuration : IPluginConfiguration
     public bool BetterNoviceNetworkMessage { get; set; } = true;
     public bool BetterTreasureDungeonMessage { get; set; } = true;
     public bool BetterDutyCommenceMessage { get; set; } = false;
+    public bool BetterEnemyCastLog { get; set; } = false;
 
     #endregion
 
