@@ -1949,7 +1949,13 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Condense enemy cast log (readies / uses)</value>
   </data>
   <data name="GeneralTab_CondenseEnemyCastLogHelpMarker" xml:space="preserve">
-    <value>Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Instant abilities with no prior readies still show. Does not affect your own casts.</value>
+    <value>Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Optional sub-option also hides instant enemy abilities with no prior readies. Does not affect your own casts.</value>
+  </data>
+  <data name="GeneralTab_HideEnemyInstantCasts" xml:space="preserve">
+    <value>Also hide instant enemy abilities</value>
+  </data>
+  <data name="GeneralTab_HideEnemyInstantCastsHelpMarker" xml:space="preserve">
+    <value>Hides enemy “uses …” lines that had no matching “readies …” telegraph first.</value>
   </data>
   <data name="GeneralTab_ImprovedMarketBoardSale" xml:space="preserve">
     <value>Improved market board &amp; retainer sale lines</value>
@@ -2471,7 +2477,7 @@ eg. You obtain a cracked dendrocluster</value>
     <value>Mail</value>
   </data>
   <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
-    <value>Orchestrion</value>
+    <value>Audio</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
     <value>Condensed (world line only)</value>
@@ -2563,6 +2569,12 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   </data>
   <data name="SystemTab_ShowPersonalMessageBookMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 6066 — eg. A new entry has been added to your message book. Uses the message-book channel.</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
+    <value>Show volume control messages</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3860–3866 — eg. Master volume muted, BGM volume set to 50%.</value>
   </data>
   <data name="SystemTab_SocialDropdownHeader" xml:space="preserve">
     <value>Social</value>
