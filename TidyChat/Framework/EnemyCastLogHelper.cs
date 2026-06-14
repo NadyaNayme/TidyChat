@@ -2,6 +2,13 @@ using System.Threading;
 
 namespace TidyChat.Utility;
 
+internal enum EnemyCastLogAction
+{
+    None,
+    RecordReadies,
+    SuppressUses
+}
+
 internal static class EnemyCastLogHelper
 {
     private const int PendingCastWindowMs = 20_000;

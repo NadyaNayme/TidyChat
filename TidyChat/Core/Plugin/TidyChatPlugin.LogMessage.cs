@@ -52,7 +52,7 @@ public sealed partial class TidyChatPlugin
 
                 if (!entry.AllowMessage)
                 {
-                    if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+                    if (LogMessageHelper.TryExtractText(message, out var blockedText))
                     {
                         RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
                     }
@@ -67,7 +67,7 @@ public sealed partial class TidyChatPlugin
                     Interlocked.Increment(ref _sessionBlockedMessages);
                     return;
                 }
-                if (LogMessageTextHelper.TryExtractText(message, out var allowedText))
+                if (LogMessageHelper.TryExtractText(message, out var allowedText))
                 {
                     RememberLogMessageChatMatchTexts(_allowedByLogMessage, allowedText);
                 }
@@ -108,7 +108,7 @@ public sealed partial class TidyChatPlugin
 
             if (Configuration.EnableDebugMode && _loggedUnmatchedLogMessageIds.Add(message.LogMessageId))
             {
-                if (LogMessageTextHelper.TryExtractText(message, out var unmatchedText))
+                if (LogMessageHelper.TryExtractText(message, out var unmatchedText))
                 {
                     Log.Debug(
                         $"[LogMessage] Unmatched ID: {message.LogMessageId} | Params: {message.ParameterCount} | Text: {unmatchedText}");
@@ -195,17 +195,39 @@ public sealed partial class TidyChatPlugin
         decidingRuleName = null;
         decidingMatchDetail = null;
 
-        if (CosmicShowRuleHelper.IsCosmicMessageAllowed(configuration, normalizedText))
+        if (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(configuration, normalizedText))
         {
             shouldAllow = true;
-            decidingRuleName = CosmicShowRuleHelper.GetActiveCosmicRuleName(configuration, normalizedText);
+            decidingRuleName = CosmicExplorationFilterHelper.GetActiveCosmicRuleName(configuration, normalizedText);
             return true;
         }
 
-        if (StellarGpShowRuleHelper.IsGpRecoveryLogMessageAllowed(configuration, logMessageId, normalizedText))
+        if (CosmicExplorationFilterHelper.IsGpRecoveryLogMessageAllowed(configuration, logMessageId, normalizedText))
         {
             shouldAllow = true;
             decidingRuleName = "ShowStellarGpRecovery";
+            return true;
+        }
+
+        if (LootFilterHelper.ShouldShowOtherPlayerObtain(configuration, normalizedText))
+        {
+            shouldAllow = true;
+            decidingRuleName = "HideOthersObtain";
+            decidingMatchDetail = "other-player obtain (show on)";
+            return true;
+        }
+
+        if (LootFilterHelper.ShouldShowOtherPlayerLootRoll(configuration, logMessageId, normalizedText))
+        {
+            shouldAllow = true;
+            decidingRuleName = "ShowOthersLootRoll";
+            return true;
+        }
+
+        if (LootFilterHelper.ShouldShowOtherPlayerCastLot(configuration, logMessageId, normalizedText))
+        {
+            shouldAllow = true;
+            decidingRuleName = "ShowOthersCastLot";
             return true;
         }
 
@@ -305,7 +327,7 @@ public sealed partial class TidyChatPlugin
             if (configuration.ShowObtainedItems &&
                 ObtainCurrencyHelper.IsGenericItemObtainLine(normalizedText) &&
                 inactiveShowRule is not null &&
-                RuleFallbackHelper.DefersObtainRuleToGeneral(inactiveShowRule))
+                ObtainCurrencyHelper.DefersObtainRuleToGeneral(inactiveShowRule))
             {
                 shouldAllow = true;
                 decidingRuleName = "ShowObtainedItems";
@@ -340,7 +362,7 @@ public sealed partial class TidyChatPlugin
 
     private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName, string? matchDetail = null)
     {
-        if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+        if (LogMessageHelper.TryExtractText(message, out var blockedText))
         {
             RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
         }
@@ -429,7 +451,7 @@ public sealed partial class TidyChatPlugin
     private void RememberLogMessageAllowDecision(ILogMessage message, string? decidingRuleName,
         string? matchDetail = null)
     {
-        if (LogMessageTextHelper.TryExtractText(message, out var allowedText))
+        if (LogMessageHelper.TryExtractText(message, out var allowedText))
         {
             RememberLogMessageChatMatchTexts(_allowedByLogMessage, allowedText);
         }
@@ -460,6 +482,12 @@ public sealed partial class TidyChatPlugin
         out string? matchDetail)
     {
         matchDetail = null;
+
+        if (LootFilterHelper.ShouldDeferSelfLootRollOrCastLotRule(normalizedText, rule) ||
+            LootFilterHelper.ShouldDeferGenericObtainShowRule(normalizedText, rule))
+        {
+            return false;
+        }
 
         if (rule.Pattern == PatternKind.None)
         {
@@ -713,12 +741,12 @@ public sealed partial class TidyChatPlugin
     }
 
     private static bool PendingLogMessageTextMatches(uint logMessageId, ChatType chatType, string normalizedText) =>
-        LogMessageChatSync.PendingTextMatchesOnChannel(logMessageId, chatType, normalizedText);
+        LogMessageHelper.PendingTextMatchesOnChannel(logMessageId, chatType, normalizedText);
 
     private bool TryConsumeInventoryAddedLogMessageBlock(string normalizedText)
     {
         if (!Configuration.HideInventoryItemAdded ||
-            !LogMessageChatSync.MatchesInventoryAddedLine(normalizedText))
+            !LogMessageHelper.MatchesInventoryAddedLine(normalizedText))
         {
             return false;
         }
@@ -726,7 +754,7 @@ public sealed partial class TidyChatPlugin
         lock (_logMessageLock)
         {
             return TryConsumePendingLogMessageId(_pendingBlockedLogMessageIds,
-                LogMessageChatSync.InventoryItemAddedLogMessageId);
+                LogMessageHelper.InventoryItemAddedLogMessageId);
         }
     }
 
@@ -778,7 +806,7 @@ public sealed partial class TidyChatPlugin
         return false;
     }
     private static bool TryGetNormalizedLogMessageText(ILogMessage message, out string normalizedText) =>
-        LogMessageTextHelper.TryExtractNormalizedText(message, out normalizedText);
+        LogMessageHelper.TryExtractNormalizedText(message, out normalizedText);
 
     private bool TryBlockHiddenTomestoneLogMessage(ILogMessage message)
     {
@@ -791,7 +819,7 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+        if (LogMessageHelper.TryExtractText(message, out var blockedText))
         {
             RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
         }
@@ -820,7 +848,7 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        if (LogMessageTextHelper.TryExtractText(message, out var blockedText))
+        if (LogMessageHelper.TryExtractText(message, out var blockedText))
         {
             RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
         }

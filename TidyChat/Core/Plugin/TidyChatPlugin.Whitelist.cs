@@ -218,7 +218,7 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        if (!LogMessageTextHelper.TryExtractText(message, out var extractedTextValue))
+        if (!LogMessageHelper.TryExtractText(message, out var extractedTextValue))
         {
             return false;
         }

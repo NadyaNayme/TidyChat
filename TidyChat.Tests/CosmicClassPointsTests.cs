@@ -10,7 +10,7 @@ public class CosmicClassPointsTests
     public void Tool_mastery_obtain_matches_cosmic_class_points_toggle()
     {
         var text = "you obtain 49248(+8208 armorer tool mastery points.";
-        Assert.That(CosmicShowRuleHelper.MatchesCosmicClassPointsAndDatasetText(text), Is.True);
+        Assert.That(CosmicExplorationFilterHelper.MatchesCosmicClassPointsAndDatasetText(text), Is.True);
     }
 
     [Test]
@@ -27,8 +27,8 @@ public class CosmicClassPointsTests
         var config = new Configuration { ShowCosmicClassPointsAndDataset = true };
         var text = "you obtain 49248(+8208 armorer tool mastery points.";
 
-        Assert.That(CosmicShowRuleHelper.IsCosmicMessageAllowed(config, text), Is.True);
-        Assert.That(CosmicShowRuleHelper.GetActiveCosmicRuleName(config, text),
+        Assert.That(CosmicExplorationFilterHelper.IsCosmicMessageAllowed(config, text), Is.True);
+        Assert.That(CosmicExplorationFilterHelper.GetActiveCosmicRuleName(config, text),
             Is.EqualTo("ShowCosmicClassPointsAndDataset"));
     }
 }

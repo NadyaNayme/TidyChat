@@ -48,7 +48,7 @@ public class StellarCosmicMatchTests
         var text = "a sizable contribution to the exploration initiative has been recorded.";
 
         Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.True);
-        Assert.That(CosmicShowRuleHelper.MatchesCosmicExplorationText(text), Is.True);
+        Assert.That(CosmicExplorationFilterHelper.MatchesCosmicExplorationText(text), Is.True);
     }
 
     [Test]

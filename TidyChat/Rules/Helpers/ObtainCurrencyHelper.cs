@@ -425,4 +425,53 @@ internal static class ObtainCurrencyHelper
 
         return L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText);
     }
+
+    private static readonly LocalizedStrings[] BroadCatalogMissStringChecks =
+    [
+        ChatStrings.ObtainedGilMarker,
+        ChatStrings.CosmicRedAlert
+    ];
+
+    /// <summary>
+    ///     When <see cref="LocalizedFilterRule.PreferLogMessageCatalog" /> is set, string checks should not
+    ///     broaden a rule beyond its Lumina LogMessage IDs.
+    /// </summary>
+    public static bool ShouldRejectCatalogTextFallback(LocalizedFilterRule rule)
+    {
+        if (!rule.PreferLogMessageCatalog || rule.LogMessageIds is not { Length: > 0 })
+        {
+            return false;
+        }
+
+        if (UsesGenericObtainStringCheck(rule) && !IsGenericObtainShowRule(rule))
+        {
+            return true;
+        }
+
+        if (rule.ObtainMarkerGil || rule.ObtainMarkerMgp || HasObtainMarkerConstraint(rule))
+        {
+            return false;
+        }
+
+        return UsesBroadStringCheck(rule);
+    }
+
+    public static bool ShouldDeferObtainRuleToGeneral(Configuration config, LocalizedFilterRule rule,
+        string normalizedText) =>
+        config.ShowObtainedItems &&
+        DefersObtainRuleToGeneral(rule) &&
+        IsGenericItemObtainLine(normalizedText);
+
+    public static bool DefersObtainRuleToGeneral(LocalizedFilterRule rule) =>
+        IsSpecializedObtainShowRule(rule) ||
+        (string.Equals(rule.Name, "ShowGatheringCollectableObtains", StringComparison.Ordinal) &&
+         UsesGenericObtainStringCheck(rule));
+
+    public static bool DefersObtainRuleToGeneral(string ruleName) =>
+        IsSpecializedObtainShowRuleName(ruleName) ||
+        string.Equals(ruleName, "ShowGatheringCollectableObtains", StringComparison.Ordinal);
+
+    private static bool UsesBroadStringCheck(LocalizedFilterRule rule) =>
+        rule.StringChecks is { Count: > 0 } &&
+        rule.StringChecks.Any(check => BroadCatalogMissStringChecks.Contains(check));
 }

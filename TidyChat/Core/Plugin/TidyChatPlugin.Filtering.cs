@@ -111,9 +111,9 @@ public sealed partial class TidyChatPlugin
         out List<string> protectingRules)
     {
         protectingRules = [];
-        if (CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        if (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
         {
-            TrackMatchedRule(protectingRules, CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText)!);
+            TrackMatchedRule(protectingRules, CosmicExplorationFilterHelper.GetActiveCosmicRuleName(Configuration, normalizedText)!);
             return true;
         }
 
@@ -208,7 +208,7 @@ public sealed partial class TidyChatPlugin
                 LogMessageCatalog.IsLoaded &&
                 LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText) &&
                 RuleMatcher.MatchesText(rule, normalizedText, false) &&
-                !RuleFallbackHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText) &&
+                !ObtainCurrencyHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText) &&
                 !(chatType is ChatType.LootNotice &&
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
                       Configuration.HideTomestoneById, TribalCurrencies, Configuration.HideTribalCurrencyById)))
@@ -257,7 +257,7 @@ public sealed partial class TidyChatPlugin
 
             if (RuleMatcher.MatchesText(rule, normalizedText, out _))
             {
-                if (RuleFallbackHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText))
+                if (ObtainCurrencyHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText))
                 {
                     if (Configuration.EnableDebugMode)
                     {
@@ -266,10 +266,12 @@ public sealed partial class TidyChatPlugin
                     continue;
                 }
 
-                if (!CosmicShowRuleHelper.IsCosmicRuleName(rule.Name) &&
-                    !StellarGpShowRuleHelper.IsStellarGpRuleName(rule.Name) &&
-                    (CosmicShowRuleHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText) ||
-                     StellarGpShowRuleHelper.ShouldDeferToStellarGpRecovery(Configuration, normalizedText)))
+                if (!CosmicExplorationFilterHelper.IsCosmicRuleName(rule.Name) &&
+                    !CosmicExplorationFilterHelper.IsStellarGpRuleName(rule.Name) &&
+                    (CosmicExplorationFilterHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText) ||
+                     CosmicExplorationFilterHelper.ShouldDeferToStellarGpRecovery(Configuration, normalizedText) ||
+                     LootFilterHelper.ShouldDeferSelfLootRollOrCastLotRule(normalizedText, rule) ||
+                     LootFilterHelper.ShouldDeferGenericObtainShowRule(normalizedText, rule)))
                 {
                     if (Configuration.EnableDebugMode)
                     {
@@ -323,12 +325,12 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (CosmicShowRuleHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        if (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
         {
             isBlocked = chatType is ChatType.LootNotice;
             if (Configuration.EnableDebugMode)
             {
-                var cosmicRule = CosmicShowRuleHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
+                var cosmicRule = CosmicExplorationFilterHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
                 if (cosmicRule is not null)
                 {
                     TrackMatchedRule(matchedRules, cosmicRule);
@@ -336,7 +338,7 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (StellarGpShowRuleHelper.IsGpRecoveryAllowed(Configuration, normalizedText))
+        if (CosmicExplorationFilterHelper.IsGpRecoveryAllowed(Configuration, normalizedText))
         {
             isBlocked = chatType is ChatType.LootNotice;
             if (Configuration.EnableDebugMode)
@@ -351,6 +353,33 @@ public sealed partial class TidyChatPlugin
             if (Configuration.EnableDebugMode)
             {
                 TrackMatchedRule(matchedRules, nameof(Configuration.BetterMarketBoardSaleMessage));
+            }
+        }
+
+        if (LootFilterHelper.ShouldShowOtherPlayerObtain(Configuration, normalizedText))
+        {
+            isBlocked = chatType is ChatType.LootNotice;
+            if (Configuration.EnableDebugMode)
+            {
+                TrackMatchedRule(matchedRules, "HideOthersObtain (show on)");
+            }
+        }
+        else if (chatType is ChatType.LootRoll &&
+                 LootFilterHelper.ShouldShowOtherPlayerLootRoll(Configuration, 1231, normalizedText))
+        {
+            isBlocked = false;
+            if (Configuration.EnableDebugMode)
+            {
+                TrackMatchedRule(matchedRules, "ShowOthersLootRoll");
+            }
+        }
+        else if (chatType is ChatType.LootRoll &&
+                 LootFilterHelper.ShouldShowOtherPlayerCastLot(Configuration, 5180, normalizedText))
+        {
+            isBlocked = false;
+            if (Configuration.EnableDebugMode)
+            {
+                TrackMatchedRule(matchedRules, "ShowOthersCastLot");
             }
         }
 

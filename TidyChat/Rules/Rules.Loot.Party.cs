@@ -71,6 +71,20 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true,
+            ObtainMarkerOtherPlayer = true,
+            ExcludePlayerObtain = true,
+            StringChecks = [ChatStrings.OtherObtainMarker]
+        },
+        new()
+        {
+            Name = "HideOthersObtain",
+            SettingsTab = "Party",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            BlockWhenActive = true,
+            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
             StringChecks = [ChatStrings.ObtainMaterialsMarker],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true,

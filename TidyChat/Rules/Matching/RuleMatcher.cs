@@ -120,7 +120,7 @@ internal static class RuleMatcher
         };
 
     private static bool ShouldFallbackToTextChecksWhenCatalogMisses(LocalizedFilterRule rule) =>
-        RuleHasTextChecks(rule) && !RuleFallbackHelper.ShouldRejectCatalogTextFallback(rule);
+        RuleHasTextChecks(rule) && !ObtainCurrencyHelper.ShouldRejectCatalogTextFallback(rule);
 
     private static bool TryMatchObtainMarkerRule(LocalizedFilterRule rule, string normalizedText, out bool matched,
         out string? matchDetail)

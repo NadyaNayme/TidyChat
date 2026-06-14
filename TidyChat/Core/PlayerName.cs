@@ -1,7 +1,6 @@
 using System.Text.RegularExpressions;
 namespace TidyChat.Settings;
 
-#pragma warning disable MA0048
 public enum PlayerNameMatchMode
 {
     MessageContains = 0,

@@ -41,6 +41,10 @@ dotnet_diagnostic.CA1716.severity = none
 dotnet_diagnostic.CA1720.severity = none
 dotnet_diagnostic.CA1724.severity = none
 dotnet_diagnostic.CA1508.severity = none
+
+# Meziantou.Analyzer
+# MA0048: File name must match type name — we deliberately group small related types into shared files.
+dotnet_diagnostic.MA0048.severity = none
 dotnet_diagnostic.IDE0001.severity = warning
 dotnet_diagnostic.IDE0002.severity = warning
 dotnet_diagnostic.IDE0003.severity = warning

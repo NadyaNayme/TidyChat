@@ -5,7 +5,7 @@ using TidyChat.Utility;
 namespace TidyChat.Tests;
 
 [TestFixture]
-public class LogMessageChatSyncTests
+public class LogMessageHelperTests
 {
     private static readonly ChatType[] PlayerChannels =
     [
@@ -101,9 +101,9 @@ public class LogMessageChatSyncTests
     {
         foreach (var chatType in PlayerChannels)
         {
-            Assert.That(LogMessageChatSync.IsPlayerAuthoredChannel(chatType), Is.True,
+            Assert.That(LogMessageHelper.IsPlayerAuthoredChannel(chatType), Is.True,
                 () => $"{chatType} should be classified as player-authored");
-            Assert.That(LogMessageChatSync.ParticipatesInLogMessageChatSync(chatType), Is.False,
+            Assert.That(LogMessageHelper.ParticipatesInLogMessageChatSync(chatType), Is.False,
                 () => $"{chatType} must not inherit LogMessage blocks");
         }
     }
@@ -112,7 +112,7 @@ public class LogMessageChatSyncTests
     public void Pending_log_message_sync_skips_player_authored_channels()
     {
         Assert.That(
-            LogMessageChatSync.PendingTextMatchesOnChannel(
+            LogMessageHelper.PendingTextMatchesOnChannel(
                 1232,
                 ChatType.Say,
                 "is there a way to get the big spider tank as a mount?"),
@@ -124,7 +124,7 @@ public class LogMessageChatSyncTests
     {
         foreach (var chatType in LogMessageChannels)
         {
-            Assert.That(LogMessageChatSync.ParticipatesInLogMessageChatSync(chatType), Is.True,
+            Assert.That(LogMessageHelper.ParticipatesInLogMessageChatSync(chatType), Is.True,
                 () => $"{chatType} must inherit LogMessage allow/block on chat");
         }
     }
@@ -136,7 +136,7 @@ public class LogMessageChatSyncTests
         var classified = PlayerChannels.Concat(LogMessageChannels).ToHashSet();
         foreach (var chatType in Enum.GetValues<ChatType>())
         {
-            if (LogMessageChatSync.IsPlayerAuthoredChannel(chatType))
+            if (LogMessageHelper.IsPlayerAuthoredChannel(chatType))
             {
                 classified.Add(chatType);
             }
@@ -145,7 +145,7 @@ public class LogMessageChatSyncTests
         var missing = all.Where(t => !classified.Contains(t)).ToArray();
 
         Assert.That(missing, Is.Empty,
-            "Add new ChatType values to LogMessageChatSync and this test: " +
+            "Add new ChatType values to LogMessageHelper and this test: " +
             string.Join(", ", missing));
     }
 }

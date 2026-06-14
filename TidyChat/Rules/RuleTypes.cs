@@ -1,7 +1,6 @@
 using TidyChat.Localization.Data;
 namespace TidyChat;
 
-#pragma warning disable MA0048
 public enum PatternKind
 {
     None,

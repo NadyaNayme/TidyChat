@@ -17,8 +17,8 @@ public class RuleFallbackTests
         var desynth = FindRuleByString("ShowDesynthesisObtains", ChatStrings.DesynthesisObtain);
         var cosmic = FindRuleByString("ShowCosmicRewards", ChatStrings.ObtainedSingleItem);
 
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(desynth), Is.True);
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(cosmic), Is.True);
+        Assert.That(ObtainCurrencyHelper.ShouldRejectCatalogTextFallback(desynth), Is.True);
+        Assert.That(ObtainCurrencyHelper.ShouldRejectCatalogTextFallback(cosmic), Is.True);
     }
 
     [Test]
@@ -26,7 +26,7 @@ public class RuleFallbackTests
     {
         var general = FindRuleByString("ShowObtainedItems", ChatStrings.ObtainedSingleItem);
 
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(general), Is.False);
+        Assert.That(ObtainCurrencyHelper.ShouldRejectCatalogTextFallback(general), Is.False);
     }
 
     [Test]
@@ -34,7 +34,7 @@ public class RuleFallbackTests
     {
         var dutyCommence = FindRuleByRegex("ShowDutyCommenceMessage", ChatStrings.DutyHasBegunRegex);
 
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(dutyCommence), Is.False);
+        Assert.That(ObtainCurrencyHelper.ShouldRejectCatalogTextFallback(dutyCommence), Is.False);
     }
 
     [Test]
@@ -42,7 +42,7 @@ public class RuleFallbackTests
     {
         var buff = FindRuleByString("ShowCraftingBuffEffectGain", ChatStrings.BuffEffectGain);
 
-        Assert.That(RuleFallbackHelper.ShouldRejectCatalogTextFallback(buff), Is.False);
+        Assert.That(ObtainCurrencyHelper.ShouldRejectCatalogTextFallback(buff), Is.False);
         Assert.That(RuleMatcher.MatchesText(buff, "you gain the effect of inner quiet.", out _), Is.True);
         Assert.That(RuleMatcher.MatchesText(buff, "a special effect occurs.", out _), Is.False);
     }
@@ -67,7 +67,7 @@ public class RuleFallbackTests
         var desynth = FindRuleByString("ShowDesynthesisObtains", ChatStrings.DesynthesisObtain);
 
         Assert.That(
-            RuleFallbackHelper.ShouldDeferObtainRuleToGeneral(config, desynth, "you obtain a tiny key."),
+            ObtainCurrencyHelper.ShouldDeferObtainRuleToGeneral(config, desynth, "you obtain a tiny key."),
             Is.True);
     }
 
