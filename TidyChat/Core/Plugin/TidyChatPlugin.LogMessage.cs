@@ -594,7 +594,7 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    private bool TryConsumePendingLogMessageAllow(string normalizedText)
+    private bool TryConsumePendingLogMessageAllow(ChatType chatType, string normalizedText)
     {
         if (string.IsNullOrWhiteSpace(normalizedText))
         {
@@ -603,18 +603,18 @@ public sealed partial class TidyChatPlugin
 
         lock (_logMessageLock)
         {
-            if (TryConsumePendingLogMessageAllowFrom(_pendingCustomFilterLogMessageIds, normalizedText,
+            if (TryConsumePendingLogMessageAllowFrom(_pendingCustomFilterLogMessageIds, chatType, normalizedText,
                     false))
             {
                 return true;
             }
 
-            return TryConsumePendingLogMessageAllowFrom(_pendingAllowedLogMessageIds, normalizedText,
+            return TryConsumePendingLogMessageAllowFrom(_pendingAllowedLogMessageIds, chatType, normalizedText,
                 true);
         }
     }
 
-    private bool TryConsumePendingLogMessageBlock(string normalizedText)
+    private bool TryConsumePendingLogMessageBlock(ChatType chatType, string normalizedText)
     {
         if (string.IsNullOrWhiteSpace(normalizedText))
         {
@@ -623,13 +623,13 @@ public sealed partial class TidyChatPlugin
 
         lock (_logMessageLock)
         {
-            return TryConsumePendingLogMessageBlockFrom(_pendingBlockedLogMessageIds, normalizedText,
+            return TryConsumePendingLogMessageBlockFrom(_pendingBlockedLogMessageIds, chatType, normalizedText,
                 true);
         }
     }
 
-    private bool TryConsumePendingLogMessageBlockFrom(Dictionary<uint, int> pendingById, string normalizedText,
-        bool requireShowRuleStillBlock)
+    private bool TryConsumePendingLogMessageBlockFrom(Dictionary<uint, int> pendingById, ChatType chatType,
+        string normalizedText, bool requireShowRuleStillBlock)
     {
         if (pendingById.Count == 0)
         {
@@ -643,7 +643,7 @@ public sealed partial class TidyChatPlugin
             {
                 continue;
             }
-            if (!PendingLogMessageTextMatches(id, normalizedText))
+            if (!PendingLogMessageTextMatches(id, chatType, normalizedText))
             {
                 continue;
             }
@@ -670,8 +670,8 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    private bool TryConsumePendingLogMessageAllowFrom(Dictionary<uint, int> pendingById, string normalizedText,
-        bool requireShowRuleAllow)
+    private bool TryConsumePendingLogMessageAllowFrom(Dictionary<uint, int> pendingById, ChatType chatType,
+        string normalizedText, bool requireShowRuleAllow)
     {
         if (pendingById.Count == 0)
         {
@@ -685,7 +685,7 @@ public sealed partial class TidyChatPlugin
             {
                 continue;
             }
-            if (!PendingLogMessageTextMatches(id, normalizedText))
+            if (!PendingLogMessageTextMatches(id, chatType, normalizedText))
             {
                 continue;
             }
@@ -712,8 +712,8 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    private static bool PendingLogMessageTextMatches(uint logMessageId, string normalizedText) =>
-        LogMessageChatSync.StrictCatalogMatch(logMessageId, normalizedText);
+    private static bool PendingLogMessageTextMatches(uint logMessageId, ChatType chatType, string normalizedText) =>
+        LogMessageChatSync.PendingTextMatchesOnChannel(logMessageId, chatType, normalizedText);
 
     private bool TryConsumeInventoryAddedLogMessageBlock(string normalizedText)
     {

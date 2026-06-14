@@ -13,8 +13,8 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    private LogMessageChatEffect ResolveLogMessageChatEffect(string rawTextValue, string extractedTextValue,
-        string normalizedText)
+    private LogMessageChatEffect ResolveLogMessageChatEffect(ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
     {
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
 
@@ -50,12 +50,12 @@ public sealed partial class TidyChatPlugin
             return LogMessageChatEffect.PreserveHidden;
         }
 
-        if (TryConsumePendingLogMessageAllow(normalizedText))
+        if (TryConsumePendingLogMessageAllow(chatType, normalizedText))
         {
             return LogMessageChatEffect.PreserveVisible;
         }
 
-        if (TryConsumePendingLogMessageBlock(normalizedText))
+        if (TryConsumePendingLogMessageBlock(chatType, normalizedText))
         {
             return LogMessageChatEffect.PreserveHidden;
         }

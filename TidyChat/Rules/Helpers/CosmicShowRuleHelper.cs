@@ -56,10 +56,14 @@ internal static class CosmicShowRuleHelper
         TextMatchHelper.MatchesAny(normalizedText,
             ChatStrings.MechOpDirective,
             ChatStrings.CosmicRedAlert,
-            ChatStrings.CosmicExplorationContribution);
+            ChatStrings.CosmicExplorationContribution,
+            ChatStrings.CosmicExplorationSizableContribution);
 
     public static bool MatchesCosmicClassPointsAndDatasetText(string normalizedText) =>
-        TextMatchHelper.MatchesAny(normalizedText, ChatStrings.CosmicDatasetSubmitted, ChatStrings.CosmicClassPoints);
+        TextMatchHelper.MatchesAny(normalizedText,
+            ChatStrings.CosmicDatasetSubmitted,
+            ChatStrings.CosmicClassPoints,
+            ChatStrings.CosmicToolMasteryPoints);
 
     public static bool MatchesCosmicDailyProgressText(string normalizedText) =>
         TextMatchHelper.MatchesAny(normalizedText,

@@ -16,6 +16,11 @@ public sealed partial class TidyChatPlugin
     /// <summary>Writes at Log.Debug — visible in /xllog when the Debug filter is enabled.</summary>
     private void LogBlockedChat(IReadOnlyList<string> rules, string messageText)
     {
+        if (!Configuration.EnableDebugMode)
+        {
+            return;
+        }
+
         var rulePart = rules.Count > 0 ? string.Join(", ", rules) : "filter";
         EmitBlockedXllog($"BLOCKED ({rulePart}): {messageText}");
     }

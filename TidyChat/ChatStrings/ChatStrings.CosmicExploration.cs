@@ -30,10 +30,19 @@ public static partial class ChatStrings
     /// </see>
     /// <seealso href="https://xivapi.com/LogMessage/10788?pretty=true">A respectable contribution…</seealso>
     /// <seealso href="https://xivapi.com/LogMessage/10789?pretty=true">A generous contribution…</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/10790?pretty=true">A sizable contribution…</seealso>
     public static readonly LocalizedStrings CosmicExplorationContribution = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["contribution", "exploration", "initiative", "recorded"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    public static readonly LocalizedStrings CosmicExplorationSizableContribution = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["sizable", "contribution", "exploration", "initiative", "recorded"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

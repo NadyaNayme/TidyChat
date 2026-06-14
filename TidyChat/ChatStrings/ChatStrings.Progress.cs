@@ -175,6 +175,15 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
+    /// <summary>Shared obtain templates 657, 1259 — e.g. You obtain N armorer tool mastery points.</summary>
+    public static readonly LocalizedStrings CosmicToolMasteryPoints = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["obtain", "tool", "mastery", "point"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/10875?pretty=true">You earn N daily points.</see>
     public static readonly LocalizedStrings DailyPointsEarned = new()
     {

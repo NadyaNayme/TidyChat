@@ -1713,10 +1713,10 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Master toggle for miscellaneous gathering log lines (LogMessages 1111, 3549, 3569). When on, use the nested option for buff effect gain (603). Unchecking disables the nested option in chat until you turn this back on (the nested checkbox keeps its setting for next time).</value>
   </data>
   <data name="GatheringTab_ShowCosmicClassPointsAndDataset" xml:space="preserve">
-    <value>Show cosmic class points and dataset submission</value>
+    <value>Show cosmic class points, tool mastery, and dataset submission</value>
   </data>
   <data name="GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker" xml:space="preserve">
-    <value>LogMessages 10874 (System), 10803 (Progress) — class points and dataset submission. Needs Filter System and Filter Progress on General.</value>
+    <value>LogMessages 10874 (System), 10803 (Progress), 657/1259 (Loot Notice) — class points, tool mastery obtains, and dataset submission. Needs Filter System, Filter Progress, and Filter Obtained on General.</value>
   </data>
   <data name="GatheringTab_ShowCosmicContainers" xml:space="preserve">
     <value>Show cosmic container obtains</value>
@@ -1734,7 +1734,7 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
     <value>Show cosmic exploration messages</value>
   </data>
   <data name="GatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 10787–10789, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions, mech-op directives, and red-alert lines. Needs Filter System on General.</value>
+    <value>LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions \(incl\. sizable\), mech-op directives, and red-alert lines. Needs Filter System on General.</value>
   </data>
   <data name="GatheringTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency obtains</value>

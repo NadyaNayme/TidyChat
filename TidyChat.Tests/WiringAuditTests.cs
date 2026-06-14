@@ -317,6 +317,14 @@ public class WiringAuditTests
     }
 
     [Test]
+    public void ShowObtainedQuestItems_uses_soft_hide_to_preserve_loot_flytext()
+    {
+        var rule = Rules.AllRules.First(r => r.Name == "ShowObtainedQuestItems");
+        Assert.That(rule.SoftHideLogMessage, Is.True,
+            "LootNotice obtain lines share flytext with LogMessage; soft hide keeps flytext while hiding chat.");
+    }
+
+    [Test]
     public void Search_label_keys_reference_real_config_properties_and_language_strings()
     {
         var map = GetSettingsPropertyLabelKeys();

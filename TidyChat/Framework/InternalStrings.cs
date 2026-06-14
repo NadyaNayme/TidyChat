@@ -90,5 +90,4 @@ internal static class InternalStrings
     public static string LastDuty { get; set; } = "";
     public static short CommendationsEarned { get; set; } = 0;
     public static short LastCommendations { get; set; } = 0;
-    public static string LastTreasureDungeonChamber { get; set; } = "";
 }

@@ -13,7 +13,8 @@ public static partial class Rules
             LogMessageIds = [1232],
             StringChecks = [ChatStrings.QuestItemObtain],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         },
         new()
         {

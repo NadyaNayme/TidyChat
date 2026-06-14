@@ -46,7 +46,8 @@ internal static class ObtainCurrencyHelper
         ChatStrings.OizysCreditObtain,
         ChatStrings.AuxesiaCreditObtain,
         ChatStrings.OizysDronebitsObtain,
-        ChatStrings.CosmicFortuneObtain
+        ChatStrings.CosmicFortuneObtain,
+        ChatStrings.CosmicToolMasteryPoints
     ];
 
     private static readonly (LocalizedStrings Marker, LocalizedRegex Regex)[] DedicatedObtainRegexByMarker =
@@ -201,12 +202,12 @@ internal static class ObtainCurrencyHelper
             }
         }
 
-        // Shared templates 657/1259/1300 often omit the currency name even when chat text includes it.
+        // Shared templates 657/1259/1300 often omit the currency name in Lumina tokens even when chat text includes it.
         foreach (var sharedMarker in SharedTemplateCurrencyMarkers)
         {
             if (marker.Equals(sharedMarker))
             {
-                return true;
+                return TextMatchHelper.MatchesAllTokens(normalizedText, sharedMarker);
             }
         }
 

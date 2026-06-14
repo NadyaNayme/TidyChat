@@ -216,9 +216,8 @@ internal static class BetterStrings
         };
     }
 
-    public static SeString TreasureDungeon(Configuration configuration)
+    public static SeString TreasureDungeon(Configuration configuration, string chamber)
     {
-        var chamber = TidyStrings.LastTreasureDungeonChamber;
         var stringBuilder = new SeStringBuilder();
         if (configuration.IncludeChatTag)
         {

@@ -51,6 +51,17 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowStellarMissionMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10781],
+            StringChecks = [ChatStrings.StellarMissionComplete],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowStellarAbleToExecute",
             SettingsTab = "Cosmic Exploration",
             Channel = ChatType.Gathering,
@@ -326,6 +337,17 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowCosmicExplorationMessages",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10790],
+            StringChecks = [ChatStrings.CosmicExplorationSizableContribution],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowCosmicRewards",
             SettingsTab = "Cosmic Exploration",
             Channel = ChatType.LootNotice,
@@ -420,6 +442,17 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [10874],
             StringChecks = [ChatStrings.CosmicClassPoints],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowCosmicClassPointsAndDataset",
+            SettingsTab = "Cosmic Exploration",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            LogMessageIds = LogMessageCatalog.SharedObtainTemplateIds,
+            StringChecks = [ChatStrings.CosmicToolMasteryPoints],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },

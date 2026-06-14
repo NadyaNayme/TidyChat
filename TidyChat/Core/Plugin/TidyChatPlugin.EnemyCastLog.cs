@@ -15,7 +15,6 @@ public sealed partial class TidyChatPlugin
             case EnemyCastLogAction.RecordReadies:
                 return false;
             case EnemyCastLogAction.SuppressUses:
-                LogBlockedChat(["BetterEnemyCastLog"], message.Message.TextValue);
                 message.PreventOriginal();
                 Interlocked.Increment(ref _sessionBlockedMessages);
                 return true;

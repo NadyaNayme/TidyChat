@@ -101,9 +101,22 @@ public class LogMessageChatSyncTests
     {
         foreach (var chatType in PlayerChannels)
         {
+            Assert.That(LogMessageChatSync.IsPlayerAuthoredChannel(chatType), Is.True,
+                () => $"{chatType} should be classified as player-authored");
             Assert.That(LogMessageChatSync.ParticipatesInLogMessageChatSync(chatType), Is.False,
                 () => $"{chatType} must not inherit LogMessage blocks");
         }
+    }
+
+    [Test]
+    public void Pending_log_message_sync_skips_player_authored_channels()
+    {
+        Assert.That(
+            LogMessageChatSync.PendingTextMatchesOnChannel(
+                1232,
+                ChatType.Say,
+                "is there a way to get the big spider tank as a mount?"),
+            Is.False);
     }
 
     [Test]
@@ -121,6 +134,14 @@ public class LogMessageChatSyncTests
     {
         var all = Enum.GetValues<ChatType>();
         var classified = PlayerChannels.Concat(LogMessageChannels).ToHashSet();
+        foreach (var chatType in Enum.GetValues<ChatType>())
+        {
+            if (LogMessageChatSync.IsPlayerAuthoredChannel(chatType))
+            {
+                classified.Add(chatType);
+            }
+        }
+
         var missing = all.Where(t => !classified.Contains(t)).ToArray();
 
         Assert.That(missing, Is.Empty,

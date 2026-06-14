@@ -184,7 +184,17 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings StellarMissionScore = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["earn", "score"],
+        Eng = ["record", "high", "score"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+
+    /// <see href="https://xivapi.com/LogMessage/10781?pretty=true">You complete the stellar mission "…".</see>
+    public static readonly LocalizedStrings StellarMissionComplete = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["complete the", "stellar", "mission"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

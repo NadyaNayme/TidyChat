@@ -111,20 +111,26 @@ public sealed partial class TidyChatPlugin
             if (L10N.Get(ChatStrings.ChamberOpens).IsMatch(normalizedText))
             {
                 var match = L10N.Get(ChatStrings.ChamberOpens).Match(normalizedText);
-                if (match.Groups["chamber"].Success)
+                if (match.Groups["chamber"].Success &&
+                    TreasureDungeonHelper.TryParseChamber(match.Groups["chamber"].Value, out var floor))
                 {
-                    TidyStrings.LastTreasureDungeonChamber = match.Groups["chamber"].Value;
+                    TreasureDungeonHelper.RecordGateOpened(floor);
                 }
+
                 return false;
             }
+
             if (L10N.Get(ChatStrings.TrapTriggered).IsMatch(normalizedText))
             {
-                if (TidyStrings.LastTreasureDungeonChamber.Length > 0)
+                if (TreasureDungeonHelper.TryGetExpulsionChamber(out var chamber))
                 {
-                    message.Message = Better.TreasureDungeon(Configuration);
+                    message.Message = Better.TreasureDungeon(Configuration, chamber);
                 }
+
                 return false;
             }
+
+            TreasureDungeonHelper.ClearGateAdvance();
         }
 
         if (Configuration.NormalizeBlocks &&
