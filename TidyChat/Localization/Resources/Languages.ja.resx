@@ -1,65 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-                                  Microsoft ResX Schema 
-                                  
-                                  Version 2.0
-                                  
-                                  The primary goals of this format is to allow a simple XML format 
-                                  that is mostly human readable. The generation and parsing of the 
-                                  various data types are done through the TypeConverter classes 
-                                  associated with the data types.
-                                  
-                                  Example:
-                                  
-                                  ... ado.net/XML headers & schema ...
-                                  <resheader name="resmimetype">text/microsoft-resx</resheader>
-                                  <resheader name="version">2.0</resheader>
-                                  <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-                                  <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-                                  <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-                                  <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-                                  <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-                                      <value>[base64 mime encoded serialized .NET Framework object]</value>
-                                  </data>
-                                  <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-                                      <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-                                      <comment>This is a comment</comment>
-                                  </data>
-                                  
-                                  There are any number of "resheader" rows that contain simple 
-                                  name/value pairs.
-                                  
-                                  Each data row contains a name, and value. The row also contains a 
-                                  type or mimetype. Type corresponds to a .NET class that support 
-                                  text/value conversion through the TypeConverter architecture. 
-                                  Classes that don't support this are serialized and stored with the 
-                                  mimetype set.
-                                  
-                                  The mimetype is used for serialized objects, and tells the 
-                                  ResXResourceReader how to depersist the object. This is currently not 
-                                  extensible. For a given mimetype the value must be set accordingly:
-                                  
-                                  Note - application/x-microsoft.net.object.binary.base64 is the format 
-                                  that the ResXResourceWriter will generate, however the reader can 
-                                  read any of the formats listed below.
-                                  
-                                  mimetype: application/x-microsoft.net.object.binary.base64
-                                  value   : The object must be serialized with 
-                                          : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-                                          : and then encoded with base64 encoding.
-                                  
-                                  mimetype: application/x-microsoft.net.object.soap.base64
-                                  value   : The object must be serialized with 
-                                          : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-                                          : and then encoded with base64 encoding.
-                                  
-                                  mimetype: application/x-microsoft.net.object.bytearray.base64
-                                  value   : The object must be serialized into a byte array 
-                                          : using a System.ComponentModel.TypeConverter
-                                          : and then encoded with base64 encoding.
-                                  -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+  <schema/>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -1873,6 +1907,12 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GeneralTab_BlockedMessages" xml:space="preserve">
     <value>Tidy Chat has blocked {0:n0} messages so far</value>
   </data>
+  <data name="GeneralTab_CondenseEnemyCastLog" xml:space="preserve">
+    <value>Condense enemy cast log (readies / uses)</value>
+  </data>
+  <data name="GeneralTab_CondenseEnemyCastLogHelpMarker" xml:space="preserve">
+    <value>Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Optional sub-option also hides instant enemy abilities with no prior readies. Does not affect your own casts.</value>
+  </data>
   <data name="GeneralTab_CopySayMessage" xml:space="preserve">
     <value>Automatically copy improved /say message to clipboard</value>
   </data>
@@ -1921,6 +1961,12 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
     <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party, Duty, Progress tab quest lines, Crafting/Gathering stellar/cosmic system lines, and similar). When disabled, those channels are not filtered here.</value>
   </data>
+  <data name="GeneralTab_HideEnemyInstantCasts" xml:space="preserve">
+    <value>Also hide instant enemy abilities</value>
+  </data>
+  <data name="GeneralTab_HideEnemyInstantCastsHelpMarker" xml:space="preserve">
+    <value>Hides enemy “uses …” lines that had no matching “readies …” telegraph first.</value>
+  </data>
   <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
     <value>Include completed duty with commendations message</value>
   </data>
@@ -1944,18 +1990,6 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   </data>
   <data name="GeneralTab_ImprovedMarkBillMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 4415 — rewrites obtain lines such as “You obtain a stack of elite Dawn Hunt bills.” into a single short line and hides the follow-up “Mark details can viewed at any time…” reminder.</value>
-  </data>
-  <data name="GeneralTab_CondenseEnemyCastLog" xml:space="preserve">
-    <value>Condense enemy cast log (readies / uses)</value>
-  </data>
-  <data name="GeneralTab_CondenseEnemyCastLogHelpMarker" xml:space="preserve">
-    <value>Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Optional sub-option also hides instant enemy abilities with no prior readies. Does not affect your own casts.</value>
-  </data>
-  <data name="GeneralTab_HideEnemyInstantCasts" xml:space="preserve">
-    <value>Also hide instant enemy abilities</value>
-  </data>
-  <data name="GeneralTab_HideEnemyInstantCastsHelpMarker" xml:space="preserve">
-    <value>Hides enemy “uses …” lines that had no matching “readies …” telegraph first.</value>
   </data>
   <data name="GeneralTab_ImprovedMarketBoardSale" xml:space="preserve">
     <value>Improved market board &amp; retainer sale lines</value>
@@ -2357,6 +2391,12 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   </data>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 590, 591 — eg. You attain level 90! / Raven attains astrologian level 69!</value>
+  </data>
+  <data name="ProgressTab_ShowMettleGainMessages" xml:space="preserve">
+    <value>Show mettle gain messages</value>
+  </data>
+  <data name="ProgressTab_ShowMettleGainMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 9635 — eg. You gain 12,480 mettle. Bozja/Eureka-style mettle progression on the Progress channel (Filter Progress channel on General).</value>
   </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3921, 9454 — eg. Player attains level 33! Uses the system channel.</value>
