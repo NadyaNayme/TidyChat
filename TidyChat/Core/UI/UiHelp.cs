@@ -15,6 +15,7 @@ internal static class UiHelp
     private static readonly HashSet<string> ProgressFilterHelpMarkers = new(StringComparer.Ordinal)
     {
         nameof(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker),
+        nameof(Languages.ProgressTab_ShowMettleGainMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowPvpExpGainMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowPvpRankMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowSeriesProgressMessagesHelpMarker),

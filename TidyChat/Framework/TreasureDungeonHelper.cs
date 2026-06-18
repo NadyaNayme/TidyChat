@@ -1,5 +1,4 @@
 using Dalamud.Game;
-
 namespace TidyChat.Utility;
 
 internal static class TreasureDungeonHelper

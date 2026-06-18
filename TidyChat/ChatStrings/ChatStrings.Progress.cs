@@ -156,6 +156,15 @@ public static partial class ChatStrings
         Fra = ["expérience", "point"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/9635?pretty=true">You gain N mettle.</see>
+    public static readonly LocalizedStrings GainMettle = new()
+    {
+        Jpn = ["戦果"],
+        Eng = ["gain", "mettle"],
+        Deu = ["frontwissen"],
+        Fra = ["faits", "armes"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/10803?pretty=true">You submitted … points toward the … dataset.</see>
     public static readonly LocalizedStrings CosmicDatasetSubmitted = new()
     {

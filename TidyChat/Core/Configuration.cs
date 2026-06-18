@@ -265,6 +265,7 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedShards { get; set; } = false;
 
     public bool ShowGainExperience { get; set; } = false;
+    public bool ShowGainMettle { get; set; } = false;
     public bool HideRouletteBonus { get; set; } = false;
     public bool HideAdventurerInNeedBonus { get; set; } = false;
     public bool ShowGainPvpExp { get; set; } = false;

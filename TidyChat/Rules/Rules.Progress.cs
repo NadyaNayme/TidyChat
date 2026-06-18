@@ -28,6 +28,17 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowGainMettle",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [9635],
+            StringChecks = [ChatStrings.GainMettle],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowGainExperience",
             SettingsTab = "Progress",
             Channel = ChatType.BattleSystem,

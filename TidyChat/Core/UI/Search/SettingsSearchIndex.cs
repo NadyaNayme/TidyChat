@@ -559,6 +559,7 @@ internal static class SettingsSearchIndex
         if (propertyName is "HideRouletteBonus" or
             "HideAdventurerInNeedBonus" or
             "ShowGainExperience" or
+            "ShowGainMettle" or
             "ShowGainPvpExp" or
             "ShowGainPvpRank" or
             "ShowGainSeriesExp" or

@@ -22,6 +22,7 @@ internal static class SettingsPropertyLabelKeys
         ["HideObtainedWolfMarks"] = nameof(Languages.CurrenciesTab_HideWolfMarksMessages),
         ["HideTomestoneWeeklyCap"] = nameof(Languages.CurrenciesTab_HideTomestoneWeeklyCapMessages),
         ["ShowGainExperience"] = nameof(Languages.ProgressTab_ShowExperienceGainMessages),
+        ["ShowGainMettle"] = nameof(Languages.ProgressTab_ShowMettleGainMessages),
         ["ShowGainPvpExp"] = nameof(Languages.ProgressTab_ShowPvpExpGainMessages),
         ["ShowGainPvpRank"] = nameof(Languages.ProgressTab_ShowPvpRankMessages),
         ["ShowGainSeriesExp"] = nameof(Languages.ProgressTab_ShowSeriesProgressMessages),

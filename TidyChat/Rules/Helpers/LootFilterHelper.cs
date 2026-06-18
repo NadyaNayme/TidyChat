@@ -1,5 +1,3 @@
-using TidyChat.Localization.Data;
-
 namespace TidyChat;
 
 internal static class LootFilterHelper

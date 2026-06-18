@@ -2746,7 +2746,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show cosmic class points and dataset submission.
+        ///   Looks up a localized string similar to Show cosmic class points, tool mastery, and dataset submission.
         /// </summary>
         internal static string GatheringTab_ShowCosmicClassPointsAndDataset {
             get {
@@ -2755,7 +2755,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10874 (System), 10803 (Progress) — class points and dataset submission. Needs Filter System and Filter Progress on General..
+        ///   Looks up a localized string similar to LogMessages 10874 (System), 10803 (Progress), 657/1259 (Loot Notice) — class points, tool mastery obtains, and dataset submission. Needs Filter System, Filter Progress, and Filter Obtained on General..
         /// </summary>
         internal static string GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker {
             get {
@@ -2809,7 +2809,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10787–10789, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions, mech-op directives, and red-alert lines. Needs Filter System on General..
+        ///   Looks up a localized string similar to LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions (incl. sizable), mech-op directives, and red-alert lines. Needs Filter System on General..
         /// </summary>
         internal static string GatheringTab_ShowCosmicExplorationMessagesHelpMarker {
             get {
@@ -3216,6 +3216,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Condense enemy cast log (readies / uses).
+        /// </summary>
+        internal static string GeneralTab_CondenseEnemyCastLog {
+            get {
+                return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Optional sub-option also hides instant enemy abilities with no prior readies. Does not affect your own casts..
+        /// </summary>
+        internal static string GeneralTab_CondenseEnemyCastLogHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLogHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Automatically copy improved /say message to clipboard.
         /// </summary>
         internal static string GeneralTab_CopySayMessage {
@@ -3360,6 +3378,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Also hide instant enemy abilities.
+        /// </summary>
+        internal static string GeneralTab_HideEnemyInstantCasts {
+            get {
+                return ResourceManager.GetString("GeneralTab_HideEnemyInstantCasts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hides enemy “uses …” lines that had no matching “readies …” telegraph first..
+        /// </summary>
+        internal static string GeneralTab_HideEnemyInstantCastsHelpMarker {
+            get {
+                return ResourceManager.GetString("GeneralTab_HideEnemyInstantCastsHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Include completed duty with commendations message.
         /// </summary>
         internal static string GeneralTab_ImprovedCommendationsDutyName {
@@ -3428,42 +3464,6 @@ namespace TidyChat.Localization.Resources {
         internal static string GeneralTab_ImprovedMarkBillMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("GeneralTab_ImprovedMarkBillMessagesHelpMarker", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Condense enemy cast log (readies / uses).
-        /// </summary>
-        internal static string GeneralTab_CondenseEnemyCastLog {
-            get {
-                return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLog", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Instant abilities with no prior readies still show. Does not affect your own casts..
-        /// </summary>
-        internal static string GeneralTab_CondenseEnemyCastLogHelpMarker {
-            get {
-                return ResourceManager.GetString("GeneralTab_CondenseEnemyCastLogHelpMarker", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Also hide instant enemy abilities.
-        /// </summary>
-        internal static string GeneralTab_HideEnemyInstantCasts {
-            get {
-                return ResourceManager.GetString("GeneralTab_HideEnemyInstantCasts", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Hides enemy “uses …” lines that had no matching “readies …” telegraph first..
-        /// </summary>
-        internal static string GeneralTab_HideEnemyInstantCastsHelpMarker {
-            get {
-                return ResourceManager.GetString("GeneralTab_HideEnemyInstantCastsHelpMarker", resourceCulture);
             }
         }
         
@@ -4655,6 +4655,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show mettle gain messages.
+        /// </summary>
+        internal static string ProgressTab_ShowMettleGainMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowMettleGainMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 9635 — eg. You gain 12,480 mettle. Bozja/Eureka-style mettle progression on the Progress channel (Filter Progress channel on General)..
+        /// </summary>
+        internal static string ProgressTab_ShowMettleGainMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowMettleGainMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LogMessages 3921, 9454 — eg. Player attains level 33! Uses the system channel..
         /// </summary>
         internal static string ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker {
@@ -5263,7 +5281,7 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("SystemTab_ShowPersonalMessageBookMessagesHelpMarker", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Show volume control messages.
         /// </summary>
@@ -5272,7 +5290,7 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("SystemTab_ShowVolumeControlMessages", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 3860–3866 — eg. Master volume muted, BGM volume set to 50%..
         /// </summary>
@@ -5281,7 +5299,7 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("SystemTab_ShowVolumeControlMessagesHelpMarker", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Social.
         /// </summary>

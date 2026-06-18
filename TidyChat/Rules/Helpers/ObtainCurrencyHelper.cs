@@ -69,6 +69,12 @@ internal static class ObtainCurrencyHelper
         ChatStrings.ReceivedGilMarker
     ];
 
+    private static readonly LocalizedStrings[] BroadCatalogMissStringChecks =
+    [
+        ChatStrings.ObtainedGilMarker,
+        ChatStrings.CosmicRedAlert
+    ];
+
     public static bool ShouldAllowLootNoticeObtain(
         Configuration config,
         string normalizedText,
@@ -425,12 +431,6 @@ internal static class ObtainCurrencyHelper
 
         return L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText);
     }
-
-    private static readonly LocalizedStrings[] BroadCatalogMissStringChecks =
-    [
-        ChatStrings.ObtainedGilMarker,
-        ChatStrings.CosmicRedAlert
-    ];
 
     /// <summary>
     ///     When <see cref="LocalizedFilterRule.PreferLogMessageCatalog" /> is set, string checks should not

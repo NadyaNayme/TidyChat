@@ -63,121 +63,121 @@ internal static class WhitelistTab
             ImGui.TableHeadersRow();
             var list = configuration.Whitelist.ToList();
             for (var i = -1; i < list.Count; i++)
-        {
-            ImGui.TableNextRow();
-            var alias = i < 0 ? m_placeholder : list[i];
+            {
+                ImGui.TableNextRow();
+                var alias = i < 0 ? m_placeholder : list[i];
 
             #region Channels Column
 
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            if (ImGui.CollapsingHeader($"{FormatChannelSummary(alias.WhitelistedChannels)}##whitelist{i}ChannelsHeader"))
-            {
-                DrawChannelCheckboxes(configuration, alias, i);
-            }
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
+                if (ImGui.CollapsingHeader($"{FormatChannelSummary(alias.WhitelistedChannels)}##whitelist{i}ChannelsHeader"))
+                {
+                    DrawChannelCheckboxes(configuration, alias, i);
+                }
 
-            ImGui.Spacing();
+                ImGui.Spacing();
 
             #endregion Channels Column
 
             #region Player Column
 
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            if (i == -1)
-            {
-                ImGui.TextUnformatted(Languages.WhitelistTab_MessageContains);
-            }
-
-            ImGui.SetNextItemWidth(-1);
-            if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 120,
-                    ImGuiInputTextFlags.EnterReturnsTrue))
-            {
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
                 if (i == -1)
                 {
-                    configuration.Whitelist.Insert(0, alias);
-                    m_placeholder = new();
+                    ImGui.TextUnformatted(Languages.WhitelistTab_MessageContains);
                 }
 
-                configuration.OnSettingChanged();
-            }
-
-            if (i != -1 && !alias.IsRegex)
-            {
-                var matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
-                    ? Languages.WhitelistTab_MatchModeExactSender
-                    : Languages.WhitelistTab_MatchModeMessageContains;
                 ImGui.SetNextItemWidth(-1);
-                using (ImRaii.Combo($"##whitelist{i}MatchMode", matchPreview))
+                if (ImGui.InputText($"##whitelist{i}FirstNameInput", ref alias.FirstName, 120,
+                        ImGuiInputTextFlags.EnterReturnsTrue))
                 {
-                    if (ImGui.Selectable(Languages.WhitelistTab_MatchModeMessageContains,
-                            alias.MatchMode == PlayerNameMatchMode.MessageContains))
+                    if (i == -1)
                     {
-                        alias.MatchMode = PlayerNameMatchMode.MessageContains;
-                        configuration.OnSettingChanged();
+                        configuration.Whitelist.Insert(0, alias);
+                        m_placeholder = new();
                     }
-                    if (ImGui.Selectable(Languages.WhitelistTab_MatchModeExactSender,
-                            alias.MatchMode == PlayerNameMatchMode.ExactSender))
+
+                    configuration.OnSettingChanged();
+                }
+
+                if (i != -1 && !alias.IsRegex)
+                {
+                    var matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
+                        ? Languages.WhitelistTab_MatchModeExactSender
+                        : Languages.WhitelistTab_MatchModeMessageContains;
+                    ImGui.SetNextItemWidth(-1);
+                    using (ImRaii.Combo($"##whitelist{i}MatchMode", matchPreview))
                     {
-                        alias.MatchMode = PlayerNameMatchMode.ExactSender;
-                        configuration.OnSettingChanged();
+                        if (ImGui.Selectable(Languages.WhitelistTab_MatchModeMessageContains,
+                                alias.MatchMode == PlayerNameMatchMode.MessageContains))
+                        {
+                            alias.MatchMode = PlayerNameMatchMode.MessageContains;
+                            configuration.OnSettingChanged();
+                        }
+                        if (ImGui.Selectable(Languages.WhitelistTab_MatchModeExactSender,
+                                alias.MatchMode == PlayerNameMatchMode.ExactSender))
+                        {
+                            alias.MatchMode = PlayerNameMatchMode.ExactSender;
+                            configuration.OnSettingChanged();
+                        }
                     }
                 }
-            }
 
-            ImGuiHelpers.ScaledDummy(10f);
+                ImGuiHelpers.ScaledDummy(10f);
 
             #endregion Player Column
 
             #region Allow Column
 
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            if (i == -1)
-            { }
-            else
-            {
-                var previewValue = "";
-                if (alias.AllowMessage)
-                {
-                    previewValue = Languages.WhitelistTab_Allow;
-                }
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
+                if (i == -1)
+                { }
                 else
                 {
-                    previewValue = Languages.WhitelistTab_Block;
-                }
-                ImGui.SetNextItemWidth(-1);
-                using (ImRaii.Combo($"##whitelist{i}AllowSetting", previewValue))
-                {
-                    if (ImGui.Selectable($"{Languages.WhitelistTab_Allow}##{i}", alias.AllowMessage))
+                    var previewValue = "";
+                    if (alias.AllowMessage)
                     {
-                        alias.AllowMessage = true;
-                        configuration.OnSettingChanged();
+                        previewValue = Languages.WhitelistTab_Allow;
                     }
+                    else
+                    {
+                        previewValue = Languages.WhitelistTab_Block;
+                    }
+                    ImGui.SetNextItemWidth(-1);
+                    using (ImRaii.Combo($"##whitelist{i}AllowSetting", previewValue))
+                    {
+                        if (ImGui.Selectable($"{Languages.WhitelistTab_Allow}##{i}", alias.AllowMessage))
+                        {
+                            alias.AllowMessage = true;
+                            configuration.OnSettingChanged();
+                        }
 
-                    if (ImGui.Selectable($"{Languages.WhitelistTab_Block}##{i}", !alias.AllowMessage))
-                    {
-                        alias.AllowMessage = false;
-                        configuration.OnSettingChanged();
+                        if (ImGui.Selectable($"{Languages.WhitelistTab_Block}##{i}", !alias.AllowMessage))
+                        {
+                            alias.AllowMessage = false;
+                            configuration.OnSettingChanged();
+                        }
                     }
                 }
-            }
 
             #endregion Allow Column
 
 
             #region Delete Column
 
-            ImGui.TableNextColumn();
-            ImGui.Spacing();
-            using (ImRaii.PushId($"Delete{i}"))
-            {
-                if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+                ImGui.TableNextColumn();
+                ImGui.Spacing();
+                using (ImRaii.PushId($"Delete{i}"))
                 {
-                    configuration.Whitelist.Remove(list[i]);
-                    configuration.OnSettingChanged();
+                    if (i != -1 && ImGuiComponents.IconButton(FontAwesomeIcon.Trash))
+                    {
+                        configuration.Whitelist.Remove(list[i]);
+                        configuration.OnSettingChanged();
+                    }
                 }
-            }
 
             #endregion Delete Column
             }

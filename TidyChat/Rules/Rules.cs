@@ -176,6 +176,7 @@ public static partial class Rules
         ["HideObtainedNuts"] = c => c.HideObtainedNuts,
         ["HideObtainedMaterials"] = c => c.HideObtainedMaterials,
         ["ShowGainExperience"] = c => c.ShowGainExperience,
+        ["ShowGainMettle"] = c => c.ShowGainMettle,
         ["ShowGainPvpExp"] = c => c.ShowGainPvpExp,
         ["ShowGainPvpRank"] = c => c.ShowGainPvpRank,
         ["ShowGainSeriesExp"] = c => c.ShowGainSeriesExp,

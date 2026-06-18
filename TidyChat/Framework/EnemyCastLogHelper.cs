@@ -1,5 +1,4 @@
 using System.Threading;
-
 namespace TidyChat.Utility;
 
 internal enum EnemyCastLogAction
@@ -15,8 +14,6 @@ internal static class EnemyCastLogHelper
 
     private static readonly Lock Sync = new();
     private static readonly Dictionary<string, PendingCast> PendingByActor = new(StringComparer.OrdinalIgnoreCase);
-
-    internal readonly record struct PendingCast(string NormalizedAbility, long RecordedAtUtcMs);
 
     internal static void Clear()
     {
@@ -80,7 +77,7 @@ internal static class EnemyCastLogHelper
 
         lock (Sync)
         {
-            PendingByActor[actorKey] = new PendingCast(abilityKey, UtcNowMs());
+            PendingByActor[actorKey] = new(abilityKey, UtcNowMs());
         }
     }
 
@@ -144,4 +141,6 @@ internal static class EnemyCastLogHelper
     }
 
     private static long UtcNowMs() => DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+
+    internal readonly record struct PendingCast(string NormalizedAbility, long RecordedAtUtcMs);
 }

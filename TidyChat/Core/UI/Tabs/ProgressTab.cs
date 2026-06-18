@@ -25,6 +25,15 @@ internal static class ProgressTab
 
         UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker);
 
+        var showGainMettle = configuration.ShowGainMettle;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowMettleGainMessages, ref showGainMettle))
+        {
+            configuration.ShowGainMettle = showGainMettle;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowMettleGainMessagesHelpMarker);
+
         var showGainPvpExp = configuration.ShowGainPvpExp;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowPvpExpGainMessages, ref showGainPvpExp))
         {

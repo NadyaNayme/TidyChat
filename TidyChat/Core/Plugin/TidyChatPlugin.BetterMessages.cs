@@ -1,6 +1,4 @@
 using System.Threading;
-using TidyStrings = TidyChat.Utility.InternalStrings;
-
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
