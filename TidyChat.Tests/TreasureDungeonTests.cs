@@ -1,7 +1,6 @@
 using Dalamud.Game;
 using NUnit.Framework;
 using TidyChat.Utility;
-
 namespace TidyChat.Tests;
 
 [TestFixture]
@@ -67,8 +66,5 @@ public class TreasureDungeonTests
     [TestCase(1, "1st")]
     [TestCase(3, "3rd")]
     [TestCase(6, "6th")]
-    public void FormatChamber_uses_english_ordinals(int floor, string expected)
-    {
-        Assert.That(TreasureDungeonHelper.FormatChamber(floor), Is.EqualTo(expected));
-    }
+    public void FormatChamber_uses_english_ordinals(int floor, string expected) => Assert.That(TreasureDungeonHelper.FormatChamber(floor), Is.EqualTo(expected));
 }

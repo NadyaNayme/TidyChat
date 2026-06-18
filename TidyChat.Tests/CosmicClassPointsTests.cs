@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using TidyChat.Settings;
-
 namespace TidyChat.Tests;
 
 [TestFixture]

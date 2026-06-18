@@ -1,15 +1,11 @@
 using NUnit.Framework;
-
 namespace TidyChat.Tests;
 
 [TestFixture]
 public class RuleOrderTests
 {
     [Test]
-    public void AllRules_count_matches_snapshot()
-    {
-        Assert.That(Rules.AllRules.Length, Is.EqualTo(RuleOrderSnapshot.ExpectedRuleCount));
-    }
+    public void AllRules_count_matches_snapshot() => Assert.That(Rules.AllRules.Length, Is.EqualTo(RuleOrderSnapshot.ExpectedRuleCount));
 
     [Test]
     public void AllRules_order_hash_matches_snapshot()
@@ -18,7 +14,7 @@ public class RuleOrderTests
         Assert.That(hash, Is.EqualTo(RuleOrderSnapshot.ExpectedOrderHash));
     }
 
-    [Test, Explicit("Run locally to refresh RuleOrderSnapshot constants after intentional reorder.")]
+    [Test] [Explicit("Run locally to refresh RuleOrderSnapshot constants after intentional reorder.")]
     public void Print_rule_order_snapshot()
     {
         var rules = Rules.AllRules;

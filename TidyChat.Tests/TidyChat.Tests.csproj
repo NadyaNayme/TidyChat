@@ -10,13 +10,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-        <PackageReference Include="NUnit" Version="4.3.2" />
-        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
+        <PackageReference Include="NUnit" Version="4.3.2"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="5.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\TidyChat\TidyChat.csproj" />
+        <ProjectReference Include="..\TidyChat\TidyChat.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -32,8 +32,8 @@
 
     <Target Name="CopyDalamudHookDeps" AfterTargets="Build">
         <ItemGroup>
-            <HookDlls Include="$(DalamudLibPath)\*.dll" />
+            <HookDlls Include="$(DalamudLibPath)\*.dll"/>
         </ItemGroup>
-        <Copy SourceFiles="@(HookDlls)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+        <Copy SourceFiles="@(HookDlls)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true"/>
     </Target>
 </Project>

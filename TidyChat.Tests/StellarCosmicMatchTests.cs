@@ -1,8 +1,6 @@
 using Dalamud.Game;
 using NUnit.Framework;
 using TidyChat.Localization.Data;
-using TidyChat.Settings;
-
 namespace TidyChat.Tests;
 
 [TestFixture]

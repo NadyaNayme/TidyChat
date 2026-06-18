@@ -1,7 +1,6 @@
 using ChatTwo.Code;
 using NUnit.Framework;
 using TidyChat.Utility;
-
 namespace TidyChat.Tests;
 
 [TestFixture]
@@ -109,15 +108,12 @@ public class LogMessageHelperTests
     }
 
     [Test]
-    public void Pending_log_message_sync_skips_player_authored_channels()
-    {
-        Assert.That(
-            LogMessageHelper.PendingTextMatchesOnChannel(
-                1232,
-                ChatType.Say,
-                "is there a way to get the big spider tank as a mount?"),
-            Is.False);
-    }
+    public void Pending_log_message_sync_skips_player_authored_channels() => Assert.That(
+        LogMessageHelper.PendingTextMatchesOnChannel(
+            1232,
+            ChatType.Say,
+            "is there a way to get the big spider tank as a mount?"),
+        Is.False);
 
     [Test]
     public void Log_message_channels_participate_in_chat_sync()

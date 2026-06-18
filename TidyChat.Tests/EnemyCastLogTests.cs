@@ -1,7 +1,6 @@
 using Dalamud.Game;
 using NUnit.Framework;
 using TidyChat.Utility;
-
 namespace TidyChat.Tests;
 
 [TestFixture]
@@ -46,7 +45,7 @@ public class EnemyCastLogTests
     [Test]
     public void Instant_uses_without_readies_is_suppressed_when_enabled()
     {
-        var uses = EnemyCastLogHelper.Handle("kefka uses spellwave.", hideInstantUses: true);
+        var uses = EnemyCastLogHelper.Handle("kefka uses spellwave.", true);
         Assert.That(uses, Is.EqualTo(EnemyCastLogAction.SuppressUses));
     }
 
@@ -71,8 +70,5 @@ public class EnemyCastLogTests
 
     [TestCase("Future's End.", "future's end")]
     [TestCase("Spellwave. (2x)", "spellwave")]
-    public void NormalizeAbility_strips_trailing_noise(string input, string expected)
-    {
-        Assert.That(EnemyCastLogHelper.NormalizeAbility(input), Is.EqualTo(expected));
-    }
+    public void NormalizeAbility_strips_trailing_noise(string input, string expected) => Assert.That(EnemyCastLogHelper.NormalizeAbility(input), Is.EqualTo(expected));
 }

@@ -1,13 +1,10 @@
 using NUnit.Framework;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using TidyChat;
 using TidyChat.Localization.Data;
 using TidyChat.Localization.Resources;
 using TidyChat.Settings;
 using TidyChat.Settings.Search;
-using ChatType = ChatTwo.Code.ChatType;
-
 namespace TidyChat.Tests;
 
 /// <summary>
