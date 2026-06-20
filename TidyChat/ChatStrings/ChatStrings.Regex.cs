@@ -9,6 +9,15 @@ public static partial class ChatStrings
 
     private static readonly TimeSpan RegexTimeout = TimeSpan.FromSeconds(1);
 
+    /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
+    public static readonly LocalizedRegex ObtainedVenture = new()
+    {
+        Jpn = new(@"NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^you obtain (?:a venture|(?:\d{1,3},)?\d{1,3} ventures)\.$", RegexOptions, RegexTimeout),
+        Deu = new(@"NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous obtenez (?:une venture|\d{1,6} ventures)\.$", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
     public static readonly LocalizedRegex ObtainedWolfMarks = new()
     {

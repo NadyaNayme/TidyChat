@@ -48,6 +48,11 @@ public static class ItemMarkerCatalog
 
     public static bool Matches(uint itemId, string normalizedText, LocalizedStrings? fallback = null)
     {
+        if (itemId == Items.Venture)
+        {
+            return L10N.Get(ChatStrings.ObtainedVenture).IsMatch(normalizedText);
+        }
+
         if (MarkersByItemId.TryGetValue(itemId, out var tokens) && tokens.All(normalizedText.Contains))
         {
             return true;

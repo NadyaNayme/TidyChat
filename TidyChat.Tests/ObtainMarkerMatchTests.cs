@@ -43,11 +43,34 @@ public class ObtainMarkerMatchTests
             Is.EqualTo("HideObtainedMGP"));
     }
 
+    [Test]
+    public void Venture_coffer_does_not_match_venture_hide_rule_or_dedicated_obtain_type()
+    {
+        var text = "you obtain a venture coffer.";
+        var ventureRule = FindObtainMarkerRule("HideObtainedVenture", obtainMarkerItemId: ItemMarkerCatalog.Items.Venture);
+
+        Assert.That(RuleMatcher.MatchesText(ventureRule, text, out _), Is.False);
+        Assert.That(ObtainCurrencyHelper.HasDedicatedObtainType(text), Is.False);
+        Assert.That(ObtainCurrencyHelper.IsGenericItemObtainLine(text), Is.True);
+    }
+
+    [Test]
+    public void Venture_currency_obtain_still_matches_venture_hide_rule()
+    {
+        var text = "you obtain a venture.";
+        var ventureRule = FindObtainMarkerRule("HideObtainedVenture", obtainMarkerItemId: ItemMarkerCatalog.Items.Venture);
+
+        Assert.That(RuleMatcher.MatchesText(ventureRule, text, out _), Is.True);
+        Assert.That(ObtainCurrencyHelper.GetAllowBecauseHideOffRuleName(new(), text),
+            Is.EqualTo("HideObtainedVenture"));
+    }
+
     private static LocalizedFilterRule FindObtainMarkerRule(string name, bool obtainMarkerGil = false,
-        bool obtainMarkerMgp = false) =>
+        bool obtainMarkerMgp = false, uint? obtainMarkerItemId = null) =>
         Rules.AllRules.First(rule =>
             string.Equals(rule.Name, name, StringComparison.Ordinal) &&
             rule.ObtainMarkerGil == obtainMarkerGil &&
             rule.ObtainMarkerMgp == obtainMarkerMgp &&
+            rule.ObtainMarkerItemId == obtainMarkerItemId &&
             rule.LogMessageIds?.SequenceEqual(LogMessageCatalog.SharedObtainTemplateIds) == true);
 }

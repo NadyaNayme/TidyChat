@@ -52,6 +52,7 @@ internal static class ObtainCurrencyHelper
 
     private static readonly (LocalizedStrings Marker, LocalizedRegex Regex)[] DedicatedObtainRegexByMarker =
     [
+        (ChatStrings.ObtainVentureMarker, ChatStrings.ObtainedVenture),
         (ChatStrings.ObtainWolfMarks, ChatStrings.ObtainedWolfMarks),
         (ChatStrings.ObtainAlliedSealsMarker, ChatStrings.ObtainedAlliedSeals),
         (ChatStrings.ObtainCenturioSealsMarker, ChatStrings.ObtainedCenturioSeals),
@@ -178,8 +179,22 @@ internal static class ObtainCurrencyHelper
 
     public static bool HasDedicatedObtainType(string normalizedText)
     {
+        foreach ((_, var regex) in DedicatedObtainRegexByMarker)
+        {
+            if (L10N.Get(regex).IsMatch(normalizedText))
+            {
+                return true;
+            }
+        }
+
+        var regexMarkers = new HashSet<LocalizedStrings>(DedicatedObtainRegexByMarker.Select(pair => pair.Marker));
         foreach (var marker in DedicatedObtainTypeMarkers)
         {
+            if (regexMarkers.Contains(marker))
+            {
+                continue;
+            }
+
             if (TextMatchHelper.MatchesAllTokens(normalizedText, marker))
             {
                 return true;
@@ -292,6 +307,11 @@ internal static class ObtainCurrencyHelper
         if (MatchesCenturioSeals(normalizedText) && !config.HideObtainedCenturioSeals)
         {
             return "HideObtainedCenturioSeals";
+        }
+
+        if (MatchesVenture(normalizedText) && !config.HideObtainedVenture)
+        {
+            return "HideObtainedVenture";
         }
 
         if (MatchesGrandCompanySeals(normalizedText) && !config.HideObtainedSeals)
@@ -421,6 +441,9 @@ internal static class ObtainCurrencyHelper
     private static bool MatchesCenturioSeals(string normalizedText) =>
         L10N.Get(ChatStrings.ObtainedCenturioSeals).IsMatch(normalizedText) ||
         TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainCenturioSealsMarker);
+
+    private static bool MatchesVenture(string normalizedText) =>
+        L10N.Get(ChatStrings.ObtainedVenture).IsMatch(normalizedText);
 
     private static bool MatchesGrandCompanySeals(string normalizedText)
     {
