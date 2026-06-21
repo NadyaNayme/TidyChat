@@ -29,6 +29,27 @@ public static class LogMessageCatalog
 
     public static bool IsLoaded { get; private set; }
 
+    internal static void LoadForTests(IReadOnlyDictionary<uint, string> templates, byte logKind = 57)
+    {
+        WordTokensById.Clear();
+        TemplateTextById.Clear();
+        LogKindById.Clear();
+        IsLoaded = false;
+
+        foreach (var (id, text) in templates)
+        {
+            LogKindById[id] = logKind;
+            TemplateTextById[id] = text;
+            var tokens = LogMessageTokenExtractor.Extract(text);
+            if (tokens.Length > 0)
+            {
+                WordTokensById[id] = tokens;
+            }
+        }
+
+        IsLoaded = templates.Count > 0;
+    }
+
     public static void Load(IDataManager dataManager, IPluginLog log)
     {
         WordTokensById.Clear();

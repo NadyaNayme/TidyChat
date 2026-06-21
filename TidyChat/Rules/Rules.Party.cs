@@ -156,6 +156,67 @@ public static partial class Rules
         }
     ];
 
+    private static readonly LocalizedFilterRule[] PartyCountdownRules =
+    [
+        new()
+        {
+            Name = "ShowPartyCountdown",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [5255, 5256, 5260, 5261, 5264],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
+    private static readonly LocalizedFilterRule[] PartyReadyCheckRules =
+    [
+        new()
+        {
+            Name = "ShowReadyCheckMessages",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3790, 3791, 3794],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowReadyCheckMessages",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3790],
+            RegexChecks = [ChatStrings.ReadyCheckCommencedRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowReadyCheckMessages",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3791],
+            RegexChecks = [ChatStrings.ReadyCheckInitiatedRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowReadyCheckMessages",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [3794],
+            RegexChecks = [ChatStrings.ReadyCheckCompleteRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
     private static readonly LocalizedFilterRule[] PartyTeleportRules =
     [
         new()

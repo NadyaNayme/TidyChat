@@ -13,7 +13,11 @@ internal static class SettingsSearchIndex
         "Enabled",
         "ShowGlamourAltered",
         "ShowLureMessages",
-        "ShowPartyDissolved"
+        "ShowPartyDissolved",
+        "ShowPartyCountdown",
+        "ShowReadyCheckMessages",
+        "ShowInvalidCommandError",
+        "ShowFriendListMessages"
     };
 
     /// <summary>
@@ -786,7 +790,7 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_EconomyTabHeader} > {Languages.EconomyTab_RepairsSectionHeader}";
         }
 
-        if (propertyName is "ShowSanctuaryMessage" or "ShowHousingWardMessage")
+        if (propertyName is "ShowSanctuaryMessage" or "ShowHousingWardMessage" or "ShowHousingLotteryMessage")
         {
             return Languages.ConfigWindow_HousingTabHeader;
         }

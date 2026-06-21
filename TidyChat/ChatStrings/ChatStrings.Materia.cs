@@ -39,15 +39,6 @@ public static partial class ChatStrings
         Fra = ["desserti", "matéria"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1954?pretty=true">You receive … (materia retrieval).</see>
-    public static readonly LocalizedStrings MateriaRetrieved = new()
-    {
-        Jpn = ["回収", "成功"],
-        Eng = ["you", "receive"],
-        Deu = ["zurückgewonnen"],
-        Fra = ["récupérez"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/1955?pretty=true">… shatters …</see>
     public static readonly LocalizedStrings MateriaShatters = new()
     {

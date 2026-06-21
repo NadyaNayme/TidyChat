@@ -2188,7 +2188,13 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Show housing ward messages</value>
   </data>
     <data name="HousingTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
-    <value>LogMessage 3379 — eg. Shirogane, Ward 15</value>
+    <value>LogMessage 3379 — eg. Shirogane, Ward 15 (PlaceName, Ward N format only)</value>
+  </data>
+    <data name="HousingTab_ShowHousingLotteryMessage" xml:space="preserve">
+    <value>Show housing lottery messages</value>
+  </data>
+    <data name="HousingTab_ShowHousingLotteryMessageHelpMarker" xml:space="preserve">
+    <value>Housing signboard UI text — eg. lottery entry confirmation and Estate tab reminder (no LogMessage ID)</value>
   </data>
     <data name="HousingTab_ShowSanctuaryMessage" xml:space="preserve">
     <value>Show sanctuary enter/leave messages</value>

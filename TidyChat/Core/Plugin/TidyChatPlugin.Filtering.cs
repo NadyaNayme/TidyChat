@@ -213,6 +213,11 @@ public sealed partial class TidyChatPlugin
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
                       Configuration.HideTomestoneById, TribalCurrencies, Configuration.HideTribalCurrencyById)))
             {
+                if (errorChannelOnlyHideRules)
+                {
+                    continue;
+                }
+
                 TrackMatchedRule(matchedRules, rule.Name);
                 isBlocked = chatType is not ChatType.LootNotice;
                 if (Configuration.EnableDebugMode)

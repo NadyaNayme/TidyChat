@@ -28,5 +28,14 @@ internal static class HousingTab
         }
 
         UiHelp.SystemFilterMarker(Languages.HousingTab_ShowHousingWardMessageHelpMarker);
+
+        var housingLotteryMessage = configuration.ShowHousingLotteryMessage;
+        if (ImGui.Checkbox(Languages.HousingTab_ShowHousingLotteryMessage, ref housingLotteryMessage))
+        {
+            configuration.ShowHousingLotteryMessage = housingLotteryMessage;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.HousingTab_ShowHousingLotteryMessageHelpMarker);
     }
 }

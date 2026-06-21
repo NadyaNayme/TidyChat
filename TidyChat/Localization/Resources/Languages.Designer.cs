@@ -3994,11 +3994,29 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3379 — eg. Shirogane, Ward 15.
+        ///   Looks up a localized string similar to LogMessage 3379 — eg. Shirogane, Ward 15 (PlaceName, Ward N format only).
         /// </summary>
         internal static string HousingTab_ShowHousingWardMessageHelpMarker {
             get {
                 return ResourceManager.GetString("HousingTab_ShowHousingWardMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show housing lottery messages.
+        /// </summary>
+        internal static string HousingTab_ShowHousingLotteryMessage {
+            get {
+                return ResourceManager.GetString("HousingTab_ShowHousingLotteryMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Housing signboard UI text — eg. lottery entry confirmation and Estate tab reminder (no LogMessage ID).
+        /// </summary>
+        internal static string HousingTab_ShowHousingLotteryMessageHelpMarker {
+            get {
+                return ResourceManager.GetString("HousingTab_ShowHousingLotteryMessageHelpMarker", resourceCulture);
             }
         }
         

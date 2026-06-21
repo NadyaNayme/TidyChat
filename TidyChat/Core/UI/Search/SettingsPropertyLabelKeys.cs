@@ -246,6 +246,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowActiveHelpEntry"] = nameof(Languages.SystemTab_ShowActiveHelpEntryMessages),
         ["ShowSanctuaryMessage"] = nameof(Languages.HousingTab_ShowSanctuaryMessage),
         ["ShowHousingWardMessage"] = nameof(Languages.HousingTab_ShowHousingWardMessage),
+        ["ShowHousingLotteryMessage"] = nameof(Languages.HousingTab_ShowHousingLotteryMessage),
 
         ["ShowSelfUsedEmotes"] = nameof(Languages.EmotesTab_ShowSelfCustomEmotes),
         ["ShowOtherCustomEmotes"] = nameof(Languages.EmotesTab_ShowOtherCustomEmotes)

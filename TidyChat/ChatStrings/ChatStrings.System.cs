@@ -98,4 +98,13 @@ public static partial class ChatStrings
         Deu = ["triple", "triad", "nicht", "erlaubt"],
         Fra = ["triple", "triad", "interdites"]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/81?pretty=true">List updated.</see>
+    public static readonly LocalizedStrings FriendListUpdated = new()
+    {
+        Jpn = ["リスト", "更新"],
+        Eng = ["list", "updated"],
+        Deu = ["liste", "aktualisiert"],
+        Fra = ["liste", "actualisée"]
+    };
 }

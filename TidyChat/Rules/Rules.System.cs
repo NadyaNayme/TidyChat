@@ -108,6 +108,53 @@ public static partial class Rules
         }
     ];
 
+    private static readonly LocalizedFilterRule[] SystemFriendListRules =
+    [
+        new()
+        {
+            Name = "ShowFriendListMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10, 78, 81, 7487],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowFriendListMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10, 7487],
+            RegexChecks = [ChatStrings.FriendRequestSentRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowFriendListMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [78],
+            RegexChecks = [ChatStrings.FriendListAddedRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowFriendListMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [81],
+            StringChecks = [ChatStrings.FriendListUpdated],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
     private static readonly LocalizedFilterRule[] SystemUtilityRules =
     [
         new()
@@ -267,6 +314,8 @@ public static partial class Rules
         rules.AddRange(HousingRules);
         rules.AddRange(ExplorationQuestReminderRules);
         rules.AddRange(PartySocialRules);
+        rules.AddRange(PartyCountdownRules);
+        rules.AddRange(PartyReadyCheckRules);
         rules.AddRange(ExplorationHuntSlainRules);
         rules.AddRange(ExplorationHuntMarkBillRules);
         rules.AddRange(SystemRelicAndStatusRules);
@@ -286,6 +335,7 @@ public static partial class Rules
         rules.AddRange(EconomyRetainerRules);
         rules.AddRange(GlamourGearsetAndJobRules);
         rules.AddRange(SystemVolumeControlRules);
+        rules.AddRange(SystemFriendListRules);
         rules.AddRange(SystemUtilityRules);
     }
 }

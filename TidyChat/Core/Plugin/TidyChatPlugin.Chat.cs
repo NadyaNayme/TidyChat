@@ -34,17 +34,24 @@ public sealed partial class TidyChatPlugin
             : LogMessageChatEffect.None;
         if (logEffect == LogMessageChatEffect.PreserveHidden)
         {
-            LogBlockedChat(["LogMessage"], message.Message.TextValue);
-            if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+            if (ChannelFilterPolicy.IsCombatLogChannel(chatType))
             {
-                message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
+                logEffect = LogMessageChatEffect.None;
             }
             else
             {
-                Interlocked.Increment(ref _sessionBlockedMessages);
-                message.PreventOriginal();
+                LogBlockedChat(["LogMessage"], message.Message.TextValue);
+                if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
+                {
+                    message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
+                }
+                else
+                {
+                    Interlocked.Increment(ref _sessionBlockedMessages);
+                    message.PreventOriginal();
+                }
+                return;
             }
-            return;
         }
 
         if (logEffect != LogMessageChatEffect.PreserveVisible)
@@ -76,6 +83,10 @@ public sealed partial class TidyChatPlugin
         List<string> rulesMatched = logEffect == LogMessageChatEffect.PreserveVisible ? ["LogMessage"] : [];
         bool isHandled;
         if (logEffect == LogMessageChatEffect.PreserveVisible)
+        {
+            isHandled = false;
+        }
+        else if (ChannelFilterPolicy.ShouldBypassChannelRules(chatType))
         {
             isHandled = false;
         }

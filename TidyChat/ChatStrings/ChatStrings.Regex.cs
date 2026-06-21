@@ -265,4 +265,97 @@ public static partial class ChatStrings
     };
 
     #endregion Treasure Dungeons
+
+    #region Housing
+
+    /// <see href="https://xivapi.com/LogMessage/3379?pretty=true">PlaceName, Ward N — housing ward entry.</see>
+    public static readonly LocalizedRegex HousingWardEntryRegex = new()
+    {
+        Jpn = new(@"^第\d+区\.?$", RegexOptions, RegexTimeout),
+        Eng = new(@"^[^,]+, ward \d+\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"\d+\. bezirk, betreten\.?$", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ - secteur \d+\.?$", RegexOptions, RegexTimeout)
+    };
+
+    /// UI strings from CmnDefHousingSignboard — no LogMessage sheet row.
+    public static readonly LocalizedRegex HousingLotteryMessageRegex = new()
+    {
+        Jpn = new(@"^(?:第\d+区 \d+番地の抽選|応募番号|ハウジング」タブ)", RegexOptions, RegexTimeout),
+        Eng = new(
+            @"(?:you have submitted a lottery entry|the status of your lottery entry can be confirmed|pending entry:)",
+            RegexOptions, RegexTimeout),
+        Deu = new(
+            @"(?:nimmst an der verlosung|losnummer und grundstücksart|verlosung teil)",
+            RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    #endregion Housing
+
+    #region Materia
+
+    /// <see href="https://xivapi.com/LogMessage/1954?pretty=true">You receive … (materia retrieval).</see>
+    public static readonly LocalizedRegex MateriaRetrievedRegex = new()
+    {
+        Jpn = new(@"回収に成功", RegexOptions, RegexTimeout),
+        Eng = new(@"^you receive .+\.$", RegexOptions, RegexTimeout),
+        Deu = new(@".+zurückgewonnen\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous récupérez .+\.$", RegexOptions, RegexTimeout)
+    };
+
+    #endregion Materia
+
+    #region Friend list
+
+    /// <see href="https://xivapi.com/LogMessage/7487?pretty=true">You send a friend request to …</see>
+    /// <seealso href="https://xivapi.com/LogMessage/10?pretty=true">Legacy friend request line.</seealso>
+    public static readonly LocalizedRegex FriendRequestSentRegex = new()
+    {
+        Jpn = new(@"^フレンド申請を送りました。", RegexOptions, RegexTimeout),
+        Eng = new(@"^you send a friend request to .+\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^du sendest .+ eine freundschaftsanfrage\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous envoyez une demande d.ami à .+\.$", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/78?pretty=true">… is now on your friend list.</see>
+    public static readonly LocalizedRegex FriendListAddedRegex = new()
+    {
+        Jpn = new(@"^のフレンドリストに追加されました。$", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:.+ )?is now on your friend list\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^.+ ist jetzt auf deiner freundesliste\.?$", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ est désormais sur votre liste d.amis\.?$", RegexOptions, RegexTimeout)
+    };
+
+    #endregion Friend list
+
+    #region Party
+
+    /// <see href="https://xivapi.com/LogMessage/3790?pretty=true">You have commenced a ready check.</see>
+    public static readonly LocalizedRegex ReadyCheckCommencedRegex = new()
+    {
+        Jpn = new(@"^レディチェックを開始しました。$", RegexOptions, RegexTimeout),
+        Eng = new(@"^you have commenced a ready check\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^du hast eine bereitschaftsanfrage gestellt\.?$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous avez lancé un appel de préparation\.?$", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3791?pretty=true">… initiated a ready check.</see>
+    public static readonly LocalizedRegex ReadyCheckInitiatedRegex = new()
+    {
+        Jpn = new(@"^がレディチェックを開始しました。$", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:.+ )?initiated a ready check\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^.+ hat eine bereitschaftsanfrage gestellt\.?$", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ a lancé un appel de préparation\.?$", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3794?pretty=true">Ready check complete.</see>
+    public static readonly LocalizedRegex ReadyCheckCompleteRegex = new()
+    {
+        Jpn = new(@"^レディチェックが完了しました。$", RegexOptions, RegexTimeout),
+        Eng = new(@"^ready check complete\.?$", RegexOptions, RegexTimeout),
+        Deu = new(@"^bereitschaftsanfrage abgeschlossen\.?$", RegexOptions, RegexTimeout),
+        Fra = new(@"^appel de préparation terminé\.?$", RegexOptions, RegexTimeout)
+    };
+
+    #endregion Party
 }

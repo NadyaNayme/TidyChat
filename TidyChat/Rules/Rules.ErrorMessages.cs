@@ -26,6 +26,16 @@ public static partial class Rules
             StringChecks = [ChatStrings.ActiveHelpEntryAdded],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowInvalidCommandError",
+            SettingsTab = "System",
+            Channel = ChatType.Error,
+            IsActive = true,
+            LogMessageIds = [725],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
         }
     ];
 }

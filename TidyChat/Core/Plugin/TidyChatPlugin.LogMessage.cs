@@ -497,13 +497,6 @@ public sealed partial class TidyChatPlugin
                 return true;
             }
 
-            if (LogMessageCatalog.GetChatTypeForId(logMessageId) is ChatType sheetChannel &&
-                rule.Channel == sheetChannel)
-            {
-                matchDetail = "channel match";
-                return true;
-            }
-
             return false;
         }
 
@@ -530,7 +523,8 @@ public sealed partial class TidyChatPlugin
         }
 
         if (LogMessageCatalog.IsLoaded && idMatches && !obtainMarkerRule &&
-            LogMessageCatalog.Matches(logMessageId, normalizedText))
+            LogMessageCatalog.Matches(logMessageId, normalizedText) &&
+            !RuleUsesTextChecks(rule))
         {
             matchDetail = "LUMINA catalog";
             return true;
@@ -538,6 +532,14 @@ public sealed partial class TidyChatPlugin
 
         return RuleMatcher.MatchesText(rule, normalizedText, out matchDetail);
     }
+
+    private static bool RuleUsesTextChecks(LocalizedFilterRule rule) =>
+        rule.Pattern switch
+        {
+            PatternKind.StringMatch => rule.StringChecks is { Count: > 0 },
+            PatternKind.RegexMatch => rule.RegexChecks is { Count: > 0 },
+            _ => false
+        };
     private void RememberLogMessageTexts(HashSet<string> target, string text)
     {
         if (string.IsNullOrWhiteSpace(text))
