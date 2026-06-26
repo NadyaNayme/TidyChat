@@ -2134,7 +2134,7 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Hide MGP</value>
   </data>
   <data name="GoldSaucerTab_HideMGPMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel).</value>
+    <value>LogMessage 4765 and shared obtain templates — eg. You obtain 117 MGP. Jumbo Cactpot ticket purchases (4735) are always shown.</value>
   </data>
   <data name="GoldSaucerTab_MgpDropdownHeader" xml:space="preserve">
     <value>MGP</value>
