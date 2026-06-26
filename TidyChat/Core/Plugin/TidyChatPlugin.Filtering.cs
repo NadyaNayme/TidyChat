@@ -361,7 +361,7 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (LootFilterHelper.ShouldShowOtherPlayerObtain(Configuration, normalizedText))
+        if (LootFilterHelper.ShouldShowOtherPlayerObtain(Configuration, chatType, normalizedText))
         {
             isBlocked = chatType is ChatType.LootNotice;
             if (Configuration.EnableDebugMode)

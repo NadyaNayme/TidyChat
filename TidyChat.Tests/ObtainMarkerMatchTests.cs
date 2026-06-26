@@ -65,6 +65,28 @@ public class ObtainMarkerMatchTests
             Is.EqualTo("HideObtainedVenture"));
     }
 
+    [Test]
+    public void Cactpot_ticket_purchase_does_not_match_hide_obtained_mgp_rules()
+    {
+        const string text =
+            "you use 100 mgp to purchase a jumbo cactpot ticket with the numbers 0459.";
+
+        foreach (var rule in Rules.AllRules.Where(r => r.Name == "HideObtainedMGP"))
+        {
+            Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.False, $"{rule.Channel}");
+        }
+    }
+
+    [Test]
+    public void Cactpot_ticket_purchase_matches_show_mgp_spending()
+    {
+        const string text =
+            "you use 100 mgp to purchase a jumbo cactpot ticket with the numbers 0459.";
+        var rule = Rules.AllRules.First(r => r.Name == "ShowMgpSpending");
+
+        Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.True);
+    }
+
     private static LocalizedFilterRule FindObtainMarkerRule(string name, bool obtainMarkerGil = false,
         bool obtainMarkerMgp = false, uint? obtainMarkerItemId = null) =>
         Rules.AllRules.First(rule =>

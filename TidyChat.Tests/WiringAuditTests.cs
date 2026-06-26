@@ -20,7 +20,6 @@ public class WiringAuditTests
         ["ShowDutyCommenceMessage"] = nameof(Configuration.BetterDutyCommenceMessage),
         ["HideDutyCommenceBriefing"] = nameof(Configuration.BetterDutyCommenceMessage),
         ["ShowInventoryItemAdded"] = nameof(Configuration.HideInventoryItemAdded),
-        ["ShowMgpSpending"] = nameof(Configuration.HideObtainedMGP)
     };
 
     /// <summary>Master toggles that gate child rules; enabled so child accessors can respond.</summary>

@@ -2,8 +2,14 @@ namespace TidyChat;
 
 internal static class LootFilterHelper
 {
-    public static bool ShouldShowOtherPlayerObtain(Configuration configuration, string normalizedText) =>
-        !configuration.HideOthersObtain && LogMessageCatalog.MatchesOtherPlayerObtain(normalizedText);
+    // HideOthersObtain only governs the loot/obtained channels (its rules live on LootRoll/LootNotice).
+    // Gathering yields render in third person ("Ren S. obtains 21 wind crystals.") and must stay under
+    // HideObtainedShards rather than being force-shown by the other-player-obtain override.
+    public static bool ShouldShowOtherPlayerObtain(Configuration configuration, ChatType? chatType,
+        string normalizedText) =>
+        chatType is ChatType.LootRoll or ChatType.LootNotice &&
+        !configuration.HideOthersObtain &&
+        LogMessageCatalog.MatchesOtherPlayerObtain(normalizedText);
 
     public static bool ShouldShowOtherPlayerLootRoll(Configuration configuration, uint logMessageId,
         string normalizedText) =>

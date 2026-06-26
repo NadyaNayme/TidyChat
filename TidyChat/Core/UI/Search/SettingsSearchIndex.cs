@@ -17,7 +17,8 @@ internal static class SettingsSearchIndex
         "ShowPartyCountdown",
         "ShowReadyCheckMessages",
         "ShowInvalidCommandError",
-        "ShowFriendListMessages"
+        "ShowFriendListMessages",
+        "ShowMgpSpending"
     };
 
     /// <summary>

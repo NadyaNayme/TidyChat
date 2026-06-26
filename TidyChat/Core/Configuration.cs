@@ -266,6 +266,10 @@ public class Configuration : IPluginConfiguration
     public bool HideInventoryItemAdded { get; set; } = true;
     public bool HideObtainedGil { get; set; } = false;
     public bool HideObtainedMGP { get; set; } = false;
+
+    /// <summary>Always on; no settings UI. Jumbo Cactpot ticket purchases (LogMessage 4735).</summary>
+    public bool ShowMgpSpending { get; set; } = true;
+
     public bool ShowGoldSaucerSwingMinigames { get; set; } = true;
     public bool HideObtainedClusters { get; set; } = false;
     public bool HideObtainedWolfMarks { get; set; } = false;

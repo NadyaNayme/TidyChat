@@ -91,8 +91,8 @@ public static partial class ChatStrings
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["mgp"],
-        Deu = ["mgp"],
-        Fra = ["mgp"]
+        Eng = ["you", "obtain", "mgp"],
+        Deu = ["mgp", "erhalten"],
+        Fra = ["obtenez", "pgs"]
     };
 }

@@ -209,7 +209,8 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        if (LootFilterHelper.ShouldShowOtherPlayerObtain(configuration, normalizedText))
+        if (LootFilterHelper.ShouldShowOtherPlayerObtain(configuration,
+                LogMessageCatalog.GetChatTypeForId(logMessageId), normalizedText))
         {
             shouldAllow = true;
             decidingRuleName = "HideOthersObtain";
@@ -503,7 +504,7 @@ public sealed partial class TidyChatPlugin
         var idMatches = rule.LogMessageIds?.Contains(logMessageId) == true;
         var obtainMarkerRule = ObtainCurrencyHelper.HasObtainMarkerConstraint(rule);
 
-        if (idMatches && rule.ShouldBlock && !obtainMarkerRule)
+        if (idMatches && rule.ShouldBlock && !obtainMarkerRule && !RuleUsesTextChecks(rule))
         {
             if (LogMessageCatalog.IsLoaded && LogMessageCatalog.HasTemplate(logMessageId))
             {

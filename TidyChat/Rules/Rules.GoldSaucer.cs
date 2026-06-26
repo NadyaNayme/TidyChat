@@ -19,18 +19,6 @@ public static partial class Rules
         {
             Name = "HideObtainedMGP",
             SettingsTab = "Gold Saucer",
-            Channel = ChatType.System,
-            IsActive = true,
-            BlockWhenActive = true,
-            LogMessageIds = [4735],
-            StringChecks = [ChatStrings.JumboCactpotTicketPurchase],
-            Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
-        },
-        new()
-        {
-            Name = "HideObtainedMGP",
-            SettingsTab = "Gold Saucer",
             Channel = ChatType.LootNotice,
             IsActive = true,
             BlockWhenActive = true,

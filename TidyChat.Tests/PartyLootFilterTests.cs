@@ -1,3 +1,4 @@
+using ChatTwo.Code;
 using Dalamud.Game;
 using NUnit.Framework;
 using TidyChat.Settings;
@@ -15,7 +16,7 @@ public class PartyLootFilterTests
         var config = new Configuration { HideOthersObtain = false };
         var text = "tiziana obtains a grand champion's foil.";
 
-        Assert.That(LootFilterHelper.ShouldShowOtherPlayerObtain(config, text), Is.True);
+        Assert.That(LootFilterHelper.ShouldShowOtherPlayerObtain(config, ChatType.LootNotice, text), Is.True);
     }
 
     [Test]
@@ -24,7 +25,17 @@ public class PartyLootFilterTests
         var config = new Configuration { HideOthersObtain = true };
         var text = "tiziana obtains a grand champion's foil.";
 
-        Assert.That(LootFilterHelper.ShouldShowOtherPlayerObtain(config, text), Is.False);
+        Assert.That(LootFilterHelper.ShouldShowOtherPlayerObtain(config, ChatType.LootNotice, text), Is.False);
+    }
+
+    [Test]
+    public void Gathering_obtain_is_not_treated_as_other_player_obtain()
+    {
+        var config = new Configuration { HideOthersObtain = false };
+        var text = "ren s. obtains 21 wind crystals.";
+
+        Assert.That(LootFilterHelper.ShouldShowOtherPlayerObtain(config, ChatType.Gathering, text), Is.False);
+        Assert.That(LootFilterHelper.ShouldShowOtherPlayerObtain(config, ChatType.LootNotice, text), Is.True);
     }
 
     [Test]

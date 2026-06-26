@@ -48,7 +48,6 @@ internal class PluginUI : Window, IDisposable
 
     private float cachedLayoutScale = -1f;
     private float? cachedMinWindowWidth;
-    private bool drewTitleBarVersion;
     private Action<Configuration> selectedTab = GeneralTab.Draw;
     private (string Label, Action<Configuration> Draw)[]? sortedTabs;
     private string? sortedTabsCulture;
@@ -83,22 +82,7 @@ internal class PluginUI : Window, IDisposable
     public override void OnClose()
     {
         configuration.PersistIfDirty();
-        TitleBarVersion.ClearCache();
         base.OnClose();
-    }
-
-    public override void PostDraw()
-    {
-        if (!drewTitleBarVersion)
-        {
-            TitleBarVersion.DrawFromWindowLookup(
-                TitleBarButtons.Count,
-                AllowPinning || AllowClickthrough,
-                WindowName);
-        }
-
-        drewTitleBarVersion = false;
-        base.PostDraw();
     }
 
     public override void PreDraw()
@@ -132,9 +116,7 @@ internal class PluginUI : Window, IDisposable
     {
         TitleBarVersion.DrawFromContext(
             TitleBarButtons.Count,
-            AllowPinning || AllowClickthrough,
-            WindowName);
-        drewTitleBarVersion = true;
+            AllowPinning || AllowClickthrough);
 
         SettingsSearch.DrawSearchBar();
         ImGui.Spacing();
