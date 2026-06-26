@@ -66,6 +66,35 @@ public class ObtainMarkerMatchTests
     }
 
     [Test]
+    public void HideObtainedShards_covers_gathering_obtain_templates()
+    {
+        // Gathering obtains for crystals/shards arrive on LootNotice with the same templates used by
+        // ShowGatheringCollectableObtains (3538, 1049, 1050, 1053, 1054). HideObtainedShards must cover them
+        // so the active-hide precedence wins over the active show rule on the LogMessage path.
+        var gatheringObtainIds = new uint[] { 3538, 1049, 1050, 1053, 1054 };
+
+        var shardRule = Rules.AllRules.FirstOrDefault(rule =>
+            string.Equals(rule.Name, "HideObtainedShards", StringComparison.Ordinal) &&
+            rule.Channel == ChatTwo.Code.ChatType.LootNotice &&
+            rule.ObtainMarkerAnyElemental &&
+            rule.LogMessageIds?.SequenceEqual(gatheringObtainIds) == true);
+
+        Assert.That(shardRule, Is.Not.Null,
+            "HideObtainedShards must cover the gathering obtain templates 3538/1049/1050/1053/1054.");
+        Assert.That(shardRule!.BlockWhenActive, Is.True);
+
+        foreach (var id in gatheringObtainIds)
+        {
+            Assert.That(Rules.LogMessageIdToRules.TryGetValue(id, out var rulesForId), Is.True, $"ID {id}");
+            Assert.That(rulesForId!.Any(r => string.Equals(r.Name, "HideObtainedShards", StringComparison.Ordinal)),
+                Is.True, $"ID {id} should map to HideObtainedShards");
+            Assert.That(rulesForId!.Any(r =>
+                string.Equals(r.Name, "ShowGatheringCollectableObtains", StringComparison.Ordinal)),
+                Is.True, $"ID {id} should still map to ShowGatheringCollectableObtains");
+        }
+    }
+
+    [Test]
     public void Cactpot_ticket_purchase_does_not_match_hide_obtained_mgp_rules()
     {
         const string text =

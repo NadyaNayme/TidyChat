@@ -2629,7 +2629,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hides elemental shards, crystals, and clusters from gathering, loot rolls, loot notices (shared obtain templates 657, 1259, 1233, 1606, 1607, 750, 751), and desynthesis (LogMessages 4322, 4323). eg. You obtain 30 ice shards.
+        ///   Looks up a localized string similar to Hides elemental shards, crystals, and clusters from gathering, loot rolls, loot notices (shared obtain templates 657, 1259, 1233, 1606, 1607, 750, 751, and gathering obtains 3538, 1049, 1050, 1053, 1054), and desynthesis (LogMessages 4322, 4323). eg. You obtain 30 ice shards.
         /// </summary>
         internal static string GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker {
             get {
