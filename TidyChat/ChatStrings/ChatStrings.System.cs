@@ -49,6 +49,15 @@ public static partial class ChatStrings
         Fra = ["total"]
     };
 
+    /// <see href="https://xivapi.com/LogMessage/859?pretty=true">/playtime — Total Play Time: N days, N hours, N minutes.</see>
+    public static readonly LocalizedStrings TotalPlayTime = new()
+    {
+        Jpn = ["累積プレイ時間"],
+        Eng = ["total", "play", "time"],
+        Deu = ["gesamtspielzeit"],
+        Fra = ["temps", "jeu", "total"]
+    };
+
     /// <see href="https://xivapi.com/LogMessage/503?pretty=true">Aetheryte ticket ready message.</see>
     public static readonly LocalizedStrings AetheryteTicketReady = new()
     {

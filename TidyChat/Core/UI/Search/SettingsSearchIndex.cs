@@ -18,7 +18,8 @@ internal static class SettingsSearchIndex
         "ShowReadyCheckMessages",
         "ShowInvalidCommandError",
         "ShowFriendListMessages",
-        "ShowMgpSpending"
+        "ShowMgpSpending",
+        "ShowPlaytime"
     };
 
     /// <summary>

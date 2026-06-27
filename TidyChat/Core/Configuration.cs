@@ -144,6 +144,10 @@ public class Configuration : IPluginConfiguration
     public bool ShowSearchForItemResults { get; set; } = true;
     public bool ShowItemSearchResults { get; set; } = true;
     public bool ShowLocationSearchResults { get; set; } = true;
+
+    /// <summary>Always on; no settings UI. /playtime "Total Play Time" line (LogMessage 859).</summary>
+    public bool ShowPlaytime { get; set; } = true;
+
     public bool ShowExploratoryVoyage { get; set; } = true;
     public bool ShowSubaquaticVoyage { get; set; } = true;
     public bool ShowSubaquaticVoyageEmbarked { get; set; } = true;

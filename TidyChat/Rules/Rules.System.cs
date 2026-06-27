@@ -246,6 +246,27 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowPlaytime",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [859],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPlaytime",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [859],
+            StringChecks = [ChatStrings.TotalPlayTime],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowAetheryteTicket",
             SettingsTab = "System",
             Channel = ChatType.Item,

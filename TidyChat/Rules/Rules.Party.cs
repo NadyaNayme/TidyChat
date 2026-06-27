@@ -62,8 +62,18 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [4, 69],
-            StringChecks = [ChatStrings.LeftParty],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLeftParty",
+            SettingsTab = "Party",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4, 69],
+            RegexChecks = [ChatStrings.LeftPartyRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()

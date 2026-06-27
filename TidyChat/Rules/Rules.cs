@@ -111,6 +111,7 @@ public static partial class Rules
         ["ShowAetherialReductionMinigame"] = c => c.ShowAetherialReductionMinigame,
         ["ShowItemSearchResults"] = FilterMasterAccessors.ItemSearchResults,
         ["ShowLocationSearchResults"] = FilterMasterAccessors.LocationSearchResults,
+        ["ShowPlaytime"] = c => c.ShowPlaytime,
         ["ShowAetheryteTicket"] = c => c.ShowAetheryteTicket,
         ["BetterNoviceNetworkMessage"] = c => c.BetterNoviceNetworkMessage,
         ["FilterEmoteChannel"] = c => c.FilterEmoteChannel,

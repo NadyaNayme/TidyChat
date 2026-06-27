@@ -102,6 +102,16 @@ public static partial class ChatStrings
         Fra = new(@"^(?!you)", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/4?pretty=true">You leave the party.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/69?pretty=true">You have left the party. / Name has left the party.</seealso>
+    public static readonly LocalizedRegex LeftPartyRegex = new()
+    {
+        Jpn = new(@"離脱", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:you leave|you have left|.+ has left) the party\.$", RegexOptions, RegexTimeout),
+        Deu = new(@"gruppe verlassen", RegexOptions, RegexTimeout),
+        Fra = new(@"(?:quittez|quitté).+équipe", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">"Quest name" accepted.</see>
     public static readonly LocalizedRegex QuestAcceptedRegex = new()
     {
