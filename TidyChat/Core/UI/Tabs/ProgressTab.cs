@@ -79,6 +79,15 @@ internal static class ProgressTab
 
         UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker);
 
+        var showAbilityUnlock = configuration.ShowAbilityUnlock;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowAbilityUnlockMessages, ref showAbilityUnlock))
+        {
+            configuration.ShowAbilityUnlock = showAbilityUnlock;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowAbilityUnlockMessagesHelpMarker);
+
         var showOtherLevelUps = configuration.ShowOtherLevelUps;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowOtherPlayersLevelUpMessages, ref showOtherLevelUps))
         {

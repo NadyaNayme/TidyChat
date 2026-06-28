@@ -190,6 +190,7 @@ public static partial class Rules
         ["ShowEarnAchievement"] = c => c.ShowEarnAchievement,
         ["ShowOtherEarnedAchievement"] = c => c.ShowOtherEarnedAchievement,
         ["ShowLevelUps"] = c => c.ShowLevelUps,
+        ["ShowAbilityUnlock"] = c => c.ShowAbilityUnlock,
         ["ShowOtherLevelUps"] = c => c.ShowOtherLevelUps,
         ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel,
         ["ShowTripleTriadAllowed"] = FilterMasterAccessors.TripleTriadAllowed,

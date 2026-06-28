@@ -316,6 +316,7 @@ public class Configuration : IPluginConfiguration
     #region Progression
 
     public bool ShowLevelUps { get; set; } = true;
+    public bool ShowAbilityUnlock { get; set; } = true;
     public bool ShowOtherLevelUps { get; set; } = false;
 
     #endregion

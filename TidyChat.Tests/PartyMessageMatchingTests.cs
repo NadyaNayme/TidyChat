@@ -20,4 +20,15 @@ public class PartyMessageMatchingTests
 
         Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.True);
     }
+
+    [TestCase("ShowInviteeJoins")]
+    [TestCase("ShowJoinParty")]
+    [TestCase("ShowLeftParty")]
+    public void Party_join_leave_rules_use_soft_log_message_hide_to_preserve_sfx(string ruleName)
+    {
+        var rules = Rules.AllRules.Where(rule => string.Equals(rule.Name, ruleName, StringComparison.Ordinal));
+
+        Assert.That(rules, Is.Not.Empty);
+        Assert.That(rules.All(rule => rule.SoftHideLogMessage), Is.True);
+    }
 }

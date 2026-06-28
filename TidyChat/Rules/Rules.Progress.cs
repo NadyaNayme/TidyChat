@@ -204,6 +204,17 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowAbilityUnlock",
+            SettingsTab = "Progress",
+            Channel = ChatType.Progress,
+            IsActive = true,
+            LogMessageIds = [552],
+            StringChecks = [ChatStrings.AbilityUnlock],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowOtherLevelUps",
             SettingsTab = "Progress",
             Channel = ChatType.System,

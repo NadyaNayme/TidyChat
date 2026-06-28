@@ -53,7 +53,8 @@ public static partial class Rules
             LogMessageIds = [60],
             StringChecks = [ChatStrings.InviteeJoins],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         },
         new()
         {
@@ -63,7 +64,8 @@ public static partial class Rules
             IsActive = true,
             LogMessageIds = [4, 69],
             Pattern = PatternKind.None,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         },
         new()
         {
@@ -74,7 +76,8 @@ public static partial class Rules
             LogMessageIds = [4, 69],
             RegexChecks = [ChatStrings.LeftPartyRegex],
             Pattern = PatternKind.RegexMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         },
         new()
         {
@@ -151,7 +154,8 @@ public static partial class Rules
             LogMessageIds = [61],
             StringChecks = [ChatStrings.JoinParty],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         },
         new()
         {
@@ -162,7 +166,8 @@ public static partial class Rules
             LogMessageIds = [7444],
             StringChecks = [ChatStrings.CrossWorldPartyFormed],
             Pattern = PatternKind.StringMatch,
-            PreferLogMessageCatalog = true
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
         }
     ];
 

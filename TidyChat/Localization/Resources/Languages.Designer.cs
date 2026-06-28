@@ -4673,6 +4673,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show learned action and emote messages.
+        /// </summary>
+        internal static string ProgressTab_ShowAbilityUnlockMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowAbilityUnlockMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 552 — eg. You learn &lt;name&gt;. Includes newly learned actions and emotes on the Progress channel..
+        /// </summary>
+        internal static string ProgressTab_ShowAbilityUnlockMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowAbilityUnlockMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show mettle gain messages.
         /// </summary>
         internal static string ProgressTab_ShowMettleGainMessages {

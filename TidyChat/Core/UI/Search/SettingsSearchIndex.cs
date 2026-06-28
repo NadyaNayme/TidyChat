@@ -571,6 +571,7 @@ internal static class SettingsSearchIndex
             "ShowGainSeriesExp" or
             "ShowPvpZoneAnnouncements" or
             "ShowLevelUps" or
+            "ShowAbilityUnlock" or
             "ShowOtherLevelUps" or
             "ShowEarnAchievement" or
             "ShowOtherEarnedAchievement" or
