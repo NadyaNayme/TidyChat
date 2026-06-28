@@ -2398,6 +2398,12 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 590, 591 — eg. You attain level 90! / Raven attains astrologian level 69!</value>
   </data>
+  <data name="ProgressTab_ShowAbilityUnlockMessages" xml:space="preserve">
+    <value>Show learned action and emote messages</value>
+  </data>
+  <data name="ProgressTab_ShowAbilityUnlockMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 552 — eg. You learn &lt;name&gt;. Includes newly learned actions and emotes on the Progress channel.</value>
+  </data>
   <data name="ProgressTab_ShowMettleGainMessages" xml:space="preserve">
     <value>Show mettle gain messages</value>
   </data>
@@ -2429,10 +2435,10 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>LogMessage 660 — eg. You attain PvP rank 17!</value>
   </data>
   <data name="ProgressTab_ShowPvpZoneAnnouncements" xml:space="preserve">
-    <value>Show PvP zone triumph and gauge messages</value>
+    <value>Show PvP zone objective, triumph, and gauge messages</value>
   </data>
   <data name="ProgressTab_ShowPvpZoneAnnouncementsHelpMarker" xml:space="preserve">
-    <value>LogMessages 11308, 11311–11313, 11368 — Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
+    <value>Frontline objective announcements plus LogMessages 11308, 11311–11313, 11368 — Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
   </data>
   <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show Second Chance reward</value>
