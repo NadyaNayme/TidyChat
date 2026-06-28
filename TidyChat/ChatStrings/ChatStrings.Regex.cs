@@ -112,6 +112,14 @@ public static partial class ChatStrings
         Fra = new(@"(?:quittez|quitté).+équipe", RegexOptions, RegexTimeout)
     };
 
+    public static readonly LocalizedRegex FrontlineObjectiveAnnouncementRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^the (?:icebound tomelith \d+ shatters!|allagan tomelith \d+ is activated!|ovoo \d+ is now active!)$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">"Quest name" accepted.</see>
     public static readonly LocalizedRegex QuestAcceptedRegex = new()
     {

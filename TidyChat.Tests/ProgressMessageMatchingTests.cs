@@ -17,4 +17,16 @@ public class ProgressMessageMatchingTests
 
         Assert.That(RuleMatcher.MatchesText(rule, "you learn ballroom etiquette - well-oiled.", out _), Is.True);
     }
+
+    [TestCase("the icebound tomelith 1 shatters!")]
+    [TestCase("the allagan tomelith 2 is activated!")]
+    [TestCase("the ovoo 3 is now active!")]
+    public void Pvp_zone_announcements_rule_matches_frontline_objective_lines(string text)
+    {
+        var rule = Rules.AllRules.First(rule =>
+            string.Equals(rule.Name, "ShowPvpZoneAnnouncements", StringComparison.Ordinal) &&
+            rule.RegexChecks?.Contains(ChatStrings.FrontlineObjectiveAnnouncementRegex) == true);
+
+        Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.True);
+    }
 }

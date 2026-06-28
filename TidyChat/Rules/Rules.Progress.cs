@@ -160,6 +160,15 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowPvpZoneAnnouncements",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatStrings.FrontlineObjectiveAnnouncementRegex],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
             Name = "ShowEarnAchievement",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,
