@@ -169,6 +169,25 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowPvpCombatMessages",
+            SettingsTab = "Progress",
+            Channel = ChatType.BattleSystem,
+            IsActive = true,
+            LogMessageIds = [557, 558, 559, 560],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowPvpCombatMessages",
+            SettingsTab = "Progress",
+            Channel = ChatType.BattleSystem,
+            IsActive = true,
+            RegexChecks = [ChatStrings.PvpCombatMessageRegex],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
             Name = "ShowEarnAchievement",
             SettingsTab = "Progress",
             Channel = ChatType.Progress,

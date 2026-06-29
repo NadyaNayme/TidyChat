@@ -294,6 +294,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGainPvpRank { get; set; } = false;
     public bool ShowGainSeriesExp { get; set; } = false;
     public bool ShowPvpZoneAnnouncements { get; set; } = false;
+    public bool ShowPvpCombatMessages { get; set; } = true;
     public bool ShowEarnAchievement { get; set; } = true;
     public bool ShowOtherEarnedAchievement { get; set; } = false;
     public bool HideTomestoneWeeklyCap { get; set; } = true;

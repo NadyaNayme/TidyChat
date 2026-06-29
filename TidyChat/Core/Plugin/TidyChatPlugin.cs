@@ -22,6 +22,9 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     private readonly HashSet<string> _blockedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 
+    private readonly Dictionary<string, string> _logMessageBlockRuleByText =
+        new(StringComparer.OrdinalIgnoreCase);
+
     private readonly Queue<(string Message, long ExpiresAtTicks)> _chatHistory = new();
     private readonly Lock _chatHistoryLock = new();
 

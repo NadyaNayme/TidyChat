@@ -19,6 +19,7 @@ internal static class UiHelp
         nameof(Languages.ProgressTab_ShowPvpExpGainMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowPvpRankMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowSeriesProgressMessagesHelpMarker),
+        nameof(Languages.ProgressTab_ShowPvpCombatMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowLevelUpMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowAbilityUnlockMessagesHelpMarker),
         nameof(Languages.ProgressTab_ShowEarnedAchievementMessagesHelpMarker),

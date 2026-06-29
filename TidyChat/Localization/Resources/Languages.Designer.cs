@@ -4799,6 +4799,24 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show PvP defeat and revival messages.
+        /// </summary>
+        internal static string ProgressTab_ShowPvpCombatMessages {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowPvpCombatMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 557–560 — eg. You are defeated by …, You are revived., Name defeats Name. Uses Filter Progress on General (BattleSystem channel)..
+        /// </summary>
+        internal static string ProgressTab_ShowPvpCombatMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("ProgressTab_ShowPvpCombatMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show Second Chance reward.
         /// </summary>
         internal static string ProgressTab_ShowSecondChanceAward {

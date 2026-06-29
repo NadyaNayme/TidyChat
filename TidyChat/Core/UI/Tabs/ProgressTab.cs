@@ -70,6 +70,15 @@ internal static class ProgressTab
 
         UiHelp.SystemFilterMarker(Languages.ProgressTab_ShowPvpZoneAnnouncementsHelpMarker);
 
+        var showPvpCombatMessages = configuration.ShowPvpCombatMessages;
+        if (ImGui.Checkbox(Languages.ProgressTab_ShowPvpCombatMessages, ref showPvpCombatMessages))
+        {
+            configuration.ShowPvpCombatMessages = showPvpCombatMessages;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.ProgressFilterMarker(Languages.ProgressTab_ShowPvpCombatMessagesHelpMarker);
+
         var showLevelUps = configuration.ShowLevelUps;
         if (ImGui.Checkbox(Languages.ProgressTab_ShowLevelUpMessages, ref showLevelUps))
         {

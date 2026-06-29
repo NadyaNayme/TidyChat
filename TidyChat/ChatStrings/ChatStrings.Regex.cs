@@ -120,6 +120,20 @@ public static partial class ChatStrings
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/557?pretty=true">You defeat …</see>
+    /// <seealso href="https://xivapi.com/LogMessage/558?pretty=true">You are defeated by …</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/559?pretty=true">… are defeated.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/560?pretty=true">You are revived.</seealso>
+    public static readonly LocalizedRegex PvpCombatMessageRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(
+            @"^(?:you defeat .+|.+ defeats .+|(?:you are|.+ is) defeated(?: by .+)?|you are revived|.+ is revived)\.$",
+            RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">"Quest name" accepted.</see>
     public static readonly LocalizedRegex QuestAcceptedRegex = new()
     {

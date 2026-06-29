@@ -187,6 +187,7 @@ public static partial class Rules
         ["ShowGainPvpRank"] = c => c.ShowGainPvpRank,
         ["ShowGainSeriesExp"] = c => c.ShowGainSeriesExp,
         ["ShowPvpZoneAnnouncements"] = c => c.ShowPvpZoneAnnouncements,
+        ["ShowPvpCombatMessages"] = c => c.ShowPvpCombatMessages,
         ["ShowEarnAchievement"] = c => c.ShowEarnAchievement,
         ["ShowOtherEarnedAchievement"] = c => c.ShowOtherEarnedAchievement,
         ["ShowLevelUps"] = c => c.ShowLevelUps,

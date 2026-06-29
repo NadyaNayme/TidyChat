@@ -253,7 +253,8 @@ public sealed partial class TidyChatPlugin
                 $"[LogMessage] BLOCKED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
             try
             {
-                RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue);
+                RememberLogMessageChatMatchTexts(_blockedByLogMessage, extractedTextValue, _logMessageBlockRuleByText,
+                    $"CustomFilter ({entry.FirstName})");
             }
             catch
             { }

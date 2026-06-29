@@ -570,6 +570,7 @@ internal static class SettingsSearchIndex
             "ShowGainPvpRank" or
             "ShowGainSeriesExp" or
             "ShowPvpZoneAnnouncements" or
+            "ShowPvpCombatMessages" or
             "ShowLevelUps" or
             "ShowAbilityUnlock" or
             "ShowOtherLevelUps" or

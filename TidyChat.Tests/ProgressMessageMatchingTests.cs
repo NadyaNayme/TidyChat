@@ -29,4 +29,18 @@ public class ProgressMessageMatchingTests
 
         Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.True);
     }
+
+    [TestCase("you are defeated by yeast breadhammer.")]
+    [TestCase("sang sang defeats rayne steele.")]
+    [TestCase("toda murasame is defeated by hiep zopo.")]
+    [TestCase("you are revived.")]
+    [TestCase("nakey san is revived.")]
+    public void Pvp_combat_messages_rule_matches_defeat_and_revival_lines(string text)
+    {
+        var rule = Rules.AllRules.First(rule =>
+            string.Equals(rule.Name, "ShowPvpCombatMessages", StringComparison.Ordinal) &&
+            rule.RegexChecks?.Contains(ChatStrings.PvpCombatMessageRegex) == true);
+
+        Assert.That(RuleMatcher.MatchesText(rule, text, out _), Is.True);
+    }
 }

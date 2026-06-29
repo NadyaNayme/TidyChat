@@ -29,21 +29,23 @@ public sealed partial class TidyChatPlugin
 
         TryRewriteMarketBoardSaleMessage(message, chatType, normalizedText);
 
-        var logEffect = LogMessageHelper.ParticipatesInLogMessageChatSync(chatType)
+        var logSync = LogMessageHelper.ParticipatesInLogMessageChatSync(chatType)
             ? ResolveLogMessageChatEffect(chatType, rawTextValue, extractedTextValue, normalizedText)
-            : LogMessageChatEffect.None;
-        if (logEffect == LogMessageChatEffect.PreserveHidden)
+            : new LogMessageChatSyncResult(LogMessageChatEffect.None, null);
+        if (logSync.Effect == LogMessageChatEffect.PreserveHidden)
         {
             if (ChannelFilterPolicy.IsCombatLogChannel(chatType))
             {
-                logEffect = LogMessageChatEffect.None;
+                logSync = new LogMessageChatSyncResult(LogMessageChatEffect.None, null);
             }
             else
             {
-                LogBlockedChat(["LogMessage"], message.Message.TextValue);
+                var logMessageRules = LogMessageDebugRules(logSync.DecidingRuleName);
+                LogBlockedChat(logMessageRules, message.Message.TextValue);
                 if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
                 {
-                    message.Message = BuildDebugString(chatType, message.Message, ["LogMessage"], Configuration.DebugIncludeChannel, true);
+                    message.Message = BuildDebugString(chatType, message.Message, logMessageRules,
+                        Configuration.DebugIncludeChannel, true);
                 }
                 else
                 {
@@ -54,7 +56,7 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (logEffect != LogMessageChatEffect.PreserveVisible)
+        if (logSync.Effect != LogMessageChatEffect.PreserveVisible)
         {
             var protectedByShowRule =
                 IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
@@ -80,9 +82,11 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        List<string> rulesMatched = logEffect == LogMessageChatEffect.PreserveVisible ? ["LogMessage"] : [];
+        List<string> rulesMatched = logSync.Effect == LogMessageChatEffect.PreserveVisible
+            ? LogMessageDebugRules(logSync.DecidingRuleName)
+            : [];
         bool isHandled;
-        if (logEffect == LogMessageChatEffect.PreserveVisible)
+        if (logSync.Effect == LogMessageChatEffect.PreserveVisible)
         {
             isHandled = false;
         }

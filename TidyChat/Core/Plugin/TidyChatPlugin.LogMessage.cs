@@ -54,7 +54,8 @@ public sealed partial class TidyChatPlugin
                 {
                     if (LogMessageHelper.TryExtractText(message, out var blockedText))
                     {
-                        RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+                        RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText, _logMessageBlockRuleByText,
+                            $"CustomFilter ({entry.FirstName})");
                     }
                     RememberLogMessageBlock(message.LogMessageId);
                     EmitBlockedXllog(
@@ -365,7 +366,8 @@ public sealed partial class TidyChatPlugin
     {
         if (LogMessageHelper.TryExtractText(message, out var blockedText))
         {
-            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText, _logMessageBlockRuleByText,
+                decidingRuleName);
         }
 
         RememberLogMessageBlock(message.LogMessageId);
@@ -541,7 +543,8 @@ public sealed partial class TidyChatPlugin
             PatternKind.RegexMatch => rule.RegexChecks is { Count: > 0 },
             _ => false
         };
-    private void RememberLogMessageTexts(HashSet<string> target, string text)
+    private void RememberLogMessageTexts(HashSet<string> target, string text,
+        Dictionary<string, string>? ruleNameByText = null, string? ruleName = null)
     {
         if (string.IsNullOrWhiteSpace(text))
         {
@@ -553,24 +556,41 @@ public sealed partial class TidyChatPlugin
             if (target.Count >= MaxLogMessageSetSize)
             {
                 target.Clear();
+                if (ReferenceEquals(target, _blockedByLogMessage))
+                {
+                    _logMessageBlockRuleByText.Clear();
+                }
             }
-            target.Add(text);
+
+            RememberLogMessageTextVariant(target, text, ruleNameByText, ruleName);
             var trimmed = text.Trim();
             if (trimmed.Length > 0)
             {
-                target.Add(trimmed);
+                RememberLogMessageTextVariant(target, trimmed, ruleNameByText, ruleName);
             }
+
             var lower = trimmed.ToLower(CultureInfo.CurrentCulture);
             if (lower.Length > 0)
             {
-                target.Add(lower);
+                RememberLogMessageTextVariant(target, lower, ruleNameByText, ruleName);
             }
         }
     }
 
-    private void RememberLogMessageChatMatchTexts(HashSet<string> target, string text)
+    private static void RememberLogMessageTextVariant(HashSet<string> target, string text,
+        Dictionary<string, string>? ruleNameByText, string? ruleName)
     {
-        RememberLogMessageTexts(target, text);
+        target.Add(text);
+        if (ruleNameByText is not null && !string.IsNullOrEmpty(ruleName))
+        {
+            ruleNameByText[text] = ruleName;
+        }
+    }
+
+    private void RememberLogMessageChatMatchTexts(HashSet<string> target, string text,
+        Dictionary<string, string>? ruleNameByText = null, string? ruleName = null)
+    {
+        RememberLogMessageTexts(target, text, ruleNameByText, ruleName);
         if (string.IsNullOrWhiteSpace(Configuration.PlayerName))
         {
             return;
@@ -581,7 +601,8 @@ public sealed partial class TidyChatPlugin
         {
             return;
         }
-        RememberLogMessageTexts(target, NormalizeInput.ReplaceName(lower, Configuration));
+
+        RememberLogMessageTexts(target, NormalizeInput.ReplaceName(lower, Configuration), ruleNameByText, ruleName);
     }
 
     private void RememberCustomFilterLogMessageAllow(uint logMessageId)
@@ -645,8 +666,10 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    private bool TryConsumePendingLogMessageBlock(ChatType chatType, string normalizedText)
+    private bool TryConsumePendingLogMessageBlock(ChatType chatType, string normalizedText,
+        out string? decidingRuleName)
     {
+        decidingRuleName = null;
         if (string.IsNullOrWhiteSpace(normalizedText))
         {
             return false;
@@ -654,14 +677,39 @@ public sealed partial class TidyChatPlugin
 
         lock (_logMessageLock)
         {
-            return TryConsumePendingLogMessageBlockFrom(_pendingBlockedLogMessageIds, chatType, normalizedText,
-                true);
+            if (!TryConsumePendingLogMessageBlockFrom(_pendingBlockedLogMessageIds, chatType, normalizedText,
+                    true, out var logMessageId))
+            {
+                return false;
+            }
+
+            decidingRuleName = ResolvePendingLogMessageBlockRule(logMessageId, normalizedText);
+            return true;
         }
     }
 
-    private bool TryConsumePendingLogMessageBlockFrom(Dictionary<uint, int> pendingById, ChatType chatType,
-        string normalizedText, bool requireShowRuleStillBlock)
+    private string? ResolvePendingLogMessageBlockRule(uint logMessageId, string normalizedText)
     {
+        if (logMessageId == LogMessageHelper.InventoryItemAddedLogMessageId)
+        {
+            return nameof(Configuration.HideInventoryItemAdded);
+        }
+
+        if (Rules.LogMessageIdToRules.TryGetValue(logMessageId, out var pendingRules) &&
+            TryResolveLogMessageAllow(logMessageId, normalizedText, pendingRules, Configuration, out var shouldAllow,
+                out var ruleName, out _) &&
+            !shouldAllow)
+        {
+            return ruleName;
+        }
+
+        return "LogMessage";
+    }
+
+    private bool TryConsumePendingLogMessageBlockFrom(Dictionary<uint, int> pendingById, ChatType chatType,
+        string normalizedText, bool requireShowRuleStillBlock, out uint matchedLogMessageId)
+    {
+        matchedLogMessageId = 0;
         if (pendingById.Count == 0)
         {
             return false;
@@ -695,6 +743,8 @@ public sealed partial class TidyChatPlugin
             {
                 pendingById[id] = count - 1;
             }
+
+            matchedLogMessageId = id;
             return true;
         }
 
@@ -746,8 +796,9 @@ public sealed partial class TidyChatPlugin
     private static bool PendingLogMessageTextMatches(uint logMessageId, ChatType chatType, string normalizedText) =>
         LogMessageHelper.PendingTextMatchesOnChannel(logMessageId, chatType, normalizedText);
 
-    private bool TryConsumeInventoryAddedLogMessageBlock(string normalizedText)
+    private bool TryConsumeInventoryAddedLogMessageBlock(string normalizedText, out string? decidingRuleName)
     {
+        decidingRuleName = null;
         if (!Configuration.HideInventoryItemAdded ||
             !LogMessageHelper.MatchesInventoryAddedLine(normalizedText))
         {
@@ -756,9 +807,15 @@ public sealed partial class TidyChatPlugin
 
         lock (_logMessageLock)
         {
-            return TryConsumePendingLogMessageId(_pendingBlockedLogMessageIds,
-                LogMessageHelper.InventoryItemAddedLogMessageId);
+            if (!TryConsumePendingLogMessageId(_pendingBlockedLogMessageIds,
+                    LogMessageHelper.InventoryItemAddedLogMessageId))
+            {
+                return false;
+            }
         }
+
+        decidingRuleName = nameof(Configuration.HideInventoryItemAdded);
+        return true;
     }
 
     private static bool TryConsumePendingLogMessageId(Dictionary<uint, int> pendingById, uint logMessageId)
@@ -782,31 +839,56 @@ public sealed partial class TidyChatPlugin
 
     private static bool TryRemoveFromLogMessageSet(HashSet<string> target, IReadOnlyList<string> candidates)
     {
+        return TryRemoveFromLogMessageSet(target, candidates, null, out _);
+    }
+
+    private static bool TryRemoveFromLogMessageSet(HashSet<string> target, IReadOnlyList<string> candidates,
+        Dictionary<string, string>? ruleNameByText, out string? decidingRuleName)
+    {
+        decidingRuleName = null;
         foreach (var candidate in candidates)
         {
             if (string.IsNullOrWhiteSpace(candidate))
             {
                 continue;
             }
-            if (target.Remove(candidate))
+
+            if (TryRemoveLogMessageTextKey(target, ruleNameByText, candidate, out decidingRuleName))
             {
                 return true;
             }
 
             var trimmed = candidate.Trim();
-            if (trimmed.Length > 0 && target.Remove(trimmed))
+            if (trimmed.Length > 0 && TryRemoveLogMessageTextKey(target, ruleNameByText, trimmed, out decidingRuleName))
             {
                 return true;
             }
 
             var lower = trimmed.ToLower(CultureInfo.CurrentCulture);
-            if (lower.Length > 0 && target.Remove(lower))
+            if (lower.Length > 0 && TryRemoveLogMessageTextKey(target, ruleNameByText, lower, out decidingRuleName))
             {
                 return true;
             }
         }
 
         return false;
+    }
+
+    private static bool TryRemoveLogMessageTextKey(HashSet<string> target, Dictionary<string, string>? ruleNameByText,
+        string key, out string? decidingRuleName)
+    {
+        decidingRuleName = null;
+        if (!target.Remove(key))
+        {
+            return false;
+        }
+
+        if (ruleNameByText is not null && ruleNameByText.Remove(key, out var ruleName))
+        {
+            decidingRuleName = ruleName;
+        }
+
+        return true;
     }
     private static bool TryGetNormalizedLogMessageText(ILogMessage message, out string normalizedText) =>
         LogMessageHelper.TryExtractNormalizedText(message, out normalizedText);
@@ -824,10 +906,9 @@ public sealed partial class TidyChatPlugin
 
         if (LogMessageHelper.TryExtractText(message, out var blockedText))
         {
-            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText, _logMessageBlockRuleByText,
+                "HideTomestone");
         }
-
-        EmitBlockedXllog($"[LogMessage] BLOCKED by tomestone hide (ID: {message.LogMessageId})");
         if (Configuration.EnableDebugMode)
         {
             return true;
@@ -853,7 +934,8 @@ public sealed partial class TidyChatPlugin
 
         if (LogMessageHelper.TryExtractText(message, out var blockedText))
         {
-            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText);
+            RememberLogMessageChatMatchTexts(_blockedByLogMessage, blockedText, _logMessageBlockRuleByText,
+                "HideTribalCurrency");
         }
 
         EmitBlockedXllog(

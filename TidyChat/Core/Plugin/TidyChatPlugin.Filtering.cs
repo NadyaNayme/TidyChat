@@ -13,7 +13,7 @@ public sealed partial class TidyChatPlugin
         }
     }
 
-    private LogMessageChatEffect ResolveLogMessageChatEffect(ChatType chatType, string rawTextValue,
+    private LogMessageChatSyncResult ResolveLogMessageChatEffect(ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText)
     {
         string[] textCandidates = [rawTextValue, extractedTextValue, normalizedText];
@@ -26,42 +26,47 @@ public sealed partial class TidyChatPlugin
         }
         if (wasAllowedByLog)
         {
-            return LogMessageChatEffect.PreserveVisible;
+            return new(LogMessageChatEffect.PreserveVisible, "LogMessage");
         }
 
         bool wasBlockedByLog;
+        string? blockedByRuleName = null;
         lock (_logMessageLock)
         {
             wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
-                              TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates);
+                              TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates,
+                                  _logMessageBlockRuleByText, out blockedByRuleName);
         }
         if (wasBlockedByLog)
         {
             if (Configuration.ShowObtainedItems && ObtainCurrencyHelper.IsGenericItemObtainLine(normalizedText))
             {
-                return LogMessageChatEffect.None;
+                return new(LogMessageChatEffect.None, null);
             }
 
-            return LogMessageChatEffect.PreserveHidden;
+            return new(LogMessageChatEffect.PreserveHidden, blockedByRuleName ?? "LogMessage");
         }
 
-        if (TryConsumeInventoryAddedLogMessageBlock(normalizedText))
+        if (TryConsumeInventoryAddedLogMessageBlock(normalizedText, out var inventoryRuleName))
         {
-            return LogMessageChatEffect.PreserveHidden;
+            return new(LogMessageChatEffect.PreserveHidden, inventoryRuleName);
         }
 
         if (TryConsumePendingLogMessageAllow(chatType, normalizedText))
         {
-            return LogMessageChatEffect.PreserveVisible;
+            return new(LogMessageChatEffect.PreserveVisible, "LogMessage");
         }
 
-        if (TryConsumePendingLogMessageBlock(chatType, normalizedText))
+        if (TryConsumePendingLogMessageBlock(chatType, normalizedText, out var pendingBlockRuleName))
         {
-            return LogMessageChatEffect.PreserveHidden;
+            return new(LogMessageChatEffect.PreserveHidden, pendingBlockRuleName);
         }
 
-        return LogMessageChatEffect.None;
+        return new(LogMessageChatEffect.None, null);
     }
+
+    private static List<string> LogMessageDebugRules(string? ruleName) =>
+        string.IsNullOrEmpty(ruleName) ? ["LogMessage"] : [ruleName];
 
     private bool FinishChatHandling(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText, ref bool isHandled, List<string> rulesMatched)
@@ -624,4 +629,6 @@ public sealed partial class TidyChatPlugin
         PreserveVisible,
         PreserveHidden
     }
+
+    private readonly record struct LogMessageChatSyncResult(LogMessageChatEffect Effect, string? DecidingRuleName);
 }

@@ -27,6 +27,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowGainPvpRank"] = nameof(Languages.ProgressTab_ShowPvpRankMessages),
         ["ShowGainSeriesExp"] = nameof(Languages.ProgressTab_ShowSeriesProgressMessages),
         ["ShowPvpZoneAnnouncements"] = nameof(Languages.ProgressTab_ShowPvpZoneAnnouncements),
+        ["ShowPvpCombatMessages"] = nameof(Languages.ProgressTab_ShowPvpCombatMessages),
         ["ShowLevelUps"] = nameof(Languages.ProgressTab_ShowLevelUpMessages),
         ["ShowAbilityUnlock"] = nameof(Languages.ProgressTab_ShowAbilityUnlockMessages),
         ["ShowOtherLevelUps"] = nameof(Languages.ProgressTab_ShowOtherPlayersLevelUpMessages),
