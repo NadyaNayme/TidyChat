@@ -2440,6 +2440,12 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_ShowPvpZoneAnnouncementsHelpMarker" xml:space="preserve">
     <value>Frontline objective announcements plus LogMessages 11308, 11311–11313, 11368 — Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
   </data>
+  <data name="ProgressTab_ShowPvpCombatMessages" xml:space="preserve">
+    <value>Show PvP defeat and revival messages</value>
+  </data>
+  <data name="ProgressTab_ShowPvpCombatMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 557–560 — eg. You are defeated by …, You are revived., Name defeats Name. Uses Filter Progress on General (BattleSystem channel).</value>
+  </data>
   <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show Second Chance reward</value>
   </data>
