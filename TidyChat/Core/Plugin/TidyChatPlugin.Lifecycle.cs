@@ -12,10 +12,12 @@ public sealed partial class TidyChatPlugin
     {
         L10N.Language = ClientState.ClientLanguage;
         ReloadGameDataCaches(validateRuleIds: false);
+        _commendationBaselineSynced = false;
         if (Configuration.BetterCommendationMessage)
         {
-            BetterCommendationsUpdate(printMessage: false);
+            _commendationBaselineSynced = TrySyncCommendationBaseline();
         }
+        _lastTerritoryExclusiveType = TryGetTerritoryExclusiveType(ClientState.TerritoryType);
         if (Configuration.InstanceInDtrBar)
         {
             InstanceDtrBarUpdate(Configuration);
@@ -26,23 +28,27 @@ public sealed partial class TidyChatPlugin
         SetPlayerName();
     }
 
-    private void OnLogout(int add, int remove) => FlushBlockedMessageCount(persist: true);
+    private void OnLogout(int add, int remove)
+    {
+        FlushBlockedMessageCount(persist: true);
+        ResetCommendationTracking();
+        _commendationBaselineSynced = false;
+        _lastTerritoryExclusiveType = 0;
+    }
 
     private void OnTerritoryChanged(uint e)
     {
         EnemyCastLogHelper.Clear();
         TreasureDungeonHelper.Reset();
         FlushBlockedMessageCount(persist: false);
-        byte newExclusiveType = 0;
-        try
-        {
-            newExclusiveType = DataManager.GetExcelSheet<TerritoryType>().GetRow(e).ExclusiveType;
-        }
-        catch { }
+        var previousExclusiveType = _lastTerritoryExclusiveType;
+        var newExclusiveType = TryGetTerritoryExclusiveType(e);
+        _lastTerritoryExclusiveType = newExclusiveType;
 
         if (Configuration.BetterCommendationMessage)
         {
-            BetterCommendationsUpdate(printMessage: newExclusiveType != 2);
+            var leftDuty = previousExclusiveType == 2 && newExclusiveType != 2;
+            BetterCommendationsUpdate(printMessage: leftDuty && _commendationBaselineSynced);
         }
         if (Configuration.InstanceInDtrBar)
         {
@@ -127,6 +133,47 @@ public sealed partial class TidyChatPlugin
         if (persist)
         {
             Configuration.FlushToDisk();
+        }
+    }
+
+    private unsafe bool TrySyncCommendationBaseline()
+    {
+        try
+        {
+            var player = PlayerState.Instance();
+            if (player == null)
+            {
+                Log.Error("PlayerState was null, something went wrong");
+                return false;
+            }
+
+            TidyStrings.CommendationsEarned = player->PlayerCommendations;
+            TidyStrings.LastCommendations = TidyStrings.CommendationsEarned;
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Log.Error(ex, "Failed to sync commendation baseline");
+            return false;
+        }
+    }
+
+    private static void ResetCommendationTracking()
+    {
+        TidyStrings.LastDuty = "";
+        TidyStrings.CommendationsEarned = 0;
+        TidyStrings.LastCommendations = 0;
+    }
+
+    private byte TryGetTerritoryExclusiveType(uint territoryTypeId)
+    {
+        try
+        {
+            return DataManager.GetExcelSheet<TerritoryType>().GetRow(territoryTypeId).ExclusiveType;
+        }
+        catch
+        {
+            return 0;
         }
     }
 

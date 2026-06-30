@@ -36,6 +36,9 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private readonly Dictionary<uint, int> _pendingCustomFilterLogMessageIds = new();
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
+    private byte _lastTerritoryExclusiveType;
+    private bool _commendationBaselineSynced;
+
     // #122: announcements inside this window after a Login event are treated as a real login
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
 
@@ -163,7 +166,8 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
         if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
         {
-            BetterCommendationsUpdate(printMessage: false);
+            _commendationBaselineSynced = TrySyncCommendationBaseline();
+            _lastTerritoryExclusiveType = TryGetTerritoryExclusiveType(ClientState.TerritoryType);
         }
 
         ChatGui.CheckMessageHandled += OnChat;
