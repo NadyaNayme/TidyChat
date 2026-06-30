@@ -73,7 +73,8 @@ internal static class ObtainCurrencyHelper
     private static readonly LocalizedStrings[] BroadCatalogMissStringChecks =
     [
         ChatStrings.ObtainedGilMarker,
-        ChatStrings.CosmicRedAlert
+        ChatStrings.CosmicRedAlert,
+        ChatStrings.JobRegistered
     ];
 
     public static bool ShouldAllowLootNoticeObtain(

@@ -228,8 +228,8 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [561],
-            StringChecks = [ChatStrings.JobChange],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.JobChangeRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
@@ -261,8 +261,8 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [756],
-            StringChecks = [ChatStrings.JobRegistered],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.JobRegisteredRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
@@ -272,8 +272,8 @@ public static partial class Rules
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [1281],
-            StringChecks = [ChatStrings.JobSpecialistChange],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.JobSpecialistChangeRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         }
     ];

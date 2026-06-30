@@ -134,6 +134,51 @@ public static partial class ChatStrings
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/561?pretty=true">You change to …</see>
+    public static readonly LocalizedRegex JobChangeRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^you change to .+\.$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/756?pretty=true">“…” registered.</see>
+    public static readonly LocalizedRegex JobRegisteredRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^.+ registered\.$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1281?pretty=true">You change to … (specialist).</see>
+    public static readonly LocalizedRegex JobSpecialistChangeRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^you change to .+ \(specialist\)\.$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <summary>Community hunt relay lines (e.g. Rank S: Name Zone (x, y) &lt;World&gt;).</summary>
+    public static readonly LocalizedRegex HuntSRankRelayRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^rank s:\s+.+\s+\([^)]+\)(?:\s*<[^>]+>)?\s*$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <summary>Community SS-rank hunt relay lines.</summary>
+    public static readonly LocalizedRegex HuntSSRankRelayRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^rank ss:\s+.+\s+\([^)]+\)(?:\s*<[^>]+>)?\s*$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">"Quest name" accepted.</see>
     public static readonly LocalizedRegex QuestAcceptedRegex = new()
     {

@@ -14,11 +14,29 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowSRankHunt",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatStrings.HuntSRankRelayRegex],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
             Name = "ShowSSRankHunt",
             SettingsTab = "Exploration",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [9332]
+        },
+        new()
+        {
+            Name = "ShowSSRankHunt",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatStrings.HuntSSRankRelayRegex],
+            Pattern = PatternKind.RegexMatch
         }
     ];
 
