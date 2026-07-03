@@ -435,4 +435,35 @@ public static partial class ChatStrings
     };
 
     #endregion Party
+
+    /// <see href="https://xivapi.com/LogMessage/2069?pretty=true">The blasting cap drops a six-onze pinch of firesand.</see>
+    public static readonly LocalizedRegex DungeonMechanicDropsRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^.+ drops .+\.\s*$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1051?pretty=true">You obtain nothing.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/1052?pretty=true">You obtain nothing.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/1055?pretty=true">You obtain nothing.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/1056?pretty=true">You obtain nothing.</seealso>
+    public static readonly LocalizedRegex GatheringObtainNothingRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:you|\S.+?) obtains? nothing\.$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/3549?pretty=true">You use Brazen Woodsman/Prospector…</see>
+    /// <seealso href="https://xivapi.com/LogMessage/3569?pretty=true">You use Meticulous Woodsman/Prospector…</seealso>
+    public static readonly LocalizedRegex GatheringUsesCollectabilityActionRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^(?:you|\S.+?) uses (?:brazen|meticulous) (?:woodsman|prospector)\b", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
 }

@@ -332,6 +332,7 @@ public static partial class Rules
         rules.AddRange(ExplorationHuntRankRules);
         rules.AddRange(PartyRulesIntro);
         rules.AddRange(SystemDutyStatusRules);
+        rules.AddRange(DungeonMechanicRules);
         rules.AddRange(HousingRules);
         rules.AddRange(ExplorationQuestReminderRules);
         rules.AddRange(PartySocialRules);

@@ -84,6 +84,16 @@ internal static class GatheringTab
 
         UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker);
 
+        var hideObtainedShards = configuration.HideObtainedShards;
+        if (ImGui.Checkbox(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessages,
+                ref hideObtainedShards))
+        {
+            configuration.HideObtainedShards = hideObtainedShards;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker);
+
         var showAllOtherGathering = configuration.ShowAllOtherGathering;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowAllOtherGathering, ref showAllOtherGathering))
         {

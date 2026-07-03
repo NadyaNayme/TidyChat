@@ -16,29 +16,30 @@ internal class PluginUI : Window, IDisposable
 
     private const string WindowId = "TidyChat";
 
+    /// <summary>Sidebar order: General first, Tools last; related tabs grouped (economy, gear, DoL).</summary>
     private static readonly (Func<string> GetLabel, Action<Configuration> Draw)[] TabDefinitions =
     [
         (() => Languages.ConfigWindow_GeneralTabHeader, GeneralTab.Draw),
-        (() => Languages.ConfigWindow_EmotesTabHeader, EmotesTab.Draw),
         (() => Languages.ConfigWindow_SystemTabHeader, SystemTab.Draw),
-        (() => Languages.ConfigWindow_ExplorationTabHeader, ExplorationTab.Draw),
-        (() => Languages.ConfigWindow_HousingTabHeader, HousingTab.Draw),
-        (() => Languages.ConfigWindow_GlamourTabHeader, GlamourTab.Draw),
+        (() => Languages.ConfigWindow_ProgressTabHeader, ProgressTab.Draw),
+        (() => Languages.ConfigWindow_EmotesTabHeader, EmotesTab.Draw),
         (() => Languages.ConfigWindow_PartyTabHeader, PartyTab.Draw),
         (() => Languages.ConfigWindow_DutyTabHeader, DutyTab.Draw),
+        (() => Languages.ConfigWindow_ExplorationTabHeader, ExplorationTab.Draw),
+        (() => Languages.ConfigWindow_HousingTabHeader, HousingTab.Draw),
         (() => Languages.ConfigWindow_DeepDungeonsTabHeader, DeepDungeonsTab.Draw),
         (() => Languages.ConfigWindow_FreeCompanyTabHeader, FreeCompanyTab.Draw),
         (() => Languages.ConfigWindow_EconomyTabHeader, EconomyTab.Draw),
         (() => Languages.ConfigWindow_CurrenciesTabHeader, CurrenciesTab.Draw),
         (() => Languages.ConfigWindow_AlliedSocietiesTabHeader, AlliedSocietiesTab.Draw),
         (() => Languages.ConfigWindow_GoldSaucerTabHeader, GoldSaucerTab.Draw),
-        (() => Languages.ConfigWindow_ProgressTabHeader, ProgressTab.Draw),
+        (() => Languages.ConfigWindow_GlamourTabHeader, GlamourTab.Draw),
+        (() => Languages.ConfigWindow_MateriaTabHeader, MateriaTab.Draw),
         (() => Languages.ConfigWindow_CraftingTabHeader, CraftingTab.Draw),
         (() => Languages.ConfigWindow_DesynthesisTabHeader, DesynthesisTab.Draw),
-        (() => Languages.ConfigWindow_CosmicExplorationTabHeader, CosmicExplorationTab.Draw),
-        (() => Languages.ConfigWindow_FishingTabHeader, FishingTab.Draw),
         (() => Languages.ConfigWindow_GatheringTabHeader, GatheringTab.Draw),
-        (() => Languages.ConfigWindow_MateriaTabHeader, MateriaTab.Draw),
+        (() => Languages.ConfigWindow_FishingTabHeader, FishingTab.Draw),
+        (() => Languages.ConfigWindow_CosmicExplorationTabHeader, CosmicExplorationTab.Draw),
         (() => Languages.ConfigWindow_ToolsTabHeader, ToolsTab.Draw)
     ];
 
@@ -172,15 +173,9 @@ internal class PluginUI : Window, IDisposable
             return cachedTabs;
         }
 
-        var general = TabDefinitions.Single(tab => tab.Draw == GeneralTab.Draw);
-        var generalEntry = (general.GetLabel(), general.Draw);
-        var others = TabDefinitions
-            .Where(tab => tab.Draw != GeneralTab.Draw)
+        sortedTabs = TabDefinitions
             .Select(tab => (tab.GetLabel(), tab.Draw))
-            .OrderBy(tab => tab.Item1, StringComparer.CurrentCultureIgnoreCase)
             .ToArray();
-
-        sortedTabs = [generalEntry, ..others];
         sortedTabsCulture = cultureName;
         return sortedTabs;
     }

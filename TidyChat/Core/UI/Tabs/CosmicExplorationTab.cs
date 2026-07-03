@@ -15,94 +15,94 @@ internal static class CosmicExplorationTab
     private static void DrawStellarMissions(Configuration configuration)
     {
         var showStellarMissionMessages = configuration.ShowStellarMissionMessages;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarMissionMessages,
+        if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowStellarMissionMessages,
                 ref showStellarMissionMessages))
         {
             configuration.ShowStellarMissionMessages = showStellarMissionMessages;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarMissionMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowStellarMissionMessagesHelpMarker);
 
         SettingsTabLayout.DrawNestedOptions(configuration.ShowStellarMissionMessages, () =>
         {
             var showStellarExecute = configuration.ShowStellarAbleToExecute;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarAbleToExecute, ref showStellarExecute))
+            if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowStellarAbleToExecute, ref showStellarExecute))
             {
                 configuration.ShowStellarAbleToExecute = showStellarExecute;
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarAbleToExecuteHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowStellarAbleToExecuteHelpMarker);
 
             var showStellarBuff = configuration.ShowStellarBuffEffectGain;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarBuffEffectGain, ref showStellarBuff))
+            if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowStellarBuffEffectGain, ref showStellarBuff))
             {
                 configuration.ShowStellarBuffEffectGain = showStellarBuff;
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarBuffEffectGainHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowStellarBuffEffectGainHelpMarker);
 
             var showStellarGpRecovery = configuration.ShowStellarGpRecovery;
-            if (ImGui.Checkbox(Languages.GatheringTab_ShowStellarGpRecovery, ref showStellarGpRecovery))
+            if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowStellarGpRecovery, ref showStellarGpRecovery))
             {
                 configuration.ShowStellarGpRecovery = showStellarGpRecovery;
                 configuration.OnSettingChanged();
             }
 
-            UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowStellarGpRecoveryHelpMarker);
+            UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowStellarGpRecoveryHelpMarker);
         });
     }
 
     private static void DrawBaseCamp(Configuration configuration)
     {
         var showCosmicExplorationMessages = configuration.ShowCosmicExplorationMessages;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicExplorationMessages,
+        if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowCosmicExplorationMessages,
                 ref showCosmicExplorationMessages))
         {
             configuration.ShowCosmicExplorationMessages = showCosmicExplorationMessages;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicExplorationMessagesHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowCosmicExplorationMessagesHelpMarker);
 
         var showCosmicRewards = configuration.ShowCosmicRewards;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicRewards, ref showCosmicRewards))
+        if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowCosmicRewards, ref showCosmicRewards))
         {
             configuration.ShowCosmicRewards = showCosmicRewards;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicRewardsHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowCosmicRewardsHelpMarker);
 
         var showCosmicContainers = configuration.ShowCosmicContainers;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicContainers, ref showCosmicContainers))
+        if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowCosmicContainers, ref showCosmicContainers))
         {
             configuration.ShowCosmicContainers = showCosmicContainers;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicContainersHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowCosmicContainersHelpMarker);
 
         var showCosmicClassPointsAndDataset = configuration.ShowCosmicClassPointsAndDataset;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicClassPointsAndDataset,
+        if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowCosmicClassPointsAndDataset,
                 ref showCosmicClassPointsAndDataset))
         {
             configuration.ShowCosmicClassPointsAndDataset = showCosmicClassPointsAndDataset;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowCosmicClassPointsAndDatasetHelpMarker);
 
         var showCosmicDailyProgress = configuration.ShowCosmicDailyProgress;
-        if (ImGui.Checkbox(Languages.GatheringTab_ShowCosmicDailyProgress,
+        if (ImGui.Checkbox(Languages.CosmicExplorationTab_ShowCosmicDailyProgress,
                 ref showCosmicDailyProgress))
         {
             configuration.ShowCosmicDailyProgress = showCosmicDailyProgress;
             configuration.OnSettingChanged();
         }
 
-        UiHelp.SystemFilterMarker(Languages.GatheringTab_ShowCosmicDailyProgressHelpMarker);
+        UiHelp.SystemFilterMarker(Languages.CosmicExplorationTab_ShowCosmicDailyProgressHelpMarker);
     }
 }

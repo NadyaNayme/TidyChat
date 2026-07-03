@@ -139,8 +139,8 @@ internal static class UiHelp
                 helpPropertyName is not nameof(Languages.PartyTab_ShowPartyObjectiveOnJoinHelpMarker),
             _ when helpPropertyName.StartsWith("DeepDungeonsTab_", StringComparison.Ordinal) => true,
             _ when helpPropertyName.StartsWith("EconomyTab_", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("GatheringTab_ShowCosmic", StringComparison.Ordinal) => true,
-            _ when helpPropertyName.StartsWith("GatheringTab_ShowStellar", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("CosmicExplorationTab_ShowCosmic", StringComparison.Ordinal) => true,
+            _ when helpPropertyName.StartsWith("CosmicExplorationTab_ShowStellar", StringComparison.Ordinal) => true,
             _ when helpPropertyName is nameof(Languages.GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker) or
                 nameof(Languages.GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker) => true,
             _ when helpPropertyName.StartsWith("MateriaTab_", StringComparison.Ordinal) =>

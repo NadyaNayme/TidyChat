@@ -11,6 +11,26 @@ public static partial class ChatStrings
         Deu = ["wurde", "beendet"],
         Fra = ["prend", "fin"]
     };
+
+    /// <see href="https://xivapi.com/LogMessage/2060?pretty=true">The firesand is set.</see>
+    public static readonly LocalizedStrings DungeonFiresandSet = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["firesand", "set"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/2065?pretty=true">Shaft E1 is now clear.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/2061?pretty=true">Shaft B4 is now clear.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/2062?pretty=true">Shaft E2 can now be accessed.</seealso>
+    public static readonly LocalizedStrings DungeonShaftClear = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["shaft", "clear"],
+        Deu = ["NeedsLocalization"],
+        Fra = ["NeedsLocalization"]
+    };
     /// <see href="https://xivapi.com/LogMessage/9602?pretty=true">This duty is level synced…</see>
     public static readonly LocalizedStrings DutyLevelSyncedBriefing = new()
     {

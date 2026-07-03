@@ -168,6 +168,36 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowGatheringCollectableObtains",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1051, 1052, 1055, 1056]
+        },
+        new()
+        {
+            Name = "ShowGatheringCollectableObtains",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1051, 1052, 1055, 1056],
+            RegexChecks = [ChatStrings.GatheringObtainNothingRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowGatheringCollectableObtains",
+            SettingsTab = "Gathering",
+            Channel = ChatType.LootNotice,
+            IsActive = true,
+            LogMessageIds = [3538, 1049, 1050, 1053, 1054],
+            RegexChecks = [ChatStrings.GatheringObtainNothingRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowAllOtherGathering",
             SettingsTab = "Gathering",
             Channel = ChatType.Gathering,
@@ -186,6 +216,17 @@ public static partial class Rules
             LogMessageIds = [3569],
             StringChecks = [ChatStrings.CollectabilityMeticulousIntuition],
             Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAllOtherGathering",
+            SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3549, 3569],
+            RegexChecks = [ChatStrings.GatheringUsesCollectabilityActionRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         }
     ];

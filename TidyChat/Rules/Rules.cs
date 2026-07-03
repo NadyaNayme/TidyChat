@@ -15,6 +15,7 @@ public static partial class Rules
         ["ShowDutyEndedMessage"] = FilterMasterAccessors.DutyEndedMessage,
         ["ShowGuildhestEndedMessage"] = FilterMasterAccessors.GuildhestEndedMessage,
         ["ShowLevelNoLongerSynced"] = FilterMasterAccessors.LevelNoLongerSynced,
+        ["ShowDungeonMechanicMessages"] = _ => true,
         ["ShowSanctuaryMessage"] = c => c.ShowSanctuaryMessage,
         ["ShowHousingWardMessage"] = c => c.ShowHousingWardMessage,
         ["ShowHousingLotteryMessage"] = c => c.ShowHousingLotteryMessage,

@@ -1792,34 +1792,34 @@ The minions of an extraordinarily powerful mark have withdrawn...</value>
   <data name="GatheringTab_ShowAllOtherGatheringHelpMarker" xml:space="preserve">
     <value>Master toggle for miscellaneous gathering log lines (LogMessages 1111, 3549, 3569). When on, use the nested option for buff effect gain (603). Unchecking disables the nested option in chat until you turn this back on (the nested checkbox keeps its setting for next time).</value>
   </data>
-  <data name="GatheringTab_ShowCosmicClassPointsAndDataset" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicClassPointsAndDataset" xml:space="preserve">
     <value>Show cosmic class points, tool mastery, and dataset submission</value>
   </data>
-  <data name="GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicClassPointsAndDatasetHelpMarker" xml:space="preserve">
     <value>LogMessages 10874 (System), 10803 (Progress), 657/1259 (Loot Notice) — class points, tool mastery obtains, and dataset submission. Needs Filter System, Filter Progress, and Filter Obtained on General.</value>
   </data>
-  <data name="GatheringTab_ShowCosmicContainers" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicContainers" xml:space="preserve">
     <value>Show cosmic container obtains</value>
   </data>
-  <data name="GatheringTab_ShowCosmicContainersHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicContainersHelpMarker" xml:space="preserve">
     <value>LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General.</value>
   </data>
-  <data name="GatheringTab_ShowCosmicDailyProgress" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicDailyProgress" xml:space="preserve">
     <value>Show cosmic daily progress</value>
   </data>
-  <data name="GatheringTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicDailyProgressHelpMarker" xml:space="preserve">
     <value>LogMessages 10875, 10876, 10877, 11156 — daily points, stellar success, and daily success lines (System). Needs Filter System on General.</value>
   </data>
-  <data name="GatheringTab_ShowCosmicExplorationMessages" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicExplorationMessages" xml:space="preserve">
     <value>Show cosmic exploration messages</value>
   </data>
-  <data name="GatheringTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions \(incl\. sizable\), mech-op directives, and red-alert lines. Needs Filter System on General.</value>
   </data>
-  <data name="GatheringTab_ShowCosmicRewards" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency obtains</value>
   </data>
-  <data name="GatheringTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowCosmicRewardsHelpMarker" xml:space="preserve">
     <value>LogMessages 10800, 10859, 10872, 10873, 10883, 11331 — cosmocredits, Auxesia/Oizys credits, fortunes, dronebits (not containers or class points).</value>
   </data>
   <data name="GatheringTab_ShowFishAddedToGuideMessages" xml:space="preserve">
@@ -1920,28 +1920,28 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   <data name="GatheringTab_ShowReelInLineMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3511, 5584 — eg. You reel in your line.</value>
   </data>
-  <data name="GatheringTab_ShowStellarAbleToExecute" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarAbleToExecute" xml:space="preserve">
     <value>Show stellar "able to execute"</value>
   </data>
-  <data name="GatheringTab_ShowStellarAbleToExecuteHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarAbleToExecuteHelpMarker" xml:space="preserve">
     <value>LogMessages 5533, 11365 — stellar mission action ready lines.</value>
   </data>
-  <data name="GatheringTab_ShowStellarBuffEffectGain" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarBuffEffectGain" xml:space="preserve">
     <value>Show stellar buff effect gain</value>
   </data>
-  <data name="GatheringTab_ShowStellarBuffEffectGainHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarBuffEffectGainHelpMarker" xml:space="preserve">
     <value>LogMessage 11366 — buff effect gain during stellar missions.</value>
   </data>
-  <data name="GatheringTab_ShowStellarGpRecovery" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarGpRecovery" xml:space="preserve">
     <value>Show stellar GP recovery</value>
   </data>
-  <data name="GatheringTab_ShowStellarGpRecoveryHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarGpRecoveryHelpMarker" xml:space="preserve">
     <value>LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP recovery. 11175 covers mission-end GP refund.</value>
   </data>
-  <data name="GatheringTab_ShowStellarMissionMessages" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarMissionMessages" xml:space="preserve">
     <value>Show stellar mission messages</value>
   </data>
-  <data name="GatheringTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
+  <data name="CosmicExplorationTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
     <value>Master toggle for stellar mission catch-all lines (LogMessages 631–11383 incl. 10763 (Error), 10827–10828, 11165, 11200). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate.</value>
   </data>
   <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">

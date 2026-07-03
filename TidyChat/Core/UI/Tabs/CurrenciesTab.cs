@@ -151,16 +151,6 @@ internal static class CurrenciesTab
 
     private static void DrawCraftingMaterials(Configuration configuration)
     {
-        var hideObtainedShards = configuration.HideObtainedShards;
-        if (ImGui.Checkbox(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessages,
-                ref hideObtainedShards))
-        {
-            configuration.HideObtainedShards = hideObtainedShards;
-            configuration.OnSettingChanged();
-        }
-
-        UiHelp.ObtainedHideFilterMarker(Languages.GatheringTab_HideElementalShardsCrystalsClustersMessagesHelpMarker);
-
         var hideObtainedClusters = configuration.HideObtainedClusters;
         if (ImGui.Checkbox(Languages.SystemTab_HideCrackedClustersMessages, ref hideObtainedClusters))
         {

@@ -607,9 +607,16 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_PartyTabHeader;
         }
 
-        if (propertyName is "HideObtainedClusters" or "HideObtainedShards")
+        if (propertyName is "HideObtainedShards")
         {
-            return Languages.ConfigWindow_CurrenciesTabHeader;
+            return
+                $"{Languages.ConfigWindow_GatheringTabHeader} > {Languages.GatheringTab_GatheringLocationsDropdownHeader}";
+        }
+
+        if (propertyName is "HideObtainedClusters")
+        {
+            return
+                $"{Languages.ConfigWindow_CurrenciesTabHeader} > {Languages.CurrenciesTab_CraftingMaterialsDropdownHeader}";
         }
 
         if (propertyName is "HideObtainedMGP" or
@@ -686,24 +693,35 @@ internal static class SettingsSearchIndex
         if (propertyName is "ShowStellarMissionMessages" or
             "ShowStellarAbleToExecute" or
             "ShowStellarBuffEffectGain" or
-            "ShowStellarGpRecovery" or
-            "ShowCosmicExplorationMessages" or
+            "ShowStellarGpRecovery")
+        {
+            return
+                $"{Languages.ConfigWindow_CosmicExplorationTabHeader} > {Languages.CosmicExplorationTab_StellarMissionsDropdownHeader}";
+        }
+
+        if (propertyName is "ShowCosmicExplorationMessages" or
             "ShowCosmicRewards" or
             "ShowCosmicContainers" or
             "ShowCosmicClassPointsAndDataset" or
             "ShowCosmicDailyProgress")
         {
-            return Languages.ConfigWindow_CosmicExplorationTabHeader;
+            return
+                $"{Languages.ConfigWindow_CosmicExplorationTabHeader} > {Languages.CosmicExplorationTab_BaseCampDropdownHeader}";
+        }
+
+        if (propertyName is "ShowAetherialReductionSands" or
+            "ShowAetherialReductionSuccess" or
+            "ShowAetherialReductionMinigame")
+        {
+            return
+                $"{Languages.ConfigWindow_GatheringTabHeader} > {Languages.GatheringTab_AetherialReductionDropdownHeader}";
         }
 
         if (propertyName.StartsWith("ShowGathering", StringComparison.Ordinal) ||
-            propertyName is "ShowLocationAffects" or
-                "ShowAetherialReductionSands" or
-                "ShowAetherialReductionSuccess" or
-                "ShowAetherialReductionMinigame" or
-                "ShowGatheringBuffEffectGain")
+            propertyName is "ShowLocationAffects" or "ShowAllOtherGathering" or "ShowGatheringBuffEffectGain")
         {
-            return Languages.ConfigWindow_GatheringTabHeader;
+            return
+                $"{Languages.ConfigWindow_GatheringTabHeader} > {Languages.GatheringTab_GatheringLocationsDropdownHeader}";
         }
 
         if (propertyName.StartsWith("EnableDebug", StringComparison.Ordinal) ||

@@ -23,7 +23,7 @@ public static partial class Rules
             SettingsTab = "Duty",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [1350, 2055, 2056, 2059],
+            LogMessageIds = [1350],
             StringChecks = [ChatStrings.InstancedArea],
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true

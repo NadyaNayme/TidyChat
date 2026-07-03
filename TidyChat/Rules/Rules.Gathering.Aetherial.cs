@@ -82,6 +82,17 @@ public static partial class Rules
         {
             Name = "ShowAetherialReductionMinigame",
             SettingsTab = "Gathering",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3549, 3569],
+            RegexChecks = [ChatStrings.GatheringUsesCollectabilityActionRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowAetherialReductionMinigame",
+            SettingsTab = "Gathering",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [3563],

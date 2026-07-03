@@ -11,6 +11,7 @@ internal static class LootFilterHelper
         string normalizedText) =>
         chatType is ChatType.LootRoll or ChatType.LootNotice &&
         !configuration.HideOthersObtain &&
+        !ObtainCurrencyHelper.IsGatheringObtainFailureLine(normalizedText) &&
         !IsHiddenByElementalObtainRule(configuration, normalizedText) &&
         LogMessageCatalog.MatchesOtherPlayerObtain(normalizedText);
 

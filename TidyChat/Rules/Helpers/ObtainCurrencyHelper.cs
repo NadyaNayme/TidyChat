@@ -174,7 +174,12 @@ internal static class ObtainCurrencyHelper
         rule.StringChecks is { Count: > 0 } &&
         rule.StringChecks.Any(check => GenericObtainStringChecks.Contains(check));
 
+    public static bool IsGatheringObtainFailureLine(string normalizedText) =>
+        normalizedText.Contains("obtain nothing", StringComparison.Ordinal) ||
+        normalizedText.Contains("obtains nothing", StringComparison.Ordinal);
+
     public static bool IsGenericItemObtainLine(string normalizedText) =>
+        !IsGatheringObtainFailureLine(normalizedText) &&
         TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.ObtainedSingleItem) &&
         !HasDedicatedObtainType(normalizedText);
 

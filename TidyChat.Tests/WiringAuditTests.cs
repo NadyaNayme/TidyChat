@@ -14,7 +14,18 @@ namespace TidyChat.Tests;
 [TestFixture]
 public class WiringAuditTests
 {
+    /// <summary>Rule accessors that are always active and do not read their config property.</summary>
+    private static readonly HashSet<string> AlwaysOnAccessorRules = new(StringComparer.Ordinal)
+    {
+        "ShowDungeonMechanicMessages",
+    };
+
     /// <summary>Rule names that intentionally have no same-named Configuration property.</summary>
+    private static readonly HashSet<string> RulesWithoutConfigProperty = new(StringComparer.Ordinal)
+    {
+        "ShowDungeonMechanicMessages",
+    };
+
     private static readonly Dictionary<string, string> RuleNameAliases = new(StringComparer.Ordinal)
     {
         ["ShowDutyCommenceMessage"] = nameof(Configuration.BetterDutyCommenceMessage),
@@ -102,7 +113,9 @@ public class WiringAuditTests
         var unknown = Rules.AllRules
             .Select(r => r.Name)
             .Distinct(StringComparer.Ordinal)
-            .Where(name => typeof(Configuration).GetProperty(name) is null && !RuleNameAliases.ContainsKey(name))
+            .Where(name => typeof(Configuration).GetProperty(name) is null &&
+                           !RuleNameAliases.ContainsKey(name) &&
+                           !RulesWithoutConfigProperty.Contains(name))
             .ToList();
         Assert.That(unknown, Is.Empty,
             "Rule names with neither a same-named Configuration property nor a documented alias " +
@@ -121,6 +134,11 @@ public class WiringAuditTests
             if (property is null || property.PropertyType != typeof(bool))
             {
                 continue; // covered by Rule_names_match_config_properties_or_known_aliases
+            }
+
+            if (AlwaysOnAccessorRules.Contains(name))
+            {
+                continue;
             }
 
             var config = new Configuration();

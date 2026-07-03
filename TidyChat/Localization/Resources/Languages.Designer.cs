@@ -2748,90 +2748,90 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show cosmic class points, tool mastery, and dataset submission.
         /// </summary>
-        internal static string GatheringTab_ShowCosmicClassPointsAndDataset {
+        internal static string CosmicExplorationTab_ShowCosmicClassPointsAndDataset {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicClassPointsAndDataset", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicClassPointsAndDataset", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 10874 (System), 10803 (Progress), 657/1259 (Loot Notice) — class points, tool mastery obtains, and dataset submission. Needs Filter System, Filter Progress, and Filter Obtained on General..
         /// </summary>
-        internal static string GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker {
+        internal static string CosmicExplorationTab_ShowCosmicClassPointsAndDatasetHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicClassPointsAndDatasetHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicClassPointsAndDatasetHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show cosmic container obtains.
         /// </summary>
-        internal static string GatheringTab_ShowCosmicContainers {
+        internal static string CosmicExplorationTab_ShowCosmicContainers {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicContainers", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicContainers", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General..
         /// </summary>
-        internal static string GatheringTab_ShowCosmicContainersHelpMarker {
+        internal static string CosmicExplorationTab_ShowCosmicContainersHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicContainersHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicContainersHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show cosmic daily progress.
         /// </summary>
-        internal static string GatheringTab_ShowCosmicDailyProgress {
+        internal static string CosmicExplorationTab_ShowCosmicDailyProgress {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicDailyProgress", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicDailyProgress", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 10875, 10876, 10877, 11156 — daily points, stellar success, and daily success lines (System). Needs Filter System on General..
         /// </summary>
-        internal static string GatheringTab_ShowCosmicDailyProgressHelpMarker {
+        internal static string CosmicExplorationTab_ShowCosmicDailyProgressHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicDailyProgressHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicDailyProgressHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show cosmic exploration messages.
         /// </summary>
-        internal static string GatheringTab_ShowCosmicExplorationMessages {
+        internal static string CosmicExplorationTab_ShowCosmicExplorationMessages {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicExplorationMessages", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicExplorationMessages", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions (incl. sizable), mech-op directives, and red-alert lines. Needs Filter System on General..
         /// </summary>
-        internal static string GatheringTab_ShowCosmicExplorationMessagesHelpMarker {
+        internal static string CosmicExplorationTab_ShowCosmicExplorationMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicExplorationMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicExplorationMessagesHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show cosmic currency obtains.
         /// </summary>
-        internal static string GatheringTab_ShowCosmicRewards {
+        internal static string CosmicExplorationTab_ShowCosmicRewards {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicRewards", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicRewards", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 10800, 10859, 10872, 10873, 10883, 11331 — cosmocredits, Auxesia/Oizys credits, fortunes, dronebits (not containers or class points)..
         /// </summary>
-        internal static string GatheringTab_ShowCosmicRewardsHelpMarker {
+        internal static string CosmicExplorationTab_ShowCosmicRewardsHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowCosmicRewardsHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowCosmicRewardsHelpMarker", resourceCulture);
             }
         }
         
@@ -3128,72 +3128,72 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show stellar &quot;able to execute&quot;.
         /// </summary>
-        internal static string GatheringTab_ShowStellarAbleToExecute {
+        internal static string CosmicExplorationTab_ShowStellarAbleToExecute {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarAbleToExecute", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarAbleToExecute", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 5533, 11365 — stellar mission action ready lines..
         /// </summary>
-        internal static string GatheringTab_ShowStellarAbleToExecuteHelpMarker {
+        internal static string CosmicExplorationTab_ShowStellarAbleToExecuteHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarAbleToExecuteHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarAbleToExecuteHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show stellar buff effect gain.
         /// </summary>
-        internal static string GatheringTab_ShowStellarBuffEffectGain {
+        internal static string CosmicExplorationTab_ShowStellarBuffEffectGain {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarBuffEffectGain", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarBuffEffectGain", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessage 11366 — buff effect gain during stellar missions..
         /// </summary>
-        internal static string GatheringTab_ShowStellarBuffEffectGainHelpMarker {
+        internal static string CosmicExplorationTab_ShowStellarBuffEffectGainHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarBuffEffectGainHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarBuffEffectGainHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show stellar GP recovery.
         /// </summary>
-        internal static string GatheringTab_ShowStellarGpRecovery {
+        internal static string CosmicExplorationTab_ShowStellarGpRecovery {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarGpRecovery", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarGpRecovery", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP recovery. 11175 covers mission-end GP refund..
         /// </summary>
-        internal static string GatheringTab_ShowStellarGpRecoveryHelpMarker {
+        internal static string CosmicExplorationTab_ShowStellarGpRecoveryHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarGpRecoveryHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarGpRecoveryHelpMarker", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Show stellar mission messages.
         /// </summary>
-        internal static string GatheringTab_ShowStellarMissionMessages {
+        internal static string CosmicExplorationTab_ShowStellarMissionMessages {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarMissionMessages", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarMissionMessages", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Master toggle for stellar mission catch-all lines (LogMessages 631–11383 incl. 10763 (Error), 10827–10828, 11165, 11200). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate..
         /// </summary>
-        internal static string GatheringTab_ShowStellarMissionMessagesHelpMarker {
+        internal static string CosmicExplorationTab_ShowStellarMissionMessagesHelpMarker {
             get {
-                return ResourceManager.GetString("GatheringTab_ShowStellarMissionMessagesHelpMarker", resourceCulture);
+                return ResourceManager.GetString("CosmicExplorationTab_ShowStellarMissionMessagesHelpMarker", resourceCulture);
             }
         }
         
