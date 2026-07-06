@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <schema/>
   <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
@@ -934,7 +934,7 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Enable Chat History Filter</value>
   </data>
   <data name="ChatHistoryTab_EnableChatHistoryFilterHelpMarker" xml:space="preserve">
-    <value>If a message was sent within the last {0} messages it will be filtered. Echo (/echo, Sonar hunt relays) is never deduplicated.</value>
+    <value>If a message was sent within the last {0} messages it will be filtered. The Echo channel (/echo) is never deduplicated.</value>
   </data>
   <data name="ChatHistoryTab_GatheringChannel" xml:space="preserve">
     <value>Gathering</value>
@@ -1542,7 +1542,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Exploration</value>
   </data>
   <data name="ExplorationTab_FilteringNote" xml:space="preserve">
-    <value>Hunt and exploration lines use Filter System on General (System channel only). Checked = show; unchecked = hide. Sonar and other /echo hunt relays are never filtered. Tools → Custom Filters can Block or Allow specific lines.</value>
+    <value>Hunt and exploration lines use Filter System on General (System channel only). Checked = show; unchecked = hide. Echo channel (/echo) lines are never filtered. Tools → Custom Filters can Block or Allow specific lines.</value>
   </data>
   <data name="ExplorationTab_HuntMessagesDropdownHeader" xml:space="preserve">
     <value>Hunt marks</value>
@@ -1587,14 +1587,14 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Show S Rank Hunt spawn announcement</value>
   </data>
   <data name="ExplorationTab_ShowSRankSpawnAnnouncementHelpMarker" xml:space="preserve">
-    <value>System channel only. LogMessage 9331 — eg. You sense the presence of a powerful mark...; community relay lines like Rank S: Name Zone (x, y) &lt;World&gt; (including “was just killed”). Echo/Sonar relays are never filtered by TidyChat.</value>
+    <value>System channel only. LogMessage 9331 — eg. You sense the presence of a powerful mark...; community relay lines like Rank S: Name Zone (x, y) &lt;World&gt; (including “was just killed”). Echo channel (/echo) lines are never filtered.</value>
   </data>
   <data name="ExplorationTab_ShowSSRankMinionSpawnAnnouncement" xml:space="preserve">
     <value>Show SS Rank Minion announcements</value>
   </data>
   <data name="ExplorationTab_ShowSSRankMinionSpawnAnnouncementHelpMarker" xml:space="preserve">
     <value>System channel only. LogMessage 9332 — eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
-The minions of an extraordinarily powerful mark have withdrawn...; community relay lines like Rank SS: Name Zone (x, y) &lt;World&gt; (including “was just killed”). Echo/Sonar relays are never filtered by TidyChat.</value>
+The minions of an extraordinarily powerful mark have withdrawn...; community relay lines like Rank SS: Name Zone (x, y) &lt;World&gt; (including “was just killed”). Echo channel (/echo) lines are never filtered.</value>
   </data>
   <data name="ExplorationTab_ShowVistaMessages" xml:space="preserve">
     <value>Show vista arrival and stray messages</value>
