@@ -93,7 +93,6 @@ public static partial class ChatStrings
         Fra = ["pgs", "billet"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/4341?pretty=true">RetainerName has completed a venture!</see>
     public static readonly LocalizedStrings RetainerVentureComplete = new()
     {

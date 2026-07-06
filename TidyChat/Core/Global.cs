@@ -1,12 +1,12 @@
+global using ChatTwo.Code;
+global using Dalamud.Game.Chat;
+global using Dalamud.Game.Text;
+global using Dalamud.Game.Text.SeStringHandling;
 global using Dalamud.Interface.Utility.Raii;
 global using System;
 global using System.Collections.Generic;
 global using System.Globalization;
 global using System.Linq;
-global using ChatTwo.Code;
-global using Dalamud.Game.Chat;
-global using Dalamud.Game.Text;
-global using Dalamud.Game.Text.SeStringHandling;
 global using TidyChat.Data;
 global using TidyChat.Localization.Resources;
 global using TidyChat.Settings;

@@ -47,7 +47,7 @@ internal static class LogMessageTokenExtractor
             tokens.Add(token);
         }
 
-        return tokens.Count == 0 ? [] : tokens.ToArray();
+        return tokens.Count == 0 ? [] : [.. tokens];
     }
 
     private static bool ContainsCjk(string token)

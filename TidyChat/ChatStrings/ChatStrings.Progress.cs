@@ -174,7 +174,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/10874?pretty=true">You earn N cosmic class points for …</see>
     public static readonly LocalizedStrings CosmicClassPoints = new()
     {
@@ -319,7 +318,6 @@ public static partial class ChatStrings
         Fra = ["recyclage"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">
     ///     Someone earns the achievement " Blah blah blah, Tidal
     ///     Wave!"
@@ -331,7 +329,6 @@ public static partial class ChatStrings
         Deu = ["hat", "errungenschaft"],
         Fra = ["avez", "accompli", "haut", "fait"] // a accompli le haut fait “ Élémentaliste légendaire”!,
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/7975?pretty=true">Second Chance points added …</see>
     public static readonly LocalizedStrings SecondChanceAward = new()

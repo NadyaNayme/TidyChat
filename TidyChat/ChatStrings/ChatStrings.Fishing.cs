@@ -11,7 +11,6 @@ public static partial class ChatStrings
         Fra = ["touche"]
     };
 
-
     public static readonly LocalizedStrings ReelInLine = new()
     {
         Jpn = ["竿を上げ"],
@@ -19,7 +18,6 @@ public static partial class ChatStrings
         Deu = ["angel"],
         Fra = ["hameçon"]
     };
-
 
     public static readonly LocalizedStrings LoseBait = new()
     {
@@ -29,7 +27,6 @@ public static partial class ChatStrings
         Fra = ["appât"]
     };
 
-
     public static readonly LocalizedStrings PutAwayRod = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -37,7 +34,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings MultihookBonusFish = new()
     {
@@ -54,7 +50,6 @@ public static partial class ChatStrings
         Fra = ["vif"]
     };
 
-
     public static readonly LocalizedStrings CurrentFishingHole = new()
     {
         Jpn = ["釣り場"],
@@ -63,7 +58,6 @@ public static partial class ChatStrings
         Fra = ["pêche"]
     };
 
-
     public static readonly LocalizedStrings DiscoveredFishingHole = new()
     {
         Jpn = ["釣り場", "発見"],
@@ -71,7 +65,6 @@ public static partial class ChatStrings
         Deu = ["angelstelle", "entdeckt"],
         Fra = ["découvert", "pêche"]
     };
-
 
     public static readonly LocalizedStrings MeasuringIlms = new()
     {

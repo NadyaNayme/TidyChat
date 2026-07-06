@@ -25,7 +25,7 @@ public sealed partial class TidyChatPlugin
 
         var isPhishing = ServerAnnouncementCatalog.IsPhishingWarning(normalizedText);
         // Login announcements usually use System; some clients also deliver them on Notice/Urgent (#24).
-        if (chatType is not ChatType.System && chatType is not ChatType.Notice and not ChatType.Urgent)
+        if (chatType is not (ChatType.System or ChatType.Notice or ChatType.Urgent))
         {
             return false;
         }

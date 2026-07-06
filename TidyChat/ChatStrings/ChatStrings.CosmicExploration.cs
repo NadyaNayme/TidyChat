@@ -47,7 +47,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings CosmicContainerObtain = new()
     {
         Jpn = ["NeedsLocalization"],

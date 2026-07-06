@@ -173,9 +173,7 @@ internal class PluginUI : Window, IDisposable
             return cachedTabs;
         }
 
-        sortedTabs = TabDefinitions
-            .Select(tab => (tab.GetLabel(), tab.Draw))
-            .ToArray();
+        sortedTabs = [.. TabDefinitions.Select(tab => (tab.GetLabel(), tab.Draw))];
         sortedTabsCulture = cultureName;
         return sortedTabs;
     }

@@ -82,10 +82,10 @@ public sealed partial class TidyChatPlugin
 
     private static void LoadTomestones()
     {
-        List<TomestoneInfo> tomestones = new();
+        List<TomestoneInfo> tomestones = [];
         try
         {
-            Dictionary<uint, (uint RowId, string Name)> bestPerSlot = new();
+            Dictionary<uint, (uint RowId, string Name)> bestPerSlot = [];
             foreach (var row in DataManager.GetExcelSheet<TomestonesItem>())
             {
                 var slotId = row.Tomestones.RowId;
@@ -118,7 +118,7 @@ public sealed partial class TidyChatPlugin
 
     private static void LoadTribalCurrencies()
     {
-        List<TomestoneInfo> currencies = new();
+        List<TomestoneInfo> currencies = [];
         try
         {
             var sheet = DataManager.GetExcelSheet<Item>();

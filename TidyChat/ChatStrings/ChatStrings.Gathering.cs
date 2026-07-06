@@ -12,7 +12,6 @@ public static partial class ChatStrings
         Fra = ["propriétés", "lieu", "bonus", "récolte"]
     };
 
-
     public static readonly LocalizedStrings LocationCollectabilityIncrease = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -20,7 +19,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/5551?pretty=true">
     ///     This location affects the chance your meticulous actions do
@@ -34,7 +32,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings CollectabilityIncreases = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -42,7 +39,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings CollectabilityMeticulousIntuition = new()
     {
@@ -52,7 +48,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings GatheringYield = new()
     {
         Jpn = ["獲得数"],
@@ -60,7 +55,6 @@ public static partial class ChatStrings
         Deu = ["ertrag"],
         Fra = ["plus", "importantes", "récoltes"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/1097?pretty=true">
     ///     The location affects your chance of receiving the Gatherer's
@@ -73,7 +67,6 @@ public static partial class ChatStrings
         Deu = ["chancen", "ertrags"],
         Fra = ["plus", "grandes", "chances"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/11172?pretty=true">You earn a score of N from Gatherer's Boon.</see>
     /// <see href="https://xivapi.com/LogMessage/11173?pretty=true">
@@ -88,7 +81,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/1098?pretty=true">
     ///     The location has increased integrity, and affects the number
     ///     of your gathering attempts!
@@ -100,7 +92,6 @@ public static partial class ChatStrings
         Deu = ["belastbarkeit", "sammelversuche"],
         Fra = ["tentatives", "récolte", "supplémentaires"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/1063?pretty=true">You begin mining.</see>
     /// <seealso href="https://xivapi.com/LogMessage/1064?pretty=true">You begin quarrying.</seealso>
@@ -126,7 +117,6 @@ public static partial class ChatStrings
         Fra = ["arrêtez"]
     };
 
-
     public static readonly LocalizedStrings GatheringSenses = new()
     {
         Jpn = ["感じ"],
@@ -135,7 +125,6 @@ public static partial class ChatStrings
         Fra = ["grade"]
     };
 
-
     public static readonly LocalizedStrings GatheringNoLongerSense = new()
     {
         Jpn = ["感じられなく"],
@@ -143,7 +132,6 @@ public static partial class ChatStrings
         Deu = ["kannst", "mehr", "wahrnehmen"],
         Fra = ["perdu", "la", "trace"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/1102?pretty=true">
     ///     You have been granted an additional gathering attempt at
@@ -161,8 +149,6 @@ public static partial class ChatStrings
         Fra = ["une", "fois", "supplémentaire"]
     };
 
-
-
     public static readonly LocalizedStrings StellarMissionUnderway = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -170,7 +156,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings StellarSpecialActionUnlock = new()
     {
@@ -180,7 +165,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings StellarMissionScore = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -188,7 +172,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/10781?pretty=true">You complete the stellar mission "…".</see>
     public static readonly LocalizedStrings StellarMissionComplete = new()
@@ -199,7 +182,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings StellarSilverStarRating = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -207,7 +189,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings StellarGoldStarRating = new()
     {
@@ -217,7 +198,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings StellarObjectivesComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -226,7 +206,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings StellarTimeLimitExpired = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -234,7 +213,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/10769?pretty=true">
     ///     From the Mission in Progress window, press the Report
@@ -248,7 +226,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/10815?pretty=true">
     ///     Sequential missions are now available via the Stellar
     ///     Missions interface.
@@ -260,7 +237,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/10779?pretty=true">
     ///     You completed the stellar mission "…" with a Gold Star
@@ -274,7 +250,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings StellarGoldCountStreak = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -283,7 +258,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings StellarMissionLogCommittedPlain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -291,7 +265,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/10879?pretty=true">
     ///     Completion of "…" has been committed to your mission log
@@ -305,7 +278,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/10828?pretty=true">Mission evaluation complete.</see>
     public static readonly LocalizedStrings StellarMissionEvaluationComplete = new()
     {
@@ -315,7 +287,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/10827?pretty=true">You have no more items left for stellar reduction.</see>
     public static readonly LocalizedStrings StellarReductionNoItemsLeft = new()
     {
@@ -324,7 +295,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/11200?pretty=true">
     ///     A mission below class A has been undertaken. Your gold
@@ -338,7 +308,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/11165?pretty=true">N minute(s) remaining to complete the mission.</see>
     public static readonly LocalizedStrings StellarMissionTimeRemaining = new()
     {
@@ -347,7 +316,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/11174?pretty=true">You recover N GP.</see>
     public static readonly LocalizedStrings StellarGpRecoverySelf = new()
@@ -375,7 +343,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings CordialRecastReset = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -383,7 +350,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
 
     public static readonly LocalizedStrings ReconnaissanceDroneLocatedArtifact = new()
     {
@@ -393,7 +359,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     public static readonly LocalizedStrings ArtifactAppraisalComplete = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -401,9 +366,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-
-
-
 
     /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">N … sands are obtained.</see>
     public static readonly LocalizedStrings AetherialReductionSands = new()

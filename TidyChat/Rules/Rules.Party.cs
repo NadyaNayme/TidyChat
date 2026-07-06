@@ -30,7 +30,6 @@ public static partial class Rules
         }
     ];
 
-
     private static readonly LocalizedFilterRule[] PartySocialRules =
     [
         new()

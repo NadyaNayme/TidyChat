@@ -10,8 +10,6 @@ internal static class GlamourTab
         SettingsTabLayout.DrawTabNote(Languages.GlamourTab_FilteringNote);
         SettingsTabLayout.WarnIfChannelMasterDisabled(configuration.FilterSystemMessages, Languages.GeneralTab_FilterSystemSpam);
 
-
-
         var showGlamourDresser = configuration.ShowGlamourDresserMessages;
 
         if (ImGui.Checkbox(Languages.GlamourTab_ShowGlamourDresserMessages, ref showGlamourDresser))
@@ -22,14 +20,10 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourDresserMessagesHelpMarker);
 
         SettingsTabLayout.DrawNestedOptions(configuration.ShowGlamourDresserMessages,
             () => DrawGlamourDresserSubOptions(configuration));
-
-
 
         var showTryOnGlamour = configuration.ShowTryOnGlamour;
 
@@ -41,14 +35,10 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowTryOnEquipGlamourMessagesHelpMarker);
 
         SettingsTabLayout.DrawNestedOptions(configuration.ShowTryOnGlamour,
             () => DrawTryOnEquipSubOptions(configuration));
-
-
 
         SettingsTabLayout.DrawSectionSeparator();
 
@@ -71,11 +61,7 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowJobChangeMessagesHelpMarker);
-
-
 
         var showPortraitMessages = configuration.ShowPortraitMessages;
 
@@ -87,12 +73,8 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowPortraitMessagesHelpMarker);
     }
-
-
 
     private static void DrawGlamourDresserSubOptions(Configuration configuration)
 
@@ -107,11 +89,7 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourDresserOutfitHelpMarker);
-
-
 
         var showDresserProjection = configuration.ShowGlamourDresserProjection;
 
@@ -123,11 +101,7 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourDresserProjectionHelpMarker);
-
-
 
         var showArmoire = configuration.ShowGlamourArmoireMessages;
 
@@ -139,12 +113,8 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourArmoireMessagesHelpMarker);
     }
-
-
 
     private static void DrawTryOnEquipSubOptions(Configuration configuration)
 
@@ -159,11 +129,7 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowTryOnGlamourPreviewHelpMarker);
-
-
 
         var showTryOnCast = configuration.ShowTryOnGlamourCast;
 
@@ -175,11 +141,7 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.StandaloneHideFilterMarker(Languages.GlamourTab_ShowTryOnGlamourCastHelpMarker);
-
-
 
         var showPlateProjected = configuration.ShowGlamourPlateProjected;
 
@@ -190,8 +152,6 @@ internal static class GlamourTab
 
             configuration.OnSettingChanged();
         }
-
-
 
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGlamourPlateProjectedHelpMarker);
 
@@ -214,11 +174,7 @@ internal static class GlamourTab
             configuration.OnSettingChanged();
         }
 
-
-
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGearDyeAppliedHelpMarker);
-
-
 
         var showRestoreFailed = configuration.ShowGearsetGlamourRestoreFailed;
 
@@ -229,8 +185,6 @@ internal static class GlamourTab
 
             configuration.OnSettingChanged();
         }
-
-
 
         UiHelp.SystemFilterMarker(Languages.GlamourTab_ShowGearsetGlamourRestoreFailedHelpMarker);
     }

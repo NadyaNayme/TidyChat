@@ -67,7 +67,7 @@ internal static class WhitelistTab
                 ImGui.TableNextRow();
                 var alias = i < 0 ? m_placeholder : list[i];
 
-            #region Channels Column
+                #region Channels Column
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
@@ -78,9 +78,9 @@ internal static class WhitelistTab
 
                 ImGui.Spacing();
 
-            #endregion Channels Column
+                #endregion Channels Column
 
-            #region Player Column
+                #region Player Column
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
@@ -127,9 +127,9 @@ internal static class WhitelistTab
 
                 ImGuiHelpers.ScaledDummy(10f);
 
-            #endregion Player Column
+                #endregion Player Column
 
-            #region Allow Column
+                #region Allow Column
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
@@ -163,10 +163,9 @@ internal static class WhitelistTab
                     }
                 }
 
-            #endregion Allow Column
+                #endregion Allow Column
 
-
-            #region Delete Column
+                #region Delete Column
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
@@ -179,7 +178,7 @@ internal static class WhitelistTab
                     }
                 }
 
-            #endregion Delete Column
+                #endregion Delete Column
             }
         }
 

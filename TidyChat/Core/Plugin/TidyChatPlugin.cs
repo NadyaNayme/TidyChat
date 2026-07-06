@@ -29,12 +29,12 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private readonly Queue<(string Message, long ExpiresAtTicks)> _chatHistory = new();
     private readonly Lock _chatHistoryLock = new();
 
-    private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = new();
+    private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = [];
     private readonly Lock _logMessageLock = new();
 
-    private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = new();
-    private readonly Dictionary<uint, int> _pendingBlockedLogMessageIds = new();
-    private readonly Dictionary<uint, int> _pendingCustomFilterLogMessageIds = new();
+    private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = [];
+    private readonly Dictionary<uint, int> _pendingBlockedLogMessageIds = [];
+    private readonly Dictionary<uint, int> _pendingCustomFilterLogMessageIds = [];
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
     private byte _lastTerritoryExclusiveType;
@@ -94,13 +94,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         ClientState.Logout -= OnLogout;
         DisposeLogMessageDebugDedup();
     }
-    private void OnCommand(string command, string args)
-    {
-        if (PluginUi is not null)
-        {
-            PluginUi.IsOpen = true;
-        }
-    }
+    private void OnCommand(string command, string args) => OpenPluginUi();
 
     private void UpdateLang(string langCode)
     {
@@ -110,13 +104,9 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     private void DrawUI() => _windowSystem.Draw();
 
-    private void DrawConfigUI()
-    {
-        if (PluginUi is not null)
-        {
-            PluginUi.IsOpen = true;
-        }
-    }
+    private void DrawConfigUI() => OpenPluginUi();
+
+    private void OpenPluginUi() => PluginUi!.IsOpen = true;
 
     #region Setup
 

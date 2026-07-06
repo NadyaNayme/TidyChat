@@ -38,9 +38,8 @@ internal static class SettingsSearchIndex
         typeof(Languages).GetProperties(BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic);
 
     private static readonly PropertyInfo[] ConfigBoolProperties =
-        typeof(Configuration).GetProperties(BindingFlags.Instance | BindingFlags.Public)
-            .Where(p => p.PropertyType == typeof(bool) && p.CanRead && p.CanWrite)
-            .ToArray();
+        [.. typeof(Configuration).GetProperties(BindingFlags.Instance | BindingFlags.Public)
+            .Where(p => p.PropertyType == typeof(bool) && p.CanRead && p.CanWrite)];
 
     private static readonly Dictionary<string, RuleMetadata> RuleMetadataByName = BuildRuleMetadata();
 
@@ -241,7 +240,7 @@ internal static class SettingsSearchIndex
                     : (config, value) => property.SetValue(config, value)));
         }
 
-        return entries.ToArray();
+        return [.. entries];
     }
 
     private static Dictionary<string, RuleMetadata> BuildRuleMetadata()
@@ -280,8 +279,8 @@ internal static class SettingsSearchIndex
 
             metadata[group.Key] = new(
                 group.First().SettingsTab,
-                examples.ToList(),
-                logIds.ToList());
+                [.. examples],
+                [.. logIds]);
         }
 
         return metadata;
@@ -477,7 +476,7 @@ internal static class SettingsSearchIndex
             terms.Add(part);
         }
 
-        return terms.ToArray();
+        return [.. terms];
     }
 
     private static IEnumerable<string> SplitCamelCase(string value)

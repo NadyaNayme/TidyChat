@@ -8,9 +8,9 @@ public static class LogMessageCatalog
 
     public static readonly uint[] SharedObtainTemplateIds = [657, 1259];
 
-    private static readonly Dictionary<uint, string[]> WordTokensById = new();
-    private static readonly Dictionary<uint, string> TemplateTextById = new();
-    private static readonly Dictionary<uint, byte> LogKindById = new();
+    private static readonly Dictionary<uint, string[]> WordTokensById = [];
+    private static readonly Dictionary<uint, string> TemplateTextById = [];
+    private static readonly Dictionary<uint, byte> LogKindById = [];
 
     private static readonly HashSet<uint> RuntimeOnlyIds =
     [

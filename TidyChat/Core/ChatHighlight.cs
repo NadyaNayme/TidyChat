@@ -12,23 +12,15 @@ public class ChatHighlight
 
     public int Channels = (int)ChatFlags.Channels.Loot;
 
-
-
     public string Pattern = string.Empty;
 
     public uint RgbaColor = ChatHighlightPresets.DefaultRgba;
-
-
 
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
 
     public ushort UiForegroundColor { get; set; }
 
-
-
     public bool IsRegex => IsRegexShape(Pattern);
-
-
 
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
 
@@ -39,15 +31,11 @@ public class ChatHighlight
             return null;
         }
 
-
-
         if (string.Equals(_compiledPatternSource, Pattern, StringComparison.Ordinal))
 
         {
             return _compiledPattern;
         }
-
-
 
         _compiledPatternSource = Pattern;
 
@@ -68,12 +56,8 @@ public class ChatHighlight
             onError?.Invoke(Pattern, ex);
         }
 
-
-
         return _compiledPattern;
     }
-
-
 
     private static bool IsRegexShape(string value)
         => value.Length >= 2 && value.StartsWith('/') && value.EndsWith('/');

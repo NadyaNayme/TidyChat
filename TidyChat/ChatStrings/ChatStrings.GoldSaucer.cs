@@ -13,7 +13,6 @@ public static partial class ChatStrings
         Fra = ["apprêtez"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/4785?pretty=true">The Finer Miner — You sense nothing.</see>
     /// <seealso href="https://xivapi.com/LogMessage/4790?pretty=true">Out on a Limb — You sense nothing.</seealso>
     public static readonly LocalizedStrings GoldSaucerSenseNothing = new()
@@ -23,7 +22,6 @@ public static partial class ChatStrings
         Deu = ["nichts"],
         Fra = ["raté"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/4786?pretty=true">The Finer Miner — You sense something close.</see>
     /// <seealso href="https://xivapi.com/LogMessage/4791?pretty=true">Out on a Limb — You sense something close.</seealso>
@@ -35,7 +33,6 @@ public static partial class ChatStrings
         Fra = ["bon", "coup"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/4787?pretty=true">The Finer Miner — You sense something very close.</see>
     /// <seealso href="https://xivapi.com/LogMessage/4792?pretty=true">Out on a Limb — You sense something very close.</seealso>
     public static readonly LocalizedStrings GoldSaucerSenseVeryClose = new()
@@ -45,7 +42,6 @@ public static partial class ChatStrings
         Deu = ["ganz", "nah"],
         Fra = ["très", "bon"]
     };
-
 
     /// <see href="https://xivapi.com/LogMessage/4788?pretty=true">The Finer Miner — You're right on top of it!</see>
     /// <seealso href="https://xivapi.com/LogMessage/4793?pretty=true">Out on a Limb — You're right on top of it!</seealso>

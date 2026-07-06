@@ -5,7 +5,7 @@ namespace TidyChat.Data;
 
 public static class ItemMarkerCatalog
 {
-    private static readonly Dictionary<uint, string[]> MarkersByItemId = new();
+    private static readonly Dictionary<uint, string[]> MarkersByItemId = [];
 
     public static bool IsLoaded { get; private set; }
 

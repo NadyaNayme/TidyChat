@@ -162,7 +162,7 @@ public sealed partial class TidyChatPlugin
         ApplyLogMessageBlock(message, decidingRuleName, decidingMatchDetail);
         if (Configuration.BetterNoviceNetworkMessage && !Configuration.EnableDebugMode)
         {
-            if (message.LogMessageId == 7027 || message.LogMessageId == 7011)
+            if (message.LogMessageId is 7027 or 7011)
             {
                 ChatGui.Print(Better.NoviceNetworkJoinMessage(Configuration));
             }

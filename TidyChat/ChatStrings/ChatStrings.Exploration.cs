@@ -36,7 +36,6 @@ public static partial class ChatStrings
         Fra = ["boussole"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">Mark details can viewed at any time… (second line).</see>
     public static readonly LocalizedStrings MarkBillDetails = new()
     {

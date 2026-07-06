@@ -39,7 +39,6 @@ public class Configuration : IPluginConfiguration
 
     public void Initialize(IDalamudPluginInterface pluginInterface) => this.pluginInterface = pluginInterface;
 
-
     public void Save()
     {
         WriteToDisk();
@@ -133,7 +132,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowUserLogins { get; set; } = true;
     public bool ShowUserLogouts { get; set; } = true;
 
-
     public bool ShowSpiritboundGear { get; set; } = true;
 
     public bool ShowSpideySenses { get; set; } = true;
@@ -180,7 +178,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowJobChange { get; set; } = false;
     public bool ShowPortraitMessages { get; set; } = false;
     public bool ShowMateriaRetrieved { get; set; } = true;
-
 
     public bool ShowTradeSent { get; set; } = false;
     public bool ShowTradeCanceled { get; set; } = false;

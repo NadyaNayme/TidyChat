@@ -116,7 +116,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-
     /// <see href="https://xivapi.com/LogMessage/5701?pretty=true">You acquire the … personal effect.</see>
     public static readonly LocalizedStrings PersonalEffectAcquired = new()
     {
@@ -167,7 +166,6 @@ public static partial class ChatStrings
         Deu = ["portrait", "schnellportrait"],
         Fra = ["portrait", "instantané"]
     };
-
 
     public static readonly LocalizedStrings JobChange = new()
     {
