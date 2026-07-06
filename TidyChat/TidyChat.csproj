@@ -8,7 +8,6 @@
         <Platforms>x64</Platforms>
         <PlatformTarget>x64</PlatformTarget>
         <Description>Trim the messages FFXIV dumps into your chat log.
-
             - Master filters for System, Progress, Loot, Obtained, Crafting, and Gathering
             - Toggles for currencies, FC and retainer messages, level-ups, mount unlocks, orchestrion lines, deep dungeon pomanders, combat log categories, and more
             - Shorter rewrites for instance entry, commendations, Novice Network, and treasure dungeon text
