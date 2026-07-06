@@ -7,7 +7,7 @@ public sealed partial class TidyChatPlugin
     private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled,
         List<string> rulesMatched)
     {
-        if (!Configuration.ChatHistoryFilter || isHandled)
+        if (!Configuration.ChatHistoryFilter || isHandled || chatType is ChatType.Echo)
         {
             return false;
         }

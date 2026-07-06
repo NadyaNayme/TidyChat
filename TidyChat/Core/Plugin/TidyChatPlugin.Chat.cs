@@ -90,7 +90,7 @@ public sealed partial class TidyChatPlugin
         {
             isHandled = false;
         }
-        else if (ChannelFilterPolicy.ShouldBypassChannelRules(chatType))
+        else if (ChannelFilterPolicy.ShouldBypassChannelRules(chatType) || chatType is ChatType.Echo)
         {
             isHandled = false;
         }

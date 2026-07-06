@@ -304,9 +304,9 @@ internal static class SettingsSearchIndex
         var label = (string)labelProperty.GetValue(null)!;
         var helpProperty = FindPairedHelpProperty(labelProperty.Name);
         var help = helpProperty is null ? null : (string)helpProperty.GetValue(null)!;
-        if (help is not null && helpProperty is not null)
+        if (help is not null)
         {
-            help = AppendConfiguredHelpNotes(help, helpProperty.Name);
+            help = AppendConfiguredHelpNotes(help, helpProperty!.Name);
         }
 
         return (label, help);

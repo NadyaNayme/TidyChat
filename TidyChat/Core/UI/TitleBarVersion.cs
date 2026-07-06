@@ -63,13 +63,13 @@ internal static class TitleBarVersion
     private static string GetVersionLabel()
     {
         var manifestVersion = TidyChatPlugin.PluginInterface.Manifest.AssemblyVersion;
-        if (manifestVersion != null)
+        if (manifestVersion is not null)
         {
             return "v" + FormatVersion(manifestVersion);
         }
 
         var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
-        return assemblyVersion != null ? "v" + FormatVersion(assemblyVersion) : "v?.?.?.?";
+        return assemblyVersion is not null ? "v" + FormatVersion(assemblyVersion) : "v?.?.?.?";
     }
 
     private static string FormatVersion(Version version) =>

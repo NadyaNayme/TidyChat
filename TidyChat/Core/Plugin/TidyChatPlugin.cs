@@ -17,6 +17,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private const int MaxLogMessageSetSize = 1000;
     private const int MaxSetPlayerNameRetries = 10;
     private const int ServerAnnouncementLoginGraceSeconds = 20;
+    private const string EchoPassthroughRuleName = "Echo passthrough";
 
     private readonly HashSet<string> _allowedByLogMessage = new(StringComparer.OrdinalIgnoreCase);
 

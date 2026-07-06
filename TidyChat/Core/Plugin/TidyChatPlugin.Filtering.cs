@@ -78,14 +78,15 @@ public sealed partial class TidyChatPlugin
         {
             TrackMatchedRule(rulesMatched, isHandled ? "CustomFilter (Block)" : "CustomFilter (Allow)");
         }
-        if (CheckChatHistory(message, chatType, ref isHandled, rulesMatched))
-        {
-            return true;
-        }
-
         if (chatType is ChatType.Echo)
         {
             isHandled = false;
+            TrackMatchedRule(rulesMatched, EchoPassthroughRuleName);
+        }
+
+        if (CheckChatHistory(message, chatType, ref isHandled, rulesMatched))
+        {
+            return true;
         }
 
         if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
@@ -249,19 +250,6 @@ public sealed partial class TidyChatPlugin
                     Log.Verbose($"SKIPPING CHECK: Message was sent to {chatType} but the rule's filter is for {rule.Channel}");
                 }
                 rulesSkipped?.Add(rule.Name);
-                continue;
-            }
-
-            if (rule.Channel == ChatType.Echo)
-            {
-                if (RuleMatcher.MatchesText(rule, normalizedText, out _))
-                {
-                    TrackMatchedRule(matchedRules, rule.Name);
-                }
-                else if (Configuration.EnableDebugMode)
-                {
-                    Log.Debug("/echo message failed to match any rules");
-                }
                 continue;
             }
 
@@ -505,8 +493,7 @@ public sealed partial class TidyChatPlugin
             ChatType.Progress or
             ChatType.FreeCompanyLoginLogout or
             ChatType.GlamourNotifications or
-            ChatType.BattleSystem or
-            ChatType.Echo => true,
+            ChatType.BattleSystem => true,
         _ => false
     };
 

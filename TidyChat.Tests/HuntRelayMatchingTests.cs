@@ -37,6 +37,28 @@ public class HuntRelayMatchingTests
     }
 
     [Test]
+    public void S_rank_hunt_rule_matches_community_relay_with_was_just_killed_suffix()
+    {
+        var rule = Rules.AllRules.First(rule =>
+            string.Equals(rule.Name, "ShowSRankHunt", StringComparison.Ordinal) &&
+            rule.RegexChecks?.Contains(ChatStrings.HuntSRankRelayRegex) == true);
+
+        Assert.That(
+            RuleMatcher.MatchesText(
+                rule,
+                "rank a: lyuba coerthas western highlands ( 28,1 , 7,9 ) <twintania> was just killed",
+                out _),
+            Is.False);
+
+        Assert.That(
+            RuleMatcher.MatchesText(
+                rule,
+                "rank s: lyuba coerthas western highlands ( 28,1 , 7,9 ) <twintania> was just killed",
+                out _),
+            Is.True);
+    }
+
+    [Test]
     public void SS_rank_hunt_rule_matches_community_relay_line()
     {
         var rule = Rules.AllRules.First(rule =>
@@ -47,6 +69,13 @@ public class HuntRelayMatchingTests
             RuleMatcher.MatchesText(
                 rule,
                 "rank ss: soultaker lakeland ( 10.1 , 20.2 ) <cactbot>",
+                out _),
+            Is.True);
+
+        Assert.That(
+            RuleMatcher.MatchesText(
+                rule,
+                "rank ss: soultaker lakeland ( 10.1 , 20.2 ) <cactbot> was just killed",
                 out _),
             Is.True);
     }

@@ -141,7 +141,7 @@ public sealed partial class TidyChatPlugin
         try
         {
             var player = PlayerState.Instance();
-            if (player == null)
+            if (player is null)
             {
                 Log.Error("PlayerState was null, something went wrong");
                 return false;
@@ -182,7 +182,7 @@ public sealed partial class TidyChatPlugin
         try
         {
             var player = PlayerState.Instance();
-            if (player == null)
+            if (player is null)
             {
                 Log.Error("PlayerState was null, something went wrong");
                 return;

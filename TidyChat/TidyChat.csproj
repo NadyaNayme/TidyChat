@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Dalamud.NET.Sdk/15.0.0">
     <PropertyGroup>
+        <Nullable>enable</Nullable>
         <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
         <Version>3.1.0.24</Version>
@@ -92,6 +93,14 @@
             <DependentUpon>Languages.ploc.resx</DependentUpon>
         </Compile>
     </ItemGroup>
+
+    <!-- Apply .editorconfig code-style (IDE*) and analyzers on Debug builds and when CI=true. -->
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug' Or '$(CI)' == 'true'">
+        <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+        <EnableNETAnalyzers>true</EnableNETAnalyzers>
+        <AnalysisLevel>latest</AnalysisLevel>
+        <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    </PropertyGroup>
 
     <PropertyGroup>
         <NoWarn>$(NoWarn);MA0051;MA0026;MA0195</NoWarn>

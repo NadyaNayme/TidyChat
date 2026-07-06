@@ -165,7 +165,7 @@ public static partial class ChatStrings
     public static readonly LocalizedRegex HuntSRankRelayRegex = new()
     {
         Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Eng = new(@"^rank s:\s+.+\s+\([^)]+\)(?:\s*<[^>]+>)?\s*$", RegexOptions, RegexTimeout),
+        Eng = new(@"^rank s:\s+.+\s+\([^)]+\)(?:\s*<[^>]+>)?(?:\s+was just killed)?\s*$", RegexOptions, RegexTimeout),
         Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
@@ -174,7 +174,7 @@ public static partial class ChatStrings
     public static readonly LocalizedRegex HuntSSRankRelayRegex = new()
     {
         Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Eng = new(@"^rank ss:\s+.+\s+\([^)]+\)(?:\s*<[^>]+>)?\s*$", RegexOptions, RegexTimeout),
+        Eng = new(@"^rank ss:\s+.+\s+\([^)]+\)(?:\s*<[^>]+>)?(?:\s+was just killed)?\s*$", RegexOptions, RegexTimeout),
         Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
