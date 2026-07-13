@@ -250,7 +250,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plain text (case-insensitive) or /regex/. Example: obtain.
+        ///   Looks up a localized string similar to Plain text (case-insensitive) or /regex/ — e.g. obtain or /gold star/. Use slashes only; matching is always case-insensitive..
         /// </summary>
         internal static string ChatHighlightsTab_PatternHelpMarker {
             get {
@@ -259,7 +259,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Regex patterns use /pattern/ syntax, same as Custom Filters..
+        ///   Looks up a localized string similar to Regex uses /pattern/ syntax (same as Tools → Custom Filters). Always case-insensitive..
         /// </summary>
         internal static string ChatHighlightsTab_RegexExplanation {
             get {
@@ -2865,7 +2865,7 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Shows Fisher&apos;s Intuition messages (&quot;the scent of baitfish...&quot;) and per-fish lure flavor text (loaded from game data at startup).
         ///
-        ///For other gathering lines this toggle does not cover (e.g. big-fish feeling text), use Tools → Custom Filters: Allow, Gathering channel only, regex such as /winged shadow|golden|gentle giant|dark form/i. Requires Filter Gathering channels on General so Allow can un-hide matching lines..
+        ///For other gathering lines this toggle does not cover (e.g. big-fish feeling text), use Tools → Custom Filters: Allow, Gathering channel only, pattern /winged shadow|golden|gentle giant|dark form/ (or plain text). Requires Filter Gathering on General so Allow can un-hide matching lines..
         /// </summary>
         internal static string GatheringTab_ShowFishingFlavorTextHelpMarker {
             get {
@@ -5382,7 +5382,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dry-run: matching lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Turn this off to actually hide blocked messages. LogMessage blocks also skip PreventOriginal while debug is on..
+        ///   Looks up a localized string similar to Dry-run: matching lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Custom filters show as CustomFilter (Allow) or CustomFilter (Block). Turn this off to actually hide blocked messages. LogMessage blocks also skip PreventOriginal while debug is on..
         /// </summary>
         internal static string ToolsTab_EnableDebugModeHelpMarker {
             get {
@@ -5409,9 +5409,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Block — force hide when the pattern matches and a channel is selected.
+        ///   Looks up a localized string similar to Block — always hide matching lines on the selected channels.
         ///
-        ///Allow — force show when the pattern matches (useful for gathering flavor or other lines hidden by default). Requires the matching master filter on General to be enabled (e.g. Filter Gathering for gathering Allow rules)..
+        ///Allow — always show matching lines, even when a settings toggle would hide them (example: cosmic toggles off, but Allow gold star on System).
+        ///
+        ///Allow only works when TidyChat is actually filtering that channel on General: Filter System for System rows, Filter Progress for Progress rows, Filter Gathering for Gathering rows, and so on. If the master filter is off, nothing is hidden there and Allow has nothing to override..
         /// </summary>
         internal static string WhitelistTab_AllowBlockHelpMarker {
             get {
@@ -5438,9 +5440,9 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Only runs on checked channels. A row with no channels selected never matches.
+        ///   Looks up a localized string similar to Custom filters only run on checked channels. If none are checked, the row never matches.
         ///
-        ///Login/Logout covers Free Company login/logout lines. Progress covers Progress and Battle System..
+        ///System = System + Retainer Sale. Gathering = Gathering + Gathering System. Progress = Progress + Battle System. Login/Logout = FC login/logout..
         /// </summary>
         internal static string WhitelistTab_ChannelsHelpMarker {
             get {
@@ -5458,7 +5460,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a row and press Enter. The Filters column accepts plain text, /pattern/ for regex, or #123 / #123,456 for LogMessage IDs — hover the Filters header for details. Custom filters run after normal TidyChat rules and override the result for matching lines..
+        ///   Looks up a localized string similar to Add a row, type a pattern, press Enter. Custom filters run after normal TidyChat rules and override them when they match. Use plain text, /regex/, or #LogMessageID — hover Filters (?) for syntax..
         /// </summary>
         internal static string WhitelistTab_ExplanationMessage {
             get {
@@ -5467,7 +5469,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Block hides matching lines. Allow shows matching lines even when another filter would hide them. Pick at least one channel per row. Gathering covers Gathering and Gathering System. System covers System and Retainer Sale. Loot is the Obtained (loot notice) channel..
+        ///   Looks up a localized string similar to Block hides matches. Allow shows matches even when another rule hid them. Pick at least one channel per row. Block rows are checked before Allow rows..
         /// </summary>
         internal static string WhitelistTab_FilteringNote {
             get {
@@ -5485,11 +5487,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plain text — matches if the sender or message contains the text (see match mode below).
+        ///   Looks up a localized string similar to Plain text — matches if the sender name or message text contains your text (case-insensitive; see match mode below).
         ///
-        ///Regex — wrap the pattern in slashes, e.g. /cosmic container/i or /winged shadow|golden/i (case-insensitive by default).
+        ///Regex — wrap only in slashes, e.g. /gold star/ or /cosmic container|modest contribution/. Matching is always case-insensitive; nothing goes after the closing slash.
         ///
-        ///LogMessage ID — prefix with # and one or more IDs, e.g. #588 or #748,4578. Allow/block applies in OnLogMessage before chat display. Regex and text filters do not apply to #ID rows..
+        ///LogMessage ID — #588 or #748,4578. Blocks or allows that game log line by ID (before chat display). #ID rows ignore regex and plain-text match modes..
         /// </summary>
         internal static string WhitelistTab_FiltersHelpMarker {
             get {
