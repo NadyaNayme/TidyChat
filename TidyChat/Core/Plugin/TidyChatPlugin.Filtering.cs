@@ -381,6 +381,16 @@ public sealed partial class TidyChatPlugin
             }
         }
 
+        if (PluginChatPassthroughHelper.ShouldAllow(message.SourceKind, message.TargetKind))
+        {
+            var allowedIsBlocked = chatType is ChatType.LootNotice;
+            if (isBlocked != allowedIsBlocked)
+            {
+                isBlocked = allowedIsBlocked;
+                TrackMatchedRule(matchedRules, PluginChatPassthroughHelper.PassthroughRuleName);
+            }
+        }
+
         var isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
 
         if (Configuration.EnableDebugMode && matchedRules.Count > 0)

@@ -161,6 +161,28 @@ public static class LogMessageCatalog
         return false;
     }
 
+    /// <summary>
+    ///     True when <paramref name="normalizedText" /> matches a Lumina System-channel LogMessage template.
+    ///     Used to distinguish game system lines from Dalamud <c>IChatGui.Print</c> output on the chat path.
+    /// </summary>
+    public static bool MatchesAnySystemTemplate(string normalizedText)
+    {
+        foreach (var id in TemplateTextById.Keys)
+        {
+            if (GetChatTypeForId(id) is not ChatType.System)
+            {
+                continue;
+            }
+
+            if (Matches(id, normalizedText))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static ChatType? GetChatTypeForId(uint logMessageId)
     {
         if (!LogKindById.TryGetValue(logMessageId, out var logKind))
