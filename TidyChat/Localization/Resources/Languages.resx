@@ -928,10 +928,10 @@ eg. You obtain Starboard Hull Component Materials</value>
     <value>Match text</value>
   </data>
     <data name="ChatHighlightsTab_PatternHelpMarker" xml:space="preserve">
-    <value>Plain text (case-insensitive) or /regex/. Example: obtain</value>
+    <value>Plain text (case-insensitive) or /regex/ — e.g. obtain or /gold star/. Use slashes only; matching is always case-insensitive.</value>
   </data>
     <data name="ChatHighlightsTab_RegexExplanation" xml:space="preserve">
-    <value>Regex patterns use /pattern/ syntax, same as Custom Filters.</value>
+    <value>Regex uses /pattern/ syntax (same as Tools → Custom Filters). Always case-insensitive.</value>
   </data>
     <data name="ChatHighlightsTab_SelectChannelsHeader" xml:space="preserve">
     <value>Channels</value>
@@ -1094,7 +1094,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Base camp &amp; rewards</value>
   </data>
     <data name="CosmicExplorationTab_FilteringNote" xml:space="preserve">
-    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Custom Filters (Tools) can refine cosmic lines further.</value>
+    <value>Stellar and cosmic system lines need Filter System channel on General. Stellar and cosmic gathering-channel lines need Filter Gathering channels on General. Show … = allow when checked. Custom Filters (Tools) can refine cosmic lines further.</value>
   </data>
     <data name="CosmicExplorationTab_StellarMissionsDropdownHeader" xml:space="preserve">
     <value>Stellar missions</value>
@@ -1103,13 +1103,13 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Crafting</value>
   </data>
     <data name="CraftingTab_FilteringNote" xml:space="preserve">
-    <value>Synthesis and crafting-channel lines need Filter Crafting Channels on General. Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
+    <value>Synthesis and crafting-channel lines need Filter Crafting Channels on General. Show … = allow when checked; unchecked = hide. Tools → Custom Filters can Block or Allow specific lines.</value>
   </data>
     <data name="CraftingTab_ShowAllOtherCrafting" xml:space="preserve">
     <value>Show All other crafting (catch-all)</value>
   </data>
     <data name="CraftingTab_ShowAllOtherCraftingHelpMarker" xml:space="preserve">
-    <value>Master toggle for step-by-step crafting log lines (LogMessages 1150, 1154–1155, 5912–5913, 1162, 1164, 1167, 1168, 1169, 5918). eg. You begin synthesizing a Linen Bandana. When on, use nested options for buff effect gain (603) and able to execute (5533). Unchecking hides all nested lines until you turn this back on (nested checkboxes keep their settings).</value>
+    <value>When checked, step-by-step crafting log lines show (LogMessages 1150, 1154–1155, 5912–5913, 1162, 1164, 1167–1169, 5918). eg. You begin synthesizing a Linen Bandana. Nested options control buff effect gain (603) and able to execute (5533). When unchecked, all lines in this group stay hidden (nested settings are saved).</value>
   </data>
     <data name="CraftingTab_ShowCraftingAbleToExecute" xml:space="preserve">
     <value>Show crafting "able to execute"</value>
@@ -1379,7 +1379,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show /instance message</value>
   </data>
     <data name="DutyTab_ShowInstanceMessageHelpMarker" xml:space="preserve">
-    <value>Master toggle for instance and duty status messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
+    <value>When checked, nested instance and duty status options below apply. When unchecked, all lines in this group stay hidden (nested settings are saved).</value>
   </data>
     <data name="DutyTab_ShowLevelNoLongerSynced" xml:space="preserve">
     <value>Show level sync ended</value>
@@ -1436,7 +1436,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show market board sales</value>
   </data>
     <data name="EconomyTab_ShowMarketBoardMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for retainer sale lines. When on, use the nested options for per-item sold (748), all-items-sold summary (384), and listing started/stopped (398/399). Unchecking disables all nested sale lines in chat until you turn this back on (nested checkboxes keep their settings for next time). Improved market board lines on General only affect per-item sold (748).</value>
+    <value>When checked, nested retainer sale options below apply. When unchecked, all sale lines in this group stay hidden (nested settings are saved). Improved market board lines on General only affect per-item sold (748).</value>
   </data>
     <data name="EconomyTab_ShowMarketBoardSellingStatus" xml:space="preserve">
     <value>Show Listing started and stopped</value>
@@ -1708,7 +1708,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Show Submarine voyage</value>
   </data>
     <data name="FreeCompanyTab_ShowSubmarineVoyageMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for submarine voyage, repair, and rank messages below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Airship voyage above is separate.</value>
+    <value>When checked, nested submarine voyage, repair, and rank options below apply. When unchecked, all lines in this group stay hidden (nested settings are saved). Airship voyage above is separate.</value>
   </data>
     <data name="FreeCompanyTab_SocialDropdownHeader" xml:space="preserve">
     <value>Login &amp; logout</value>
@@ -1720,7 +1720,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Aetherial Reduction</value>
   </data>
     <data name="GatheringTab_FilteringNote" xml:space="preserve">
-    <value>Gathering lines need Filter Gathering channels on General. Elemental shard obtains also need Filter Obtained.</value>
+    <value>Gathering-channel lines need Filter Gathering channels on General. Show … = allow when checked; Hide … = hide when checked. Elemental shard obtains also need Filter Obtained. Cosmic and stellar gathering lines are on Cosmic Exploration. Custom Filters can refine matching text.</value>
   </data>
     <data name="GatheringTab_GatheringLocationsDropdownHeader" xml:space="preserve">
     <value>Gathering</value>
@@ -1765,7 +1765,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Show All other gathering (catch-all)</value>
   </data>
     <data name="GatheringTab_ShowAllOtherGatheringHelpMarker" xml:space="preserve">
-    <value>Master toggle for miscellaneous gathering log lines (LogMessages 1111, 3549, 3569). When on, use the nested option for buff effect gain (603). Unchecking disables the nested option in chat until you turn this back on (the nested checkbox keeps its setting for next time).</value>
+    <value>When checked, miscellaneous gathering log lines show (LogMessages 1111, 3549, 3569). Nested option controls buff effect gain (603). When unchecked, all lines in this group stay hidden (nested settings are saved).</value>
   </data>
     <data name="CosmicExplorationTab_ShowCosmicClassPointsAndDataset" xml:space="preserve">
     <value>Show cosmic class points, tool mastery, and dataset submission</value>
@@ -1809,7 +1809,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <data name="GatheringTab_ShowFishingFlavorTextHelpMarker" xml:space="preserve">
     <value>Shows Fisher's Intuition messages ("the scent of baitfish...") and per-fish lure flavor text (loaded from game data at startup).
 
-For other gathering lines this toggle does not cover (e.g. big-fish feeling text), use Tools → Custom Filters: Allow, Gathering channel only, regex such as /winged shadow|golden|gentle giant|dark form/i. Requires Filter Gathering channels on General so Allow can un-hide matching lines.</value>
+For other gathering lines this toggle does not cover (e.g. big-fish feeling text), use Tools → Custom Filters: Allow, Gathering channel only, pattern /winged shadow|golden|gentle giant|dark form/ (or plain text). Requires Filter Gathering on General so Allow can un-hide matching lines.</value>
   </data>
     <data name="GatheringTab_ShowFishingHoleDiscovered" xml:space="preserve">
     <value>Show message when a fishing location is discovered</value>
@@ -1917,7 +1917,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show stellar mission messages</value>
   </data>
     <data name="CosmicExplorationTab_ShowStellarMissionMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for stellar mission catch-all lines (LogMessages 631–11383 incl. 10763 (Error), 10827–10828, 11165, 11200). When on, use nested options for able-to-execute (5533, 11365), buff gain (11366), and GP recovery (11174, 11175). Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Cosmic exploration options below are separate.</value>
+    <value>When checked, stellar mission system lines show (mission start, completion, gold star ratings, and similar). Nested options control able-to-execute, buff gain, and GP recovery lines. When unchecked, all stellar mission lines in this group stay hidden (nested settings are saved). Cosmic exploration options below are separate. Needs Filter System channel on General.</value>
   </data>
     <data name="GeneralTab_BlockCountHelpMarker" xml:space="preserve">
     <value>Count is only updated every 100 blocked messages, when changing zones, or when logging off.</value>
@@ -1944,16 +1944,16 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Filter Crafting channel</value>
   </data>
     <data name="GeneralTab_FilterCraftingSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, Crafting channel messages are hidden unless a Show option on the Crafting/Gathering tab allows them. When disabled, Crafting is not filtered here.</value>
+    <value>When enabled, Crafting channel messages are hidden unless a Show option on the Crafting tab allows them (or a Custom Filter Allow rule matches). When disabled, Crafting is not filtered here.</value>
   </data>
     <data name="GeneralTab_FilterGatheringSpam" xml:space="preserve">
     <value>Filter Gathering channels</value>
   </data>
     <data name="GeneralTab_FilterGatheringSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here—Custom Filter Allow rules on Gathering will not take effect.</value>
+    <value>When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Gathering or Cosmic Exploration tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here — Custom Filter Allow rules on Gathering will not apply.</value>
   </data>
     <data name="GeneralTab_FilteringNote" xml:space="preserve">
-    <value>These master toggles gate whole chat channels. When a channel is filtered, Show options on other tabs decide what still appears. Tools → Custom Filters can Block or Allow specific lines afterward.</value>
+    <value>These switches turn filtering on for whole chat channels. When a channel is filtered, Show and Hide options on other tabs decide what still appears. Tools → Custom Filters can Block or Allow specific lines afterward. Echo (/echo) and Dalamud plugin messages are never filtered.</value>
   </data>
     <data name="GeneralTab_FilterLootSpam" xml:space="preserve">
     <value>Filter Loot Roll channel</value>
@@ -1971,13 +1971,13 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Filter Progress channel</value>
   </data>
     <data name="GeneralTab_FilterProgressSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Crafting/Gathering: cosmic dataset submissions). Progress tab quest lines use the System channel—also enable Filter System channel. When disabled, Progress and Battle System are not filtered here.</value>
+    <value>When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Cosmic Exploration: dataset submissions). Quest progress lines use the System channel — also enable Filter System channel. When disabled, Progress and Battle System are not filtered here.</value>
   </data>
     <data name="GeneralTab_FilterSystemSpam" xml:space="preserve">
     <value>Filter System channel</value>
   </data>
     <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
-    <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party, Duty, Progress tab quest lines, Crafting/Gathering stellar/cosmic system lines, and similar). When disabled, those channels are not filtered here.</value>
+    <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party, Duty, Progress, Cosmic Exploration, and other tabs). When disabled, those channels are not filtered here.</value>
   </data>
     <data name="GeneralTab_HideEnemyInstantCasts" xml:space="preserve">
     <value>Also hide instant enemy abilities</value>
@@ -2089,7 +2089,7 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Show glamour dresser messages</value>
   </data>
     <data name="GlamourTab_ShowGlamourDresserMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for outfit glamour and projection storage in the glamour dresser. When on, use the nested options. Unchecking disables all nested dresser options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
+    <value>When checked, nested glamour dresser and armoire storage options below apply. When unchecked, all lines in this group stay hidden (nested settings are saved).</value>
   </data>
     <data name="GlamourTab_ShowGlamourDresserOutfit" xml:space="preserve">
     <value>Show outfit glamour in dresser</value>
@@ -2131,7 +2131,7 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Show try-on / cast / equip glamour messages</value>
   </data>
     <data name="GlamourTab_ShowTryOnEquipGlamourMessagesHelpMarker" xml:space="preserve">
-    <value>Master toggle for trying on, casting, and applying glamours to equipped gear (not dresser/armoire storage). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time). Spiritbound below is separate.</value>
+    <value>When checked, nested try-on, cast, and apply glamour options below apply (equipped gear only — not dresser/armoire storage). When unchecked, all lines in this group stay hidden (nested settings are saved). Spiritbound below is separate.</value>
   </data>
     <data name="GlamourTab_ShowTryOnGlamourCast" xml:space="preserve">
     <value>Show try-on / cast glamour</value>
@@ -2366,13 +2366,13 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Hide adventurer-in-need bonus awards</value>
   </data>
     <data name="ProgressTab_HideAdventurerInNeedAwardMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 2244 — eg. A bonus of 7,200 gil has been awarded for being an adventurer in need.</value>
+    <value>LogMessage 2244 — eg. A bonus of 7,200 gil has been awarded for being an adventurer in need. Checked = hide this message.</value>
   </data>
     <data name="ProgressTab_HideBonusAwardForDutyRouletteMessages" xml:space="preserve">
     <value>Hide duty roulette bonus awards</value>
   </data>
     <data name="ProgressTab_HideBonusAwardForDutyRouletteMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessage 2246 — eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette.</value>
+    <value>LogMessage 2246 — eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette. Checked = hide this message.</value>
   </data>
     <data name="ProgressTab_QuestAndAchievementsDropdownHeader" xml:space="preserve">
     <value>Quests &amp; achievements</value>
@@ -2483,40 +2483,40 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Wiki Page</value>
   </data>
     <data name="Shared_FilterObtainedDisabledWarning" xml:space="preserve">
-    <value>Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat.</value>
+    <value>Enable {0} on the {1} tab first. While it is off, options below do not filter obtain messages — they stay visible in chat.</value>
   </data>
     <data name="Shared_HideNamedItemFormat" xml:space="preserve">
     <value>Hide {0}</value>
   </data>
     <data name="Shared_MasterChannelDisabledWarning" xml:space="preserve">
-    <value>Enable {0} on the {1} tab. While it is off, most options below do not filter anything — those messages simply stay in chat.</value>
+    <value>Enable {0} on the {1} tab first. While it is off, options below do not filter chat — those messages stay visible.</value>
   </data>
     <data name="Shared_RequiresCraftingFilteringNote" xml:space="preserve">
-    <value>Requires Filter Crafting Channels on the General tab. Checked = show; unchecked = hide.</value>
+    <value>Needs Filter Crafting channel on General. Checked = show matching lines; unchecked = hide them.</value>
   </data>
     <data name="Shared_RequiresGatheringFilteringNote" xml:space="preserve">
-    <value>Requires Filter Gathering channels on the General tab. Checked = show; unchecked = hide.</value>
+    <value>Needs Filter Gathering channels on General. Checked = show matching lines; unchecked = hide them.</value>
   </data>
     <data name="Shared_RequiresGatheringHideFilteringNote" xml:space="preserve">
-    <value>Requires Filter Gathering channels on the General tab. Checked = hide; unchecked = show.</value>
+    <value>Needs Filter Gathering channels on General. Checked = hide matching lines; unchecked = show them.</value>
   </data>
     <data name="Shared_RequiresLootFilteringNote" xml:space="preserve">
-    <value>Requires Filter Loot Roll channel on the General tab. Checked = show; unchecked = hide.</value>
+    <value>Needs Filter Loot Roll channel on General. Checked = show matching lines; unchecked = hide them.</value>
   </data>
     <data name="Shared_RequiresObtainedFilteringNote" xml:space="preserve">
-    <value>Requires Filter Obtained channel on the General tab. Checked = show; unchecked = hide.</value>
+    <value>Needs Filter Obtained channel on General. Checked = show matching lines; unchecked = hide them.</value>
   </data>
     <data name="Shared_RequiresObtainedHideFilteringNote" xml:space="preserve">
-    <value>Requires Filter Obtained channel on the General tab. Checked = hide; unchecked = show.</value>
+    <value>Needs Filter Obtained channel on General. Checked = hide matching lines; unchecked = show them.</value>
   </data>
     <data name="Shared_RequiresProgressFilteringNote" xml:space="preserve">
-    <value>Requires Filter Progress channel on the General tab. Checked = show; unchecked = hide.</value>
+    <value>Needs Filter Progress channel on General. Checked = show matching lines; unchecked = hide them.</value>
   </data>
     <data name="Shared_RequiresSystemFilteringNote" xml:space="preserve">
-    <value>Requires Filter System channel on the General tab. Checked = show; unchecked = hide.</value>
+    <value>Needs Filter System channel on General. Checked = show matching lines; unchecked = hide them.</value>
   </data>
     <data name="Shared_RequiresSystemHideFilteringNote" xml:space="preserve">
-    <value>Requires Filter System channel on the General tab. Checked = hide; unchecked = show.</value>
+    <value>Needs Filter System channel on General. Checked = hide matching lines; unchecked = show them.</value>
   </data>
     <data name="SystemTab_CatchAllDropdownHeader" xml:space="preserve">
     <value>Catch-all</value>
@@ -2525,7 +2525,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Error messages</value>
   </data>
     <data name="SystemTab_FilteringNote" xml:space="preserve">
-    <value>Most options need Filter System channel on General (Retainer Sale lines are included). Checked = show; unchecked = hide. Tools → Custom Filters can Block or Allow specific System text.</value>
+    <value>Most options need Filter System channel on General (Retainer Sale lines are included). Show … = allow when checked; Hide … = hide when checked. Catch-all at the bottom inverts the default for unmatched system lines. Tools → Custom Filters can Block or Allow specific System text.</value>
   </data>
     <data name="SystemTab_HideCrackedClustersMessages" xml:space="preserve">
     <value>Hide cracked clusters</value>
@@ -2608,7 +2608,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show miscellaneous system messages</value>
   </data>
     <data name="SystemTab_ShowEverythingElseHelpMarker" xml:space="preserve">
-    <value>Master toggle for the four specific system messages below (not a catch-all for all system chat). When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
+    <value>Catch-all for the System channel. When checked, system lines that no other Show option matches are allowed through. When unchecked, those unmatched lines stay hidden. Needs Filter System channel on General. Echo (/echo) is never filtered.</value>
   </data>
     <data name="SystemTab_ShowInventoryItemSearchResults" xml:space="preserve">
     <value>Show inventory item search results</value>
@@ -2620,7 +2620,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show /isearch result messages</value>
   </data>
     <data name="SystemTab_ShowItemSearchResultsMessageHelpMarker" xml:space="preserve">
-    <value>Master toggle for inventory item search and location search lines below. When on, use the nested options. Unchecking disables all nested options in chat until you turn this back on (nested checkboxes keep their settings for next time).</value>
+    <value>When checked, nested inventory and location search options below apply. When unchecked, all /isearch result lines in this group stay hidden (nested settings are saved).</value>
   </data>
     <data name="SystemTab_ShowLocationSearchResults" xml:space="preserve">
     <value>Show location search results</value>
@@ -2680,7 +2680,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Debug mode (dry-run filtering)</value>
   </data>
     <data name="ToolsTab_EnableDebugModeHelpMarker" xml:space="preserve">
-    <value>Dry-run: matching lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Turn this off to actually hide blocked messages. LogMessage blocks also skip PreventOriginal while debug is on.</value>
+    <value>Dry-run mode: blocked lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Custom filters show as CustomFilter (Allow) or CustomFilter (Block). Turn off debug mode to actually hide blocked messages. While debug is on, LogMessage blocks do not suppress the original chat line.</value>
   </data>
     <data name="ToolsTab_FilteringNote" xml:space="preserve">
     <value>Debug mode logs rule matches to chat. Chat History and Custom Filters are optional extras; Custom Filters run after all other rules.</value>
@@ -2689,9 +2689,11 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Allow</value>
   </data>
     <data name="WhitelistTab_AllowBlockHelpMarker" xml:space="preserve">
-    <value>Block — force hide when the pattern matches and a channel is selected.
+    <value>Block — always hide matching lines on the selected channels.
 
-Allow — force show when the pattern matches (useful for gathering flavor or other lines hidden by default). Requires the matching master filter on General to be enabled (e.g. Filter Gathering for gathering Allow rules).</value>
+Allow — always show matching lines, even when a settings toggle would hide them (example: cosmic toggles off, but Allow gold star on System).
+
+Allow only works when TidyChat is actually filtering that channel on General: Filter System for System rows, Filter Progress for Progress rows, Filter Gathering for Gathering rows, and so on. If the master filter is off, nothing is hidden there and Allow has nothing to override.</value>
   </data>
     <data name="WhitelistTab_Block" xml:space="preserve">
     <value>Block</value>
@@ -2700,28 +2702,28 @@ Allow — force show when the pattern matches (useful for gathering flavor or ot
     <value>Channels</value>
   </data>
     <data name="WhitelistTab_ChannelsHelpMarker" xml:space="preserve">
-    <value>Only runs on checked channels. A row with no channels selected never matches.
+    <value>Custom filters only run on checked channels. If none are checked, the row never matches.
 
-Login/Logout covers Free Company login/logout lines. Progress covers Progress and Battle System.</value>
+System = System + Retainer Sale. Gathering = Gathering + Gathering System. Progress = Progress + Battle System. Login/Logout = FC login/logout.</value>
   </data>
     <data name="WhitelistTab_ExactNameMatchWhitelistExplanation" xml:space="preserve">
     <value>Player names must match chat exactly (including periods): Example N., E. Name, or E. N. Use /pattern/ for regex. Use #588 or #588,589 for LogMessage IDs (see Filters help above).</value>
   </data>
     <data name="WhitelistTab_ExplanationMessage" xml:space="preserve">
-    <value>Add a row and press Enter. The Filters column accepts plain text, /pattern/ for regex, or #123 / #123,456 for LogMessage IDs — hover the Filters header for details. Custom filters run after normal TidyChat rules and override the result for matching lines.</value>
+    <value>Add a row, type a pattern, press Enter. Custom filters run after normal TidyChat rules and override them when they match. Use plain text, /regex/, or #LogMessageID — hover Filters (?) for syntax.</value>
   </data>
     <data name="WhitelistTab_FilteringNote" xml:space="preserve">
-    <value>Block hides matching lines. Allow shows matching lines even when another filter would hide them. Pick at least one channel per row. Gathering covers Gathering and Gathering System. System covers System and Retainer Sale. Loot is the Obtained (loot notice) channel.</value>
+    <value>Block hides matches. Allow shows matches even when another rule hid them. Pick at least one channel per row. Block rows are checked before Allow rows.</value>
   </data>
     <data name="WhitelistTab_FiltersHeader" xml:space="preserve">
     <value>Filters</value>
   </data>
     <data name="WhitelistTab_FiltersHelpMarker" xml:space="preserve">
-    <value>Plain text — matches if the sender or message contains the text (see match mode below).
+    <value>Plain text — matches if the sender name or message text contains your text (case-insensitive; see match mode below).
 
-Regex — wrap the pattern in slashes, e.g. /cosmic container/i or /winged shadow|golden/i (case-insensitive by default).
+Regex — wrap only in slashes, e.g. /gold star/ or /cosmic container|modest contribution/. Matching is always case-insensitive; nothing goes after the closing slash.
 
-LogMessage ID — prefix with # and one or more IDs, e.g. #588 or #748,4578. Allow/block applies in OnLogMessage before chat display. Regex and text filters do not apply to #ID rows.</value>
+LogMessage ID — #588 or #748,4578. Blocks or allows that game log line by ID (before chat display). #ID rows ignore regex and plain-text match modes.</value>
   </data>
     <data name="WhitelistTab_MatchModeExactSender" xml:space="preserve">
     <value>Exact sender only</value>
