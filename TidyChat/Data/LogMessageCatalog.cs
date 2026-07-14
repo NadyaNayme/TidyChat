@@ -183,6 +183,22 @@ public static class LogMessageCatalog
         return false;
     }
 
+    /// <summary>
+    ///     True when <paramref name="normalizedText" /> matches any loaded Lumina LogMessage template.
+    /// </summary>
+    public static bool MatchesAnyTemplate(string normalizedText)
+    {
+        foreach (var id in TemplateTextById.Keys)
+        {
+            if (Matches(id, normalizedText))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public static ChatType? GetChatTypeForId(uint logMessageId)
     {
         if (!LogKindById.TryGetValue(logMessageId, out var logKind))
