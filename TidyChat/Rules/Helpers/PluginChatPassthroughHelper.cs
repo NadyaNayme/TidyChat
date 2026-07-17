@@ -1,3 +1,4 @@
+using ChatTwo.Code;
 using Dalamud.Game.Text;
 using TidyChat.Data;
 namespace TidyChat;
@@ -5,7 +6,7 @@ namespace TidyChat;
 /// <summary>
 ///     Dalamud <c>IChatGui.Print</c> queues messages with a bare channel id, so both relation kinds stay
 ///     <see cref="XivChatRelationKind.None" />. Many game System lines share that shape on the chat path, so
-///     passthrough also requires a plugin sender name or text that matches no Lumina LogMessage template.
+///     passthrough also requires a plugin sender name or text that matches no Lumina System template.
 /// </summary>
 internal static class PluginChatPassthroughHelper
 {
@@ -15,6 +16,7 @@ internal static class PluginChatPassthroughHelper
         sourceKind is XivChatRelationKind.None && targetKind is XivChatRelationKind.None;
 
     internal static bool ShouldAllow(
+        ChatType chatType,
         XivChatRelationKind sourceKind,
         XivChatRelationKind targetKind,
         string senderText,
@@ -22,6 +24,11 @@ internal static class PluginChatPassthroughHelper
         string? playerName,
         IEnumerable<string> partyMemberNames)
     {
+        if (chatType is ChatType.StandardEmote or ChatType.CustomEmote)
+        {
+            return false;
+        }
+
         if (!IsDalamudPluginPrint(sourceKind, targetKind))
         {
             return false;
@@ -46,6 +53,6 @@ internal static class PluginChatPassthroughHelper
         }
 
         // Which Mount and similar plugins use Print(string) with no Name on the entry.
-        return LogMessageCatalog.IsLoaded && !LogMessageCatalog.MatchesAnyTemplate(normalizedText);
+        return LogMessageCatalog.IsLoaded && !LogMessageCatalog.MatchesAnySystemTemplate(normalizedText);
     }
 }

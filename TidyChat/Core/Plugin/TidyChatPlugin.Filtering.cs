@@ -381,7 +381,7 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (PluginChatPassthroughHelper.ShouldAllow(message.SourceKind, message.TargetKind,
+        if (PluginChatPassthroughHelper.ShouldAllow(chatType, message.SourceKind, message.TargetKind,
                 message.Sender.TextValue, normalizedText, Configuration.PlayerName,
                 PartyList.Select(member => member.Name.TextValue)))
         {

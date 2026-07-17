@@ -46,15 +46,17 @@ internal static class NormalizeInput
             return normalizedInput;
         }
 
+        var playerNameLower = playerName.ToLower(CultureInfo.CurrentCulture);
+
         var parts = playerName.Split(' ');
         if (parts.Length < 2 || parts[0].Length == 0 || parts[1].Length == 0)
         {
-            return normalizedInput.Replace(playerName, "you", StringComparison.Ordinal);
+            return normalizedInput.Replace(playerNameLower, "you", StringComparison.Ordinal);
         }
 
         EnsureCacheFor(playerName, parts);
 
-        normalizedInput = normalizedInput.Replace(playerName, "you", StringComparison.Ordinal);
+        normalizedInput = normalizedInput.Replace(playerNameLower, "you", StringComparison.Ordinal);
 
         if (_firstNameLastInitial is not null && normalizedInput.Contains(_firstNameLastInitialLower, StringComparison.Ordinal))
         {

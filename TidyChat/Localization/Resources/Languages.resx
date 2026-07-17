@@ -2538,7 +2538,7 @@ eg. You obtain a cracked dendrocluster</value>
     <value>Hide FATE level sync messages</value>
   </data>
     <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 2070, 2166 — eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
+    <value>LogMessages 2070, 2166 — eg. You are 5 or more levels above the recommended level for this FATE (number varies by content). Checked = hide this message.</value>
   </data>
     <data name="SystemTab_HideOrchestrionPlaying" xml:space="preserve">
     <value>Hide "Orchestrion now plays" messages</value>

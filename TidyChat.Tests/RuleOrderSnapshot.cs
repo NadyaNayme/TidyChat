@@ -6,5 +6,5 @@ internal static class RuleOrderSnapshot
     public const int ExpectedRuleCount = 370;
 
     /// <summary>SHA-256 hex of newline-joined <see cref="RuleOrderFingerprint.Format" /> lines.</summary>
-    public const string ExpectedOrderHash = "768636EAE45EAA7BC3F643AE2B8569E2D5C170A7510E160A12D9808A77F4FC96";
+    public const string ExpectedOrderHash = "7EF472F8E97CE054EC3AA3D1FAF5D388E8287FCD5A8047E386EF679EAACB6FD3";
 }

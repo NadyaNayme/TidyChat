@@ -86,6 +86,18 @@ public static partial class ChatStrings
         Fra = new(@"you|your|vous", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/2070?pretty=true">You are N or more levels above… / To join, use the level sync…</see>
+    /// <seealso href="https://xivapi.com/LogMessage/2166?pretty=true">Unable to attack FATE target…</seealso>
+    public static readonly LocalizedRegex FateLevelSyncOrTooHighRegex = new()
+    {
+        Jpn = new(@"NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(
+            @"(?:you are \d+ or more levels above the recommended level for this fate|to join, use the level sync function located in the duty list|unable to attack fate target\. your level is too high)",
+            RegexOptions, RegexTimeout),
+        Deu = new(@"NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new(@"NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     public static readonly LocalizedRegex ContainsPlayerName = new()
     {
         Jpn = new(@"(you|your)", RegexOptions, RegexTimeout),

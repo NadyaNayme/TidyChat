@@ -12,8 +12,8 @@ public static partial class Rules
             IsActive = true,
             BlockWhenActive = true,
             LogMessageIds = [2070, 2166],
-            StringChecks = [ChatStrings.FateLevelTooHighToAttack],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.FateLevelSyncOrTooHighRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()
