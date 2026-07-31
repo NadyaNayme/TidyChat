@@ -135,6 +135,8 @@ public class Configuration : IPluginConfiguration
     public bool ShowSpiritboundGear { get; set; } = true;
 
     public bool ShowSpideySenses { get; set; } = true;
+    public bool ShowTreasureCofferSenses { get; set; } = true;
+    public bool ShowTreasurePotSenses { get; set; } = true;
     public bool ShowLocationDiscovered { get; set; } = true;
     public bool ShowHostilePresence { get; set; } = true;
 
@@ -354,6 +356,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowGatheringCollectableObtains { get; set; } = true;
     public bool ShowCaughtFish { get; set; } = true;
     public bool ShowMooching { get; set; } = true;
+    public bool ShowSwimbaitMessages { get; set; } = true;
     public bool ShowCurrentFishingHole { get; set; } = true;
     public bool ShowDiscoveredFishingHole { get; set; } = true;
     public bool ShowMeasuringIlms { get; set; } = true;

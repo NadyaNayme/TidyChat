@@ -137,6 +137,85 @@ public static partial class Rules
         }
     ];
 
+    private static readonly LocalizedFilterRule[] ExplorationFieldOpsRules =
+    [
+        new()
+        {
+            Name = "ShowTreasureCofferSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10965, 10966],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTreasureCofferSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10965],
+            RegexChecks = [ChatStrings.TreasureCofferSenseRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTreasureCofferSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10966],
+            RegexChecks = [ChatStrings.NoTreasureCofferSenseRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTreasurePotSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [9003, 9004, 9005, 9006, 10986, 10987, 10988, 10989, 10996, 10997],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTreasurePotSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [9003, 9004, 9005, 9006, 10986, 10987, 10988, 10989],
+            RegexChecks = [ChatStrings.TreasurePotSenseRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTreasurePotSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10997],
+            RegexChecks = [ChatStrings.HappyBunnyAbsentRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowTreasurePotSenses",
+            SettingsTab = "Exploration",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [10996],
+            RegexChecks = [ChatStrings.HappyBunnyOfferRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
     private static readonly LocalizedFilterRule[] ExplorationVistaRules =
     [
         new()

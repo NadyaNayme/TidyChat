@@ -65,13 +65,110 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowMooching",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3510, 3593, 3594],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMooching",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3510],
+            RegexChecks = [ChatStrings.MoochTipRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMooching",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3593],
+            RegexChecks = [ChatStrings.MoochIILandRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowMooching",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [3594],
+            RegexChecks = [ChatStrings.MoochMissRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSwimbaitMessages",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5556, 5557, 5559],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSwimbaitMessages",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5556],
+            RegexChecks = [ChatStrings.SwimbaitKeepRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSwimbaitMessages",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5557],
+            RegexChecks = [ChatStrings.SwimbaitReleaseKeepRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowSwimbaitMessages",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [5559],
+            RegexChecks = [ChatStrings.SwimbaitReleaseRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowCurrentFishingHole",
             SettingsTab = "Fishing",
             Channel = ChatType.Gathering,
             IsActive = true,
             LogMessageIds = [1110],
-            StringChecks = [ChatStrings.CurrentFishingHole],
-            Pattern = PatternKind.StringMatch,
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true,
+            SoftHideLogMessage = true
+        },
+        new()
+        {
+            Name = "ShowCurrentFishingHole",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1110],
+            RegexChecks = [ChatStrings.CurrentFishingHoleRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true,
             SoftHideLogMessage = true
         },

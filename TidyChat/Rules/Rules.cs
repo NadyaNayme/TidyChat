@@ -53,6 +53,8 @@ public static partial class Rules
         ["ShowDoNotSenseAccursedHoard"] = c => c.ShowDoNotSenseAccursedHoard,
         ["ShowDiscoverAccursedHoard"] = c => c.ShowDiscoverAccursedHoard,
         ["ShowSpideySenses"] = c => c.ShowSpideySenses,
+        ["ShowTreasureCofferSenses"] = c => c.ShowTreasureCofferSenses,
+        ["ShowTreasurePotSenses"] = c => c.ShowTreasurePotSenses,
         ["ShowLocationDiscovered"] = c => c.ShowLocationDiscovered,
         ["ShowHostilePresence"] = c => c.ShowHostilePresence,
         ["ShowAetherCompass"] = c => c.ShowAetherCompass,
@@ -137,6 +139,7 @@ public static partial class Rules
         ["ShowReelInLine"] = c => c.ShowReelInLine,
         ["ShowLoseBait"] = c => c.ShowLoseBait,
         ["ShowMooching"] = c => c.ShowMooching,
+        ["ShowSwimbaitMessages"] = c => c.ShowSwimbaitMessages,
         ["ShowCurrentFishingHole"] = c => c.ShowCurrentFishingHole,
         ["ShowDiscoveredFishingHole"] = c => c.ShowDiscoveredFishingHole,
         ["ShowMeasuringIlms"] = c => c.ShowMeasuringIlms,
@@ -202,10 +205,11 @@ public static partial class Rules
     static Rules()
     {
         _rules = CreateRules();
+        AllRules = [.. _rules];
         LogMessageIdToRules = BuildLogMessageIdLookup();
     }
 
-    public static LocalizedFilterRule[] AllRules => [.. _rules];
+    public static LocalizedFilterRule[] AllRules { get; }
 
     public static IReadOnlyDictionary<uint, IReadOnlyList<LocalizedFilterRule>> LogMessageIdToRules { get; private set; } =
         new Dictionary<uint, IReadOnlyList<LocalizedFilterRule>>();

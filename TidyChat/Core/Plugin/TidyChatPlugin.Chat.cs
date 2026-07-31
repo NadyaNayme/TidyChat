@@ -58,8 +58,15 @@ public sealed partial class TidyChatPlugin
 
         if (logSync.Effect != LogMessageChatEffect.PreserveVisible)
         {
-            var protectedByShowRule =
-                IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
+            // Server announcements only land on System/Notice/Urgent; skip the full show-rule
+            // scan on combat (and other) channels — #128 Frontline FPS.
+            var protectedByShowRule = false;
+            if ((chatType is ChatType.System or ChatType.Notice or ChatType.Urgent) &&
+                Configuration.ServerAnnouncementMode != ServerAnnouncementMode.ShowAll)
+            {
+                protectedByShowRule =
+                    IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
+            }
             if (HandleServerAnnouncements(message, chatType, normalizedText, protectedByShowRule))
             {
                 return;

@@ -345,6 +345,7 @@ public static partial class Rules
         rules.AddRange(DutyFinderRules);
         rules.AddRange(DeepDungeonRules);
         rules.AddRange(ExplorationDiscoveryRules);
+        rules.AddRange(ExplorationFieldOpsRules);
         rules.AddRange(GlamourSpiritboundRules);
         rules.AddRange(ExplorationVistaRules);
         rules.AddRange(GlamourDresserRules);

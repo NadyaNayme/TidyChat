@@ -2321,7 +2321,43 @@ namespace TidyChat.Localization.Resources {
                 return ResourceManager.GetString("ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show Occult Crescent Treasuresight coffer counts.
+        /// </summary>
+        internal static string ExplorationTab_ShowTreasureCofferSenses {
+            get {
+                return ResourceManager.GetString("ExplorationTab_ShowTreasureCofferSenses", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 10965, 10966 — eg. You sense the presence of 2 silver coffers and 30 bronze coffers in the area! and There appear to be no treasure coffers in the area....
+        /// </summary>
+        internal static string ExplorationTab_ShowTreasureCofferSensesHelpMarker {
+            get {
+                return ResourceManager.GetString("ExplorationTab_ShowTreasureCofferSensesHelpMarker", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show bunny pot / directional treasure senses.
+        /// </summary>
+        internal static string ExplorationTab_ShowTreasurePotSenses {
+            get {
+                return ResourceManager.GetString("ExplorationTab_ShowTreasurePotSenses", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 9003–9006 (Eureka), 10986–10989, 10996, 10997 (Occult Crescent) — eg. You sense something far, far to the northeast. and happy bunny / fortune carrot lines..
+        /// </summary>
+        internal static string ExplorationTab_ShowTreasurePotSensesHelpMarker {
+            get {
+                return ResourceManager.GetString("ExplorationTab_ShowTreasurePotSensesHelpMarker", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Fishing lines need Filter Gathering channels on General..
         /// </summary>
@@ -3072,23 +3108,41 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show message after recasting with a moochable fish.
+        ///   Looks up a localized string similar to Show mooching messages.
         /// </summary>
         internal static string GatheringTab_ShowMooching {
             get {
                 return ResourceManager.GetString("GatheringTab_ShowMooching", resourceCulture);
             }
         }
-        
+
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1121 — eg. You mooch a fish!.
+        ///   Looks up a localized string similar to LogMessages 1121, 3510, 3593, 3594 — eg. You recast your line with the fish still hooked., Mooch to land an even bigger catch!, You land a fish usable with Mooch II., You miss your chance to mooch....
         /// </summary>
         internal static string GatheringTab_ShowMoochingHelpMarker {
             get {
                 return ResourceManager.GetString("GatheringTab_ShowMoochingHelpMarker", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Show swimbait keep/release messages.
+        /// </summary>
+        internal static string GatheringTab_ShowSwimbaitMessages {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowSwimbaitMessages", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 5556, 5557, 5559 — eg. You keep the … as swimbait. and You release fish kept as swimbait..
+        /// </summary>
+        internal static string GatheringTab_ShowSwimbaitMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("GatheringTab_ShowSwimbaitMessagesHelpMarker", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Show the number of obtained sands after using aetherial reduction.
         /// </summary>
@@ -5559,6 +5613,15 @@ namespace TidyChat.Localization.Resources {
         internal static string WhitelistTab_MatchModeExactSender {
             get {
                 return ResourceManager.GetString("WhitelistTab_MatchModeExactSender", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to #{0}: (catalog not loaded).
+        /// </summary>
+        internal static string WhitelistTab_LogMessagePreviewUnavailable {
+            get {
+                return ResourceManager.GetString("WhitelistTab_LogMessagePreviewUnavailable", resourceCulture);
             }
         }
         

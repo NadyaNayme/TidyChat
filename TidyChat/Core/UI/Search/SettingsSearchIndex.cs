@@ -679,6 +679,7 @@ internal static class SettingsSearchIndex
             "ShowReelInLine" or
             "ShowLoseBait" or
             "ShowMooching" or
+            "ShowSwimbaitMessages" or
             "ShowMeasuringIlms" or
             "ShowCurrentFishingHole" or
             "ShowDiscoveredFishingHole" or
@@ -850,6 +851,8 @@ internal static class SettingsSearchIndex
 
         if (propertyName is "ShowQuestReminder" or
             "ShowSpideySenses" or
+            "ShowTreasureCofferSenses" or
+            "ShowTreasurePotSenses" or
             "ShowLocationDiscovered" or
             "ShowHostilePresence" or
             "ShowAetherCompass" or

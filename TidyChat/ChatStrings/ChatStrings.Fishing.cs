@@ -50,14 +50,6 @@ public static partial class ChatStrings
         Fra = ["vif"]
     };
 
-    public static readonly LocalizedStrings CurrentFishingHole = new()
-    {
-        Jpn = ["釣り場"],
-        Eng = ["fishing", "location"],
-        Deu = ["angelstelle"],
-        Fra = ["pêche"]
-    };
-
     public static readonly LocalizedStrings DiscoveredFishingHole = new()
     {
         Jpn = ["釣り場", "発見"],

@@ -70,6 +70,24 @@ internal static class ExplorationTab
 
         UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker);
 
+        var showTreasureCofferSenses = configuration.ShowTreasureCofferSenses;
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowTreasureCofferSenses, ref showTreasureCofferSenses))
+        {
+            configuration.ShowTreasureCofferSenses = showTreasureCofferSenses;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowTreasureCofferSensesHelpMarker);
+
+        var showTreasurePotSenses = configuration.ShowTreasurePotSenses;
+        if (ImGui.Checkbox(Languages.ExplorationTab_ShowTreasurePotSenses, ref showTreasurePotSenses))
+        {
+            configuration.ShowTreasurePotSenses = showTreasurePotSenses;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.ExplorationTab_ShowTreasurePotSensesHelpMarker);
+
         SettingsTabLayout.DrawIndependentOptions(() =>
         {
             var showLocationDiscovered = configuration.ShowLocationDiscovered;

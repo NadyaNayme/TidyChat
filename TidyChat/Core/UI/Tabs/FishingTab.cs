@@ -43,6 +43,15 @@ internal static class FishingTab
 
         UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowMoochingHelpMarker);
 
+        var showSwimbaitMessages = configuration.ShowSwimbaitMessages;
+        if (ImGui.Checkbox(Languages.GatheringTab_ShowSwimbaitMessages, ref showSwimbaitMessages))
+        {
+            configuration.ShowSwimbaitMessages = showSwimbaitMessages;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.GatheringFilterMarker(Languages.GatheringTab_ShowSwimbaitMessagesHelpMarker);
+
         var showMeasuringIlms = configuration.ShowMeasuringIlms;
         if (ImGui.Checkbox(Languages.GatheringTab_ShowFishSizeMessages, ref showMeasuringIlms))
         {

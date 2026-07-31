@@ -1608,6 +1608,18 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
   <data name="ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 2600 — spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
   </data>
+  <data name="ExplorationTab_ShowTreasureCofferSenses" xml:space="preserve">
+    <value>Show Occult Crescent Treasuresight coffer counts</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasureCofferSensesHelpMarker" xml:space="preserve">
+    <value>LogMessages 10965, 10966 — eg. You sense the presence of 2 silver coffers and 30 bronze coffers in the area! and There appear to be no treasure coffers in the area...</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasurePotSenses" xml:space="preserve">
+    <value>Show bunny pot / directional treasure senses</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasurePotSensesHelpMarker" xml:space="preserve">
+    <value>LogMessages 9003–9006 (Eureka), 10986–10989, 10996, 10997 (Occult Crescent) — eg. You sense something far, far to the northeast. and happy bunny / fortune carrot lines.</value>
+  </data>
   <data name="FishingTab_FilteringNote" xml:space="preserve">
     <value>Fishing lines need Filter Gathering channels on General.</value>
   </data>
@@ -1860,10 +1872,16 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>LogMessages 5565, 5569 — eg. You have a feeling your next cast will land a large-sized fish!</value>
   </data>
   <data name="GatheringTab_ShowMooching" xml:space="preserve">
-    <value>Show message after recasting with a moochable fish</value>
+    <value>Show mooching messages</value>
   </data>
   <data name="GatheringTab_ShowMoochingHelpMarker" xml:space="preserve">
-    <value>LogMessage 1121 — eg. You mooch a fish!</value>
+    <value>LogMessages 1121, 3510, 3593, 3594 — eg. You recast your line with the fish still hooked., Mooch to land an even bigger catch!, You land a fish usable with Mooch II., You miss your chance to mooch...</value>
+  </data>
+  <data name="GatheringTab_ShowSwimbaitMessages" xml:space="preserve">
+    <value>Show swimbait keep/release messages</value>
+  </data>
+  <data name="GatheringTab_ShowSwimbaitMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 5556, 5557, 5559 — eg. You keep the … as swimbait. and You release fish kept as swimbait.</value>
   </data>
   <data name="GatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
     <value>Show the number of obtained sands after using aetherial reduction</value>
@@ -2691,6 +2709,9 @@ LogMessage ID — #588 or #748,4578. Blocks or allows that game log line by ID (
   </data>
   <data name="WhitelistTab_MatchModeExactSender" xml:space="preserve">
     <value>Exact sender only</value>
+  </data>
+  <data name="WhitelistTab_LogMessagePreviewUnavailable" xml:space="preserve">
+    <value>#{0}: (catalog not loaded)</value>
   </data>
   <data name="WhitelistTab_MatchModeMessageContains" xml:space="preserve">
     <value>Sender or message contains (default)</value>

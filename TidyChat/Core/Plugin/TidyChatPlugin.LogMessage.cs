@@ -21,7 +21,6 @@ public sealed partial class TidyChatPlugin
         {
             return;
         }
-        Rules.UpdateIsActiveStates(Configuration);
 
         if (Configuration.Whitelist.Count > 0)
         {
@@ -427,9 +426,8 @@ public sealed partial class TidyChatPlugin
     }
 
     private static bool ShouldDefaultBlockDedicatedShowLogMessage(uint logMessageId,
-        IReadOnlyList<LocalizedFilterRule> matchingRules, Configuration configuration)
+        IReadOnlyList<LocalizedFilterRule> matchingRules, Configuration _)
     {
-        Rules.UpdateIsActiveStates(configuration);
         var hasDedicatedShowRule = false;
         foreach (var rule in matchingRules)
         {

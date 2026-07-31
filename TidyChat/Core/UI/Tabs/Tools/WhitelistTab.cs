@@ -102,13 +102,19 @@ internal static class WhitelistTab
                     configuration.OnSettingChanged();
                 }
 
-                if (i != -1 && !alias.IsRegex)
+                if (i != -1 && alias.IsLogMessageId)
+                {
+                    DrawLogMessageIdPreview(alias);
+                }
+
+                if (i != -1 && !alias.IsRegex && !alias.IsLogMessageId)
                 {
                     var matchPreview = alias.MatchMode == PlayerNameMatchMode.ExactSender
                         ? Languages.WhitelistTab_MatchModeExactSender
                         : Languages.WhitelistTab_MatchModeMessageContains;
                     ImGui.SetNextItemWidth(-1);
-                    using (ImRaii.Combo($"##whitelist{i}MatchMode", matchPreview))
+                    using var matchModeCombo = ImRaii.Combo($"##whitelist{i}MatchMode", matchPreview);
+                    if (matchModeCombo)
                     {
                         if (ImGui.Selectable(Languages.WhitelistTab_MatchModeMessageContains,
                                 alias.MatchMode == PlayerNameMatchMode.MessageContains))
@@ -147,7 +153,8 @@ internal static class WhitelistTab
                         previewValue = Languages.WhitelistTab_Block;
                     }
                     ImGui.SetNextItemWidth(-1);
-                    using (ImRaii.Combo($"##whitelist{i}AllowSetting", previewValue))
+                    using var allowCombo = ImRaii.Combo($"##whitelist{i}AllowSetting", previewValue);
+                    if (allowCombo)
                     {
                         if (ImGui.Selectable($"{Languages.WhitelistTab_Allow}##{i}", alias.AllowMessage))
                         {
@@ -184,6 +191,39 @@ internal static class WhitelistTab
 
         ImGui.Spacing();
         ImGui.TextWrapped(Languages.WhitelistTab_ExactNameMatchWhitelistExplanation);
+    }
+
+    private static void DrawLogMessageIdPreview(PlayerName alias)
+    {
+        var ids = alias.GetLogMessageIds();
+        if (ids.Length == 0)
+        {
+            return;
+        }
+
+        foreach (var id in ids)
+        {
+            if (LogMessageCatalog.TryGetCompactLine(id, out var line) ||
+                LogMessageCatalog.TryGetTemplateText(id, out line))
+            {
+                ImGui.TextDisabled($"#{id}: {TruncatePreview(line, 72)}");
+            }
+            else
+            {
+                ImGui.TextDisabled(string.Format(Languages.WhitelistTab_LogMessagePreviewUnavailable, id));
+            }
+        }
+    }
+
+    private static string TruncatePreview(string text, int maxChars)
+    {
+        var oneLine = text.Replace('\n', ' ').Replace('\r', ' ').Trim();
+        if (oneLine.Length <= maxChars)
+        {
+            return oneLine;
+        }
+
+        return oneLine[..(maxChars - 1)] + "…";
     }
 
     private static void DrawChannelCheckboxes(Configuration configuration, PlayerName alias, int rowIndex)

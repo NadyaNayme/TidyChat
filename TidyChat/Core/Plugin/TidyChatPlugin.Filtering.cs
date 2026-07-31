@@ -129,7 +129,6 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        Rules.UpdateIsActiveStates(Configuration);
         foreach (var rule in Rules.AllRules)
         {
             if (FilterMasterAccessors.IsDisabledByMasterToggle(rule, Configuration))
@@ -157,7 +156,6 @@ public sealed partial class TidyChatPlugin
         string extractedTextValue, string normalizedText, out List<string> rulesMatched)
     {
         var matchedRules = new List<string>();
-        Rules.UpdateIsActiveStates(Configuration);
         var rules = Rules.AllRules;
 
         var isBlocked = ChannelIsSpammy(chatType);

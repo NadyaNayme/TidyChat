@@ -103,6 +103,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowMeasuringIlms"] = nameof(Languages.GatheringTab_ShowFishSizeMessages),
         ["ShowReelInLine"] = nameof(Languages.GatheringTab_ShowReelInLineMessages),
         ["ShowMooching"] = nameof(Languages.GatheringTab_ShowMooching),
+        ["ShowSwimbaitMessages"] = nameof(Languages.GatheringTab_ShowSwimbaitMessages),
 
         ["ShowCosmicClassPointsAndDataset"] = nameof(Languages.CosmicExplorationTab_ShowCosmicClassPointsAndDataset),
         ["ShowCosmicContainers"] = nameof(Languages.CosmicExplorationTab_ShowCosmicContainers),
@@ -155,6 +156,8 @@ internal static class SettingsPropertyLabelKeys
         ["HideEnemyInstantCasts"] = nameof(Languages.GeneralTab_HideEnemyInstantCasts),
         ["ShowQuestReminder"] = nameof(Languages.ExplorationTab_ShowSayReminder),
         ["ShowSpideySenses"] = nameof(Languages.ExplorationTab_ShowYouSenseSomethingMessages),
+        ["ShowTreasureCofferSenses"] = nameof(Languages.ExplorationTab_ShowTreasureCofferSenses),
+        ["ShowTreasurePotSenses"] = nameof(Languages.ExplorationTab_ShowTreasurePotSenses),
         ["ShowLocationDiscovered"] = nameof(Languages.ExplorationTab_ShowLocationDiscoveredMessages),
         ["ShowHostilePresence"] = nameof(Languages.ExplorationTab_ShowHostilePresenceMessages),
         ["ShowAetherCompass"] = nameof(Languages.ExplorationTab_ShowAetherCompassMessages),

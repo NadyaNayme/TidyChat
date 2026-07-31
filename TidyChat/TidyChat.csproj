@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project Sdk="Dalamud.NET.Sdk">
+<Project Sdk="Dalamud.NET.Sdk/15.0.0">
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <Authors>Nadya, Kagekazu</Authors>
         <Company>Served with love</Company>
-        <Version>3.1.0.29</Version>
+        <Version>3.1.0.30</Version>
         <Platforms>x64</Platforms>
         <PlatformTarget>x64</PlatformTarget>
         <Description>Trim the messages FFXIV dumps into your chat log.
