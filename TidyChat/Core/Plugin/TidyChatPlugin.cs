@@ -94,7 +94,59 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         ClientState.Logout -= OnLogout;
         DisposeLogMessageDebugDedup();
     }
-    private void OnCommand(string command, string args) => OpenPluginUi();
+    private void OnCommand(string command, string args)
+    {
+        switch (TidyChatCommandParser.Parse(args, out var debugEnabled))
+        {
+            case TidyChatCommandParser.ActionKind.OpenSettings:
+                OpenPluginUi();
+                return;
+            case TidyChatCommandParser.ActionKind.ToggleDebug:
+                SetDebugMode(!Configuration.EnableDebugMode);
+                return;
+            case TidyChatCommandParser.ActionKind.SetDebug:
+                SetDebugMode(debugEnabled);
+                return;
+            case TidyChatCommandParser.ActionKind.ShowUsage:
+            default:
+                PrintCommandFeedback(TidyStrings.CommandUsage);
+                return;
+        }
+    }
+
+    private void SetDebugMode(bool enabled)
+    {
+        if (Configuration.EnableDebugMode == enabled)
+        {
+            PrintCommandFeedback(L10N.GetTidy(enabled
+                ? TidyStrings.DebugModeEnabled
+                : TidyStrings.DebugModeDisabled));
+            return;
+        }
+
+        Configuration.EnableDebugMode = enabled;
+        Configuration.Save();
+        if (!enabled)
+        {
+            FlushLogMessageDebugDedup();
+        }
+
+        PrintCommandFeedback(L10N.GetTidy(enabled
+            ? TidyStrings.DebugModeEnabled
+            : TidyStrings.DebugModeDisabled));
+    }
+
+    private void PrintCommandFeedback(string text)
+    {
+        SeStringBuilder builder = new();
+        if (Configuration.IncludeChatTag)
+        {
+            Better.AddTidyChatTag(builder);
+        }
+
+        builder.AddText(text);
+        ChatGui.Print(builder.BuiltString);
+    }
 
     private void UpdateLang(string langCode)
     {

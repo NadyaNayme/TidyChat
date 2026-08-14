@@ -312,6 +312,25 @@ public static partial class ChatStrings
         Fra = new(@"^(?:vous avez obtenu)\s+une pile de\s+(?<bill>.+?\s+bills?)\.?$", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/9330?pretty=true">You sense your mark to the north.</see>
+    /// <remarks>Sheet templates hardcode "north"; chat substitutes the real direction.</remarks>
+    public static readonly LocalizedRegex MarkBillSenseDirectionRegex = new()
+    {
+        Jpn = new(@"^手配書に記載されたリスキーモブの気配を、.+方向から感じる", RegexOptions, RegexTimeout),
+        Eng = new(@"^you sense your mark to the .+\.$", RegexOptions, RegexTimeout),
+        Deu = new(@"^du spürst das gesuchte hochwild .+ von dir!?\s*$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous ressentez la présence d'un monstre d'élite au .+$", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/9333?pretty=true">You no longer sense the presence of your mark...</see>
+    public static readonly LocalizedRegex MarkBillSenseLostRegex = new()
+    {
+        Jpn = new(@"^手配書に記載されたリスキーモブの気配が消失した", RegexOptions, RegexTimeout),
+        Eng = new(@"^you no longer sense the presence of your mark", RegexOptions, RegexTimeout),
+        Deu = new(@"^das gesuchte hochwild ist nicht mehr zu spüren", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous ne ressentez plus la présence du monstre d'élite", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
     /// <remarks>
     ///     Anchored to the full line so event lines that merely contain the words

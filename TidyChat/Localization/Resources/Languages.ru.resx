@@ -1572,7 +1572,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Show mark bill messages</value>
   </data>
   <data name="ExplorationTab_ShowMarkBillMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4412, 4415, 4416 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt.</value>
+    <value>LogMessages 4412, 4415, 4416, 9330, 9333 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt. / You sense your mark to the north. / You no longer sense the presence of your mark...</value>
   </data>
   <data name="ExplorationTab_ShowSayReminder" xml:space="preserve">
     <value>Show reminders of what to /say in chat during quests</value>
@@ -2617,7 +2617,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Debug mode (dry-run filtering)</value>
   </data>
   <data name="ToolsTab_EnableDebugModeHelpMarker" xml:space="preserve">
-    <value>Dry-run mode: blocked lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Custom filters show as CustomFilter (Allow) or CustomFilter (Block). Turn off debug mode to actually hide blocked messages. While debug is on, LogMessage blocks do not suppress the original chat line.</value>
+    <value>Dry-run mode: blocked lines still appear in chat with [TidyChat] [Blocked] or [Allowed] tags (and rule names when matched). Custom filters show as CustomFilter (Allow) or CustomFilter (Block). Turn off debug mode to actually hide blocked messages. While debug is on, LogMessage blocks do not suppress the original chat line. Macro: /tidy debug (toggle), /tidy debug on|off.</value>
   </data>
   <data name="ToolsTab_FilteringNote" xml:space="preserve">
     <value>Debug mode logs rule matches to chat. Chat History and Custom Filters are optional extras; Custom Filters run after all other rules.</value>

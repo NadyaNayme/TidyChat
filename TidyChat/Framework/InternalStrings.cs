@@ -9,9 +9,30 @@ internal static class InternalStrings
 
     public static readonly string PluginName = "Tidy Chat";
 
-    public static readonly string SettingsHelper = "Open settings";
+    public static readonly string SettingsHelper =
+        "Open settings. Subcommands: debug [on|off|toggle]";
 
-    public static readonly string ShorthandHelper = "Shorthand command to open settings";
+    public static readonly string ShorthandHelper =
+        "Open settings. Subcommands: debug [on|off|toggle] (macro-friendly)";
+
+    public static readonly string CommandUsage =
+        "Usage: /tidy | /tidychat — open settings. /tidy debug [on|off|toggle] — set or toggle debug mode.";
+
+    public static readonly LocalizedTidyStrings DebugModeEnabled = new()
+    {
+        Jpn = new("デバッグモードを有効にしました。"),
+        Eng = new("Debug mode enabled."),
+        Deu = new("Debug-Modus aktiviert."),
+        Fra = new("Mode debug activé.")
+    };
+
+    public static readonly LocalizedTidyStrings DebugModeDisabled = new()
+    {
+        Jpn = new("デバッグモードを無効にしました。"),
+        Eng = new("Debug mode disabled."),
+        Deu = new("Debug-Modus deaktiviert."),
+        Fra = new("Mode debug désactivé.")
+    };
 
     public static readonly string Tag = "[TidyChat] ";
 
