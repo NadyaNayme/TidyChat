@@ -3,6 +3,7 @@ using Dalamud.Interface.Utility;
 using Dalamud.Interface.Windowing;
 using System.Diagnostics;
 using System.Numerics;
+using System.Reflection;
 using TidyChat.Settings.Search;
 using TidyChat.Settings.Tabs;
 namespace TidyChat.Settings.UI;
@@ -16,7 +17,6 @@ internal class PluginUI : Window, IDisposable
 
     private const string WindowId = "TidyChat";
 
-    /// <summary>Sidebar order: General first, Tools last; related tabs grouped (economy, gear, DoL).</summary>
     private static readonly (Func<string> GetLabel, Action<Configuration> Draw)[] TabDefinitions =
     [
         (() => Languages.ConfigWindow_GeneralTabHeader, GeneralTab.Draw),
@@ -115,9 +115,7 @@ internal class PluginUI : Window, IDisposable
 
     public override void Draw()
     {
-        TitleBarVersion.DrawFromContext(
-            TitleBarButtons.Count,
-            AllowPinning || AllowClickthrough);
+        DrawTitleBarVersion(TitleBarButtons.Count, AllowPinning || AllowClickthrough);
 
         SettingsSearch.DrawSearchBar();
         ImGui.Spacing();
@@ -125,7 +123,7 @@ internal class PluginUI : Window, IDisposable
         if (SettingsSearch.IsActive)
         {
             SettingsSearchIndex.DrawResults(configuration);
-            TabFooter.Display();
+            DrawWikiFooter();
             return;
         }
 
@@ -160,7 +158,7 @@ internal class PluginUI : Window, IDisposable
         using (ImRaii.Child("##tidychatConfigContent", new(0f, avail.Y)))
         {
             tabs[selectedIndex].Draw(configuration);
-            TabFooter.Display();
+            DrawWikiFooter();
         }
     }
 
@@ -236,4 +234,84 @@ internal class PluginUI : Window, IDisposable
         sortedTabs = null;
         sortedTabsCulture = null;
     }
+
+    private static void DrawWikiFooter()
+    {
+        ImGui.Spacing();
+        ImGui.Separator();
+        ImGui.Spacing();
+
+        using (ImRaii.PushColor(ImGuiCol.Button, 0x80FA8600))
+        using (ImRaii.PushColor(ImGuiCol.ButtonActive, 0x2BBB3200))
+        using (ImRaii.PushColor(ImGuiCol.ButtonHovered, 0x6ED86400))
+        {
+            if (ImGui.Button(Languages.SettingsTabFooter_WikiPageButtonText))
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "https://github.com/NadyaNayme/TidyChat/wiki",
+                    UseShellExecute = true
+                });
+            }
+        }
+    }
+
+    private static void DrawTitleBarVersion(int customTitleBarButtonCount, bool showAdditionalOptionsButton)
+    {
+        var windowPos = ImGui.GetWindowPos();
+        var windowSize = ImGui.GetWindowSize();
+        if (windowSize.X <= 0f || windowSize.Y <= 0f)
+        {
+            return;
+        }
+
+        var text = GetVersionLabel();
+        if (string.IsNullOrEmpty(text))
+        {
+            return;
+        }
+
+        var textSize = ImGui.CalcTextSize(text);
+        var style = ImGui.GetStyle();
+        var buttonSize = ImGui.GetFontSize();
+        var padRight = style.FramePadding.X + buttonSize + style.ItemInnerSpacing.X;
+
+        if (style.WindowMenuButtonPosition == ImGuiDir.Right)
+        {
+            padRight += buttonSize + style.ItemInnerSpacing.X;
+        }
+
+        var extraButtons = customTitleBarButtonCount + (showAdditionalOptionsButton ? 1 : 0);
+        padRight += extraButtons * (buttonSize + style.ItemInnerSpacing.X);
+        padRight += style.ItemInnerSpacing.X;
+
+        var position = new Vector2(
+            windowPos.X + windowSize.X - padRight - textSize.X,
+            windowPos.Y + style.FramePadding.Y);
+
+        var drawList = ImGui.GetWindowDrawList();
+        drawList.PushClipRect(windowPos, windowPos + windowSize, false);
+        drawList.AddText(
+            ImGui.GetFont(),
+            ImGui.GetFontSize(),
+            position,
+            ImGui.ColorConvertFloat4ToU32(new(0.75f, 0.75f, 0.75f, 1f)),
+            text);
+        drawList.PopClipRect();
+    }
+
+    private static string GetVersionLabel()
+    {
+        var manifestVersion = TidyChatPlugin.PluginInterface.Manifest.AssemblyVersion;
+        if (manifestVersion is not null)
+        {
+            return "v" + FormatVersion(manifestVersion);
+        }
+
+        var assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version;
+        return assemblyVersion is not null ? "v" + FormatVersion(assemblyVersion) : "v?.?.?.?";
+    }
+
+    private static string FormatVersion(Version version) =>
+        version.Revision >= 0 ? version.ToString(4) : version.ToString(3);
 }

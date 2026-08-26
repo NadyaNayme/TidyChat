@@ -15,12 +15,12 @@ public class ChannelFilterPolicyTests
     [TestCase(ChatType.LoseDebuff)]
     [TestCase(ChatType.Item)]
     public void Combat_log_channels_bypass_channel_rules(ChatType chatType) =>
-        Assert.That(ChannelFilterPolicy.ShouldBypassChannelRules(chatType), Is.True);
+        Assert.That(ChannelFilterPolicy.IsCombatLogChannel(chatType), Is.True);
 
     [TestCase(ChatType.System)]
     [TestCase(ChatType.Progress)]
     [TestCase(ChatType.BattleSystem)]
     [TestCase(ChatType.Error)]
     public void Non_combat_channels_do_not_bypass_channel_rules(ChatType chatType) =>
-        Assert.That(ChannelFilterPolicy.ShouldBypassChannelRules(chatType), Is.False);
+        Assert.That(ChannelFilterPolicy.IsCombatLogChannel(chatType), Is.False);
 }

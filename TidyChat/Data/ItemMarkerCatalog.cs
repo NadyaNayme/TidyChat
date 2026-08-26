@@ -151,3 +151,5 @@ public static class ItemMarkerCatalog
         ];
     }
 }
+
+public sealed record TomestoneInfo(uint RowId, string Name);

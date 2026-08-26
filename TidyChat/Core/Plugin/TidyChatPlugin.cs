@@ -40,7 +40,6 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     private byte _lastTerritoryExclusiveType;
     private bool _commendationBaselineSynced;
 
-    // #122: announcements inside this window after a Login event are treated as a real login
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
 
     private long _sessionBlockedMessages;
@@ -160,8 +159,6 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     private void OpenPluginUi() => PluginUi!.IsOpen = true;
 
-    #region Setup
-
     public static TidyChatPlugin? Instance { get; private set; }
 
     public TidyChatPlugin()
@@ -175,26 +172,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         var loaded = PluginInterface.GetPluginConfig() as Configuration;
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
-        if (Configuration.Version < 12)
-        {
-            ConfigurationMigration.ApplyVersion12(Configuration);
-            Configuration.Version = 12;
-            Configuration.Save();
-        }
-
-        if (Configuration.Version < 13)
-        {
-            ConfigurationMigration.ApplyVersion13(Configuration);
-            Configuration.Version = 13;
-            Configuration.Save();
-        }
-
-        if (Configuration.Version < 14)
-        {
-            ConfigurationMigration.ApplyVersion14(Configuration);
-            Configuration.Version = 14;
-            Configuration.Save();
-        }
+        Configuration.ApplyPendingMigrations();
 
         Rules.UpdateIsActiveStates(Configuration);
 
@@ -237,6 +215,4 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
         PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
     }
-
-    #endregion Setup
 }

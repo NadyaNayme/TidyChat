@@ -58,8 +58,6 @@ public sealed partial class TidyChatPlugin
 
         if (logSync.Effect != LogMessageChatEffect.PreserveVisible)
         {
-            // Server announcements only land on System/Notice/Urgent; skip the full show-rule
-            // scan on combat (and other) channels — #128 Frontline FPS.
             var protectedByShowRule = false;
             if ((chatType is ChatType.System or ChatType.Notice or ChatType.Urgent) &&
                 Configuration.ServerAnnouncementMode != ServerAnnouncementMode.ShowAll)
@@ -97,7 +95,7 @@ public sealed partial class TidyChatPlugin
         {
             isHandled = false;
         }
-        else if (ChannelFilterPolicy.ShouldBypassChannelRules(chatType) || chatType is ChatType.Echo)
+        else if (ChannelFilterPolicy.IsCombatLogChannel(chatType) || chatType is ChatType.Echo)
         {
             isHandled = false;
         }
@@ -108,8 +106,46 @@ public sealed partial class TidyChatPlugin
             isHandled = channelResult ?? false;
         }
 
-        if (FinishChatHandling(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled,
-                rulesMatched))
-        { }
+        FinishChatHandling(message, chatType, rawTextValue, extractedTextValue, normalizedText, ref isHandled,
+            rulesMatched);
+    }
+
+    private const ushort Clear7 = ~(~0 << 7);
+
+    private static ChatType FromCode(ushort code) => (ChatType)(code & Clear7);
+
+    private static ChatType FromDalamud(XivChatType type) => FromCode((ushort)type);
+
+    private bool HandleEmoteFilters(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
+    {
+        if ((chatType is ChatType.StandardEmote && !Configuration.FilterEmoteChannel) ||
+            (chatType is ChatType.CustomEmote && !Configuration.FilterCustomEmoteChannel))
+        {
+            if (IsWhitelistedBlocked(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
+                    normalizedText))
+            {
+                LogBlockedChat(["CustomFilter (Block)"], message.Message.TextValue);
+                message.PreventOriginal();
+                Interlocked.Increment(ref _sessionBlockedMessages);
+            }
+            return true;
+        }
+
+        if (!Configuration.ShowOtherCustomEmotes &&
+            !string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal) &&
+            chatType is ChatType.CustomEmote)
+        {
+            if (!IsWhitelistedAllowed(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
+                    normalizedText))
+            {
+                LogBlockedChat(["HideOtherCustomEmotes"], message.Message.TextValue);
+                message.PreventOriginal();
+                Interlocked.Increment(ref _sessionBlockedMessages);
+            }
+            return true;
+        }
+
+        return false;
     }
 }

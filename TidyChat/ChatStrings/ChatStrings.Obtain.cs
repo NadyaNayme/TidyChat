@@ -3,7 +3,6 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
-
     public static readonly LocalizedStrings QuestItemObtain = new()
     {
         Jpn = ["NeedsLocalization"],
@@ -67,5 +66,13 @@ public static partial class ChatStrings
         Eng = ["sealed", "off"],
         Deu = ["schließt"],
         Fra = ["fermeture"]
+    };
+
+    public static readonly LocalizedStrings ObtainMaterialsMarker = new()
+    {
+        Jpn = ["NeedsLocalization"],
+        Eng = ["materials"],
+        Deu = ["materials"],
+        Fra = ["materials"]
     };
 }

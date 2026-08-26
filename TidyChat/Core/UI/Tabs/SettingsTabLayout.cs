@@ -1,9 +1,6 @@
 using System.Numerics;
 namespace TidyChat.Settings.Tabs;
 
-/// <summary>
-///     Shared ImGui layout for settings masters, nested children, and independent siblings.
-/// </summary>
 internal static class SettingsTabLayout
 {
     public static void DrawTabNote(string note)
@@ -22,10 +19,6 @@ internal static class SettingsTabLayout
         ImGui.Spacing();
     }
 
-    /// <summary>
-    ///     Warns when the General tab master toggle gating most of a tab's options is off,
-    ///     so users are not left wondering why their checkboxes do nothing.
-    /// </summary>
     public static void WarnIfChannelMasterDisabled(bool masterEnabled, string masterLabel)
     {
         if (masterEnabled)
@@ -40,9 +33,6 @@ internal static class SettingsTabLayout
             Languages.ConfigWindow_GeneralTabHeader));
     }
 
-    /// <summary>
-    ///     Renders tab sections. A single section is shown flat without a collapsing header.
-    /// </summary>
     public static void DrawSections(bool defaultOpenFirstSection, params (string Header, Action Draw)[] sections)
     {
         if (sections.Length == 1)

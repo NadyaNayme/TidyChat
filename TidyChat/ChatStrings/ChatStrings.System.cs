@@ -116,4 +116,20 @@ public static partial class ChatStrings
         Deu = ["liste", "aktualisiert"],
         Fra = ["liste", "actualisée"]
     };
+
+    public static readonly LocalizedStrings ActiveHelpEntryAdded = new()
+    {
+        Jpn = ["howto"],
+        Eng = ["active", "help", "entry", "added"],
+        Deu = ["tutorial-hilfstext"],
+        Fra = ["tutoriel"]
+    };
+
+    public static readonly LocalizedStrings SanctuaryMessage = new()
+    {
+        Jpn = ["レストエリア"],
+        Eng = ["sanctuary"],
+        Deu = ["ruhebereich"],
+        Fra = ["repos"]
+    };
 }

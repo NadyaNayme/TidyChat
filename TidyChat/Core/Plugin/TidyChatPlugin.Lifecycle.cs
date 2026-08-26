@@ -22,8 +22,7 @@ public sealed partial class TidyChatPlugin
         {
             InstanceDtrBarUpdate(Configuration);
         }
-        _setPlayerNameRetries = 0; // each login gets a fresh retry budget
-        // #122: open the grace window so "Login only" mode shows the post-login announcement burst.
+        _setPlayerNameRetries = 0;
         _serverAnnouncementLoginGraceEnd = DateTime.UtcNow.AddSeconds(ServerAnnouncementLoginGraceSeconds);
         SetPlayerName();
     }
@@ -59,7 +58,7 @@ public sealed partial class TidyChatPlugin
             try
             {
                 var territory =
-                    DataManager.GetExcelSheet<TerritoryType>().GetRow(e); // built in sheets will never be null
+                    DataManager.GetExcelSheet<TerritoryType>().GetRow(e);
                 var exclusiveType = territory.ExclusiveType;
                 var isPvp = territory.IsPvpZone;
 
@@ -71,7 +70,7 @@ public sealed partial class TidyChatPlugin
                     2 when dutyName.Length >= 1 => dutyName,
                     2 when dutyName.Length == 0 && placeName.Length > 0 => placeName,
                     2 when dutyName.Length == 0 && isPvp => L10N.GetTidy(TidyStrings.PvPDuty),
-                    _ => TidyStrings.LastDuty // Keep previous value if we don't care about the new value
+                    _ => TidyStrings.LastDuty
                 };
             }
             catch (KeyNotFoundException)

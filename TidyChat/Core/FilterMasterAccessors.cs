@@ -60,10 +60,6 @@ internal static class FilterMasterAccessors
     public static bool LocationSearchResults(Configuration c) =>
         c.ShowSearchForItemResults && c.ShowLocationSearchResults;
 
-    public static bool TripleTriadAllowed(Configuration c) => c.ShowTripleTriadAllowed;
-
-    public static bool TripleTriadNotAllowed(Configuration c) => c.ShowTripleTriadNotAllowed;
-
     public static bool SubaquaticVoyageEmbarked(Configuration c) =>
         c.ShowSubaquaticVoyage && c.ShowSubaquaticVoyageEmbarked;
 
@@ -85,9 +81,6 @@ internal static class FilterMasterAccessors
     public static bool SubmarineRetrievalLevelsIncreased(Configuration c) =>
         c.ShowSubaquaticVoyage && c.ShowSubmarineRetrievalLevelsIncreased;
 
-    public static bool CraftingBuffEffectGain(Configuration c) =>
-        c.ShowAllOtherCrafting && c.ShowCraftingBuffEffectGain;
-
     /// <summary>
     ///     Nested crafting/gathering/stellar rules must not filter chat when their master toggle is off.
     /// </summary>
@@ -100,6 +93,9 @@ internal static class FilterMasterAccessors
                 !config.ShowStellarMissionMessages,
             _ => false
         };
+
+    public static bool CraftingBuffEffectGain(Configuration c) =>
+        c.ShowAllOtherCrafting && c.ShowCraftingBuffEffectGain;
 
     public static bool CraftingAbleToExecute(Configuration c) =>
         c.ShowAllOtherCrafting && c.ShowCraftingAbleToExecute;
@@ -115,8 +111,6 @@ internal static class FilterMasterAccessors
 
     public static bool StellarGpRecovery(Configuration c) =>
         c.ShowStellarMissionMessages && c.ShowStellarGpRecovery;
-
-    public static bool OthersLootRoll(Configuration c) => c.ShowOthersLootRoll;
 
     public static bool OnlyPartyMemberLootRolls(Configuration c) =>
         c.ShowOthersLootRoll && c.ShowOnlyPartyMemberRolls;

@@ -1,9 +1,5 @@
 namespace TidyChat;
 
-/// <summary>
-///     Channel invariants: combat log lines are never filtered; error lines are only
-///     hidden by explicit hide rules that expose a settings toggle.
-/// </summary>
 internal static class ChannelFilterPolicy
 {
     public static bool IsCombatLogChannel(ChatType chatType) => chatType switch
@@ -19,9 +15,4 @@ internal static class ChannelFilterPolicy
             ChatType.LoseDebuff => true,
         _ => false
     };
-
-    public static bool IsErrorChannel(ChatType chatType) => chatType is ChatType.Error;
-
-    /// <summary>Combat log channels skip <see cref="TidyChatPlugin.EvaluateChannelRules" /> entirely.</summary>
-    public static bool ShouldBypassChannelRules(ChatType chatType) => IsCombatLogChannel(chatType);
 }

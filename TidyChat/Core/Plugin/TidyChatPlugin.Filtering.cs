@@ -68,7 +68,7 @@ public sealed partial class TidyChatPlugin
     private static List<string> LogMessageDebugRules(string? ruleName) =>
         string.IsNullOrEmpty(ruleName) ? ["LogMessage"] : [ruleName];
 
-    private bool FinishChatHandling(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+    private void FinishChatHandling(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText, ref bool isHandled, List<string> rulesMatched)
     {
         ApplyFilterOverrides(message, chatType, normalizedText, ref isHandled, rulesMatched);
@@ -86,7 +86,7 @@ public sealed partial class TidyChatPlugin
 
         if (CheckChatHistory(message, chatType, ref isHandled, rulesMatched))
         {
-            return true;
+            return;
         }
 
         if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
@@ -109,8 +109,6 @@ public sealed partial class TidyChatPlugin
             LogBlockedChat(rulesMatched, message.Message.TextValue);
             message.PreventOriginal();
         }
-
-        return false;
     }
 
     private bool IsProtectedByActiveShowRule(ChatType chatType, string normalizedText, string displayText,
@@ -263,9 +261,9 @@ public sealed partial class TidyChatPlugin
                 }
 
                 if (!CosmicExplorationFilterHelper.IsCosmicRuleName(rule.Name) &&
-                    !CosmicExplorationFilterHelper.IsStellarGpRuleName(rule.Name) &&
-                    (CosmicExplorationFilterHelper.ShouldDeferNonCosmicRule(Configuration, normalizedText) ||
-                     CosmicExplorationFilterHelper.ShouldDeferToStellarGpRecovery(Configuration, normalizedText) ||
+                    rule.Name is not "ShowStellarGpRecovery" &&
+                    (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(Configuration, normalizedText) ||
+                     CosmicExplorationFilterHelper.IsGpRecoveryAllowed(Configuration, normalizedText) ||
                      LootFilterHelper.ShouldDeferSelfLootRollOrCastLotRule(normalizedText, rule) ||
                      LootFilterHelper.ShouldDeferGenericObtainShowRule(normalizedText, rule)))
                 {
@@ -628,4 +626,65 @@ public sealed partial class TidyChatPlugin
     }
 
     private readonly record struct LogMessageChatSyncResult(LogMessageChatEffect Effect, string? DecidingRuleName);
+
+    private static SeString BuildDebugString(ChatType chatType, SeString message, List<string> rulesMatched, bool debugIncludeChannel, bool isBlocked)
+    {
+        SeStringBuilder stringBuilder = new();
+        Better.AddTidyChatTag(stringBuilder);
+        if (debugIncludeChannel)
+        {
+            Better.AddChannelTag(stringBuilder, chatType);
+        }
+        if (isBlocked)
+        {
+            Better.AddBlockedTag(stringBuilder);
+        }
+        else
+        {
+            Better.AddAllowedTag(stringBuilder);
+        }
+
+        if (rulesMatched.Count > 0)
+        {
+            Better.AddRuleTag(stringBuilder, rulesMatched);
+        }
+        stringBuilder.AddText(message.TextValue);
+        return stringBuilder.BuiltString;
+    }
+
+    private static void MigrateLegacyHighlightColors(IList<ChatHighlight> highlights)
+    {
+        foreach (var highlight in highlights)
+        {
+            if (highlight.UiForegroundColor != 0)
+            {
+                highlight.RgbaColor = ChatHighlightPresets.FromLegacyUiForeground(highlight.UiForegroundColor);
+                highlight.UiForegroundColor = 0;
+                continue;
+            }
+
+            if (highlight.RgbaColor == 0)
+            {
+                highlight.RgbaColor = ChatHighlightPresets.DefaultRgba;
+            }
+        }
+    }
+
+    private void TryApplyChatHighlight(IHandleableChatMessage message, ChatType chatType, string rawTextValue,
+        string extractedTextValue, string normalizedText)
+    {
+        if (!Configuration.EnableChatHighlights || Configuration.ChatHighlights.Count == 0)
+        {
+            return;
+        }
+
+        if (!ChatHighlightHelper.TryGetMatchingHighlight(Configuration.ChatHighlights, chatType, rawTextValue,
+                extractedTextValue, normalizedText, out var highlight) ||
+            highlight is null)
+        {
+            return;
+        }
+
+        message.Message = ChatHighlightHelper.ApplyForeground(message.Message, highlight.RgbaColor);
+    }
 }

@@ -10,8 +10,6 @@ internal static class UiHelp
         nameof(Languages.ProgressTab_ShowSecondChanceAwardHelpMarker)
     };
 
-    private static readonly HashSet<string> ProgressAndSystemFilterHelpMarkers = new(StringComparer.Ordinal);
-
     private static readonly HashSet<string> ProgressFilterHelpMarkers = new(StringComparer.Ordinal)
     {
         nameof(Languages.ProgressTab_ShowExperienceGainMessagesHelpMarker),
@@ -71,10 +69,6 @@ internal static class UiHelp
     public static string WithProgressFilterNote(string help) =>
         AppendNote(help, Languages.Shared_RequiresProgressFilteringNote);
 
-    public static string WithProgressAndSystemFilterNote(string help) =>
-        AppendNote(AppendNote(help, Languages.Shared_RequiresProgressFilteringNote),
-            Languages.Shared_RequiresSystemFilteringNote);
-
     public static string WithObtainedAndSystemHideFilterNote(string help) =>
         AppendNote(AppendNote(help, Languages.Shared_RequiresObtainedHideFilteringNote),
             Languages.Shared_RequiresSystemHideFilteringNote);
@@ -82,9 +76,6 @@ internal static class UiHelp
     public static string WithLootAndObtainedHideFilterNote(string help) =>
         AppendNote(AppendNote(help, Languages.Shared_RequiresObtainedHideFilteringNote),
             Languages.Shared_RequiresLootFilteringNote);
-
-    public static bool ShouldAppendProgressAndSystemFilterNote(string helpPropertyName) =>
-        ProgressAndSystemFilterHelpMarkers.Contains(helpPropertyName);
 
     public static bool ShouldAppendObtainedFilterNote(string helpPropertyName) =>
         ShouldAppendObtainedChannelNote(helpPropertyName) &&
@@ -215,9 +206,6 @@ internal static class UiHelp
 
     public static void ProgressFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(WithProgressFilterNote(help));
-
-    public static void ProgressAndSystemFilterMarker(string help) =>
-        ImGuiComponents.HelpMarker(WithProgressAndSystemFilterNote(help));
 
     public static void SystemHideFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(WithSystemHideFilterNote(help));

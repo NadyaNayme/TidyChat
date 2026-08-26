@@ -166,7 +166,7 @@ public static partial class Rules
         ["ShowLootRoll"] = c => c.ShowLootRoll,
         ["ShowCastLot"] = c => c.ShowCastLot,
         ["HideObtainedShards"] = c => c.HideObtainedShards,
-        ["ShowOthersLootRoll"] = FilterMasterAccessors.OthersLootRoll,
+        ["ShowOthersLootRoll"] = c => c.ShowOthersLootRoll,
         ["ShowOthersCastLot"] = c => c.ShowOthersCastLot,
         ["HideOthersObtain"] = c => c.HideOthersObtain,
         ["HideRouletteBonus"] = c => c.HideRouletteBonus,
@@ -198,8 +198,8 @@ public static partial class Rules
         ["ShowAbilityUnlock"] = c => c.ShowAbilityUnlock,
         ["ShowOtherLevelUps"] = c => c.ShowOtherLevelUps,
         ["ShowDesynthesisLevel"] = c => c.ShowDesynthesisLevel,
-        ["ShowTripleTriadAllowed"] = FilterMasterAccessors.TripleTriadAllowed,
-        ["ShowTripleTriadNotAllowed"] = FilterMasterAccessors.TripleTriadNotAllowed
+        ["ShowTripleTriadAllowed"] = c => c.ShowTripleTriadAllowed,
+        ["ShowTripleTriadNotAllowed"] = c => c.ShowTripleTriadNotAllowed
     };
 
     static Rules()

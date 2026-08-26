@@ -381,11 +381,6 @@ internal static class SettingsSearchIndex
             return UiHelp.WithCraftingFilterNote(help);
         }
 
-        if (UiHelp.ShouldAppendProgressAndSystemFilterNote(helpPropertyName))
-        {
-            return UiHelp.WithProgressAndSystemFilterNote(help);
-        }
-
         if (UiHelp.ShouldAppendProgressFilterNote(helpPropertyName))
         {
             return UiHelp.WithProgressFilterNote(help);

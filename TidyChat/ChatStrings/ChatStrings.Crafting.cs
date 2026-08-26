@@ -143,4 +143,20 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
+
+    public static readonly LocalizedStrings DesynthedItem = new()
+    {
+        Jpn = ["分解"],
+        Eng = ["you", "desynthesize"],
+        Deu = ["verwertet"],
+        Fra = ["recyclez"]
+    };
+
+    public static readonly LocalizedStrings DesynthesisObtain = new()
+    {
+        Jpn = ["手に入れ"],
+        Eng = ["you", "obtain"],
+        Deu = ["erhalten"],
+        Fra = ["obtenez"]
+    };
 }

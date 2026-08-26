@@ -31,18 +31,10 @@ internal static class LootFilterHelper
         configuration.ShowOthersCastLot && logMessageId == 5180 &&
         L10N.Get(ChatStrings.OthersCastLot).IsMatch(normalizedText);
 
-    public static bool IsSelfOnlyLootRollOrCastLotRule(LocalizedFilterRule rule) =>
-        rule.Name is "ShowLootRoll" or "ShowCastLot";
-
-    public static bool ShouldDeferSelfLootRollOrCastLotRule(string normalizedText, LocalizedFilterRule rule)
-    {
-        if (!IsSelfOnlyLootRollOrCastLotRule(rule))
-        {
-            return false;
-        }
-
-        return normalizedText.Length > 0 && !normalizedText.StartsWith("you ", StringComparison.Ordinal);
-    }
+    public static bool ShouldDeferSelfLootRollOrCastLotRule(string normalizedText, LocalizedFilterRule rule) =>
+        rule.Name is "ShowLootRoll" or "ShowCastLot" &&
+        normalizedText.Length > 0 &&
+        !normalizedText.StartsWith("you ", StringComparison.Ordinal);
 
     public static bool ShouldDeferGenericObtainShowRule(string normalizedText, LocalizedFilterRule rule) =>
         ObtainCurrencyHelper.IsGenericObtainShowRule(rule) &&

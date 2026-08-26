@@ -10,7 +10,6 @@ public enum PlayerNameMatchMode
 
 public class PlayerName
 {
-
     [NonSerialized] private Regex? _compiledPattern;
     [NonSerialized] private string? _compiledPatternSource;
     [NonSerialized] private uint[]? _parsedLogMessageIds;

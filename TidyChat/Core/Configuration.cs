@@ -2,6 +2,16 @@ using Dalamud.Configuration;
 using Dalamud.Plugin;
 namespace TidyChat.Settings;
 
+public enum ServerAnnouncementMode
+{
+    ShowAll = 0,
+    HideAll = 1,
+    Condensed = 2,
+    LoginOnly = 3,
+    LoginThenCondensed = 4,
+    HidePhishing = 5
+}
+
 [Serializable]
 public class Configuration : IPluginConfiguration
 {
@@ -28,11 +38,7 @@ public class Configuration : IPluginConfiguration
     public int ChatHistoryLength { get; set; } = 10;
     public int ChatHistoryTimer { get; set; } = 10;
     public bool DisableSelfChatHistory { get; set; } = true;
-    #region Error Messages
-
     public bool HideFateLevelSync { get; set; } = false;
-
-    #endregion
 
     public bool ShowObtainedQuestItems { get; set; } = false;
     public int Version { get; set; } = 0;
@@ -384,4 +390,39 @@ public class Configuration : IPluginConfiguration
     public bool ShowCosmicDailyProgress { get; set; } = false;
 
     #endregion
+
+    internal void ApplyPendingMigrations()
+    {
+        if (Version < 12)
+        {
+            ShowGatheringCollectableObtains = ShowObtainedItems;
+            Version = 12;
+            Save();
+        }
+
+        if (Version < 13)
+        {
+#pragma warning disable CS0618
+            ShowGlamourDresserOutfit = ShowGlamourAltered;
+            ShowGlamourDresserProjection = ShowGlamourAltered;
+            ShowGlamourArmoireMessages = ShowGlamourAltered;
+#pragma warning restore CS0618
+            ShowTryOnGlamourPreview = ShowTryOnGlamourCast;
+            Version = 13;
+            Save();
+        }
+
+        if (Version < 14)
+        {
+#pragma warning disable CS0618
+            var legacyLure = ShowLureMessages;
+#pragma warning restore CS0618
+            ShowLureAttemptMessages = legacyLure;
+            ShowLureBiteFeelingMessages = legacyLure;
+            ShowReelInLine = ShowCaughtFish;
+            ShowLoseBait = ShowCaughtFish;
+            Version = 14;
+            Save();
+        }
+    }
 }
