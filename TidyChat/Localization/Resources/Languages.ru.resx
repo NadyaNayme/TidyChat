@@ -1581,7 +1581,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Show reminders of what to /say in chat during quests</value>
   </data>
   <data name="ExplorationTab_ShowSayReminderHelpMarker" xml:space="preserve">
-    <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+    <value>No LogMessage ID. Matches “With the chat mode in Say…” and “With the chat mode set to Say, use the keyboard…”.</value>
   </data>
   <data name="ExplorationTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Show S Rank Hunt spawn announcement</value>
