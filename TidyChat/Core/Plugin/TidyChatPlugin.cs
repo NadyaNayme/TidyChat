@@ -5,11 +5,12 @@ using Dalamud.IoC;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using System.Threading;
+using System.Threading.Tasks;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
 namespace TidyChat;
 
-public sealed partial class TidyChatPlugin : IDalamudPlugin
+public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
 {
     private const string SettingsCommand = TidyStrings.SettingsCommand;
     private const string ShorthandCommand = TidyStrings.ShorthandCommand;
@@ -39,6 +40,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     private byte _lastTerritoryExclusiveType;
     private bool _commendationBaselineSynced;
+    private bool _configInitialized;
 
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
 
@@ -54,6 +56,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
     [PluginService] public static IObjectTable ObjectTable { get; set; } = null!;
     [PluginService] public static IPartyList PartyList { get; set; } = null!;
     [PluginService] public static IPluginLog Log { get; set; } = null!;
+    [PluginService] public static IFramework Framework { get; set; } = null!;
     private static IDtrBarEntry? DtrEntry { get; set; }
 
     public static IReadOnlyList<TomestoneInfo> Tomestones { get; private set; } = [];
@@ -61,14 +64,17 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     public static IReadOnlySet<string> FishingFlavorMessages { get; private set; } = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-    private Configuration Configuration { get; }
-    private PluginUI? PluginUi { get; }
+    private Configuration Configuration { get; set; } = null!;
+    private PluginUI? PluginUi { get; set; }
 
-    public void Dispose()
+    public ValueTask DisposeAsync()
     {
         Instance = null;
-        FlushBlockedMessageCount(persist: true);
-        Configuration.PersistIfDirty();
+        if (_configInitialized)
+        {
+            FlushBlockedMessageCount(persist: true);
+            Configuration.PersistIfDirty();
+        }
 
         PluginInterface.UiBuilder.Draw -= DrawUI;
         PluginInterface.UiBuilder.OpenMainUi -= DrawConfigUI;
@@ -83,8 +89,10 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
             DtrEntry = null;
         }
 
-        CommandManager.RemoveHandler(SettingsCommand);
-        CommandManager.RemoveHandler(ShorthandCommand);
+        try { CommandManager.RemoveHandler(SettingsCommand); }
+        catch (Exception ex) { Log.Warning("Failed to remove settings command on dispose: " + ex); }
+        try { CommandManager.RemoveHandler(ShorthandCommand); }
+        catch (Exception ex) { Log.Warning("Failed to remove shorthand command on dispose: " + ex); }
         PluginInterface.LanguageChanged -= UpdateLang;
         ChatGui.CheckMessageHandled -= OnChat;
         ChatGui.LogMessage -= OnLogMessage;
@@ -92,6 +100,7 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         ClientState.Login -= OnLogin;
         ClientState.Logout -= OnLogout;
         DisposeLogMessageDebugDedup();
+        return ValueTask.CompletedTask;
     }
     private void OnCommand(string command, string args)
     {
@@ -161,11 +170,11 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
 
     public static TidyChatPlugin? Instance { get; private set; }
 
-    public TidyChatPlugin()
+    public TidyChatPlugin() => Instance = this;
+
+    public async Task LoadAsync(CancellationToken cancellationToken)
     {
-        Instance = this;
         L10N.Language = ClientState.ClientLanguage;
-        LoadFishingFlavorMessages();
         PluginInterface.LanguageChanged += UpdateLang;
         Languages.Culture = new(PluginInterface.UiLanguage);
 
@@ -173,22 +182,21 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         Configuration = loaded ?? new Configuration();
         Configuration.Initialize(PluginInterface);
         Configuration.ApplyPendingMigrations();
+        _configInitialized = true;
 
         Rules.UpdateIsActiveStates(Configuration);
-
         MigrateLegacyHighlightColors(Configuration.ChatHighlights);
 
+        cancellationToken.ThrowIfCancellationRequested();
         ReloadGameDataCaches(validateRuleIds: true);
+        cancellationToken.ThrowIfCancellationRequested();
 
-        if (Configuration.InstanceInDtrBar)
+        var needsFrameworkThread = Configuration.InstanceInDtrBar
+            || (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage);
+        if (needsFrameworkThread)
         {
-            InstanceDtrBarUpdate(Configuration);
-        }
-
-        if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
-        {
-            _commendationBaselineSynced = TrySyncCommendationBaseline();
-            _lastTerritoryExclusiveType = TryGetTerritoryExclusiveType(ClientState.TerritoryType);
+            await Framework.RunOnFrameworkThread(ApplyFrameworkThreadLoadState).ConfigureAwait(false);
+            cancellationToken.ThrowIfCancellationRequested();
         }
 
         ChatGui.CheckMessageHandled += OnChat;
@@ -214,5 +222,19 @@ public sealed partial class TidyChatPlugin : IDalamudPlugin
         PluginInterface.UiBuilder.Draw += DrawUI;
         PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
         PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+    }
+
+    private void ApplyFrameworkThreadLoadState()
+    {
+        if (Configuration.InstanceInDtrBar)
+        {
+            InstanceDtrBarUpdate(Configuration);
+        }
+
+        if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
+        {
+            _commendationBaselineSynced = TrySyncCommendationBaseline();
+            _lastTerritoryExclusiveType = TryGetTerritoryExclusiveType(ClientState.TerritoryType);
+        }
     }
 }

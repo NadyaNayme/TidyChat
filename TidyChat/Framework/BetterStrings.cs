@@ -9,12 +9,16 @@ namespace TidyChat.Utility;
 
 internal static class BetterStrings
 {
+    public static bool IsQuestSayReminder(string normalizedText) =>
+        L10N.Get(ChatStrings.SayQuestReminderRegex).IsMatch(normalizedText);
+
     public static SeString SayReminder(SeString message, Configuration configuration)
     {
-        var containingPhraseStart = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.StartQuotation), StringComparison.Ordinal);
-        var containingPhraseEnd = message.TextValue.LastIndexOf(L10N.GetTidy(TidyStrings.EndQuotation), StringComparison.Ordinal);
-        var lengthOfPhrase = containingPhraseEnd - containingPhraseStart;
-        var containingPhrase = message.TextValue.Substring(containingPhraseStart + 1, lengthOfPhrase - 1);
+        if (!TryExtractQuotedPhrase(message.TextValue, out var containingPhrase))
+        {
+            return message;
+        }
+
         if (configuration.CopyBetterSayReminder)
         {
             var stringBuilder = new SeStringBuilder();
@@ -28,6 +32,42 @@ internal static class BetterStrings
         }
 
         return $"/say {containingPhrase}";
+    }
+
+    private static bool TryExtractQuotedPhrase(string text, out string phrase)
+    {
+        phrase = string.Empty;
+        if (TryExtractBetween(text, L10N.GetTidy(TidyStrings.StartQuotation), L10N.GetTidy(TidyStrings.EndQuotation),
+                out phrase))
+        {
+            return true;
+        }
+
+        return TryExtractBetween(text, "\"", "\"", out phrase);
+    }
+
+    private static bool TryExtractBetween(string text, string start, string end, out string phrase)
+    {
+        phrase = string.Empty;
+        if (string.IsNullOrEmpty(start) || string.IsNullOrEmpty(end))
+        {
+            return false;
+        }
+
+        var endIndex = text.LastIndexOf(end, StringComparison.Ordinal);
+        if (endIndex <= 0)
+        {
+            return false;
+        }
+
+        var startIndex = text.LastIndexOf(start, endIndex - 1, StringComparison.Ordinal);
+        if (startIndex < 0 || startIndex + start.Length >= endIndex)
+        {
+            return false;
+        }
+
+        phrase = text[(startIndex + start.Length)..endIndex];
+        return phrase.Length > 0;
     }
 
     public static SeString MarkBillObtain(SeString message, Configuration configuration, string normalizedText)

@@ -350,6 +350,13 @@ public sealed partial class TidyChatPlugin
             }
         }
 
+        if (Configuration.BetterSayReminder && chatType is ChatType.System &&
+            Better.IsQuestSayReminder(normalizedText))
+        {
+            isBlocked = false;
+            TrackMatchedRule(matchedRules, nameof(Configuration.BetterSayReminder));
+        }
+
         if (LootFilterHelper.ShouldShowOtherPlayerObtain(Configuration, chatType, normalizedText))
         {
             isBlocked = chatType is ChatType.LootNotice;

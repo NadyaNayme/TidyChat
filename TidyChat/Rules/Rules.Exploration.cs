@@ -269,8 +269,8 @@ public static partial class Rules
             SettingsTab = "Exploration",
             Channel = ChatType.System,
             IsActive = true,
-            StringChecks = [ChatStrings.SayQuestReminder],
-            Pattern = PatternKind.StringMatch
+            RegexChecks = [ChatStrings.SayQuestReminderRegex],
+            Pattern = PatternKind.RegexMatch
         }
     ];
 }

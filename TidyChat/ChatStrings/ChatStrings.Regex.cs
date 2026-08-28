@@ -209,6 +209,17 @@ public static partial class ChatStrings
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
+    /// Quest /say reminders — no LogMessage sheet row; System chat only.
+    /// Current EN: "With the chat mode set to Say, use the keyboard or the software keyboard to enter …"
+    /// Older EN: "With the chat mode in Say, enter a phrase containing …"
+    public static readonly LocalizedRegex SayQuestReminderRegex = new()
+    {
+        Jpn = new(@"^チャットの会話モードを", RegexOptions, RegexTimeout),
+        Eng = new(@"^with the chat mode (?:in|set to) .+$", RegexOptions, RegexTimeout),
+        Deu = new(@"(?:virtuelle(?:n)? tastatur|\bgib\b.+\bim\b)", RegexOptions, RegexTimeout),
+        Fra = new(@"mode de discussion", RegexOptions, RegexTimeout)
+    };
+
     /// <seealso href="https://xivapi.com/LogMessage/533?pretty=true">The enemy uses … / Name uses …</seealso>
     public static readonly LocalizedRegex AbilityUseMessageOtherRegex = new()
     {

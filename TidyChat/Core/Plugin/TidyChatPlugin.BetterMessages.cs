@@ -98,7 +98,7 @@ public sealed partial class TidyChatPlugin
 
         if (Configuration.BetterSayReminder &&
             chatType is ChatType.System &&
-            TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.SayQuestReminder))
+            Better.IsQuestSayReminder(normalizedText))
         {
             message.Message = Better.SayReminder(message.Message, Configuration);
             return false;

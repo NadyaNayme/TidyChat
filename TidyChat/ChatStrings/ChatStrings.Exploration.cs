@@ -71,13 +71,4 @@ public static partial class ChatStrings
         Deu = ["entfernt"],
         Fra = ["jeté"]
     };
-
-    /// <see href="https://xivapi.com/LogMessage">Matched via formatted chat text (not a LogMessage row)</see>
-    public static readonly LocalizedStrings SayQuestReminder = new()
-    {
-        Jpn = ["チャットの会話モードを"],
-        Eng = ["with", "the", "chat", "mode", "in", "enter", "phrase", "containing"],
-        Deu = ["gib", "im", "virtuelle", "tastatur"],
-        Fra = ["en", "mode", "de", "discussion"]
-    };
 }
