@@ -71,7 +71,7 @@ internal static class WhitelistTab
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
-                if (ImGui.CollapsingHeader($"{FormatChannelSummary(alias.WhitelistedChannels)}##whitelist{i}ChannelsHeader"))
+                if (ImGui.CollapsingHeader($"{FormatChannelSummary(alias.WhitelistedChannels)}###whitelist{i}ChannelsHeader"))
                 {
                     DrawChannelCheckboxes(configuration, alias, i);
                 }

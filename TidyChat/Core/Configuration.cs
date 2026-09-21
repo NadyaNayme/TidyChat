@@ -242,6 +242,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowInvalidCommandError { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowVolumeControlMessages { get; set; } = false;
+    public bool ShowConfigChangeMessages { get; set; } = false;
     public bool ShowEverythingElse { get; set; } = false;
     public bool ShowTripleTriadAllowed { get; set; } = false;
     public bool ShowTripleTriadNotAllowed { get; set; } = false;

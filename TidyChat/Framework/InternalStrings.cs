@@ -16,7 +16,7 @@ internal static class InternalStrings
         "Open settings. Subcommands: debug [on|off|toggle] (macro-friendly)";
 
     public static readonly string CommandUsage =
-        "Usage: /tidy | /tidychat — open settings. /tidy debug [on|off|toggle] — set or toggle debug mode.";
+        "Usage: /tidy | /tidychat - open settings. /tidy debug [on|off|toggle] - set or toggle debug mode.";
 
     public static readonly LocalizedTidyStrings DebugModeEnabled = new()
     {

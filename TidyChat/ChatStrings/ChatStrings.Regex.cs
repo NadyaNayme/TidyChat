@@ -146,6 +146,31 @@ public static partial class ChatStrings
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
+    /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
+    /// <seealso href="https://xivapi.com/LogMessage/755?pretty=true">“…” equipped.</seealso>
+    /// <remarks>
+    ///     Do not use a bare “equipped” token. ID 700’s English template is only “ equipped.”, so catalog
+    ///     matching that word also hits ARR relic quest lines (“you must be equipped with…”).
+    /// </remarks>
+    public static readonly LocalizedRegex GearsetEquippedRegex = new()
+    {
+        Jpn = new(@"(?:を装備した。|に装備変更しました。)$", RegexOptions, RegexTimeout),
+        Eng = new(@"^.+ equipped\.$", RegexOptions, RegexTimeout),
+        Deu = new(@"^du hast(?: das ausrüstungsset .+)? angelegt\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous vous équipez.+$", RegexOptions, RegexTimeout)
+    };
+
+    /// ARR / Zodiac relic quest System warning (no LogMessage sheet row):
+    /// “In order to receive the quest "Celestial Radiance," you must be equipped with a relic weapon animus…”
+    /// Also “In order to advance the quest "Star Light, Star Bright," …”
+    public static readonly LocalizedRegex QuestEquipmentRequirementRegex = new()
+    {
+        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Eng = new(@"^in order to (?:receive|advance) the quest .+$", RegexOptions, RegexTimeout),
+        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
     /// <see href="https://xivapi.com/LogMessage/561?pretty=true">You change to …</see>
     public static readonly LocalizedRegex JobChangeRegex = new()
     {
@@ -478,6 +503,31 @@ public static partial class ChatStrings
 
     #endregion Party
 
+    #region System
+
+    /// <see href="https://xivapi.com/LogMessage/3850?pretty=true">Master volume set to …</see>
+    /// <seealso href="https://xivapi.com/LogMessage/3856?pretty=true">Own sound effects volume set to …</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/3860?pretty=true">Master volume unmuted (chat also substitutes muted).</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/3869?pretty=true">Mount BGM volume muted.</seealso>
+    /// <seealso href="https://xivapi.com/LogMessage/3871?pretty=true">Performance volume unmuted (chat also substitutes muted).</seealso>
+    public static readonly LocalizedRegex VolumeControlRegex = new()
+    {
+        Jpn = new(
+            @"^.+(?:の音量を.+に変更しました|をミュートしました|のミュートを解除しました|マウント騎乗中のBGM再生を(?:有効|無効)にしました).*$",
+            RegexOptions, RegexTimeout),
+        Eng = new(
+            @"^(?:.+ volume (?:set to .+|(?:un)?muted)|.+sound effects set to .+|system sounds speaker output (?:set to .+|(?:un)?muted))\.?$",
+            RegexOptions, RegexTimeout),
+        Deu = new(
+            @"^(?:hauptlautstärke|lautstärke |systemtöne über lautsprecher|musik beim reiten|kompositionen)",
+            RegexOptions, RegexTimeout),
+        Fra = new(
+            @"^(?:vous avez réglé le volume .+ à .+|vous avez (?:activé|désactivé) (?:le volume .+|le haut-parleur .+|les actions d.interprétation)|la musique à dos de monture a été (?:activée|désactivée))\.?$",
+            RegexOptions, RegexTimeout)
+    };
+
+    #endregion System
+
     /// <see href="https://xivapi.com/LogMessage/2069?pretty=true">The blasting cap drops a six-onze pinch of firesand.</see>
     public static readonly LocalizedRegex DungeonMechanicDropsRegex = new()
     {
@@ -507,6 +557,15 @@ public static partial class ChatStrings
         Eng = new(@"^(?:you|\S.+?) uses (?:brazen|meticulous) (?:woodsman|prospector)\b", RegexOptions, RegexTimeout),
         Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+    };
+
+    /// <see href="https://xivapi.com/LogMessage/1119?pretty=true">The fish gets away...</see>
+    public static readonly LocalizedRegex FishGetsAwayRegex = new()
+    {
+        Jpn = new(@"逃げられてしまった", RegexOptions, RegexTimeout),
+        Eng = new(@"^the fish gets away", RegexOptions, RegexTimeout),
+        Deu = new(@"^der fisch konnte sich vom haken reißen", RegexOptions, RegexTimeout),
+        Fra = new(@"^le poisson a réussi à se défaire de l['’]hameçon", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1110?pretty=true">You cast your line at .</see>

@@ -39,6 +39,27 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowLoseBait",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1119],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowLoseBait",
+            SettingsTab = "Fishing",
+            Channel = ChatType.Gathering,
+            IsActive = true,
+            LogMessageIds = [1119],
+            RegexChecks = [ChatStrings.FishGetsAwayRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
             Name = "ShowCaughtFish",
             SettingsTab = "Fishing",
             Channel = ChatType.Gathering,

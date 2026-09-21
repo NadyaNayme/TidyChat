@@ -18,12 +18,14 @@ public class WiringAuditTests
     private static readonly HashSet<string> AlwaysOnAccessorRules = new(StringComparer.Ordinal)
     {
         "ShowDungeonMechanicMessages",
+        "ShowQuestEquipmentRequirement",
     };
 
     /// <summary>Rule names that intentionally have no same-named Configuration property.</summary>
     private static readonly HashSet<string> RulesWithoutConfigProperty = new(StringComparer.Ordinal)
     {
         "ShowDungeonMechanicMessages",
+        "ShowQuestEquipmentRequirement",
     };
 
     private static readonly Dictionary<string, string> RuleNameAliases = new(StringComparer.Ordinal)

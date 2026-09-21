@@ -56,6 +56,7 @@ public sealed partial class TidyChatPlugin
             }
         }
 
+        var announcementAction = ServerAnnouncementChatAction.None;
         if (logSync.Effect != LogMessageChatEffect.PreserveVisible)
         {
             var protectedByShowRule = false;
@@ -65,38 +66,44 @@ public sealed partial class TidyChatPlugin
                 protectedByShowRule =
                     IsProtectedByActiveShowRule(chatType, normalizedText, message.Message.TextValue, out _);
             }
-            if (HandleServerAnnouncements(message, chatType, normalizedText, protectedByShowRule))
+            announcementAction = HandleServerAnnouncements(message, chatType, normalizedText, protectedByShowRule);
+            if (announcementAction is ServerAnnouncementChatAction.None)
             {
-                return;
-            }
-            if (!ChannelCanBeFiltered(chatType))
-            {
-                return;
-            }
-            if (HandleEmoteFilters(message, chatType, rawTextValue, extractedTextValue, normalizedText))
-            {
-                return;
-            }
-            if (HandleTemporaryFilterDisables(normalizedText))
-            {
-                return;
-            }
-            if (HandleBetterMessages(message, chatType, normalizedText))
-            {
-                return;
+                if (!ChannelCanBeFiltered(chatType))
+                {
+                    return;
+                }
+                if (HandleEmoteFilters(message, chatType, rawTextValue, extractedTextValue, normalizedText))
+                {
+                    return;
+                }
+                if (HandleTemporaryFilterDisables(normalizedText))
+                {
+                    return;
+                }
+                if (HandleBetterMessages(message, chatType, normalizedText))
+                {
+                    return;
+                }
             }
         }
 
-        List<string> rulesMatched = logSync.Effect == LogMessageChatEffect.PreserveVisible
-            ? LogMessageDebugRules(logSync.DecidingRuleName)
-            : [];
+        List<string> rulesMatched;
         bool isHandled;
-        if (logSync.Effect == LogMessageChatEffect.PreserveVisible)
+        if (announcementAction is not ServerAnnouncementChatAction.None)
         {
+            // Skip channel rules, but still FinishChatHandling so custom filters can override.
+            isHandled = announcementAction is ServerAnnouncementChatAction.Hide;
+            rulesMatched = ["ServerAnnouncement"];
+        }
+        else if (logSync.Effect == LogMessageChatEffect.PreserveVisible)
+        {
+            rulesMatched = LogMessageDebugRules(logSync.DecidingRuleName);
             isHandled = false;
         }
         else if (ChannelFilterPolicy.IsCombatLogChannel(chatType) || chatType is ChatType.Echo)
         {
+            rulesMatched = [];
             isHandled = false;
         }
         else

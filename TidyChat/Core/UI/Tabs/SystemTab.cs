@@ -173,6 +173,15 @@ internal static class SystemTab
 
     private static void DrawCatchAll(Configuration configuration)
     {
+        var showConfigChangeMessages = configuration.ShowConfigChangeMessages;
+        if (ImGui.Checkbox(Languages.SystemTab_ShowConfigChangeMessages, ref showConfigChangeMessages))
+        {
+            configuration.ShowConfigChangeMessages = showConfigChangeMessages;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.SystemTab_ShowConfigChangeMessagesHelpMarker);
+
         var showEverythingElse = configuration.ShowEverythingElse;
         if (ImGui.Checkbox(Languages.SystemTab_ShowEverythingElse, ref showEverythingElse))
         {

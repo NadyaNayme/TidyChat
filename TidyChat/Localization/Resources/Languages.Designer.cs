@@ -106,7 +106,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checked = show allied society currency obtain messages (Pelu Pelplume, Mamool Ja Nanook, Yok Huy Ward, etc.) — you can still hide individual currencies below. Unchecked = hide them all, including any allied societies added in future patches..
+        ///   Looks up a localized string similar to Checked = show allied society currency obtain messages (Pelu Pelplume, Mamool Ja Nanook, Yok Huy Ward, etc.) - you can still hide individual currencies below. Unchecked = hide them all, including any allied societies added in future patches..
         /// </summary>
         internal static string AlliedSocietiesTab_HideBeastTribeCurrenciesMessagesHelpMarker {
             get {
@@ -214,7 +214,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Colors matching chat lines so they stand out. Highlights apply after filtering — blocked messages are not colored..
+        ///   Looks up a localized string similar to Colors matching chat lines so they stand out. Highlights apply after filtering - blocked messages are not colored..
         /// </summary>
         internal static string ChatHighlightsTab_EnableChatHighlightsHelpMarker {
             get {
@@ -250,7 +250,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plain text (case-insensitive) or /regex/ — e.g. obtain or /gold star/. Use slashes only; matching is always case-insensitive..
+        ///   Looks up a localized string similar to Plain text (case-insensitive) or /regex/ - e.g. obtain or /gold star/. Use slashes only; matching is always case-insensitive..
         /// </summary>
         internal static string ChatHighlightsTab_PatternHelpMarker {
             get {
@@ -683,7 +683,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Search settings and rules....
+        ///   Looks up a localized string similar to Search settings, rules, or LogMessage IDs....
         /// </summary>
         internal static string ConfigWindow_SearchPlaceholder {
             get {
@@ -809,7 +809,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 5533 — eg. You are now able to execute … (Gathering channel during crafting)..
+        ///   Looks up a localized string similar to LogMessage 5533 - eg. You are now able to execute … (Gathering channel during crafting)..
         /// </summary>
         internal static string CraftingTab_ShowCraftingAbleToExecuteHelpMarker {
             get {
@@ -827,7 +827,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 603 — eg. You gain the effect of Inner Quiet (crafting buff channel)..
+        ///   Looks up a localized string similar to LogMessage 603 - eg. You gain the effect of Inner Quiet (crafting buff channel)..
         /// </summary>
         internal static string CraftingTab_ShowCraftingBuffEffectGainHelpMarker {
             get {
@@ -845,7 +845,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1156, 1157, 1158, 1178 — eg. You synthesize a Linen Bandana. / Proof of completion recorded in crafting log!.
+        ///   Looks up a localized string similar to LogMessages 1156, 1157, 1158, 1178 - eg. You synthesize a Linen Bandana. / Proof of completion recorded in crafting log!.
         /// </summary>
         internal static string CraftingTab_ShowCraftingSynthesisCompleteHelpMarker {
             get {
@@ -863,7 +863,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1156 — eg. Raven synthesizes a Linen Bandana..
+        ///   Looks up a localized string similar to LogMessage 1156 - eg. Raven synthesizes a Linen Bandana..
         /// </summary>
         internal static string CraftingTab_ShowOtherPlayerCompletedSynthesisMessagesHelpMarker {
             get {
@@ -881,7 +881,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5902, 5904, 5906, 5907, 5908 — eg. Your trial synthesis of Alchemical Ink proved a success! / Quality 42 / 100.
+        ///   Looks up a localized string similar to LogMessages 5902, 5904, 5906, 5907, 5908 - eg. Your trial synthesis of Alchemical Ink proved a success! / Quality 42 / 100.
         /// </summary>
         internal static string CraftingTab_ShowTrialSynthesisMessagesHelpMarker {
             get {
@@ -935,7 +935,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4413, 657, 1259 — eg. You obtain 8 Allied Seals..
+        ///   Looks up a localized string similar to LogMessages 4413, 657, 1259 - eg. You obtain 8 Allied Seals..
         /// </summary>
         internal static string CurrenciesTab_HideAlliedSealsMessagesHelpMarker {
             get {
@@ -953,7 +953,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5200, 657, 1259 — eg. You obtain 3 Centurio Seals..
+        ///   Looks up a localized string similar to LogMessages 5200, 657, 1259 - eg. You obtain 3 Centurio Seals..
         /// </summary>
         internal static string CurrenciesTab_HideCenturioSealsMessagesHelpMarker {
             get {
@@ -971,7 +971,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1258, 1417, 1605, 1798, 10923 — eg. You obtain 69 gil or You receive 1,670 gil. Obtain lines need Filter Obtained channel; receive lines need Filter System channel (General tab)..
+        ///   Looks up a localized string similar to LogMessages 1258, 1417, 1605, 1798, 10923 - eg. You obtain 69 gil or You receive 1,670 gil. Obtain lines need Filter Obtained channel; receive lines need Filter System channel (General tab)..
         /// </summary>
         internal static string CurrenciesTab_HideGilMessagesHelpMarker {
             get {
@@ -989,7 +989,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1300 — eg. You obtain 420 Flame Seals. Grand Company seals (Flame, Storm, Serpent) only—not Allied Society or Centurio seals (separate Hide options below)..
+        ///   Looks up a localized string similar to LogMessage 1300 - eg. You obtain 420 Flame Seals. Grand Company seals (Flame, Storm, Serpent) only-not Allied Society or Centurio seals (separate Hide options below)..
         /// </summary>
         internal static string CurrenciesTab_HideGrandCompanySealsMessagesHelpMarker {
             get {
@@ -1007,7 +1007,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 789 — eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates &quot;You obtain …&quot; on retainer ventures.).
+        ///   Looks up a localized string similar to LogMessage 789 - eg. The archeo kingdom wristband of casting is added to your inventory. (LogMessage 789; often duplicates &quot;You obtain …&quot; on retainer ventures.).
         /// </summary>
         internal static string CurrenciesTab_HideInventoryItemAddedMessagesHelpMarker {
             get {
@@ -1025,7 +1025,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5202, 657, 1259 — eg. You obtain 100 sacks of Nuts..
+        ///   Looks up a localized string similar to LogMessages 5202, 657, 1259 - eg. You obtain 100 sacks of Nuts..
         /// </summary>
         internal static string CurrenciesTab_HideSacksOfNutsMessagesHelpMarker {
             get {
@@ -1052,7 +1052,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 2174 (Error channel) — eg. You cannot receive any more Allagan tomestones of mnemonics this week. Checked = hide..
+        ///   Looks up a localized string similar to LogMessage 2174 (Error channel) - eg. You cannot receive any more Allagan tomestones of mnemonics this week. Checked = hide..
         /// </summary>
         internal static string CurrenciesTab_HideTomestoneWeeklyCapMessagesHelpMarker {
             get {
@@ -1115,7 +1115,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 — Master toggle for general item obtain lines on LootNotice (1606, 1607, 750, 751, 3208) and System (720, 743, 3617, 3208) channels (excluding currency-specific filters below)..
+        ///   Looks up a localized string similar to LogMessages 720, 743, 750, 751, 1606, 1607, 3208, 3617 - Master toggle for general item obtain lines on LootNotice (1606, 1607, 750, 751, 3208) and System (720, 743, 3617, 3208) channels (excluding currency-specific filters below)..
         /// </summary>
         internal static string CurrenciesTab_ShowGeneralItemObtainsHelpMarker {
             get {
@@ -1133,7 +1133,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1232 — eg. You obtain the mysterious artifact..
+        ///   Looks up a localized string similar to LogMessage 1232 - eg. You obtain the mysterious artifact..
         /// </summary>
         internal static string CurrenciesTab_ShowObtainedQuestItemsHelpMarker {
             get {
@@ -1178,7 +1178,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7274 — eg. You discover a piece of the Accursed Hoard!.
+        ///   Looks up a localized string similar to LogMessage 7274 - eg. You discover a piece of the Accursed Hoard!.
         /// </summary>
         internal static string DeepDungeonsTab_ShowAccursedHoardDiscoveredMessagesHelpMarker {
             get {
@@ -1196,7 +1196,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7273 — eg. You do not sense the call of the Accursed Hoard on the current floor..
+        ///   Looks up a localized string similar to LogMessage 7273 - eg. You do not sense the call of the Accursed Hoard on the current floor..
         /// </summary>
         internal static string DeepDungeonsTab_ShowAccursedHoardNotSensedMessagesHelpMarker {
             get {
@@ -1214,7 +1214,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7272 — eg. You sense the Accursed Hoard calling you….
+        ///   Looks up a localized string similar to LogMessage 7272 - eg. You sense the Accursed Hoard calling you….
         /// </summary>
         internal static string DeepDungeonsTab_ShowAccursedHoardSensedMessagesHelpMarker {
             get {
@@ -1232,7 +1232,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7250 — eg. Your Aetherpool arm strength increases to 10..
+        ///   Looks up a localized string similar to LogMessage 7250 - eg. Your Aetherpool arm strength increases to 10..
         /// </summary>
         internal static string DeepDungeonsTab_ShowAetherpoolIncreasesMessagesHelpMarker {
             get {
@@ -1250,7 +1250,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7251 — eg. Your Aetherpool arm strength remains unchanged..
+        ///   Looks up a localized string similar to LogMessage 7251 - eg. Your Aetherpool arm strength remains unchanged..
         /// </summary>
         internal static string DeepDungeonsTab_ShowAetherpoolRemainsUnchangedMessagesHelpMarker {
             get {
@@ -1268,7 +1268,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7245 — eg. The Cairn of Passage is activated!.
+        ///   Looks up a localized string similar to LogMessage 7245 - eg. The Cairn of Passage is activated!.
         /// </summary>
         internal static string DeepDungeonsTab_ShowCairnOfPassageActivatedMessagesHelpMarker {
             get {
@@ -1286,7 +1286,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7242 — eg. The Cairn of Passage begins to glow!.
+        ///   Looks up a localized string similar to LogMessage 7242 - eg. The Cairn of Passage begins to glow!.
         /// </summary>
         internal static string DeepDungeonsTab_ShowCairnOfPassageGlowsMessagesHelpMarker {
             get {
@@ -1304,7 +1304,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7243 — eg. The Cairn of Return restores life to the fallen!.
+        ///   Looks up a localized string similar to LogMessage 7243 - eg. The Cairn of Return restores life to the fallen!.
         /// </summary>
         internal static string DeepDungeonsTab_ShowCairnOfReturnUsedMessagesHelpMarker {
             get {
@@ -1322,7 +1322,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 7249, 7265, 7270, 9218 — eg. Floor 5 / The current duty uses an independent leveling system..
+        ///   Looks up a localized string similar to LogMessages 7249, 7265, 7270, 9218 - eg. Floor 5 / The current duty uses an independent leveling system..
         /// </summary>
         internal static string DeepDungeonsTab_ShowFloorNumberMessagesHelpMarker {
             get {
@@ -1340,7 +1340,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 7220, 7221, 7222 — eg. You obtain a pomander of sight..
+        ///   Looks up a localized string similar to LogMessages 7220, 7221, 7222 - eg. You obtain a pomander of sight..
         /// </summary>
         internal static string DeepDungeonsTab_ShowObtainedPomanderMessagesHelpMarker {
             get {
@@ -1358,7 +1358,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 7254–7264 — eg. A pomander of sight is expended..
+        ///   Looks up a localized string similar to LogMessages 7254–7264 - eg. A pomander of sight is expended..
         /// </summary>
         internal static string DeepDungeonsTab_ShowPomanderEffectsMessagesHelpMarker {
             get {
@@ -1376,7 +1376,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 7246, 7247, 7248 — eg. Transference to floor 3..
+        ///   Looks up a localized string similar to LogMessages 7246, 7247, 7248 - eg. Transference to floor 3..
         /// </summary>
         internal static string DeepDungeonsTab_ShowTransferenceMessagesHelpMarker {
             get {
@@ -1394,7 +1394,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 7224, 7225, 7226, 7227, 7228, 7229 — eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!.
+        ///   Looks up a localized string similar to LogMessages 7224, 7225, 7226, 7227, 7228, 7229 - eg. The landmine is triggered... / The luring trap is triggered... / The detonator is triggered!.
         /// </summary>
         internal static string DeepDungeonsTab_ShowTrapTriggeredMessagesHelpMarker {
             get {
@@ -1430,7 +1430,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4325 — eg. Desynthesis level rises to 100..
+        ///   Looks up a localized string similar to LogMessage 4325 - eg. Desynthesis level rises to 100..
         /// </summary>
         internal static string DesynthesisTab_ShowDesynthesisLevelIncreasesMessagesHelpMarker {
             get {
@@ -1448,7 +1448,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4321 — eg. You desynthesize the Boarskin Ring..
+        ///   Looks up a localized string similar to LogMessage 4321 - eg. You desynthesize the Boarskin Ring..
         /// </summary>
         internal static string DesynthesisTab_ShowItemBeingDesynthesizedHelpMarker {
             get {
@@ -1466,7 +1466,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4322, 4323 — eg. You obtain undyed boarskin..
+        ///   Looks up a localized string similar to LogMessages 4322, 4323 - eg. You obtain undyed boarskin..
         /// </summary>
         internal static string DesynthesisTab_ShowObtainedItemsFromDesynthesisMessagesHelpMarker {
             get {
@@ -1511,7 +1511,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4679 — eg. &lt;Duty&gt; completion time: 00:30.
+        ///   Looks up a localized string similar to LogMessage 4679 - eg. &lt;Duty&gt; completion time: 00:30.
         /// </summary>
         internal static string DutyTab_ShowCompletionTimeForUnrestrictedPartyHelpMarker {
             get {
@@ -1529,7 +1529,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1534 — e.g. The duty will end in 5 minutes..
+        ///   Looks up a localized string similar to LogMessage 1534 - e.g. The duty will end in 5 minutes..
         /// </summary>
         internal static string DutyTab_ShowDutyEndedMessageHelpMarker {
             get {
@@ -1547,7 +1547,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 94–4682 — duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel..
+        ///   Looks up a localized string similar to LogMessages 94–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel..
         /// </summary>
         internal static string DutyTab_ShowDutyFinderMessagesHelpMarker {
             get {
@@ -1565,7 +1565,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1530 — guildhest ending soon..
+        ///   Looks up a localized string similar to LogMessage 1530 - guildhest ending soon..
         /// </summary>
         internal static string DutyTab_ShowGuildhestEndedMessageHelpMarker {
             get {
@@ -1583,7 +1583,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1350, 2055, 2056, 2059 — e.g. You are now in the instanced area….
+        ///   Looks up a localized string similar to LogMessages 1350, 2055, 2056, 2059 - e.g. You are now in the instanced area….
         /// </summary>
         internal static string DutyTab_ShowInstancedAreaMessagesHelpMarker {
             get {
@@ -1619,7 +1619,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 619 — level is no longer synced..
+        ///   Looks up a localized string similar to LogMessage 619 - level is no longer synced..
         /// </summary>
         internal static string DutyTab_ShowLevelNoLongerSyncedHelpMarker {
             get {
@@ -1682,7 +1682,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4332, 4335, 4341 — eg. RetainerName has completed a venture!.
+        ///   Looks up a localized string similar to LogMessages 4332, 4335, 4341 - eg. RetainerName has completed a venture!.
         /// </summary>
         internal static string EconomyTab_ShowCompletedVentureHelpMarker {
             get {
@@ -1700,7 +1700,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1385, 1388 (System) — eg. Linen Cowl is repaired. / 2 items repaired..
+        ///   Looks up a localized string similar to LogMessages 1385, 1388 (System) - eg. Linen Cowl is repaired. / 2 items repaired..
         /// </summary>
         internal static string EconomyTab_ShowGearItemsRepairedHelpMarker {
             get {
@@ -1718,7 +1718,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4590 — eg. You spend gil on a purchase..
+        ///   Looks up a localized string similar to LogMessage 4590 - eg. You spend gil on a purchase..
         /// </summary>
         internal static string EconomyTab_ShowGilSpentMessageHelpMarker {
             get {
@@ -1736,7 +1736,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 736 — eg. Your gil has been safely withdrawn..
+        ///   Looks up a localized string similar to LogMessage 736 - eg. Your gil has been safely withdrawn..
         /// </summary>
         internal static string EconomyTab_ShowGilWithdrawnMessageHelpMarker {
             get {
@@ -1754,7 +1754,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 384 — every listing on that retainer sold (Retainer Sale channel)..
+        ///   Looks up a localized string similar to LogMessage 384 - every listing on that retainer sold (Retainer Sale channel)..
         /// </summary>
         internal static string EconomyTab_ShowMarketAllItemsSoldHelpMarker {
             get {
@@ -1790,7 +1790,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 398, 399 — When you begin or end selling on a retainer’s market board listing.
+        ///   Looks up a localized string similar to LogMessages 398, 399 - When you begin or end selling on a retainer’s market board listing.
         ///
         ///Examples: You are now selling items in the Limsa Lominsa markets. / You are no longer selling items in the … markets.
         ///
@@ -1812,11 +1812,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4578 — After sales finish, the lump-sum gil sent to your retainer’s inventory (not the per-item sold line).
+        ///   Looks up a localized string similar to LogMessage 4578 - After sales finish, the lump-sum gil sent to your retainer’s inventory (not the per-item sold line).
         ///
         ///Example: Gil earned from market sales has been entrusted to your retainer.
         ///
-        ///System channel. Independent of “Show market board sales” and its nested sale lines—you can leave this off while per-item or all-items sold lines are on (with market board sales enabled). Requires Filter System channel on General..
+        ///System channel. Independent of “Show market board sales” and its nested sale lines-you can leave this off while per-item or all-items sold lines are on (with market board sales enabled). Requires Filter System channel on General..
         /// </summary>
         internal static string EconomyTab_ShowMarketGilEntrustedToRetainerHelpMarker {
             get {
@@ -1834,7 +1834,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 748 — one listing sold (Retainer Sale channel). Example: The bolt of vanya silk sold for 4,228 gil..
+        ///   Looks up a localized string similar to LogMessage 748 - one listing sold (Retainer Sale channel). Example: The bolt of vanya silk sold for 4,228 gil..
         /// </summary>
         internal static string EconomyTab_ShowMarketItemSoldHelpMarker {
             get {
@@ -1852,7 +1852,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4330, 4331, 4334 — eg. You assign your retainer to Quick Exploration. You pay a retainer 2 ventures..
+        ///   Looks up a localized string similar to LogMessages 4330, 4331, 4334 - eg. You assign your retainer to Quick Exploration. You pay a retainer 2 ventures..
         /// </summary>
         internal static string EconomyTab_ShowRetainerVentureMessagesHelpMarker {
             get {
@@ -1870,7 +1870,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 32 — eg. Awaiting trade confirmation from Raven Reaver..
+        ///   Looks up a localized string similar to LogMessage 32 - eg. Awaiting trade confirmation from Raven Reaver..
         /// </summary>
         internal static string EconomyTab_ShowTradeAwaitingConfirmationHelpMarker {
             get {
@@ -1888,7 +1888,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 36 — eg. Raven Reaver cancels the trade..
+        ///   Looks up a localized string similar to LogMessage 36 - eg. Raven Reaver cancels the trade..
         /// </summary>
         internal static string EconomyTab_ShowTradeCanceledHelpMarker {
             get {
@@ -1906,7 +1906,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 38 — eg. You complete the trade with Raven Reaver..
+        ///   Looks up a localized string similar to LogMessage 38 - eg. You complete the trade with Raven Reaver..
         /// </summary>
         internal static string EconomyTab_ShowTradeCompleteHelpMarker {
             get {
@@ -1924,7 +1924,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 10922 — eg. You receive 4 extravagant salvaged bracelets (items offered in the trade window)..
+        ///   Looks up a localized string similar to LogMessage 10922 - eg. You receive 4 extravagant salvaged bracelets (items offered in the trade window)..
         /// </summary>
         internal static string EconomyTab_ShowTradeReceiveItemsHelpMarker {
             get {
@@ -1942,7 +1942,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 34 — eg. Lucan Beltz wishes to trade with you..
+        ///   Looks up a localized string similar to LogMessage 34 - eg. Lucan Beltz wishes to trade with you..
         /// </summary>
         internal static string EconomyTab_ShowTradeRequestReceivedHelpMarker {
             get {
@@ -1960,7 +1960,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 33 — eg. You initiate trade with Raven Reaver..
+        ///   Looks up a localized string similar to LogMessage 33 - eg. You initiate trade with Raven Reaver..
         /// </summary>
         internal static string EconomyTab_ShowTradeRequestSentHelpMarker {
             get {
@@ -1978,7 +1978,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 734, 1687 — eg. You purchase an item from a vendor..
+        ///   Looks up a localized string similar to LogMessages 734, 1687 - eg. You purchase an item from a vendor..
         /// </summary>
         internal static string EconomyTab_ShowVendorPurchaseMessagesHelpMarker {
             get {
@@ -1996,7 +1996,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1688 — eg. You sell 3 Shisui gobies for 6 gil..
+        ///   Looks up a localized string similar to LogMessage 1688 - eg. You sell 3 Shisui gobies for 6 gil..
         /// </summary>
         internal static string EconomyTab_ShowVendorSellMessagesHelpMarker {
             get {
@@ -2151,7 +2151,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3712 — eg. The compass detects a current approximately 143 yalms to the West....
+        ///   Looks up a localized string similar to LogMessage 3712 - eg. The compass detects a current approximately 143 yalms to the West....
         /// </summary>
         internal static string ExplorationTab_ShowAetherCompassMessagesHelpMarker {
             get {
@@ -2169,7 +2169,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3240 — hostile presence sensed on the Battle System channel. Independent of “You sense something…” above..
+        ///   Looks up a localized string similar to LogMessage 3240 - hostile presence sensed on the Battle System channel. Independent of “You sense something…” above..
         /// </summary>
         internal static string ExplorationTab_ShowHostilePresenceMessagesHelpMarker {
             get {
@@ -2187,7 +2187,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4411 — eg. Hunt mark &lt;mark&gt; slain! 1/3.
+        ///   Looks up a localized string similar to LogMessage 4411 - eg. Hunt mark &lt;mark&gt; slain! 1/3.
         /// </summary>
         internal static string ExplorationTab_ShowHuntMarkSlainMessagesHelpMarker {
             get {
@@ -2205,7 +2205,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 88 — e.g. New location discovered! Independent of “You sense something…” above..
+        ///   Looks up a localized string similar to LogMessage 88 - e.g. New location discovered! Independent of “You sense something…” above..
         /// </summary>
         internal static string ExplorationTab_ShowLocationDiscoveredMessagesHelpMarker {
             get {
@@ -2223,7 +2223,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4412, 4415, 4416 — eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt..
+        ///   Looks up a localized string similar to LogMessages 4412, 4415, 4416 - eg. Stack of one-star Clan mark bills objectives complete! / You obtain a stack of mark bills. / You destroy the stack of mark bills and abandon the hunt..
         /// </summary>
         internal static string ExplorationTab_ShowMarkBillMessagesHelpMarker {
             get {
@@ -2259,7 +2259,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 9331 — eg. You sense the presence of a powerful mark....
+        ///   Looks up a localized string similar to LogMessage 9331 - eg. You sense the presence of a powerful mark....
         /// </summary>
         internal static string ExplorationTab_ShowSRankSpawnAnnouncementHelpMarker {
             get {
@@ -2277,7 +2277,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 9332 — eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
+        ///   Looks up a localized string similar to LogMessage 9332 - eg. The minions of an extraordinarily powerful mark are on the hunt for prey...
         ///The minions of an extraordinarily powerful mark have withdrawn....
         /// </summary>
         internal static string ExplorationTab_ShowSSRankMinionSpawnAnnouncementHelpMarker {
@@ -2296,7 +2296,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1272, 1273 — eg. You have arrived at a vista! and You have strayed too far from the vista..
+        ///   Looks up a localized string similar to LogMessages 1272, 1273 - eg. You have arrived at a vista! and You have strayed too far from the vista..
         /// </summary>
         internal static string ExplorationTab_ShowVistaMessagesHelpMarker {
             get {
@@ -2314,7 +2314,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 2600 — spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master..
+        ///   Looks up a localized string similar to LogMessage 2600 - spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master..
         /// </summary>
         internal static string ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker {
             get {
@@ -2332,7 +2332,7 @@ namespace TidyChat.Localization.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10965, 10966 — eg. You sense the presence of 2 silver coffers and 30 bronze coffers in the area! and There appear to be no treasure coffers in the area....
+        ///   Looks up a localized string similar to LogMessages 10965, 10966 - eg. You sense the presence of 2 silver coffers and 30 bronze coffers in the area! and There appear to be no treasure coffers in the area....
         /// </summary>
         internal static string ExplorationTab_ShowTreasureCofferSensesHelpMarker {
             get {
@@ -2350,7 +2350,7 @@ namespace TidyChat.Localization.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 9003–9006 (Eureka), 10986–10989, 10996, 10997 (Occult Crescent) — eg. You sense something far, far to the northeast. and happy bunny / fortune carrot lines..
+        ///   Looks up a localized string similar to LogMessages 9003–9006 (Eureka), 10986–10989, 10996, 10997 (Occult Crescent) - eg. You sense something far, far to the northeast. and happy bunny / fortune carrot lines..
         /// </summary>
         internal static string ExplorationTab_ShowTreasurePotSensesHelpMarker {
             get {
@@ -2404,7 +2404,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4163 — eg. A new exploratory voyage destination...has been discovered!.
+        ///   Looks up a localized string similar to LogMessage 4163 - eg. A new exploratory voyage destination...has been discovered!.
         /// </summary>
         internal static string FreeCompanyTab_ShowAirshipVoyageMessagesHelpMarker {
             get {
@@ -2422,7 +2422,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3087, 6065, 3127 — eg. A company message has been added to the message book..
+        ///   Looks up a localized string similar to LogMessages 3087, 6065, 3127 - eg. A company message has been added to the message book..
         /// </summary>
         internal static string FreeCompanyTab_ShowFreeCompanyMessageBookMessagesHelpMarker {
             get {
@@ -2440,7 +2440,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3085 — eg. Raven Reaver logs in. Uses the FC login/logout channel (no Filter System toggle)..
+        ///   Looks up a localized string similar to LogMessage 3085 - eg. Raven Reaver logs in. Uses the FC login/logout channel (no Filter System toggle)..
         /// </summary>
         internal static string FreeCompanyTab_ShowLoginMessagesHelpMarker {
             get {
@@ -2458,7 +2458,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3086, 84 — eg. Raven Reaver logs out. Uses the FC login/logout channel or System..
+        ///   Looks up a localized string similar to LogMessages 3086, 84 - eg. Raven Reaver logs out. Uses the FC login/logout channel or System..
         /// </summary>
         internal static string FreeCompanyTab_ShowLogoutMessagesHelpMarker {
             get {
@@ -2476,7 +2476,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6057 — eg. Submersible has embarked on a subaquatic voyage..
+        ///   Looks up a localized string similar to LogMessage 6057 - eg. Submersible has embarked on a subaquatic voyage..
         /// </summary>
         internal static string FreeCompanyTab_ShowSubaquaticVoyageEmbarkedHelpMarker {
             get {
@@ -2494,7 +2494,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6059 — eg. Submersible subaquatic voyage finalized..
+        ///   Looks up a localized string similar to LogMessage 6059 - eg. Submersible subaquatic voyage finalized..
         /// </summary>
         internal static string FreeCompanyTab_ShowSubaquaticVoyageFinalizedHelpMarker {
             get {
@@ -2512,7 +2512,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6060 — eg. Another player finalizes a subaquatic voyage (Free Company channel)..
+        ///   Looks up a localized string similar to LogMessage 6060 - eg. Another player finalizes a subaquatic voyage (Free Company channel)..
         /// </summary>
         internal static string FreeCompanyTab_ShowSubaquaticVoyageOtherFinalizedHelpMarker {
             get {
@@ -2530,7 +2530,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6061 — eg. Submersible has returned from its subaquatic voyage..
+        ///   Looks up a localized string similar to LogMessage 6061 - eg. Submersible has returned from its subaquatic voyage..
         /// </summary>
         internal static string FreeCompanyTab_ShowSubaquaticVoyageReturnedHelpMarker {
             get {
@@ -2548,7 +2548,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6062 — eg. Submersible attains rank 5!.
+        ///   Looks up a localized string similar to LogMessage 6062 - eg. Submersible attains rank 5!.
         /// </summary>
         internal static string FreeCompanyTab_ShowSubmarineAttainsRankHelpMarker {
             get {
@@ -2566,7 +2566,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4168 — eg. Submarine part has been repaired..
+        ///   Looks up a localized string similar to LogMessage 4168 - eg. Submarine part has been repaired..
         /// </summary>
         internal static string FreeCompanyTab_ShowSubmarinePartRepairedHelpMarker {
             get {
@@ -2584,7 +2584,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6092 — eg. Submersible&apos;s retrieval levels increased by 3..
+        ///   Looks up a localized string similar to LogMessage 6092 - eg. Submersible&apos;s retrieval levels increased by 3..
         /// </summary>
         internal static string FreeCompanyTab_ShowSubmarineRetrievalLevelsIncreasedHelpMarker {
             get {
@@ -2683,7 +2683,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1098, 1102, 1103, 1105 (GatheringSystem) — granted additional gathering attempts. Checked = hide..
+        ///   Looks up a localized string similar to LogMessages 1098, 1102, 1103, 1105 (GatheringSystem) - granted additional gathering attempts. Checked = hide..
         /// </summary>
         internal static string GatheringTab_HideGatheringAttemptsLocationMessagesHelpMarker {
             get {
@@ -2701,7 +2701,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1097 (GatheringSystem), 11172–11173 (System) — Gatherer&apos;s Boon rate and chain score lines. Checked = hide..
+        ///   Looks up a localized string similar to LogMessages 1097 (GatheringSystem), 11172–11173 (System) - Gatherer&apos;s Boon rate and chain score lines. Checked = hide..
         /// </summary>
         internal static string GatheringTab_HideGatheringBoonLocationMessagesHelpMarker {
             get {
@@ -2719,7 +2719,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3537, 1099 (Gathering) — location lines that change gathering yield. Checked = hide..
+        ///   Looks up a localized string similar to LogMessages 3537, 1099 (Gathering) - location lines that change gathering yield. Checked = hide..
         /// </summary>
         internal static string GatheringTab_HideGatheringYieldLocationMessagesHelpMarker {
             get {
@@ -2737,7 +2737,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3549, 3563, 3569, 5514, 5516, 5550, 5573, 5574 — eg. integrity lines, double bonus, and woodsman actions..
+        ///   Looks up a localized string similar to LogMessages 3549, 3563, 3569, 5514, 5516, 5550, 5573, 5574 - eg. integrity lines, double bonus, and woodsman actions..
         /// </summary>
         internal static string GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker {
             get {
@@ -2755,7 +2755,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3553 — eg. Aetherial reduction succeeds..
+        ///   Looks up a localized string similar to LogMessage 3553 - eg. Aetherial reduction succeeds..
         /// </summary>
         internal static string GatheringTab_ShowAetherialReductionSuccessMessagesHelpMarker {
             get {
@@ -2791,7 +2791,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10874 (System), 10803 (Progress), 657/1259 (Loot Notice) — class points, tool mastery obtains, and dataset submission. Needs Filter System, Filter Progress, and Filter Obtained on General..
+        ///   Looks up a localized string similar to LogMessages 10874 (System), 10803 (Progress), 657/1259 (Loot Notice) - class points, tool mastery obtains, and dataset submission. Needs Filter System, Filter Progress, and Filter Obtained on General..
         /// </summary>
         internal static string CosmicExplorationTab_ShowCosmicClassPointsAndDatasetHelpMarker {
             get {
@@ -2809,7 +2809,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 10750 — cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General..
+        ///   Looks up a localized string similar to LogMessage 10750 - cosmic container obtains (Loot Notice). Separate from cosmocredits and class points. Needs Filter Obtained on General..
         /// </summary>
         internal static string CosmicExplorationTab_ShowCosmicContainersHelpMarker {
             get {
@@ -2827,7 +2827,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10875, 10876, 10877, 11156 — daily points, stellar success, and daily success lines (System). Needs Filter System on General..
+        ///   Looks up a localized string similar to LogMessages 10875, 10876, 10877, 11156 - daily points, stellar success, and daily success lines (System). Needs Filter System on General..
         /// </summary>
         internal static string CosmicExplorationTab_ShowCosmicDailyProgressHelpMarker {
             get {
@@ -2845,7 +2845,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 — exploration contributions (incl. sizable), mech-op directives, and red-alert lines. Needs Filter System on General..
+        ///   Looks up a localized string similar to LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 - exploration contributions (incl. sizable), mech-op directives, and red-alert lines. Needs Filter System on General..
         /// </summary>
         internal static string CosmicExplorationTab_ShowCosmicExplorationMessagesHelpMarker {
             get {
@@ -2863,7 +2863,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 10800, 10859, 10872, 10873, 10883, 11331 — cosmocredits, Auxesia/Oizys credits, fortunes, dronebits (not containers or class points)..
+        ///   Looks up a localized string similar to LogMessages 10800, 10859, 10872, 10873, 10883, 11331 - cosmocredits, Auxesia/Oizys credits, fortunes, dronebits (not containers or class points)..
         /// </summary>
         internal static string CosmicExplorationTab_ShowCosmicRewardsHelpMarker {
             get {
@@ -2881,7 +2881,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1116, 11333 — eg. Something bites! / multihook bonus fish lines..
+        ///   Looks up a localized string similar to LogMessages 1116, 11333 - eg. Something bites! / multihook bonus fish lines..
         /// </summary>
         internal static string GatheringTab_ShowFishAddedToGuideMessagesHelpMarker {
             get {
@@ -2919,7 +2919,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1130, 3513, 3579 — eg. You discover a fishing hole!.
+        ///   Looks up a localized string similar to LogMessages 1130, 3513, 3579 - eg. You discover a fishing hole!.
         /// </summary>
         internal static string GatheringTab_ShowFishingHoleDiscoveredHelpMarker {
             get {
@@ -2937,7 +2937,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1110 — eg. You cast your line at the Jade Zigzag..
+        ///   Looks up a localized string similar to LogMessage 1110 - eg. You cast your line at the Jade Zigzag..
         /// </summary>
         internal static string GatheringTab_ShowFishingHoleNameHelpMarker {
             get {
@@ -2955,7 +2955,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3512, 3559 — eg. You measure 12.3 ilms..
+        ///   Looks up a localized string similar to LogMessages 3512, 3559 - eg. You measure 12.3 ilms..
         /// </summary>
         internal static string GatheringTab_ShowFishSizeMessagesHelpMarker {
             get {
@@ -2973,7 +2973,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 603 — buff effect gain on the gain-buff channel during gathering..
+        ///   Looks up a localized string similar to LogMessage 603 - buff effect gain on the gain-buff channel during gathering..
         /// </summary>
         internal static string GatheringTab_ShowGatheringBuffEffectGainHelpMarker {
             get {
@@ -2991,7 +2991,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) — eg. You obtain a chunk of rare gold artichoke ore or cosmic node materials. Needs Filter Obtained on General..
+        ///   Looks up a localized string similar to LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) - eg. You obtain a chunk of rare gold artichoke ore or cosmic node materials. Needs Filter Obtained on General..
         /// </summary>
         internal static string GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker {
             get {
@@ -3009,7 +3009,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1086, 3501, 3502, 3518, 3519 — eg. You sense the fertile presence of minerals..
+        ///   Looks up a localized string similar to LogMessages 1086, 3501, 3502, 3518, 3519 - eg. You sense the fertile presence of minerals..
         /// </summary>
         internal static string GatheringTab_ShowGatheringSensesLabelHelpMarker {
             get {
@@ -3027,7 +3027,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1063–1070 — eg. You begin gathering. / You finish gathering..
+        ///   Looks up a localized string similar to LogMessages 1063–1070 - eg. You begin gathering. / You finish gathering..
         /// </summary>
         internal static string GatheringTab_ShowGatheringStartEndHelpMarker {
             get {
@@ -3045,7 +3045,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1096, 5550, 5551 (GatheringSystem) — gathering rate, collectability, and meticulous integrity. Attempt line 1098 and yield/boon lines have separate options below..
+        ///   Looks up a localized string similar to LogMessages 1096, 5550, 5551 (GatheringSystem) - gathering rate, collectability, and meticulous integrity. Attempt line 1098 and yield/boon lines have separate options below..
         /// </summary>
         internal static string GatheringTab_ShowLocationGatheringEffectMessagesHelpMarker {
             get {
@@ -3054,7 +3054,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show &quot;You lose your bait…&quot; messages.
+        ///   Looks up a localized string similar to Show &quot;You lose your bait…&quot; / &quot;The fish gets away…&quot; messages.
         /// </summary>
         internal static string GatheringTab_ShowLoseBaitMessages {
             get {
@@ -3063,7 +3063,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1117 — eg. You lose your bait….
+        ///   Looks up a localized string similar to LogMessages 1117, 1119 - eg. You lose your bait… / The fish gets away….
         /// </summary>
         internal static string GatheringTab_ShowLoseBaitMessagesHelpMarker {
             get {
@@ -3081,7 +3081,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5566, 5567, 5568, 5570, 5571, 5572 — eg. You attempt to lure small-sized fish to your hook. / You make a second attempt… / You make a third attempt….
+        ///   Looks up a localized string similar to LogMessages 5566, 5567, 5568, 5570, 5571, 5572 - eg. You attempt to lure small-sized fish to your hook. / You make a second attempt… / You make a third attempt….
         /// </summary>
         internal static string GatheringTab_ShowLureAttemptMessagesHelpMarker {
             get {
@@ -3099,7 +3099,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5565, 5569 — eg. You have a feeling your next cast will land a large-sized fish!.
+        ///   Looks up a localized string similar to LogMessages 5565, 5569 - eg. You have a feeling your next cast will land a large-sized fish!.
         /// </summary>
         internal static string GatheringTab_ShowLureBiteFeelingMessagesHelpMarker {
             get {
@@ -3117,7 +3117,7 @@ namespace TidyChat.Localization.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1121, 3510, 3593, 3594 — eg. You recast your line with the fish still hooked., Mooch to land an even bigger catch!, You land a fish usable with Mooch II., You miss your chance to mooch....
+        ///   Looks up a localized string similar to LogMessages 1121, 3510, 3593, 3594 - eg. You recast your line with the fish still hooked., Mooch to land an even bigger catch!, You land a fish usable with Mooch II., You miss your chance to mooch....
         /// </summary>
         internal static string GatheringTab_ShowMoochingHelpMarker {
             get {
@@ -3135,7 +3135,7 @@ namespace TidyChat.Localization.Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5556, 5557, 5559 — eg. You keep the … as swimbait. and You release fish kept as swimbait..
+        ///   Looks up a localized string similar to LogMessages 5556, 5557, 5559 - eg. You keep the … as swimbait. and You release fish kept as swimbait..
         /// </summary>
         internal static string GatheringTab_ShowSwimbaitMessagesHelpMarker {
             get {
@@ -3153,7 +3153,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3555 — eg. You obtain aetherial reduction sand..
+        ///   Looks up a localized string similar to LogMessage 3555 - eg. You obtain aetherial reduction sand..
         /// </summary>
         internal static string GatheringTab_ShowObtainedSandsFromAetherialReductionMessagesHelpMarker {
             get {
@@ -3171,7 +3171,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3511, 5584 — eg. You reel in your line..
+        ///   Looks up a localized string similar to LogMessages 3511, 5584 - eg. You reel in your line..
         /// </summary>
         internal static string GatheringTab_ShowReelInLineMessagesHelpMarker {
             get {
@@ -3189,7 +3189,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 5533, 11365 — stellar mission action ready lines..
+        ///   Looks up a localized string similar to LogMessages 5533, 11365 - stellar mission action ready lines..
         /// </summary>
         internal static string CosmicExplorationTab_ShowStellarAbleToExecuteHelpMarker {
             get {
@@ -3207,7 +3207,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 11366 — buff effect gain during stellar missions..
+        ///   Looks up a localized string similar to LogMessage 11366 - buff effect gain during stellar missions..
         /// </summary>
         internal static string CosmicExplorationTab_ShowStellarBuffEffectGainHelpMarker {
             get {
@@ -3225,7 +3225,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 11174, 11175 (System channel) — gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP recovery. 11175 covers mission-end GP refund..
+        ///   Looks up a localized string similar to LogMessages 11174, 11175 (System channel) - gathering GP only, eg. You recover 400 GP or PlayerName recovers 400 GP. Not combat HP recovery. 11175 covers mission-end GP refund..
         /// </summary>
         internal static string CosmicExplorationTab_ShowStellarGpRecoveryHelpMarker {
             get {
@@ -3342,7 +3342,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here—Custom Filter Allow rules on Gathering will not take effect..
+        ///   Looks up a localized string similar to When enabled, Gathering and Gathering System messages are hidden unless a Show option on the Crafting/Gathering tab allows them (or a Custom Filter Allow rule matches). When disabled, those channels are not filtered here-Custom Filter Allow rules on Gathering will not take effect..
         /// </summary>
         internal static string GeneralTab_FilterGatheringSpamHelpMarker {
             get {
@@ -3405,7 +3405,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Crafting/Gathering: cosmic dataset submissions). Progress tab quest lines use the System channel—also enable Filter System channel. When disabled, Progress and Battle System are not filtered here..
+        ///   Looks up a localized string similar to When enabled, Progress and Battle System messages are hidden unless a Show option allows them (Progress tab: XP, level-ups, achievements; Crafting/Gathering: cosmic dataset submissions). Progress tab quest lines use the System channel-also enable Filter System channel. When disabled, Progress and Battle System are not filtered here..
         /// </summary>
         internal static string GeneralTab_FilterProgressSpamHelpMarker {
             get {
@@ -3477,7 +3477,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1531 — replaces duty entry spam with a single line: Duty Name has begun. Hides level sync (618, 9602), item level sync (4224, 9606), alliance reform (9795), and Echo briefing (4217) lines..
+        ///   Looks up a localized string similar to LogMessage 1531 - replaces duty entry spam with a single line: Duty Name has begun. Hides level sync (618, 9602), item level sync (4224, 9606), alliance reform (9795), and Echo briefing (4217) lines..
         /// </summary>
         internal static string GeneralTab_ImprovedDutyCommenceMessagingHelpMarker {
             get {
@@ -3513,7 +3513,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4415 — rewrites obtain lines such as “You obtain a stack of elite Dawn Hunt bills.” into a single short line and hides the follow-up “Mark details can viewed at any time…” reminder..
+        ///   Looks up a localized string similar to LogMessage 4415 - rewrites obtain lines such as “You obtain a stack of elite Dawn Hunt bills.” into a single short line and hides the follow-up “Mark details can viewed at any time…” reminder..
         /// </summary>
         internal static string GeneralTab_ImprovedMarkBillMessagesHelpMarker {
             get {
@@ -3535,7 +3535,7 @@ namespace TidyChat.Localization.Resources {
         ///
         ///Example: Pair of titanium gold saberfangs sold for 757 gil.
         ///
-        ///Shows those sold lines when enabled (Filter System channel on General). Does not show “gil entrusted to your retainer”—turn on Show market sale gil entrusted to retainer on Economy only if you want that follow-up line..
+        ///Shows those sold lines when enabled (Filter System channel on General). Does not show “gil entrusted to your retainer”-turn on Show market sale gil entrusted to retainer on Economy only if you want that follow-up line..
         /// </summary>
         internal static string GeneralTab_ImprovedMarketBoardSaleHelpMarker {
             get {
@@ -3679,7 +3679,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 10508 — eg. You use a pot of Dalamud Red Dye to change Dye 1 of ….
+        ///   Looks up a localized string similar to LogMessage 10508 - eg. You use a pot of Dalamud Red Dye to change Dye 1 of ….
         /// </summary>
         internal static string GlamourTab_ShowGearDyeAppliedHelpMarker {
             get {
@@ -3697,7 +3697,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 700, 755, 788 — eg. “Red Mage” equipped..
+        ///   Looks up a localized string similar to LogMessages 700, 755, 788 - eg. “Red Mage” equipped..
         /// </summary>
         internal static string GlamourTab_ShowGearsetChangingMessagesHelpMarker {
             get {
@@ -3715,7 +3715,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1900 — eg. Gearset equipped, but glamours could not be restored..
+        ///   Looks up a localized string similar to LogMessage 1900 - eg. Gearset equipped, but glamours could not be restored..
         /// </summary>
         internal static string GlamourTab_ShowGearsetGlamourRestoreFailedHelpMarker {
             get {
@@ -3733,7 +3733,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 624, 625 — eg. You store … in the armoire. / You withdraw … from the armoire..
+        ///   Looks up a localized string similar to LogMessages 624, 625 - eg. You store … in the armoire. / You withdraw … from the armoire..
         /// </summary>
         internal static string GlamourTab_ShowGlamourArmoireMessagesHelpMarker {
             get {
@@ -3769,7 +3769,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Outfit glamour stored or converted in the glamour dresser. LogMessage 4529 — eg. … has been removed from your inventory and stored as … outfit glamour. Also matches similar text without a catalog ID..
+        ///   Looks up a localized string similar to Outfit glamour stored or converted in the glamour dresser. LogMessage 4529 - eg. … has been removed from your inventory and stored as … outfit glamour. Also matches similar text without a catalog ID..
         /// </summary>
         internal static string GlamourTab_ShowGlamourDresserOutfitHelpMarker {
             get {
@@ -3787,7 +3787,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383, 4534 — eg. A projection of … is added to your glamour dresser..
+        ///   Looks up a localized string similar to Weapon/armor projections sent to the glamour dresser. LogMessages 4380, 4381, 4383, 4534 - eg. A projection of … is added to your glamour dresser..
         /// </summary>
         internal static string GlamourTab_ShowGlamourDresserProjectionHelpMarker {
             get {
@@ -3805,7 +3805,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4378 (Error channel) — eg. Glamour plate could only be partially applied. Checked = show; unchecked = hide..
+        ///   Looks up a localized string similar to LogMessage 4378 (Error channel) - eg. Glamour plate could only be partially applied. Checked = show; unchecked = hide..
         /// </summary>
         internal static string GlamourTab_ShowGlamourPlatePartialApplyHelpMarker {
             get {
@@ -3823,7 +3823,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4364 (System) and glamour notification channel text match — eg. Glamours projected from plate 1..
+        ///   Looks up a localized string similar to LogMessage 4364 (System) and glamour notification channel text match - eg. Glamours projected from plate 1..
         /// </summary>
         internal static string GlamourTab_ShowGlamourPlateProjectedHelpMarker {
             get {
@@ -3841,7 +3841,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 561, 756, 1281 — eg. You change to Scholar., Paladin registered..
+        ///   Looks up a localized string similar to LogMessages 561, 756, 1281 - eg. You change to Scholar., Paladin registered..
         /// </summary>
         internal static string GlamourTab_ShowJobChangeMessagesHelpMarker {
             get {
@@ -3859,7 +3859,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 5865 — eg. Portrait set as instant portrait., Portrait has expired..
+        ///   Looks up a localized string similar to LogMessage 5865 - eg. Portrait set as instant portrait., Portrait has expired..
         /// </summary>
         internal static string GlamourTab_ShowPortraitMessagesHelpMarker {
             get {
@@ -3895,7 +3895,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4309 (Glamour Notifications channel) — eg. You cast a glamour. Does not require Filter System on General..
+        ///   Looks up a localized string similar to LogMessage 4309 (Glamour Notifications channel) - eg. You cast a glamour. Does not require Filter System on General..
         /// </summary>
         internal static string GlamourTab_ShowTryOnGlamourCastHelpMarker {
             get {
@@ -3913,7 +3913,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3911 — eg. You try on … (preview in wardrobe or try-on window, not casting a glamour onto gear)..
+        ///   Looks up a localized string similar to LogMessage 3911 - eg. You try on … (preview in wardrobe or try-on window, not casting a glamour onto gear)..
         /// </summary>
         internal static string GlamourTab_ShowTryOnGlamourPreviewHelpMarker {
             get {
@@ -3940,7 +3940,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4735, 4765 — eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel)..
+        ///   Looks up a localized string similar to LogMessages 4735, 4765 - eg. You obtain 117 MGP (Obtained channel) or You use 100 MGP to purchase a Jumbo Cactpot ticket (System channel)..
         /// </summary>
         internal static string GoldSaucerTab_HideMGPMessagesHelpMarker {
             get {
@@ -3976,7 +3976,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4784–4793 — System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You&apos;re right on top of it!.
+        ///   Looks up a localized string similar to LogMessages 4784–4793 - System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You&apos;re right on top of it!.
         /// </summary>
         internal static string GoldSaucerTab_ShowSwingMinigamesHelpMarker {
             get {
@@ -3994,7 +3994,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4763 — eg. Triple Triad matches are allowed in the current area..
+        ///   Looks up a localized string similar to LogMessage 4763 - eg. Triple Triad matches are allowed in the current area..
         /// </summary>
         internal static string GoldSaucerTab_ShowTripleTriadAllowedHelpMarker {
             get {
@@ -4012,7 +4012,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4764 — eg. Triple Triad matches are not allowed in the current area..
+        ///   Looks up a localized string similar to LogMessage 4764 - eg. Triple Triad matches are not allowed in the current area..
         /// </summary>
         internal static string GoldSaucerTab_ShowTripleTriadNotAllowedHelpMarker {
             get {
@@ -4048,7 +4048,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3379 — eg. Shirogane, Ward 15 (PlaceName, Ward N format only).
+        ///   Looks up a localized string similar to LogMessage 3379 - eg. Shirogane, Ward 15 (PlaceName, Ward N format only).
         /// </summary>
         internal static string HousingTab_ShowHousingWardMessageHelpMarker {
             get {
@@ -4066,7 +4066,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Housing signboard UI text — eg. lottery entry confirmation and Estate tab reminder (no LogMessage ID).
+        ///   Looks up a localized string similar to Housing signboard UI text - eg. lottery entry confirmation and Estate tab reminder (no LogMessage ID).
         /// </summary>
         internal static string HousingTab_ShowHousingLotteryMessageHelpMarker {
             get {
@@ -4084,7 +4084,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 732, 733 — eg. You have entered a sanctuary. / You have left the sanctuary..
+        ///   Looks up a localized string similar to LogMessages 732, 733 - eg. You have entered a sanctuary. / You have left the sanctuary..
         /// </summary>
         internal static string HousingTab_ShowSanctuaryMessageHelpMarker {
             get {
@@ -4120,7 +4120,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1200 — eg. You extract a Savage Aim Materia VI from your gear..
+        ///   Looks up a localized string similar to LogMessage 1200 - eg. You extract a Savage Aim Materia VI from your gear..
         /// </summary>
         internal static string MateriaTab_ShowMateriaExtractedMessagesHelpMarker {
             get {
@@ -4138,7 +4138,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1202 — eg. You fail to attach a Savage Aim Materia VII to your gear..
+        ///   Looks up a localized string similar to LogMessage 1202 - eg. You fail to attach a Savage Aim Materia VII to your gear..
         /// </summary>
         internal static string MateriaTab_ShowMateriaOvermeldFailuresMessagesHelpMarker {
             get {
@@ -4156,7 +4156,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1955 — eg. The materia shatters as you attempt to retrieve it..
+        ///   Looks up a localized string similar to LogMessage 1955 - eg. The materia shatters as you attempt to retrieve it..
         /// </summary>
         internal static string MateriaTab_ShowMateriaShattersMessagesHelpMarker {
             get {
@@ -4174,7 +4174,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1201 — eg. You attach a Savage Aim Materia VI..
+        ///   Looks up a localized string similar to LogMessage 1201 - eg. You attach a Savage Aim Materia VI..
         /// </summary>
         internal static string MateriaTab_ShowMateriaSuccesfullyAttachedMessagesHelpMarker {
             get {
@@ -4192,7 +4192,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 744 — eg. Your gear has reached 100% spiritbond..
+        ///   Looks up a localized string similar to LogMessage 744 - eg. Your gear has reached 100% spiritbond..
         /// </summary>
         internal static string MateriaTab_ShowSpiritboundMessagesHelpMarker {
             get {
@@ -4210,7 +4210,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1953, 1954 — eg. You retrieve a Savage Aim Materia VI from your gear..
+        ///   Looks up a localized string similar to LogMessages 1953, 1954 - eg. You retrieve a Savage Aim Materia VI from your gear..
         /// </summary>
         internal static string MateriaTab_ShowSuccesfullyRetrievedMateriaMessagesHelpMarker {
             get {
@@ -4228,7 +4228,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 5180 — when you cast your lot on loot.
+        ///   Looks up a localized string similar to LogMessage 5180 - when you cast your lot on loot.
         ///eg. You cast your lot for the &lt;item&gt;.
         /// </summary>
         internal static string PartyTab_CastYourLotHelpMarker {
@@ -4301,7 +4301,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 5180 — when another player casts lot on loot (not your roll result).
+        ///   Looks up a localized string similar to LogMessage 5180 - when another player casts lot on loot (not your roll result).
         ///eg. Some player casts her lot for &lt;item&gt;..
         /// </summary>
         internal static string PartyTab_ShowAnotherPlayerCastsLotMessagesHelpMarker {
@@ -4320,7 +4320,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1231 — master toggle for when another player rolls Need, Greed, or Pass on loot in your party.
+        ///   Looks up a localized string similar to LogMessage 1231 - master toggle for when another player rolls Need, Greed, or Pass on loot in your party.
         ///eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested party-only filter. Unchecking disables the nested option in chat until you turn this back on (the nested checkbox keeps its setting for next time)..
         /// </summary>
         internal static string PartyTab_ShowAnotherPlayerRollsMessagesHelpMarker {
@@ -4339,7 +4339,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 72, 73, 7447 — eg. The party is dissolved..
+        ///   Looks up a localized string similar to LogMessages 72, 73, 7447 - eg. The party is dissolved..
         /// </summary>
         internal static string PartyTab_ShowDisbandAndDissolveMessagesHelpMarker {
             get {
@@ -4357,7 +4357,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 61, 7444 — eg. You have joined a cross-world party with Raven Reaver..
+        ///   Looks up a localized string similar to LogMessages 61, 7444 - eg. You have joined a cross-world party with Raven Reaver..
         /// </summary>
         internal static string PartyTab_ShowJoinedCrossworldPartyMessagesHelpMarker {
             get {
@@ -4375,7 +4375,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 60 — eg. Raven Reaver joins the party..
+        ///   Looks up a localized string similar to LogMessage 60 - eg. Raven Reaver joins the party..
         /// </summary>
         internal static string PartyTab_ShowJoiningPartyMessagesHelpMarker {
             get {
@@ -4393,7 +4393,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 4, 69 — eg. Raven Reaver leaves the party..
+        ///   Looks up a localized string similar to LogMessages 4, 69 - eg. Raven Reaver leaves the party..
         /// </summary>
         internal static string PartyTab_ShowLeftPartyMessagesHelpMarker {
             get {
@@ -4456,7 +4456,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 926 — eg. You received a player commendation!.
+        ///   Looks up a localized string similar to LogMessage 926 - eg. You received a player commendation!.
         /// </summary>
         internal static string PartyTab_ShowReceivedCommendationsHelpMarker {
             get {
@@ -4474,7 +4474,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3, 1885, 1895 — eg. Raven Reaver invites you to a party..
+        ///   Looks up a localized string similar to LogMessages 3, 1885, 1895 - eg. Raven Reaver invites you to a party..
         /// </summary>
         internal static string PartyTab_ShowReceivedPartyInvitationMessagesHelpMarker {
             get {
@@ -4492,7 +4492,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1 — eg. You invite Raven Reaver to a party..
+        ///   Looks up a localized string similar to LogMessage 1 - eg. You invite Raven Reaver to a party..
         /// </summary>
         internal static string PartyTab_ShowSentPartyInviteMessagesHelpMarker {
             get {
@@ -4510,7 +4510,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 440 — eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver..
+        ///   Looks up a localized string similar to LogMessage 440 - eg. You have been offered a Teleport to Limsa Lominsa Lower Decks from Raven Reaver..
         /// </summary>
         internal static string PartyTab_ShowTeleportOfferFromPartyMessagesHelpMarker {
             get {
@@ -4528,7 +4528,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1231 — your Need/Greed/Pass roll result only (not other players&apos; rolls).
+        ///   Looks up a localized string similar to LogMessage 1231 - your Need/Greed/Pass roll result only (not other players&apos; rolls).
         ///eg. You roll Need on the &lt;item&gt;. 63!.
         /// </summary>
         internal static string PartyTab_ShowYouRolledMessagesHelpMarker {
@@ -4574,7 +4574,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 2244 — eg. A bonus of 7,200 gil has been awarded for being an adventurer in need..
+        ///   Looks up a localized string similar to LogMessage 2244 - eg. A bonus of 7,200 gil has been awarded for being an adventurer in need..
         /// </summary>
         internal static string ProgressTab_HideAdventurerInNeedAwardMessagesHelpMarker {
             get {
@@ -4592,7 +4592,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 2246 — eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette..
+        ///   Looks up a localized string similar to LogMessage 2246 - eg. A bonus of 4,252,498 experience points and 12,000 gil has been awarded for using the duty roulette..
         /// </summary>
         internal static string ProgressTab_HideBonusAwardForDutyRouletteMessagesHelpMarker {
             get {
@@ -4628,7 +4628,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4400 — eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!.
+        ///   Looks up a localized string similar to LogMessage 4400 - eg. All objectives under the category Dungeons for &lt;Relic Weapon&gt; - Strength +2 complete!.
         /// </summary>
         internal static string ProgressTab_ShowARRRelicBookStepMessagesHelpMarker {
             get {
@@ -4646,7 +4646,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4402 — eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2..
+        ///   Looks up a localized string similar to LogMessage 4402 - eg. Record of Ouranos kill (1/1) added for &lt;Relic Weapon&gt; - Strength +2..
         /// </summary>
         internal static string ProgressTab_ShowARRRelicProgressMessagesHelpMarker {
             get {
@@ -4664,7 +4664,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 952 — eg. You earn the achievement &lt;name&gt;! Uses the Progress channel..
+        ///   Looks up a localized string similar to LogMessage 952 - eg. You earn the achievement &lt;name&gt;! Uses the Progress channel..
         /// </summary>
         internal static string ProgressTab_ShowEarnedAchievementMessagesHelpMarker {
             get {
@@ -4682,7 +4682,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 549, 588, 589, 4466, 7300, 10953 — eg. You gain 2,388 Experience Points. Most XP uses the Progress channel (Filter Progress channel on General). Bonus chain lines use the battle log and are not controlled by Progress filtering alone..
+        ///   Looks up a localized string similar to LogMessages 549, 588, 589, 4466, 7300, 10953 - eg. You gain 2,388 Experience Points. Most XP uses the Progress channel (Filter Progress channel on General). Bonus chain lines use the battle log and are not controlled by Progress filtering alone..
         /// </summary>
         internal static string ProgressTab_ShowExperienceGainMessagesHelpMarker {
             get {
@@ -4700,7 +4700,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 4225 — first-time duty clear bonus lines..
+        ///   Looks up a localized string similar to LogMessage 4225 - first-time duty clear bonus lines..
         /// </summary>
         internal static string ProgressTab_ShowFirstClearAwardHelpMarker {
             get {
@@ -4718,7 +4718,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 590, 591 — eg. You attain level 90! / Raven attains astrologian level 69!.
+        ///   Looks up a localized string similar to LogMessages 590, 591 - eg. You attain level 90! / Raven attains astrologian level 69!.
         /// </summary>
         internal static string ProgressTab_ShowLevelUpMessagesHelpMarker {
             get {
@@ -4736,7 +4736,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 552 — eg. You learn &lt;name&gt;. Includes newly learned actions and emotes on the Progress channel..
+        ///   Looks up a localized string similar to LogMessage 552 - eg. You learn &lt;name&gt;. Includes newly learned actions and emotes on the Progress channel..
         /// </summary>
         internal static string ProgressTab_ShowAbilityUnlockMessagesHelpMarker {
             get {
@@ -4754,7 +4754,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 9635 — eg. You gain 12,480 mettle. Bozja/Eureka-style mettle progression on the Progress channel (Filter Progress channel on General)..
+        ///   Looks up a localized string similar to LogMessage 9635 - eg. You gain 12,480 mettle. Bozja/Eureka-style mettle progression on the Progress channel (Filter Progress channel on General)..
         /// </summary>
         internal static string ProgressTab_ShowMettleGainMessagesHelpMarker {
             get {
@@ -4763,7 +4763,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3921, 9454 — eg. Player attains level 33! Uses the system channel..
+        ///   Looks up a localized string similar to LogMessages 3921, 9454 - eg. Player attains level 33! Uses the system channel..
         /// </summary>
         internal static string ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker {
             get {
@@ -4781,7 +4781,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 952 — eg. Player earns the achievement &lt;name&gt;! Uses the Progress channel..
+        ///   Looks up a localized string similar to LogMessage 952 - eg. Player earns the achievement &lt;name&gt;! Uses the Progress channel..
         /// </summary>
         internal static string ProgressTab_ShowOtherPlayersEarnedAchievementMessagesHelpMarker {
             get {
@@ -4808,7 +4808,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 659 — eg. You acquire 500 PvP EXP..
+        ///   Looks up a localized string similar to LogMessage 659 - eg. You acquire 500 PvP EXP..
         /// </summary>
         internal static string ProgressTab_ShowPvpExpGainMessagesHelpMarker {
             get {
@@ -4826,7 +4826,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 660 — eg. You attain PvP rank 17!.
+        ///   Looks up a localized string similar to LogMessage 660 - eg. You attain PvP rank 17!.
         /// </summary>
         internal static string ProgressTab_ShowPvpRankMessagesHelpMarker {
             get {
@@ -4844,7 +4844,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 11308, 11311–11313, 11368 — Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General..
+        ///   Looks up a localized string similar to LogMessages 11308, 11311–11313, 11368 - Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General..
         /// </summary>
         internal static string ProgressTab_ShowPvpZoneAnnouncementsHelpMarker {
             get {
@@ -4862,7 +4862,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 557–560 — eg. You are defeated by …, You are revived., Name defeats Name. Uses Filter Progress on General (BattleSystem channel)..
+        ///   Looks up a localized string similar to LogMessages 557–560 - eg. You are defeated by …, You are revived., Name defeats Name. Uses Filter Progress on General (BattleSystem channel)..
         /// </summary>
         internal static string ProgressTab_ShowPvpCombatMessagesHelpMarker {
             get {
@@ -4880,7 +4880,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 7975 — Second Chance roulette reward lines..
+        ///   Looks up a localized string similar to LogMessage 7975 - Second Chance roulette reward lines..
         /// </summary>
         internal static string ProgressTab_ShowSecondChanceAwardHelpMarker {
             get {
@@ -4898,7 +4898,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 7556, 7557 — eg. You acquire 1,500 Series EXP. / You attain Series level 2!.
+        ///   Looks up a localized string similar to LogMessages 7556, 7557 - eg. You acquire 1,500 Series EXP. / You attain Series level 2!.
         /// </summary>
         internal static string ProgressTab_ShowSeriesProgressMessagesHelpMarker {
             get {
@@ -4925,7 +4925,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages—they will still appear in chat..
+        ///   Looks up a localized string similar to Enable {0} on the {1} tab. While it is off, none of the options below filter obtain messages-they will still appear in chat..
         /// </summary>
         internal static string Shared_FilterObtainedDisabledWarning {
             get {
@@ -4943,7 +4943,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable {0} on the {1} tab. While it is off, most options below do not filter anything — those messages simply stay in chat..
+        ///   Looks up a localized string similar to Enable {0} on the {1} tab. While it is off, most options below do not filter anything - those messages simply stay in chat..
         /// </summary>
         internal static string Shared_MasterChannelDisabledWarning {
             get {
@@ -5088,7 +5088,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 2070, 2166 — eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message..
+        ///   Looks up a localized string similar to LogMessages 2070, 2166 - eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message..
         /// </summary>
         internal static string SystemTab_HideFateLevelSyncMessagesHelpMarker {
             get {
@@ -5106,7 +5106,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 3433 — eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message..
+        ///   Looks up a localized string similar to LogMessage 3433 - eg. Orchestrion now plays &lt;song&gt;. Checked = hide this message..
         /// </summary>
         internal static string SystemTab_HideOrchestrionPlayingHelpMarker {
             get {
@@ -5207,11 +5207,11 @@ namespace TidyChat.Localization.Resources {
         /// <summary>
         ///   Looks up a localized string similar to How to handle the server message block shown on login or world travel (welcome headers, in-game event promos, congestion notices, phishing warning).
         ///
-        ///Show all — unchanged.
-        ///Hide all — suppress the whole block.
-        ///Condensed — keep only the per-world &quot;Welcome to &lt;world&gt;!&quot; line; hide the generic &quot;Welcome to FINAL FANTASY XIV&quot; title and event promos.
-        ///Login only — full block on login (including the FFXIV title), nothing on world-hops.
-        ///Login full, condensed on world-hop — full block on login; on world-hops, onl [rest of string was truncated]&quot;;.
+        ///Show all - unchanged.
+        ///Hide all - suppress the whole block.
+        ///Condensed - keep only the per-world &quot;Welcome to &lt;world&gt;!&quot; line; hide the generic &quot;Welcome to FINAL FANTASY XIV&quot; title and event promos.
+        ///Login only - full block on login (including the FFXIV title), nothing on world-hops.
+        ///Login full, condensed on world-hop - full block on login; on world-hops, onl [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SystemTab_ServerAnnouncementsHelpMarker {
             get {
@@ -5238,7 +5238,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 1286 — eg. Active Help entry added. Tutorial pop-ups for new content and UI features..
+        ///   Looks up a localized string similar to LogMessage 1286 - eg. Active Help entry added. Tutorial pop-ups for new content and UI features..
         /// </summary>
         internal static string SystemTab_ShowActiveHelpEntryMessagesHelpMarker {
             get {
@@ -5256,11 +5256,29 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 503, 535 (Item), 4591 (System) — eg. You used an aetheryte ticket. (Remaining: 674)..
+        ///   Looks up a localized string similar to LogMessages 503, 535 (Item), 4591 (System) - eg. You used an aetheryte ticket. (Remaining: 674)..
         /// </summary>
         internal static string SystemTab_ShowAetheryteTicketMessageHelpMarker {
             get {
                 return ResourceManager.GetString("SystemTab_ShowAetheryteTicketMessageHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show configuration change messages.
+        /// </summary>
+        internal static string SystemTab_ShowConfigChangeMessages {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowConfigChangeMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessages 801, 802, 4242 - eg. Changes saved, Changes lost, Changes discarded.
+        /// </summary>
+        internal static string SystemTab_ShowConfigChangeMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("SystemTab_ShowConfigChangeMessagesHelpMarker", resourceCulture);
             }
         }
         
@@ -5292,7 +5310,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1629–1631 — match summary (1629–1630) and item name lines (1631, eg. &gt;&gt; Caramel Popcorn)..
+        ///   Looks up a localized string similar to LogMessages 1629–1631 - match summary (1629–1630) and item name lines (1631, eg. &gt;&gt; Caramel Popcorn)..
         /// </summary>
         internal static string SystemTab_ShowInventoryItemSearchResultsHelpMarker {
             get {
@@ -5328,7 +5346,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 1438–1453 (16 IDs) — /isearch location result lines..
+        ///   Looks up a localized string similar to LogMessages 1438–1453 (16 IDs) - /isearch location result lines..
         /// </summary>
         internal static string SystemTab_ShowLocationSearchResultsHelpMarker {
             get {
@@ -5346,7 +5364,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 672, 673 — eg. You attach 2 pots of Dalamud Red Dye to the letter..
+        ///   Looks up a localized string similar to LogMessages 672, 673 - eg. You attach 2 pots of Dalamud Red Dye to the letter..
         /// </summary>
         internal static string SystemTab_ShowMailAttachmentMessagesHelpMarker {
             get {
@@ -5364,7 +5382,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 97 — eg. Updating online status to Away from Keyboard..
+        ///   Looks up a localized string similar to LogMessage 97 - eg. Updating online status to Away from Keyboard..
         /// </summary>
         internal static string SystemTab_ShowOnlineStatusMessagesHelpMarker {
             get {
@@ -5382,7 +5400,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessage 6066 — eg. A new entry has been added to your message book. Uses the message-book channel..
+        ///   Looks up a localized string similar to LogMessage 6066 - eg. A new entry has been added to your message book. Uses the message-book channel..
         /// </summary>
         internal static string SystemTab_ShowPersonalMessageBookMessagesHelpMarker {
             get {
@@ -5400,7 +5418,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3860–3866 — eg. Master volume muted, BGM volume set to 50%..
+        ///   Looks up a localized string similar to LogMessages 3850–3866, 3869–3871 - eg. Master volume muted, own sound effects volume set to 10, performance volume muted..
         /// </summary>
         internal static string SystemTab_ShowVolumeControlMessagesHelpMarker {
             get {
@@ -5517,9 +5535,9 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Block — always hide matching lines on the selected channels.
+        ///   Looks up a localized string similar to Block - always hide matching lines on the selected channels.
         ///
-        ///Allow — always show matching lines, even when a settings toggle would hide them (example: cosmic toggles off, but Allow gold star on System).
+        ///Allow - always show matching lines, even when a settings toggle would hide them (example: cosmic toggles off, but Allow gold star on System).
         ///
         ///Allow only works when TidyChat is actually filtering that channel on General: Filter System for System rows, Filter Progress for Progress rows, Filter Gathering for Gathering rows, and so on. If the master filter is off, nothing is hidden there and Allow has nothing to override..
         /// </summary>
@@ -5568,7 +5586,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add a row, type a pattern, press Enter. Custom filters run after normal TidyChat rules and override them when they match. Use plain text, /regex/, or #LogMessageID — hover Filters (?) for syntax..
+        ///   Looks up a localized string similar to Add a row, type a pattern, press Enter. Custom filters run after normal TidyChat rules and override them when they match. Use plain text, /regex/, or #LogMessageID - hover Filters (?) for syntax..
         /// </summary>
         internal static string WhitelistTab_ExplanationMessage {
             get {
@@ -5595,11 +5613,11 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Plain text — matches if the sender name or message text contains your text (case-insensitive; see match mode below).
+        ///   Looks up a localized string similar to Plain text - matches if the sender name or message text contains your text (case-insensitive; see match mode below).
         ///
-        ///Regex — wrap only in slashes, e.g. /gold star/ or /cosmic container|modest contribution/. Matching is always case-insensitive; nothing goes after the closing slash.
+        ///Regex - wrap only in slashes, e.g. /gold star/ or /cosmic container|modest contribution/. Matching is always case-insensitive; nothing goes after the closing slash.
         ///
-        ///LogMessage ID — #588 or #748,4578. Blocks or allows that game log line by ID (before chat display). #ID rows ignore regex and plain-text match modes..
+        ///LogMessage ID - #588 or #748,4578. Blocks or allows that game log line by ID (before chat display). #ID rows ignore regex and plain-text match modes..
         /// </summary>
         internal static string WhitelistTab_FiltersHelpMarker {
             get {

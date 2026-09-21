@@ -45,6 +45,18 @@ internal static class SettingsSearchIndex
 
     private static Entry[]? s_entries;
 
+    internal static IReadOnlyList<string> FindMatchingIds(string query)
+    {
+        var terms = SplitQueryTerms(query.Trim());
+        if (terms.Length == 0)
+        {
+            return [];
+        }
+
+        var entries = s_entries ??= BuildEntries();
+        return [.. entries.Where(e => e.Matches(terms)).Select(e => e.Id)];
+    }
+
     public static void DrawResults(Configuration configuration)
     {
         var query = SettingsSearch.Query.Trim();
@@ -824,7 +836,7 @@ internal static class SettingsSearchIndex
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_ItemSearchDropdownHeader}";
         }
 
-        if (propertyName is "ShowEverythingElse")
+        if (propertyName is "ShowEverythingElse" or "ShowConfigChangeMessages")
         {
             return $"{Languages.ConfigWindow_SystemTabHeader} > {Languages.SystemTab_CatchAllDropdownHeader}";
         }
@@ -936,6 +948,41 @@ internal static class SettingsSearchIndex
         !string.IsNullOrEmpty(value) &&
         value.Contains(term, StringComparison.OrdinalIgnoreCase);
 
+    private static bool TryParseLogMessageId(string term, out uint id)
+    {
+        var span = term.AsSpan().Trim();
+        if (span.StartsWith('#'))
+        {
+            span = span[1..];
+        }
+
+        return uint.TryParse(span, NumberStyles.None, CultureInfo.InvariantCulture, out id);
+    }
+
+    private static bool ContainsStandaloneNumber(string number, string? value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            return false;
+        }
+
+        var index = 0;
+        while ((index = value.IndexOf(number, index, StringComparison.Ordinal)) >= 0)
+        {
+            var beforeOk = index == 0 || !char.IsAsciiDigit(value[index - 1]);
+            var afterIndex = index + number.Length;
+            var afterOk = afterIndex >= value.Length || !char.IsAsciiDigit(value[afterIndex]);
+            if (beforeOk && afterOk)
+            {
+                return true;
+            }
+
+            index = afterIndex;
+        }
+
+        return false;
+    }
+
     private sealed record RuleMetadata(string SettingsTab, List<string> Examples, List<uint> LogMessageIds);
 
     private sealed record Entry
@@ -956,6 +1003,21 @@ internal static class SettingsSearchIndex
 
         private bool MatchesTerm(string term)
         {
+            if (TryParseLogMessageId(term, out var numericId))
+            {
+                if (LogMessageIds.Contains(numericId))
+                {
+                    return true;
+                }
+
+                var number = numericId.ToString(CultureInfo.InvariantCulture);
+                return ContainsStandaloneNumber(number, Label) ||
+                       ContainsStandaloneNumber(number, Help) ||
+                       ContainsStandaloneNumber(number, Location) ||
+                       ContainsStandaloneNumber(number, RuleName) ||
+                       ContainsStandaloneNumber(number, Id);
+            }
+
             if (Contains(term, Label) ||
                 Contains(term, Help) ||
                 Contains(term, Location) ||
@@ -968,14 +1030,6 @@ internal static class SettingsSearchIndex
             foreach (var example in Examples)
             {
                 if (Contains(term, example))
-                {
-                    return true;
-                }
-            }
-
-            foreach (var id in LogMessageIds)
-            {
-                if (id.ToString(CultureInfo.InvariantCulture).Contains(term, StringComparison.Ordinal))
                 {
                     return true;
                 }

@@ -197,17 +197,9 @@ public static partial class Rules
             SettingsTab = "Glamour",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [700, 755, 788]
-        },
-        new()
-        {
-            Name = "ShowGearsetEquipped",
-            SettingsTab = "Glamour",
-            Channel = ChatType.System,
-            IsActive = true,
             LogMessageIds = [700, 755],
-            StringChecks = [ChatStrings.GearsetEquipped],
-            Pattern = PatternKind.StringMatch,
+            RegexChecks = [ChatStrings.GearsetEquippedRegex],
+            Pattern = PatternKind.RegexMatch,
             PreferLogMessageCatalog = true
         },
         new()

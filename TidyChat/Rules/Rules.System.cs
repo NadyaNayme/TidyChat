@@ -67,6 +67,15 @@ public static partial class Rules
         },
         new()
         {
+            Name = "ShowQuestEquipmentRequirement",
+            SettingsTab = "Progress",
+            Channel = ChatType.System,
+            IsActive = true,
+            RegexChecks = [ChatStrings.QuestEquipmentRequirementRegex],
+            Pattern = PatternKind.RegexMatch
+        },
+        new()
+        {
             Name = "ShowOnlineStatus",
             SettingsTab = "System",
             Channel = ChatType.System,
@@ -103,7 +112,74 @@ public static partial class Rules
             SettingsTab = "System",
             Channel = ChatType.System,
             IsActive = true,
-            LogMessageIds = [3860, 3861, 3862, 3863, 3864, 3865, 3866],
+            LogMessageIds =
+            [
+                3850, 3851, 3852, 3853, 3854, 3855, 3856, 3857, 3858, 3859,
+                3860, 3861, 3862, 3863, 3864, 3865, 3866, 3869, 3870, 3871
+            ],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowVolumeControlMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds =
+            [
+                3850, 3851, 3852, 3853, 3854, 3855, 3856, 3857, 3858, 3859,
+                3860, 3861, 3862, 3863, 3864, 3865, 3866, 3869, 3870, 3871
+            ],
+            RegexChecks = [ChatStrings.VolumeControlRegex],
+            Pattern = PatternKind.RegexMatch,
+            PreferLogMessageCatalog = true
+        }
+    ];
+
+    private static readonly LocalizedFilterRule[] SystemConfigChangeRules =
+    [
+        new()
+        {
+            Name = "ShowConfigChangeMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [801, 802, 4242],
+            Pattern = PatternKind.None,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowConfigChangeMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [801],
+            StringChecks = [ChatStrings.ChangesSaved],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowConfigChangeMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [802],
+            StringChecks = [ChatStrings.ChangesLost],
+            Pattern = PatternKind.StringMatch,
+            PreferLogMessageCatalog = true
+        },
+        new()
+        {
+            Name = "ShowConfigChangeMessages",
+            SettingsTab = "System",
+            Channel = ChatType.System,
+            IsActive = true,
+            LogMessageIds = [4242],
+            StringChecks = [ChatStrings.ChangesDiscarded],
+            Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         }
     ];
@@ -358,6 +434,7 @@ public static partial class Rules
         rules.AddRange(EconomyRetainerRules);
         rules.AddRange(GlamourGearsetAndJobRules);
         rules.AddRange(SystemVolumeControlRules);
+        rules.AddRange(SystemConfigChangeRules);
         rules.AddRange(SystemFriendListRules);
         rules.AddRange(SystemUtilityRules);
     }

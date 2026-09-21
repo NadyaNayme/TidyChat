@@ -140,6 +140,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowRelicBookStep"] = nameof(Languages.ProgressTab_ShowARRRelicProgressMessages),
         ["ShowOnlineStatus"] = nameof(Languages.SystemTab_ShowOnlineStatusMessages),
         ["ShowVolumeControlMessages"] = nameof(Languages.SystemTab_ShowVolumeControlMessages),
+        ["ShowConfigChangeMessages"] = nameof(Languages.SystemTab_ShowConfigChangeMessages),
         ["ShowSearchForItemResults"] = nameof(Languages.SystemTab_ShowItemSearchResultsMessage),
         ["ShowItemSearchResults"] = nameof(Languages.SystemTab_ShowInventoryItemSearchResults),
         ["ShowLocationSearchResults"] = nameof(Languages.SystemTab_ShowLocationSearchResults),

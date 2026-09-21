@@ -1,18 +1,28 @@
-using System.Threading;
 namespace TidyChat;
+
+internal enum ServerAnnouncementChatAction : byte
+{
+    None = 0,
+    Show = 1,
+    Hide = 2
+}
 
 public sealed partial class TidyChatPlugin
 {
-    private bool HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType, string normalizedText,
-        bool protectedByShowRule)
+    /// <summary>
+    ///     Classifies login/world-travel announcement lines. Callers must still run
+    ///     <see cref="FinishChatHandling" /> so custom Allow/Block filters can override.
+    /// </summary>
+    private ServerAnnouncementChatAction HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType,
+        string normalizedText, bool protectedByShowRule)
     {
         if (protectedByShowRule)
         {
-            return false;
+            return ServerAnnouncementChatAction.None;
         }
         if (Configuration.ServerAnnouncementMode == ServerAnnouncementMode.ShowAll)
         {
-            return false;
+            return ServerAnnouncementChatAction.None;
         }
 
         var isWorldGreeting = ServerAnnouncementCatalog.IsWorldGreeting(normalizedText);
@@ -20,14 +30,14 @@ public sealed partial class TidyChatPlugin
         var isAnnouncement = ServerAnnouncementCatalog.IsAnnouncement(normalizedText);
         if (!isWorldGreeting && !isAnnouncement)
         {
-            return false;
+            return ServerAnnouncementChatAction.None;
         }
 
         var isPhishing = ServerAnnouncementCatalog.IsPhishingWarning(normalizedText);
         // Login announcements usually use System; some clients also deliver them on Notice/Urgent (#24).
         if (chatType is not (ChatType.System or ChatType.Notice or ChatType.Urgent))
         {
-            return false;
+            return ServerAnnouncementChatAction.None;
         }
 
         var withinLoginWindow = DateTime.UtcNow < _serverAnnouncementLoginGraceEnd;
@@ -51,27 +61,7 @@ public sealed partial class TidyChatPlugin
 
         if (suppress)
         {
-            LogBlockedChat(["ServerAnnouncement"], message.Message.TextValue);
-            if (Configuration.EnableDebugMode)
-            {
-                if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-                {
-                    message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, true);
-                }
-                return true;
-            }
-            message.PreventOriginal();
-            Interlocked.Increment(ref _sessionBlockedMessages);
-            return true;
-        }
-
-        if (Configuration.EnableDebugMode)
-        {
-            if (!message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
-            {
-                message.Message = BuildDebugString(chatType, message.Message, ["ServerAnnouncement"], Configuration.DebugIncludeChannel, false);
-            }
-            return true;
+            return ServerAnnouncementChatAction.Hide;
         }
 
         var isCondensing = Configuration.ServerAnnouncementMode switch
@@ -81,7 +71,7 @@ public sealed partial class TidyChatPlugin
             ServerAnnouncementMode.HidePhishing => true,
             _ => false
         };
-        if (isCondensing && Configuration.IncludeChatTag)
+        if (isCondensing && Configuration.IncludeChatTag && !Configuration.EnableDebugMode)
         {
             SeStringBuilder tagBuilder = new();
             Better.AddTidyChatTag(tagBuilder);
@@ -89,6 +79,6 @@ public sealed partial class TidyChatPlugin
             message.Message = tagBuilder.BuiltString;
         }
 
-        return true;
+        return ServerAnnouncementChatAction.Show;
     }
 }

@@ -75,6 +75,14 @@ public static partial class ChatStrings
         Deu = ["ätheryt", "ticket", "verwendet"],
         Fra = ["téléportation", "utilise"]
     };
+    /// <see href="https://xivapi.com/LogMessage/801?pretty=true">Changes saved.</see>
+    public static readonly LocalizedStrings ChangesSaved = new()
+    {
+        Jpn = ["設定", "変更"],
+        Eng = ["changes", "saved"],
+        Deu = ["einstellungen", "geändert"],
+        Fra = ["paramètres", "modifiés"]
+    };
     /// <see href="https://xivapi.com/LogMessage/4242?pretty=true">Changes discarded.</see>
     public static readonly LocalizedStrings ChangesDiscarded = new()
     {

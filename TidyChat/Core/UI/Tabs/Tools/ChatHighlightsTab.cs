@@ -58,7 +58,7 @@ internal static class ChatHighlightsTab
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
-                if (ImGui.CollapsingHeader($"{FormatChannelSummary(entry.Channels)}##chatHighlight{i}ChannelsHeader"))
+                if (ImGui.CollapsingHeader($"{FormatChannelSummary(entry.Channels)}###chatHighlight{i}ChannelsHeader"))
                 {
                     DrawChannelCheckboxes(configuration, entry, i);
                 }
