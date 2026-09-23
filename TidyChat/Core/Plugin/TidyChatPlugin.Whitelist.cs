@@ -110,7 +110,7 @@ public sealed partial class TidyChatPlugin
         {
             return false;
         }
-        if (!Flags.CheckFlags(entry, chatType))
+        if (!Flags.CheckFlags(entry.WhitelistedChannels, chatType))
         {
             return false;
         }
@@ -138,14 +138,10 @@ public sealed partial class TidyChatPlugin
         }
 
         return string.Equals(sender.TextValue, entry.FirstName, StringComparison.OrdinalIgnoreCase) ||
-               ContainsIgnoreCase(rawTextValue, entry.FirstName) ||
-               ContainsIgnoreCase(extractedTextValue, entry.FirstName) ||
-               ContainsIgnoreCase(normalizedText, entry.FirstName);
+               TextMatchHelper.ContainsIgnoreCase(rawTextValue, entry.FirstName) ||
+               TextMatchHelper.ContainsIgnoreCase(extractedTextValue, entry.FirstName) ||
+               TextMatchHelper.ContainsIgnoreCase(normalizedText, entry.FirstName);
     }
-
-    private static bool ContainsIgnoreCase(string haystack, string needle) =>
-        !string.IsNullOrEmpty(needle) &&
-        haystack.Contains(needle, StringComparison.OrdinalIgnoreCase);
 
     private bool IsWhitelistedAllowed(SeString sender, SeString message, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText)

@@ -13,7 +13,7 @@ internal static class L10N
         ClientLanguage.English => strings.Eng,
         ClientLanguage.German => FallbackIfMissing(strings.Deu, strings.Eng),
         ClientLanguage.French => FallbackIfMissing(strings.Fra, strings.Eng),
-        _ => strings.Eng // Won't work for J/F/D but at least it's not a crash
+        _ => strings.Eng
     };
 
     public static Regex Get(LocalizedRegex regex) => Language switch
@@ -22,7 +22,7 @@ internal static class L10N
         ClientLanguage.English => regex.Eng,
         ClientLanguage.German => FallbackRegexIfMissing(regex.Deu, regex.Eng),
         ClientLanguage.French => FallbackRegexIfMissing(regex.Fra, regex.Eng),
-        _ => regex.Eng // Won't work for J/F/D but at least it's not a crash
+        _ => regex.Eng
     };
 
     public static string GetTidy(LocalizedTidyStrings strings) => Language switch
@@ -31,7 +31,7 @@ internal static class L10N
         ClientLanguage.English => strings.Eng,
         ClientLanguage.German => FallbackIfMissing(strings.Deu, strings.Eng),
         ClientLanguage.French => FallbackIfMissing(strings.Fra, strings.Eng),
-        _ => strings.Eng // Won't work for J/F/D but at least it's not a crash
+        _ => strings.Eng
     };
 
     private static string FallbackIfMissing(string primary, string fallback)

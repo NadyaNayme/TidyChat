@@ -14,11 +14,11 @@ public class ChatHighlight
     [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
     public ushort UiForegroundColor { get; set; }
 
-    public bool IsRegex => IsRegexShape(Pattern);
+    public bool IsRegex => TextMatchHelper.IsSlashDelimitedRegex(Pattern);
 
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
     {
-        if (string.IsNullOrEmpty(Pattern) || !IsRegexShape(Pattern))
+        if (string.IsNullOrEmpty(Pattern) || !TextMatchHelper.IsSlashDelimitedRegex(Pattern))
         {
             return null;
         }
@@ -44,9 +44,6 @@ public class ChatHighlight
 
         return _compiledPattern;
     }
-
-    private static bool IsRegexShape(string value) =>
-        value.Length >= 2 && value.StartsWith('/') && value.EndsWith('/');
 }
 
 internal static class ChatHighlightPresets

@@ -20,7 +20,7 @@ internal static class MarketBoardSaleHelper
         return true;
     }
 
-    public static bool IsRewrittenMarketItemSoldDisplay(string displayText) =>
+    private static bool IsRewrittenMarketItemSoldDisplay(string displayText) =>
         displayText.Contains(" sold for ", StringComparison.OrdinalIgnoreCase) &&
         displayText.Contains(" gil", StringComparison.OrdinalIgnoreCase) &&
         !displayText.Contains("put up for sale", StringComparison.OrdinalIgnoreCase) &&

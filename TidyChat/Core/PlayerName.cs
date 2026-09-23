@@ -20,7 +20,7 @@ public class PlayerName
     public PlayerNameMatchMode MatchMode = PlayerNameMatchMode.MessageContains;
     public int WhitelistedChannels = 1 << 3; // System — most custom filters target system lines
 
-    public bool IsRegex => IsRegexShape(FirstName);
+    public bool IsRegex => TextMatchHelper.IsSlashDelimitedRegex(FirstName);
 
     public bool IsLogMessageId => IsLogMessageIdShape(FirstName);
 
@@ -37,7 +37,7 @@ public class PlayerName
 
     public Regex? GetCompiledRegex(Action<string, Exception>? onError = null)
     {
-        if (string.IsNullOrEmpty(FirstName) || !IsRegexShape(FirstName))
+        if (string.IsNullOrEmpty(FirstName) || !TextMatchHelper.IsSlashDelimitedRegex(FirstName))
         {
             return null;
         }
@@ -91,9 +91,6 @@ public class PlayerName
         }
         return _parsedLogMessageIds ?? [];
     }
-
-    private static bool IsRegexShape(string s)
-        => s.Length >= 2 && s.StartsWith('/') && s.EndsWith('/');
 
     private static bool IsLogMessageIdShape(string s)
         => s.Length >= 2 && s[0] == '#' && char.IsAsciiDigit(s[1]);

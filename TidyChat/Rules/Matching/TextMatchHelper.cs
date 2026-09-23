@@ -18,4 +18,11 @@ internal static class TextMatchHelper
 
         return false;
     }
+
+    public static bool ContainsIgnoreCase(string haystack, string needle) =>
+        !string.IsNullOrEmpty(needle) &&
+        haystack.Contains(needle, StringComparison.OrdinalIgnoreCase);
+
+    public static bool IsSlashDelimitedRegex(string value) =>
+        value.Length >= 2 && value.StartsWith('/') && value.EndsWith('/');
 }

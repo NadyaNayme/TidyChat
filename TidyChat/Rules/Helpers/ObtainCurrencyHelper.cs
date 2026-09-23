@@ -161,16 +161,16 @@ internal static class ObtainCurrencyHelper
     public static bool ShouldExcludeGenericObtainShowRule(LocalizedFilterRule rule, string normalizedText) =>
         GenericObtainShowRuleNames.Contains(rule.Name) && HasDedicatedObtainType(normalizedText);
 
-    public static bool IsSpecializedObtainShowRuleName(string ruleName) =>
+    private static bool IsSpecializedObtainShowRuleName(string ruleName) =>
         SpecializedObtainShowRuleNames.Contains(ruleName);
 
-    public static bool IsSpecializedObtainShowRule(LocalizedFilterRule rule) =>
+    private static bool IsSpecializedObtainShowRule(LocalizedFilterRule rule) =>
         IsSpecializedObtainShowRuleName(rule.Name);
 
     public static bool IsGenericObtainShowRule(LocalizedFilterRule rule) =>
         GenericObtainShowRuleNames.Contains(rule.Name);
 
-    public static bool UsesGenericObtainStringCheck(LocalizedFilterRule rule) =>
+    private static bool UsesGenericObtainStringCheck(LocalizedFilterRule rule) =>
         rule.StringChecks is { Count: > 0 } &&
         rule.StringChecks.Any(check => GenericObtainStringChecks.Contains(check));
 
@@ -334,7 +334,7 @@ internal static class ObtainCurrencyHelper
         return null;
     }
 
-    public static bool ShouldAllowCurrencyObtain(Configuration config, string normalizedText) =>
+    private static bool ShouldAllowCurrencyObtain(Configuration config, string normalizedText) =>
         GetAllowBecauseHideOffRuleName(config, normalizedText) is not null;
 
     private static bool ShouldAllowTribalCurrencyObtain(

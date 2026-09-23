@@ -77,8 +77,8 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
         }
 
         PluginInterface.UiBuilder.Draw -= DrawUI;
-        PluginInterface.UiBuilder.OpenMainUi -= DrawConfigUI;
-        PluginInterface.UiBuilder.OpenConfigUi -= DrawConfigUI;
+        PluginInterface.UiBuilder.OpenMainUi -= OpenPluginUi;
+        PluginInterface.UiBuilder.OpenConfigUi -= OpenPluginUi;
         _windowSystem.RemoveAllWindows();
         PluginUi?.Dispose();
 
@@ -164,8 +164,6 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
 
     private void DrawUI() => _windowSystem.Draw();
 
-    private void DrawConfigUI() => OpenPluginUi();
-
     private void OpenPluginUi() => PluginUi!.IsOpen = true;
 
     public static TidyChatPlugin? Instance { get; private set; }
@@ -220,8 +218,8 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
         });
 
         PluginInterface.UiBuilder.Draw += DrawUI;
-        PluginInterface.UiBuilder.OpenMainUi += DrawConfigUI;
-        PluginInterface.UiBuilder.OpenConfigUi += DrawConfigUI;
+        PluginInterface.UiBuilder.OpenMainUi += OpenPluginUi;
+        PluginInterface.UiBuilder.OpenConfigUi += OpenPluginUi;
     }
 
     private void ApplyFrameworkThreadLoadState()

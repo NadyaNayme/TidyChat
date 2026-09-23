@@ -108,12 +108,8 @@ internal static class ChatHighlightHelper
             }
         }
 
-        return ContainsIgnoreCase(rawTextValue, entry.Pattern) ||
-               ContainsIgnoreCase(extractedTextValue, entry.Pattern) ||
-               ContainsIgnoreCase(normalizedText, entry.Pattern);
+        return TextMatchHelper.ContainsIgnoreCase(rawTextValue, entry.Pattern) ||
+               TextMatchHelper.ContainsIgnoreCase(extractedTextValue, entry.Pattern) ||
+               TextMatchHelper.ContainsIgnoreCase(normalizedText, entry.Pattern);
     }
-
-    private static bool ContainsIgnoreCase(string haystack, string needle) =>
-        !string.IsNullOrEmpty(needle) &&
-        haystack.Contains(needle, StringComparison.OrdinalIgnoreCase);
 }

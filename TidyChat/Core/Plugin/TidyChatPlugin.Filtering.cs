@@ -115,9 +115,9 @@ public sealed partial class TidyChatPlugin
         out List<string> protectingRules)
     {
         protectingRules = [];
-        if (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        if (CosmicExplorationFilterHelper.GetActiveCosmicRuleName(Configuration, normalizedText) is { } cosmicRule)
         {
-            TrackMatchedRule(protectingRules, CosmicExplorationFilterHelper.GetActiveCosmicRuleName(Configuration, normalizedText)!);
+            TrackMatchedRule(protectingRules, cosmicRule);
             return true;
         }
 
@@ -190,6 +190,8 @@ public sealed partial class TidyChatPlugin
             showEverythingElse = true;
         }
         var defaultBlocked = isBlocked;
+        var activeCosmicRule = CosmicExplorationFilterHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
+        var gpRecoveryAllowed = CosmicExplorationFilterHelper.IsGpRecoveryAllowed(Configuration, normalizedText);
 
         List<string>? rulesSkipped = Configuration.EnableDebugMode ? [] : null;
         List<string>? rulesFailed = Configuration.EnableDebugMode ? [] : null;
@@ -262,8 +264,8 @@ public sealed partial class TidyChatPlugin
 
                 if (!CosmicExplorationFilterHelper.IsCosmicRuleName(rule.Name) &&
                     rule.Name is not "ShowStellarGpRecovery" &&
-                    (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(Configuration, normalizedText) ||
-                     CosmicExplorationFilterHelper.IsGpRecoveryAllowed(Configuration, normalizedText) ||
+                    (activeCosmicRule is not null ||
+                     gpRecoveryAllowed ||
                      LootFilterHelper.ShouldDeferSelfLootRollOrCastLotRule(normalizedText, rule) ||
                      LootFilterHelper.ShouldDeferGenericObtainShowRule(normalizedText, rule)))
                 {
@@ -319,20 +321,16 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(Configuration, normalizedText))
+        if (activeCosmicRule is not null)
         {
             isBlocked = chatType is ChatType.LootNotice;
             if (Configuration.EnableDebugMode)
             {
-                var cosmicRule = CosmicExplorationFilterHelper.GetActiveCosmicRuleName(Configuration, normalizedText);
-                if (cosmicRule is not null)
-                {
-                    TrackMatchedRule(matchedRules, cosmicRule);
-                }
+                TrackMatchedRule(matchedRules, activeCosmicRule);
             }
         }
 
-        if (CosmicExplorationFilterHelper.IsGpRecoveryAllowed(Configuration, normalizedText))
+        if (gpRecoveryAllowed)
         {
             isBlocked = chatType is ChatType.LootNotice;
             if (Configuration.EnableDebugMode)
@@ -449,7 +447,7 @@ public sealed partial class TidyChatPlugin
         }
 
         if (chatType is ChatType.LootRoll && !isHandled &&
-            FilterMasterAccessors.OnlyPartyMemberLootRolls(Configuration) && PartyList.Length > 0)
+            Configuration.ShowOthersLootRoll && Configuration.ShowOnlyPartyMemberRolls && PartyList.Length > 0)
         {
             var isPlayerMessage = normalizedText.StartsWith("you ", StringComparison.Ordinal);
             var isPartyMember = isPlayerMessage || PartyList.Any(member =>

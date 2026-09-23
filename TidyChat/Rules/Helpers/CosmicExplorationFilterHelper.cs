@@ -45,10 +45,10 @@ internal static class CosmicExplorationFilterHelper
     public static bool IsGpRecoveryAllowed(Configuration config, string normalizedText) =>
         FilterMasterAccessors.StellarGpRecovery(config) && MatchesGpRecoveryText(normalizedText);
 
-    public static bool MatchesCosmicContainerText(string normalizedText) =>
+    private static bool MatchesCosmicContainerText(string normalizedText) =>
         TextMatchHelper.MatchesAny(normalizedText, ChatStrings.CosmicContainerObtain);
 
-    public static bool MatchesCosmicCurrencyRewardText(string normalizedText) =>
+    private static bool MatchesCosmicCurrencyRewardText(string normalizedText) =>
         TextMatchHelper.MatchesAny(normalizedText,
             ChatStrings.CosmocreditObtain,
             ChatStrings.CosmocreditReceived,
@@ -70,14 +70,14 @@ internal static class CosmicExplorationFilterHelper
             ChatStrings.CosmicClassPoints,
             ChatStrings.CosmicToolMasteryPoints);
 
-    public static bool MatchesCosmicDailyProgressText(string normalizedText) =>
+    private static bool MatchesCosmicDailyProgressText(string normalizedText) =>
         TextMatchHelper.MatchesAny(normalizedText,
             ChatStrings.DailyPointsEarned,
             ChatStrings.DailySuccessAchieved,
             ChatStrings.DailySuccessGoalAchieved,
             ChatStrings.StellarSuccessAchieved);
 
-    public static bool MatchesGpRecoveryText(string normalizedText) =>
+    private static bool MatchesGpRecoveryText(string normalizedText) =>
         TextMatchHelper.MatchesAny(normalizedText,
             ChatStrings.StellarGpRecoverySelf,
             ChatStrings.StellarGpRecoveryOther,

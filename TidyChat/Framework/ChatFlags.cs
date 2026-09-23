@@ -6,25 +6,17 @@ public static class ChatFlags
     public enum Channels
     {
         None = 0,
-        Debug = 1 << 0, // Debug
-        Emotes = 1 << 1, // StandardEmote & CustomEmote
-
-        PlayerChannels =
-            1 << 2, // Say, Shout, Yell, Linkshells, Tells, Echo, Crossworld Linkshells, Party, CrossParty, PvpTeam, NoviceNetwork
-        System = 1 << 3, // System
-        Progress = 1 << 4, // Progress
-        Loot = 1 << 5, // LootNotice
-        Obtain = 1 << 6, // LootRoll
-        FreeCompany = 1 << 7, // FreeCompanyLoginLogout
-        Crafting = 1 << 8, // Crafting
-        Gathering = 1 << 9 // Gathering
+        Debug = 1 << 0,
+        Emotes = 1 << 1,
+        PlayerChannels = 1 << 2, // Say, shout, yell, tells, linkshells, party, echo
+        System = 1 << 3,
+        Progress = 1 << 4,
+        Loot = 1 << 5,
+        Obtain = 1 << 6,
+        FreeCompany = 1 << 7,
+        Crafting = 1 << 8,
+        Gathering = 1 << 9
     }
-
-    public static bool CheckFlags(PlayerName player, ChatType chatType)
-        => CheckChannelFlags((Channels)player.WhitelistedChannels, chatType);
-
-    public static bool CheckFlags(Configuration configuration, ChatType chatType)
-        => CheckChannelFlags((Channels)configuration.ChatHistoryChannels, chatType);
 
     public static bool CheckFlags(int channelFlags, ChatType chatType)
         => CheckChannelFlags((Channels)channelFlags, chatType);

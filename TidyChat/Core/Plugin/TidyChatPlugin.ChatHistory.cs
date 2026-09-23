@@ -24,7 +24,7 @@ public sealed partial class TidyChatPlugin
             {
                 return false;
             }
-            if (!Flags.CheckFlags(Configuration, chatType))
+            if (!Flags.CheckFlags(Configuration.ChatHistoryChannels, chatType))
             {
                 return false;
             }

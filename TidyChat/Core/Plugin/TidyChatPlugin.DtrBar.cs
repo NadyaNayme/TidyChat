@@ -1,4 +1,3 @@
-using Dalamud.Game.Gui.Dtr;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 using Timer = System.Timers.Timer;
@@ -7,8 +6,6 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    public static IDtrBarEntry GetDtrBar() => DtrBar.Get(TidyStrings.PluginName);
-
     private static void DelayedInstanceDtrBarUpdate(Configuration configuration)
     {
         Timer t = new()
@@ -27,7 +24,7 @@ public sealed partial class TidyChatPlugin
 
     public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
     {
-        DtrEntry ??= GetDtrBar();
+        DtrEntry ??= DtrBar.Get(TidyStrings.PluginName);
         DtrEntry.Tooltip = "TidyChat";
 
         if (!configuration.InstanceInDtrBar)

@@ -41,7 +41,7 @@ internal static class EnemyCastLogHelper
         return EnemyCastLogAction.None;
     }
 
-    internal static bool ShouldSuppressUses(string actor, string ability)
+    private static bool ShouldSuppressUses(string actor, string ability)
     {
         var actorKey = NormalizeActor(actor);
         var abilityKey = NormalizeAbility(ability);
@@ -126,7 +126,7 @@ internal static class EnemyCastLogHelper
         return true;
     }
 
-    internal static string NormalizeActor(string actor) => actor.Trim().ToLower(CultureInfo.CurrentCulture);
+    private static string NormalizeActor(string actor) => actor.Trim().ToLower(CultureInfo.CurrentCulture);
 
     internal static string NormalizeAbility(string ability)
     {
@@ -142,5 +142,5 @@ internal static class EnemyCastLogHelper
 
     private static long UtcNowMs() => DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
-    internal readonly record struct PendingCast(string NormalizedAbility, long RecordedAtUtcMs);
+    private readonly record struct PendingCast(string NormalizedAbility, long RecordedAtUtcMs);
 }

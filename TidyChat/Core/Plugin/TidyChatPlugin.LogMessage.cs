@@ -195,10 +195,10 @@ public sealed partial class TidyChatPlugin
         decidingRuleName = null;
         decidingMatchDetail = null;
 
-        if (CosmicExplorationFilterHelper.IsCosmicMessageAllowed(configuration, normalizedText))
+        if (CosmicExplorationFilterHelper.GetActiveCosmicRuleName(configuration, normalizedText) is { } cosmicRule)
         {
             shouldAllow = true;
-            decidingRuleName = CosmicExplorationFilterHelper.GetActiveCosmicRuleName(configuration, normalizedText);
+            decidingRuleName = cosmicRule;
             return true;
         }
 
@@ -720,7 +720,7 @@ public sealed partial class TidyChatPlugin
             {
                 continue;
             }
-            if (!PendingLogMessageTextMatches(id, chatType, normalizedText))
+            if (!LogMessageHelper.PendingTextMatchesOnChannel(id, chatType, normalizedText))
             {
                 continue;
             }
@@ -764,7 +764,7 @@ public sealed partial class TidyChatPlugin
             {
                 continue;
             }
-            if (!PendingLogMessageTextMatches(id, chatType, normalizedText))
+            if (!LogMessageHelper.PendingTextMatchesOnChannel(id, chatType, normalizedText))
             {
                 continue;
             }
@@ -790,9 +790,6 @@ public sealed partial class TidyChatPlugin
 
         return false;
     }
-
-    private static bool PendingLogMessageTextMatches(uint logMessageId, ChatType chatType, string normalizedText) =>
-        LogMessageHelper.PendingTextMatchesOnChannel(logMessageId, chatType, normalizedText);
 
     private bool TryConsumeInventoryAddedLogMessageBlock(string normalizedText, out string? decidingRuleName)
     {

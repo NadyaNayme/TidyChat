@@ -111,7 +111,4 @@ internal static class FilterMasterAccessors
 
     public static bool StellarGpRecovery(Configuration c) =>
         c.ShowStellarMissionMessages && c.ShowStellarGpRecovery;
-
-    public static bool OnlyPartyMemberLootRolls(Configuration c) =>
-        c.ShowOthersLootRoll && c.ShowOnlyPartyMemberRolls;
 }
