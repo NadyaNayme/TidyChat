@@ -90,6 +90,11 @@ public sealed partial class TidyChatPlugin
                 }
             }
         }
+        // lines a show rule allowed on the hook still need their improved rewrite (instances, mark bills)
+        else if (HandleBetterMessages(message, chatType, normalizedText))
+        {
+            return;
+        }
 
         List<string> rulesMatched;
         bool isHandled;

@@ -233,6 +233,33 @@ public sealed partial class TidyChatPlugin
 
         var chatType = LogMessageCatalog.GetChatTypeForId(message.LogMessageId) ?? ChatType.System;
 
+        // Allow before Block, matching ApplyWhitelist on the chat path
+        foreach (var entry in Configuration.Whitelist)
+        {
+            if (entry.IsLogMessageId || !entry.AllowMessage)
+            {
+                continue;
+            }
+
+            if (!CustomFilterMatchesLogMessageText(entry, chatType, rawTextValue, extractedTextValue, normalizedText))
+            {
+                continue;
+            }
+
+            try
+            {
+                RememberLogMessageChatMatchTexts(_allowedByLogMessage, extractedTextValue);
+                RememberCustomFilterLogMessageAllow(message.LogMessageId);
+            }
+            catch
+            { }
+
+            EmitDebugXllog(
+                $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
+
+            return true;
+        }
+
         foreach (var entry in Configuration.Whitelist)
         {
             if (entry.IsLogMessageId || entry.AllowMessage)
@@ -263,32 +290,6 @@ public sealed partial class TidyChatPlugin
 
             message.PreventOriginal();
             Interlocked.Increment(ref _sessionBlockedMessages);
-            return true;
-        }
-
-        foreach (var entry in Configuration.Whitelist)
-        {
-            if (entry.IsLogMessageId || !entry.AllowMessage)
-            {
-                continue;
-            }
-
-            if (!CustomFilterMatchesLogMessageText(entry, chatType, rawTextValue, extractedTextValue, normalizedText))
-            {
-                continue;
-            }
-
-            try
-            {
-                RememberLogMessageChatMatchTexts(_allowedByLogMessage, extractedTextValue);
-                RememberCustomFilterLogMessageAllow(message.LogMessageId);
-            }
-            catch
-            { }
-
-            EmitDebugXllog(
-                $"[LogMessage] ALLOWED by custom filter \"{entry.FirstName}\" (ID: {message.LogMessageId})");
-
             return true;
         }
 
