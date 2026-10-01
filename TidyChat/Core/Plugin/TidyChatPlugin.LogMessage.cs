@@ -607,8 +607,7 @@ public sealed partial class TidyChatPlugin
     {
         lock (_logMessageLock)
         {
-            _pendingCustomFilterLogMessageIds.TryGetValue(logMessageId, out var count);
-            _pendingCustomFilterLogMessageIds[logMessageId] = count + 1;
+            _pendingCustomFilterLogMessageIds.Add(logMessageId);
         }
     }
 
@@ -630,8 +629,7 @@ public sealed partial class TidyChatPlugin
     {
         lock (_logMessageLock)
         {
-            _pendingBlockedLogMessageIds.TryGetValue(logMessageId, out var count);
-            _pendingBlockedLogMessageIds[logMessageId] = count + 1;
+            _pendingBlockedLogMessageIds.Add(logMessageId);
         }
     }
 
@@ -639,8 +637,7 @@ public sealed partial class TidyChatPlugin
     {
         lock (_logMessageLock)
         {
-            _pendingAllowedLogMessageIds.TryGetValue(logMessageId, out var count);
-            _pendingAllowedLogMessageIds[logMessageId] = count + 1;
+            _pendingAllowedLogMessageIds.Add(logMessageId);
         }
     }
 
@@ -704,7 +701,7 @@ public sealed partial class TidyChatPlugin
         return "LogMessage";
     }
 
-    private bool TryConsumePendingLogMessageBlockFrom(Dictionary<uint, int> pendingById, ChatType chatType,
+    private bool TryConsumePendingLogMessageBlockFrom(PendingLogMessageIds pendingById, ChatType chatType,
         string normalizedText, bool requireShowRuleStillBlock, out uint matchedLogMessageId)
     {
         matchedLogMessageId = 0;
@@ -713,13 +710,9 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        var pendingIds = pendingById.Keys.ToArray();
+        var pendingIds = pendingById.ActiveIds();
         foreach (var id in pendingIds)
         {
-            if (!pendingById.TryGetValue(id, out var count) || count <= 0)
-            {
-                continue;
-            }
             if (!LogMessageHelper.PendingTextMatchesOnChannel(id, chatType, normalizedText))
             {
                 continue;
@@ -733,15 +726,7 @@ public sealed partial class TidyChatPlugin
                 continue;
             }
 
-            if (count == 1)
-            {
-                pendingById.Remove(id);
-            }
-            else
-            {
-                pendingById[id] = count - 1;
-            }
-
+            pendingById.TryConsume(id);
             matchedLogMessageId = id;
             return true;
         }
@@ -749,7 +734,7 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    private bool TryConsumePendingLogMessageAllowFrom(Dictionary<uint, int> pendingById, ChatType chatType,
+    private bool TryConsumePendingLogMessageAllowFrom(PendingLogMessageIds pendingById, ChatType chatType,
         string normalizedText, bool requireShowRuleAllow)
     {
         if (pendingById.Count == 0)
@@ -757,13 +742,9 @@ public sealed partial class TidyChatPlugin
             return false;
         }
 
-        var pendingIds = pendingById.Keys.ToArray();
+        var pendingIds = pendingById.ActiveIds();
         foreach (var id in pendingIds)
         {
-            if (!pendingById.TryGetValue(id, out var count) || count <= 0)
-            {
-                continue;
-            }
             if (!LogMessageHelper.PendingTextMatchesOnChannel(id, chatType, normalizedText))
             {
                 continue;
@@ -777,14 +758,7 @@ public sealed partial class TidyChatPlugin
                 continue;
             }
 
-            if (count == 1)
-            {
-                pendingById.Remove(id);
-            }
-            else
-            {
-                pendingById[id] = count - 1;
-            }
+            pendingById.TryConsume(id);
             return true;
         }
 
@@ -802,7 +776,7 @@ public sealed partial class TidyChatPlugin
 
         lock (_logMessageLock)
         {
-            if (!TryConsumePendingLogMessageId(_pendingBlockedLogMessageIds,
+            if (!_pendingBlockedLogMessageIds.TryConsume(
                     LogMessageHelper.InventoryItemAddedLogMessageId))
             {
                 return false;
@@ -810,25 +784,6 @@ public sealed partial class TidyChatPlugin
         }
 
         decidingRuleName = nameof(Configuration.HideInventoryItemAdded);
-        return true;
-    }
-
-    private static bool TryConsumePendingLogMessageId(Dictionary<uint, int> pendingById, uint logMessageId)
-    {
-        if (!pendingById.TryGetValue(logMessageId, out var count) || count <= 0)
-        {
-            return false;
-        }
-
-        if (count == 1)
-        {
-            pendingById.Remove(logMessageId);
-        }
-        else
-        {
-            pendingById[logMessageId] = count - 1;
-        }
-
         return true;
     }
 

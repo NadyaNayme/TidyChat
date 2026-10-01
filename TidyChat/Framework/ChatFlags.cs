@@ -61,7 +61,8 @@ public static class ChatFlags
         {
             return true;
         }
-        if (channels.HasFlag(Channels.System) && chatType is ChatType.System or ChatType.RetainerSale)
+        if (channels.HasFlag(Channels.System) &&
+            chatType is ChatType.System or ChatType.RetainerSale or ChatType.PeriodicRecruitmentNotification)
         {
             return true;
         }

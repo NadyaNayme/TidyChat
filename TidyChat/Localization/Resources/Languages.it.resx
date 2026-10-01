@@ -1343,7 +1343,13 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show Duty Finder notifications</value>
   </data>
   <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 94–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
+    <value>LogMessages 890–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), party recruitment commenced/ended (979/981). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
+  </data>
+  <data name="DutyTab_ShowRecruitmentSearchResults" xml:space="preserve">
+    <value>Show Party Finder search results</value>
+  </data>
+  <data name="DutyTab_ShowRecruitmentSearchResultsHelpMarker" xml:space="preserve">
+    <value>LogMessage 94 - the periodic "Of the N parties currently recruiting..." line from Party Finder advanced search.</value>
   </data>
   <data name="DutyTab_ShowGuildhestEndedMessage" xml:space="preserve">
     <value>Show guildhest will end soon</value>

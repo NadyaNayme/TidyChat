@@ -30,6 +30,7 @@ public static partial class Rules
         ["ShowPartyCountdown"] = c => c.ShowPartyCountdown,
         ["ShowReadyCheckMessages"] = c => c.ShowReadyCheckMessages,
         ["ShowDutyFinder"] = c => c.ShowDutyFinder,
+        ["ShowRecruitmentSearchResults"] = c => c.ShowRecruitmentSearchResults,
         ["ShowCompletionTime"] = c => c.ShowCompletionTime,
         ["ShowHuntSlain"] = c => c.ShowHuntSlain,
         ["ShowMarkBillMessages"] = c => c.ShowMarkBillMessages,

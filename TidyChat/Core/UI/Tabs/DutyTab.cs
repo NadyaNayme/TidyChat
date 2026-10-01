@@ -23,6 +23,15 @@ internal static class DutyTab
 
         UiHelp.SystemFilterMarker(Languages.DutyTab_ShowDutyFinderMessagesHelpMarker);
 
+        var showRecruitmentSearchResults = configuration.ShowRecruitmentSearchResults;
+        if (ImGui.Checkbox(Languages.DutyTab_ShowRecruitmentSearchResults, ref showRecruitmentSearchResults))
+        {
+            configuration.ShowRecruitmentSearchResults = showRecruitmentSearchResults;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.DutyTab_ShowRecruitmentSearchResultsHelpMarker);
+
         var showCompletionTime = configuration.ShowCompletionTime;
         if (ImGui.Checkbox(Languages.DutyTab_ShowCompletionTimeForUnrestrictedParty, ref showCompletionTime))
         {

@@ -933,7 +933,7 @@ internal static class SettingsSearchIndex
             return Languages.ConfigWindow_PartyTabHeader;
         }
 
-        if (propertyName is "ShowDutyFinder" or "ShowCompletionTime")
+        if (propertyName is "ShowDutyFinder" or "ShowRecruitmentSearchResults" or "ShowCompletionTime")
         {
             return $"{Languages.ConfigWindow_DutyTabHeader} > {Languages.DutyTab_DutyFinderDropdownHeader}";
         }

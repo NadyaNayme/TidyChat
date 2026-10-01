@@ -33,9 +33,9 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
     private readonly HashSet<uint> _loggedUnmatchedLogMessageIds = [];
     private readonly Lock _logMessageLock = new();
 
-    private readonly Dictionary<uint, int> _pendingAllowedLogMessageIds = [];
-    private readonly Dictionary<uint, int> _pendingBlockedLogMessageIds = [];
-    private readonly Dictionary<uint, int> _pendingCustomFilterLogMessageIds = [];
+    private readonly PendingLogMessageIds _pendingAllowedLogMessageIds = new();
+    private readonly PendingLogMessageIds _pendingBlockedLogMessageIds = new();
+    private readonly PendingLogMessageIds _pendingCustomFilterLogMessageIds = new();
     private readonly WindowSystem _windowSystem = new("TidyChat");
 
     private byte _lastTerritoryExclusiveType;

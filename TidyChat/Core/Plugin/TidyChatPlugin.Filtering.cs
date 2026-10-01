@@ -23,6 +23,11 @@ public sealed partial class TidyChatPlugin
         {
             wasAllowedByLog = _allowedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_allowedByLogMessage, textCandidates);
+            if (wasAllowedByLog)
+            {
+                // the exact text already claimed this line; drop its pending id so it can't claim a later one
+                TryConsumePendingLogMessageAllowFrom(_pendingAllowedLogMessageIds, chatType, normalizedText, false);
+            }
         }
         if (wasAllowedByLog)
         {
@@ -36,6 +41,11 @@ public sealed partial class TidyChatPlugin
             wasBlockedByLog = _blockedByLogMessage.Count > 0 &&
                               TryRemoveFromLogMessageSet(_blockedByLogMessage, textCandidates,
                                   _logMessageBlockRuleByText, out blockedByRuleName);
+            if (wasBlockedByLog)
+            {
+                TryConsumePendingLogMessageBlockFrom(_pendingBlockedLogMessageIds, chatType, normalizedText, false,
+                    out _);
+            }
         }
         if (wasBlockedByLog)
         {

@@ -6,7 +6,7 @@ public static partial class Rules
     [
         new()
         {
-            Name = "ShowDutyFinder",
+            Name = "ShowRecruitmentSearchResults",
             SettingsTab = "Duty",
             Channel = ChatType.PeriodicRecruitmentNotification,
             IsActive = true,

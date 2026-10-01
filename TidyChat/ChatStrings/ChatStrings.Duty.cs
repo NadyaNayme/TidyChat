@@ -128,11 +128,11 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/94?pretty=true">Of the N parties currently recruiting…</see>
+    /// <see href="https://xivapi.com/LogMessage/94?pretty=true">Of the N parties / The only party currently recruiting…</see>
     public static readonly LocalizedStrings DutyFinderRecruitment = new()
     {
         Jpn = ["NeedsLocalization"],
-        Eng = ["parties", "recruiting"],
+        Eng = ["currently", "recruiting"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };

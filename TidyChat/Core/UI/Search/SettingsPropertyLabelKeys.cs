@@ -245,6 +245,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowInstancedAreaMessages"] = nameof(Languages.DutyTab_ShowInstancedAreaMessages),
         ["ShowDutyEndedMessage"] = nameof(Languages.DutyTab_ShowDutyEndedMessage),
         ["ShowDutyFinder"] = nameof(Languages.DutyTab_ShowDutyFinderMessages),
+        ["ShowRecruitmentSearchResults"] = nameof(Languages.DutyTab_ShowRecruitmentSearchResults),
         ["ShowCompletionTime"] = nameof(Languages.DutyTab_ShowCompletionTimeForUnrestrictedParty),
         ["ShowGuildhestEndedMessage"] = nameof(Languages.DutyTab_ShowGuildhestEndedMessage),
         ["ShowLevelNoLongerSynced"] = nameof(Languages.DutyTab_ShowLevelNoLongerSynced),

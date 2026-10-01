@@ -1547,11 +1547,29 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 94–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel..
+        ///   Looks up a localized string similar to LogMessages 890–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), party recruitment commenced/ended (979/981). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel..
         /// </summary>
         internal static string DutyTab_ShowDutyFinderMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("DutyTab_ShowDutyFinderMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show Party Finder search results.
+        /// </summary>
+        internal static string DutyTab_ShowRecruitmentSearchResults {
+            get {
+                return ResourceManager.GetString("DutyTab_ShowRecruitmentSearchResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 94 - the periodic &quot;Of the N parties currently recruiting...&quot; line from Party Finder advanced search..
+        /// </summary>
+        internal static string DutyTab_ShowRecruitmentSearchResultsHelpMarker {
+            get {
+                return ResourceManager.GetString("DutyTab_ShowRecruitmentSearchResultsHelpMarker", resourceCulture);
             }
         }
         
