@@ -49,8 +49,7 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        // Anchored regex rather than 1531 catalog tokens: the template tokens are just
-        // "has begun", which also matches event lines that continue past the verb.
+        // anchored regex, not 1531 tokens: "has begun" alone also matches FATE event lines
         if (Configuration.BetterDutyCommenceMessage && chatType is ChatType.System &&
             L10N.Get(ChatStrings.DutyHasBegunRegex).IsMatch(normalizedText))
         {

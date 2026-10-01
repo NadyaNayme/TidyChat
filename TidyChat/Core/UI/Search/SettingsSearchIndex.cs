@@ -22,9 +22,7 @@ internal static class SettingsSearchIndex
         "ShowPlaytime"
     };
 
-    /// <summary>
-    ///     Tab UI binds these Show* properties to Hide labels (checked = hide).
-    /// </summary>
+    // the tab UI binds these Show* properties to Hide labels (checked = hide)
     private static readonly HashSet<string> InvertedHideLabelProperties = new(StringComparer.Ordinal)
     {
         "ShowGatheringYield",

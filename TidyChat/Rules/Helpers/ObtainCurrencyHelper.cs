@@ -1,10 +1,6 @@
 using TidyChat.Localization.Data;
 namespace TidyChat;
 
-/// <summary>
-///     Hunt currencies, tomestones, and similar obtains use per-currency Hide toggles (checked = hide).
-///     When hide is off, those lines should show even if Show general item obtains is off.
-/// </summary>
 internal static class ObtainCurrencyHelper
 {
     private static readonly HashSet<string> GenericObtainShowRuleNames = new(StringComparer.Ordinal)
@@ -461,10 +457,7 @@ internal static class ObtainCurrencyHelper
         return L10N.Get(ChatStrings.ObtainedSeals).IsMatch(normalizedText);
     }
 
-    /// <summary>
-    ///     When <see cref="LocalizedFilterRule.PreferLogMessageCatalog" /> is set, string checks should not
-    ///     broaden a rule beyond its Lumina LogMessage IDs.
-    /// </summary>
+    // with PreferLogMessageCatalog, string checks must not broaden a rule beyond its LogMessage IDs
     public static bool ShouldRejectCatalogTextFallback(LocalizedFilterRule rule)
     {
         if (!rule.PreferLogMessageCatalog || rule.LogMessageIds is not { Length: > 0 })

@@ -10,7 +10,7 @@ public class RuleOrderTests
     [Test]
     public void AllRules_order_hash_matches_snapshot()
     {
-        var hash = RuleOrderFingerprint.ComputeOrderHash(Rules.AllRules);
+        var hash = RuleOrderSnapshot.ComputeOrderHash(Rules.AllRules);
         Assert.That(hash, Is.EqualTo(RuleOrderSnapshot.ExpectedOrderHash));
     }
 
@@ -18,7 +18,7 @@ public class RuleOrderTests
     public void Print_rule_order_snapshot()
     {
         var rules = Rules.AllRules;
-        var hash = RuleOrderFingerprint.ComputeOrderHash(rules);
+        var hash = RuleOrderSnapshot.ComputeOrderHash(rules);
         Assert.Inconclusive($"ExpectedRuleCount = {rules.Length}; ExpectedOrderHash = \"{hash}\"");
     }
 }

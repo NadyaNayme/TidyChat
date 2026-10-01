@@ -161,10 +161,7 @@ public static class LogMessageCatalog
         return false;
     }
 
-    /// <summary>
-    ///     True when <paramref name="normalizedText" /> matches a Lumina System-channel LogMessage template.
-    ///     Used to distinguish game system lines from Dalamud <c>IChatGui.Print</c> output on the chat path.
-    /// </summary>
+    // tells game system lines apart from Dalamud IChatGui.Print output on the chat path
     public static bool MatchesAnySystemTemplate(string normalizedText)
     {
         foreach (var id in TemplateTextById.Keys)
@@ -174,22 +171,6 @@ public static class LogMessageCatalog
                 continue;
             }
 
-            if (Matches(id, normalizedText))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /// <summary>
-    ///     True when <paramref name="normalizedText" /> matches any loaded Lumina LogMessage template.
-    /// </summary>
-    public static bool MatchesAnyTemplate(string normalizedText)
-    {
-        foreach (var id in TemplateTextById.Keys)
-        {
             if (Matches(id, normalizedText))
             {
                 return true;
@@ -251,19 +232,6 @@ public static class LogMessageCatalog
         return ItemMarkerCatalog.Matches(markerItemId, normalizedText, markerFallback);
     }
 
-    public static bool MatchesSharedObtainSeal(string normalizedText, LocalizedStrings? markerFallback = null)
-    {
-        if (!MatchesAny(SharedObtainTemplateIds, normalizedText))
-        {
-            return false;
-        }
-        return ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText);
-    }
-
-    /// <summary>
-    ///     LogMessage 1300 (GC seals) and shared obtain templates 657/1259 all use different Lumina rows
-    ///     but the same style of "You obtain N Storm/Flame/Serpent Seals" chat lines.
-    /// </summary>
     public static bool MatchesGrandCompanySealObtain(string normalizedText)
     {
         if (!ItemMarkerCatalog.MatchesAnyGrandCompanySeal(normalizedText))

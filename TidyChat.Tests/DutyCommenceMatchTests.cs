@@ -1,11 +1,7 @@
 using NUnit.Framework;
 namespace TidyChat.Tests;
 
-/// <summary>
-///     Regression tests for the community report where the Lifestream FATE line
-///     "The aramitama has begun to disrupt the Lifestream." was blocked by ShowDutyCommenceMessage.
-///     Matching runs against lowercased chat text, so all inputs here are lowercase.
-/// </summary>
+// community report: "the aramitama has begun to disrupt the lifestream." was hidden by ShowDutyCommenceMessage
 [TestFixture]
 public class DutyCommenceMatchTests
 {
@@ -20,8 +16,7 @@ public class DutyCommenceMatchTests
 
     [Test]
     public void Negative_control_old_token_check_matched_the_reported_line() =>
-        // The old StringChecks were ["has", "begun"] via ordinal Contains; this proves the
-        // reported line really did satisfy the previous matching strategy.
+        // the old ["has", "begun"] token check did match the reported line
         Assert.That(AramitamaLine, Does.Contain("has").And.Contain("begun"));
 
     [Test]

@@ -148,10 +148,7 @@ public static partial class ChatStrings
 
     /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
     /// <seealso href="https://xivapi.com/LogMessage/755?pretty=true">“…” equipped.</seealso>
-    /// <remarks>
-    ///     Do not use a bare “equipped” token. ID 700’s English template is only “ equipped.”, so catalog
-    ///     matching that word also hits ARR relic quest lines (“you must be equipped with…”).
-    /// </remarks>
+    // no bare "equipped" token: 700 is only " equipped." and would hit ARR relic quest lines
     public static readonly LocalizedRegex GearsetEquippedRegex = new()
     {
         Jpn = new(@"(?:を装備した。|に装備変更しました。)$", RegexOptions, RegexTimeout),
@@ -160,9 +157,7 @@ public static partial class ChatStrings
         Fra = new(@"^vous vous équipez.+$", RegexOptions, RegexTimeout)
     };
 
-    /// ARR / Zodiac relic quest System warning (no LogMessage sheet row):
-    /// “In order to receive the quest "Celestial Radiance," you must be equipped with a relic weapon animus…”
-    /// Also “In order to advance the quest "Star Light, Star Bright," …”
+    /// ARR relic quest warning (no LogMessage row): "In order to receive/advance the quest …, you must be equipped with…"
     public static readonly LocalizedRegex QuestEquipmentRequirementRegex = new()
     {
         Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
@@ -216,42 +211,13 @@ public static partial class ChatStrings
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
-    /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">"Quest name" accepted.</see>
-    public static readonly LocalizedRegex QuestAcceptedRegex = new()
-    {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Eng = new(@""" accepted\.?$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1602?pretty=true">"Quest name" complete!</see>
-    public static readonly LocalizedRegex QuestCompleteRegex = new()
-    {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Eng = new(@""" complete!?$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
-    };
-
-    /// Quest /say reminders — no LogMessage sheet row; System chat only.
-    /// Current EN: "With the chat mode set to Say, use the keyboard or the software keyboard to enter …"
-    /// Older EN: "With the chat mode in Say, enter a phrase containing …"
+    // quest /say reminder (no LogMessage row): match both "set to Say, use the keyboard…" and the older "in Say, enter a phrase…"
     public static readonly LocalizedRegex SayQuestReminderRegex = new()
     {
         Jpn = new(@"^チャットの会話モードを", RegexOptions, RegexTimeout),
         Eng = new(@"^with the chat mode (?:in|set to) .+$", RegexOptions, RegexTimeout),
         Deu = new(@"(?:virtuelle(?:n)? tastatur|\bgib\b.+\bim\b)", RegexOptions, RegexTimeout),
         Fra = new(@"mode de discussion", RegexOptions, RegexTimeout)
-    };
-
-    /// <seealso href="https://xivapi.com/LogMessage/533?pretty=true">The enemy uses … / Name uses …</seealso>
-    public static readonly LocalizedRegex AbilityUseMessageOtherRegex = new()
-    {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Eng = new(@"^(?!you ).+ uses ", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/501?pretty=true">… readies …</see>
@@ -349,7 +315,7 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/9330?pretty=true">You sense your mark to the north.</see>
-    /// <remarks>Sheet templates hardcode "north"; chat substitutes the real direction.</remarks>
+    // sheet templates hardcode "north"; chat substitutes the real direction
     public static readonly LocalizedRegex MarkBillSenseDirectionRegex = new()
     {
         Jpn = new(@"^手配書に記載されたリスキーモブの気配を、.+方向から感じる", RegexOptions, RegexTimeout),
@@ -368,10 +334,7 @@ public static partial class ChatStrings
     };
 
     /// <see href="https://xivapi.com/LogMessage/1531?pretty=true">Duty has begun.</see>
-    /// <remarks>
-    ///     Anchored to the full line so event lines that merely contain the words
-    ///     (eg. "The aramitama has begun to disrupt the Lifestream.") do not match.
-    /// </remarks>
+    // anchored to the full line so event lines like the aramitama Lifestream FATE don't match
     public static readonly LocalizedRegex DutyHasBegunRegex = new()
     {
         Jpn = new(@"^「(?<duty>.+?)」の攻略を開始した。?$", RegexOptions, RegexTimeout),

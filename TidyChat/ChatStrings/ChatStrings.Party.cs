@@ -19,14 +19,6 @@ public static partial class ChatStrings
         Deu = ["hast", "die", "auszeichnung"],
         Fra = ["équipiers", "vous", "honoré"]
     };
-    /// <see href="https://xivapi.com/LogMessage/3791?pretty=true">… initiated a ready check.</see>
-    public static readonly LocalizedStrings ReadyCheckInitiated = new()
-    {
-        Jpn = ["レディチェック", "開始"],
-        Eng = ["initiated", "ready", "check"],
-        Deu = ["bereitschaftsanfrage", "gestellt"],
-        Fra = ["appel", "préparation"]
-    };
     public static readonly LocalizedStrings JoinParty = new()
     {
         Jpn = ["パーティー", "参加"],
@@ -66,15 +58,6 @@ public static partial class ChatStrings
         Deu = ["beigetreten"],
         Fra = ["rejoint", "équipe"]
     };
-    /// <see href="https://xivapi.com/LogMessage/4?pretty=true">You leave the party.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/69?pretty=true">… has left the party.</seealso>
-    public static readonly LocalizedStrings LeftParty = new()
-    {
-        Jpn = ["離脱"],
-        Eng = ["leave", "party"],
-        Deu = ["verlassen"],
-        Fra = ["quittez", "équipe"]
-    };
     /// <see href="https://xivapi.com/LogMessage/73?pretty=true">The party has been disbanded.</see>
     public static readonly LocalizedStrings PartyDisband = new()
     {
@@ -90,26 +73,6 @@ public static partial class ChatStrings
         Eng = ["dissolve", "party"],
         Deu = ["aufgelöst"],
         Fra = ["dissoute"]
-    };
-    /// <see href="https://xivapi.com/LogMessage/3790?pretty=true">You have commenced a ready check.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/3794?pretty=true">Ready check complete.</seealso>
-    public static readonly LocalizedStrings ReadyCheck = new()
-    {
-        Jpn = ["レディチェック"],
-        Eng = ["ready", "check"],
-        Deu = ["bereitschaft"],
-        Fra = ["préparation"]
-    };
-    /// <see href="https://xivapi.com/LogMessage/5260?pretty=true">Battle commencing in …</see>
-    /// <seealso href="https://xivapi.com/LogMessage/5255?pretty=true">Battle commencing in … (party countdown)</seealso>
-    /// <seealso href="https://xivapi.com/LogMessage/5256?pretty=true">Engage!</seealso>
-    /// <seealso href="https://xivapi.com/LogMessage/5264?pretty=true">Engage!</seealso>
-    public static readonly LocalizedStrings CountdownTime = new()
-    {
-        Jpn = ["戦闘"],
-        Eng = ["commencing", "engage"],
-        Deu = ["sekunde", "start"],
-        Fra = ["combat", "attaque"]
     };
     /// <see href="https://xivapi.com/LogMessage/440?pretty=true">You have been offered a Teleport …</see>
     public static readonly LocalizedStrings OfferedTeleport = new()

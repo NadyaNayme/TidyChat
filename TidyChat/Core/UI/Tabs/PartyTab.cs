@@ -15,7 +15,6 @@ internal static class PartyTab
 
     private static void DrawPartyAndInvite(Configuration configuration)
     {
-        // Joining a party
         var showInvitedBy = configuration.ShowInvitedBy;
         if (ImGui.Checkbox(Languages.PartyTab_ShowReceivedPartyInvitationMessages, ref showInvitedBy))
         {
@@ -43,7 +42,6 @@ internal static class PartyTab
 
         ImGuiComponents.HelpMarker(Languages.PartyTab_ShowPartyObjectiveOnJoinHelpMarker);
 
-        // Inviting others
         var showInviteSent = configuration.ShowInviteSent;
         if (ImGui.Checkbox(Languages.PartyTab_ShowSentPartyInviteMessages, ref showInviteSent))
         {
@@ -62,7 +60,6 @@ internal static class PartyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyTab_ShowJoiningPartyMessagesHelpMarker);
 
-        // Mid-party events
         var showOfferedTeleport = configuration.ShowOfferedTeleport;
         if (ImGui.Checkbox(Languages.PartyTab_ShowTeleportOfferFromPartyMessages, ref showOfferedTeleport))
         {

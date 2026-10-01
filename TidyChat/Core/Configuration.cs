@@ -152,7 +152,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowItemSearchResults { get; set; } = true;
     public bool ShowLocationSearchResults { get; set; } = true;
 
-    /// <summary>Always on; no settings UI. /playtime "Total Play Time" line (LogMessage 859).</summary>
     public bool ShowPlaytime { get; set; } = true;
 
     public bool ShowExploratoryVoyage { get; set; } = true;
@@ -205,13 +204,10 @@ public class Configuration : IPluginConfiguration
 
     public bool ShowJoinParty { get; set; } = false;
 
-    /// <summary>Always on; no settings UI. Party countdown and Engage! lines.</summary>
     public bool ShowPartyCountdown { get; set; } = true;
 
-    /// <summary>Always on; no settings UI. Party ready check lines.</summary>
     public bool ShowReadyCheckMessages { get; set; } = true;
 
-    /// <summary>Always on; no settings UI. Friend list updates and friend requests.</summary>
     public bool ShowFriendListMessages { get; set; } = true;
 
     public bool ShowPartyInformation { get; set; } = true;
@@ -240,7 +236,6 @@ public class Configuration : IPluginConfiguration
     public bool ShowAetheryteTicket { get; set; } = false;
     public bool ShowActiveHelpEntry { get; set; } = false;
 
-    /// <summary>Always on; no settings UI. Invalid slash command errors (LogMessage 725).</summary>
     public bool ShowInvalidCommandError { get; set; } = true;
     public bool HideOrchestrionPlaying { get; set; } = false;
     public bool ShowVolumeControlMessages { get; set; } = false;
@@ -279,7 +274,6 @@ public class Configuration : IPluginConfiguration
     public bool HideObtainedGil { get; set; } = false;
     public bool HideObtainedMGP { get; set; } = false;
 
-    /// <summary>Always on; no settings UI. Jumbo Cactpot ticket purchases (LogMessage 4735).</summary>
     public bool ShowMgpSpending { get; set; } = true;
 
     public bool ShowGoldSaucerSwingMinigames { get; set; } = true;

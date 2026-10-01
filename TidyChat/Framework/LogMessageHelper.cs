@@ -94,10 +94,7 @@ internal static class LogMessageHelper
         _ => false
     };
 
-    /// <summary>
-    ///     Only LogMessage-sheet channels may inherit OnLogMessage allow/block decisions on OnChat.
-    ///     Player-authored channels are always excluded so token collisions cannot hide say/party/tell.
-    /// </summary>
+    // player-authored channels never inherit hook decisions, so token collisions can't hide say/party/tell
     internal static bool ParticipatesInLogMessageChatSync(ChatType chatType)
     {
         if (IsPlayerAuthoredChannel(chatType))

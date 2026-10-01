@@ -1,10 +1,6 @@
 namespace TidyChat.Data;
 
-/// <summary>
-///     LogMessage ids seen by the LogMessage hook that are waiting for their chat line.
-///     Entries expire so a hook that never produces a matching chat line (or whose line was already
-///     consumed by exact text) cannot later swallow an unrelated message that loosely matches the template.
-/// </summary>
+// entries expire so a leftover id can't swallow a later line that loosely matches its template (#132)
 internal sealed class PendingLogMessageIds
 {
     internal const long DefaultLifetimeMs = 2000;

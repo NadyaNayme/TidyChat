@@ -3,60 +3,6 @@ namespace TidyChat;
 
 public static partial class ChatStrings
 {
-    /// <see href="https://xivapi.com/LogMessage/410?pretty=true">You can now accept the next class/job quest.</see>
-    public static readonly LocalizedStrings ClassJobQuestAvailable = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["accept", "next", "class", "job", "quest"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1601?pretty=true">Quest accepted.</see>
-    public static readonly LocalizedStrings QuestAccepted = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["accepted"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1602?pretty=true">Quest complete.</see>
-    public static readonly LocalizedStrings QuestComplete = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3780?pretty=true">Challenge log entry "…" complete!</see>
-    public static readonly LocalizedStrings ChallengeLogComplete = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["challenge", "log", "entry", "complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3783?pretty=true">Challenge log entry "…" is almost complete!</see>
-    public static readonly LocalizedStrings ChallengeLogAlmostComplete = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["challenge", "log", "entry", "almost", "complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1603?pretty=true">Quest objective fulfilled.</see>
-    public static readonly LocalizedStrings QuestObjectiveFulfilled = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["objective", "fulfilled"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/659?pretty=true">You acquire \d PvP EXP.</see>
     public static readonly LocalizedStrings GainPvpExp = new()
     {
@@ -262,42 +208,6 @@ public static partial class ChatStrings
         Eng = ["you", "learn"],
         Deu = ["erlernt"],
         Fra = ["apprenez"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/609?pretty=true">You can now summon the … minion.</see>
-    public static readonly LocalizedStrings MinionUnlock = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["summon", "minion"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3612?pretty=true">Paladin wisdom bequeathed.</see>
-    public static readonly LocalizedStrings JobWisdomBequeathed = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["wisdom", "bequeathed"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/3613?pretty=true">Paladin memories awoken.</see>
-    public static readonly LocalizedStrings JobMemoriesAwoken = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["memories", "awoken"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
-    /// <see href="https://xivapi.com/LogMessage/1461?pretty=true">Oath gauge expanded.</see>
-    public static readonly LocalizedStrings OathGaugeExpanded = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["oath", "gauge", "expanded"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4679?pretty=true">Completion time: …</see>

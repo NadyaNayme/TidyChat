@@ -167,9 +167,6 @@ internal static class UiHelp
     public static void ObtainedAndSystemHideFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(WithObtainedAndSystemHideFilterNote(help));
 
-    public static void LootAndObtainedHideFilterMarker(string help) =>
-        ImGuiComponents.HelpMarker(WithLootAndObtainedHideFilterNote(help));
-
     public static void LootFilterMarker(string help) =>
         ImGuiComponents.HelpMarker(WithLootFilterNote(help));
 

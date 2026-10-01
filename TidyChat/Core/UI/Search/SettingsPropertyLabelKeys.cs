@@ -1,9 +1,6 @@
 namespace TidyChat.Settings.Search;
 
-/// <summary>
-///     Maps configuration property names to exact Languages label keys used in settings tabs.
-///     Prevents fuzzy search from pairing the wrong checkbox label with a setting.
-/// </summary>
+// exact label keys; fuzzy search paired the wrong checkbox label with a setting
 internal static class SettingsPropertyLabelKeys
 {
     private static readonly Dictionary<string, string> ByPropertyName = new(StringComparer.Ordinal)

@@ -74,7 +74,7 @@ public sealed partial class TidyChatPlugin
                     Log.Verbose("Added to chat history: " + currentMessage);
                 }
             }
-            return true; // chat history always returns after processing
+            return true;
         }
         catch (Exception ex)
         {

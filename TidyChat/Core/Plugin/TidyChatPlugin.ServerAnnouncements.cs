@@ -9,10 +9,7 @@ internal enum ServerAnnouncementChatAction : byte
 
 public sealed partial class TidyChatPlugin
 {
-    /// <summary>
-    ///     Classifies login/world-travel announcement lines. Callers must still run
-    ///     <see cref="FinishChatHandling" /> so custom Allow/Block filters can override.
-    /// </summary>
+    // callers must still run FinishChatHandling so custom Allow/Block filters can override
     private ServerAnnouncementChatAction HandleServerAnnouncements(IHandleableChatMessage message, ChatType chatType,
         string normalizedText, bool protectedByShowRule)
     {

@@ -83,8 +83,7 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
-        // the summary is printed from PlayerState after the duty; an allowed 926 would arrive PreserveVisible
-        // and skip HandleBetterMessages, so the per-commendation lines have to be hidden here
+        // an allowed 926 arrives PreserveVisible and skips HandleBetterMessages, so hide it here
         if (ShouldHideCommendationForSummary(message.LogMessageId, Configuration))
         {
             ApplyLogMessageBlock(message, nameof(Configuration.BetterCommendationMessage));
@@ -400,24 +399,11 @@ public sealed partial class TidyChatPlugin
         Interlocked.Increment(ref _sessionBlockedMessages);
     }
 
-    private static bool RuleUsesSoftLogMessageHide(string? decidingRuleName)
-    {
-        if (string.IsNullOrEmpty(decidingRuleName))
-        {
-            return false;
-        }
+    private static readonly HashSet<string> SoftHideRuleNames =
+        Rules.AllRules.Where(rule => rule.SoftHideLogMessage).Select(rule => rule.Name).ToHashSet(StringComparer.Ordinal);
 
-        foreach (var rule in Rules.AllRules)
-        {
-            if (rule.SoftHideLogMessage &&
-                string.Equals(rule.Name, decidingRuleName, StringComparison.Ordinal))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    private static bool RuleUsesSoftLogMessageHide(string? decidingRuleName) =>
+        !string.IsNullOrEmpty(decidingRuleName) && SoftHideRuleNames.Contains(decidingRuleName);
 
     private static bool HasDedicatedShowRuleForLogMessageId(uint logMessageId,
         IReadOnlyList<LocalizedFilterRule> matchingRules)

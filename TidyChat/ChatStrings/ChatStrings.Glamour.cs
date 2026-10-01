@@ -116,15 +116,6 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/5701?pretty=true">You acquire the … personal effect.</see>
-    public static readonly LocalizedStrings PersonalEffectAcquired = new()
-    {
-        Jpn = ["修得", "呼び出し"],
-        Eng = ["acquire", "personal effect"],
-        Deu = ["freigeschaltet"],
-        Fra = ["appris"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/744?pretty=true">Your spiritbond with … is complete!</see>
     public static readonly LocalizedStrings SpiritboundGear = new()
     {
@@ -141,23 +132,6 @@ public static partial class ChatStrings
         Deu = ["gegenstände", "repariert"],
         Fra = ["objets", "réparé"]
     };
-    /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
-    /// <seealso href="https://xivapi.com/LogMessage/755?pretty=true">"…" equipped.</seealso>
-    public static readonly LocalizedStrings GearsetEquipped = new()
-    {
-        Jpn = ["装備"],
-        Eng = ["equipped"],
-        Deu = ["angelegt"],
-        Fra = ["équipez"]
-    };
-    /// <see href="https://xivapi.com/LogMessage/765?pretty=true">Unable to equip gear set.</see>
-    public static readonly LocalizedStrings GearsetUnableToEquip = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["unable", "equip", "gear", "set"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
     /// <see href="https://xivapi.com/LogMessage/5865?pretty=true">Portrait set as instant portrait.</see>
     public static readonly LocalizedStrings PortraitSetInstant = new()
     {
@@ -165,14 +139,6 @@ public static partial class ChatStrings
         Eng = ["portrait", "instant"],
         Deu = ["portrait", "schnellportrait"],
         Fra = ["portrait", "instantané"]
-    };
-
-    public static readonly LocalizedStrings JobChange = new()
-    {
-        Jpn = ["チェンジ"],
-        Eng = ["change to"],
-        Deu = ["bist", "nun"],
-        Fra = ["maintenant"]
     };
 
     public static readonly LocalizedStrings ArmouryChestPlacement = new()
@@ -191,11 +157,4 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    public static readonly LocalizedStrings JobSpecialistChange = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["change to", "specialist"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
 }

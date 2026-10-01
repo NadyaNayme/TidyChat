@@ -1,9 +1,5 @@
 namespace TidyChat;
 
-/// <summary>
-///     Combines UI master toggles with nested child settings for rule active state.
-///     Child checkbox values are preserved when a master is off; they only take effect when the master is on.
-/// </summary>
 internal static class FilterMasterAccessors
 {
     public static bool MarketItemSold(Configuration c) =>
@@ -81,9 +77,6 @@ internal static class FilterMasterAccessors
     public static bool SubmarineRetrievalLevelsIncreased(Configuration c) =>
         c.ShowSubaquaticVoyage && c.ShowSubmarineRetrievalLevelsIncreased;
 
-    /// <summary>
-    ///     Nested crafting/gathering/stellar rules must not filter chat when their master toggle is off.
-    /// </summary>
     public static bool IsDisabledByMasterToggle(LocalizedFilterRule rule, Configuration config) =>
         rule.Name switch
         {

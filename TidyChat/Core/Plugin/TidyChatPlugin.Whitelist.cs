@@ -295,11 +295,7 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
-    /// <summary>
-    ///     A parameterised LogMessage's hook text can differ from the printed line (eg. "you have gone offline"
-    ///     vs "raven reaver has gone offline"), so a text Allow filter may only match on the chat path.
-    ///     Hide softly in that case instead of preventing the line from ever reaching chat.
-    /// </summary>
+    // hook text can differ from the printed line ("you have gone offline"), so let a text Allow filter decide on chat (#133)
     private bool ShouldDeferBlockToChatAllowFilter(ILogMessage message)
     {
         if (message.ParameterCount == 0 || Configuration.Whitelist.Count == 0)

@@ -97,7 +97,7 @@ public sealed partial class TidyChatPlugin
             Configuration.PlayerName = $"{player.Name}";
             Log.Information($"Player name saved as {player.Name}");
             Configuration.Save();
-            _setPlayerNameRetries = 0; // success — reset the retry budget for the next login cycle
+            _setPlayerNameRetries = 0;
         }
         catch (Exception ex)
         {

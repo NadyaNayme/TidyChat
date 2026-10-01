@@ -7,21 +7,17 @@ using TidyChat.Settings;
 using TidyChat.Settings.Search;
 namespace TidyChat.Tests;
 
-/// <summary>
-///     Static wiring audit: every rule must resolve to a real config property, every pattern must be
-///     able to match normalized (lowercased) text, and the settings search must cover every toggle.
-/// </summary>
 [TestFixture]
 public class WiringAuditTests
 {
-    /// <summary>Rule accessors that are always active and do not read their config property.</summary>
+    // rule accessors that are always active and do not read their config property.
     private static readonly HashSet<string> AlwaysOnAccessorRules = new(StringComparer.Ordinal)
     {
         "ShowDungeonMechanicMessages",
         "ShowQuestEquipmentRequirement",
     };
 
-    /// <summary>Rule names that intentionally have no same-named Configuration property.</summary>
+    // rule names that intentionally have no same-named Configuration property.
     private static readonly HashSet<string> RulesWithoutConfigProperty = new(StringComparer.Ordinal)
     {
         "ShowDungeonMechanicMessages",
@@ -35,7 +31,7 @@ public class WiringAuditTests
         ["ShowInventoryItemAdded"] = nameof(Configuration.HideInventoryItemAdded),
     };
 
-    /// <summary>Master toggles that gate child rules; enabled so child accessors can respond.</summary>
+    // master toggles that gate child rules; enabled so child accessors can respond.
     private static readonly string[] MasterToggleProperties =
     [
         nameof(Configuration.ShowInstanceMessage),

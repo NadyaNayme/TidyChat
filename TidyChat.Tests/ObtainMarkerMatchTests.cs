@@ -68,9 +68,7 @@ public class ObtainMarkerMatchTests
     [Test]
     public void HideObtainedShards_covers_gathering_obtain_templates()
     {
-        // Gathering obtains for crystals/shards arrive on LootNotice with the same templates used by
-        // ShowGatheringCollectableObtains (3538, 1049, 1050, 1053, 1054). HideObtainedShards must cover them
-        // so the active-hide precedence wins over the active show rule on the LogMessage path.
+        // crystal/shard gathering obtains share the collectable templates; the active hide must win
         var gatheringObtainIds = new uint[] { 3538, 1049, 1050, 1053, 1054 };
 
         var shardRule = Rules.AllRules.FirstOrDefault(rule =>

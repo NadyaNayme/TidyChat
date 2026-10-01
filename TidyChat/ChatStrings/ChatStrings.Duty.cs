@@ -71,14 +71,6 @@ public static partial class ChatStrings
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
     };
-    /// <see href="https://xivapi.com/LogMessage/2163?pretty=true">Duty objectives completion bonus.</see>
-    public static readonly LocalizedStrings DutyObjectiveBonus = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["objectives", "bonus"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
     /// <see href="https://xivapi.com/LogMessage/1530?pretty=true">Guildhest will end soon</see>
     public static readonly LocalizedStrings GuildhestEnded = new()
     {
@@ -111,23 +103,6 @@ public static partial class ChatStrings
         Deu = ["erfüllt"],
         Fra = ["accompli", "épreuves"]
     };
-    /// <see href="https://xivapi.com/LogMessage/605?pretty=true">Boss mechanic event (e.g. Titan's heart is shattered!).</see>
-    public static readonly LocalizedStrings DutyMechanicEvent = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["shattered"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-    /// <see href="https://xivapi.com/LogMessage/2119?pretty=true">Garuda generates a pocket of calm within the storm!</see>
-    public static readonly LocalizedStrings DutyMechanicCalmPocket = new()
-    {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["generates", "pocket", "calm"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
-    };
-
     /// <see href="https://xivapi.com/LogMessage/94?pretty=true">Of the N parties / The only party currently recruiting…</see>
     public static readonly LocalizedStrings DutyFinderRecruitment = new()
     {

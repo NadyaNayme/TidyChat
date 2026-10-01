@@ -296,19 +296,15 @@ public sealed partial class TidyChatPlugin
                 }
                 else if (chatType is ChatType.LootNotice && !rule.BlockWhenActive)
                 {
-                    // LootNotice show-rules use the rule's IsActive directly (active = show, inactive = hide).
                     isBlocked = rule.IsActive;
                 }
                 else if (rule.BlockWhenActive)
                 {
-                    // Hide-rule matched: keep the message unless the channel default was already hiding it on LootNotice.
                     isBlocked = chatType is not ChatType.LootNotice || !defaultBlocked;
                 }
                 else
                 {
-                    // Show-rule matched: allow the line. Spammy channels default to hidden (flip via false);
-                    // non-spammy combat channels (GainBuff, etc.) also land here — !defaultBlocked was wrong
-                    // and hid lines when a show toggle was enabled.
+                    // not !defaultBlocked: that hid non-spammy combat lines (GainBuff etc.) when their show toggle was on
                     isBlocked = false;
                 }
             }
@@ -392,16 +388,14 @@ public sealed partial class TidyChatPlugin
             }
         }
 
-        if (PluginChatPassthroughHelper.ShouldAllow(chatType, message.SourceKind, message.TargetKind,
+        var allowedIsBlocked = chatType is ChatType.LootNotice;
+        if (isBlocked != allowedIsBlocked &&
+            PluginChatPassthroughHelper.ShouldAllow(chatType, message.SourceKind, message.TargetKind,
                 message.Sender.TextValue, normalizedText, Configuration.PlayerName,
                 PartyList.Select(member => member.Name.TextValue)))
         {
-            var allowedIsBlocked = chatType is ChatType.LootNotice;
-            if (isBlocked != allowedIsBlocked)
-            {
-                isBlocked = allowedIsBlocked;
-                TrackMatchedRule(matchedRules, PluginChatPassthroughHelper.PassthroughRuleName);
-            }
+            isBlocked = allowedIsBlocked;
+            TrackMatchedRule(matchedRules, PluginChatPassthroughHelper.PassthroughRuleName);
         }
 
         var isHandled = chatType is ChatType.LootNotice ? !isBlocked : isBlocked;
@@ -589,7 +583,7 @@ public sealed partial class TidyChatPlugin
                 foreach (int i in textPayload.Text)
                 {
                     sb.Append(i is >= 65 and <= 90
-                        ? (char)(i + 32) // 65='A', 90='Z' (91='[', not a letter)
+                        ? (char)(i + 32)
                         : (char)i);
                 }
                 stringBuilder.AddText(sb.ToString());
