@@ -3,6 +3,7 @@ namespace TidyChat.Utility;
 internal static class LogMessageHelper
 {
     internal const uint InventoryItemAddedLogMessageId = 789;
+    internal const uint PlayerCommendationLogMessageId = 926;
 
     internal static bool TryExtractText(ILogMessage message, out string text)
     {

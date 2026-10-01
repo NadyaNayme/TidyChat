@@ -83,6 +83,14 @@ public sealed partial class TidyChatPlugin
             return;
         }
 
+        // the summary is printed from PlayerState after the duty; an allowed 926 would arrive PreserveVisible
+        // and skip HandleBetterMessages, so the per-commendation lines have to be hidden here
+        if (ShouldHideCommendationForSummary(message.LogMessageId, Configuration))
+        {
+            ApplyLogMessageBlock(message, nameof(Configuration.BetterCommendationMessage));
+            return;
+        }
+
         if (TryGetNormalizedLogMessageText(message, out var normalizedTomestoneText) &&
             ObtainCurrencyHelper.TryResolveTomestoneLogMessage(normalizedTomestoneText, Tomestones,
                 Configuration.HideTomestoneById, out var tomestoneAllow, out var tomestoneRule))
@@ -360,6 +368,10 @@ public sealed partial class TidyChatPlugin
 
         return false;
     }
+
+    internal static bool ShouldHideCommendationForSummary(uint logMessageId, Configuration configuration) =>
+        configuration.BetterCommendationMessage &&
+        logMessageId == LogMessageHelper.PlayerCommendationLogMessageId;
 
     private void ApplyLogMessageBlock(ILogMessage message, string? decidingRuleName, string? matchDetail = null)
     {
