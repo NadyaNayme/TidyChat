@@ -69,6 +69,7 @@ internal static class SettingsPropertyLabelKeys
         ["ShowInviteSent"] = nameof(Languages.PartyTab_ShowSentPartyInviteMessages),
         ["ShowJoinParty"] = nameof(Languages.PartyTab_ShowJoinedCrossworldPartyMessages),
         ["ShowLeftParty"] = nameof(Languages.PartyTab_ShowLeftPartyMessages),
+        ["ShowPartyMemberOffline"] = nameof(Languages.PartyTab_ShowPartyMemberOfflineMessages),
         ["ShowLootRoll"] = nameof(Languages.PartyTab_ShowYouRolledMessages),
         ["ShowOfferedTeleport"] = nameof(Languages.PartyTab_ShowTeleportOfferFromPartyMessages),
         ["ShowOnlyPartyMemberRolls"] = nameof(Languages.PartyTab_ShowOnlyPartyMemberRolls),

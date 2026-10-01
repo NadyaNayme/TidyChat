@@ -23,6 +23,7 @@ public static partial class Rules
         ["ShowInviteSent"] = c => c.ShowInviteSent,
         ["ShowInviteeJoins"] = c => c.ShowInviteeJoins,
         ["ShowLeftParty"] = c => c.ShowLeftParty,
+        ["ShowPartyMemberOffline"] = c => c.ShowPartyMemberOffline,
         ["ShowPartyDisband"] = c => c.ShowPartyDisband,
         ["ShowPartyDissolved"] = c => c.ShowPartyDissolved,
         ["ShowInvitedBy"] = c => c.ShowInvitedBy,

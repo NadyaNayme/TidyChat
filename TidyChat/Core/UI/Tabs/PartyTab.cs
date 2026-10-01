@@ -81,6 +81,15 @@ internal static class PartyTab
 
         UiHelp.SystemFilterMarker(Languages.PartyTab_ShowLeftPartyMessagesHelpMarker);
 
+        var showPartyMemberOffline = configuration.ShowPartyMemberOffline;
+        if (ImGui.Checkbox(Languages.PartyTab_ShowPartyMemberOfflineMessages, ref showPartyMemberOffline))
+        {
+            configuration.ShowPartyMemberOffline = showPartyMemberOffline;
+            configuration.OnSettingChanged();
+        }
+
+        UiHelp.SystemFilterMarker(Languages.PartyTab_ShowPartyMemberOfflineMessagesHelpMarker);
+
         var showPartyDisband = configuration.ShowPartyDisband;
         if (ImGui.Checkbox(Languages.PartyTab_ShowDisbandAndDissolveMessages, ref showPartyDisband))
         {

@@ -25,8 +25,8 @@ public static partial class Rules
         },
         new()
         {
-            Name = "ShowUserLogouts",
-            SettingsTab = "Free Company",
+            Name = "ShowPartyMemberOffline",
+            SettingsTab = "Party",
             Channel = ChatType.System,
             IsActive = true,
             LogMessageIds = [84],

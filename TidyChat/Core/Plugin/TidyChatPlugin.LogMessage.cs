@@ -374,7 +374,7 @@ public sealed partial class TidyChatPlugin
         EmitBlockedXllog(
             FormatLogMessageDecision("BLOCKED", decidingRuleName, message.LogMessageId, matchDetail));
 
-        if (RuleUsesSoftLogMessageHide(decidingRuleName))
+        if (RuleUsesSoftLogMessageHide(decidingRuleName) || ShouldDeferBlockToChatAllowFilter(message))
         {
             return;
         }

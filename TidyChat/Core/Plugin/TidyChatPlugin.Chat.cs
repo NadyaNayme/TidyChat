@@ -34,8 +34,11 @@ public sealed partial class TidyChatPlugin
             : new LogMessageChatSyncResult(LogMessageChatEffect.None, null);
         if (logSync.Effect == LogMessageChatEffect.PreserveHidden)
         {
-            if (ChannelFilterPolicy.IsCombatLogChannel(chatType))
+            if (ChannelFilterPolicy.IsCombatLogChannel(chatType) ||
+                IsWhitelistedAllowed(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
+                    normalizedText))
             {
+                // custom Allow filters outrank built-in rules, so let normal evaluation + the whitelist decide
                 logSync = new LogMessageChatSyncResult(LogMessageChatEffect.None, null);
             }
             else

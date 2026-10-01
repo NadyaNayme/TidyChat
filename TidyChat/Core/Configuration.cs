@@ -197,6 +197,7 @@ public class Configuration : IPluginConfiguration
     public bool ShowInviteSent { get; set; } = false;
     public bool ShowInviteeJoins { get; set; } = false;
     public bool ShowLeftParty { get; set; } = false;
+    public bool ShowPartyMemberOffline { get; set; } = true;
     public bool ShowPartyDisband { get; set; } = false;
     public bool ShowPartyDissolved { get; set; } = false;
 
@@ -431,6 +432,13 @@ public class Configuration : IPluginConfiguration
         {
             ShowRecruitmentSearchResults = ShowDutyFinder;
             Version = 15;
+            Save();
+        }
+
+        if (Version < 16)
+        {
+            ShowPartyMemberOffline = ShowUserLogouts;
+            Version = 16;
             Save();
         }
     }

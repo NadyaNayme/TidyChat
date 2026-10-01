@@ -2440,7 +2440,7 @@ namespace TidyChat.Localization.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LogMessages 3086, 84 - eg. Raven Reaver logs out. Uses the FC login/logout channel or System..
+        ///   Looks up a localized string similar to LogMessage 3086 - eg. Raven Reaver logs out. Uses the FC login/logout channel..
         /// </summary>
         internal static string FreeCompanyTab_ShowLogoutMessagesHelpMarker {
             get {
@@ -4362,6 +4362,24 @@ namespace TidyChat.Localization.Resources {
         internal static string PartyTab_ShowLeftPartyMessagesHelpMarker {
             get {
                 return ResourceManager.GetString("PartyTab_ShowLeftPartyMessagesHelpMarker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show party member offline messages.
+        /// </summary>
+        internal static string PartyTab_ShowPartyMemberOfflineMessages {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowPartyMemberOfflineMessages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LogMessage 84 - eg. Raven Reaver has gone offline. Uses the System channel..
+        /// </summary>
+        internal static string PartyTab_ShowPartyMemberOfflineMessagesHelpMarker {
+            get {
+                return ResourceManager.GetString("PartyTab_ShowPartyMemberOfflineMessagesHelpMarker", resourceCulture);
             }
         }
         

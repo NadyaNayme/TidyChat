@@ -295,6 +295,29 @@ public sealed partial class TidyChatPlugin
         return false;
     }
 
+    /// <summary>
+    ///     A parameterised LogMessage's hook text can differ from the printed line (eg. "you have gone offline"
+    ///     vs "raven reaver has gone offline"), so a text Allow filter may only match on the chat path.
+    ///     Hide softly in that case instead of preventing the line from ever reaching chat.
+    /// </summary>
+    private bool ShouldDeferBlockToChatAllowFilter(ILogMessage message)
+    {
+        if (message.ParameterCount == 0 || Configuration.Whitelist.Count == 0)
+        {
+            return false;
+        }
+
+        var chatType = LogMessageCatalog.GetChatTypeForId(message.LogMessageId) ?? ChatType.System;
+        return HasTextAllowCustomFilterFor(Configuration.Whitelist, chatType);
+    }
+
+    internal static bool HasTextAllowCustomFilterFor(IEnumerable<PlayerName> whitelist, ChatType chatType) =>
+        whitelist.Any(entry =>
+            entry.AllowMessage &&
+            !entry.IsLogMessageId &&
+            !string.IsNullOrWhiteSpace(entry.FirstName) &&
+            Flags.CheckFlags(entry.WhitelistedChannels, chatType));
+
     private bool CustomFilterMatchesLogMessageText(PlayerName entry, ChatType chatType, string rawTextValue,
         string extractedTextValue, string normalizedText)
     {
