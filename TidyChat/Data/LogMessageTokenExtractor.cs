@@ -3,8 +3,7 @@ namespace TidyChat.Data;
 
 internal readonly record struct TemplateToken(string Text, bool OpenStart, bool OpenEnd)
 {
-    // an edge glued to a macro (plural suffix, name, number) may continue into letters in chat;
-    // every other edge must be a word boundary, so "ward" no longer matches "wardr…" (#132)
+    // only macro-glued edges may run into letters (plurals); others need a word break so "ward" ≠ "wardr…" (#132)
     public bool IsIn(string text)
     {
         var index = text.IndexOf(Text, StringComparison.Ordinal);
