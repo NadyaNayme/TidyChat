@@ -138,12 +138,12 @@ public static partial class ChatStrings
     /// <seealso href="https://xivapi.com/LogMessage/560?pretty=true">You are revived.</seealso>
     public static readonly LocalizedRegex PvpCombatMessageRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^.+は、(?:.+を倒した|.+に倒された|力尽きた|戦闘不能から蘇生した)。$", RegexOptions, RegexTimeout),
         Eng = new(
             @"^(?:you defeat .+|.+ defeats .+|(?:you are|.+ is) defeated(?: by .+)?|you are revived|.+ is revived)\.$",
             RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^.+ (?:besiegt|zusammen|wiederbelebt)\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ conscience\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/700?pretty=true">… equipped.</see>
@@ -169,28 +169,28 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/561?pretty=true">You change to …</see>
     public static readonly LocalizedRegex JobChangeRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^youは「.+」にチェンジした。$", RegexOptions, RegexTimeout),
         Eng = new(@"^you change to .+\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du \S+ nun .+\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous êtes maintenant .+\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/756?pretty=true">“…” registered.</see>
     public static readonly LocalizedRegex JobRegisteredRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^ギアセット.*「.+」を登録しました。$", RegexOptions, RegexTimeout),
         Eng = new(@"^.+ registered\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du hast das ausrüstungsset „.+“ gespeichert\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous enregistrez la tenue “.+”\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1281?pretty=true">You change to … (specialist).</see>
     public static readonly LocalizedRegex JobSpecialistChangeRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^youは「マイスター.+」にチェンジした。$", RegexOptions, RegexTimeout),
         Eng = new(@"^you change to .+ \(specialist\)\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du \S+ nun .+ \(spezialist\)\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous \S+ maintenant .+ \(spécialiste\)\.$", RegexOptions, RegexTimeout)
     };
 
     /// <summary>Community hunt relay lines (e.g. Rank S: Name Zone (x, y) &lt;World&gt;).</summary>
@@ -223,18 +223,18 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/501?pretty=true">… readies …</see>
     public static readonly LocalizedRegex CombatEnemyReadiesRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^(?<actor>(?!youは).+?)は「(?<ability>.+?)」の構え。?$", RegexOptions, RegexTimeout),
         Eng = new(@"^(?<actor>(?!you\b).+?) readies (?<ability>.+?)\.?$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Deu = new(@"^(?<actor>(?!du\b).+?) \S+ sich(?: \S+)?, (?<ability>.+?) einzusetzen\.?$", RegexOptions, RegexTimeout),
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/533?pretty=true">… uses …</see>
     public static readonly LocalizedRegex CombatEnemyUsesRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^(?<actor>(?!youの).+?)の「(?<ability>.+?)」(?:\s*\(\d+x\))?$", RegexOptions, RegexTimeout),
         Eng = new(@"^(?<actor>(?!you\b).+?) uses (?<ability>.+?)(?:\.\s*(?:\(\d+x\))?)?$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Deu = new(@"^(?<actor>(?!du\b).+?) setzt (?<ability>.+?) ein(?:\.\s*(?:\(\d+x\))?)?$", RegexOptions, RegexTimeout),
         Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
     };
 
@@ -243,16 +243,16 @@ public static partial class ChatStrings
     {
         Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
         Eng = new(@"^you receive \d+ ", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du erhältst \d+ ", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous recevez \d+ ", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/2600?pretty=true">You sense something foul may be lurking in the distance.</see>
     public static readonly LocalizedRegex SpideySensesRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"気配を感じ", RegexOptions, RegexTimeout),
         Eng = new("you sense", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Deu = new(@"du spürst", RegexOptions, RegexTimeout),
         Fra = new("(vous|you) (percevez|ressentez)", RegexOptions, RegexTimeout)
     };
 
@@ -494,10 +494,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/2069?pretty=true">The blasting cap drops a six-onze pinch of firesand.</see>
     public static readonly LocalizedRegex DungeonMechanicDropsRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^.+が.+を落とした！$", RegexOptions, RegexTimeout),
         Eng = new(@"^.+ drops .+\.\s*$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^.+ hat .+ fallen lassen!$", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ fait tomber .+\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1051?pretty=true">You obtain nothing.</see>
@@ -506,20 +506,20 @@ public static partial class ChatStrings
     /// <seealso href="https://xivapi.com/LogMessage/1056?pretty=true">You obtain nothing.</seealso>
     public static readonly LocalizedRegex GatheringObtainNothingRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^(?:.+は)?何も入手できなかった。$", RegexOptions, RegexTimeout),
         Eng = new(@"^(?:you|\S.+?) obtains? nothing\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^.+ nichts erhalten\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ n'\S+ rien\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/3549?pretty=true">You use Brazen Woodsman/Prospector…</see>
     /// <seealso href="https://xivapi.com/LogMessage/3569?pretty=true">You use Meticulous Woodsman/Prospector…</seealso>
     public static readonly LocalizedRegex GatheringUsesCollectabilityActionRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^.+の「(?:大胆|慎重)純化」", RegexOptions, RegexTimeout),
         Eng = new(@"^(?:you|\S.+?) uses (?:brazen|meticulous) (?:woodsman|prospector)\b", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^.+ setzt „(?:intuitive|fachkundige) lese“ ein", RegexOptions, RegexTimeout),
+        Fra = new(@"^.+ sélection (?:instinctive|méthodique)\b", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/1119?pretty=true">The fish gets away...</see>
@@ -543,102 +543,102 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/10965?pretty=true">You sense the presence of … silver/bronze coffer(s)…</see>
     public static readonly LocalizedRegex TreasureCofferSenseRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^このエリアから、銀の宝箱.+個、銅の宝箱.+個の気配を感じる……！$", RegexOptions, RegexTimeout),
         Eng = new(
             @"^you sense the presence of .+ silver coffers? and .+ bronze coffers? in the area!$",
             RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du spürst in dieser gegend .+ silberne .+ und .+ bronzene .+!$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous ressentez la présence de .+ coffres? en argent et .+ coffres? en bronze dans cette zone\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/10966?pretty=true">There appear to be no treasure coffers…</see>
     public static readonly LocalizedRegex NoTreasureCofferSenseRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^このエリアには、今は宝箱はなさそうだ", RegexOptions, RegexTimeout),
         Eng = new(@"^there appear to be no treasure coffers in the area", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^in dieser gegend scheint es keine schatztruhen zu geben", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous ne ressentez la présence d'aucun coffre dans cette zone", RegexOptions, RegexTimeout)
     };
 
     /// <summary>Eureka (9003–9006) and Occult Crescent (10986–10989) directional pot senses.</summary>
     public static readonly LocalizedRegex TreasurePotSenseRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^財宝の気配を、.+方向の(?:とても)?(?:近く|遠く)から感じているようだ", RegexOptions, RegexTimeout),
         Eng = new(@"^you sense something (?:immediately |far(?:, far)? )?to the .+\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du spürst eine schatztruhe (?:sehr nah |weit |sehr weit )?.+ von dir!$", RegexOptions, RegexTimeout),
+        Fra = new(@"^le trésor est (?:tout près|non loin|assez loin|très loin) d'ici, .+\s*!$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/10997?pretty=true">You sense no happy bunnies…</see>
     public static readonly LocalizedRegex HappyBunnyAbsentRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^近くにしあわせうさぎの気配は感じられない", RegexOptions, RegexTimeout),
         Eng = new(@"^you sense no happy bunnies in the area", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du siehst keinerlei glückshasenspuren in der näheren umgebung", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous ne ressentez pas la présence d'un lapin du bonheur dans les environs", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/10996?pretty=true">fortune carrot / happy bunny offer</see>
     public static readonly LocalizedRegex HappyBunnyOfferRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^しあわせうさぎは、フォーチュンカロットのお礼に財宝を譲りたいようだ！$", RegexOptions, RegexTimeout),
         Eng = new(@"^in return for your fortune carrot, the happy bunny wishes to offer you treasure\.$",
             RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^der glückshase will dir als dank für das wonnemöhrchen seinen schatz überlassen!$", RegexOptions, RegexTimeout),
+        Fra = new(@"^le lapin du bonheur veut vous offrir un trésor pour vous remercier\s*!$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/3510?pretty=true">Mooch to land an even bigger catch!</see>
     public static readonly LocalizedRegex MoochTipRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^泳がせ釣りのチャンス！$", RegexOptions, RegexTimeout),
         Eng = new(@"^mooch to land an even bigger catch!$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du kannst mit diesem fisch das köderfisch-angeln versuchen!$", RegexOptions, RegexTimeout),
+        Fra = new(@"^ce poisson est parfait pour la pêche au vif\s*!$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/3593?pretty=true">You land a fish usable with Mooch II.</see>
     public static readonly LocalizedRegex MoochIILandRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^アクション「泳がせ釣りii」のエサとなる魚を釣り上げた。$", RegexOptions, RegexTimeout),
         Eng = new(@"^you land a fish usable with mooch ii\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du hast einen fisch gefangen, der als naturköder ii geeignet ist\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous avez attrapé un poisson vous donnant l'opportunité d'utiliser pêche au vif ii\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/3594?pretty=true">You miss your chance to mooch…</see>
     public static readonly LocalizedRegex MoochMissRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^泳がせ釣りのチャンスを失った", RegexOptions, RegexTimeout),
         Eng = new(@"^you miss your chance to mooch", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^die gelegenheit zum köderfisch-angeln ist dir entgangen", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous avez laissé échapper votre chance de pêche au vif", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/5556?pretty=true">You keep … as swimbait.</see>
     public static readonly LocalizedRegex SwimbaitKeepRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^.+を泳がせ餌としてキープした。$", RegexOptions, RegexTimeout),
         Eng = new(@"^you keep .+ as swimbait\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du behältst .+ als köderfisch am haken\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous conservez .+ comme appât pour la pêche au vif\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/5557?pretty=true">You release … and keep … as swimbait.</see>
     public static readonly LocalizedRegex SwimbaitReleaseKeepRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^.+を放し、\s*.+を泳がせ餌としてキープした。$", RegexOptions, RegexTimeout),
         Eng = new(@"^you release .+ and keep .+ as swimbait\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du lässt .+ frei und behältst .+ als köderfisch am haken\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous relâchez .+ et conservez .+ comme appât pour la pêche au vif\.$", RegexOptions, RegexTimeout)
     };
 
     /// <see href="https://xivapi.com/LogMessage/5559?pretty=true">You release fish kept as swimbait.</see>
     public static readonly LocalizedRegex SwimbaitReleaseRegex = new()
     {
-        Jpn = new("NeedsLocalization", RegexOptions, RegexTimeout),
+        Jpn = new(@"^泳がせ餌としてキープしていた魚を放した。$", RegexOptions, RegexTimeout),
         Eng = new(@"^you release fish kept as swimbait\.$", RegexOptions, RegexTimeout),
-        Deu = new("NeedsLocalization", RegexOptions, RegexTimeout),
-        Fra = new("NeedsLocalization", RegexOptions, RegexTimeout)
+        Deu = new(@"^du hast deinen köderfisch freigelassen\.$", RegexOptions, RegexTimeout),
+        Fra = new(@"^vous relâchez les prises conservées comme appâts pour la pêche au vif\.$", RegexOptions, RegexTimeout)
     };
 }
