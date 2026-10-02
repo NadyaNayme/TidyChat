@@ -1,5 +1,8 @@
 using Dalamud.Plugin.Services;
 using Lumina.Excel.Sheets;
+using Lumina.Text.Payloads;
+using Lumina.Text.ReadOnly;
+using System.Text;
 using TidyChat.Localization.Data;
 namespace TidyChat.Data;
 
@@ -9,6 +12,7 @@ public static class LogMessageCatalog
     public static readonly uint[] SharedObtainTemplateIds = [657, 1259];
 
     private static readonly Dictionary<uint, string[]> WordTokensById = [];
+    private static readonly Dictionary<uint, TemplateToken[]> TemplateTokensById = [];
     private static readonly Dictionary<uint, string> TemplateTextById = [];
     private static readonly Dictionary<uint, byte> LogKindById = [];
 
@@ -32,6 +36,7 @@ public static class LogMessageCatalog
     internal static void LoadForTests(IReadOnlyDictionary<uint, string> templates, byte logKind = 57)
     {
         WordTokensById.Clear();
+        TemplateTokensById.Clear();
         TemplateTextById.Clear();
         LogKindById.Clear();
         IsLoaded = false;
@@ -40,11 +45,7 @@ public static class LogMessageCatalog
         {
             LogKindById[id] = logKind;
             TemplateTextById[id] = text;
-            var tokens = LogMessageTokenExtractor.Extract(text);
-            if (tokens.Length > 0)
-            {
-                WordTokensById[id] = tokens;
-            }
+            AddTokens(id, text);
         }
 
         IsLoaded = templates.Count > 0;
@@ -53,6 +54,7 @@ public static class LogMessageCatalog
     public static void Load(IDataManager dataManager, IPluginLog log)
     {
         WordTokensById.Clear();
+        TemplateTokensById.Clear();
         TemplateTextById.Clear();
         LogKindById.Clear();
         IsLoaded = false;
@@ -72,11 +74,7 @@ public static class LogMessageCatalog
 
                 TemplateTextById[row.RowId] = text;
 
-                var tokens = LogMessageTokenExtractor.Extract(text);
-                if (tokens.Length > 0)
-                {
-                    WordTokensById[row.RowId] = tokens;
-                }
+                AddTokens(row.RowId, BuildMarkedText(template));
             }
 
             IsLoaded = true;
@@ -90,10 +88,40 @@ public static class LogMessageCatalog
         }
     }
 
-    public static bool HasTokens(uint logMessageId) =>
-        WordTokensById.ContainsKey(logMessageId) ||
-        (TemplateTextById.TryGetValue(logMessageId, out var template) &&
-         LogMessageTokenExtractor.Extract(template).Length > 0);
+    private static void AddTokens(uint logMessageId, string markedText)
+    {
+        var tokens = LogMessageTokenExtractor.ExtractTokens(markedText);
+        if (tokens.Length == 0)
+        {
+            return;
+        }
+        TemplateTokensById[logMessageId] = tokens;
+        WordTokensById[logMessageId] = [.. tokens.Select(token => token.Text)];
+    }
+
+    internal static string BuildMarkedText(ReadOnlySeString template)
+    {
+        var builder = new StringBuilder();
+        foreach (var payload in template)
+        {
+            if (payload.Type == ReadOnlySePayloadType.Text)
+            {
+                builder.Append(Encoding.UTF8.GetString(payload.Body.Span));
+                continue;
+            }
+
+            builder.Append(payload.MacroCode switch
+            {
+                MacroCode.NewLine or MacroCode.NonBreakingSpace => " ",
+                MacroCode.Hyphen => "-",
+                MacroCode.SoftHyphen => "",
+                _ => LogMessageTokenExtractor.MacroMarker.ToString()
+            });
+        }
+        return builder.ToString().Trim();
+    }
+
+    public static bool HasTokens(uint logMessageId) => TemplateTokensById.ContainsKey(logMessageId);
 
     public static bool HasTemplate(uint logMessageId) => TemplateTextById.ContainsKey(logMessageId);
 
@@ -130,23 +158,21 @@ public static class LogMessageCatalog
 
     public static bool Matches(uint logMessageId, string normalizedText)
     {
-        if (!WordTokensById.TryGetValue(logMessageId, out var tokens) &&
-            TemplateTextById.TryGetValue(logMessageId, out var template))
-        {
-            tokens = LogMessageTokenExtractor.Extract(template);
-        }
-
-        if (tokens is null || tokens.Length == 0)
+        if (!TemplateTokensById.TryGetValue(logMessageId, out var tokens))
         {
             return false;
         }
 
-        if (!tokens.All(normalizedText.Contains))
+        foreach (var token in tokens)
         {
-            return false;
+            if (!token.IsIn(normalizedText))
+            {
+                return false;
+            }
         }
 
-        return !ObtainCurrencyHelper.TemplateMissingDedicatedObtainMarkers(normalizedText, tokens);
+        return !ObtainCurrencyHelper.TemplateMissingDedicatedObtainMarkers(normalizedText,
+            WordTokensById[logMessageId]);
     }
 
     public static bool MatchesAny(IEnumerable<uint> logMessageIds, string normalizedText)
