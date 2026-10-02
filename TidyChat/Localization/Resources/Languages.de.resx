@@ -1137,7 +1137,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show All other crafting (catch-all)</value>
   </data>
   <data name="CraftingTab_ShowAllOtherCraftingHelpMarker" xml:space="preserve">
-    <value>When checked, step-by-step crafting log lines show (LogMessages 1150, 1154–1155, 5912–5913, 1162, 1164, 1167–1169, 5918). eg. You begin synthesizing a Linen Bandana. Nested options control buff effect gain (603) and able to execute (5533). When unchecked, all lines in this group stay hidden (nested settings are saved).</value>
+    <value>When checked, step-by-step crafting log lines show (LogMessages 1150, 1154-1155, 5912-5913, 1162, 1164, 1167-1169, 5918). eg. You begin synthesizing a Linen Bandana. Nested options control buff effect gain (603) and able to execute (5533). When unchecked, all lines in this group stay hidden (nested settings are saved).</value>
   </data>
   <data name="CraftingTab_ShowCraftingAbleToExecute" xml:space="preserve">
     <value>Show crafting "able to execute"</value>
@@ -1326,7 +1326,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show pomander effect messages</value>
   </data>
   <data name="DeepDungeonsTab_ShowPomanderEffectsMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 7254–7264 - eg. A pomander of sight is expended.</value>
+    <value>LogMessages 7254-7264 - eg. A pomander of sight is expended.</value>
   </data>
   <data name="DeepDungeonsTab_ShowTransferenceMessages" xml:space="preserve">
     <value>Show transference messages</value>
@@ -1389,7 +1389,7 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show Duty Finder notifications</value>
   </data>
   <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 890–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), party recruitment commenced/ended (979/981). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
+    <value>LogMessages 890-4682 - duty registration briefing (4670-4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), party recruitment commenced/ended (979/981). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
   </data>
   <data name="DutyTab_ShowRecruitmentSearchResults" xml:space="preserve">
     <value>Show Party Finder search results</value>
@@ -1772,7 +1772,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Hide only locations that affect Gatherer's Boon</value>
   </data>
   <data name="GatheringTab_HideGatheringBoonLocationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 1097 (GatheringSystem), 11172–11173 (System) - location rate lines and Cosmic chain score lines (e.g. You earn a score of N from Gatherer's Boon). Checked = hide. Not controlled by Cosmic &amp; Stellar Exploration.</value>
+    <value>LogMessages 1097 (GatheringSystem), 11172-11173 (System) - location rate lines and Cosmic chain score lines (e.g. You earn a score of N from Gatherer's Boon). Checked = hide. Not controlled by Cosmic &amp; Stellar Exploration.</value>
   </data>
   <data name="GatheringTab_HideGatheringYieldLocationMessages" xml:space="preserve">
     <value>Hide only locations that affect gathering yield</value>
@@ -1820,7 +1820,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Show cosmic exploration messages</value>
   </data>
   <data name="CosmicExplorationTab_ShowCosmicExplorationMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 10787–10790, 10807, 10830, 10881, 10884, 11334, 11335 - exploration contributions (incl. sizable), mech-op directives, and red-alert lines. Needs Filter System on General.</value>
+    <value>LogMessages 10787-10790, 10807, 10830, 10881, 10884, 11334, 11335 - exploration contributions (incl. sizable), mech-op directives, and red-alert lines. Needs Filter System on General.</value>
   </data>
   <data name="CosmicExplorationTab_ShowCosmicRewards" xml:space="preserve">
     <value>Show cosmic currency obtains</value>
@@ -1870,7 +1870,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show collectable gather obtain messages</value>
   </data>
   <data name="GatheringTab_ShowGatheringCollectableObtainMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3538, 1049–1050, 1053–1054 (LootNotice) and 1051–1052, 1055–1056 (Gathering) - collectable obtains and obtain-nothing lines. Needs Filter Obtained and Filter Gathering on General.</value>
+    <value>LogMessages 3538, 1049-1050, 1053-1054 (LootNotice) and 1051-1052, 1055-1056 (Gathering) - collectable obtains and obtain-nothing lines. Needs Filter Obtained and Filter Gathering on General.</value>
   </data>
   <data name="GatheringTab_ShowGatheringSensesLabel" xml:space="preserve">
     <value>Show "You sense..." messages for gathering locations</value>
@@ -1882,7 +1882,7 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>Show the begin/end gathering messages</value>
   </data>
   <data name="GatheringTab_ShowGatheringStartEndHelpMarker" xml:space="preserve">
-    <value>LogMessages 1063–1070 - eg. You begin gathering. / You finish gathering.</value>
+    <value>LogMessages 1063-1070 - eg. You begin gathering. / You finish gathering.</value>
   </data>
   <data name="GatheringTab_ShowLocationGatheringEffectMessages" xml:space="preserve">
     <value>Show message when location affects gathering (integrity, collectability, senses)</value>
@@ -2183,7 +2183,7 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
     <value>Show Out on a Limb / The Finer Miner swing feedback</value>
   </data>
   <data name="GoldSaucerTab_ShowSwingMinigamesHelpMarker" xml:space="preserve">
-    <value>LogMessages 4784–4793 - System channel. Out on a Limb (4789–4793) and The Finer Miner (4784–4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You're right on top of it!</value>
+    <value>LogMessages 4784-4793 - System channel. Out on a Limb (4789-4793) and The Finer Miner (4784-4788) reuse 1.x gathering feedback text, e.g. You take up your hatchet, You sense nothing, You're right on top of it!</value>
   </data>
   <data name="GoldSaucerTab_ShowTripleTriadAllowed" xml:space="preserve">
     <value>Show Triple Triad allowed here</value>
@@ -2463,7 +2463,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>Show PvP zone triumph and gauge messages</value>
   </data>
   <data name="ProgressTab_ShowPvpZoneAnnouncementsHelpMarker" xml:space="preserve">
-    <value>Frontline objective announcements plus LogMessages 11308, 11311–11313, 11368 - Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
+    <value>Frontline objective announcements plus LogMessages 11308, 11311-11313, 11368 - Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
   </data>
   <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show Second Chance reward</value>
@@ -2478,7 +2478,7 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>LogMessages 7556, 7557 - eg. You acquire 1,500 Series EXP. / You attain Series level 2!</value>
   </data>
   <data name="ReplacesSpecialCharactersSuchAsWithA" xml:space="preserve">
-    <value>Replaces block-letter and special UI font characters with normal letters (A–Z, 0–9) in chat text.</value>
+    <value>Replaces block-letter and special UI font characters with normal letters (A-Z, 0-9) in chat text.</value>
   </data>
   <data name="SettingsTabFooter_WikiPageButtonText" xml:space="preserve">
     <value>Wiki Page</value>
@@ -2615,7 +2615,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show inventory item search results</value>
   </data>
   <data name="SystemTab_ShowInventoryItemSearchResultsHelpMarker" xml:space="preserve">
-    <value>LogMessages 1629–1631 - match summary (1629–1630) and item name lines (1631, eg. &gt;&gt; Caramel Popcorn).</value>
+    <value>LogMessages 1629-1631 - match summary (1629-1630) and item name lines (1631, eg. &gt;&gt; Caramel Popcorn).</value>
   </data>
   <data name="SystemTab_ShowItemSearchResultsMessage" xml:space="preserve">
     <value>Show /isearch result messages</value>
@@ -2627,7 +2627,7 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
     <value>Show location search results</value>
   </data>
   <data name="SystemTab_ShowLocationSearchResultsHelpMarker" xml:space="preserve">
-    <value>LogMessages 1438–1453 (16 IDs) - /isearch location result lines.</value>
+    <value>LogMessages 1438-1453 (16 IDs) - /isearch location result lines.</value>
   </data>
   <data name="SystemTab_ShowMailAttachmentMessages" xml:space="preserve">
     <value>Show items attached to sent mail</value>

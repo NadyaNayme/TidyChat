@@ -362,7 +362,7 @@ public static partial class ChatStrings
         Fra = new(@"^la porte de la (?<chamber>1|2|3|4|5|6)(?:re|e) salle s'ouvre\.$", RegexOptions, RegexTimeout)
     };
 
-    /// <see href="https://xivapi.com/LogMessage/7224?pretty=true">Deep dungeon trap (7224–7229)</see>
+    /// <see href="https://xivapi.com/LogMessage/7224?pretty=true">Deep dungeon trap (7224-7229)</see>
     public static readonly LocalizedRegex TrapTriggered = new()
     {
         Jpn = new(@"トラップが発動した！.*退出させられた", RegexOptions, RegexTimeout),
@@ -375,7 +375,7 @@ public static partial class ChatStrings
 
     #region Housing
 
-    /// <see href="https://xivapi.com/LogMessage/3379?pretty=true">PlaceName, Ward N — housing ward entry.</see>
+    /// <see href="https://xivapi.com/LogMessage/3379?pretty=true">PlaceName, Ward N - housing ward entry.</see>
     public static readonly LocalizedRegex HousingWardEntryRegex = new()
     {
         Jpn = new(@"^第\d+区\.?$", RegexOptions, RegexTimeout),
@@ -384,7 +384,7 @@ public static partial class ChatStrings
         Fra = new(@"^.+ - secteur \d+\.?$", RegexOptions, RegexTimeout)
     };
 
-    /// UI strings from CmnDefHousingSignboard — no LogMessage sheet row.
+    /// UI strings from CmnDefHousingSignboard - no LogMessage sheet row.
     public static readonly LocalizedRegex HousingLotteryMessageRegex = new()
     {
         Jpn = new(@"^(?:第\d+区 \d+番地の抽選|応募番号|ハウジング」タブ)", RegexOptions, RegexTimeout),
@@ -560,7 +560,7 @@ public static partial class ChatStrings
         Fra = new(@"^vous ne ressentez la présence d'aucun coffre dans cette zone", RegexOptions, RegexTimeout)
     };
 
-    /// <summary>Eureka (9003–9006) and Occult Crescent (10986–10989) directional pot senses.</summary>
+    /// <summary>Eureka (9003-9006) and Occult Crescent (10986-10989) directional pot senses.</summary>
     public static readonly LocalizedRegex TreasurePotSenseRegex = new()
     {
         Jpn = new(@"^財宝の気配を、.+方向の(?:とても)?(?:近く|遠く)から感じているようだ", RegexOptions, RegexTimeout),

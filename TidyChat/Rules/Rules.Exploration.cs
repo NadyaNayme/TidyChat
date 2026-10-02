@@ -87,7 +87,7 @@ public static partial class Rules
             Pattern = PatternKind.StringMatch,
             PreferLogMessageCatalog = true
         },
-        // 9330/9333 — weekly/daily bill mark direction + lost-sense (not S/SS spawn 9331/9332).
+        // 9330/9333 - weekly/daily bill mark direction + lost-sense (not S/SS spawn 9331/9332).
         new()
         {
             Name = "ShowMarkBillMessages",

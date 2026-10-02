@@ -57,7 +57,7 @@ public static partial class ChatStrings
         Fra = ["compagnie limséen"]
     };
 
-    /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental clusters (see Item/14–19)</see>
+    /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental clusters (see Item/14-19)</see>
     public static readonly LocalizedStrings ObtainClusterMarker = new()
     {
         Jpn = ["クラスター"],

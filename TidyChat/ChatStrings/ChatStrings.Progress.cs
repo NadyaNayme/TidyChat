@@ -129,7 +129,7 @@ public static partial class ChatStrings
         Fra = ["NeedsLocalization"]
     };
 
-    /// <summary>Shared obtain templates 657, 1259 — e.g. You obtain N armorer tool mastery points.</summary>
+    /// <summary>Shared obtain templates 657, 1259 - e.g. You obtain N armorer tool mastery points.</summary>
     public static readonly LocalizedStrings CosmicToolMasteryPoints = new()
     {
         Jpn = ["のマスターシップポイントを", "ポイント入手しました"],

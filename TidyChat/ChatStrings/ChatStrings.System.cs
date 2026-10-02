@@ -49,7 +49,7 @@ public static partial class ChatStrings
         Fra = ["total"]
     };
 
-    /// <see href="https://xivapi.com/LogMessage/859?pretty=true">/playtime — Total Play Time: N days, N hours, N minutes.</see>
+    /// <see href="https://xivapi.com/LogMessage/859?pretty=true">/playtime - Total Play Time: N days, N hours, N minutes.</see>
     public static readonly LocalizedStrings TotalPlayTime = new()
     {
         Jpn = ["累積プレイ時間"],
