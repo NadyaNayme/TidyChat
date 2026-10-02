@@ -6,10 +6,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/10830?pretty=true">A new mech op directive has been issued.</see>
     public static readonly LocalizedStrings MechOpDirective = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["メカオペレーションが発令されました", "パイロットになりたい場合は", "搭乗希望エントリーをしましょう"],
         Eng = ["mech", "directive", "pilots", "application"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["angefordert", "aufgerufen", "einsteigeerlaubnis"],
+        Fra = ["intervention", "mécanique", "volontaire"]
     };
     /// <see href="https://xivapi.com/LogMessage/10884?pretty=true">A red alert has been issued.</see>
     /// <seealso href="https://xivapi.com/LogMessage/10881?pretty=true">The red alert has been resolved.</seealso>
@@ -21,7 +21,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["red", "alert"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Fra = ["alerte", "rouge"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10787?pretty=true">
@@ -33,18 +33,18 @@ public static partial class ChatStrings
     /// <seealso href="https://xivapi.com/LogMessage/10790?pretty=true">A sizable contribution…</seealso>
     public static readonly LocalizedStrings CosmicExplorationContribution = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["調査員により"],
         Eng = ["contribution", "exploration", "initiative", "recorded"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["projektbeitrag", "komitee", "aufgezeichnet"],
+        Fra = ["examinateur", "enregistré", "efforts"]
     };
 
     public static readonly LocalizedStrings CosmicExplorationSizableContribution = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["調査員により", "とても大きな活躍が記録された"],
         Eng = ["sizable", "contribution", "exploration", "initiative", "recorded"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["unglaublicher", "projektbeitrag", "aufgezeichnet"],
+        Fra = ["examinateur", "enregistré", "considérables"]
     };
 
     public static readonly LocalizedStrings CosmicContainerObtain = new()
@@ -57,10 +57,10 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings CosmicFortuneObtain = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモフォーチュンの景品として", "を入手しました"],
         Eng = ["obtain", "cosmic", "fortune"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["preis", "kosmo", "erhalten"],
+        Fra = ["gagné", "fortune", "cosmique"]
     };
 
     public static readonly LocalizedStrings CosmocreditObtain = new()
@@ -74,10 +74,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/10859?pretty=true">You will receive additional cosmocredits.</see>
     public static readonly LocalizedStrings CosmocreditReceived = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["メカオペレーションのサポートにより", "コスモミッションの報酬クレジットが一定回数アップするようになった"],
         Eng = ["receive", "cosmocredit"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["bodenunterstützung", "limitierten", "missionsvergütungen"],
+        Fra = ["intervention", "mécanique", "récompense"]
     };
 
     public static readonly LocalizedStrings OizysCreditObtain = new()

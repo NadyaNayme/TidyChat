@@ -17,10 +17,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/1150?pretty=true">You begin synthesizing …</see>
     public static readonly LocalizedStrings CraftingBeginSynthesizing = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["の製作を開始した"],
         Eng = ["begin", "synthesiz"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["begonnen", "synthese", "herzustellen"],
+        Fra = ["commencez", "fabriquer"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1154?pretty=true">You use … Success!</see>
@@ -29,8 +29,8 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["you", "use", "success"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["setzt", "erfolg"],
+        Fra = ["utilisez", "succès"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1155?pretty=true">You use … Failure!</see>
@@ -39,35 +39,35 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["you", "use", "failure"],
-        Deu = ["NeedsLocalization"],
+        Deu = ["setzt", "fehlschlag"],
         Fra = ["NeedsLocalization"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1162?pretty=true">Progress increases …</see>
     public static readonly LocalizedStrings CraftingProgressIncrease = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["作業が", "進んだ"],
         Eng = ["progress", "increas"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["fortschritt", "gestiegen"],
+        Fra = ["progression", "augmente"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1164?pretty=true">Quality increases …</see>
     public static readonly LocalizedStrings CraftingQualityIncrease = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["品質が", "上昇した"],
         Eng = ["quality", "increas"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["qualität", "gestiegen"],
+        Fra = ["qualité", "augmente"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1167?pretty=true">Durability decreases …</see>
     public static readonly LocalizedStrings CraftingDurabilityDecrease = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["耐久が", "減少した"],
         Eng = ["durability", "decreas"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["belastbarkeit", "gesunken"],
+        Fra = ["solidité", "diminue"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1168?pretty=true">… removed from your bag.</see>
@@ -82,28 +82,28 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/1169?pretty=true">You remove the following from your bag:</see>
     public static readonly LocalizedStrings CraftingRemoveFromBagHeader = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["は所持品から材料を取り出した"],
         Eng = ["remove", "following", "bag"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["folgendes", "material", "inventar"],
+        Fra = ["matériaux", "suivants", "inventaire"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/5918?pretty=true">All durability restored.</see>
     public static readonly LocalizedStrings CraftingDurabilityRestored = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["耐久が全回復した"],
         Eng = ["all", "durability", "restored"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["belastbarkeit", "vollständig", "wiederhergestellt"],
+        Fra = ["solidité", "entièrement", "restaurée"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1178?pretty=true">Proof of completion recorded in crafting log!</see>
     public static readonly LocalizedStrings CraftingLogProof = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["は製作手帳に", "を作った記録を残した"],
         Eng = ["proof", "completion", "crafting", "log"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["hergestellt", "handwerker", "notizbuch"],
+        Fra = ["fabrication", "carnet", "artisanat"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1156?pretty=true">Name synthesizes …</see>

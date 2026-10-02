@@ -70,18 +70,18 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/7224?pretty=true">The landmine is triggered...</see>
     public static readonly LocalizedStrings DeepDungeonLandmineTriggered = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["地雷が発動した"],
         Eng = ["landmine", "triggered"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["mine", "explodiert"],
+        Fra = ["mine", "déclenchée", "explosé"]
     };
     /// <see href="https://xivapi.com/LogMessage/7225?pretty=true">The luring trap is triggered...</see>
     public static readonly LocalizedStrings DeepDungeonTrapTriggered = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["誘引トラップが発動した"],
         Eng = ["trap", "triggered"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["ziehfalle", "ausgelöst"],
+        Fra = ["piège", "attracteur", "déclenché"]
     };
     /// <see href="https://xivapi.com/LogMessage/7229?pretty=true">
     ///     The detonator is triggered! The treasure coffer is no
@@ -89,10 +89,10 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings DeepDungeonDetonatorTriggered = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["トラップが起動し", "宝箱が爆発した"],
         Eng = ["detonator", "triggered"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["ausgelöst", "schatztruhe", "explodiert"],
+        Fra = ["déclenché", "faisant", "exploser"]
     };
     /// <see href="https://xivapi.com/LogMessage/9218?pretty=true">Floor N</see>
     public static readonly LocalizedStrings FloorNumber = new()
@@ -105,10 +105,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/7249?pretty=true">The current duty uses an independent leveling system.</see>
     public static readonly LocalizedStrings DeepDungeonIndependentLeveling = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["このコンテンツ内では", "専用のレベルが適用されます"],
         Eng = ["independent", "leveling", "system"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["diesem", "eigenes", "charakterstufen"],
+        Fra = ["spécifique", "appliqué", "personnages"]
     };
     /// <see href="https://xivapi.com/LogMessage/7272?pretty=true">You sense the Accursed Hoard calling you…</see>
     public static readonly LocalizedStrings SenseAccursedHoard = new()

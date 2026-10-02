@@ -24,46 +24,46 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/11308?pretty=true">Triumph count reduced after 10 minutes.</see>
     public static readonly LocalizedStrings WorqorTriumphReduced = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["同時に出現する戦略目標地の数が減少した"],
         Eng = ["triumphs", "reduced"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["gleichzeitig", "triumphpunkte", "verringert"],
+        Fra = ["bataille", "commencé", "névralgiques"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11311?pretty=true">The limit gauge has begun to fill!</see>
     public static readonly LocalizedStrings WorqorLimitGauge = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["リミットゲージ増加", "状態になった"],
         Eng = ["limit", "gauge"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["limitrausch", "balken", "beginnt"],
+        Fra = ["transcendance", "remplit", "progressivement"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11312?pretty=true">Auroras are beginning to form…</see>
     public static readonly LocalizedStrings WorqorAuroras = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["天候が変わり", "オーロラが発生しそうだ"],
         Eng = ["auroras"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["himmel", "langsam", "aurora"],
+        Fra = ["aurores", "boréales", "apparaître"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11313?pretty=true">High rank triumphs are now more likely to manifest!</see>
     public static readonly LocalizedStrings WorqorHighRankTriumphs = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["高ランクの戦略目標地が出現しやすくなった"],
         Eng = ["triumphs", "manifest"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["triumphpunkte", "erscheinen", "häufiger"],
+        Fra = ["névralgiques", "susceptibles", "apparaître"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11368?pretty=true">The snow has stopped falling…</see>
     public static readonly LocalizedStrings WorqorSnowStopped = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["天候が変わり", "雪は降り止んだ"],
         Eng = ["snow", "stopped"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["schneefall", "gelegt"],
+        Fra = ["neige", "cessé", "tomber"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/7556?pretty=true">You acquire N Series EXP.</see>
@@ -117,7 +117,7 @@ public static partial class ChatStrings
         Jpn = ["NeedsLocalization"],
         Eng = ["submitted", "dataset"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Fra = ["obtenez", "ensemble", "données"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10874?pretty=true">You earn N cosmic class points for …</see>
@@ -132,10 +132,10 @@ public static partial class ChatStrings
     /// <summary>Shared obtain templates 657, 1259 — e.g. You obtain N armorer tool mastery points.</summary>
     public static readonly LocalizedStrings CosmicToolMasteryPoints = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["のマスターシップポイントを", "ポイント入手しました"],
         Eng = ["obtain", "tool", "mastery", "point"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["meisterpunkte", "erhalten"],
+        Fra = ["obtenu", "maîtrise", "classe"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10875?pretty=true">You earn N daily points.</see>
@@ -150,28 +150,28 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/11156?pretty=true">You achieved the "…" daily success!</see>
     public static readonly LocalizedStrings DailySuccessAchieved = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["デイリー実績", "を達成した"],
         Eng = ["achieved", "daily", "success"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["tägliche", "errungenschaft", "vollbracht"],
+        Fra = ["accompli", "jalon", "journalier"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10877?pretty=true">Daily success goal achieved!</see>
     public static readonly LocalizedStrings DailySuccessGoalAchieved = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["デイリー実績の目標値を達成した"],
         Eng = ["daily", "success", "goal", "achieved"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["tagwerkpunkteziel", "erreicht"],
+        Fra = ["atteint", "objectif", "journalier"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10876?pretty=true">You achieved the "…" stellar success!</see>
     public static readonly LocalizedStrings StellarSuccessAchieved = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["計画実績", "を達成した"],
         Eng = ["achieved", "stellar", "success"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["projekterrungenschaft", "vollbracht"],
+        Fra = ["atteint", "jalon"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/952?pretty=true">You earn the achievement "…"!</see>

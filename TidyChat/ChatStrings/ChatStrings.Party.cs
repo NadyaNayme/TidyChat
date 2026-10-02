@@ -29,10 +29,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/7444?pretty=true">Cross-world party formed.</see>
     public static readonly LocalizedStrings CrossWorldPartyFormed = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["クロスワールドパーティを作成しました", "クロスワールドパーティは通常パーティと異なるため", "パーティに対して影響するアクションの効果が得られなくなります"],
         Eng = ["cross-world", "party", "formed"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["weltenübergreifende", "statuseffekte", "normalerweise"],
+        Fra = ["certaines", "appliqueront", "équipiers"]
     };
     /// <see href="https://xivapi.com/LogMessage/1?pretty=true">You invite … to a party.</see>
     public static readonly LocalizedStrings InviteSent = new()

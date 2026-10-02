@@ -6,18 +6,18 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/398?pretty=true">You are now selling items in the … markets.</see>
     public static readonly LocalizedStrings MarketBoardStartSelling = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["マーケットへの出品を開始しました"],
         Eng = ["selling", "items", "markets"],
-        Deu = ["NeedsLocalization"],
+        Deu = ["verkaufst", "gegenstände", "markt"],
         Fra = ["NeedsLocalization"]
     };
     /// <see href="https://xivapi.com/LogMessage/399?pretty=true">You are no longer selling items in the … markets.</see>
     public static readonly LocalizedStrings MarketBoardStopSelling = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["マーケットへの出品が停止されました"],
         Eng = ["no", "longer", "selling"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["gegenstände", "verkauf", "zurückgezogen"],
+        Fra = ["objets", "retirés", "vente"]
     };
     /// <see href="https://xivapi.com/LogMessage/748?pretty=true">
     ///     … you put up for sale in the markets has sold for … gil
@@ -25,17 +25,17 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings MarketItemSold = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["マーケットに", "ギルで出品した", "ギルを入手しました"],
         Eng = ["put", "up", "for", "sale", "markets", "sold", "after", "fees"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["gehilfe", "verkauft", "erhalten"],
+        Fra = ["servant", "vendu"]
     };
     public static readonly LocalizedStrings MarketAllItemsSold = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["マーケットへ出品したアイテムが完売しました"],
         Eng = ["all", "items", "sale", "markets", "sold"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["waren", "markt", "verkauft"],
+        Fra = ["objets", "vente", "vendus"]
     };
     /// <see href="https://xivapi.com/LogMessage/4578?pretty=true">
     ///     Gil earned from market sales has been entrusted to your
@@ -43,14 +43,14 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings MarketGilEntrustedToRetainer = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["マーケットで売れた出品物の代金がリテイナーに振り込まれました"],
         Eng = ["gil", "earned", "market", "sales", "entrusted", "retainer"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["marktverkäufen", "gehilfen", "anvertraut"],
+        Fra = ["argent", "transféré", "servant"]
     };
     public static readonly LocalizedStrings VendorSellForGil = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ギルで売却しました"],
         Eng = ["you", "sell", "for", "gil"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
@@ -64,7 +64,7 @@ public static partial class ChatStrings
     };
     public static readonly LocalizedStrings VendorPurchaseForGil = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ギルで購入しました"],
         Eng = ["you", "purchase", "for", "gil"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
@@ -72,17 +72,17 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4590?pretty=true">You spend gil on a purchase.</see>
     public static readonly LocalizedStrings GilSpent = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ギルを消費しました"],
         Eng = ["spent", "gil"],
         Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Fra = ["dépensé", "téléporter"]
     };
     public static readonly LocalizedStrings GilSafelyWithdrawn = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["リテイナーからギルを受け取りました"],
         Eng = ["gil", "safely", "withdrawn"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["wieder", "entnommen"],
+        Fra = ["récupéré", "argent", "servant"]
     };
     /// <see href="https://xivapi.com/LogMessage/4735?pretty=true">Jumbo Cactpot ticket purchase (MGP spend).</see>
     public static readonly LocalizedStrings JumboCactpotTicketPurchase = new()
@@ -96,18 +96,18 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4341?pretty=true">RetainerName has completed a venture!</see>
     public static readonly LocalizedStrings RetainerVentureComplete = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["あなたの雇用している", "冒険を終えました"],
         Eng = ["completed", "venture"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["unternehmung", "abgeschlossen"],
+        Fra = ["terminé", "tâche"]
     };
     /// <see href="https://xivapi.com/LogMessage/4331?pretty=true">You assign your retainer "Quick Exploration."</see>
     public static readonly LocalizedStrings RetainerVentureAssign = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["リテイナーベンチャー", "を依頼しました"],
         Eng = ["assign your retainer"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["gehilfen", "beauftragt"],
+        Fra = ["confié", "tâche", "servant"]
     };
     /// <see href="https://xivapi.com/LogMessage/4334?pretty=true">You pay RetainerName N ventures.</see>
     public static readonly LocalizedStrings RetainerVenturePayment = new()
@@ -120,45 +120,45 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4332?pretty=true">"Lv. …" is now complete.</see>
     public static readonly LocalizedStrings RetainerVentureItemComplete = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["リテイナーベンチャー", "が完了しました"],
         Eng = ["now", "complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["gehilfe", "erfolgreich", "beschafft"],
+        Fra = ["tâche", "terminée"]
     };
     /// <see href="https://xivapi.com/LogMessage/4335?pretty=true">Retainer has reached maximum level.</see>
     public static readonly LocalizedStrings RetainerMaxLevel = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["はレベルキャップに達しています", "雇用主の同クラス", "リテイナーが越えることはできません"],
         Eng = ["reached", "maximum", "level", "retainer"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["maximalstufe", "erreicht", "entspricht"],
+        Fra = ["atteint", "maximum", "dépasser"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/32?pretty=true">Trade request sent to …</see>
     public static readonly LocalizedStrings TradeRequestSent = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["にトレードを申し込みました"],
         Eng = ["trade", "request", "sent"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["handel", "angeboten"],
+        Fra = ["proposez", "échange"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/33?pretty=true">Awaiting trade confirmation from …</see>
     public static readonly LocalizedStrings TradeAwaitingConfirmation = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["の内容確認を待っています"],
         Eng = ["awaiting", "trade", "confirmation"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["warte", "bestätigung"],
+        Fra = ["proposition"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/34?pretty=true">… wishes to trade with you.</see>
     public static readonly LocalizedStrings TradeRequestReceived = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["からトレードを申し込まれました"],
         Eng = ["wishes", "trade", "you"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["möchte", "handeln"],
+        Fra = ["propose", "échange"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/36?pretty=true">… cancels the trade.</see>
@@ -173,9 +173,9 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/38?pretty=true">You complete the trade with …</see>
     public static readonly LocalizedStrings TradeComplete = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["トレードが完了しました"],
         Eng = ["complete", "trade"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["handel", "abgeschlossen"],
+        Fra = ["échange", "terminé"]
     };
 }

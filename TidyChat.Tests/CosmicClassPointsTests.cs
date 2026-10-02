@@ -1,3 +1,4 @@
+using Dalamud.Game;
 using NUnit.Framework;
 using TidyChat.Settings;
 namespace TidyChat.Tests;
@@ -5,6 +6,9 @@ namespace TidyChat.Tests;
 [TestFixture]
 public class CosmicClassPointsTests
 {
+    [SetUp]
+    public void SetUp() => L10N.Language = ClientLanguage.English;
+
     [Test]
     public void Tool_mastery_obtain_matches_cosmic_class_points_toggle()
     {

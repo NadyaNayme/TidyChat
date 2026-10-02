@@ -37,10 +37,10 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings MultihookBonusFish = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["アディショナルフックにより", "魚の獲得数が増加した"],
         Eng = ["multihook", "reeled", "additional", "fish"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["extrahakens", "erhöht", "fangbarer"],
+        Fra = ["obtenez", "davantage", "additionnel"]
     };
     public static readonly LocalizedStrings Mooching = new()
     {

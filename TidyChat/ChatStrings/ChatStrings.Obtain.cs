@@ -30,7 +30,7 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/3538?pretty=true">Collectable gather obtain (LootNotice).</see>
     public static readonly LocalizedStrings ObtainedSingleItem = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["枚手に入れた"],
         Eng = ["you", "obtain"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]
@@ -40,13 +40,13 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["added", "inventory"],
-        Deu = ["NeedsLocalization"],
+        Deu = ["inventar", "hinzugefügt"],
         Fra = ["NeedsLocalization"]
     };
 
     public static readonly LocalizedStrings DiscardedItem = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["を捨てた"],
         Eng = ["throw", "away"],
         Deu = ["NeedsLocalization"],
         Fra = ["NeedsLocalization"]

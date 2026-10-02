@@ -10,13 +10,16 @@ public class FateLevelSyncMatchingTests
         Rules.AllRules.First(r => r.Name == "HideFateLevelSync");
 
     [SetUp]
-    public void SetUp() =>
+    public void SetUp()
+    {
+        L10N.Language = Dalamud.Game.ClientLanguage.English;
         LogMessageCatalog.LoadForTests(new Dictionary<uint, string>
         {
             [2070] =
                 "You are UNKNOWN or more levels above the recommended level for this FATE.\nTo join, use the level sync function located in the duty list.",
             [2166] = "Unable to attack FATE target. Your level is too high."
         }, logKind: (byte)ChatType.Error);
+    }
 
     [Test]
     public void Matches_five_or_more_levels_chat_line()

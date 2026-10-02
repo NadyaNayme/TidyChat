@@ -22,10 +22,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/3240?pretty=true">You sense a hostile presence!</see>
     public static readonly LocalizedStrings HostilePresence = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["敵の気配を感じた"],
         Eng = ["hostile", "presence"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["spürst", "feindliche", "präsenz"],
+        Fra = ["ressentez", "présence", "hostile"]
     };
     /// <see href="https://xivapi.com/LogMessage/3712?pretty=true">The compass detects a current …</see>
     public static readonly LocalizedStrings AetherCompass = new()
@@ -39,10 +39,10 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">Mark details can viewed at any time… (second line).</see>
     public static readonly LocalizedStrings MarkBillDetails = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["を受注しました", "イベントアイテム", "手配書を使用することで内容を確認することができます"],
         Eng = ["mark", "details", "key items"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["jagdlizenz", "schlüsselgegenständen", "informationen"],
+        Fra = ["obtenu", "pouvez", "consulter"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/4415?pretty=true">You obtain a stack of mark bills.</see>

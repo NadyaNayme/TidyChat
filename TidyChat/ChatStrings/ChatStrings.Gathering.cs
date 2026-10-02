@@ -14,10 +14,10 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings LocationCollectabilityIncrease = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["採集場所の特質が", "収集品の収集価値上昇量に影響を及ぼした"],
         Eng = ["location", "grants", "increase", "collectability"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["sammelstelle", "beeinflusst", "sammlerwerts"],
+        Fra = ["propriétés", "augmentation", "collection"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/5551?pretty=true">
@@ -26,26 +26,26 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings LocationMeticulousIntegrity = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["採集場所の特質が", "慎重純化の追加効果発生率に影響を及ぼした"],
         Eng = ["location", "meticulous", "integrity"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["sammelstelle", "beeinflusst", "wahrscheinlichkeit"],
+        Fra = ["propriétés", "confèrent", "méthodique"]
     };
 
     public static readonly LocalizedStrings CollectabilityIncreases = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["収集価値が", "上昇した"],
         Eng = ["collectability", "increases"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["setzt", "sammlerwert", "gestiegen"],
+        Fra = ["valeur", "collection", "augmente"]
     };
 
     public static readonly LocalizedStrings CollectabilityMeticulousIntuition = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["バリューアップ発生", "収集価値が", "上昇した"],
         Eng = ["collector's", "intuition", "collectability", "increases"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["vertraust", "intuition", "sammlerwert"],
+        Fra = ["intuition", "collection", "augmente"]
     };
 
     public static readonly LocalizedStrings GatheringYield = new()
@@ -77,8 +77,8 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["earn", "score", "gatherer's", "boon"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["auslösen", "stückzahl", "erhalten"],
+        Fra = ["obtenez", "évaluation", "supplémentaire"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/1098?pretty=true">
@@ -151,26 +151,26 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings StellarMissionUnderway = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモミッション", "を開始した"],
         Eng = ["stellar", "mission", "underway"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["stellarmission", "gestartet"],
+        Fra = ["commencé", "mission"]
     };
 
     public static readonly LocalizedStrings StellarSpecialActionUnlock = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["特殊アクション", "が使用可能になった"],
         Eng = ["special", "action"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["spezialkommando", "ausgeführt"],
+        Fra = ["désormais", "utiliser", "spéciale"]
     };
 
     public static readonly LocalizedStrings StellarMissionScore = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ミッションハイスコア", "を記録した"],
         Eng = ["record", "high", "score"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["neue", "höchstwertung", "verzeichnet"],
+        Fra = ["nouveau", "mission", "enregistré"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10781?pretty=true">You complete the stellar mission "…".</see>
@@ -186,24 +186,24 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["received", "silver", "star", "rating"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["silberwertung"],
+        Fra = ["obtenu", "rang", "argent"]
     };
 
     public static readonly LocalizedStrings StellarGoldStarRating = new()
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["received", "gold", "star", "rating"],
-        Deu = ["NeedsLocalization"],
+        Deu = ["goldwertung"],
         Fra = ["NeedsLocalization"]
     };
 
     public static readonly LocalizedStrings StellarObjectivesComplete = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモミッションの目標を達成した"],
         Eng = ["stellar", "mission", "objectives", "complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["alle", "missionsziele", "erreicht"],
+        Fra = ["accompli", "objectifs", "cosmique"]
     };
 
     public static readonly LocalizedStrings StellarTimeLimitExpired = new()
@@ -220,10 +220,10 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings StellarReportMission = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["進行中ミッション", "ウィンドウから", "ミッションを完了してください"],
         Eng = ["report", "button", "complete", "mission"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["missionen", "berichten", "stellarmission"],
+        Fra = ["cliquez", "valider", "terminer"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10815?pretty=true">
@@ -232,10 +232,10 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings StellarSequentialMissions = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["連続ミッション", "が発生しました", "コスモミッションから受注する事が可能です"],
         Eng = ["sequential", "missions", "stellar"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["fortführende", "stellarmissionen", "bestritten"],
+        Fra = ["successives", "disponibles", "cosmiques"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10779?pretty=true">
@@ -244,10 +244,10 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings StellarMissionCompleted = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["はコスモミッション", "をゴールドグレードでコンプリートした"],
         Eng = ["completed", "stellar", "mission", "gold", "star"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["goldwertung", "abgeschlossen"],
+        Fra = ["obtenu", "rang", "mission"]
     };
 
     public static readonly LocalizedStrings StellarGoldCountStreak = new()
@@ -262,8 +262,8 @@ public static partial class ChatStrings
     {
         Jpn = ["NeedsLocalization"],
         Eng = ["committed", "mission", "log"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["missionslog", "verzeichnet"],
+        Fra = ["complétion", "enregistrée", "missions"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10879?pretty=true">
@@ -272,28 +272,28 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings StellarMissionLogCommitted = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["の達成状況をゴールドグレードでミッションログに記録した"],
         Eng = ["committed", "mission", "log", "gold", "star"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["goldwertung", "missionslog", "verzeichnet"],
+        Fra = ["complétion", "enregistrée", "missions"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10828?pretty=true">Mission evaluation complete.</see>
     public static readonly LocalizedStrings StellarMissionEvaluationComplete = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモミッションの評価が確定しました"],
         Eng = ["mission", "evaluation", "complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["missionswertung", "abgeschlossen"],
+        Fra = ["évaluation", "mission", "définitif"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10827?pretty=true">You have no more items left for stellar reduction.</see>
     public static readonly LocalizedStrings StellarReductionNoItemsLeft = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["精選可能なアイテムを全て精選しました"],
         Eng = ["no", "more", "items", "stellar", "reduction"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["raffinierbare", "gegenstände", "raffiniert"],
+        Fra = ["plus", "objets", "éthérolyser"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11200?pretty=true">
@@ -302,10 +302,10 @@ public static partial class ChatStrings
     /// </see>
     public static readonly LocalizedStrings StellarMissionGoldCountReset = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["aクラス未満のミッションを開始した為", "ゴールドカウントがリセットされました"],
         Eng = ["mission", "below", "class", "gold", "count", "reset"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["mission", "goldzähler", "zurückgesetzt"],
+        Fra = ["démarré", "mission", "inférieure"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/11165?pretty=true">N minute(s) remaining to complete the mission.</see>
@@ -337,34 +337,34 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings StellarGpRecovered = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモミッションで使用したgp", "を回復しました"],
         Eng = ["recovered", "gp", "consumed", "stellar"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["stellarmission", "verbraucht", "regeneriert"],
+        Fra = ["dépensés", "cosmique", "récupérés"]
     };
 
     public static readonly LocalizedStrings CordialRecastReset = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コーディアル類のリキャストタイマーをリセットしました"],
         Eng = ["recast", "timer", "cordials", "reset"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["reaktivierungs", "kräutertränke", "zurückgesetzt"],
+        Fra = ["recharge", "breuvages", "réinitialisé"]
     };
 
     public static readonly LocalizedStrings ReconnaissanceDroneLocatedArtifact = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["探索ドローンが", "惑星の遺物を発見した"],
         Eng = ["reconnaissance", "drone", "located", "artifact"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["kundschafterdrohne", "artefakt", "entdeckt"],
+        Fra = ["drone", "repéré", "vestige"]
     };
 
     public static readonly LocalizedStrings ArtifactAppraisalComplete = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["惑星の遺物", "の解析が完了した"],
         Eng = ["artifact", "appraisal", "complete"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["artefaktanalyse", "abgeschlossen"],
+        Fra = ["analyse", "vestige", "terminée"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/3555?pretty=true">N … sands are obtained.</see>
@@ -387,18 +387,18 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/3563?pretty=true">You receive a double bonus!</see>
     public static readonly LocalizedStrings AetherialReductionDoubleBonus = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ダブルボーナスが発生した"],
         Eng = ["receive", "double", "bonus"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["doppelbonus"],
+        Fra = ["bénéficiez", "double", "bonus"]
     };
 
     public static readonly LocalizedStrings CollectabilityLocationBonus = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["採集場所の特質が", "収集品の収集価値上昇量に影響を及ぼした"],
         Eng = ["location", "collectability", "increase"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["sammelstelle", "beeinflusst", "sammlerwerts"],
+        Fra = ["propriétés", "augmentation", "collection"]
     };
     /// <see href="https://xivapi.com/LogMessage/3549?pretty=true">You use Brazen Woodsman. Collectability increases by N.</see>
     public static readonly LocalizedStrings BrazenWoodsman = new()
