@@ -1361,8 +1361,14 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show Duty Finder notifications</value>
   </data>
     <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 94–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
+    <value>LogMessages 890–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), party recruitment commenced/ended (979/981). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
   </data>
+    <data name="DutyTab_ShowRecruitmentSearchResults" xml:space="preserve">
+      <value>Show Party Finder search results</value>
+    </data>
+    <data name="DutyTab_ShowRecruitmentSearchResultsHelpMarker" xml:space="preserve">
+      <value>LogMessage 94 - the periodic "Of the N parties currently recruiting..." line from Party Finder advanced search.</value>
+    </data>
     <data name="DutyTab_ShowGuildhestEndedMessage" xml:space="preserve">
     <value>Show guildhest will end soon</value>
   </data>
@@ -1672,7 +1678,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Show FC member logout</value>
   </data>
     <data name="FreeCompanyTab_ShowLogoutMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3086, 84 - eg. Raven Reaver logs out. Uses the FC login/logout channel or System.</value>
+    <value>LogMessage 3086 - eg. Raven Reaver logs out. Uses the FC login/logout channel.</value>
   </data>
     <data name="FreeCompanyTab_ShowSubaquaticVoyageEmbarked" xml:space="preserve">
     <value>Show subaquatic voyage embarked</value>
@@ -2325,6 +2331,12 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
     <data name="PartyTab_ShowLeftPartyMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4, 69 - eg. Raven Reaver leaves the party.</value>
   </data>
+    <data name="PartyTab_ShowPartyMemberOfflineMessages" xml:space="preserve">
+      <value>Show party member offline messages</value>
+    </data>
+    <data name="PartyTab_ShowPartyMemberOfflineMessagesHelpMarker" xml:space="preserve">
+      <value>LogMessage 84 - eg. Raven Reaver has gone offline. Uses the System channel.</value>
+    </data>
     <data name="PartyTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
     <value>Show only rolls from party members</value>
   </data>
