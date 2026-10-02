@@ -49,10 +49,10 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings CosmicContainerObtain = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモコンテナ", "手に入れた"],
         Eng = ["obtain", "cosmic", "container"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["kosmo-container", "erhalten"],
+        Fra = ["obtenez", "conteneur", "cosmique"]
     };
 
     public static readonly LocalizedStrings CosmicFortuneObtain = new()
@@ -65,10 +65,10 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings CosmocreditObtain = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["コスモクレジット", "手に入れた"],
         Eng = ["obtain", "cosmocredit"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["kosmo-kohle", "erhalten"],
+        Fra = ["obtenez", "crédit", "cosmique"]
     };
 
     /// <see href="https://xivapi.com/LogMessage/10859?pretty=true">You will receive additional cosmocredits.</see>
@@ -82,25 +82,25 @@ public static partial class ChatStrings
 
     public static readonly LocalizedStrings OizysCreditObtain = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["オイジュスクレジット", "手に入れた"],
         Eng = ["obtain", "oizys", "credit"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["oizys-tacken", "erhalten"],
+        Fra = ["obtenez", "crédit", "oizys"]
     };
 
     public static readonly LocalizedStrings AuxesiaCreditObtain = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["アウクセシアクレジット", "手に入れた"],
         Eng = ["obtain", "auxesia"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["auxesia-asche", "erhalten"],
+        Fra = ["obtenez", "crédit", "auxesia"]
     };
 
     public static readonly LocalizedStrings OizysDronebitsObtain = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["オイジュス・ドローンチップ", "手に入れた"],
         Eng = ["obtain", "oizys", "dronebit"],
-        Deu = ["NeedsLocalization"],
-        Fra = ["NeedsLocalization"]
+        Deu = ["oizys-drohnenchips", "erhalten"],
+        Fra = ["obtenez", "drone", "oizys"]
     };
 }

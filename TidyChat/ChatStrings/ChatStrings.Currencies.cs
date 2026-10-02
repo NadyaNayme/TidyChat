@@ -6,44 +6,44 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/Item/25?pretty=true">Wolf Marks</see>
     public static readonly LocalizedStrings ObtainWolfMarks = new()
     {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["you", "obtain", "wolf", "marks"], // You obtain ### Wolf Marks.
-        Deu = ["erhalten", "wolfsmarken"],
-        Fra = ["marques", "de", "loup"]
+        Jpn = ["対人戦績"],
+        Eng = ["you", "obtain", "wolf", "mark"], // You obtain ### Wolf Marks.
+        Deu = ["wolfsmarke", "erhalten"],
+        Fra = ["marque", "loup"]
     };
     /// <see href="https://xivapi.com/Item/21072?pretty=true">Venture</see>
     public static readonly LocalizedStrings ObtainVentureMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ベンチャースクリップ"],
         Eng = ["venture"],
-        Deu = ["unternehmung"],
-        Fra = ["venture"]
+        Deu = ["wertmarke"],
+        Fra = ["jeton", "tâche"]
     };
     /// <see href="https://xivapi.com/Item/27?pretty=true">Allied Seals</see>
     public static readonly LocalizedStrings ObtainAlliedSealsMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["allied", "seals"],
+        Jpn = ["同盟記章"],
+        Eng = ["allied", "seal"],
         Deu = ["jagdabzeichen"],
-        Fra = ["insignes", "alliés"]
+        Fra = ["insigne", "allié"]
     };
 
     /// <see href="https://xivapi.com/Item/10307?pretty=true">Centurio Seals</see>
     public static readonly LocalizedStrings ObtainCenturioSealsMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["centurio", "seals"],
+        Jpn = ["セントリオ記章"],
+        Eng = ["centurio", "seal"],
         Deu = ["centurio-abzeichen"],
-        Fra = ["insignes", "centurio"]
+        Fra = ["insigne", "centurio"]
     };
 
-    /// <see href="https://xivapi.com/Item/41784?pretty=true">Sacks of Nuts</see>
+    /// <see href="https://xivapi.com/Item/26533?pretty=true">Sacks of Nuts</see>
     public static readonly LocalizedStrings ObtainNutsMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["モブハントの戦利品"],
         Eng = ["nuts"],
-        Deu = ["kupo-trophaë"],
-        Fra = ["insignes", "de", "chasse"]
+        Deu = ["kupo-trophä"],
+        Fra = ["insigne", "chasse"]
     };
 
     /// <see href="https://xivapi.com/Item/20?pretty=true">GC Seals (Storm)</see>
@@ -51,10 +51,10 @@ public static partial class ChatStrings
     /// <seealso href="https://xivapi.com/Item/22?pretty=true">Flame Seals</seealso>
     public static readonly LocalizedStrings ObtainSealsMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
-        Eng = ["storm seals"],
+        Jpn = ["黒渦団軍票"],
+        Eng = ["storm seal"],
         Deu = ["flottentaler"],
-        Fra = ["sceaux des immortels"]
+        Fra = ["compagnie limséen"]
     };
 
     /// <see href="https://xivapi.com/Item/2?pretty=true">Elemental clusters (see Item/14–19)</see>
@@ -70,7 +70,7 @@ public static partial class ChatStrings
     /// <seealso href="https://xivapi.com/LogMessage/1259?pretty=true">Alternate obtain template</seealso>
     public static readonly LocalizedStrings ObtainedGilMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["ギル"],
         Eng = ["gil"],
         Deu = ["gil"],
         Fra = ["gil"]
@@ -89,7 +89,7 @@ public static partial class ChatStrings
     /// <see href="https://xivapi.com/LogMessage/4765?pretty=true">MGP obtain</see>
     public static readonly LocalizedStrings ObtainedMgpMarker = new()
     {
-        Jpn = ["NeedsLocalization"],
+        Jpn = ["mgp", "手に入れた"],
         Eng = ["you", "obtain", "mgp"],
         Deu = ["mgp", "erhalten"],
         Fra = ["obtenez", "pgs"]
