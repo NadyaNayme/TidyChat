@@ -1,834 +1,834 @@
 <?xml version="1.0" encoding="utf-8"?>
-<root xmlns:ns1="urn:schemas-microsoft-com:xml-msdata" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <schema />
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+<root>
+  <schema/>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
       </xsd:complexType>
     </xsd:element>
   </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
       </xsd:complexType>
     </xsd:element>
   </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
       </xsd:complexType>
     </xsd:element>
   </xsd:schema>
-  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root" xmlns="">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
       </xsd:complexType>
     </xsd:element>
   </xsd:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
-  <xs:schema id="root">
-    <xs:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xs:element name="root" ns1:IsDataSet="true">
-      <xs:complexType>
-        <xs:choice maxOccurs="unbounded">
-          <xs:element name="metadata">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" />
-              </xs:sequence>
-              <xs:attribute name="name" use="required" type="xsd:string" />
-              <xs:attribute name="type" type="xsd:string" />
-              <xs:attribute name="mimetype" type="xsd:string" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="assembly">
-            <xs:complexType>
-              <xs:attribute name="alias" type="xsd:string" />
-              <xs:attribute name="name" type="xsd:string" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="data">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-                <xs:element name="comment" type="xsd:string" minOccurs="0" ns1:Ordinal="2" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" ns1:Ordinal="1" />
-              <xs:attribute name="type" type="xsd:string" ns1:Ordinal="3" />
-              <xs:attribute name="mimetype" type="xsd:string" ns1:Ordinal="4" />
-              <xs:attribute ref="xml:space" />
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="resheader">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element name="value" type="xsd:string" minOccurs="0" ns1:Ordinal="1" />
-              </xs:sequence>
-              <xs:attribute name="name" type="xsd:string" use="required" />
-            </xs:complexType>
-          </xs:element>
-        </xs:choice>
-      </xs:complexType>
-    </xs:element>
-  </xs:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns="" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -1343,8 +1343,14 @@ It's recommended to keep it at 50 or lower.</value>
     <value>Show Duty Finder notifications</value>
   </data>
   <data name="DutyTab_ShowDutyFinderMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 94–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), recruitment (94). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
+    <value>LogMessages 890–4682 - duty registration briefing (4670–4682), registration complete (897), withdrawn (890/902), unrestricted party (4676), party recruitment commenced/ended (979/981). Withdrawal notices use the error channel; minimum IL active (4680) uses the progress channel.</value>
   </data>
+  <data name="DutyTab_ShowRecruitmentSearchResults" xml:space="preserve">
+      <value>Show Party Finder search results</value>
+    </data>
+  <data name="DutyTab_ShowRecruitmentSearchResultsHelpMarker" xml:space="preserve">
+      <value>LogMessage 94 - the periodic "Of the N parties currently recruiting..." line from Party Finder advanced search.</value>
+    </data>
   <data name="DutyTab_ShowGuildhestEndedMessage" xml:space="preserve">
     <value>Show guildhest will end soon</value>
   </data>
@@ -1377,6 +1383,9 @@ It's recommended to keep it at 50 or lower.</value>
   </data>
   <data name="EconomyTab_MarketBoardSectionHeader" xml:space="preserve">
     <value>Market board</value>
+  </data>
+  <data name="EconomyTab_RepairsSectionHeader" xml:space="preserve">
+    <value>Repairs</value>
   </data>
   <data name="EconomyTab_RetainerSectionHeader" xml:space="preserve">
     <value>Retainer</value>
@@ -1578,7 +1587,7 @@ eg. You gently pat &lt;user&gt;</value>
     <value>Show reminders of what to /say in chat during quests</value>
   </data>
   <data name="ExplorationTab_ShowSayReminderHelpMarker" xml:space="preserve">
-    <value>eg. With the chat mode in Say, enter a phrase containing “Tataru” at the destination point.</value>
+    <value>No LogMessage ID. Matches “With the chat mode in Say…” and “With the chat mode set to Say, use the keyboard…”.</value>
   </data>
   <data name="ExplorationTab_ShowSRankSpawnAnnouncement" xml:space="preserve">
     <value>Show S Rank Hunt spawn announcement</value>
@@ -1604,6 +1613,18 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
   </data>
   <data name="ExplorationTab_ShowYouSenseSomethingMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 2600 - spidey-senses line on the System channel. Location discovered (88) and hostile presence (3240) below are separate toggles, not controlled by this master.</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasureCofferSenses" xml:space="preserve">
+    <value>Show Occult Crescent Treasuresight coffer counts</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasureCofferSensesHelpMarker" xml:space="preserve">
+    <value>LogMessages 10965, 10966 - eg. You sense the presence of 2 silver coffers and 30 bronze coffers in the area! and There appear to be no treasure coffers in the area...</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasurePotSenses" xml:space="preserve">
+    <value>Show bunny pot / directional treasure senses</value>
+  </data>
+  <data name="ExplorationTab_ShowTreasurePotSensesHelpMarker" xml:space="preserve">
+    <value>LogMessages 9003–9006 (Eureka), 10986–10989, 10996, 10997 (Occult Crescent) - eg. You sense something far, far to the northeast. and happy bunny / fortune carrot lines.</value>
   </data>
   <data name="FishingTab_FilteringNote" xml:space="preserve">
     <value>Fishing lines need Filter Gathering channels on General.</value>
@@ -1639,7 +1660,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>Show FC member logout</value>
   </data>
   <data name="FreeCompanyTab_ShowLogoutMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 3086, 84 - eg. Raven Reaver logs out. Uses the FC login/logout channel or System.</value>
+    <value>LogMessage 3086 - eg. Raven Reaver logs out. Uses the FC login/logout channel.</value>
   </data>
   <data name="FreeCompanyTab_ShowSubaquaticVoyageEmbarked" xml:space="preserve">
     <value>Show subaquatic voyage embarked</value>
@@ -1717,7 +1738,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>LogMessages 1098, 1102, 1103, 1105 (GatheringSystem) - granted additional gathering attempts. Checked = hide.</value>
   </data>
   <data name="GatheringTab_HideGatheringBoonLocationMessages" xml:space="preserve">
-    <value>Hide only locations that affect Gatherer's Boon</value>
+    <value>Hide Gatherer's Boon location and score messages</value>
   </data>
   <data name="GatheringTab_HideGatheringBoonLocationMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 1097 (GatheringSystem), 11172–11173 (System) - location rate lines and Cosmic chain score lines (e.g. You earn a score of N from Gatherer's Boon). Checked = hide. Not controlled by Cosmic &amp; Stellar Exploration.</value>
@@ -1729,7 +1750,7 @@ The minions of an extraordinarily powerful mark have withdrawn...; community rel
     <value>LogMessages 3537, 1099 (Gathering) - location lines that change gathering yield. Checked = hide.</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionMinigameMessages" xml:space="preserve">
-    <value>Show collectables appraisal messages (Integrity, Woodsman, etc.)</value>
+    <value>Show collectables appraisal messages (Integrity, Woodsman/Prospector, etc.)</value>
   </data>
   <data name="GatheringTab_ShowAetherialReductionMinigameMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3549, 3563, 3569, 5514, 5516, 5550, 5573, 5574 - eg. integrity lines, Brazen/Meticulous Woodsman or Prospector, and double bonus. Default on; expand Aetherial Reduction below to disable. Needs Filter Gathering on General.</value>
@@ -1857,10 +1878,16 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
     <value>LogMessages 5565, 5569 - eg. You have a feeling your next cast will land a large-sized fish!</value>
   </data>
   <data name="GatheringTab_ShowMooching" xml:space="preserve">
-    <value>Show message after recasting with a moochable fish</value>
+    <value>Show mooching messages</value>
   </data>
   <data name="GatheringTab_ShowMoochingHelpMarker" xml:space="preserve">
-    <value>LogMessage 1121 - eg. You mooch a fish!</value>
+    <value>LogMessages 1121, 3510, 3593, 3594 - eg. You recast your line with the fish still hooked., Mooch to land an even bigger catch!, You land a fish usable with Mooch II., You miss your chance to mooch...</value>
+  </data>
+  <data name="GatheringTab_ShowSwimbaitMessages" xml:space="preserve">
+    <value>Show swimbait keep/release messages</value>
+  </data>
+  <data name="GatheringTab_ShowSwimbaitMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 5556, 5557, 5559 - eg. You keep the … as swimbait. and You release fish kept as swimbait.</value>
   </data>
   <data name="GatheringTab_ShowObtainedSandsFromAetherialReductionMessages" xml:space="preserve">
     <value>Show the number of obtained sands after using aetherial reduction</value>
@@ -1903,6 +1930,12 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   </data>
   <data name="GeneralTab_BlockedMessages" xml:space="preserve">
     <value>Tidy Chat has blocked {0:n0} messages so far</value>
+  </data>
+  <data name="GeneralTab_CondenseEnemyCastLog" xml:space="preserve">
+    <value>Condense enemy cast log (readies / uses)</value>
+  </data>
+  <data name="GeneralTab_CondenseEnemyCastLogHelpMarker" xml:space="preserve">
+    <value>Action channel LogMessages 501 and 533. Keeps enemy “readies …” telegraphs and hides matching “uses …” lines for ~20s (including multi-hit). Optional sub-option also hides instant enemy abilities with no prior readies. Does not affect your own casts.</value>
   </data>
   <data name="GeneralTab_CopySayMessage" xml:space="preserve">
     <value>Automatically copy improved /say message to clipboard</value>
@@ -1951,6 +1984,12 @@ For other gathering lines this toggle does not cover (e.g. big-fish feeling text
   </data>
   <data name="GeneralTab_FilterSystemSpamHelpMarker" xml:space="preserve">
     <value>When enabled, System and Retainer Sale messages are hidden unless a Show option allows them (System, Economy, Party, Duty, Progress, Cosmic Exploration, and other tabs). When disabled, those channels are not filtered here.</value>
+  </data>
+  <data name="GeneralTab_HideEnemyInstantCasts" xml:space="preserve">
+    <value>Also hide instant enemy abilities</value>
+  </data>
+  <data name="GeneralTab_HideEnemyInstantCastsHelpMarker" xml:space="preserve">
+    <value>Hides enemy “uses …” lines that had no matching “readies …” telegraph first.</value>
   </data>
   <data name="GeneralTab_ImprovedCommendationsDutyName" xml:space="preserve">
     <value>Include completed duty with commendations message</value>
@@ -2157,6 +2196,12 @@ Shows those sold lines when enabled (Filter System channel on General). Does not
   <data name="HousingTab_ShowHousingWardMessageHelpMarker" xml:space="preserve">
     <value>LogMessage 3379 - eg. Shirogane, Ward 15 (PlaceName, Ward N format only)</value>
   </data>
+  <data name="HousingTab_ShowHousingLotteryMessage" xml:space="preserve">
+    <value>Show housing lottery messages</value>
+  </data>
+  <data name="HousingTab_ShowHousingLotteryMessageHelpMarker" xml:space="preserve">
+    <value>Housing signboard UI text - eg. lottery entry confirmation and Estate tab reminder (no LogMessage ID)</value>
+  </data>
   <data name="HousingTab_ShowSanctuaryMessage" xml:space="preserve">
     <value>Show sanctuary enter/leave messages</value>
   </data>
@@ -2268,6 +2313,12 @@ eg. Another Player rolls Greed on &lt;item&gt;. 50! When on, use the nested part
   <data name="PartyTab_ShowLeftPartyMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 4, 69 - eg. Raven Reaver leaves the party.</value>
   </data>
+  <data name="PartyTab_ShowPartyMemberOfflineMessages" xml:space="preserve">
+      <value>Show party member offline messages</value>
+    </data>
+  <data name="PartyTab_ShowPartyMemberOfflineMessagesHelpMarker" xml:space="preserve">
+      <value>LogMessage 84 - eg. Raven Reaver has gone offline. Uses the System channel.</value>
+    </data>
   <data name="PartyTab_ShowOnlyPartyMemberRolls" xml:space="preserve">
     <value>Show only rolls from party members</value>
   </data>
@@ -2377,6 +2428,18 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
   <data name="ProgressTab_ShowLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 590, 591 - eg. You attain level 90! / Raven attains astrologian level 69!</value>
   </data>
+  <data name="ProgressTab_ShowAbilityUnlockMessages" xml:space="preserve">
+    <value>Show learned action and emote messages</value>
+  </data>
+  <data name="ProgressTab_ShowAbilityUnlockMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 552 - eg. You learn &lt;name&gt;. Includes newly learned actions and emotes on the Progress channel.</value>
+  </data>
+  <data name="ProgressTab_ShowMettleGainMessages" xml:space="preserve">
+    <value>Show mettle gain messages</value>
+  </data>
+  <data name="ProgressTab_ShowMettleGainMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessage 9635 - eg. You gain 12,480 mettle. Bozja/Eureka-style mettle progression on the Progress channel (Filter Progress channel on General).</value>
+  </data>
   <data name="ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker" xml:space="preserve">
     <value>LogMessages 3921, 9454 - eg. Player attains level 33! Uses the system channel.</value>
   </data>
@@ -2402,10 +2465,16 @@ eg. You roll Need on the &lt;item&gt;. 63!</value>
     <value>LogMessage 660 - eg. You attain PvP rank 17!</value>
   </data>
   <data name="ProgressTab_ShowPvpZoneAnnouncements" xml:space="preserve">
-    <value>Show PvP zone triumph and gauge messages</value>
+    <value>Show PvP zone objective, triumph, and gauge messages</value>
   </data>
   <data name="ProgressTab_ShowPvpZoneAnnouncementsHelpMarker" xml:space="preserve">
     <value>Frontline objective announcements plus LogMessages 11308, 11311–11313, 11368 - Worqor Chirteh triumph, limit gauge, aurora, and weather lines. Uses Filter System on General.</value>
+  </data>
+  <data name="ProgressTab_ShowPvpCombatMessages" xml:space="preserve">
+    <value>Show PvP defeat and revival messages</value>
+  </data>
+  <data name="ProgressTab_ShowPvpCombatMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 557–560 - eg. You are defeated by …, You are revived., Name defeats Name. Uses Filter Progress on General (BattleSystem channel).</value>
   </data>
   <data name="ProgressTab_ShowSecondChanceAward" xml:space="preserve">
     <value>Show Second Chance reward</value>
@@ -2481,7 +2550,7 @@ eg. You obtain a cracked dendrocluster</value>
     <value>Hide FATE level sync messages</value>
   </data>
   <data name="SystemTab_HideFateLevelSyncMessagesHelpMarker" xml:space="preserve">
-    <value>LogMessages 2070, 2166 - eg. You are 6 or more levels above the recommended level for this FATE. Checked = hide this message.</value>
+    <value>LogMessages 2070, 2166 - eg. You are 5 or more levels above the recommended level for this FATE (number varies by content). Checked = hide this message.</value>
   </data>
   <data name="SystemTab_HideOrchestrionPlaying" xml:space="preserve">
     <value>Hide "Orchestrion now plays" messages</value>
@@ -2496,7 +2565,7 @@ eg. You obtain a cracked dendrocluster</value>
     <value>Mail</value>
   </data>
   <data name="SystemTab_OrchestrionDropdownHeader" xml:space="preserve">
-    <value>Orchestrion</value>
+    <value>Audio</value>
   </data>
   <data name="SystemTab_ServerAnnouncementMode_Condensed" xml:space="preserve">
     <value>Condensed (world line only)</value>
@@ -2547,6 +2616,12 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   <data name="SystemTab_ShowAetheryteTicketMessageHelpMarker" xml:space="preserve">
     <value>LogMessages 503, 535 (Item), 4591 (System) - eg. You used an aetheryte ticket. (Remaining: 674).</value>
   </data>
+  <data name="SystemTab_ShowConfigChangeMessages" xml:space="preserve">
+    <value>Show configuration change messages</value>
+  </data>
+  <data name="SystemTab_ShowConfigChangeMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 801, 802, 4242 - eg. Changes saved, Changes lost, Changes discarded.</value>
+  </data>
   <data name="SystemTab_ShowEverythingElse" xml:space="preserve">
     <value>Show miscellaneous system messages</value>
   </data>
@@ -2588,6 +2663,12 @@ Uses localized matching for all supported client languages (EN/DE/FR/JP).</value
   </data>
   <data name="SystemTab_ShowPersonalMessageBookMessagesHelpMarker" xml:space="preserve">
     <value>LogMessage 6066 - eg. A new entry has been added to your message book. Uses the message-book channel.</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessages" xml:space="preserve">
+    <value>Show volume control messages</value>
+  </data>
+  <data name="SystemTab_ShowVolumeControlMessagesHelpMarker" xml:space="preserve">
+    <value>LogMessages 3850–3866, 3869–3871 - eg. Master volume muted, own sound effects volume set to 10, performance volume muted.</value>
   </data>
   <data name="SystemTab_SocialDropdownHeader" xml:space="preserve">
     <value>Social</value>
@@ -2664,6 +2745,9 @@ LogMessage ID - #588 or #748,4578. Blocks or allows that game log line by ID (be
   </data>
   <data name="WhitelistTab_MatchModeExactSender" xml:space="preserve">
     <value>Exact sender only</value>
+  </data>
+  <data name="WhitelistTab_LogMessagePreviewUnavailable" xml:space="preserve">
+    <value>#{0}: (catalog not loaded)</value>
   </data>
   <data name="WhitelistTab_MatchModeMessageContains" xml:space="preserve">
     <value>Sender or message contains (default)</value>
