@@ -16,6 +16,8 @@ public static class LogMessageCatalog
     private static readonly Dictionary<uint, string> TemplateTextById = [];
     private static readonly Dictionary<uint, byte> LogKindById = [];
 
+    private static readonly HashSet<uint> SoundMacroIds = [];
+
     private static readonly HashSet<uint> RuntimeOnlyIds =
     [
         94, 549, 1168,
@@ -33,12 +35,14 @@ public static class LogMessageCatalog
 
     public static bool IsLoaded { get; private set; }
 
-    internal static void LoadForTests(IReadOnlyDictionary<uint, string> templates, byte logKind = 57)
+    internal static void LoadForTests(IReadOnlyDictionary<uint, string> templates, byte logKind = 57,
+        IReadOnlyDictionary<uint, string>? macroTemplates = null)
     {
         WordTokensById.Clear();
         TemplateTokensById.Clear();
         TemplateTextById.Clear();
         LogKindById.Clear();
+        SoundMacroIds.Clear();
         IsLoaded = false;
 
         foreach (var (id, text) in templates)
@@ -46,6 +50,17 @@ public static class LogMessageCatalog
             LogKindById[id] = logKind;
             TemplateTextById[id] = text;
             AddTokens(id, text);
+        }
+
+        if (macroTemplates is not null)
+        {
+            foreach (var (id, macroString) in macroTemplates)
+            {
+                if (ContainsSoundMacro(macroString))
+                {
+                    SoundMacroIds.Add(id);
+                }
+            }
         }
 
         IsLoaded = templates.Count > 0;
@@ -57,6 +72,7 @@ public static class LogMessageCatalog
         TemplateTokensById.Clear();
         TemplateTextById.Clear();
         LogKindById.Clear();
+        SoundMacroIds.Clear();
         IsLoaded = false;
 
         try
@@ -66,6 +82,11 @@ public static class LogMessageCatalog
                 LogKindById[row.RowId] = (byte)row.LogKind.RowId;
 
                 var template = row.Text;
+                if (ContainsSoundMacro(template.ToMacroString()))
+                {
+                    SoundMacroIds.Add(row.RowId);
+                }
+
                 var text = template.ExtractText().Trim();
                 if (string.IsNullOrWhiteSpace(text))
                 {
@@ -120,6 +141,11 @@ public static class LogMessageCatalog
         }
         return builder.ToString().Trim();
     }
+
+    internal static bool ContainsSoundMacro(string macroString) =>
+        macroString.Contains("<sound(", StringComparison.OrdinalIgnoreCase);
+
+    public static bool PlaysSound(uint logMessageId) => SoundMacroIds.Contains(logMessageId);
 
     public static bool HasTokens(uint logMessageId) => TemplateTokensById.ContainsKey(logMessageId);
 

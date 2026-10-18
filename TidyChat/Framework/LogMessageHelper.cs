@@ -25,7 +25,7 @@ internal static class LogMessageHelper
             return text.Length > 0;
         }
 
-        if (LogMessageCatalog.IsRuntimeOnly(message.LogMessageId) ||
+        if (!CanUseGameFormatter(message.LogMessageId) ||
             !AreLogMessageParametersReadable(message))
         {
             return false;
@@ -33,6 +33,10 @@ internal static class LogMessageHelper
 
         return TryFormatLogMessageUnsafe(message, out text);
     }
+
+    internal static bool CanUseGameFormatter(uint logMessageId) =>
+        !LogMessageCatalog.IsRuntimeOnly(logMessageId) &&
+        !LogMessageCatalog.PlaysSound(logMessageId);
 
     internal static bool TryExtractNormalizedText(ILogMessage message, out string normalizedText)
     {
