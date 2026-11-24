@@ -25,34 +25,34 @@ public class FateLevelSyncMatchingTests
     public void Matches_five_or_more_levels_chat_line()
     {
         Assert.That(RuleMatcher.MatchesText(HideFateRule,
-            "you are 5 or more levels above the recommended level for this fate.", false), Is.True);
+            "you are 5 or more levels above the recommended level for this fate.", out _), Is.True);
     }
 
     [Test]
     public void Matches_six_or_more_levels_chat_line()
     {
         Assert.That(RuleMatcher.MatchesText(HideFateRule,
-            "you are 6 or more levels above the recommended level for this fate.", false), Is.True);
+            "you are 6 or more levels above the recommended level for this fate.", out _), Is.True);
     }
 
     [Test]
     public void Matches_duty_list_level_sync_half_line()
     {
         Assert.That(RuleMatcher.MatchesText(HideFateRule,
-            "to join, use the level sync function located in the duty list.", false), Is.True);
+            "to join, use the level sync function located in the duty list.", out _), Is.True);
     }
 
     [Test]
     public void Matches_unable_to_attack_fate_target()
     {
         Assert.That(RuleMatcher.MatchesText(HideFateRule,
-            "unable to attack fate target. your level is too high.", false), Is.True);
+            "unable to attack fate target. your level is too high.", out _), Is.True);
     }
 
     [Test]
     public void Does_not_match_unrelated_error()
     {
         Assert.That(RuleMatcher.MatchesText(HideFateRule,
-            "the command /foo does not exist.", false), Is.False);
+            "the command /foo does not exist.", out _), Is.False);
     }
 }

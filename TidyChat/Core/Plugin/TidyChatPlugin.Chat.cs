@@ -34,7 +34,7 @@ public sealed partial class TidyChatPlugin
             : new LogMessageChatSyncResult(LogMessageChatEffect.None, null);
         if (logSync.Effect == LogMessageChatEffect.PreserveHidden)
         {
-            if (ChannelFilterPolicy.IsCombatLogChannel(chatType) ||
+            if (ChannelFilterPolicy.IsCombatLogChannel(chatType) || chatType is ChatType.Echo ||
                 IsWhitelistedAllowed(message.Sender, message.Message, chatType, rawTextValue, extractedTextValue,
                     normalizedText))
             {
@@ -80,7 +80,7 @@ public sealed partial class TidyChatPlugin
                 {
                     return;
                 }
-                if (HandleTemporaryFilterDisables(normalizedText))
+                if (HandleTemporaryFilterDisables(chatType, normalizedText))
                 {
                     return;
                 }

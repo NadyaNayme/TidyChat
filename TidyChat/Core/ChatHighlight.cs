@@ -126,47 +126,17 @@ internal static class ChatHighlightHelper
     public static SeString ApplyForeground(
         SeString message, uint rgbaColor)
     {
-        string text;
-        try
-        {
-            text = new ReadOnlySeString(message.Encode()).ExtractText();
-        }
-        catch
-        {
-            text = message.TextValue;
-        }
-
-        if (string.IsNullOrEmpty(text))
+        if (message.Payloads.Count == 0)
         {
             return message;
         }
 
         var argbColor = ColourUtil.RgbaToArgb(rgbaColor);
-        var macroText = $"<color(0x{argbColor:X8})>{EscapeMacroText(text)}<color(stackcolor)>";
         using var rented = new RentedSeStringBuilder();
-        rented.Builder.AppendMacroString(Encoding.UTF8.GetBytes(macroText), MacroParseOptions);
+        rented.Builder.AppendMacroString(Encoding.UTF8.GetBytes($"<color(0x{argbColor:X8})>"), MacroParseOptions);
+        rented.Builder.Append(new ReadOnlySeString(message.Encode()));
+        rented.Builder.AppendMacroString("<color(stackcolor)>"u8, MacroParseOptions);
         return rented.Builder.ToReadOnlySeString().ToDalamudString();
-    }
-
-    private static string EscapeMacroText(string text)
-    {
-        if (text.IndexOfAny(['\\', '<', '>', '(', ')', '[', ']', ',']) < 0)
-        {
-            return text;
-        }
-
-        var builder = new StringBuilder(text.Length + 8);
-        foreach (var ch in text)
-        {
-            if (ch is '\\' or '<' or '>' or '(' or ')' or '[' or ']' or ',')
-            {
-                builder.Append('\\');
-            }
-
-            builder.Append(ch);
-        }
-
-        return builder.ToString();
     }
 
     public static bool TryGetMatchingHighlight(IList<ChatHighlight> highlights, ChatType chatType,

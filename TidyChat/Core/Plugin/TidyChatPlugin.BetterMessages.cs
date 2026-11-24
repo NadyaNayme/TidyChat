@@ -3,18 +3,25 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    private bool HandleTemporaryFilterDisables(string normalizedText)
+    private const int SystemFilterPauseMs = 1000;
+
+    private long _systemFilterPausedUntil;
+
+    private bool SystemFilterActive =>
+        Configuration.FilterSystemMessages && Environment.TickCount64 >= _systemFilterPausedUntil;
+
+    private bool HandleTemporaryFilterDisables(ChatType chatType, string normalizedText)
     {
-        if (L10N.Get(ChatStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) && Configuration.FilterSystemMessages)
+        if (chatType is not ChatType.System || !SystemFilterActive)
         {
-            Better.TemporarilyDisableSystemFilter(Configuration);
-            return true;
+            return false;
         }
 
-        if (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.JoinParty) && Configuration.ShowJoinParty &&
-            Configuration is { ShowPartyInformation: true, FilterSystemMessages: true })
+        if (L10N.Get(ChatStrings.QuestionMarkCommandResponse).IsMatch(normalizedText) ||
+            (TextMatchHelper.MatchesAllTokens(normalizedText, ChatStrings.JoinParty) &&
+             Configuration is { ShowJoinParty: true, ShowPartyInformation: true }))
         {
-            Better.TemporarilyDisableSystemFilter(Configuration);
+            _systemFilterPausedUntil = Environment.TickCount64 + SystemFilterPauseMs;
             return true;
         }
 

@@ -36,12 +36,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Meziantou.Analyzer" Version="3.0.96">
+        <PackageReference Include="Meziantou.Analyzer" Version="3.0.342">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="TextCopy" Version="6.2.1"/>
-        <PackageReference Update="DotNet.ReproducibleBuilds" Version="2.0.2"/>
+        <PackageReference Update="DotNet.ReproducibleBuilds" Version="2.0.5"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -64,8 +64,7 @@
             <Generator></Generator>
         </EmbeddedResource>
         <EmbeddedResource Update="Localization\Resources\Languages.ploc.resx">
-            <Generator>ResXFileCodeGenerator</Generator>
-            <LastGenOutput>Languages.ploc.Designer.cs</LastGenOutput>
+            <Generator></Generator>
         </EmbeddedResource>
         <EmbeddedResource Update="Localization\Resources\Languages.pt.resx">
             <Generator></Generator>
@@ -85,11 +84,6 @@
             <DesignTime>True</DesignTime>
             <AutoGen>True</AutoGen>
             <DependentUpon>Languages.resx</DependentUpon>
-        </Compile>
-        <Compile Update="Localization\Resources\Languages.ploc.Designer.cs">
-            <DesignTime>True</DesignTime>
-            <AutoGen>True</AutoGen>
-            <DependentUpon>Languages.ploc.resx</DependentUpon>
         </Compile>
     </ItemGroup>
 

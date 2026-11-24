@@ -2,7 +2,6 @@ using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using Lumina.Excel.Sheets;
 using System.Threading;
 using TidyStrings = TidyChat.Utility.InternalStrings;
-using Timer = System.Timers.Timer;
 
 namespace TidyChat;
 
@@ -82,48 +81,33 @@ public sealed partial class TidyChatPlugin
     }
     private void SetPlayerName()
     {
-        if (_setPlayerNamePending)
-        {
-            return;
-        }
         try
         {
-            var player = ObjectTable.LocalPlayer;
-            if (player is null)
+            if (ObjectTable.LocalPlayer is { } player)
             {
+                var name = $"{player.Name}";
+                if (!string.Equals(Configuration.PlayerName, name, StringComparison.Ordinal))
+                {
+                    Configuration.PlayerName = name;
+                    Log.Information($"Player name saved as {name}");
+                    Configuration.Save();
+                }
+                _setPlayerNameRetries = 0;
                 return;
             }
-
-            Configuration.PlayerName = $"{player.Name}";
-            Log.Information($"Player name saved as {player.Name}");
-            Configuration.Save();
-            _setPlayerNameRetries = 0;
         }
         catch (Exception ex)
         {
-            if (_setPlayerNameRetries >= MaxSetPlayerNameRetries)
-            {
-                Log.Error($"Error: Failed to capture player's name after {MaxSetPlayerNameRetries} retries. Giving up until next login. " + ex);
-                return;
-            }
-
-            _setPlayerNameRetries++;
-            Log.Error($"Error: Failed to capture player's name - retry {_setPlayerNameRetries}/{MaxSetPlayerNameRetries} in 30 seconds. " + ex);
-            _setPlayerNamePending = true;
-            Timer t = new()
-            {
-                Interval = 30000,
-                AutoReset = false
-            };
-            t.Elapsed += delegate
-            {
-                _setPlayerNamePending = false;
-                t.Enabled = false;
-                t.Dispose();
-                SetPlayerName();
-            };
-            t.Enabled = true;
+            Log.Warning("Failed to read the player's name: " + ex);
         }
+
+        if (_setPlayerNameRetries++ >= MaxSetPlayerNameRetries)
+        {
+            Log.Error($"Failed to capture player's name after {MaxSetPlayerNameRetries} retries. Giving up until next login.");
+            return;
+        }
+
+        _ = Framework.RunOnTick(SetPlayerName, TimeSpan.FromSeconds(SetPlayerNameRetrySeconds));
     }
 
     private void FlushBlockedMessageCount(bool persist)

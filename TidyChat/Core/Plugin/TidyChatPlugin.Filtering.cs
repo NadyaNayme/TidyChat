@@ -97,10 +97,7 @@ public sealed partial class TidyChatPlugin
             TrackMatchedRule(rulesMatched, EchoPassthroughRuleName);
         }
 
-        if (CheckChatHistory(message, chatType, ref isHandled, rulesMatched))
-        {
-            return;
-        }
+        CheckChatHistory(message, chatType, ref isHandled, rulesMatched);
 
         if (Configuration.EnableDebugMode && !message.Message.TextValue.StartsWith("[TidyChat]", StringComparison.Ordinal))
         {
@@ -155,7 +152,7 @@ public sealed partial class TidyChatPlugin
             {
                 continue;
             }
-            if (RuleMatcher.MatchesText(rule, normalizedText, false))
+            if (RuleMatcher.MatchesText(rule, normalizedText, out _))
             {
                 TrackMatchedRule(protectingRules, rule.Name);
             }
@@ -176,7 +173,7 @@ public sealed partial class TidyChatPlugin
             isBlocked = false;
         }
 
-        if ((chatType is ChatType.System or ChatType.RetainerSale && !Configuration.FilterSystemMessages) ||
+        if ((chatType is ChatType.System or ChatType.RetainerSale && !SystemFilterActive) ||
             (chatType is ChatType.Progress or ChatType.BattleSystem && !Configuration.FilterProgressSpam) ||
             (chatType is ChatType.LootRoll && !Configuration.FilterLootSpam) ||
             (chatType is ChatType.LootNotice && !Configuration.FilterObtainedSpam) ||
@@ -224,7 +221,7 @@ public sealed partial class TidyChatPlugin
             if (!rule.IsActive && !rule.BlockWhenActive && rule.LogMessageIds is { Length: > 0 } &&
                 LogMessageCatalog.IsLoaded &&
                 LogMessageCatalog.RuleAppliesOnChannel(rule, chatType, normalizedText) &&
-                RuleMatcher.MatchesText(rule, normalizedText, false) &&
+                RuleMatcher.MatchesText(rule, normalizedText, out _) &&
                 !ObtainCurrencyHelper.ShouldDeferObtainRuleToGeneral(Configuration, rule, normalizedText) &&
                 !(chatType is ChatType.LootNotice &&
                   ObtainCurrencyHelper.ShouldAllowLootNoticeObtain(Configuration, normalizedText, Tomestones,
@@ -570,38 +567,23 @@ public sealed partial class TidyChatPlugin
         };
     }
 
-    private static SeString SmolMessage(SeString msg)
-    {
-        var payloads = msg.Payloads;
-        SeStringBuilder stringBuilder = new();
-        payloads.ForEach(payload =>
-        {
-            if (payload.Type is not PayloadType.RawText)
-            {
-                stringBuilder.Add(payload);
-            }
-            else if (payload is TextPayload { Text: not null } textPayload)
-            {
-                var sb = new StringBuilder(textPayload.Text.Length);
-                foreach (int i in textPayload.Text)
-                {
-                    sb.Append(i is >= 65 and <= 90
-                        ? (char)(i + 32)
-                        : (char)i);
-                }
-                stringBuilder.AddText(sb.ToString());
-            }
-        });
-        msg = stringBuilder.Build();
-        msg.EncodeWithNullTerminator();
-        return msg;
-    }
+    private static SeString SmolMessage(SeString msg) =>
+        MapText(msg, static i => i is >= 65 and <= 90 ? i + 32 : i);
 
-    private static SeString DeblockMessage(SeString msg)
+    private static SeString DeblockMessage(SeString msg) =>
+        MapText(msg, static i => i switch
+        {
+            >= 57457 and <= 57483 => i - 57392, // A-Z Blocks
+            >= 57487 and <= 57496 => i - 57439, // Number Blocks
+            >= 57521 and <= 57529 => i - 57472, // Hexgonical Numbers
+            >= 57440 and <= 57449 => i - 57392, // Monospace Numbers
+            _ => i
+        });
+
+    private static SeString MapText(SeString msg, Func<int, int> map)
     {
-        var payloads = msg.Payloads;
         SeStringBuilder stringBuilder = new();
-        payloads.ForEach(payload =>
+        foreach (var payload in msg.Payloads)
         {
             if (payload.Type is not PayloadType.RawText)
             {
@@ -612,19 +594,11 @@ public sealed partial class TidyChatPlugin
                 var sb = new StringBuilder(textPayload.Text.Length);
                 foreach (int i in textPayload.Text)
                 {
-                    var c = i switch
-                    {
-                        >= 57457 and <= 57483 => (char)(i - 57392), // A-Z Blocks
-                        >= 57487 and <= 57496 => (char)(i - 57439), // Number Blocks
-                        >= 57521 and <= 57529 => (char)(i - 57472), // Hexgonical Numbers
-                        >= 57440 and <= 57449 => (char)(i - 57392), // Monospace Numbers
-                        _ => (char)i
-                    };
-                    sb.Append(c);
+                    sb.Append((char)map(i));
                 }
                 stringBuilder.AddText(sb.ToString());
             }
-        });
+        }
         msg = stringBuilder.Build();
         msg.EncodeWithNullTerminator();
         return msg;

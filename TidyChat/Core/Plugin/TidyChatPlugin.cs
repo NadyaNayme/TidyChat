@@ -17,6 +17,7 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
 
     private const int MaxLogMessageSetSize = 1000;
     private const int MaxSetPlayerNameRetries = 10;
+    private const int SetPlayerNameRetrySeconds = 5;
     private const int ServerAnnouncementLoginGraceSeconds = 20;
     private const string EchoPassthroughRuleName = "Echo passthrough";
 
@@ -45,7 +46,6 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
     private DateTime _serverAnnouncementLoginGraceEnd = DateTime.MinValue;
 
     private long _sessionBlockedMessages;
-    private volatile bool _setPlayerNamePending;
     private int _setPlayerNameRetries;
     [PluginService] public static IDataManager DataManager { get; set; } = null!;
     [PluginService] public static IDtrBar DtrBar { get; set; } = null!;
@@ -189,9 +189,7 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
         ReloadGameDataCaches(validateRuleIds: true);
         cancellationToken.ThrowIfCancellationRequested();
 
-        var needsFrameworkThread = Configuration.InstanceInDtrBar
-            || (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage);
-        if (needsFrameworkThread)
+        if (Configuration.InstanceInDtrBar || ClientState.IsLoggedIn)
         {
             await Framework.RunOnFrameworkThread(ApplyFrameworkThreadLoadState).ConfigureAwait(false);
             cancellationToken.ThrowIfCancellationRequested();
@@ -229,7 +227,13 @@ public sealed partial class TidyChatPlugin : IAsyncDalamudPlugin
             InstanceDtrBarUpdate(Configuration);
         }
 
-        if (ClientState.IsLoggedIn && Configuration.BetterCommendationMessage)
+        if (!ClientState.IsLoggedIn)
+        {
+            return;
+        }
+
+        SetPlayerName();
+        if (Configuration.BetterCommendationMessage)
         {
             _commendationBaselineSynced = TrySyncCommendationBaseline();
             _lastTerritoryExclusiveType = TryGetTerritoryExclusiveType(ClientState.TerritoryType);

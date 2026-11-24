@@ -1,26 +1,12 @@
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using TidyStrings = TidyChat.Utility.InternalStrings;
-using Timer = System.Timers.Timer;
 
 namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    private static void DelayedInstanceDtrBarUpdate(Configuration configuration)
-    {
-        Timer t = new()
-        {
-            Interval = 1000,
-            AutoReset = false
-        };
-        t.Elapsed += delegate
-        {
-            t.Enabled = false;
-            t.Dispose();
-            InstanceDtrBarUpdate(configuration);
-        };
-        t.Enabled = true;
-    }
+    private static void DelayedInstanceDtrBarUpdate(Configuration configuration) =>
+        _ = Framework.RunOnTick(() => InstanceDtrBarUpdate(configuration), TimeSpan.FromSeconds(1));
 
     public static unsafe void InstanceDtrBarUpdate(Configuration configuration)
     {

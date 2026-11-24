@@ -8,7 +8,7 @@ public static class ChatFlags
         None = 0,
         Debug = 1 << 0,
         Emotes = 1 << 1,
-        PlayerChannels = 1 << 2, // Say, shout, yell, tells, linkshells, party, echo
+        PlayerChannels = 1 << 2, // Say, shout, yell, tells, linkshells, party, alliance, novice network, PvP team, echo
         System = 1 << 3,
         Progress = 1 << 4,
         Loot = 1 << 5,
@@ -57,6 +57,9 @@ public static class ChatFlags
                 ChatType.CrossLinkshell8 or
                 ChatType.Party or
                 ChatType.CrossParty or
+                ChatType.Alliance or
+                ChatType.NoviceNetwork or
+                ChatType.PvpTeam or
                 ChatType.FreeCompany)
         {
             return true;

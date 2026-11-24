@@ -137,7 +137,7 @@ public sealed partial class TidyChatPlugin
             {
                 ApplyLogMessageBlock(message, idOnlyRuleName, idOnlyMatchDetail);
             }
-            else if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
+            else if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules))
             {
                 ApplyLogMessageBlock(message, "Show rule off (ID-only)");
             }
@@ -147,7 +147,7 @@ public sealed partial class TidyChatPlugin
         if (!TryResolveLogMessageAllow(message.LogMessageId, normalizedLogText, matchingRules,
                 out var shouldAllow, out var decidingRuleName, out var decidingMatchDetail))
         {
-            if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules, Configuration))
+            if (ShouldDefaultBlockDedicatedShowLogMessage(message.LogMessageId, matchingRules))
             {
                 ApplyLogMessageBlock(message, matchingRules[0].Name);
             }
@@ -348,7 +348,7 @@ public sealed partial class TidyChatPlugin
             return true;
         }
 
-        if (ShouldDefaultBlockDedicatedShowLogMessage(logMessageId, matchingRules, configuration))
+        if (ShouldDefaultBlockDedicatedShowLogMessage(logMessageId, matchingRules))
         {
             shouldAllow = false;
             decidingRuleName = matchingRules.FirstOrDefault(r => r.ShouldBlock && !r.BlockWhenActive)?.Name ??
@@ -424,7 +424,7 @@ public sealed partial class TidyChatPlugin
     }
 
     private static bool ShouldDefaultBlockDedicatedShowLogMessage(uint logMessageId,
-        IReadOnlyList<LocalizedFilterRule> matchingRules, Configuration _)
+        IReadOnlyList<LocalizedFilterRule> matchingRules)
     {
         var hasDedicatedShowRule = false;
         foreach (var rule in matchingRules)
@@ -465,16 +465,6 @@ public sealed partial class TidyChatPlugin
     {
         var line = $"[LogMessage] {verb} by {ruleName} (ID: {logMessageId})";
         return string.IsNullOrEmpty(matchDetail) ? line : $"{line} | {matchDetail}";
-    }
-
-    private bool LogMessageRuleApplies(ILogMessage message, LocalizedFilterRule rule, out string? matchDetail)
-    {
-        if (!TryGetNormalizedLogMessageText(message, out var normalizedText))
-        {
-            return LogMessageRuleApplies(message.LogMessageId, string.Empty, rule, out matchDetail);
-        }
-
-        return LogMessageRuleApplies(message.LogMessageId, normalizedText, rule, out matchDetail);
     }
 
     private static bool LogMessageRuleApplies(uint logMessageId, string normalizedText, LocalizedFilterRule rule,
@@ -620,6 +610,9 @@ public sealed partial class TidyChatPlugin
             plugin._pendingAllowedLogMessageIds.Clear();
             plugin._pendingBlockedLogMessageIds.Clear();
             plugin._pendingCustomFilterLogMessageIds.Clear();
+            plugin._allowedByLogMessage.Clear();
+            plugin._blockedByLogMessage.Clear();
+            plugin._logMessageBlockRuleByText.Clear();
         }
     }
 

@@ -3,6 +3,35 @@ namespace TidyChat.Settings;
 
 internal static class UiHelp
 {
+    private static readonly (ChatFlags.Channels Flag, Func<string> Label)[] ChannelOptions =
+    [
+        (ChatFlags.Channels.System, () => Languages.ChatHistoryTab_SystemChannel),
+        (ChatFlags.Channels.PlayerChannels, () => Languages.ChatHistoryTab_TalkingChannel),
+        (ChatFlags.Channels.Emotes, () => Languages.ChatHistoryTab_EmotesChannel),
+        (ChatFlags.Channels.Loot, () => Languages.ChatHistoryTab_LootChannel),
+        (ChatFlags.Channels.Obtain, () => Languages.ChatHistoryTab_LootRollsChannel),
+        (ChatFlags.Channels.Crafting, () => Languages.ChatHistoryTab_CraftingChannel),
+        (ChatFlags.Channels.Gathering, () => Languages.ChatHistoryTab_GatheringChannel),
+        (ChatFlags.Channels.FreeCompany, () => Languages.ChatHistoryTab_LoginLogoutChannel),
+        (ChatFlags.Channels.Progress, () => Languages.ChatHistoryTab_ProgressChannel)
+    ];
+
+    internal static void DrawChannelCheckboxes(Configuration configuration, ref int flags, string idPrefix)
+    {
+        foreach ((var flag, var label) in ChannelOptions)
+        {
+            if (ImGui.CheckboxFlags($"{label()}##{idPrefix}{flag}", ref flags, (int)flag))
+            {
+                configuration.OnSettingChanged();
+            }
+        }
+    }
+
+    internal static string ChannelSummary(int flags) =>
+        flags == 0
+            ? "(none)"
+            : string.Join(", ", ChannelOptions.Where(o => (flags & (int)o.Flag) != 0).Select(o => o.Label()));
+
     private static readonly HashSet<string> ProgressSystemFilterHelpMarkers = new(StringComparer.Ordinal)
     {
         nameof(Languages.ProgressTab_ShowOtherPlayerLevelUpMessagesHelpMarker),

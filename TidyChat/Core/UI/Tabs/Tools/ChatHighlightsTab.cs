@@ -58,9 +58,9 @@ internal static class ChatHighlightsTab
 
                 ImGui.TableNextColumn();
                 ImGui.Spacing();
-                if (ImGui.CollapsingHeader($"{FormatChannelSummary(entry.Channels)}###chatHighlight{i}ChannelsHeader"))
+                if (ImGui.CollapsingHeader($"{(entry.Channels == 0 ? Languages.ChatHighlightsTab_SelectChannelsHeader + " (none)" : UiHelp.ChannelSummary(entry.Channels))}###chatHighlight{i}ChannelsHeader"))
                 {
-                    DrawChannelCheckboxes(configuration, entry, i);
+                    UiHelp.DrawChannelCheckboxes(configuration, ref entry.Channels, $"chatHighlight{i}");
                 }
 
                 ImGui.Spacing();
@@ -119,136 +119,5 @@ internal static class ChatHighlightsTab
             entry.RgbaColor = ColourUtil.Vector3ToRgba(color);
             configuration.OnSettingChanged();
         }
-    }
-
-    private static void DrawChannelCheckboxes(Configuration configuration, ChatHighlight entry, int rowIndex)
-    {
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_SystemChannel}##chatHighlight{rowIndex}System",
-                ref entry.Channels,
-                1 << 3))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_TalkingChannel}##chatHighlight{rowIndex}Talking",
-                ref entry.Channels,
-                1 << 2))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_EmotesChannel}##chatHighlight{rowIndex}Emotes",
-                ref entry.Channels,
-                1 << 1))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_LootChannel}##chatHighlight{rowIndex}Loot",
-                ref entry.Channels,
-                1 << 5))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_LootRollsChannel}##chatHighlight{rowIndex}LootRolls",
-                ref entry.Channels,
-                1 << 6))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_CraftingChannel}##chatHighlight{rowIndex}Crafting",
-                ref entry.Channels,
-                1 << 8))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_GatheringChannel}##chatHighlight{rowIndex}Gathering",
-                ref entry.Channels,
-                1 << 9))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_LoginLogoutChannel}##chatHighlight{rowIndex}LoginLogout",
-                ref entry.Channels,
-                1 << 7))
-        {
-            configuration.OnSettingChanged();
-        }
-
-        if (ImGui.CheckboxFlags(
-                $"{Languages.ChatHistoryTab_ProgressChannel}##chatHighlight{rowIndex}Progress",
-                ref entry.Channels,
-                1 << 4))
-        {
-            configuration.OnSettingChanged();
-        }
-    }
-
-    private static string FormatChannelSummary(int channelFlags)
-    {
-        if (channelFlags == 0)
-        {
-            return $"{Languages.ChatHighlightsTab_SelectChannelsHeader} (none)";
-        }
-
-        var labels = new List<string>();
-        if ((channelFlags & (int)ChatFlags.Channels.System) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_SystemChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.PlayerChannels) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_TalkingChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.Emotes) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_EmotesChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.Progress) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_ProgressChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.Loot) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_LootChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.Obtain) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_LootRollsChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.FreeCompany) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_LoginLogoutChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.Crafting) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_CraftingChannel);
-        }
-
-        if ((channelFlags & (int)ChatFlags.Channels.Gathering) != 0)
-        {
-            labels.Add(Languages.ChatHistoryTab_GatheringChannel);
-        }
-
-        return string.Join(", ", labels);
     }
 }

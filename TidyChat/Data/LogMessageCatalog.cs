@@ -17,6 +17,7 @@ public static class LogMessageCatalog
     private static readonly Dictionary<uint, byte> LogKindById = [];
 
     private static readonly HashSet<uint> SoundMacroIds = [];
+    private static uint[] s_systemTemplateIds = [];
 
     private static readonly HashSet<uint> RuntimeOnlyIds =
     [
@@ -63,6 +64,7 @@ public static class LogMessageCatalog
             }
         }
 
+        s_systemTemplateIds = SystemTemplateIds();
         IsLoaded = templates.Count > 0;
     }
 
@@ -98,6 +100,7 @@ public static class LogMessageCatalog
                 AddTokens(row.RowId, BuildMarkedText(template));
             }
 
+            s_systemTemplateIds = SystemTemplateIds();
             IsLoaded = true;
             log.Information(
                 $"LogMessageCatalog: loaded {TemplateTextById.Count} LogMessage templates " +
@@ -214,23 +217,11 @@ public static class LogMessageCatalog
     }
 
     // tells game system lines apart from Dalamud IChatGui.Print output on the chat path
-    public static bool MatchesAnySystemTemplate(string normalizedText)
-    {
-        foreach (var id in TemplateTextById.Keys)
-        {
-            if (GetChatTypeForId(id) is not ChatType.System)
-            {
-                continue;
-            }
+    public static bool MatchesAnySystemTemplate(string normalizedText) =>
+        MatchesAny(s_systemTemplateIds, normalizedText);
 
-            if (Matches(id, normalizedText))
-            {
-                return true;
-            }
-        }
-
-        return false;
-    }
+    private static uint[] SystemTemplateIds() =>
+        [.. TemplateTokensById.Keys.Where(id => GetChatTypeForId(id) is ChatType.System)];
 
     public static ChatType? GetChatTypeForId(uint logMessageId)
     {

@@ -1,7 +1,6 @@
 using Dalamud.Game;
 using FFXIVClientStructs.FFXIV.Client.Game.UI;
 using System.Text.RegularExpressions;
-using System.Timers;
 using TextCopy;
 using TidyStrings = TidyChat.Utility.InternalStrings;
 
@@ -265,23 +264,6 @@ internal static class BetterStrings
         }
         stringBuilder.AddText(string.Format(CultureInfo.CurrentCulture, L10N.GetTidy(TidyStrings.KickedOutMessage), chamber));
         return stringBuilder.BuiltString;
-    }
-
-    public static void TemporarilyDisableSystemFilter(Configuration configuration)
-    {
-        configuration.FilterSystemMessages = false;
-        var t = new Timer
-        {
-            Interval = 1000,
-            AutoReset = false
-        };
-        t.Elapsed += delegate
-        {
-            t.Enabled = false;
-            t.Dispose();
-            configuration.FilterSystemMessages = true;
-        };
-        t.Enabled = true;
     }
 
     public static SeStringBuilder AddTidyChatTag(SeStringBuilder sestring)

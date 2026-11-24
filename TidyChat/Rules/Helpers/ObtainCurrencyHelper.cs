@@ -55,6 +55,9 @@ internal static class ObtainCurrencyHelper
         (ChatStrings.ObtainNutsMarker, ChatStrings.ObtainedNuts)
     ];
 
+    private static readonly HashSet<LocalizedStrings> RegexBackedMarkers =
+        [.. DedicatedObtainRegexByMarker.Select(pair => pair.Marker)];
+
     private static readonly LocalizedStrings[] SharedTemplateCurrencyMarkers =
     [
         ChatStrings.ObtainedGilMarker,
@@ -189,10 +192,9 @@ internal static class ObtainCurrencyHelper
             }
         }
 
-        var regexMarkers = new HashSet<LocalizedStrings>(DedicatedObtainRegexByMarker.Select(pair => pair.Marker));
         foreach (var marker in DedicatedObtainTypeMarkers)
         {
-            if (regexMarkers.Contains(marker))
+            if (RegexBackedMarkers.Contains(marker))
             {
                 continue;
             }
@@ -268,11 +270,6 @@ internal static class ObtainCurrencyHelper
             {
                 return true;
             }
-        }
-
-        if (IsDedicatedObtainLine(normalizedText))
-        {
-            return false;
         }
 
         return false;

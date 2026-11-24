@@ -4,29 +4,26 @@ namespace TidyChat;
 
 public sealed partial class TidyChatPlugin
 {
-    private bool CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled,
+    private void CheckChatHistory(IHandleableChatMessage message, ChatType chatType, ref bool isHandled,
         List<string> rulesMatched)
     {
         if (!Configuration.ChatHistoryFilter || isHandled || chatType is ChatType.Echo)
         {
-            return false;
+            return;
         }
         try
         {
             if (Configuration.DisableSelfChatHistory &&
                 string.Equals(message.Sender.TextValue, Configuration.PlayerName, StringComparison.Ordinal))
             {
-                return true;
+                return;
             }
 
             var historyChannels = (ChatFlags.Channels)Configuration.ChatHistoryChannels;
-            if (historyChannels.Equals(ChatFlags.Channels.None))
+            if (historyChannels.Equals(ChatFlags.Channels.None) ||
+                !Flags.CheckFlags(Configuration.ChatHistoryChannels, chatType))
             {
-                return false;
-            }
-            if (!Flags.CheckFlags(Configuration.ChatHistoryChannels, chatType))
-            {
-                return false;
+                return;
             }
 
             var currentMessage = $"{message.Sender.TextValue}: {message.Message.TextValue}";
@@ -62,7 +59,7 @@ public sealed partial class TidyChatPlugin
                 }
                 else
                 {
-                    if (_chatHistory.Count >= Configuration.ChatHistoryLength)
+                    while (_chatHistory.Count >= Configuration.ChatHistoryLength)
                     {
                         Log.Verbose("Chat history at limit; evicting oldest entry");
                         _chatHistory.Dequeue();
@@ -74,12 +71,10 @@ public sealed partial class TidyChatPlugin
                     Log.Verbose("Added to chat history: " + currentMessage);
                 }
             }
-            return true;
         }
         catch (Exception ex)
         {
             Log.Error("Error: Failed to handle Chat History - " + ex);
-            return false;
         }
     }
 }
